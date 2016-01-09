@@ -1,188 +1,248 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
-<meta http-equiv="X-UA-Compatible" content="IE=8" />
-<title>Inno Setup Preprocessor: #pragma</title>
-<link rel="stylesheet" type="text/css" href="../styles.css" />
-<script type="text/javascript" src="../topic.js"></script>
-</head>
-<body>
-<h1 class="topicheading">Inno Setup Preprocessor: #pragma</h1>
-<div class="topicbody">
-  <h2 class="heading notopmargin">Синтатсис</h2>
-  <table>
-    <tbody>
-      <tr>
-        <td class="cellleft"><i>pragma-directive:</i></td>
-        <td class="cellright">&lt;pragma-option&gt;</td>
-      </tr>
-      <tr>
-        <td class="cellleft"><br /></td>
-        <td class="cellright">&lt;pragma-itokens&gt;</td>
-      </tr>
-      <tr>
-        <td class="cellleft"><br /></td>
-        <td class="cellright">&lt;pragma-msg&gt;</td>
-      </tr>
-      <tr>
-        <td class="cellleft"><br /></td>
-        <td class="cellright">&lt;pragma-verblev&gt;</td>
-      </tr>
-      <tr>
-        <td class="cellleft"><br /></td>
-        <td class="cellright">&lt;pragma-include&gt;</td>
-      </tr>
-      <tr>
-        <td class="cellleft"><br /></td>
-        <td class="cellright">&lt;pragma-spansymb&gt;</td>
-      </tr>
-    </tbody>
-  </table>
-  <table>
-    <tbody>
-      <tr>
-        <td class="cellleft"><i>pragma-option:</i></td>
-        <td class="cellright"><b>pragma</b> (<b>option</b> | <b>parseroption</b>) <b>-</b> &lt;letter&gt; (<b>+</b> | <b>-</b>) [<b>-</b> &lt;letter&gt; (<b>+</b> | <b>-</b>) ]...</td>
-      </tr>
-    </tbody>
-  </table>
-  <table>
-    <tbody>
-      <tr>
-        <td class="cellleft"><i>pragma-itokens:</i></td>
-        <td class="cellright"><b>pragma</b> (<b>inlinestart</b> | <b>inlineend</b>) &lt;expr&gt;</td>
-      </tr>
-    </tbody>
-  </table>
-  <table>
-    <tbody>
-      <tr>
-        <td class="cellleft"><i>pragma-msg:</i></td>
-        <td class="cellright"><b>pragma</b> (<b>message</b> | <b>warning</b> | <b>error</b>) &lt;expr&gt;</td>
-      </tr>
-    </tbody>
-  </table>
-  <table>
-    <tbody>
-      <tr>
-        <td class="cellleft"><i>pragma-verblev:</i></td>
-        <td class="cellright"><b>pragma verboselevel</b> &lt;expr&gt;</td>
-      </tr>
-    </tbody>
-  </table>
-  <table>
-    <tbody>
-      <tr>
-        <td class="cellleft"><i>pragma-include:</i></td>
-        <td class="cellright"><b>pragma include</b> &lt;expr&gt;</td>
-      </tr>
-    </tbody>
-  </table>
-  <table>
-    <tbody>
-      <tr>
-        <td class="cellleft"><i>pragma-spansymb:</i></td>
-        <td class="cellright"><b>pragma spansymbol</b> &lt;expr&gt;</td>
-      </tr>
-    </tbody>
-  </table>
-  <h2 class="heading">Описание</h2>
-  <p><tt>pragma</tt> является специальной директивой. Пожалуйста, отметьте, что, если ISPP
-    не в состоянии проанализировать параметры этой директивы (из-за
-    опечатки или неправильного синтаксиса), ошибка не произойдет - будет
-    выведено только предупреждение; это делается для совместимости с
-    другими препроцессорами, у которых может быть их собственный синтаксис
-    директивы <tt>pragma</tt>.</p>
-  <p>Первый синтаксис директивы <tt>pragma</tt> управляет опциями, который ISPP использует, чтобы считать источник.
-    Существуют две группы опций. Каждая группа состоит из 26 флагов. Каждым
-    флагом, имеет присвоенную латинскую букву. Вы определяете опции, вводя
-    название группы (<tt>option</tt> или <tt>parseroption</tt>), тогда
-    буква находится после тире. После буквы должны быть определены знак
-    &quot;плюс&quot; или &quot;минус&quot;. Знак &quot;плюс&quot; включает опцию, &quot;минус&quot; - выключает.
-    Неограниченное число вариантов может быть определено сразу (см.
-    синтаксис). Список опций приведен в конце этой темы.</p>
-  <p>Первая группа опций (<tt>option</tt>) управляет опциями целого механизма ISPP, в то время как вторая группа (<tt>parseroption</tt>) управляет опциями, определенными для синтаксического анализатора. Список опций приведен в конце этой темы.</p>
-  <p>Второй
-    синтаксис используется, чтобы определить встроенные направляющие
-    разделители: запуск и окончание, соответственно. После ключевого слова
-    описания (<tt>inlinestart</tt> или <tt>inlineend</tt>) должно следовать
-    выражение строкового типа. Она не должна быть пустая. Из строки берутся
-    только первые семь символов .Позволяется определить тот же самый маркер
-    и для запускающийся и для конечных разделителей. По умолчанию, <tt>{#</tt> (открытие фигурной скобки и знака числа) и <tt>}</tt> (закрывающая фигурная скобка) принимаются.</p>
-  <p>Третий синтаксис директивы <tt>pragma</tt> выпускает сообщение типа, определенного ключевым словом после имени
-    директивы. Сообщения и предупреждения отправляются окну сообщений
-    компилятора. Ошибки показываются (компилятором) в месседжбоксах.
-    Выражение должно иметь строковый тип.</p>
-  <p>Четвертый синтаксис
-    устанавливает уровень многословия. Когда многословный режим включен
-    (см. ниже), данный синтаксис управляет важным уровнем сообщений.
-    Наименее важные сообщения обнаружатся только тогда, когда самый высокий
-    многословный уровень (9) будет установлен.</p>
-  <p>Пятый синтаксис
-    устанавливает путь include. Выражение может определить множество путей
-    разделенные точкой с запятой. Список каталогов, в которых ISPP пытается
-    найти файлы, упомянуты в директиве <tt><a href="topic_include.htm">include</a></tt>.</p>
-  <p>Последний
-    синтаксис устанавливает символ, разделяющий длинные строки. Он не
-    должен быть пустым. Берется только первый символ в строке.</p>
-  <h2 class="heading">Опции ISPP</h2>
-  <table>
-    <tbody>
-      <tr>
-        <td class="cellleft">c</td>
-        <td class="cellright">Указывает, что <a href="topic_translation.htm">перевод</a> должен быть отправлен компилятору после того, как предварительная обработка завершена. Состояние по умолчанию: вкл.</td>
-      </tr>
-      <tr>
-        <td class="cellleft">e</td>
-        <td class="cellright">Определяет, должны ли пустые строки из источника быть испущены в <a href="topic_translation.htm">перевод</a>, так же как строки с директивами ISPP должны быть заменены пустыми строками. Состояние по умолчанию: выкл.</td>
-      </tr>
-      <tr>
-        <td class="cellleft">v</td>
-        <td class="cellright">Включает или отключает многословный режим. Состояние по умолчанию: выкл.</td>
-      </tr>
-    </tbody>
-  </table>
-  <h2 class="heading">Опции синтаксического анализатора</h2>
-  <table>
-    <tbody>
-      <tr>
-        <td class="cellleft">b</td>
-        <td class="cellright">Short-circuit boolean evaluation. Состояние по умолчанию: вкл.</td>
-      </tr>
-      <tr>
-        <td class="cellleft">m</td>
-        <td class="cellright">Short-circuit multiplication evaluation. (In &quot;<tt>0 * A</tt>&quot;, <tt>A</tt> will not be evaluated, since the result of expression is known to be zero.) Состояние по умолчанию: выкл.</td>
-      </tr>
-      <tr>
-        <td class="cellleft">p</td>
-        <td class="cellright">Строковые
-          литералы стиля Паскаля. В отключенном состоянии использует строковые
-          литералы C-стиля (с escape-последовательностями). Состояние по
-          умолчанию: вкл.</td>
-      </tr>
-      <tr>
-        <td class="cellleft">u</td>
-        <td class="cellright">Позволить
-          необъявленные идентификаторы. Если встречается неопределенный
-          идентификатор , то ISPP выводит ошибку, если данная опция не будет
-          включена, иначе неопределенный идентификатор (тот, который не похож на
-          вызов функции) будет считаться пустым значением. Состояние по
-          умолчанию: выкл.</td>
-      </tr>
-    </tbody>
-  </table>
-  <h2 class="heading">Примеры</h2>
-  <p><tt>#pragma parseroption -b- -u+<br />
-    #pragma option -c-<br />
-    #pragma warning &quot;Variable value is: &quot; + MyVar<br />
-    #pragma option -v+<br />
-    #pragma verboselevel 9<br />
-    #pragma inlinestart &quot;$(&quot;<br />
-    #pragma inlineend &quot;)&quot;<br />
-    #pragma include __INCLUDE__ + &quot;;D:\INCLUDE&quot;<br />
-    #pragma spansymbol &quot;_&quot;<br />
-    </tt></p>
-</div>
-</body>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+  <head>
+    <meta http-equiv="content-type" content="application/xhtml+xml; charset=windows-1251" />
+    <meta content="IE=8" http-equiv="X-UA-Compatible" />
+    <meta name="description" content="Перевод на русский: Leserg (www.wylek.ru)" />
+    <title>Inno Setup Preprocessor: #pragma</title>
+    <!--[if IE 6]><style type="text/css">html{overflow-y:scroll}</style><![endif]-->
+    <link type="text/css" href="../styles.css" rel="stylesheet" />
+    <script src="../topic.js" type="text/javascript"></script>
+  </head>
+  <body>
+    <h1 class="topicheading">Inno Setup Preprocessor: #pragma</h1>
+    <div class="topicbody">
+      <h2 class="heading notopmargin">Синтаксис</h2>
+      <table>
+        <tbody>
+          <tr>
+            <td class="cellleft" style="width: 120px; background-color: #eeeeee;">
+              <i>pragma-directive:</i></td>
+            <td class="cellright"> &lt;pragma-option&gt; </td>
+          </tr>
+          <tr>
+            <td class="cellleft" style="width: 120px;"><br />
+            </td>
+            <td class="cellright"> &lt;pragma-itokens&gt; </td>
+          </tr>
+          <tr>
+            <td class="cellleft" style="width: 120px;"><br />
+            </td>
+            <td class="cellright"> &lt;pragma-msg&gt; </td>
+          </tr>
+          <tr>
+            <td class="cellleft" style="width: 120px;"><br />
+            </td>
+            <td class="cellright"> &lt;pragma-verblev&gt; </td>
+          </tr>
+          <tr>
+            <td class="cellleft" style="width: 120px;"><br />
+            </td>
+            <td class="cellright"> &lt;pragma-include&gt; </td>
+          </tr>
+          <tr>
+            <td class="cellleft" style="width: 120px;"><br />
+            </td>
+            <td class="cellright"> &lt;pragma-spansymb&gt; </td>
+          </tr>
+        </tbody>
+      </table>
+      <table>
+        <tbody>
+          <tr>
+            <td class="cellleft" style="width: 120px;"><i>pragma-option:</i> </td>
+            <td class="cellright" style="background-color: #f8f8f8;"> <b>pragma</b>
+              (<b>option</b> | <b>parseroption</b>) <b>-</b> &lt;letter&gt; (<b>+</b>
+              | <b>-</b>) [<b>-</b> &lt;letter&gt; (<b>+</b> | <b>-</b>) ]...
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <table>
+        <tbody>
+          <tr>
+            <td class="cellleft" style="width: 120px; background-color: #eeeeee;"><i>pragma-itokens:</i>
+            </td>
+            <td class="cellright"> <b>pragma</b> (<b>inlinestart</b> | <b>inlineend</b>)
+              &lt;expr&gt; </td>
+          </tr>
+        </tbody>
+      </table>
+      <table>
+        <tbody>
+          <tr>
+            <td class="cellleft" style="width: 120px;"><i>pragma-msg:</i> </td>
+            <td class="cellright" style="background-color: #f8f8f8;"> <b>pragma</b>
+              (<b>message</b> | <b>warning</b> | <b>error</b>) &lt;expr&gt; </td>
+          </tr>
+        </tbody>
+      </table>
+      <table>
+        <tbody>
+          <tr>
+            <td class="cellleft" style="width: 120px; background-color: #eeeeee;"><i>pragma-verblev:</i>
+            </td>
+            <td class="cellright"> <b>pragma verboselevel</b> &lt;expr&gt; </td>
+          </tr>
+        </tbody>
+      </table>
+      <table>
+        <tbody>
+          <tr>
+            <td class="cellleft" style="width: 120px;"><i>pragma-include:</i> </td>
+            <td class="cellright" style="background-color: #f8f8f8;"> <b>pragma
+                include</b> &lt;expr&gt; </td>
+          </tr>
+        </tbody>
+      </table>
+      <table>
+        <tbody>
+          <tr>
+            <td class="cellleft" style="width: 120px; background-color: #eeeeee;"><i>pragma-spansymb:</i>
+            </td>
+            <td class="cellright"> <b>pragma spansymbol</b> &lt;expr&gt; </td>
+          </tr>
+        </tbody>
+      </table>
+      <br />
+      <h2 class="heading">Описание</h2>
+      <p>Инструкция <tt><span style="font-weight: bold; color: #990000;">pragma</span></tt>
+        является специальной директивой. Пожалуйста, обратите внимание, если <span
+          style="font-weight: bold;">ISPP</span> не удалось выполнить
+        синтаксический анализ параметров этой директивы (в случае опечатки или
+        неверно указанного параметра), то ошибки не произойдет, будет выдано
+        только предупреждение. Это сделано для совместимости с другими
+        препроцессорами, которые могут иметь собственные синтаксические лексемы
+        директивы <tt>pragma</tt>.</p>
+      <p><span style="text-decoration: underline;">Первый ключ</span> директивы
+        <tt><span style="font-weight: bold; color: #990000;">pragma</span></tt>
+        управляет параметрами, которые <span style="font-weight: bold;">ISPP</span>
+        использует для чтения исходных данных. Существует две группы параметров.
+        Каждая группа содержит 26 флагов (хотя не все и них являются значимыми и
+        используются ISPP). Каждому флагу соответствует определенная буква
+        латинского алфавита. Для указания параметра необходимо ввести имя группы
+        (<tt>option</tt> или <tt>parseroption</tt>), а затем тире с последующим
+        за ним буквой флага. После буквы должен быть записан знак "<span style="font-style: italic;">плюс</span>"
+        (+) или "<span style="font-style: italic;">минус</span>" (-). Знак "<span
+          style="font-style: italic;">плюс</span>" соответствует включению (on)
+        параметра, а знак "<span style="font-style: italic;">минус</span>" -
+        отключению (off). Подобным образом можно одновременно указать несколько
+        параметров в одной команде (см. синтаксис).</p>
+      <p>Первая группа параметров (<tt>option</tt>) управляет полным процессом
+        ISPP, тогда как вторая группа (<tt>parseroption</tt>) управляет
+        параметрами, характерными для синтаксического анализа.</p>
+      <p><span style="text-decoration: underline;">Второй ключ</span>
+        используется для определения указателей директивы <tt>inline</tt>:
+        начальный и конечный соответственно. После записи ключевого слова (<tt>inlinestart</tt>
+        или <tt>inlineend</tt>) должно следовать выражение строкового типа
+        (string), которое не должно возвращать пустую строку. Из строки берутся
+        только первые семь символов. Это позволяет использовать тот же самый
+        ключ для начального и конечного указателя. По умолчанию используются <tt>{#</tt>
+        (открывающая фигурная скобка и знак решётки) и <tt>}</tt> (закрывающая
+        фигурная скобка) указатели.</p>
+      <p><span style="text-decoration: underline;">Третий ключ</span> директивы
+        <tt><span style="font-weight: bold; color: #990000;">pragma</span></tt>
+        предназначен для выдачи сообщения по указанному ключевому слову,
+        следующего за именем директивы (<tt>message</tt>, <tt>warning</tt> или
+        <tt>error</tt>). Все сообщения и предупреждения передаются в окно
+        сообщений компилятора. Ошибки отображаются при помощи  окон сообщений
+        посредством компилятора. Выражение должно быть строкового типа. Смотрите
+        также директиву <tt><a href="topic_error.htm" class="new">error</a></tt>.</p>
+      <p><span style="text-decoration: underline;">Четвертый ключ</span>
+        устанавливает уровень вывода сообщений. При включении подробного режима
+        вывода сообщений ISPP (параметр <tt style="font-weight: bold;">-v+</tt>)
+        этот ключ позволяет задать уровень важности сообщений. Наименее значимые
+        сообщения будут показаны только при установке самого высокого уровня
+        (9).</p>
+      <p><span style="text-decoration: underline;">Пятый ключ</span>
+        устанавливает переменную пути окружения. Выражение может содержать
+        несколько путей, разделенных между собой точкой с запятой. Список этих
+        каталогов используется ISPP при поиске файлов, указанных директивой <tt><a
+            href="topic_include.htm" class="new">include</a></tt>.</p>
+      <p><span style="text-decoration: underline;">Шестой ключ</span>
+        устанавливает символ разделения длинных строк на более короткие.
+        Выражение не должно возвращать пустую строку, из которой принимается
+        только первый символ.</p>
+      <br />
+      <h2 class="heading">Параметры ISPP</h2>
+      <table border="1">
+        <tbody>
+          <tr>
+            <td class="cellleft" style="background-color: #eeeeee;"><span style="font-weight: bold;">c</span></td>
+            <td class="cellright">Указывает на то, что <a class="new1" href="topic_translation.htm">трансляция</a>
+              должна передаваться компилятору после завершения предварительной
+              обработки. По умолчанию: on (вкл.).</td>
+          </tr>
+          <tr>
+            <td class="cellleft"><span style="font-weight: bold;">e</span></td>
+            <td class="cellright" style="background-color: #f8f8f8;">Указывает
+              режим обработки пустых строк, должны ли они передаваться <a class="new1"
+                href="topic_translation.htm">транслятору</a>, а также выполнять
+              ли замену директив ISPP пустыми строками. По умолчанию: off
+              (откл.).</td>
+          </tr>
+          <tr>
+            <td class="cellleft" style="background-color: #eeeeee;"><span style="font-weight: bold;">v</span></td>
+            <td class="cellright">Включение/Отключение подробного режима вывода
+              сообщений. По умолчанию: off (откл.).</td>
+          </tr>
+        </tbody>
+      </table>
+      <br />
+      <h2 class="heading">Параметры синтаксического анализа</h2>
+      <table border="1">
+        <tbody>
+          <tr>
+            <td class="cellleft" style="background-color: #eeeeee;"><span style="font-weight: bold;">b</span></td>
+            <td class="cellright">Упрощенная оценка логических операторов. По
+              умолчанию: on (вкл.).</td>
+          </tr>
+          <tr>
+            <td class="cellleft"><span style="font-weight: bold;">m</span></td>
+            <td class="cellright" style="background-color: #f8f8f8;">Упрощенная
+              оценка оператора умножения. (Выражение вида "<tt>0 * A</tt>" не
+              будет вычисляться, т.к. результат уже и так известен - ноль.) По
+              умолчанию: off (откл.).</td>
+          </tr>
+          <tr>
+            <td class="cellleft" style="background-color: #eeeeee;"><span style="font-weight: bold;">p</span></td>
+            <td class="cellright">Паскалевский стиль представления строк (<span
+                style="font-style: italic;">Pascal strings</span>). Если
+              параметр отключен (off), то используется Си стиль представления
+              строк (вместе с <span style="font-style: italic;">escape</span>-последовательностями).
+              По умолчанию: on (вкл.).</td>
+          </tr>
+          <tr>
+            <td class="cellleft"><span style="font-weight: bold;">u</span></td>
+            <td class="cellright" style="background-color: #f8f8f8;">Разрешить
+              не объявленные идентификаторы. Если встречается неизвестный
+              идентификатор, то ISPP выводит сообщение об ошибке. В противном
+              случае, когда параметр включен, автономный идентификатор (который
+              не является вызовом функции) будет пустым. По умолчанию: off
+              (откл.).</td>
+          </tr>
+        </tbody>
+      </table>
+      <br />
+      <h2 class="heading">Примеры</h2>
+           <tt><span style="font-weight: bold; color: #990000;">#pragma</span>
+        parseroption -b- -u+<br />
+           <span style="font-weight: bold; color: #990000;">#pragma</span>
+        option -c-<br />
+           <span style="font-weight: bold; color: #990000;">#pragma</span>
+        warning "Variable value is: " + MyVar<br />
+           <span style="font-weight: bold; color: #990000;">#pragma</span>
+        option -v+<br />
+           <span style="font-weight: bold; color: #990000;">#pragma</span>
+        verboselevel 9<br />
+           <span style="font-weight: bold; color: #990000;">#pragma</span>
+        inlinestart "$("<br />
+           <span style="font-weight: bold; color: #990000;">#pragma</span>
+        inlineend ")"<br />
+           <span style="font-weight: bold; color: #990000;">#pragma</span>
+        include __INCLUDE__ + ";D:\INCLUDE"<br />
+           <span style="font-weight: bold; color: #990000;">#pragma</span>
+        spansymbol "_"<br />
+      </tt> </div>
+  </body>
 </html>

@@ -1,31 +1,51 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
-<meta http-equiv="X-UA-Compatible" content="IE=8" />
-<title>Inno Setup Preprocessor: Find</title>
-<link rel="stylesheet" type="text/css" href="../styles.css" />
-<script type="text/javascript" src="../topic.js"></script>
-</head>
-<body>
-<h1 class="topicheading">Inno Setup Preprocessor: Find</h1>
-<div class="topicbody">
-  <h2 class="heading notopmargin">Прототип</h2>
-  <p><tt><b>int</b> Find(<b>int</b> 1, <b>str</b> 2, <b>int</b>? 3, <b>str</b>? 4, <b>int</b>? 5, <b>str</b>? 6, <b>int</b>? 7)<br />
-  </tt></p>
-  <h2 class="heading">Описание</h2>
-  <p><tt>Find</tt> функция предназначен для использования с директивой <tt><a href="topic_insert.htm">insert</a></tt>. Функция возвращает индекс строки в <a href="topic_translation.htm">переводе</a> в зависимости от указанных критериев.</p>
-  <p>Первый параметр обозначает индекс строки, с которой начнется поиск, обычно он равен нулю.</p>
-  <p>Второй, четвертый и шестой параметры должны определить строку (и) для поиска в пределах каждой из строк. Второй параметр должен быть определен, а четвертый и шестой могут быть не заданы.</p>
-  <p>Третий, пятый, и седьмой параметры должны определить поисковые флаги для каждой строки, это означает, что третий параметр определяет флаги для второго, пятое для четвертого, и седьмой для шестого.</p>
-  <p>Если какой-либо 'флаг' не задан, но строковый параметр, предшествующий ему, определен,&nbsp;принимается <tt>FIND_MATCH | FIND_AND</tt> (то есть 0).</p>
-  <p>Значения третьей, пятой, и седьмой параметров функции <tt>Find</tt> объявлены в <a href="topic_builtinsiss.htm">файле BUILTINS.ISS</a>. См.&nbsp;тему <a href="topic_find-flags.htm">Find flags</a>&nbsp;для описания каждого из значений.</p>
-  <h2 class="heading">См. также:</h2>
-  <p><tt><a href="topic_insert.htm">insert</a></tt>.</p>
-  <p><b></b></p>
-  <ul>
-    <li><a href="topic_find-flags.htm">Find flags</a></li>
-  </ul>
-</div>
-</body>
+<html lang="ru">
+  <head>
+    <meta content="text/html; charset=windows-1251" http-equiv="content-type">
+    <meta content="IE=8" http-equiv="X-UA-Compatible" />
+	<meta content="Перевод на русский: Leserg (www.wylek.ru)" name="description">
+    <title>Inno Setup Preprocessor: Find</title>
+    <!--[if IE 6]><style type="text/css">html{overflow-y:scroll}</style><![endif]-->
+    <link rel="stylesheet" href="../styles.css" type="text/css">
+    <script src="../topic.js" type="text/javascript"></script>
+  </head>
+  <body>
+    <h1 class="topicheading">Inno Setup Preprocessor: Find</h1>
+    <div class="topicbody">
+      <h2 class="heading notopmargin">Прототип функции</h2>
+      <p><tt><b>int</b> Find(<b>int</b> 1, <b>str</b> 2, <b>int</b>? 3, <b>str</b>?
+          4, <b>int</b>? 5, <b>str</b>? 6, <b>int</b>? 7)<br />
+        </tt></p>
+      <br />
+      <h2 class="heading">Описание</h2>
+      <p>Функция <tt style="font-style: italic;">Find</tt> предназначена для
+        использования совместно с директивой <tt><a href="topic_insert.htm" class="new">insert</a></tt>.
+        Возвращает индекс строки <a href="topic_translation.htm" class="new1">транслятора</a>
+        в зависимости от указанных критериев поиска.</p>
+      <p><span style="font-style: italic;">Первый аргумент</span> определяет
+        индекс строки, с которой необходимо начать поиск. Обычно используется
+        значение ноль (0).</p>
+      <p><span style="font-style: italic;">Второй, четвертый и шестой аргументы</span>
+        определяют подстроку поиска в пределах каждой из строк. Второй аргумент
+        является обязательным. Четвертый и шестой могут быть опущены.</p>
+      <p><span style="font-style: italic;">Третий, пятый и седьмой аргументы</span>
+        определяют критерии поиска, которые задаются специальными флагами.
+        Третий аргумент относится ко второму аргументу с подстрокой.
+        Соответственно пятый параметр к четвертому и седьмой - к шестому.</p>
+      <p>Если любой из аргументов критерия поиска (флагов)  не указан, но
+        определена соответствующая подстрока, то по умолчанию считается, что
+        флаги <tt style="font-weight: bold; color: #663300;">FIND_MATCH |
+          FIND_AND</tt> (т.е. равны 0).</p>
+      <p>Значения для третьего, пятого и седьмого аргументов функции <tt style="font-style: italic;">Find</tt>
+        объявлены в файле <a href="topic_builtinsiss.htm" class="new1">ISPPBuiltins.iss</a>.
+        Смотри раздел <a href="topic_find-flags.htm" class="new1">Флаги функции
+          Find</a> с описанием значений каждого флага.</p>
+      <br />
+      <h2 class="heading">См. также</h2>
+      <p><tt><a href="topic_insert.htm" class="new">insert</a></tt>.</p>
+      <ul>
+        <li><a href="topic_find-flags.htm" class="new1">Флаги функции Find</a></li>
+      </ul>
+    </div>
+  </body>
 </html>

@@ -1,20 +1,31 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
-<meta http-equiv="X-UA-Compatible" content="IE=8" />
-<title>Inno Setup Preprocessor: ReadIni</title>
-<link rel="stylesheet" type="text/css" href="../styles.css" />
-<script type="text/javascript" src="../topic.js"></script>
-</head>
-<body>
-<h1 class="topicheading">Inno Setup Preprocessor: ReadIni</h1>
-<div class="topicbody">
-  <h2 class="heading notopmargin">Прототип</h2>
-  <p><tt><b>str</b> ReadIni(<b>str</b> 1, <b>str</b> 2, <b>str</b> 3, <b>str</b>? 4)<br/>
-  </tt></p>
-  <h2 class="heading">Описание</h2>
-  <p>Получает значение из INI файла. Параметром 1 должно быть имя INI файла, параметр 2 - имя раздела в INI файле, третий параметр - ключ в разделе, который нужно получить. Последний дополнительный параметр может использоваться, чтобы установить значение по умолчанию, которое будет возвращено при отказе, если он будет не указан, результатом выполнения функции будет пустая строка.</p>
-</div>
-</body>
+<html lang="ru">
+  <head>
+    <meta content="text/html; charset=windows-1251" http-equiv="content-type">
+    <meta content="IE=8" http-equiv="X-UA-Compatible" />
+	<meta content="Перевод на русский: Leserg (www.wylek.ru)" name="description">
+    <title>Inno Setup Preprocessor: ReadIni</title>
+    <!--[if IE 6]><style type="text/css">html{overflow-y:scroll}</style><![endif]-->
+    <link rel="stylesheet" href="../styles.css" type="text/css">
+    <script src="../topic.js" type="text/javascript"></script>
+  </head>
+  <body>
+    <h1 class="topicheading">Inno Setup Preprocessor: ReadIni</h1>
+    <div class="topicbody">
+      <h2 class="heading notopmargin">Прототип функции</h2>
+      <p><tt><b>str</b> ReadIni(<b>str</b> 1, <b>str</b> 2, <b>str</b> 3, <b>str</b>?
+          4)<br />
+        </tt></p>
+      <br />
+      <h2 class="heading">Описание</h2>
+      <p>Выполняет чтение значений из INI-файла. <span style="font-style: italic;">Первый
+          аргумент</span> является именем INI-файла. <span style="font-style: italic;">Второй
+          аргумент</span> – это имя секции в заданном INI-файле. <span style="font-style: italic;">Третий
+          аргумент</span> – имя ключа, значение которого необходимо получить.
+        Последний аргумент (<span style="font-style: italic;">4</span>) является
+        необязательным и может быть использован для установки значения, которое
+        вернёт функция в случае неудачного выполнения операции или при пустом
+        значении запрошенного ключа.</p>
+    </div>
+  </body>
 </html>

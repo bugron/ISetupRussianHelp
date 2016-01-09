@@ -1,37 +1,72 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
-<meta http-equiv="X-UA-Compatible" content="IE=8" />
-<title>Inno Setup Preprocessor: Введение</title>
-<link rel="stylesheet" type="text/css" href="../styles.css" />
-<script type="text/javascript" src="../topic.js"></script>
-</head>
-<body>
-<h1 class="topicheading">Inno Setup Preprocessor: Введение</h1>
-<div class="topicbody">
-  <p>Inno Setup Preprocessor (ISPP) - дополнение препроцессора для Inno Setup.</p>
-  <p>Основная цель ISPP состоит в том, чтобы автоматизировать задачи во время компиляции и уменьшить вероятность опечаток в Ваших скриптах. Например, можно объявить переменную ISPP (переменная времени компиляции) - например имя приложения и затем использовать его значение в нескольких местах Вашего скрипта. Если по некоторым причинам Вы должны поменять имя своего приложения, необходимо изменить значение только однажды в Вашем скрипте. Без ISPP Вы должны были бы, вероятно, изменить эти значения везде, где оно должно использоваться (директивы AppName, AppVerName, DefaultGroupName и т.д. <a href="../topic_setupsection.htm">секции [Setup]</a>).</p>
-  <p>Другой пример использования ISPP - собрание информации о версии из Вашего приложения, путем прочтения информации о версии EXE файла для использования его в директивах <a href="../topic_setupsection.htm">секции [Setup]</a> или где-либо еще. Без ISPP необходимо бы изменить свой скрипт каждый раз при изменении версии Ваших приложений.</p>
-  <p>Кроме того, с помощью условного выражение исключения возможно исключить или наоборот выполнить части скрипта: можно создать один единственный скрипт для различных версий/уровней Ваших приложений (например, испытание триального против полностью функционального).</p>
-  <p>Наконец, ISPP позволяет разделить длинные линии, используя символ разделения строки.</p>
-  <p>Обратите внимание: ISPP работает исключительно во время компиляции, и не имеет никакой функциональности во время выполнения.</p>
-  <p><b>Все темы</b></p>
-  <ul>
-    <li><a href="topic_docconv.htm">Сокращения и обозночения</a></li>
-    <li><a href="topic_directives.htm">Директивы</a></li>
-    <li><a href="topic_funcs.htm">Функции</a></li>
-    <li><a href="topic_predefinedvars.htm">Предопределенные переменные</a></li>
-    <li><a href="topic_linespan.htm">Разделение линий</a></li>
-    <li><a href="topic_example.htm">Пример скрипта</a></li>
-    <li><a href="topic_macros.htm">Определяемые пользователем макросы</a></li>
-    <li><a href="topic_builtinsiss.htm">BUILTINS.ISS</a></li>
-    <li><a href="topic_visibility.htm">Область видимости идентификаторов</a></li>
-    <li><a href="topic_expressions.htm">Синтаксис выражения</a></li>
-    <li><a href="topic_isppcc.htm">Расширенный компилятор командной строки</a></li>
-    <li><a href="topic_translation.htm">Перевод</a></li>
-    <li><a href="topic_current-translation.htm">Текущий перевод</a></li>
-  </ul>
-</div>
-</body>
+<html lang="ru">
+  <head>
+    <meta content="text/html; charset=windows-1251" http-equiv="content-type">
+    <meta http-equiv="X-UA-Compatible" content="IE=8" />
+	<meta content="Перевод на русский: Leserg (www.wylek.ru)" name="description">
+    <title>Inno Setup Preprocessor: Introduction</title>
+    <!--[if IE 6]><style type="text/css">html{overflow-y:scroll}</style><![endif]-->
+    <link rel="stylesheet" href="../styles.css" type="text/css">
+    <script type="text/javascript" src="../topic.js"></script>
+  </head>
+  <body>
+    <h1 class="topicheading">Inno Setup Preprocessor: Введение</h1>
+    <div class="topicbody">
+      <p><span style="font-weight: bold;">Inno Setup Preprocessor (ISPP)</span>
+        - это программа предварительной обработки сценариев для <span style="font-style: italic;">Inno
+          Setup</span>.</p>
+      <p>Главная цель <span style="font-weight: bold;">ISPP</span> – это
+        автоматизация каких-либо задач в процессе компиляции сценария и
+        уменьшения вероятности появления ошибок при его составлении. Например,
+        можно объявить переменную <span style="font-weight: bold;">ISPP</span>
+        (переменная, используемая в процессе компиляции) с <span style="font-style: italic; color: #993399;">именем
+          приложения</span>, а затем использовать её в различных местах
+        сценария. Если по каким-то причинам нужно будет изменить <span style="font-style: italic; color: #993399;">имя
+          приложения</span>, то сделать это потребуется только один раз, изменив
+        значение объявленной переменной. Во время компиляции сценария вместо
+        этой переменной будет подставлено её значение. Без <span style="font-weight: bold;">
+          ISPP</span> нужно было бы изменять все значения параметров, в которых
+        используется имя приложения (директивы <span style="color: #3333ff;">AppName</span>,
+        <span style="color: #3333ff;">AppVerName</span>, <span style="color: #3333ff;">DefaultGroupName</span>
+        и др. из раздела <a href="../topic_setupsection.htm" class="new2">[Setup]</a>).</p>
+      <p>Другой пример использования <span style="font-weight: bold;">ISPP</span>
+        – это получение сведений о версии приложения из исполняемого файла
+        (EXE), и использования этих данных в директиве <span style="color: #3333ff;">AppVerName</span>
+        из раздела <a href="../topic_setupsection.htm" class="new2">[Setup]</a>
+        или где-то в другом месте сценария. Без применения <span style="font-weight: bold;">ISPP</span>
+        в сценарии пришлось бы вручную менять все записи, в которых упоминается
+        версия приложения.</p>
+      <p>Кроме того, применяя директивы <span style="font-weight: bold;">ISPP</span>
+        условной компиляции, имеется возможность исключить или наоборот
+        выполнить часть сценария для различных версий/компоновок приложения
+        (например, ознакомительная и полная версии).</p>
+      <p>И наконец, <span style="font-weight: bold;">ISPP</span> даёт
+        возможность разбить длинные строки на более короткие, используя символ
+        разделения строк.</p>
+      <p>Примечание: <span style="font-weight: bold;">ISPP</span> работает
+        исключительно в время компиляции сценария и не имеет никакой
+        функциональности при выполнении установки/деинсталляции приложения.</p>
+      <p><b>Основные главы документа:<br />
+        </b></p>
+      <ul>
+        <li><a href="topic_docconv.htm" class="new1">Условные обозначения</a></li>
+        <li><a href="topic_directives.htm" class="new1">Директивы</a></li>
+        <li><a href="topic_funcs.htm" class="new1">Функции</a></li>
+        <li><a href="topic_predefinedvars.htm" class="new1">Встроенные
+            переменные</a></li>
+        <li><a href="topic_linespan.htm" class="new1">Разделение строк</a></li>
+        <li><a href="topic_example.htm" class="new1">Пример сценария</a></li>
+        <li><a href="topic_macros.htm" class="new1">Пользовательские макросы</a></li>
+        <li><a href="topic_builtinsiss.htm" class="new1">ISPPBuiltins.iss</a></li>
+        <li><a href="topic_visibility.htm" class="new1">Область видимости
+            переменных</a></li>
+        <li><a href="topic_expressions.htm" class="new1">Синтаксис выражений</a></li>
+        <li><a href="topic_isppcc.htm" class="new1">Расширенная версия
+            компилятора</a></li>
+        <li><a href="topic_translation.htm" class="new1">Трансляция</a></li>
+        <li><a href="topic_current-translation.htm" class="new1">Текущая
+            трансляция</a></li>
+      </ul>
+    </div>
+  </body>
 </html>

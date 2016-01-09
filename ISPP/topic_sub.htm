@@ -1,45 +1,76 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
-<meta http-equiv="X-UA-Compatible" content="IE=8" />
-<title>Inno Setup Preprocessor: #sub, #endsub</title>
-<link rel="stylesheet" type="text/css" href="../styles.css" />
-<script type="text/javascript" src="../topic.js"></script>
-</head>
-<body>
-<h1 class="topicheading">Inno Setup Preprocessor: #sub, #endsub</h1>
-<div class="topicbody">
-  <h2 class="heading notopmargin">Синтатсис</h2>
-  <table>
-    <tr>
-      <td class="cellleft"><i>sub-directive:</i></td>
-      <td class="cellright"><b>sub</b> &lt;ident&gt;</td>
-    </tr>
-  </table>
-  <table>
-    <tr>
-      <td class="cellleft"><i>endsub-directive:</i></td>
-      <td class="cellright"><b>endsub</b></td>
-    </tr>
-  </table>
-  <h2 class="heading">Описание</h2>
-  <p>Директивы <tt>sub</tt> и <tt>endsub</tt> используются, чтобы объявить определяемую пользователем процедуру, которая является частью скрипта, который может быть включен позже однажды или несколько раз. You make think of a user defined procedure as begin similar to an external file, and a call to a user defined procedure as being similar to inclusion of an external file, except that procedures may also be called from within expressions. Please note that it is strongly not recommended to call procedures which emit several lines to <a href="topic_translation.htm">translation</a> from within compound expressions or directives.</p>
-  <p>Процедура вызывается, просто указанием ее идентификатора, с помощью которого она была объявлена.</p>
-  <p><span id="result_box" lang="ru" tabindex="-1" xml:lang="ru">Выполнение процедуры начинается только после ее вызова, так что если существуют какие-либо ошибки в ее теле, они выскочат только тогда, когда процедура вызывается.</span></p>
-  <h2 class="heading">Примеры</h2>
-  <p><tt>#sub AddFile<br/>
-    &nbsp;&nbsp;#if <a href="topic_copy.htm">Copy</a>(FileName, 1, 1) == &quot;A&quot;<br/>
-    &nbsp;&nbsp;&nbsp;&nbsp;Source: {#FileName}; DestDir: {app}\A<br/>
-    &nbsp;&nbsp;#else<br/>
-    &nbsp;&nbsp;&nbsp;&nbsp;Source: {#FileName}; DestDir: {app}<br/>
-    &nbsp;&nbsp;#endif<br/>
-    #endsub<br/>
-  </tt></p>
-  <h2 class="heading">More examples</h2>
-  <p><a href="topic_findfirst.htm">FindFirst</a>, <a href="topic_fileread.htm">FileRead</a>.</p>
-  <h2 class="heading">См. также:</h2>
-  <p><a href="topic_macros.htm">User Defined Macros</a>, <tt><a href="topic_if.htm">if</a></tt>, <tt><a href="topic_emit.htm">emit</a></tt>.</p>
-</div>
-</body>
+<html lang="ru" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="content-type" content="application/xhtml+xml; charset=windows-1251" />
+    <meta http-equiv="X-UA-Compatible" content="IE=8" />
+    <meta name="description" content="Перевод на русский: Leserg (www.wylek.ru)" />
+    <title>Inno Setup Preprocessor: #sub, #endsub</title>
+    <!--[if IE 6]><style type="text/css">html{overflow-y:scroll}</style><![endif]-->
+    <link type="text/css" href="../styles.css" rel="stylesheet" />
+    <script type="text/javascript" src="../topic.js"></script>
+  </head>
+  <body>
+    <h1 class="topicheading">Inno Setup Preprocessor: #sub, #endsub</h1>
+    <div class="topicbody">
+      <h2 class="heading notopmargin">Синтаксис</h2>
+      <table>
+        <tbody>
+          <tr>
+            <td style="width: 110px; background-color: #eeeeee;" class="cellleft"><i>sub-directive:</i>
+            </td>
+            <td class="cellright"> <b>sub</b> &lt;ident&gt; </td>
+          </tr>
+        </tbody>
+      </table>
+      <table>
+        <tbody>
+          <tr>
+            <td style="width: 110px;" class="cellleft"><i>endsub-directive:</i>
+            </td>
+            <td class="cellright" style="background-color: #f8f8f8;"> <b>endsub</b>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <br />
+      <h2 class="heading">Описание</h2>
+      <p>Директивы <tt style="font-style: italic;">sub</tt> и <tt style="font-style: italic;">endsub</tt>
+        используются для объявления пользовательских процедур, которые являются
+        частью сценария и могут быть включены единожды или несколько раз. Вызов
+        процедуры может быть осуществлен как непосредственно, так и из
+        выражений. Только обратите внимание, настоятельно не рекомендуется
+        использовать вызов процедур, которые обращаются напрямую к <a href="topic_translation.htm"
+          class="new1">транслятору</a>, изнутри составных выражений или
+        директив.</p>
+      <p>Вызов процедуры выполняется простым указанием её идентификатора, с
+        которым она была объявлена.</p>
+      <p>Процедура не обрабатывается до тех пор, пока она не будет вызвана.
+        Таким образом, если в ней содержатся ошибки, то они проявятся только
+        после её вызова.</p>
+      <br />
+      <h2 class="heading">Примеры</h2>
+          <tt><span style="font-weight: bold; color: #990000;">#sub</span>
+        AddFile<br />
+             <span style="font-weight: bold; color: #990000;">#if</span> <a href="topic_copy.htm">Copy</a>(<span
+          style="font-weight: bold; color: #ff6600;">FileName</span>, 1, 1) == <span
+          style="font-style: italic; color: #333333;">"A"</span><br />
+               <span style="font-weight: bold; color: #ff6600;">Source</span>:
+        <span style="font-weight: bold; color: #0000fd;">{#FileName}</span>; <span
+          style="font-weight: bold; color: #ff6600;">DestDir</span>: <span style="font-weight: bold; color: #0000fd;">{app}</span>\A<br />
+             <span style="font-weight: bold; color: #990000;">#else</span><br />
+               <span style="font-weight: bold; color: #ff6600;">Source</span>:
+        <span style="font-weight: bold; color: #0000fd;">{#FileName}</span>; <span
+          style="font-weight: bold; color: #ff6600;">DestDir</span>: <span style="font-weight: bold; color: #0000fd;">{app}</span><br />
+             <span style="font-weight: bold; color: #990000;">#endif</span><br />
+           <span style="font-weight: bold; color: #990000;">#endsub</span><br />
+      </tt><br />
+      <h2 class="heading">Другие примеры</h2>
+      <p><a href="topic_findfirst.htm">FindFirst</a>, <a href="topic_fileread.htm">FileRead</a>.</p>
+      <br />
+      <h2 class="heading">См. также</h2>
+      <p><a href="topic_macros.htm" class="new1">Пользовательские макросы</a>, <tt><a
+            href="topic_if.htm" class="new">if</a></tt>, <tt><a href="topic_emit.htm"
+            class="new">emit</a></tt>.</p>
+    </div>
+  </body>
 </html>

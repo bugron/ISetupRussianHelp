@@ -1,34 +1,73 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
-<meta http-equiv="X-UA-Compatible" content="IE=8" />
-<title>Inno Setup Preprocessor: #insert</title>
-<link rel="stylesheet" type="text/css" href="../styles.css" />
-<script type="text/javascript" src="../topic.js"></script>
-</head>
-<body>
-<h1 class="topicheading">Inno Setup Preprocessor: #insert</h1>
-<div class="topicbody">
-  <h2 class="heading notopmargin">Синтатсис</h2>
-  <table>
-    <tr>
-      <td class="cellleft"><i>insert-directive:</i></td>
-      <td class="cellright"><b>insert</b> &lt;expr&gt;</td>
-    </tr>
-  </table>
-  <h2 class="heading">Описание</h2>
-  <p>Изменяет точку вставки. По умолчанию, каждая обработанная строка добавляется в конец <a href="topic_translation.htm">перевода</a>. Используя <tt>insert</tt>, точка, в которой следующая обработанная строка будет добавлена к <a href="topic_translation.htm">переводу</a>, может быть изменена. <tt>insert</tt> берет выражение, которое должно оценить к целому числу. Точка вставки будет установлена в это целое число.</p>
-  <p>Точка вставки также всегда автоматически постепенно увеличивается каждый раз после того, как строка была добавлена к <a href="topic_translation.htm">переводу</a>, так, чтобы каждая новая строка была вставлена после ранее вставленного.</p>
-  <p>Не рекомендуется использовать скрипт, содержащий функцию (такой как <tt><a href="topic_setsetupsetting.htm">SetSetupSetting</a></tt>) который может вставить строку, таким образом, смещая часть преобразования на одну строку вниз, при этом точка вставки не обновляется. Это может привести отличной от ожидаемой результату.</p>
-  <p>Функция <tt><a href="topic_find.htm">Find</a></tt> функция может использоваться для произведения значений для директивы <tt>insert</tt>.</p>
-  <h2 class="heading">Примеры</h2>
-  <p><tt>#insert FindSectionEnd(&quot;Icons&quot;)<br/>
-    #insert FindSection(&quot;Setup&quot;) + 1<br/>
-    #insert <a href="topic_find.htm">Find</a>(0, &quot;somefile.ext&quot;, FIND_CONTAINS)<br/>
-  </tt></p>
-  <h2 class="heading">См. также:</h2>
-  <p><tt><a href="topic_append.htm">append</a></tt>.</p>
-</div>
-</body>
+<html lang="ru">
+  <head>
+    <meta content="text/html; charset=windows-1251" http-equiv="content-type">
+    <meta content="IE=8" http-equiv="X-UA-Compatible" />
+	<meta content="Перевод на русский: Leserg (www.wylek.ru)" name="description">
+    <title>Inno Setup Preprocessor: #insert</title>
+    <!--[if IE 6]><style type="text/css">html{overflow-y:scroll}</style><![endif]-->
+    <link rel="stylesheet" href="../styles.css" type="text/css">
+    <script src="../topic.js" type="text/javascript"></script>
+  </head>
+  <body>
+    <h1 class="topicheading">Inno Setup Preprocessor: #insert</h1>
+    <div class="topicbody">
+      <h2 class="heading notopmargin">Синтаксис</h2>
+      <table>
+        <tbody>
+          <tr>
+            <td class="cellleft" style="background-color: #eeeeee;"><i>insert-directive:</i>
+            </td>
+            <td class="cellright"> <b>insert</b> &lt;expr&gt; </td>
+          </tr>
+        </tbody>
+      </table>
+      <br />
+      <h2 class="heading">Описание</h2>
+      <p>Выполняет вставку указанного выражения (<span style="font-weight: bold;">expr</span>).
+        По умолчанию, каждая обработанная строка сценария добавляется в конец <a
+          href="topic_translation.htm" class="new1">транслятора</a>, формируя
+        таким образом определённую последовательность команд, которые будут
+        переданы компилятору. Используя директиву <tt style="font-weight: bold; color: #990000;">insert</tt>,
+        в процесс обработки строк <a href="topic_translation.htm" class="new1">транслятором</a>
+        можно вставить строку, которая изменит обычный порядок команд. При
+        чтении строк сценария, транслятор, встретив директиву <tt style="color: #990000; font-weight: bold;">insert</tt>,
+        выполнит вставку кода, которая указана выражением директивы, после чего
+        перейдет к чтению следующей за директивой строке.</p>
+      <p>Использование директивы отмечается специальным счетчиком, значение
+        которого автоматически увеличивается на единицу после каждой операции
+        вставки в <a href="topic_translation.htm" class="new1">транслятор</a>.
+        Таким образом, каждая новая строка будет добавлена после строк,
+        вставленных предыдущей командой.</p>
+      <p>Не рекомендуется использовать директиву совместно с функциями
+        компоновки сценариев (например, <tt><a href="topic_setsetupsetting.htm">SetSetupSetting</a></tt>),
+        которые самостоятельно позволяют вставить строку. Они смещают часть
+        кода, но не обновляют значение счетчика вставки. Это может привести к
+        другой точке возврата в коде сценария, нарушив его алгоритм.</p>
+      <p>Чтобы получить необходимое значение (выражение) для директивы <tt style="font-weight: bold; color: #990000;">insert</tt>,
+        можно использовать функцию <tt><a href="topic_find.htm">Find</a></tt>.</p>
+      <br />
+      <h2 class="heading">Примеры</h2>
+          <tt><span style="font-style: italic; color: #006600;">// Вставка
+          строки, идущей после секции [Icons].</span><br />
+        <span style="font-weight: bold; color: #990000;">  #insert</span>
+        FindSectionEnd(<span style="font-style: italic; color: #333333;">"Icons"</span>)<br />
+        <br />
+          <span style="font-style: italic; color: #006600;">// Вставка 2
+          строки, идущей после объявления секции [Setup].</span><br />
+          <span style="font-weight: bold; color: #990000;">#insert</span>
+        FindSection(<span style="font-style: italic; color: #333333;">"Setup"</span>)
+        + 1<br />
+        <br />
+          <span style="font-style: italic; color: #006600;">// Вставка строк,
+          которые содержат подстроку "somefile.ext"<br />
+            // (поиск необходимых строк выполняет функция Find).</span><br />
+          <span style="font-weight: bold; color: #990000;">#insert</span> <a href="topic_find.htm">Find</a>(0,
+        <span style="font-style: italic; color: #333333;">"somefile.ext"</span>,
+        FIND_CONTAINS)<br />
+      </tt><br />
+      <h2 class="heading">См. также</h2>
+      <p><tt><a href="topic_append.htm" class="new">append</a></tt>.</p>
+    </div>
+  </body>
 </html>

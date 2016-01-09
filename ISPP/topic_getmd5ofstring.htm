@@ -1,24 +1,34 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
-<meta http-equiv="X-UA-Compatible" content="IE=8" />
-<title>Inno Setup Preprocessor: GetMD5OfString</title>
-<link rel="stylesheet" type="text/css" href="../styles.css" />
-<script type="text/javascript" src="../topic.js"></script>
-</head>
-<body>
-<h1 class="topicheading">Inno Setup Preprocessor: GetMD5OfString</h1>
-<div class="topicbody">
-  <h2 class="heading notopmargin">Прототип</h2>
-  <p><tt><b>str</b> GetMD5OfString(<b>str</b>)<br/>
-  </tt></p>
-  <h2 class="heading">Описание</h2>
-  <p>Возвращает сумму MD5 указанной ANSI строки, как строку.</p>
-  <h2 class="heading">Пример</h2>
-  <p><tt>#define MD5 GetMD5OfString('Test')<br/>
-    // MD5 = '0cbc6611f5540bd0809a388dc95a615b'<br/>
-  </tt></p>
-</div>
-</body>
+<html lang="ru">
+  <head>
+    <meta content="text/html; charset=windows-1251" http-equiv="content-type">
+    <meta http-equiv="X-UA-Compatible" content="IE=8" />
+	<meta content="Перевод на русский: Leserg (www.wylek.ru)" name="description">
+    <title>Inno Setup Preprocessor: GetMD5OfString</title>
+    <!--[if IE 6]><style type="text/css">html{overflow-y:scroll}</style><![endif]-->
+    <link rel="stylesheet" href="../styles.css" type="text/css">
+    <script type="text/javascript" src="../topic.js"></script>
+  </head>
+  <body>
+    <h1 class="topicheading">Inno Setup Preprocessor: GetMD5OfString</h1>
+    <div class="topicbody">
+      <h2 class="heading notopmargin">Прототип функции</h2>
+      <p><tt><b>str</b> GetMD5OfString(<b>str</b>)<br />
+        </tt></p>
+      <br />
+      <h2 class="heading">Описание</h2>
+      <p>Возвращает строковое значение контрольной суммы <span style="font-weight: bold;">MD5</span>
+        в кодировке <span style="font-weight: bold;">ANSI</span> для указанной
+        строки.</p>
+      <br />
+      <h2 class="heading">Пример</h2>
+          <tt><span style="font-style: italic; color: #006600;">// Объявляем
+          переменную MD5 и присваиваем ей значение<br />
+            // контрольной суммы строки "Test", которое вернёт функция.<br />
+        </span><span style="font-weight: bold; color: #990000;">   #define</span>
+        MD5 GetMD5OfString(<span style="font-style: italic; color: #333333;">'Test'</span>)<br />
+          <span style="font-style: italic; color: #006600;">// MD5 =
+          '0cbc6611f5540bd0809a388dc95a615b'</span><br />
+      </tt> </div>
+  </body>
 </html>

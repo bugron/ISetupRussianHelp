@@ -1,51 +1,93 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
-<meta http-equiv="X-UA-Compatible" content="IE=8" />
-<title>Inno Setup Preprocessor: Расширенный компилятор командной строки</title>
-<link rel="stylesheet" type="text/css" href="../styles.css" />
-<script type="text/javascript" src="../topic.js"></script>
-</head>
-<body>
-<h1 class="topicheading">Inno Setup Preprocessor: Расширенный компилятор командной строки</h1>
-<div class="topicbody">
-  <p>Препроцессор Inno Setup заменяет стандартный компилятор командной строки Inno Setup (ISCC.exe) более расширенной версией. Эта расширенная версия обеспечивает дополнительные параметры, чтобы управлять препроцессором Inno Setup.</p>
-  <p>Пример использования: <tt>iscc [options] scriptfile.iss</tt>. Или можно читать из стандартного ввода: <tt>iscc [options] -</tt>.</p>
-  <p>Опции, которые эмулируют директивы <a href="topic_define.htm">define</a> или <a href="topic_pragma.htm">pragma</a>:</p>
-  <table width="560">
-    <tr>
-      <td width="146" class="cellleft"><tt>/d&lt;name&gt;[=&lt;value&gt;]</tt></td>
-      <td width="410" class="cellright">Устанавливает<tt> #define public &lt;name&gt; &lt;value&gt;</tt></td>
-    </tr>
-    <tr>
-      <td class="cellleft"><tt>/$&lt;letter&gt;(+|-)</tt></td>
-      <td class="cellright">Устанавливает<tt> #pragma option -&lt;letter&gt;(+|-)</tt></td>
-    </tr>
-    <tr>
-      <td class="cellleft"><tt>/p&lt;letter&gt;(+|-)</tt></td>
-      <td class="cellright">Устанавливает<tt> #pragma parseroption -&lt;letter&gt;(+|-)</tt></td>
-    </tr>
-    <tr>
-      <td class="cellleft"><tt>/i&lt;paths&gt;</tt></td>
-      <td class="cellright">Устанавливает<tt> #pragma include -&lt;paths&gt;</tt></td>
-    </tr>
-    <tr>
-      <td class="cellleft"><tt>/{#&lt;string&gt;</tt></td>
-      <td class="cellright">Устанавливает<tt> #pragma inlinestart -&lt;string&gt;</tt></td>
-    </tr>
-    <tr>
-      <td class="cellleft"><tt>/}&lt;string&gt;</tt></td>
-      <td class="cellright">Устанавливает<tt> #pragma inlineend -&lt;string&gt;</tt></td>
-    </tr>
-    <tr>
-      <td class="cellleft"><tt>/v&lt;number&gt;</tt></td>
-      <td class="cellright">Устанавливает<tt> #pragma verboselevel -&lt;number&gt;</tt></td>
-    </tr>
-  </table>
-  <p>Другие допустимые опции: &quot;/O&quot; - определяет выходной путь (перезаписывая OutputDir), &quot;/F&quot; - определяет выходное имя файла (перезаписывая OutputBaseFilename), и &quot;/Q[p]&quot; - тихая компиляция (выводятся только сообщения об ошибках, параметр "p" показывает информацию о прогрессе).</p>
-  <p>Пример: <tt>iscc /$c- /pu+ &quot;/dLic=Trial Lic.txt&quot; /iC:\INC;D:\INC &quot;c:\isetup\samples\my script.iss&quot;</tt></p>
-  <p>ISCC возвратит код выхода 0, если компиляция была успешна, 1, если параметры командной строки были недопустимы, или произошла внутренняя ошибка, или 2, если компиляция не выполнилась.</p>
-</div>
-</body>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+  <head>
+    <meta http-equiv="content-type" content="application/xhtml+xml; charset=windows-1251" />
+    <meta http-equiv="X-UA-Compatible" content="IE=8" />
+    <meta name="description" content="Перевод на русский: Leserg (www.wylek.ru)" />
+    <title>Inno Setup Preprocessor: Extended Command Line Compiler</title>
+    <!--[if IE 6]><style type="text/css">html{overflow-y:scroll}</style><![endif]-->
+    <link type="text/css" href="../styles.css" rel="stylesheet" />
+    <script type="text/javascript" src="../topic.js"></script>
+  </head>
+  <body>
+    <h1 class="topicheading">Inno Setup Preprocessor: Расширенная версия
+      компилятора</h1>
+    <div class="topicbody">
+      <p>После установки <span style="font-weight: bold;">Inno Setup
+          Preprocessor</span> стандартная версия компилятора <span style="font-style: italic;">Inno
+          Setup</span> (файл <span style="font-style: italic;">ISCC.exe</span>)
+        будет заменена на его расширенную версию, которая предоставляет
+        дополнительные параметры для управления процессом предварительной
+        обработки сценариев <span style="font-style: italic;">Inno Setup</span>.</p>
+      <p>Синтаксис командной строки: <tt style="font-weight: bold; color: #000099;">iscc
+          [options] scriptfile.iss</tt></p>
+      <p>Или посредством стандартного ввода: <tt style="font-weight: bold; color: #000099;">iscc
+          [options] -</tt></p>
+      <p>Параметры для эмуляции вызова директивы <a class="new" href="topic_define.htm">define</a>
+        или <a class="new" href="topic_pragma.htm">pragma</a>:</p>
+      <table>
+        <tbody>
+          <tr>
+            <td style="background-color: #eeeeee;" class="cellleft"><tt>/d&lt;name&gt;[=&lt;value&gt;]</tt>
+            </td>
+            <td class="cellright">Задает <tt><span style="font-weight: bold; color: #990000;">#define</span>
+                public &lt;name&gt; &lt;value&gt;</tt> </td>
+          </tr>
+          <tr>
+            <td class="cellleft"><tt>/$&lt;letter&gt;(+|-)</tt> </td>
+            <td style="background-color: #f8f8f8;" class="cellright">Задает <tt><span
+                  style="font-weight: bold; color: #990000;">#pragma</span>
+                option -&lt;letter&gt;(+|-)</tt> </td>
+          </tr>
+          <tr>
+            <td style="background-color: #eeeeee;" class="cellleft"><tt>/p&lt;letter&gt;(+|-)</tt>
+            </td>
+            <td class="cellright">Задает <tt><span style="font-weight: bold; color: #990000;">#pragma</span>
+                parseroption -&lt;letter&gt;(+|-)</tt> </td>
+          </tr>
+          <tr>
+            <td class="cellleft"><tt>/i&lt;paths&gt;</tt> </td>
+            <td style="background-color: #f8f8f8;" class="cellright">Задает <tt><span
+                  style="font-weight: bold; color: #990000;">#pragma</span>
+                include -&lt;paths&gt;</tt> </td>
+          </tr>
+          <tr>
+            <td style="background-color: #eeeeee;" class="cellleft"><tt>/{#&lt;string&gt;</tt>
+            </td>
+            <td class="cellright">Задает <tt><span style="font-weight: bold; color: #990000;">#pragma</span>
+                inlinestart -&lt;string&gt;</tt> </td>
+          </tr>
+          <tr>
+            <td class="cellleft"><tt>/}&lt;string&gt;</tt> </td>
+            <td style="background-color: #f8f8f8;" class="cellright">Задает <tt><span
+                  style="font-weight: bold; color: #990000;">#pragma</span>
+                inlineend -&lt;string&gt;</tt> </td>
+          </tr>
+          <tr>
+            <td style="background-color: #eeeeee;" class="cellleft"><tt>/v&lt;number&gt;</tt>
+            </td>
+            <td class="cellright">Задает <tt><span style="font-weight: bold; color: #990000;">#pragma</span>
+                verboselevel -&lt;number&gt;</tt> </td>
+          </tr>
+        </tbody>
+      </table>
+      <p>Другие допустимые параметры:<br />
+             <span style="font-weight: bold;">/O</span> - устанавливает путь
+        вывода файла (замещает команду <span style="font-style: italic;">OutputDir</span>
+        в сценарии);<br />
+             <span style="font-weight: bold;">/F</span> - устанавливает
+        выходное имя файла (замещает команду <span style="font-style: italic;">OutputBaseFilename</span>
+        в сценарии);<br />
+             <span style="font-weight: bold;">/Q</span>[p] - тихая компиляция
+        (будут показаны только сообщения об ошибках, "p" - будет показана информация о процессе выполнения).</p>
+      <p style="text-align: left;"><span style="font-weight: bold;">Пример</span>:
+        <tt style="font-weight: bold; color: #000099;">iscc /$c- /pu+
+          "/dLic=Trial Lic.txt" /iC:\INC;D:\INC "c:\isetup\samples\my
+          script.iss"</tt> </p>
+      <p>При успешной компиляции <span style="font-weight: bold;">ISCC</span>
+        возвращает код выхода 0. Если параметры командной строки заданы неверно
+        или произошла внутренняя ошибка, то код возврата 1. В случае неудачной
+        компиляции код возврата 2.</p>
+    </div>
+  </body>
 </html>

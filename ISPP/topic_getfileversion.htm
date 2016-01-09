@@ -1,21 +1,34 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
-<meta http-equiv="X-UA-Compatible" content="IE=8" />
-<title>Inno Setup Preprocessor: GetFileVersion</title>
-<link rel="stylesheet" type="text/css" href="../styles.css" />
-<script type="text/javascript" src="../topic.js"></script>
-</head>
-<body>
-<h1 class="topicheading">Inno Setup Preprocessor: GetFileVersion</h1>
-<div class="topicbody">
-  <h2 class="heading notopmargin">Прототип</h2>
-  <p><tt><b>str</b> GetFileVersion(<b>str</b>)<br/>
-  </tt></p>
-  <h2 class="heading">Описание</h2>
-  <p>Функция<tt> GetFileVersion</tt> получает строковый параметр, который должен быть установлен в имя файла, информацию о версии которого должна быть запрошена. Функция возвращает строку, составленную из четырех десятичных чисел разделенных точками. Если файл не содержит допустимую информацию о версии, функция возвращает пустую строку.</p>
-  <p>ISPP также имеет функцию <a href="topic_getstringfileinfo.htm">GetStringFileInfo</a>, который можно использовать для получения версии файла (используя &quot;FileVersion&quot; или &quot;ProductVersion&quot; как второй параметр). Различие - то, что GetFileVersion берет результат из фиксированного блока информации о версии, в отличие от GetStringFileInfo, который извлекает строку из специфического языкового блока.</p>
-</div>
-</body>
+<html lang="ru">
+  <head>
+    <meta content="text/html; charset=windows-1251" http-equiv="content-type">
+    <meta content="IE=8" http-equiv="X-UA-Compatible" />
+	<meta content="Перевод на русский: Leserg (www.wylek.ru)" name="description">
+    <title>Inno Setup Preprocessor: GetFileVersion</title>
+    <!--[if IE 6]><style type="text/css">html{overflow-y:scroll}</style><![endif]-->
+    <link rel="stylesheet" href="../styles.css" type="text/css">
+    <script src="../topic.js" type="text/javascript"></script>
+  </head>
+  <body>
+    <h1 class="topicheading">Inno Setup Preprocessor: GetFileVersion</h1>
+    <div class="topicbody">
+      <h2 class="heading notopmargin">Прототип функции</h2>
+      <p><tt><b>str</b> GetFileVersion(<b>str</b>)<br />
+        </tt></p>
+      <br />
+      <h2 class="heading">Описание</h2>
+      <p>Возвращает строковое значение версии файла. В качестве аргумента
+        функция принимает имя файла, для которого необходимо определить версию.
+        Формат строки с версией представляет собой четыре десятичных числа,
+        разделённых точками (0.0.0.0). Если указанный файл не существует или не
+        найден, то функция возвращает пустую строку.</p>
+      <p>В <span style="font-weight: bold;">ISPP</span> также имеется функция <a
+          href="topic_getstringfileinfo.htm">GetStringFileInfo</a>, которая
+        также позволяет получить информацию о версии файла (если в качестве
+        второго параметра использовать "FileVersion" или "ProductVersion").
+        Разница между этими двумя функциями заключается в том, что <span style="font-style: italic;">GetFileVersion</span>
+        получает данные о версии из блока ресурсов, а <span style="font-style: italic;">GetStringFileInfo</span>
+        извлекает строку из определённого языкового блока.</p>
+    </div>
+  </body>
 </html>

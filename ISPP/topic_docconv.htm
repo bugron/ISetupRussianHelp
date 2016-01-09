@@ -1,49 +1,67 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
-<meta http-equiv="X-UA-Compatible" content="IE=8" />
-<title>Inno Setup Preprocessor: Сокращения и обозначения</title>
-<link rel="stylesheet" type="text/css" href="../styles.css" />
-<script type="text/javascript" src="../topic.js"></script>
-</head>
-<body>
-<h1 class="topicheading">Inno Setup Preprocessor: Сокращения и обозначения</h1>
-<div class="topicbody">
-  <h2 class="heading notopmargin">Прямой синтаксис документированных сокращений</h2>
-  <p>Используются следующие сокращения:</p>
-  <table>
-    <tbody>
-      <tr>
-        <td class="cellleft"><tt>()</tt></td>
-        <td class="cellright">Знаки.</td>
-      </tr>
-      <tr>
-        <td class="cellleft"><tt>[]</tt></td>
-        <td class="cellright">Опциональные знаки или группа знаков.</td>
-      </tr>
-      <tr>
-        <td class="cellleft"><tt>|</tt></td>
-        <td class="cellright">Взаимоисключающие знаки.</td>
-      </tr>
-      <tr>
-        <td class="cellleft"><tt>...</tt></td>
-        <td class="cellright">Предыдущий знак или группы&nbsp;знаков могут быть повторены.</td>
-      </tr>
-      <tr>
-        <td class="cellleft"><tt><b>token</b></tt></td>
-        <td class="cellright">Зарезервированное слово или символ(ы). Должны быть введены точно так, как показано.</td>
-      </tr>
-      <tr>
-        <td class="cellleft"><tt>&lt;token&gt;</tt></td>
-        <td class="cellright">Non-terminal. Его синтаксис либо было показано выше, или объяснено.&nbsp;</td>
-      </tr>
-    </tbody>
-  </table>
-  <h2 class="heading">Прототипы функций, документирующих сокращения</h2>
-  <p>Прототипы функций показываются как функциональный тип результата, имя функции и список формальных параметров в круглых скобках.</p>
-  <p>Слова <tt>int</tt>, <tt>str</tt>, <tt>any</tt>, и <tt>void</tt> используются, чтобы соответственно определить целочисленный, строковый, любой, или нулевой тип (также называемый ничем, void) данных. Нулевой тип как функциональный результат означает, что функция не возвращает значения.</p>
-  <p>Вопросительный знак (<tt>?</tt>) после типа параметра означает, что этот параметр является дополнительным.</p>
-</div>
-</body>
+<html lang="ru">
+  <head>
+    <meta content="text/html; charset=windows-1251" http-equiv="content-type">
+    <meta http-equiv="X-UA-Compatible" content="IE=8" />
+	<meta content="Перевод на русский: Leserg (www.wylek.ru)" name="description">
+    <title>Inno Setup Preprocessor: Documentation Conventions</title>
+    <!--[if IE 6]><style type="text/css">html{overflow-y:scroll}</style><![endif]-->
+    <link rel="stylesheet" href="../styles.css" type="text/css">
+    <script type="text/javascript" src="../topic.js"></script>
+  </head>
+  <body>
+    <h1 class="topicheading">Inno Setup Preprocessor: Условные обозначения</h1>
+    <div class="topicbody">
+      <h2 class="heading notopmargin">Синтаксис директив</h2>
+      <p>При описании директив используются следующие условные обозначения:</p>
+      <table>
+        <tbody>
+          <tr>
+            <td style="background-color: #eeeeee;" class="cellleft"><tt>()</tt>
+            </td>
+            <td class="cellright">Группа объектов.</td>
+          </tr>
+          <tr>
+            <td class="cellleft"><tt>[]</tt>
+            </td>
+            <td style="background-color: #f8f8f8;" class="cellright">Вспомогательный
+              объект или группа объектов.</td>
+          </tr>
+          <tr>
+            <td style="background-color: #eeeeee;" class="cellleft"><tt>|</tt> </td>
+            <td class="cellright">Взаимоисключающие объекты.</td>
+          </tr>
+          <tr>
+            <td class="cellleft"><tt>...</tt>
+            </td>
+            <td style="background-color: #f8f8f8;" class="cellright">Предыдущий
+              объект или группа объектов, которые могут быть повторены.</td>
+          </tr>
+          <tr>
+            <td style="background-color: #eeeeee;" class="cellleft"><tt><b>token</b></tt>
+            </td>
+            <td class="cellright">Зарезервированное слово или символ(ы). Является терминальным объектом и должен вводиться так, как представлен, без каких-либо изменений или модификаций.</td>
+          </tr>
+          <tr>
+            <td class="cellleft"><tt>&lt;token&gt;</tt>
+            </td>
+            <td style="background-color: #f8f8f8;" class="cellright">Нетерминальный
+              объект. Может представлять собой выражение, формулу, имя идентификатора, переменную.</td>
+          </tr>
+        </tbody>
+      </table>
+      <br />
+      <h2 class="heading">Прототипы функций</h2>
+      <p>Прототипы функций представлены как типом возвращаемых функцией данных,
+        именем самой функции и, в круглых скобках, её формальными аргументами.</p>
+      <p>Слова <tt style="font-weight: bold;">int</tt>, <tt style="font-weight: bold;">str</tt>,
+        <tt style="font-weight: bold;">any</tt>, и <tt style="font-weight: bold;">void</tt>
+        используются для определения следующих типов данных соответственно:
+        целочисленный, строковый, любой и нулевой (так называемый пустой, <span
+          style="font-style: italic;">void</span>). Нулевой тип данных говорит о
+        том, что функция не возвращает никакого значения.</p>
+      <p>Вопросительный знак (<tt>?</tt>) в определении типов аргументов функции
+        обозначает, что этот аргумент является необязательным.</p>
+    </div>
+  </body>
 </html>

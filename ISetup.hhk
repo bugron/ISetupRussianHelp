@@ -1321,5 +1321,6 @@
 <li><object type="text/sitemap"><param name="Name" value="x64"><param name="Local" value="topic_setup_architecturesallowed.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="x86"><param name="Local" value="topic_setup_architecturesallowed.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="Y2K compliance"><param name="Local" value="topic_faq.htm"></object>
-<li><object type="text/sitemap"><param name="Name" value="zip"><param name="Local" value="topic_setup_compression.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="перевод"><param name="Local" value="translation_authors.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="авторы перевода"><param name="Local" value="translation_authors.htm"></object>
 </ul></body></html>

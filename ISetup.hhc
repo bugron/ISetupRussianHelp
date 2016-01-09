@@ -426,5 +426,6 @@
 <li><object type="text/sitemap"><param name="Name" value="Расширенный компилятор командной строки"><param name="Local" value="ISPP\topic_isppcc.htm"></object>
 </ul>
 </ul>
+<li><object type="text/sitemap"><param name="Name" value="Авторы перевода"><param name="Local" value="translation_authors.htm"></object></li>
 </ul>
 </body></html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
 <meta http-equiv="X-UA-Compatible" content="IE=8" />
 <title>Inno Setup Preprocessor: SetSetupSetting</title>
 <link rel="stylesheet" type="text/css" href="../styles.css" />
@@ -10,13 +10,13 @@
 <body>
 <h1 class="topicheading">Inno Setup Preprocessor: SetSetupSetting</h1>
 <div class="topicbody">
-  <h2 class="heading notopmargin">РџСЂРѕС‚РѕС‚РёРї</h2>
+  <h2 class="heading notopmargin">Прототип</h2>
   <p><tt><b>void</b> SetSetupSetting(<b>str</b> 1, <b>str</b> 2)<br/>
   </tt></p>
-  <h2 class="heading">РћРїРёСЃР°РЅРёРµ</h2>
-  <p>Р¤СѓРЅРєС†РёСЏ<tt> SetSetupSetting </tt>РёР·РјРµРЅСЏРµС‚ РёР»Рё РіРµРЅРµСЂРёСЂСѓРµС‚ РґРёСЂРµРєС‚РёРІСѓ РІ СЃРµРєС†РёРё [Setup], СЃ РїРµСЂРµРґР°РЅРЅС‹Рј РєР»СЋС‡РѕРј (РїРµСЂРІС‹Р№ РїР°СЂР°РјРµС‚СЂ) Рё РµРіРѕ Р·РЅР°С‡РµРЅРёРµРј (РІС‚РѕСЂРѕР№ РїР°СЂР°РјРµС‚СЂ).</p>
-  <p>Р•СЃР»Рё РІ <a href="topic_current-translation.htm">С‚РµРєСѓС‰РµРј РїРµСЂРµРІРѕРґРµ</a> РѕС‚СЃСѓС‚СЃС‚РІСѓРµС‚ СЃРµРєС†РёСЏ [Setup] <a href="topic_current-translation.htm"></a>(СЌС‚Рѕ РјРѕР¶РµС‚ РїСЂРѕРёР·РѕР№С‚Рё, РєРѕРіРґР° С„СѓРЅРєС†РёСЏ РІС‹Р·С‹РІР°РµС‚СЃСЏ РїРµСЂРµРґ СЃРµРєС†РёРµР№ РІ СЃРєСЂРёРїС‚Рµ), РµРіРѕ Р·Р°РіРѕР»РѕРІРѕРє (С‚Р°Рє Р¶Рµ РєР°Рє РЅРµРїРѕСЃСЂРµРґСЃС‚РІРµРЅРЅРѕ РґРёСЂРµРєС‚РёРІР°) РіРµРЅРµСЂРёСЂСѓСЋС‚СЃСЏ РґР°РЅРЅРѕР№ С„СѓРЅРєС†РёРµР№.</p>
-  <p>РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РёСЃРїРѕР»СЊР·СѓР№С‚Рµ СЌС‚Сѓ С„СѓРЅРєС†РёСЋ СЃ РѕСЃС‚РѕСЂРѕР¶РЅРѕСЃС‚СЊСЋ - РµРµ РЅРµР»СЊР·СЏ РІС‹Р·РІР°С‚СЊ, РєРѕРіРґР° ISPP РЅР°С…РѕРґРёС‚СЃСЏ РІ СЂРµР¶РёРјРµ РІСЃС‚Р°РІРєРё (С‚Рѕ РµСЃС‚СЊ РїРѕСЃР»Рµ РґРёСЂРµРєС‚РёРІС‹ <tt><a href="topic_insert.htm">insert</a></tt>).</p>
+  <h2 class="heading">Описание</h2>
+  <p>Функция<tt> SetSetupSetting </tt>изменяет или генерирует директиву в секции [Setup], с переданным ключом (первый параметр) и его значением (второй параметр).</p>
+  <p>Если в <a href="topic_current-translation.htm">текущем переводе</a> отсутствует секция [Setup] <a href="topic_current-translation.htm"></a>(это может произойти, когда функция вызывается перед секцией в скрипте), его заголовок (так же как непосредственно директива) генерируются данной функцией.</p>
+  <p>Пожалуйста, используйте эту функцию с осторожностью - ее нельзя вызвать, когда ISPP находится в режиме вставки (то есть после директивы <tt><a href="topic_insert.htm">insert</a></tt>).</p>
 </div>
 </body>
 </html>

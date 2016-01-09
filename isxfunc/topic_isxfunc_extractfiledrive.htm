@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
 <meta http-equiv="X-UA-Compatible" content="IE=8" />
 <title>Pascal Scripting: ExtractFileDrive</title>
 <link rel="stylesheet" type="text/css" href="../styles.css" />
@@ -10,10 +10,10 @@
 <body>
 <h1 class="topicheading">Pascal Scripting: ExtractFileDrive</h1>
 <div class="topicbody">
-  <div><b>РџСЂРѕС‚РѕС‚РёРї:</b></div>
+  <div><b>Прототип:</b></div>
   <p><tt>function ExtractFileDrive(const FileName: string): String;</tt></p>
-  <div><b>РћРїРёСЃР°РЅРёРµ:</b></div>
-  <p>Returns a string containing the 'drive' portion of a fully qualified path name for the file passed in the FileName. For file names with drive letters, the resulting string is in the form '&lt;drive&gt;:'. For file names with a UNC path the resulting string is in the form '\\&lt;servername&gt;\&lt;sharename&gt;'. If the given path contains neither style of path prefix, the result is an empty string.</p>
+  <div><b>Описание:</b></div>
+  <p>Возвращает часть полного пути FileName, который содежит только 'диск' этого пути. Для путей, содержащих букву диска, результатом является строка вида '&lt;диск&gt;:'. Для путей в формате UNC результатом является строка вида '\\&lt;servername&gt;\&lt;sharename&gt;'. Если указанный путь не содержит букву диска, или название сетевой папки, то результатом является пустая строка.</p>
 </div>
 </body>
 </html>

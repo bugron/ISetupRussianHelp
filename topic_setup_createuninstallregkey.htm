@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 <title>[Setup]: CreateUninstallRegKey</title>
-<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="text/html; charset=windows-1251" http-equiv="Content-Type">
 <meta content="IE=8" http-equiv="X-UA-Compatible">
 <link rel="stylesheet" type="text/css" href="styles.css">
 <script type="text/javascript" src="topic.js"></script>
@@ -13,18 +13,18 @@
   <table class="setuphdr">
     <tbody>
       <tr>
-        <td class="setuphdrl"><p>Р’РѕР·РјРѕР¶РЅС‹Рµ Р·РЅР°С‡РµРЅРёСЏ:</p></td>
-        <td class="setuphdrr"><div class="margined"><a href="topic_yesnonotes.htm"><tt>yes</tt> РёР»Рё <tt>no</tt></a>, РёР»Рё <a href="topic_scriptexpression.htm">Р»РѕРіРёС‡РµСЃРєРѕРµ РІС‹СЂР°Р¶РµРЅРёРµ</a></div></td>
+        <td class="setuphdrl"><p>Возможные значения:</p></td>
+        <td class="setuphdrr"><div class="margined"><a href="topic_yesnonotes.htm"><tt>yes</tt> или <tt>no</tt></a>, или <a href="topic_scriptexpression.htm">логическое выражение</a></div></td>
       </tr>
       <tr>
-        <td class="setuphdrl"><p>Р—РЅР°С‡РµРЅРёРµ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ:</p></td>
+        <td class="setuphdrl"><p>Значение по умолчанию:</p></td>
         <td class="setuphdrr"><div class="margined"><tt>yes</tt></div></td>
       </tr>
     </tbody>
   </table>
-  <div><b>РћРїРёСЃР°РЅРёРµ:</b></div>
-  <p>РџСЂРё Р·РЅР°С‡РµРЅРёРё <tt>no</tt> РёР»Рё <tt>False</tt> (<a href="topic_scriptexpression.htm">Р»РѕРіРёС‡РµСЃРєРёРµ РІС‹СЂР°Р¶РµРЅРёСЏ</a>) РёРЅСЃС‚Р°Р»Р»СЏС‚РѕСЂ РЅРµ Р±СѓРґРµС‚ СЃРѕР·РґР°РІР°С‚СЊ РїСѓРЅРєС‚Р° РїСЂРѕРіСЂР°РјРјС‹ РІ РґРёР°Р»РѕРіРµ РЈСЃС‚Р°РЅРѕРІРєР° Рё СѓРґР°Р»РµРЅРёРµ РїСЂРѕРіСЂР°РјРј. Р­С‚Рѕ РјРѕР¶РµС‚ Р±С‹С‚СЊ РїРѕР»РµР·РЅРѕ, РµСЃР»Рё РїСЂРѕРіСЂР°РјРјР° СЏРІР»СЏРµС‚СЃСЏ РѕР±РЅРѕРІР»РµРЅРёРµРј РґР»СЏ СѓР¶Рµ СѓСЃС‚Р°РЅРѕРІР»РµРЅРЅРѕРіРѕ РїСЂРёР»РѕР¶РµРЅРёСЏ Рё Р·Р°РїРёСЃСЊ РІ СЌС‚РѕРј РґРёР°Р»РѕРіРµ РЅРµ РЅСѓР¶РЅР°, РЅРѕ РЅР°РґРѕ СЃРѕС…СЂР°РЅРёС‚СЊ РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊ СѓРґР°Р»РµРЅРёСЏ РѕР±РЅРѕРІР»РµРЅРёСЏ (<tt>Uninstallable=no</tt>). Р’ СЌС‚РѕРј СЃР»СѓС‡Р°Рµ, <a href="topic_setup_updateuninstalllogappname.htm">UpdateUninstallLogAppName</a> РѕР±С‹С‡РЅРѕ СѓСЃС‚Р°РЅР°РІР»РёРІР°РµС‚СЃСЏ РІ <tt>no</tt>.</p>
-  <p><b>РЎРј. С‚Р°РєР¶Рµ:</b><br>
+  <div><b>Описание:</b></div>
+  <p>При значении <tt>no</tt> или <tt>False</tt> (<a href="topic_scriptexpression.htm">логические выражения</a>) инсталлятор не будет создавать пункта программы в диалоге Установка и удаление программ. Это может быть полезно, если программа является обновлением для уже установленного приложения и запись в этом диалоге не нужна, но надо сохранить возможность удаления обновления (<tt>Uninstallable=no</tt>). В этом случае, <a href="topic_setup_updateuninstalllogappname.htm">UpdateUninstallLogAppName</a> обычно устанавливается в <tt>no</tt>.</p>
+  <p><b>См. также:</b><br>
     <a href="topic_setup_uninstallable.htm">Uninstallable</a></p>
 </div>
 </body>

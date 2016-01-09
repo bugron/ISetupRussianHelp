@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
 <meta http-equiv="X-UA-Compatible" content="IE=8" />
 <title>Inno Setup Preprocessor: GetFileDateTimeString</title>
 <link rel="stylesheet" type="text/css" href="../styles.css" />
@@ -10,13 +10,13 @@
 <body>
 <h1 class="topicheading">Inno Setup Preprocessor: GetFileDateTimeString</h1>
 <div class="topicbody">
-  <h2 class="heading notopmargin">РџСЂРѕС‚РѕС‚РёРї</h2>
+  <h2 class="heading notopmargin">Прототип</h2>
   <p><tt><b>str</b> GetFileDateTimeString(<b>str</b>, <b>str</b>, <b>str</b>, <b>str</b>)<br/>
   </tt></p>
-  <h2 class="heading">РћРїРёСЃР°РЅРёРµ</h2>
-  <p>Р¤СѓРЅРєС†РёСЏ РІРѕР·РІСЂР°С‰Р°РµС‚ РґР°С‚Сѓ Рё РІСЂРµРјСЏ СѓРєР°Р·Р°РЅРЅРѕРіРѕ С„Р°Р№Р»Р° РєР°Рє СЃС‚СЂРѕРєСѓ, РёСЃРїРѕР»СЊР·СѓСЏ СѓРєР°Р·Р°РЅРЅРѕРµ С„РѕСЂРјР°С‚РёСЂРѕРІР°РЅРёРµ.</p>
-  <p>РџРµСЂРІС‹Р№ РїР°СЂР°РјРµС‚СЂ - РёРјСЏ С„Р°Р№Р»Р°. Р’С‚РѕСЂС‹Рµ, С‚СЂРµС‚СЊРё Рё С‡РµС‚РІРµСЂС‚С‹Рµ РїР°СЂР°РјРµС‚СЂС‹ РѕР±РѕР·РЅР°С‡Р°СЋС‚ СЃС‚СЂРѕРєСѓ С„РѕСЂРјР°С‚Р°, DateSeparator Рё РїР°СЂР°РјРµС‚СЂС‹ TimeSeparator РєР°Рє РѕР±СЉСЏСЃРЅРµРЅРѕ РІ С‚РµРјРµ <a href="topic_getdatetimestring.htm">GetDateTimeString</a>.</p>
-  <h2 class="heading">РџСЂРёРјРµСЂ</h2>
+  <h2 class="heading">Описание</h2>
+  <p>Функция возвращает дату и время указанного файла как строку, используя указанное форматирование.</p>
+  <p>Первый параметр - имя файла. Вторые, третьи и четвертые параметры обозначают строку формата, DateSeparator и параметры TimeSeparator как объяснено в теме <a href="topic_getdatetimestring.htm">GetDateTimeString</a>.</p>
+  <h2 class="heading">Пример</h2>
   <p><tt>#define MyFileDateTimeString GetFileDateTimeString('myfile.txt', 'dd/mm/yyyy hh:nn:ss', '-', ':');<br/>
   </tt></p>
 </div>

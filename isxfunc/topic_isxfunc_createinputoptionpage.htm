@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
 <meta http-equiv="X-UA-Compatible" content="IE=8" />
 <title>Pascal Scripting: CreateInputOptionPage</title>
 <link rel="stylesheet" type="text/css" href="../styles.css" />
@@ -10,14 +10,14 @@
 <body>
 <h1 class="topicheading">Pascal Scripting: CreateInputOptionPage</h1>
 <div class="topicbody">
-  <div><b>РџСЂРѕС‚РѕС‚РёРї:</b></div>
+  <div><b>Прототип:</b></div>
   <p><tt>function CreateInputOptionPage(const AfterID: Integer; const ACaption, ADescription, ASubCaption: String; Exclusive, ListBox: Boolean): TInputOptionWizardPage;</tt></p>
-  <div><b>РћРїРёСЃР°РЅРёРµ:</b></div>
-  <p>РЎРѕР·РґР°РµС‚ СЃС‚СЂР°РЅРёС†Сѓ РјР°СЃС‚РµСЂР°, РєРѕС‚РѕСЂР°СЏ СЃРѕРґРµСЂР¶РёС‚ С„Р»Р°Р¶РєРё (check boxes) РёР»Рё СЂР°РґРёРѕ РєРЅРѕРїРєРё.</p>
-  <p>Р•СЃР»Рё Exclusive СЏРІР»СЏРµС‚СЃСЏ True, РїРѕРєР°Р·С‹РІР°СЋС‚СЃСЏ СЂР°РґРёРѕ РєРЅРѕРїРєРё, <span id="result_box" lang="ru" xml:lang="ru">Рё РѕРґРЅРѕРІСЂРµРјРµРЅРЅРѕ С‚РѕР»СЊРєРѕ РѕРґРёРЅ СЌР»РµРјРµРЅС‚ РІ СЃРїРёСЃРєРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ РІС‹Р±СЂР°РЅ</span>. Р•СЃР»Рё ListBox СЏРІР»СЏРµС‚СЃСЏ True, С„Р»Р°Р¶РєРё (check boxes) РёР»Рё СЂР°РґРёРѕ РєРЅРѕРїРєРё РїРѕРјРµС‰Р°СЋС‚СЃСЏ РІ <span id="result_box2" lang="ru" xml:lang="ru">РїСЂРѕРєСЂСѓС‡РёРІР°РµРјС‹Р№ СЃРїРёСЃРѕРє</span>.</p>
-  <div><b>РљРѕРјРјРµРЅС‚Р°СЂРёРё:</b></div>
-  <p>Р”Р»СЏ СЃРѕР·РґР°РЅРёСЏ С„Р»Р°Р¶РєРѕРІ / СЂР°РґРёРѕ РєРЅРѕРїРѕРє, РІС‹Р·РѕРІРёС‚Рµ РјРµС‚РѕРґ Add. РСЃРїРѕР»СЊР·СѓР№С‚Рµ СЃРІРѕР№СЃС‚РІРѕ ValuesвЂ‹вЂ‹, С‡С‚РѕР±С‹ РїРѕР»СѓС‡РёС‚СЊ/СѓСЃС‚Р°РЅРѕРІРёС‚СЊ РёС… СѓСЃС‚Р°РЅРѕРІР»РµРЅРЅРѕРµ СЃРѕСЃС‚РѕСЏРЅРёРµ. РќР° СЃС‚СЂР°РЅРёС†Р°С… СЃ Exclusive=True, РјРѕР¶РЅРѕ РїРѕР»СѓС‡РёС‚СЊ/СѓСЃС‚Р°РЅРѕРІРёС‚СЊ РёРЅРґРµРєСЃ РѕРґРЅРѕРіРѕ РІС‹Р±СЂР°РЅРЅРѕРіРѕ СЌР»РµРјРµРЅС‚Р° С‡РµСЂРµР· СЃРІРѕР№СЃС‚РІРѕ SelectedValueIndex.</p>
-  <div><b>РќР°РїСЂРёРјРµСЂ:</b></div>
+  <div><b>Описание:</b></div>
+  <p>Создает страницу мастера, которая содержит флажки (check boxes) или радио кнопки.</p>
+  <p>Если Exclusive является True, показываются радио кнопки, <span id="result_box" lang="ru" xml:lang="ru">и одновременно только один элемент в списке может быть выбран</span>. Если ListBox является True, флажки (check boxes) или радио кнопки помещаются в <span id="result_box2" lang="ru" xml:lang="ru">прокручиваемый список</span>.</p>
+  <div><b>Комментарии:</b></div>
+  <p>Для создания флажков / радио кнопок, вызовите метод Add. Используйте свойство Values??, чтобы получить/установить их установленное состояние. На страницах с Exclusive=True, можно получить/установить индекс одного выбранного элемента через свойство SelectedValueIndex.</p>
+  <div><b>Например:</b></div>
   <pre>var
   Page: TInputOptionWizardPage;
   IsRegisteredUser: Boolean;
@@ -42,7 +42,7 @@ Page.Values[0] := False;
 IsRegisteredUser := Page.Values[0];
 </pre>
 </div>
-<div><b>РЎРј. С‚Р°РєР¶Рµ:</b></div>
+<div><b>См. также:</b></div>
 <p><a href="../topic_scriptclasses.htm#TInputOptionWizardPage">TInputOptionWizardPage</a>
 </p>
 </body>

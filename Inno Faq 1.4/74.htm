@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>РљР°Рє РґРѕР±Р°РІРёС‚СЊ РїСЂРѕРІРµСЂРєСѓ СЃРІРѕР±РѕРґРЅРѕРіРѕ/РЅРµРѕР±С…РѕРґРёРјРѕРіРѕ РјРµСЃС‚Р° РЅР° Р¶РµСЃС‚РєРѕРј РґРёСЃРєРµ?</title><link rel="stylesheet" type="text/css" href="css.css"><script type="text/javascript" src="includer.js"></script><script language='jscript' type='text/javascript' src='copycode.js'></script></head><body><div id="heading"><h1>В» Inno Setup Faq. РљР°Рє РґРѕР±Р°РІРёС‚СЊ РїСЂРѕРІРµСЂРєСѓ СЃРІРѕР±РѕРґРЅРѕРіРѕ/РЅРµРѕР±С…РѕРґРёРјРѕРіРѕ РјРµСЃС‚Р° РЅР° Р¶РµСЃС‚РєРѕРј РґРёСЃРєРµ?</h1></div><br><script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM"> <input type="button" value="РљРѕРїРёСЂРѕРІР°С‚СЊ РІ Р±СѓС„РµСЂ РѕР±РјРµРЅР°" onClick="copyToClipboard( taCode1, theCode1 );"> <blockquote id="theCode1"><font>#define NeedSize 4380<br>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1251"><title>Как добавить проверку свободного/необходимого места на жестком диске?</title><link rel="stylesheet" type="text/css" href="css.css"><script type="text/javascript" src="includer.js"></script><script language='jscript' type='text/javascript' src='copycode.js'></script></head><body><div id="heading"><h1>» Inno Setup Faq. Как добавить проверку свободного/необходимого места на жестком диске?</h1></div><br><script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM"> <input type="button" value="Копировать в буфер обмена" onClick="copyToClipboard( taCode1, theCode1 );"> <blockquote id="theCode1"><font>#define NeedSize 4380<br>
 #define NeedInstallSize 7890<br>
 <br>
 [Setup]<br>
@@ -21,9 +21,9 @@ end;<br>
 <br>
 function MbOrTb(Float: Extended): String;<br>
 begin<br>
-  if Float &lt; 1024 then Result:= NumToStr(Float)+' РњР±' else<br>
-    if Float/1024 &lt; 1024 then Result:= NumToStr(Float/1024)+' Р“Р±' else<br>
-      Result:= NumToStr(Float/(1024*1024))+' РўР±';<br>
+  if Float &lt; 1024 then Result:= NumToStr(Float)+' Мб' else<br>
+    if Float/1024 &lt; 1024 then Result:= NumToStr(Float/1024)+' Гб' else<br>
+      Result:= NumToStr(Float/(1024*1024))+' Тб';<br>
 end;<br>
 <br>
 procedure DirEditOnChange(Sender: TObject);<br>
@@ -31,10 +31,10 @@ var Drive: String;<br>
 begin<br>
   Drive:= ExtractFileDrive(WizardForm.DirEdit.Text);<br>
   GetSpaceOnDisk(Drive, True, FreeMB, TotalMB);<br>
-  TotalSpaceLabel.Caption:= 'Р’СЃРµРіРѕ РјРµСЃС‚Р° РЅР° РґРёСЃРєРµ: '+MbOrTb(TotalMB);<br>
-  FreeSpaceLabel.Caption:= 'Р”РѕСЃС‚СѓРїРЅРѕ РјРµСЃС‚Р° РЅР° РґРёСЃРєРµ: '+MbOrTb(FreeMB)+' ('+IntToStr(round(FreeMB*100/TotalMB))+'%)';<br>
-  InstallSpacelabel.Caption:= 'РўСЂРµР±СѓРµС‚СЃСЏ РјРµСЃС‚Р° РґР»СЏ СѓСЃС‚Р°РЅРѕРІРєРё: '+MbOrTb({#NeedInstallSize});<br>
-  NeedSpaceLabel.Caption:= 'РўСЂРµР±СѓРµС‚СЃСЏ РјРµСЃС‚Р° РЅР° РґРёСЃРєРµ: '+MbOrTb({#NeedSize});<br>
+  TotalSpaceLabel.Caption:= 'Всего места на диске: '+MbOrTb(TotalMB);<br>
+  FreeSpaceLabel.Caption:= 'Доступно места на диске: '+MbOrTb(FreeMB)+' ('+IntToStr(round(FreeMB*100/TotalMB))+'%)';<br>
+  InstallSpacelabel.Caption:= 'Требуется места для установки: '+MbOrTb({#NeedInstallSize});<br>
+  NeedSpaceLabel.Caption:= 'Требуется места на диске: '+MbOrTb({#NeedSize});<br>
   WizardForm.NextButton.Enabled:= (FreeMB&gt;{#NeedInstallSize})and(FreeMB&gt;{#NeedSize});<br>
 end;<br>
 <br>

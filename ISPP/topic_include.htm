@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
 <meta http-equiv="X-UA-Compatible" content="IE=8" />
 <title>Inno Setup Preprocessor: #include</title>
 <link rel="stylesheet" type="text/css" href="../styles.css" />
@@ -10,7 +10,7 @@
 <body>
 <h1 class="topicheading">Inno Setup Preprocessor: #include</h1>
 <div class="topicbody">
-  <h2 class="heading notopmargin">РЎРёРЅС‚Р°С‚СЃРёСЃ</h2>
+  <h2 class="heading notopmargin">Синтатсис</h2>
   <table>
     <tr>
       <td class="cellleft"><i>include-directive:</i></td>
@@ -21,17 +21,17 @@
       <td class="cellright">(<b>include</b> | <b>+</b>) &lt;expr&gt;</td>
     </tr>
   </table>
-  <h2 class="heading">РћРїРёСЃР°РЅРёРµ</h2>
-  <p>Р’РєР»СЋС‡Р°РµС‚ <a href="topic_translation.htm">РїРµСЂРµРІРѕРґ</a> СѓРєР°Р·Р°РЅРЅРѕРіРѕ С„Р°Р№Р»Р°.</p>
-  <p>Р•СЃР»Рё РёРјСЏ С„Р°Р№Р»Р° РІРєР»СЋС‡РµРЅ РІ СѓРіР»РѕРІС‹Рµ СЃРєРѕР±РєРё, ISPP СЃРЅР°С‡Р°Р»Р° РёС‰РµС‚ С„Р°Р№Р» РІ РєР°С‚Р°Р»РѕРіРµ, РіРґРµ РЅР°С…РѕРґРёС‚СЃСЏ С‚РµРєСѓС‰РёР№ С„Р°Р№Р», РїРѕС‚РѕРј РІ РєР°С‚Р°Р»РѕРіРµ, РіРґРµ РЅР°С…РѕРґРёС‚СЃСЏ С„Р°Р№Р», РєРѕС‚РѕСЂС‹Р№ РІРєР»СЋС‡Р°Р» С‚РµРєСѓС‰РёР№ Рё С‚Р°Рє РґР°Р»РµРµ. Р•СЃР»Рё С„Р°Р№Р» РЅРµ РЅР°Р№РґРµРЅ, РѕРЅ РёС‰РµС‚СЃСЏ РІ С‚РµРєСѓС‰РµРј РєР°С‚Р°Р»РѕРіРµ, СѓСЃС‚Р°РЅРѕРІР»РµРЅРЅС‹Рј С‡РµСЂРµР· <tt><a href="topic_pragma.htm">pragma</a></tt>, РїРѕС‚РѕРј РІ РєР°С‚Р°Р»РѕРіРµ, РѕРїСЂРµРґРµР»РµРЅРЅРѕРіРѕ РїРµСЂРµРјРµРЅРЅС‹Рј РѕРєСЂСѓР¶РµРЅРёСЏ INCLUDE.</p>
-  <p>Р•СЃР»Рё РёРјСЏ С„Р°Р№Р»Р° - РІС‹СЂР°Р¶РµРЅРёРµ РёР»Рё РЅР°С…РѕРґРёС‚СЃСЏ РІ РєР°РІС‹С‡РєР°С…, РѕРЅ РёС‰РµС‚СЃСЏ РЅР° С‚РѕР»СЊРєРѕ РІ С‚РµРєСѓС‰РµРј РєР°С‚Р°Р»РѕРіРµ.</p>
-  <p>Р­С‚Р° РґРёСЂРµРєС‚РёРІР° РЅРµ РјРѕР¶РµС‚ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊСЃСЏ РІСЃС‚СЂРѕРµРЅРЅРѕ.</p>
-  <h2 class="heading">РџСЂРёРјРµСЂС‹</h2>
+  <h2 class="heading">Описание</h2>
+  <p>Включает <a href="topic_translation.htm">перевод</a> указанного файла.</p>
+  <p>Если имя файла включен в угловые скобки, ISPP сначала ищет файл в каталоге, где находится текущий файл, потом в каталоге, где находится файл, который включал текущий и так далее. Если файл не найден, он ищется в текущем каталоге, установленным через <tt><a href="topic_pragma.htm">pragma</a></tt>, потом в каталоге, определенного переменным окружения INCLUDE.</p>
+  <p>Если имя файла - выражение или находится в кавычках, он ищется на только в текущем каталоге.</p>
+  <p>Эта директива не может использоваться встроенно.</p>
+  <h2 class="heading">Примеры</h2>
   <p><tt>#include &lt;file.iss&gt;<br/>
     #include &quot;c:\dir\file.iss&quot;<br/>
     #include AddBackslash(<a href="topic_predefinedvars.htm">CompilerPath</a>) + &quot;common.iss&quot;<br/>
   </tt></p>
-  <h2 class="heading">РЎРј. С‚Р°РєР¶Рµ:</h2>
+  <h2 class="heading">См. также:</h2>
   <p><tt><a href="topic_file.htm">file</a></tt>, <tt><a href="topic_sub.htm">sub</a></tt>.</p>
 </div>
 </body>

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 <title>[Setup]: TouchDate</title>
-<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="text/html; charset=windows-1251" http-equiv="Content-Type">
 <meta content="IE=8" http-equiv="X-UA-Compatible">
 <link rel="stylesheet" type="text/css" href="styles.css">
 <script type="text/javascript" src="topic.js"></script>
@@ -13,20 +13,20 @@
   <table class="setuphdr">
     <tbody>
       <tr>
-        <td class="setuphdrl"><p>Р’РѕР·РјРѕР¶РЅС‹Рµ Р·РЅР°С‡РµРЅРёСЏ:</p></td>
-        <td class="setuphdrr"><div class="margined"><tt>current</tt>, <tt>none</tt>, РёР»Рё <tt><i>YYYY</i>-<i>MM</i>-<i>DD</i></tt></div></td>
+        <td class="setuphdrl"><p>Возможные значения:</p></td>
+        <td class="setuphdrr"><div class="margined"><tt>current</tt>, <tt>none</tt>, или <tt><i>YYYY</i>-<i>MM</i>-<i>DD</i></tt></div></td>
       </tr>
       <tr>
-        <td class="setuphdrl"><p>Р—РЅР°С‡РµРЅРёРµ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ:</p></td>
+        <td class="setuphdrl"><p>Значение по умолчанию:</p></td>
         <td class="setuphdrr"><div class="margined"><tt>current</tt></div></td>
       </tr>
     </tbody>
   </table>
-  <div><b>РћРїРёСЃР°РЅРёРµ:</b></div>
-  <p>Р”Р°С‚Р° РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РІ РѕС‚РјРµС‚РєРµ РґР°С‚С‹/РІСЂРµРјРµРЅРё РґР»СЏ С„Р°Р№Р»РѕРІ СЃРµРєС†РёРё [Files] Рё РёРјРµСЋС‰РёС… С„Р»Р°Рі <tt>touch</tt>.</p>
-  <p>РџСЂРё Р·РЅР°С‡РµРЅРёРё <tt>current</tt> РґР°С‚Р° СЂР°РІРЅР° СЃРёСЃС‚РµРјРЅРѕР№ РґР°С‚Рµ (РІРѕ РІСЂРµРјСЏ РєРѕРјРїРёР»СЏС†РёРё). РџСЂРё Р·РЅР°С‡РµРЅРёРё <tt>none</tt> РґР°С‚Р° РѕСЃС‚Р°РІР»СЏРµС‚СЃСЏ РЅРµ С‚СЂРѕРЅСѓС‚РѕР№. РРЅР°С‡Рµ <tt>TouchDate</tt> С‚РѕР»РєСѓРµС‚СЃСЏ РѕС‚РєСЂС‹С‚Рѕ РІ С„РѕСЂРјР°С‚Рµ <tt><i>YYYY</i>-<i>MM</i>-<i>DD</i></tt> (ISO 8601). Р•СЃР»Рё <a href="topic_setup_timestampsinutc.htm">TimeStampsInUTC</a>=<tt>yes</tt>, РґР°С‚Р° РїСЂРёРЅРёРјР°РµС‚ Р·РЅР°С‡РµРЅРёРµ UTC-РґР°С‚С‹.</p>
+  <div><b>Описание:</b></div>
+  <p>Дата используется в отметке даты/времени для файлов секции [Files] и имеющих флаг <tt>touch</tt>.</p>
+  <p>При значении <tt>current</tt> дата равна системной дате (во время компиляции). При значении <tt>none</tt> дата оставляется не тронутой. Иначе <tt>TouchDate</tt> толкуется открыто в формате <tt><i>YYYY</i>-<i>MM</i>-<i>DD</i></tt> (ISO 8601). Если <a href="topic_setup_timestampsinutc.htm">TimeStampsInUTC</a>=<tt>yes</tt>, дата принимает значение UTC-даты.</p>
   <div class="examplebox">
-    <div class="exampleheader">РќР°РїСЂРёРјРµСЂ:</div>
+    <div class="exampleheader">Например:</div>
     <pre class="nomargin">TouchDate=2004-01-31</pre>
   </div>
 </div>

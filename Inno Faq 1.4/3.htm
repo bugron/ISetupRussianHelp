@@ -1,12 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Р’С‹РґРµР»РµРЅРёРµ РІСЃРµС… РєРѕРјРїРѕРЅРµРЅС‚РѕРІ</title><link rel="stylesheet" type="text/css" href="css.css">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1251"><title>Выделение всех компонентов</title><link rel="stylesheet" type="text/css" href="css.css">
 <script language='jscript' type='text/javascript' src='copycode.js'></script>
-<script type="text/javascript" src="includer.js"></script></head><body><div id="heading"><h1>В» Inno Setup Faq. Р’С‹РґРµР»РµРЅРёРµ РІСЃРµС… РєРѕРјРїРѕРЅРµРЅС‚РѕРІ</h1></div><br>
+<script type="text/javascript" src="includer.js"></script></head><body><div id="heading"><h1>» Inno Setup Faq. Выделение всех компонентов</h1></div><br>
 <script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM">
-<input type="button" value="РљРѕРїРёСЂРѕРІР°С‚СЊ РІ Р±СѓС„РµСЂ РѕР±РјРµРЅР°" onClick="copyToClipboard( taCode1, theCode1 );">
+<input type="button" value="Копировать в буфер обмена" onClick="copyToClipboard( taCode1, theCode1 );">
 <blockquote id="theCode1"><font>
-;;РІС‹РґРµР»РµРЅРёРµ&nbsp;РёР»Рё&nbsp;СЃРЅСЏС‚РёРµ&nbsp;РѕС‚РјРµС‚РєРё&nbsp;СЃРѕ&nbsp;РІСЃРµС…&nbsp;РєРѕРјРїРѕРЅРµРЅС‚РѕРІ&nbsp;РѕРґРЅРѕР№&nbsp;РєРЅРѕРїРєРѕР№...<br>
-;;РђРІС‚РѕСЂ:&nbsp;Serega,&nbsp;http://forum.oszone.net/member.php?userid=88670<br>
+;;выделение&nbsp;или&nbsp;снятие&nbsp;отметки&nbsp;со&nbsp;всех&nbsp;компонентов&nbsp;одной&nbsp;кнопкой...<br>
+;;Автор:&nbsp;Serega,&nbsp;http://forum.oszone.net/member.php?userid=88670<br>
 <br>
 [Setup]<br>
 AppName=My&nbsp;Program<br>
@@ -21,15 +21,15 @@ SolidCompression=yes<br>
 Name:&nbsp;rus;&nbsp;MessagesFile:&nbsp;compiler:Languages\Russian.isl<br>
 <br>
 [Types]<br>
-Name:&nbsp;full;&nbsp;Description:&nbsp;РџРѕР»РЅР°СЏ&nbsp;СѓСЃС‚Р°РЅРѕРІРєР°<br>
-Name:&nbsp;custom;&nbsp;Description:&nbsp;Р’С‹Р±РѕСЂРѕС‡РЅР°СЏ&nbsp;СѓСЃС‚Р°РЅРѕРІРєР°;&nbsp;Flags:&nbsp;iscustom<br>
+Name:&nbsp;full;&nbsp;Description:&nbsp;Полная&nbsp;установка<br>
+Name:&nbsp;custom;&nbsp;Description:&nbsp;Выборочная&nbsp;установка;&nbsp;Flags:&nbsp;iscustom<br>
 <br>
 [Components]<br>
-Name:&nbsp;a;&nbsp;Description:&nbsp;РњРѕСЏ&nbsp;РїСЂРѕРіСЂР°РјРјР°в„ў;&nbsp;Types:&nbsp;full&nbsp;custom<br>
-Name:&nbsp;a\a;&nbsp;Description:&nbsp;Р СѓРєРѕРІРѕРґСЃС‚РІРѕ&nbsp;РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ;&nbsp;Types:&nbsp;full<br>
-Name:&nbsp;a\a\a;&nbsp;Description:&nbsp;Р СѓСЃСЃРєРёР№;&nbsp;Flags:&nbsp;exclusive<br>
+Name:&nbsp;a;&nbsp;Description:&nbsp;Моя&nbsp;программа™;&nbsp;Types:&nbsp;full&nbsp;custom<br>
+Name:&nbsp;a\a;&nbsp;Description:&nbsp;Руководство&nbsp;пользователя;&nbsp;Types:&nbsp;full<br>
+Name:&nbsp;a\a\a;&nbsp;Description:&nbsp;Русский;&nbsp;Flags:&nbsp;exclusive<br>
 Name:&nbsp;a\a\b;&nbsp;Description:&nbsp;English;&nbsp;Flags:&nbsp;exclusive<br>
-Name:&nbsp;a\b;&nbsp;Description:&nbsp;РЎРїСЂР°РІРєР°;&nbsp;Types:&nbsp;full<br>
+Name:&nbsp;a\b;&nbsp;Description:&nbsp;Справка;&nbsp;Types:&nbsp;full<br>
 <br>
 [Files]<br>
 Source:&nbsp;compiler:Examples\MyProg.exe;&nbsp;DestDir:&nbsp;{app};&nbsp;Components:&nbsp;a<br>
@@ -64,8 +64,8 @@ begin<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Parent:=&nbsp;WizardForm.SelectComponentsPage;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tag:=&nbsp;i;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;i&nbsp;of<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0:&nbsp;Caption:=&nbsp;'Р’СЃРµ';<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1:&nbsp;Caption:=&nbsp;'РќРёС‡РµРіРѕ';<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0:&nbsp;Caption:=&nbsp;'Все';<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1:&nbsp;Caption:=&nbsp;'Ничего';<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;k:=&nbsp;62;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;end;<br>

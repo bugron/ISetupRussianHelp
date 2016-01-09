@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
 <meta http-equiv="X-UA-Compatible" content="IE=8" />
 <title>Inno Setup Preprocessor: #emit</title>
 <link rel="stylesheet" type="text/css" href="../styles.css" />
@@ -10,7 +10,7 @@
 <body>
 <h1 class="topicheading">Inno Setup Preprocessor: #emit</h1>
 <div class="topicbody">
-  <h2 class="heading notopmargin">РЎРёРЅС‚Р°С‚СЃРёСЃ</h2>
+  <h2 class="heading notopmargin">Синтатсис</h2>
   <table>
     <tbody>
       <tr>
@@ -19,10 +19,10 @@
       </tr>
     </tbody>
   </table>
-  <h2 class="heading">РћРїРёСЃР°РЅРёРµ</h2>
-  <p>Р—Р°РјРµРЅСЏРµС‚ РґРёСЂРµРєС‚РёРІСѓ СЃРѕ Р·РЅР°С‡РµРЅРёРµРј &lt;<tt>expr&gt;</tt>.</p>
-  <p>РџСЂРё РІСЃС‚СЂРѕРµРЅРЅРѕР№ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёРё РЅР°Р·РІР°РЅРёРµ СЌС‚РѕР№ РґРёСЂРµРєС‚РёРІС‹ РјРѕР¶РµС‚ Р±С‹С‚СЊ РѕРїСѓС‰РµРЅ, РµСЃР»Рё&nbsp;<tt>expr</tt> РЅР°С‡РёРЅР°РµС‚СЃСЏ СЃ РёРјРµРЅРµРј РґСЂСѓРіРѕРіРѕ РґРёСЂРµРєС‚РёРІС‹.</p>
-  <h2 class="heading">РџСЂРёРјРµСЂС‹</h2>
+  <h2 class="heading">Описание</h2>
+  <p>Заменяет директиву со значением &lt;<tt>expr&gt;</tt>.</p>
+  <p>При встроенной использовании название этой директивы может быть опущен, если&nbsp;<tt>expr</tt> начинается с именем другого директивы.</p>
+  <h2 class="heading">Примеры</h2>
   <p><tt>[Files]<br />
     #emit 'Filename: &quot;file1.ext&quot;; DestDir: {' + MyDestDir + '}'<br />
     Filename: &quot;file2.ext&quot;; DestDir: {{#MyDestDir}}<br />
@@ -32,7 +32,7 @@
     const<br />
     &nbsp;&nbsp;AppName = '{#<a href="topic_setupsetting.htm">SetupSetting</a>(&quot;AppName&quot;)}';<br />
   </tt></p>
-  <h2 class="heading">РЎРј. С‚Р°РєР¶Рµ:</h2>
+  <h2 class="heading">См. также:</h2>
   <p><tt><a href="topic_expr.htm">expr</a></tt>.</p>
 </div>
 </body>

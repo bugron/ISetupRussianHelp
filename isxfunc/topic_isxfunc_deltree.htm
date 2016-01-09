@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
 <meta http-equiv="X-UA-Compatible" content="IE=8" />
 <title>Pascal Scripting: DelTree</title>
 <link rel="stylesheet" type="text/css" href="../styles.css" />
@@ -10,15 +10,15 @@
 <body>
 <h1 class="topicheading">Pascal Scripting: DelTree</h1>
 <div class="topicbody">
-  <div><b>РџСЂРѕС‚РѕС‚РёРї:</b></div>
+  <div><b>Прототип:</b></div>
   <p><tt>function DelTree(const Path: String; const IsDir, DeleteFiles, DeleteSubdirsAlso: Boolean): Boolean;</tt></p>
-  <div><b>РћРїРёСЃР°РЅРёРµ:</b></div>
-  <p>РЈРґР°Р»СЏРµС‚ СѓРєР°Р·Р°РЅРЅСѓСЋ РїР°РїРєСѓ, РµСЃР»Рё IsDir СЏРІР»СЏРµС‚СЃСЏ True, РёР»Рё С„Р°Р№Р»С‹/РїР°РїРєРё, СЃРѕРѕС‚РІРµС‚СЃС‚РІСѓСЋС‰РёРµ РїРѕРґСЃС‚Р°РЅРѕРІРѕС‡РЅРѕРјСѓ Р·РЅР°РєСѓ, РµСЃР»Рё IsDir СЏРІР»СЏРµС‚СЃСЏ False. РџСЂРё СѓСЃРїРµС€РЅРѕРј РІС‹РїРѕР»РЅРµРЅРёРё РІРѕР·РІСЂР°С‰Р°РµС‚ True.</p>
-  <p>Р•СЃР»Рё DeleteFiles СЏРІР»СЏРµС‚СЃСЏ True, С„Р°Р№Р»С‹ РІ СѓРєР°Р·Р°РЅРЅРѕР№ РїР°РїРєРµ Р±СѓРґСѓС‚ СѓРґР°Р»РµРЅС‹, РµСЃР»Рё IsDir СЏРІР»СЏРµС‚СЃСЏ True, РёР»Рё Р±СѓРґСѓС‚ СѓРґР°Р»РµРЅС‹ С„Р°Р№Р»С‹, СЃРѕРѕС‚РІРµС‚СЃС‚РІСѓСЋС‰РёРµ СѓРєР°Р·Р°РЅРЅРѕРјСѓ РїРѕРґСЃС‚Р°РЅРѕРІРѕС‡РЅРѕРјСѓ Р·РЅР°РєСѓ (РІРєР»СЋС‡Р°СЏ СЃРєСЂС‹С‚С‹Рµ, СЃРёСЃС‚РµРјРЅС‹Рµ Рё С„Р°Р№Р»С‹ С‚РѕР»СЊРєРѕ РґР»СЏ С‡С‚РµРЅРёСЏ), РµСЃР»Рё IsDir СЏРІР»СЏРµС‚СЃСЏ False.</p>
-  <p> DeleteFiles Рё DeleteSubdirsAlso СЏРІР»СЏСЋС‚СЃСЏ True, Р±СѓРґСѓС‚ СѓРґР°Р»РµРЅС‹ С‚Р°РєР¶Рµ РїРѕРґРїР°РїРєРё (СЃ РёС… СЃРѕРґРµСЂР¶РёРјС‹Рј).</p>
-  <div><b>РљРѕРјРјРµРЅС‚Р°СЂРёРё:</b></div>
-  <p>Р­С‚Р° С„СѓРЅРєС†РёСЏ СѓРґР°Р»РёС‚ РїР°РїРєРё, РєРѕС‚РѕСЂС‹Рµ СЏРІР»СЏСЋС‚СЃСЏ С‚РѕС‡РєР°РјРё РїРѕРІС‚РѕСЂРЅРѕР№ РѕР±СЂР°Р±РѕС‚РєРё, РЅРѕ РЅРµ Р±СѓРґРµС‚ СЂРµРєСѓСЂСЃРёРІРЅРѕ СѓРґР°Р»СЏС‚СЊ С„Р°Р№Р»С‹/РїР°РїРєРё РІРЅСѓС‚СЂРё РЅРёС….</p>
-  <div><b>РќР°РїСЂРёРјРµСЂ:</b></div>
+  <div><b>Описание:</b></div>
+  <p>Удаляет указанную папку, если IsDir является True, или файлы/папки, соответствующие подстановочному знаку, если IsDir является False. При успешном выполнении возвращает True.</p>
+  <p>Если DeleteFiles является True, файлы в указанной папке будут удалены, если IsDir является True, или будут удалены файлы, соответствующие указанному подстановочному знаку (включая скрытые, системные и файлы только для чтения), если IsDir является False.</p>
+  <p> DeleteFiles и DeleteSubdirsAlso являются True, будут удалены также подпапки (с их содержимым).</p>
+  <div><b>Комментарии:</b></div>
+  <p>Эта функция удалит папки, которые являются точками повторной обработки, но не будет рекурсивно удалять файлы/папки внутри них.</p>
+  <div><b>Например:</b></div>
   <pre>begin
   // Delete the directory C:\Test and everything inside it
   DelTree('C:\Test', True, True, True);

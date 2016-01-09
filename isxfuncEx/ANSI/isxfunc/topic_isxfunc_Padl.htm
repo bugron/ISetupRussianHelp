@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
 <meta http-equiv="X-UA-Compatible" content="IE=8" />
 <title>Pascal Scripting Extended: Padl</title>
 <link rel="stylesheet" type="text/css" href="../../../styles.css" />
@@ -10,13 +10,13 @@
 <body>
 <h1 class="topicheading">Pascal Scripting Extended: Padl</h1>
 <div class="topicbody">
-  <div><b>РџСЂРѕС‚РѕС‚РёРї:</b></div>
+  <div><b>Прототип:</b></div>
   <p><tt>function Padl(S: String; I: Longint): String;</tt></p>
-  <div><b>РћРїРёСЃР°РЅРёРµ:</b></div>
-  <p>Р’С‹С…РѕРґРёС‚ РёР· С‚РµРєСѓС‰РµРіРѕ РїСѓС‚Рё РёСЃРїРѕР»РЅРµРЅРёСЏ, Р±РµР· СЃРѕРѕР±С‰РµРЅРёСЏ Рѕ РєР°РєРѕР№-Р»РёР±Рѕ РѕС€РёР±РєРµ.</p>
-  <tt>Abort</tt> РІС‹РІРѕРґРёС‚ СЃРїРµС†РёР°Р»СЊРЅРѕРµ &quot;С‚РёС…РёРµ РёСЃРєР»СЋС‡РµРЅРёРµ&quot;, РєРѕС‚РѕСЂР°СЏ СЂР°Р±РѕС‚Р°РµС‚ РєР°Рє Рё Р»СЋР±РѕРµ РґСЂСѓРіРѕРµ РёСЃРєР»СЋС‡РµРЅРёРµ, РЅРѕ РЅРµ РѕС‚РѕР±СЂР°Р¶Р°РµС‚ СЃРѕРѕР±С‰РµРЅРёРµ РѕР± РѕС€РёР±РєРµ РЅР° РєРѕРЅРµС‡РЅРѕРјСѓ РїРѕР»СЊР·РѕРІР°С‚РµР»СЋ.
-  <div><b>РџСЂРёРјРµСЂ:</b></div>
-  <p>Abort РЅРµ Р·Р°РІРµСЂС€Р°РµС‚ СЂР°Р±РѕС‚Сѓ РёРЅСЃС‚Р°Р»Р»СЏС‚РѕСЂР°/РґРµРёРЅСЃС‚Р°Р»Р»СЏС‚РѕСЂР°, РµСЃР»Рё РЅРµ РІС‹Р·С‹РІР°РµС‚СЃСЏ РІ РѕРґРЅРѕР№ РёР· СЌС‚РёС… С„СѓРЅРєС†РёР№ (РёР»Рё РІ РґСЂСѓРіРѕР№ С„СѓРЅРєС†РёРё, РІС‹Р·С‹РІР°РµРјРѕР№ РёРјРё):</p>
+  <div><b>Описание:</b></div>
+  <p>Выходит из текущего пути исполнения, без сообщения о какой-либо ошибке.</p>
+  <tt>Abort</tt> выводит специальное &quot;тихие исключение&quot;, которая работает как и любое другое исключение, но не отображает сообщение об ошибке на конечному пользователю.
+  <div><b>Пример:</b></div>
+  <p>Abort не завершает работу инсталлятора/деинсталлятора, если не вызывается в одной из этих функций (или в другой функции, вызываемой ими):</p>
   <p><tt>InitializeSetup<br />
     InitializeWizard<br />
     CurStepChanged(ssInstall)</tt></p>

@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
 <meta http-equiv="X-UA-Compatible" content="IE=8" />
 <title>Pascal Scripting Extended: FormatDateTime</title>
 <link rel="stylesheet" type="text/css" href="../../../styles.css" />
@@ -10,46 +10,46 @@
 <body>
 <h1 class="topicheading">Pascal Scripting Extended: FormatDateTime</h1>
 <div class="topicbody">
-  <div><b>РџСЂРѕС‚РѕС‚РёРї:</b></div>
+  <div><b>Прототип:</b></div>
   <p><tt>function FormatDateTime(const Format: String; DateTime: TDateTime): String;</tt></p>
-  <div><b>РћРїРёСЃР°РЅРёРµ:</b></div>
-  Р¤СѓРЅРєС†РёСЏ FormatDateTime РѕР±РµСЃРїРµС‡РёРІР°РµС‚, Р±РѕРіР°С‚РѕРµ С„РѕСЂРјР°С‚РёСЂРѕРІР°РЅРёРµ TDateTime DateTime Р·РЅР°С‡РµРЅРёСЏ РІ СЃС‚СЂРѕРєСѓ. Р¤РѕСЂРјР°С‚РёСЂРѕРІР°РЅРёРµ РѕРїСЂРµРґРµР»СЏРµС‚СЃСЏ СЃС‚СЂРѕРєРѕР№ Р¤РѕСЂРјР°С‚РёСЂРѕРІР°РЅРёСЏ. <br />
-  Р¤РѕСЂРјР°С‚РёСЂСѓРµРјР°СЏ СЃС‚СЂРѕРєР° (Formatting) РјРѕР¶РµС‚ РІРєР»СЋС‡Р°С‚СЊ СЃРјРµСЃСЊ РѕР±С‹С‡РЅС‹С… СЃРёРјРІРѕР»РѕРІ (РєРѕС‚РѕСЂС‹Рµ РїРµСЂРµРґР°СЋС‚СЃСЏ РЅРµРёР·РјРµРЅРЅС‹РјРё РІ СЃС‚СЂРѕРєСѓ СЂРµР·СѓР»СЊС‚Р°С‚Р°), Рё СЃРёРјРІРѕР»С‹ С„РѕСЂРјР°С‚РёСЂРѕРІР°РЅРёСЏ РґР°РЅРЅС‹С…. Р¤РѕСЂРјР°С‚РёСЂРѕРІР°РЅРёРµ Р»СѓС‡С€Рµ РІСЃРµРіРѕ РѕР±СЉСЏСЃРЅСЏРµС‚СЃСЏ РєРѕРґРѕРј РїСЂРёРјРµСЂР°. <br />
+  <div><b>Описание:</b></div>
+  Функция FormatDateTime обеспечивает, богатое форматирование TDateTime DateTime значения в строку. Форматирование определяется строкой Форматирования. <br />
+  Форматируемая строка (Formatting) может включать смесь обычных символов (которые передаются неизменными в строку результата), и символы форматирования данных. Форматирование лучше всего объясняется кодом примера. <br />
   <br />
-  &nbsp;РЎР»РµРґСѓСЋС‰РёРµ (РЅРµР°Р·РёР°С‚СЃРєРёРµ) СЃС‚СЂРѕРєРё СЃРёРјРІРѕР»Р° С„РѕСЂРјР°С‚РёСЂРѕРІР°РЅРёСЏ РјРѕРіСѓС‚ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊСЃСЏ РІ С„РѕСЂРјР°С‚РёСЂСѓРµРјРѕР№ СЃС‚СЂРѕРєРµ: <br />
-  &nbsp;y = Р“РѕРґ РёР· 2-С… РїРѕСЃР»РµРґРЅРёС… С†РёС„СЂ<br />
-  &nbsp;yy = Р“РѕРґ РёР· 2-С… РїРѕСЃР»РµРґРЅРёС… С†РёС„СЂ<br />
-  &nbsp;yyyy = Р“РѕРґ РёР· 4-С… С†РёС„СЂ <br />
-  &nbsp;m = РќРѕРјРµСЂ РјРµСЃСЏС†Р° Р±РµР· 0<br />
-  &nbsp;mm = РќРѕРјРµСЂ РјРµСЃСЏС†Р° РєР°Рє 2 С†РёС„СЂС‹<br />
-  &nbsp;mmm = РњРµСЃСЏС† РёСЃРїРѕР»СЊР·СѓСЏ ShortDayNames (РЇРЅРІ)<br />
-  &nbsp;mmmm = РњРµСЃСЏС† РёСЃРїРѕР»СЊР·СѓСЏ LongDayNames (РЇРЅРІР°СЂСЊ)<br />
-  &nbsp;d = Р§РёСЃР»Рѕ Р±РµР· 0<br />
-  &nbsp;dd = Р§РёСЃР»Рѕ РєР°Рє 2 С†РёС„СЂС‹<br />
-  &nbsp;ddd = Р§РёСЃР»Рѕ РёСЃРїРѕР»СЊР·СѓСЏ ShortDayNames (Р’РѕСЃРє)<br />
-  &nbsp;dddd = Р§РёСЃР»Рѕ РёСЃРїРѕР»СЊР·СѓСЏ LongDayNames (Р’РѕСЃРєСЂРµСЃРµРЅСЊРµ)<br />
-  &nbsp;ddddd = Р§РёСЃР»Рѕ РІ ShortDateFormat<br />
-  &nbsp;dddddd = Р§РёСЃР»Рѕ РІ LongDateFormat<br />
+  &nbsp;Следующие (неазиатские) строки символа форматирования могут использоваться в форматируемой строке: <br />
+  &nbsp;y = Год из 2-х последних цифр<br />
+  &nbsp;yy = Год из 2-х последних цифр<br />
+  &nbsp;yyyy = Год из 4-х цифр <br />
+  &nbsp;m = Номер месяца без 0<br />
+  &nbsp;mm = Номер месяца как 2 цифры<br />
+  &nbsp;mmm = Месяц используя ShortDayNames (Янв)<br />
+  &nbsp;mmmm = Месяц используя LongDayNames (Январь)<br />
+  &nbsp;d = Число без 0<br />
+  &nbsp;dd = Число как 2 цифры<br />
+  &nbsp;ddd = Число используя ShortDayNames (Воск)<br />
+  &nbsp;dddd = Число используя LongDayNames (Воскресенье)<br />
+  &nbsp;ddddd = Число в ShortDateFormat<br />
+  &nbsp;dddddd = Число в LongDateFormat<br />
   <br />
-  &nbsp;c = РСЃРїРѕР»СЊР·СѓСЏ ShortDateFormat + LongTimeFormat<br />
-  &nbsp;h = Р§Р°СЃ Р±РµР· 0<br />
-  &nbsp;hh = Р§Р°СЃ РєР°Рє 2 С†РёС„СЂС‹<br />
-  &nbsp;n = РњРёРЅСѓС‚С‹ Р±РµР· 0<br />
-  &nbsp;nn = РњРёРЅСѓС‚С‹ РєР°Рє 2 С†РёС„СЂС‹<br />
-  &nbsp;s = РЎРµРєСѓРЅРґС‹ Р±РµР· 0<br />
-  &nbsp;ss = РЎРµРєСѓРЅРґС‹ РєР°Рє 2 С†РёС„СЂС‹<br />
-  &nbsp;z = РњРёР»Р»РёСЃРµРєСѓРЅРґС‹ Р±РµР· 0<br />
-  &nbsp;zzz = РњРёР»Р»РёСЃРµРєСѓРЅРґС‹ РєР°Рє 2 С†РёС„СЂС‹<br />
-  &nbsp;t = РСЃРїРѕР»СЊР·СѓСЏ ShortTimeFormat<br />
-  &nbsp;tt = РСЃРїРѕР»СЊР·СѓСЏ LongTimeFormat<br />
+  &nbsp;c = Используя ShortDateFormat + LongTimeFormat<br />
+  &nbsp;h = Час без 0<br />
+  &nbsp;hh = Час как 2 цифры<br />
+  &nbsp;n = Минуты без 0<br />
+  &nbsp;nn = Минуты как 2 цифры<br />
+  &nbsp;s = Секунды без 0<br />
+  &nbsp;ss = Секунды как 2 цифры<br />
+  &nbsp;z = Миллисекунды без 0<br />
+  &nbsp;zzz = Миллисекунды как 2 цифры<br />
+  &nbsp;t = Используя ShortTimeFormat<br />
+  &nbsp;tt = Используя LongTimeFormat<br />
   <br />
-  &nbsp;am/pm = РСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РїРѕСЃР»Рµ h : РІС‹РґР°РµС‚ 12 С‡Р°СЃРѕРІ + am/pm<br />
-  &nbsp;a/p = РСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РїРѕСЃР»Рµ h : РІС‹РґР°РµС‚ 12 С‡Р°СЃРѕРІ + a/p<br />
-  &nbsp;ampm = РљР°Рє a/p РЅРѕ TimeAMString,TimePMString<br />
-  &nbsp;/ = Р—Р°РјРµРЅСЏРµС‚СЃСЏ Р·РЅР°С‡РµРЅРёРµРј DateSeparator<br />
-  &nbsp;: = Р—Р°РјРµРЅСЏРµС‚СЃСЏ Р·РЅР°С‡РµРЅРёРµРј TimeSeparator<br />
+  &nbsp;am/pm = Используется после h : выдает 12 часов + am/pm<br />
+  &nbsp;a/p = Используется после h : выдает 12 часов + a/p<br />
+  &nbsp;ampm = Как a/p но TimeAMString,TimePMString<br />
+  &nbsp;/ = Заменяется значением DateSeparator<br />
+  &nbsp;: = Заменяется значением TimeSeparator<br />
   <br />
-  Р’ РґРѕРїРѕР»РЅРµРЅРёРµ Рє СЌС‚РѕРјСѓ С„РѕСЂРјР°С‚РёСЂРѕРІР°РЅРёСЋ, СЂР°Р·Р»РёС‡РЅС‹Рµ РёР· РІС‹С€РµСѓРїРѕРјСЏРЅСѓС‚С‹С… РІР°СЂРёР°РЅС‚РѕРІ Р·Р°С‚СЂР°РіРёРІР°СЋС‚СЃСЏ СЃР»РµРґСѓСЋС‰РёРјРё РїРµСЂРµРјРµРЅРЅС‹РјРё, СЃ РёС… Р·РЅР°С‡РµРЅРёРµРј РїРѕ Р·РЅР°С‡РµРЅРёРµРј РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ: <br />
+  В дополнение к этому форматированию, различные из вышеупомянутых вариантов затрагиваются следующими переменными, с их значением по значением по умолчанию: <br />
   &nbsp;DateSeparator = /<br />
   &nbsp;TimeSeparator = :<br />
   &nbsp;ShortDateFormat = dd/mm/yyyy<br />
@@ -57,47 +57,47 @@
   &nbsp;TimeAMString = AM<br />
   &nbsp;TimePMString = PM<br />
   &nbsp;LongTimeFormat = hh:mm:ss<br />
-  &nbsp;ShortMonthNames = РЇРЅРІ Р¤РµРІ ...<br />
-  &nbsp;LongMonthNames = РЇРЅРІР°СЂСЊ, Р¤РµРІСЂР°Р»СЊ ...<br />
-  &nbsp;ShortDayNames = Р’РѕСЃРє, РџРѕРЅ ...<br />
-  &nbsp;LongDayNames = Р’РѕСЃРєСЂРµСЃРµРЅСЊРµ, РџРѕРЅРµРґРµР»СЊРЅРёРє ...<br />
+  &nbsp;ShortMonthNames = Янв Фев ...<br />
+  &nbsp;LongMonthNames = Январь, Февраль ...<br />
+  &nbsp;ShortDayNames = Воск, Пон ...<br />
+  &nbsp;LongDayNames = Воскресенье, Понедельник ...<br />
   &nbsp;TwoDigitYearCenturyWindow = 50 <br />
   <br />
-  Р’РµСЂСЃРёСЏ 2 СЌС‚РѕР№ С„СѓРЅРєС†РёРё - РґР»СЏ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ РІ РїСЂРµРґРµР»Р°С… РїРѕС‚РѕРєРѕРІ. Р’С‹ РґРѕР»Р¶РЅС‹ Р·Р°РїРѕР»РЅРёС‚СЊ Р·Р°РїРёСЃСЊ FormatSettings РїРµСЂРµРґ РІС‹Р·РѕРІРѕРј Р·Р°РїСЂРѕСЃР°. РћРЅР° Р±РµСЂРµС‚ РјРµСЃС‚РЅСѓСЋ РєРѕРїРёСЋ РіР»РѕР±Р°Р»СЊРЅРѕР№ РїРµСЂРµРјРµРЅРЅРѕР№, С„РѕСЂРјР°С‚РёСЂСѓСЋС‰РµР№ РїРµСЂРµРјРµРЅРЅС‹Рµ, РєРѕС‚РѕСЂС‹Рµ РґРµР»Р°СЋС‚ РїРѕРґРїСЂРѕРіСЂР°РјРјСѓ РїРѕС‚РѕРєРѕ-Р±РµР·РѕРїР°СЃРЅРѕР№.<br />
-  <div><b>РџСЂРёРјРµСЂ:</b></div>
+  Версия 2 этой функции - для использования в пределах потоков. Вы должны заполнить запись FormatSettings перед вызовом запроса. Она берет местную копию глобальной переменной, форматирующей переменные, которые делают подпрограмму потоко-безопасной.<br />
+  <div><b>Пример:</b></div>
   <p><tt>var<br />
     &nbsp;myDate : TDateTime;<br />
     <br />
     begin<br />
-    // РЈСЃС‚Р°РЅРѕРІРєР° РЅР°С€РµР№ РїРµСЂРµРјРµРЅРЅРѕР№ TDateTime РІ РїРѕР»РЅРѕРµ Р·РЅР°С‡РµРЅРёРµ РґР°С‚С‹ Рё РІСЂРµРјРµРЅРё:<br />
-    // 09/02/2000 РІ 01:02:03.004 (.004 РјРёР»Р»РёСЃРµРєСѓРЅРґ)<br />
+    // Установка нашей переменной TDateTime в полное значение даты и времени:<br />
+    // 09/02/2000 в 01:02:03.004 (.004 миллисекунд)<br />
     &nbsp;myDate := EncodeDateTime(2000, 2, 9, 1, 2, 3, 4);<br />
     <br />
-    // РўРѕР»СЊРєРѕ РґР°С‚Р° - С‡РёСЃР»РѕРІС‹Рµ Р·РЅР°С‡РµРЅРёСЏ Р±РµР· РЅР°С‡Р°Р»СЊРЅС‹С… РЅСѓР»РµР№ (РєСЂРѕРјРµ РіРѕРґР°)<br />
+    // Только дата - числовые значения без начальных нулей (кроме года)<br />
     &nbsp;ShowMessage(' d/m/y = '+<br />
     &nbsp;FormatDateTime('d/m/y', myDate));<br />
     <br />
-    // РўРѕР»СЊРєРѕ РґР°С‚Р° - С‡РёСЃР»РѕРІС‹Рµ Р·РЅР°С‡РµРЅРёСЏ СЃ РЅР°С‡Р°Р»СЊРЅС‹РјРё РЅСѓР»СЏРјРё<br />
+    // Только дата - числовые значения с начальными нулями<br />
     &nbsp;ShowMessage(' dd/mm/yy = '+<br />
     &nbsp;FormatDateTime('dd/mm/yy', myDate));<br />
     <br />
-    // РСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ РєРѕСЂРѕС‚РєРёС… РЅР°Р·РІР°РЅРёР№ РґР»СЏ РґРЅСЏ, РјРµСЃСЏС†Р°, Рё РґРѕР±Р°РІР»РµРЅРёРµ С‚РµРєСЃС‚Р° СЃРІРѕР±РѕРґРЅРѕРіРѕ С„РѕСЂРјР°С‚Р° ('of')<br />
+    // Использование коротких названий для дня, месяца, и добавление текста свободного формата ('of')<br />
     &nbsp;ShowMessage(' ddd d of mmm yyyy = '+<br />
     &nbsp;FormatDateTime('ddd d of mmm yyyy', myDate));<br />
     <br />
-    // РСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ РґР»РёРЅРЅС‹С… РЅР°Р·РІР°РЅРёР№ РґР»СЏ РґРЅСЏ Рё РјРµСЃСЏС†Р°<br />
+    // Использование длинных названий для дня и месяца<br />
     &nbsp;ShowMessage('dddd d of mmmm yyyy = '+<br />
     &nbsp;FormatDateTime('dddd d of mmmm yyyy', myDate));<br />
     <br />
-    // РСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ РЅР°СЃС‚СЂРѕРµРє С‚РѕР»СЊРєРѕ ShortDateFormat<br />
+    // Использование настроек только ShortDateFormat<br />
     &nbsp;ShowMessage(' ddddd = '+<br />
     &nbsp;FormatDateTime('ddddd', myDate));<br />
     <br />
-    // РСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ РЅР°СЃС‚СЂРѕРµРє С‚РѕР»СЊРєРѕ LongDateFormat<br />
+    // Использование настроек только LongDateFormat<br />
     &nbsp;ShowMessage(' dddddd = '+<br />
     &nbsp;FormatDateTime('dddddd', myDate));<br />
     <br />
-    // РСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ РЅР°СЃС‚СЂРѕРµРє ShortDateFormat + LongTimeFormat<br />
+    // Использование настроек ShortDateFormat + LongTimeFormat<br />
     &nbsp;ShowMessage(' c = '+<br />
     &nbsp;FormatDateTime('c', myDate));<br />
     end; <br />
@@ -105,10 +105,10 @@
     <br />
     &nbsp;d/m/y = 9/2/00<br />
     &nbsp;dd/mm/yy = 09/02/00<br />
-    &nbsp;ddd d of mmm yyyy = РЎСЂ 9 Р¤РµРІ 2000<br />
-    &nbsp;dddd d of mmmm yyyy = РЎСЂРµРґР° 9 Р¤РµРІСЂР°Р»СЏ 2000<br />
+    &nbsp;ddd d of mmm yyyy = Ср 9 Фев 2000<br />
+    &nbsp;dddd d of mmmm yyyy = Среда 9 Февраля 2000<br />
     &nbsp;ddddd = 09/02/2000<br />
-    &nbsp;dddddd = 09 Р¤РµРІСЂР°Р»СЏ 2000<br />
+    &nbsp;dddddd = 09 Февраля 2000<br />
     &nbsp;c = 09/02/2000 01:02:03</tt></p>
 </div>
 </body>

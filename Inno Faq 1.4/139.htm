@@ -1,9 +1,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>РЈР»СѓС‡С€РµРЅРЅС‹Р№ РґРµРёРЅСЃС‚Р°Р»Р»СЏС‚РѕСЂ 2</title><link rel="stylesheet" type="text/css" href="css.css">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1251"><title>Улучшенный деинсталлятор 2</title><link rel="stylesheet" type="text/css" href="css.css">
 <script language='jscript' type='text/javascript' src='copycode.js'></script>
-<script type="text/javascript" src="includer.js"></script></head><body><div id="heading"><h1>В» Inno Setup Faq. РЈР»СѓС‡С€РµРЅРЅС‹Р№ РґРµРёРЅСЃС‚Р°Р»Р»СЏС‚РѕСЂ 2</h1></div><br>
+<script type="text/javascript" src="includer.js"></script></head><body><div id="heading"><h1>» Inno Setup Faq. Улучшенный деинсталлятор 2</h1></div><br>
 <script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM">
-<input type="button" value="РљРѕРїРёСЂРѕРІР°С‚СЊ РІ Р±СѓС„РµСЂ РѕР±РјРµРЅР°" onClick="copyToClipboard( taCode1, theCode1 );">
+<input type="button" value="Копировать в буфер обмена" onClick="copyToClipboard( taCode1, theCode1 );">
 <blockquote id="theCode1"><font>
 [Setup]<br>
 AppName=My&nbsp;Program<br>
@@ -18,20 +18,20 @@ DirExistsWarning=no<br>
 var&nbsp;StaticText:&nbsp;TNewStaticText;&nbsp;InvertButton:&nbsp;TButton;&nbsp;DelAllReadOnly,&nbsp;SkipAllReadOnly:&nbsp;Boolean;&nbsp;Form,&nbsp;MsgForm:&nbsp;TSetupForm;&nbsp;CheckListBox:&nbsp;TNewCheckListBox;&nbsp;AllButton,&nbsp;UnAllButton,&nbsp;CancelButton,&nbsp;DelButton,&nbsp;MsgAllButton,&nbsp;MsgSkipAllButton,&nbsp;MsgCancelButton,&nbsp;MsgDelButton:&nbsp;TButton;<br>
 const&nbsp;oneMB=&nbsp;1024*1024;&nbsp;bidDelAll&nbsp;=&nbsp;7;&nbsp;bidSkipAll&nbsp;=&nbsp;8;<br>
 <br>
-function&nbsp;ByteOrTB(Bytes:&nbsp;Extended;&nbsp;noMB:&nbsp;Boolean):&nbsp;string;&nbsp;{{РџРµСЂРµРІРѕРґ&nbsp;С‡РёСЃР»Р°&nbsp;РІ&nbsp;Р·РЅР°С‡РµРЅРёРµ&nbsp;Р±С‚/РљР±/РњР±/Р“Р±/РўР±&nbsp;(РґРѕ&nbsp;3С…&nbsp;Р·РЅР°РєРѕРІ&nbsp;РїРѕСЃР»Рµ&nbsp;Р·Р°РїСЏС‚РѕР№)}<br>
+function&nbsp;ByteOrTB(Bytes:&nbsp;Extended;&nbsp;noMB:&nbsp;Boolean):&nbsp;string;&nbsp;{{Перевод&nbsp;числа&nbsp;в&nbsp;значение&nbsp;бт/Кб/Мб/Гб/Тб&nbsp;(до&nbsp;3х&nbsp;знаков&nbsp;после&nbsp;запятой)}<br>
 Begin<br>
 if&nbsp;noMB&nbsp;then&nbsp;begin<br>
-if&nbsp;Bytes&nbsp;&lt;&nbsp;1024&nbsp;then&nbsp;Result:=&nbsp;FloatToStr(Int(Bytes))+&nbsp;'&nbsp;Р‘С‚'<br>
+if&nbsp;Bytes&nbsp;&lt;&nbsp;1024&nbsp;then&nbsp;Result:=&nbsp;FloatToStr(Int(Bytes))+&nbsp;'&nbsp;Бт'<br>
 else<br>
-if&nbsp;Bytes/1024&nbsp;&lt;&nbsp;1024&nbsp;then&nbsp;Result:=&nbsp;FloatToStr(round((Bytes/1024)*10)/10)&nbsp;+&nbsp;'&nbsp;РљР±'<br>
+if&nbsp;Bytes/1024&nbsp;&lt;&nbsp;1024&nbsp;then&nbsp;Result:=&nbsp;FloatToStr(round((Bytes/1024)*10)/10)&nbsp;+&nbsp;'&nbsp;Кб'<br>
 else<br>
-If&nbsp;Bytes/oneMB&nbsp;&lt;&nbsp;1024&nbsp;then&nbsp;Result:=&nbsp;FloatToStr(round(Bytes/oneMB*100)/100)&nbsp;+&nbsp;'&nbsp;РњР±'<br>
+If&nbsp;Bytes/oneMB&nbsp;&lt;&nbsp;1024&nbsp;then&nbsp;Result:=&nbsp;FloatToStr(round(Bytes/oneMB*100)/100)&nbsp;+&nbsp;'&nbsp;Мб'<br>
 else<br>
-If&nbsp;Bytes/oneMB/1000&nbsp;&lt;&nbsp;1024&nbsp;then&nbsp;Result:=&nbsp;FloatToStr(round(Bytes/oneMB/1024*1000)/1000)&nbsp;+&nbsp;'&nbsp;Р“Р±'<br>
+If&nbsp;Bytes/oneMB/1000&nbsp;&lt;&nbsp;1024&nbsp;then&nbsp;Result:=&nbsp;FloatToStr(round(Bytes/oneMB/1024*1000)/1000)&nbsp;+&nbsp;'&nbsp;Гб'<br>
 else<br>
-Result:=&nbsp;FloatToStr(round(Bytes/oneMB/oneMB*1000)/1000)&nbsp;+&nbsp;'&nbsp;РўР±'<br>
+Result:=&nbsp;FloatToStr(round(Bytes/oneMB/oneMB*1000)/1000)&nbsp;+&nbsp;'&nbsp;Тб'<br>
 end&nbsp;else<br>
-Result:=&nbsp;FloatToStr(Int(Bytes/oneMB))+&nbsp;'&nbsp;РњР±';<br>
+Result:=&nbsp;FloatToStr(Int(Bytes/oneMB))+&nbsp;'&nbsp;Мб';<br>
 StringChange(Result,&nbsp;',',&nbsp;'.')<br>
 end;<br>
 <br>
@@ -65,7 +65,7 @@ while&nbsp;FindResult&nbsp;and&nbsp;SubDirsAllow&nbsp;do<br>
 &nbsp;&nbsp;&nbsp;&nbsp;begin<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;((DSR.Attributes&nbsp;and&nbsp;FILE_ATTRIBUTE_DIRECTORY)&nbsp;=&nbsp;FILE_ATTRIBUTE_DIRECTORY)&nbsp;and&nbsp;not&nbsp;((DSR.Name&nbsp;=&nbsp;'.')&nbsp;or&nbsp;(DSR.Name&nbsp;=&nbsp;'..'))&nbsp;then<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;begin<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{dir}&nbsp;n:=&nbsp;CheckListBox.AddCheckBox(DSR.Name,&nbsp;'РџР°РїРєР°',&nbsp;Level,&nbsp;True,&nbsp;True,&nbsp;False,&nbsp;True,&nbsp;TStringList.Create);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{dir}&nbsp;n:=&nbsp;CheckListBox.AddCheckBox(DSR.Name,&nbsp;'Папка',&nbsp;Level,&nbsp;True,&nbsp;True,&nbsp;False,&nbsp;True,&nbsp;TStringList.Create);<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TStrings(CheckListBox.ItemObject[n]).Text:=&nbsp;AddBackslash(fromDir)&nbsp;+&nbsp;DSR.Name;<br>
 {{Recursion}&nbsp;FillListBox(AddBackslash(fromDir)&nbsp;+&nbsp;DSR.Name,&nbsp;fileMask,&nbsp;true,&nbsp;Level&nbsp;+&nbsp;1);<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end;<br>
@@ -206,16 +206,16 @@ begin<br>
 &nbsp;&nbsp;Form:=&nbsp;CreateCustomForm;<br>
 &nbsp;&nbsp;Form.ClientWidth&nbsp;:=&nbsp;ScaleX(500);<br>
 &nbsp;&nbsp;Form.ClientHeight&nbsp;:=&nbsp;ScaleY(400);<br>
-&nbsp;&nbsp;Form.Caption&nbsp;:=&nbsp;'РЈРґР°Р»РµРЅРёРµ&nbsp;РѕСЃС‚Р°РІС€РёС…СЃСЏ&nbsp;С„Р°Р№Р»РѕРІ';<br>
+&nbsp;&nbsp;Form.Caption&nbsp;:=&nbsp;'Удаление&nbsp;оставшихся&nbsp;файлов';<br>
 &nbsp;&nbsp;Form.Center;<br>
 <br>
 &nbsp;&nbsp;StaticText&nbsp;:=&nbsp;TNewStaticText.Create(Form);<br>
 &nbsp;&nbsp;StaticText.Left:=&nbsp;ScaleX(7);<br>
 &nbsp;&nbsp;StaticText.Top&nbsp;:=&nbsp;ScaleY(8);<br>
-&nbsp;&nbsp;StaticText.Caption&nbsp;:=&nbsp;'РќРµРєРѕС‚РѕСЂС‹Рµ&nbsp;СЌР»РµРјРµРЅС‚С‹&nbsp;РЅРµ&nbsp;РјРѕРіР»Рё&nbsp;Р±С‹С‚СЊ&nbsp;СѓРґР°Р»РµРЅС‹.&nbsp;'&nbsp;+<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'РћРЅРё&nbsp;РјРѕРіСѓС‚&nbsp;Р±С‹С‚СЊ&nbsp;СѓРґР°Р»РµРЅС‹&nbsp;РІСЂСѓС‡РЅСѓСЋ.'&nbsp;+&nbsp;#13#10&nbsp;+<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'Р’С‹Р±РµСЂРёС‚Рµ&nbsp;РЅРµРѕР±С…РѕРґРёРјС‹Рµ&nbsp;С„Р°Р№Р»С‹&nbsp;РґР»СЏ&nbsp;СѓРґР°Р»РµРЅРёСЏ&nbsp;'&nbsp;+<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'РёР»Рё&nbsp;РЅР°Р¶РјРёС‚Рµ&nbsp;РєРЅРѕРїРєСѓ&nbsp;РћС‚РјРµРЅРёС‚СЊ.';<br>
+&nbsp;&nbsp;StaticText.Caption&nbsp;:=&nbsp;'Некоторые&nbsp;элементы&nbsp;не&nbsp;могли&nbsp;быть&nbsp;удалены.&nbsp;'&nbsp;+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'Они&nbsp;могут&nbsp;быть&nbsp;удалены&nbsp;вручную.'&nbsp;+&nbsp;#13#10&nbsp;+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'Выберите&nbsp;необходимые&nbsp;файлы&nbsp;для&nbsp;удаления&nbsp;'&nbsp;+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'или&nbsp;нажмите&nbsp;кнопку&nbsp;Отменить.';<br>
 &nbsp;&nbsp;StaticText.Font.Color:=&nbsp;clBlue;<br>
 &nbsp;&nbsp;StaticText.Font.Style:=&nbsp;[fsBold];<br>
 &nbsp;&nbsp;StaticText.AutoSize:=&nbsp;True;<br>
@@ -238,7 +238,7 @@ begin<br>
 &nbsp;&nbsp;AllButton.Height&nbsp;:=&nbsp;ScaleY(23);<br>
 &nbsp;&nbsp;AllButton.Left&nbsp;:=&nbsp;ScaleX(20);<br>
 &nbsp;&nbsp;AllButton.Top&nbsp;:=&nbsp;Form.ClientHeight&nbsp;-&nbsp;ScaleY(23&nbsp;+&nbsp;10);<br>
-&nbsp;&nbsp;AllButton.Caption&nbsp;:=&nbsp;'Р’С‹Р±СЂР°С‚СЊ&nbsp;РІСЃРµ';<br>
+&nbsp;&nbsp;AllButton.Caption&nbsp;:=&nbsp;'Выбрать&nbsp;все';<br>
 &nbsp;&nbsp;AllButton.Tag:=&nbsp;1;<br>
 &nbsp;&nbsp;AllButton.OnClick&nbsp;:=&nbsp;@ButtonOnClick;<br>
 <br>
@@ -248,7 +248,7 @@ begin<br>
 &nbsp;&nbsp;UnAllButton.Height&nbsp;:=&nbsp;ScaleY(23);<br>
 &nbsp;&nbsp;UnAllButton.Left&nbsp;:=&nbsp;AllButton.Left&nbsp;+&nbsp;AllButton.Width&nbsp;+&nbsp;ScaleX(10);<br>
 &nbsp;&nbsp;UnAllButton.Top&nbsp;:=&nbsp;Form.ClientHeight&nbsp;-&nbsp;ScaleY(23&nbsp;+&nbsp;10);<br>
-&nbsp;&nbsp;UnAllButton.Caption&nbsp;:=&nbsp;'РћС‚РјРµРЅРёС‚&nbsp;РІСЃРµ';<br>
+&nbsp;&nbsp;UnAllButton.Caption&nbsp;:=&nbsp;'Отменит&nbsp;все';<br>
 ///UnAllButton.Tag:=&nbsp;1;<br>
 &nbsp;&nbsp;UnAllButton.OnClick&nbsp;:=&nbsp;@ButtonOnClick;<br>
 <br>
@@ -258,7 +258,7 @@ begin<br>
 &nbsp;&nbsp;InvertButton.Height&nbsp;:=&nbsp;ScaleY(23);<br>
 &nbsp;&nbsp;InvertButton.Left&nbsp;:=&nbsp;UnAllButton.Left&nbsp;+&nbsp;UnAllButton.Width&nbsp;+&nbsp;ScaleX(10);<br>
 &nbsp;&nbsp;InvertButton.Top&nbsp;:=&nbsp;Form.ClientHeight&nbsp;-&nbsp;ScaleY(23&nbsp;+&nbsp;10);<br>
-&nbsp;&nbsp;InvertButton.Caption&nbsp;:=&nbsp;'РРЅРІРµСЂС‚РёСЂРѕРІР°С‚СЊ';<br>
+&nbsp;&nbsp;InvertButton.Caption&nbsp;:=&nbsp;'Инвертировать';<br>
 &nbsp;&nbsp;InvertButton.OnClick&nbsp;:=&nbsp;@InvertOnClick;<br>
 <br>
 &nbsp;&nbsp;CancelButton&nbsp;:=&nbsp;TButton.Create(Form);<br>
@@ -267,7 +267,7 @@ begin<br>
 &nbsp;&nbsp;CancelButton.Height&nbsp;:=&nbsp;ScaleY(23);<br>
 &nbsp;&nbsp;CancelButton.Left&nbsp;:=&nbsp;Form.ClientWidth&nbsp;-&nbsp;CancelButton.Width&nbsp;-&nbsp;ScaleX(20);<br>
 &nbsp;&nbsp;CancelButton.Top&nbsp;:=&nbsp;Form.ClientHeight&nbsp;-&nbsp;ScaleY(23&nbsp;+&nbsp;10);<br>
-&nbsp;&nbsp;CancelButton.Caption&nbsp;:=&nbsp;'РћС‚РјРµРЅР°';<br>
+&nbsp;&nbsp;CancelButton.Caption&nbsp;:=&nbsp;'Отмена';<br>
 &nbsp;&nbsp;CancelButton.ModalResult&nbsp;:=&nbsp;mrCancel;<br>
 &nbsp;&nbsp;CancelButton.Cancel&nbsp;:=&nbsp;True;<br>
 <br>
@@ -277,14 +277,14 @@ begin<br>
 &nbsp;&nbsp;DelButton.Height&nbsp;:=&nbsp;ScaleY(23);<br>
 &nbsp;&nbsp;DelButton.Left&nbsp;:=&nbsp;CancelButton.Left&nbsp;-&nbsp;DelButton.Width&nbsp;-&nbsp;ScaleX(10);<br>
 &nbsp;&nbsp;DelButton.Top&nbsp;:=&nbsp;Form.ClientHeight&nbsp;-&nbsp;ScaleY(23&nbsp;+&nbsp;10);<br>
-&nbsp;&nbsp;DelButton.Caption&nbsp;:=&nbsp;'РЈРґР°Р»РёС‚СЊ';<br>
+&nbsp;&nbsp;DelButton.Caption&nbsp;:=&nbsp;'Удалить';<br>
 &nbsp;&nbsp;DelButton.ModalResult&nbsp;:=&nbsp;mrOk;<br>
 <br>
 &nbsp;&nbsp;Form.ActiveControl:=&nbsp;CancelButton;<br>
 <br>
 &nbsp;&nbsp;FillListBox(ExpandConstant('{app}'),&nbsp;'*',&nbsp;true,&nbsp;1);<br>
 <br>
-///{СЃРїРёСЃРѕРє}&nbsp;for&nbsp;i:=&nbsp;CheckListBox.Items.Count&nbsp;-&nbsp;1&nbsp;downto&nbsp;1&nbsp;do&nbsp;SaveStringToFile(ExpandConstant('{sd}\RemainedFiles.txt'),&nbsp;CheckListBox.Items[i]&nbsp;+&nbsp;#9&nbsp;+&nbsp;CheckListBox.ItemSubItem[i]&nbsp;+&nbsp;#13#10,&nbsp;True);<br>
+///{список}&nbsp;for&nbsp;i:=&nbsp;CheckListBox.Items.Count&nbsp;-&nbsp;1&nbsp;downto&nbsp;1&nbsp;do&nbsp;SaveStringToFile(ExpandConstant('{sd}\RemainedFiles.txt'),&nbsp;CheckListBox.Items[i]&nbsp;+&nbsp;#9&nbsp;+&nbsp;CheckListBox.ItemSubItem[i]&nbsp;+&nbsp;#13#10,&nbsp;True);<br>
 <br>
 &nbsp;&nbsp;if&nbsp;Form.ShowModal()&nbsp;=&nbsp;mrOk&nbsp;then&nbsp;&nbsp;DeleteFiles();<br>
 end;<br>

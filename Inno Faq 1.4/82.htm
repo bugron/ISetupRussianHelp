@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>РљР°Рє СЃРґРµР»Р°С‚СЊ СЃРѕР±СЃС‚РІРµРЅРЅСѓСЋ С„РѕСЂРјСѓ СЃРѕРѕР±С‰РµРЅРёСЏ РїСЂРё РЅР°Р¶Р°С‚РёРё РЅР° РєРЅРѕРїРєСѓ "РћС‚РјРµРЅР°"?</title><link rel="stylesheet" type="text/css" href="css.css"><script type="text/javascript" src="includer.js"></script><script language='jscript' type='text/javascript' src='copycode.js'></script></head><body><div id="heading"><h1>В» Inno Setup Faq. РљР°Рє СЃРґРµР»Р°С‚СЊ СЃРѕР±СЃС‚РІРµРЅРЅСѓСЋ С„РѕСЂРјСѓ СЃРѕРѕР±С‰РµРЅРёСЏ РїСЂРё РЅР°Р¶Р°С‚РёРё РЅР° РєРЅРѕРїРєСѓ "РћС‚РјРµРЅР°"? (РўСЂРµР±СѓРµС‚СЃСЏ Botva2.dll)</h1></div><br><script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM"> <input type="button" value="РљРѕРїРёСЂРѕРІР°С‚СЊ РІ Р±СѓС„РµСЂ РѕР±РјРµРЅР°" onClick="copyToClipboard( taCode1, theCode1 );"> <blockquote id="theCode1"><font>#include AddBackSlash(SourcePath) + "botva2.iss"<br>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1251"><title>Как сделать собственную форму сообщения при нажатии на кнопку "Отмена"?</title><link rel="stylesheet" type="text/css" href="css.css"><script type="text/javascript" src="includer.js"></script><script language='jscript' type='text/javascript' src='copycode.js'></script></head><body><div id="heading"><h1>» Inno Setup Faq. Как сделать собственную форму сообщения при нажатии на кнопку "Отмена"? (Требуется Botva2.dll)</h1></div><br><script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM"> <input type="button" value="Копировать в буфер обмена" onClick="copyToClipboard( taCode1, theCode1 );"> <blockquote id="theCode1"><font>#include AddBackSlash(SourcePath) + "botva2.iss"<br>
 <br>
 [Setup]<br>
 AppName=My Program<br>
@@ -92,7 +92,7 @@ begin <br>
            MyExit.Height - 50 - ScaleY(25), 160, 50,<br>
                 ExpandConstant('{tmp}\button2.png'), 18, True);<br>
   BtnSetEvent(NoBtn, BtnClickEventID, WrapBtnCallback(@ButtonOnClick, 1));<br>
-  BtnSetText(NoBtn, 'РќРµС‚');<br>
+  BtnSetText(NoBtn, 'Нет');<br>
   BtnSetFontColor(NoBtn, clWhite, clWhite, clWhite, clWhite);<br>
   BtnSetFont(NoBtn, Font.Handle);<br>
 <br>
@@ -100,7 +100,7 @@ begin <br>
            MyExit.Height - 50 - ScaleY(25), 160, 50,<br>
             ExpandConstant('{tmp}\button2.png'), 18, True);<br>
   BtnSetEvent(YesBtn, BtnClickEventID, WrapBtnCallback(@ButtonOnClick, 1));<br>
-  BtnSetText(YesBtn, 'Р”Р°');<br>
+  BtnSetText(YesBtn, 'Да');<br>
   BtnSetFontColor(YesBtn, clWhite, clWhite, clWhite, clWhite);<br>
   BtnSetFont(YesBtn, Font.Handle);<br>
 <br>

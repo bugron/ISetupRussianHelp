@@ -1,9 +1,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>РљР°Рє СѓР·РЅР°С‚СЊ РЅР°Р¶Р°С‚Р° Р»Рё РєР»Р°РІРёС€Р°</title><link rel="stylesheet" type="text/css" href="css.css">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1251"><title>Как узнать нажата ли клавиша</title><link rel="stylesheet" type="text/css" href="css.css">
 <script language='jscript' type='text/javascript' src='copycode.js'></script>
-<script type="text/javascript" src="includer.js"></script></head><body><div id="heading"><h1>В» Inno Setup Faq. РљР°Рє СѓР·РЅР°С‚СЊ РЅР°Р¶Р°С‚Р° Р»Рё РєР»Р°РІРёС€Р°</h1></div><br>
+<script type="text/javascript" src="includer.js"></script></head><body><div id="heading"><h1>» Inno Setup Faq. Как узнать нажата ли клавиша</h1></div><br>
 <script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM">
-<input type="button" value="РљРѕРїРёСЂРѕРІР°С‚СЊ РІ Р±СѓС„РµСЂ РѕР±РјРµРЅР°" onClick="copyToClipboard( taCode1, theCode1 );">
+<input type="button" value="Копировать в буфер обмена" onClick="copyToClipboard( taCode1, theCode1 );">
 <blockquote id="theCode1"><font>
 [Setup]<br>
 AppName=AppName<br>
@@ -20,9 +20,9 @@ begin<br>
 Result:=&nbsp;True;<br>
 <br>
 if&nbsp;GetKeyState(VK_SHIFT)&nbsp;&lt;&nbsp;0&nbsp;then<br>
-MsgBox('РљРЅРѕРїРєР°&nbsp;Shift&nbsp;РЅР°Р¶Р°С‚Р°',&nbsp;mbInformation,&nbsp;MB_OK)<br>
+MsgBox('Кнопка&nbsp;Shift&nbsp;нажата',&nbsp;mbInformation,&nbsp;MB_OK)<br>
 else<br>
-MsgBox('РљРЅРѕРїРєР°&nbsp;Shift&nbsp;РЅРµ&nbsp;РЅР°Р¶Р°С‚Р°',&nbsp;mbInformation,&nbsp;MB_OK);<br>
+MsgBox('Кнопка&nbsp;Shift&nbsp;не&nbsp;нажата',&nbsp;mbInformation,&nbsp;MB_OK);<br>
 end;<br>
 </font></blockquote><textarea id="taCode1" style="display:none;" rows="1" cols="5"></textarea><textarea id='taCode' style='display:none;' rows='1' cols='20'></textarea></code><script language="javascript" type="text/javascript">highlightSyntax('delphi_Tc4NTM','delphi');</script>
 <blockquote>
@@ -81,7 +81,7 @@ X2 mouse button</font></td>
 </tr>
 <tr valign="top">
 <td width="100"><font face="Arial, Helvetica, sans-serif" size="2">
-вЂ” </font></td>
+— </font></td>
 <td align="center" width="50"><font
 face="Arial, Helvetica, sans-serif" size="2">7</font></td>
 <td><font face="Arial, Helvetica, sans-serif" size="2">Undefined </font></td>
@@ -101,9 +101,9 @@ face="Arial, Helvetica, sans-serif" size="2">9</font></td>
 </tr>
 <tr valign="top">
 <td width="100"><font face="Arial, Helvetica, sans-serif" size="2">
-вЂ” </font></td>
+— </font></td>
 <td align="center" width="50"><font
-face="Arial, Helvetica, sans-serif" size="2">10вЂ“11</font></td>
+face="Arial, Helvetica, sans-serif" size="2">10–11</font></td>
 <td><font face="Arial, Helvetica, sans-serif" size="2">Reserved </font></td>
 </tr>
 <tr valign="top">
@@ -120,9 +120,9 @@ face="Arial, Helvetica, sans-serif" size="2">13</font></td>
 </tr>
 <tr valign="top">
 <td width="100"><font face="Arial, Helvetica, sans-serif" size="2">
-вЂ” </font></td>
+— </font></td>
 <td align="center" width="50"><font
-face="Arial, Helvetica, sans-serif" size="2">14вЂ“15</font></td>
+face="Arial, Helvetica, sans-serif" size="2">14–15</font></td>
 <td><font face="Arial, Helvetica, sans-serif" size="2">Undefined </font></td>
 </tr>
 <tr valign="top">
@@ -179,7 +179,7 @@ mode</font></td>
 </tr>
 <tr valign="top">
 <td width="100"><font face="Arial, Helvetica, sans-serif" size="2">
-вЂ” </font></td>
+— </font></td>
 <td align="center" width="50"><font
 face="Arial, Helvetica, sans-serif" size="2">22</font></td>
 <td><font face="Arial, Helvetica, sans-serif" size="2">Undefined </font></td>
@@ -214,7 +214,7 @@ mode</font></td>
 </tr>
 <tr valign="top">
 <td width="100"><font face="Arial, Helvetica, sans-serif" size="2">
-вЂ” </font></td>
+— </font></td>
 <td align="center" width="50"><font
 face="Arial, Helvetica, sans-serif" size="2">26</font></td>
 <td><font face="Arial, Helvetica, sans-serif" size="2">Undefined </font></td>
@@ -418,9 +418,9 @@ face="Arial, Helvetica, sans-serif" size="2">57</font></td>
 </tr>
 <tr valign="top">
 <td width="100"><font face="Arial, Helvetica, sans-serif" size="2">
-вЂ” </font></td>
+— </font></td>
 <td align="center" width="50"><font
-face="Arial, Helvetica, sans-serif" size="2">58вЂ“64</font></td>
+face="Arial, Helvetica, sans-serif" size="2">58–64</font></td>
 <td><font face="Arial, Helvetica, sans-serif" size="2">Undefined </font></td>
 </tr>
 <tr valign="top">
@@ -584,7 +584,7 @@ face="Arial, Helvetica, sans-serif" size="2">90</font></td>
 <td align="center" width="50"><font
 face="Arial, Helvetica, sans-serif" size="2">91</font></td>
 <td><font face="Arial, Helvetica, sans-serif" size="2">Left
-Windows key (MicrosoftВ® NaturalВ® keyboard) </font></td>
+Windows key (Microsoft® Natural® keyboard) </font></td>
 </tr>
 <tr valign="top">
 <td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_RWIN</font></td>
@@ -602,7 +602,7 @@ key (Natural keyboard) </font></td>
 </tr>
 <tr valign="top">
 <td width="100"><font face="Arial, Helvetica, sans-serif" size="2">
-вЂ” </font></td>
+— </font></td>
 <td align="center" width="50"><font
 face="Arial, Helvetica, sans-serif" size="2">94</font></td>
 <td><font face="Arial, Helvetica, sans-serif" size="2">Reserved </font></td>
@@ -871,9 +871,9 @@ face="Arial, Helvetica, sans-serif" size="2">135H</font></td>
 </tr>
 <tr valign="top">
 <td width="100"><font face="Arial, Helvetica, sans-serif" size="2">
-вЂ” </font></td>
+— </font></td>
 <td align="center" width="50"><font
-face="Arial, Helvetica, sans-serif" size="2">136вЂ“143</font></td>
+face="Arial, Helvetica, sans-serif" size="2">136–143</font></td>
 <td><font face="Arial, Helvetica, sans-serif" size="2">Unassigned
 </font></td>
 </tr>
@@ -894,15 +894,15 @@ LOCK key </font></td>
 <tr valign="top">
 <td width="100">&nbsp; </td>
 <td align="center" width="50"><font
-face="Arial, Helvetica, sans-serif" size="2">146вЂ“150</font></td>
+face="Arial, Helvetica, sans-serif" size="2">146–150</font></td>
 <td><font face="Arial, Helvetica, sans-serif" size="2">OEM
 specific</font></td>
 </tr>
 <tr valign="top">
 <td width="100"><font face="Arial, Helvetica, sans-serif" size="2">
-вЂ” </font></td>
+— </font></td>
 <td align="center" width="50"><font
-face="Arial, Helvetica, sans-serif" size="2">151вЂ“159</font></td>
+face="Arial, Helvetica, sans-serif" size="2">151–159</font></td>
 <td><font face="Arial, Helvetica, sans-serif" size="2">Unassigned
 </font></td>
 </tr>
@@ -1076,7 +1076,7 @@ Start Application 2 key</font></td>
 </tr>
 <tr valign="top">
 <td width="100"><font face="Arial, Helvetica, sans-serif" size="2">
-вЂ” </font></td>
+— </font></td>
 <td align="center" width="50"><font
 face="Arial, Helvetica, sans-serif" size="2">184-185</font></td>
 <td><font face="Arial, Helvetica, sans-serif" size="2">Reserved</font></td>
@@ -1132,16 +1132,16 @@ For the US standard keyboard, the '`~' key</font></td>
 </tr>
 <tr valign="top">
 <td width="100"><font face="Arial, Helvetica, sans-serif" size="2">
-вЂ” </font></td>
+— </font></td>
 <td align="center" width="50"><font
-face="Arial, Helvetica, sans-serif" size="2">193вЂ“215</font></td>
+face="Arial, Helvetica, sans-serif" size="2">193–215</font></td>
 <td><font face="Arial, Helvetica, sans-serif" size="2">Reserved </font></td>
 </tr>
 <tr valign="top">
 <td width="100"><font face="Arial, Helvetica, sans-serif" size="2">
-вЂ” </font></td>
+— </font></td>
 <td align="center" width="50"><font
-face="Arial, Helvetica, sans-serif" size="2">216вЂ“218</font></td>
+face="Arial, Helvetica, sans-serif" size="2">216–218</font></td>
 <td><font face="Arial, Helvetica, sans-serif" size="2">Unassigned</font></td>
 </tr>
 <tr valign="top">
@@ -1181,7 +1181,7 @@ face="Arial, Helvetica, sans-serif" size="2">223</font></td>
 </tr>
 <tr valign="top">
 <td width="100"><font face="Arial, Helvetica, sans-serif" size="2">
-вЂ” </font></td>
+— </font></td>
 <td align="center" width="50"><font
 face="Arial, Helvetica, sans-serif" size="2">224</font></td>
 <td><font face="Arial, Helvetica, sans-serif" size="2">Reserved</font></td>
@@ -1204,7 +1204,7 @@ keyboard</font></td>
 <tr valign="top">
 <td width="100">&nbsp; </td>
 <td align="center" width="50"><font
-face="Arial, Helvetica, sans-serif" size="2">227вЂ“228</font></td>
+face="Arial, Helvetica, sans-serif" size="2">227–228</font></td>
 <td><font face="Arial, Helvetica, sans-serif" size="2">OEM
 specific</font></td>
 </tr>
@@ -1234,7 +1234,7 @@ non-keyboard input methods. For more information, see Remark in <b>KEYBDINPUT</b
 </tr>
 <tr valign="top">
 <td width="100"><font face="Arial, Helvetica, sans-serif" size="2">
-вЂ” </font></td>
+— </font></td>
 <td align="center" width="50"><font
 face="Arial, Helvetica, sans-serif" size="2">232</font></td>
 <td><font face="Arial, Helvetica, sans-serif" size="2">Unassigned
@@ -1243,7 +1243,7 @@ face="Arial, Helvetica, sans-serif" size="2">232</font></td>
 <tr valign="top">
 <td width="100">&nbsp; </td>
 <td align="center" width="50"><font
-face="Arial, Helvetica, sans-serif" size="2">233вЂ“245</font></td>
+face="Arial, Helvetica, sans-serif" size="2">233–245</font></td>
 <td><font face="Arial, Helvetica, sans-serif" size="2">OEM
 specific</font></td>
 </tr>

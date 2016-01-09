@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
 <meta http-equiv="X-UA-Compatible" content="IE=8" />
 <title>Pascal Scripting Extended: EncodeDate</title>
 <link rel="stylesheet" type="text/css" href="../../../styles.css" />
@@ -10,34 +10,34 @@
 <body>
 <h1 class="topicheading">Pascal Scripting Extended: EncodeDate</h1>
 <div class="topicbody">
-  <div><b>РџСЂРѕС‚РѕС‚РёРї:</b></div>
+  <div><b>Прототип:</b></div>
   <p><tt>function EncodeDate(Year, Month, Day: Word): TDateTime;</tt></p>
-  <div><b>РћРїРёСЃР°РЅРёРµ:</b></div>
-  Р¤СѓРЅРєС†РёСЏ EncodeDate РіРµРЅРµСЂРёСЂСѓРµС‚ TDateTime, РІРѕР·РІСЂР°С‰Р°СЏ Р·РЅР°С‡РµРЅРёРµ РёР· РїРµСЂРµРґР°РЅРЅС‹С… Р·РЅР°С‡РµРЅРёР№ Р“РѕРґР° (Year), РњРµСЃСЏС†Р° (Month) Рё Р”РЅСЏ (Day).<br />
-  Р Р°Р·СЂРµС€РµРЅРЅС‹Рµ Р·РЅР°С‡РµРЅРёСЏ РїР°СЂР°РјРµС‚СЂР°:<br />
+  <div><b>Описание:</b></div>
+  Функция EncodeDate генерирует TDateTime, возвращая значение из переданных значений Года (Year), Месяца (Month) и Дня (Day).<br />
+  Разрешенные значения параметра:<br />
   <br />
   Year = 0..9999 <br />
   Month = 1..12<br />
-  Day = 1..31 (РІ Р·Р°РІРёСЃРёРјРѕСЃС‚Рё РѕС‚ РјРµСЃСЏС†Р°/РіРѕРґР°)<br />
+  Day = 1..31 (в зависимости от месяца/года)<br />
   <br />
-  Р•СЃР»Рё Р’С‹ РїСЂРµРІС‹СЃРёС‚Рµ СЌС‚Рё Р·РЅР°С‡РµРЅРёСЏ, С‚Рѕ РїРѕРґРЅРёРјРµС‚СЏ EConvertError.<br />
-  <div><b>РџСЂРёРјРµСЂ:</b></div>
+  Если Вы превысите эти значения, то подниметя EConvertError.<br />
+  <div><b>Пример:</b></div>
   <p><tt>var<br />
     &nbsp;myDate : TDateTime;<br />
     <br />
     begin<br />
-    // РЈСЃС‚Р°РЅР°РІР»РёРІР°РµРј РјРѕСЋ РїРµСЂРµРјРµРЅРЅСѓСЋ РґР°С‚С‹ РёСЃРїРѕР»СЊР·СѓСЏ С„СѓРЅРєС†РёСЋ EncodeDate<br />
+    // Устанавливаем мою переменную даты используя функцию EncodeDate<br />
     &nbsp;myDate := EncodeDate(2000, 02, 29);<br />
     <br />
-    &nbsp;LongTimeFormat := 'hh:mm:ss.zzz'; // Р“Р°СЂР°РЅС‚РёСЂСѓРµРј, С‡С‚Рѕ РњРёР»Р»РёСЃРµРєСѓРЅРґС‹ Р±СѓРґСѓС‚ РїРѕРєР°Р·Р°РЅС‹<br />
+    &nbsp;LongTimeFormat := 'hh:mm:ss.zzz'; // Гарантируем, что Миллисекунды будут показаны<br />
     <br />
-    &nbsp;ShowMessage('Р”Р°С‚Р° СѓСЃС‚Р°РЅРѕРІР»РµРЅР° РІ '+DateToStr(myDate));<br />
-    &nbsp;ShowMessage('Р’СЂРµРјСЏ СѓСЃС‚Р°РЅРѕРІР»РµРЅРѕ РІ '+TimeToStr(myDate));<br />
+    &nbsp;ShowMessage('Дата установлена в '+DateToStr(myDate));<br />
+    &nbsp;ShowMessage('Время установлено в '+TimeToStr(myDate));<br />
     end; <br />
     <br />
     <br />
-    &nbsp;Р”Р°С‚Р° СѓСЃС‚Р°РЅРѕРІР»РµРЅР° РІ 29/02/2007<br />
-    &nbsp;Р’СЂРµРјСЏ СѓСЃС‚Р°РЅРѕРІР»РµРЅРѕ РІ 00:00:00.000</tt></p>
+    &nbsp;Дата установлена в 29/02/2007<br />
+    &nbsp;Время установлено в 00:00:00.000</tt></p>
 </div>
 </body>
 </html>

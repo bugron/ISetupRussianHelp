@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
 <meta http-equiv="X-UA-Compatible" content="IE=8" />
 <title>Inno Setup Preprocessor: #dim, #redim</title>
 <link rel="stylesheet" type="text/css" href="../styles.css" />
@@ -10,7 +10,7 @@
 <body>
 <h1 class="topicheading">Inno Setup Preprocessor: #dim, #redim</h1>
 <div class="topicbody">
-  <h2 class="heading notopmargin">РЎРёРЅС‚Р°С‚СЃРёСЃ</h2>
+  <h2 class="heading notopmargin">Синтатсис</h2>
   <table>
     <tbody>
       <tr>
@@ -27,24 +27,24 @@
       </tr>
     </tbody>
   </table>
-  <h2 class="heading">РћРїРёСЃР°РЅРёРµ</h2>
-  <p>РСЃРїРѕР»СЊР·СѓР№С‚Рµ <tt>dim</tt>, С‡С‚РѕР±С‹ РѕР±СЉСЏРІРёС‚СЊ РїРµСЂРµРјРµРЅРЅСѓСЋ РјР°СЃСЃРёРІР° Рё СѓСЃС‚Р°РЅР°РІР»РёРІР°С‚СЊ РµРµ СЂР°Р·РјРµСЂ. Р’СЃРµ
-    СЌР»РµРјРµРЅС‚С‹ РјР°СЃСЃРёРІР° РёРЅРёС†РёР°Р»РёР·РёСЂСѓСЋС‚СЃСЏ РєР°Рє null (void). Р§С‚РѕР±С‹ РїСЂРёСЃРІРѕРёС‚СЊ
-    Р·РЅР°С‡РµРЅРёРµ СЌР»РµРјРµРЅС‚Р° РїРѕСЃР»Рµ РѕР±СЉСЏРІР»РµРЅРёСЏ РјР°СЃСЃРёРІР°, РёСЃРїРѕР»СЊР·СѓР№С‚Рµ&nbsp;<tt><a href="topic_define.htm">define</a></tt>. Р’РјРµСЃС‚Рѕ РЅР°Р·РЅР°С‡РµРЅРёСЏ Р·РЅР°С‡РµРЅРёР№
-    СЌР»РµРјРµРЅС‚РѕРІ СЃ РїРѕРјРѕС‰СЊСЋ <tt><a href="topic_define.htm">define</a></tt>,
-    РјРѕР¶РЅРѕ С‚Р°РєР¶Рµ СѓСЃС‚Р°РЅРѕРІРёС‚СЊ Р·РЅР°С‡РµРЅРёРµ СЌР»РµРјРµРЅС‚Р°, РёСЃРїРѕР»СЊР·СѓСЏ РµРіРѕ РІ РєР°С‡РµСЃС‚РІРµ
-    Р»РµРІРѕРіРѕ РѕРїРµСЂР°РЅРґР° РѕРїРµСЂР°С†РёРё РїСЂРёСЃРІР°РёРІР°РЅРёСЏ.</p>
-  <p>РСЃРїРѕР»СЊР·СѓР№С‚Рµ <tt>redim</tt>, С‡С‚РѕР±С‹ СѓРІРµР»РёС‡РёС‚СЊ РёР»Рё СѓРјРµРЅСЊС€РёС‚СЊ СЂР°Р·РјРµСЂ СЃСѓС‰РµСЃС‚РІСѓСЋС‰РµР№ РїРµСЂРµРјРµРЅРЅРѕР№ РјР°СЃСЃРёРІР°. Р’СЃРµ
-    РЅРѕРІС‹Рµ СЌР»РµРјРµРЅС‚С‹ РјР°СЃСЃРёРІР° РёРЅРёС†РёР°Р»РёР·РёСЂСѓСЋС‚СЃСЏ РєР°Рє null (void), Р° СЃСѓС‰РµСЃС‚РІСѓСЋС‰РёРµ СЌР»РµРјРµРЅС‚С‹ РѕСЃС‚Р°СЋС‚СЃСЏ РЅРµРёР·РјРµРЅРЅС‹РјРё. РРґРµРЅС‚РёС‡РµРЅ РґРёСЂРµРєС‚РёРІРµ <tt>dim</tt>, РµСЃР»Рё РїРµСЂРµРјРµРЅРЅР°СЏ РјР°СЃСЃРёРІР° (<tt>ident</tt>) РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚.</p>
-  <h2 class="heading">РџСЂРёРјРµСЂС‹</h2>
+  <h2 class="heading">Описание</h2>
+  <p>Используйте <tt>dim</tt>, чтобы объявить переменную массива и устанавливать ее размер. Все
+    элементы массива инициализируются как null (void). Чтобы присвоить
+    значение элемента после объявления массива, используйте&nbsp;<tt><a href="topic_define.htm">define</a></tt>. Вместо назначения значений
+    элементов с помощью <tt><a href="topic_define.htm">define</a></tt>,
+    можно также установить значение элемента, используя его в качестве
+    левого операнда операции присваивания.</p>
+  <p>Используйте <tt>redim</tt>, чтобы увеличить или уменьшить размер существующей переменной массива. Все
+    новые элементы массива инициализируются как null (void), а существующие элементы остаются неизменными. Идентичен директиве <tt>dim</tt>, если переменная массива (<tt>ident</tt>) не существует.</p>
+  <h2 class="heading">Примеры</h2>
   <p><tt>#dim MyArray[10]<br />
     #define MyArray[0] 15<br />
     #redim MyArray[20]<br />
     #define MyArray[10] 30<br />
     #redim MyArray[10]</tt><tt> </tt></p>
-  <h2 class="heading">РЎРј. С‚Р°РєР¶Рµ:</h2>
-  <p><tt><a href="topic_define.htm">define</a></tt>, <tt><a href="topic_undef.htm">undef</a></tt>, <a href="topic_dimof.htm">DimOf</a>, <a href="topic_visibility.htm">РћР±Р»Р°СЃС‚СЊ
-    РІРёРґРёРјРѕСЃС‚Рё РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂРѕРІ</a>.</p>
+  <h2 class="heading">См. также:</h2>
+  <p><tt><a href="topic_define.htm">define</a></tt>, <tt><a href="topic_undef.htm">undef</a></tt>, <a href="topic_dimof.htm">DimOf</a>, <a href="topic_visibility.htm">Область
+    видимости идентификаторов</a>.</p>
 </div>
 </body>
 </html>

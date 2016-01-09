@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
 <meta http-equiv="X-UA-Compatible" content="IE=8" />
 <title>Pascal Scripting: CreateShellLink</title>
 <link rel="stylesheet" type="text/css" href="../styles.css" />
@@ -10,30 +10,30 @@
 <body>
 <h1 class="topicheading">Pascal Scripting: CreateShellLink</h1>
 <div class="topicbody">
-  <div><b>РџСЂРѕС‚РѕС‚РёРї:</b></div>
+  <div><b>Прототип:</b></div>
   <p><tt>function CreateShellLink(const Filename, Description, ShortcutTo, Parameters, WorkingDir, IconFilename: String; const IconIndex, ShowCmd: Integer): String;</tt></p>
-  <div><b>РћРїРёСЃР°РЅРёРµ:</b></div>
-  <p><span id="result_box" lang="ru" tabindex="-1" xml:lang="ru">РЎРѕР·РґР°РµС‚ СЏСЂР»С‹Рє Рє С„Р°Р№Р»Сѓ РёР»Рё РїР°РїРєРµ</span>. <span id="result_box2" lang="ru" tabindex="-1" xml:lang="ru">Р’РѕР·РІСЂР°С‰Р°РµС‚ РёРјСЏ С„Р°Р№Р»Р° СЃСЃС‹Р»РєРё, РєРѕС‚РѕСЂР°СЏ РјРѕР¶РµС‚ РѕС‚Р»РёС‡Р°С‚СЊСЃСЏ РѕС‚</span> <tt>Filename</tt>, РµСЃР»Рё РІРјРµСЃС‚Рѕ .lnk С„Р°Р№Р»Р° СЃРѕР·РґР°Р»СЃСЏ .pif С„Р°Р№Р». <span id="result_box3" lang="ru" tabindex="-1" xml:lang="ru">Р’ СЃР»СѓС‡Р°Рµ РЅРµСѓРґР°С‡Рё, Р±СѓРґРµС‚ РІС‹Р·РІР°РЅРѕ РёСЃРєР»СЋС‡РµРЅРёРµ.</span></p>
+  <div><b>Описание:</b></div>
+  <p><span id="result_box" lang="ru" tabindex="-1" xml:lang="ru">Создает ярлык к файлу или папке</span>. <span id="result_box2" lang="ru" tabindex="-1" xml:lang="ru">Возвращает имя файла ссылки, которая может отличаться от</span> <tt>Filename</tt>, если вместо .lnk файла создался .pif файл. <span id="result_box3" lang="ru" tabindex="-1" xml:lang="ru">В случае неудачи, будет вызвано исключение.</span></p>
   <p><b>Parameters:</b><br/>
     <i>Filename</i><br/>
-    <span id="result_box4" lang="ru" tabindex="-1" xml:lang="ru">РРјСЏ С„Р°Р№Р»Р° СЏСЂР»С‹РєР°, РєРѕС‚РѕСЂС‹Р№ Р±СѓРґРµС‚ СЃРѕР·РґР°РЅ</span>. РЈРєР°Р·С‹РІР°РµС‚ РїРѕР»РЅС‹Р№ РїСѓС‚СЊ, Р·Р°РєР°РЅС‡РёРІР°РµС‚СЃСЏ СЂР°СЃС€РёСЂРµРЅРёРµРј &quot;.lnk&quot;.<br/>
+    <span id="result_box4" lang="ru" tabindex="-1" xml:lang="ru">Имя файла ярлыка, который будет создан</span>. Указывает полный путь, заканчивается расширением &quot;.lnk&quot;.<br/>
     <i>Description</i><br/>
-    РћРїРёСЃР°РЅРёРµ СЃСЃС‹Р»РєРё. Р•СЃР»Рё РћРЎ РїРѕРґРґРµСЂР¶РёРІР°РµС‚ РїРѕРєР°Р· РѕРїРёСЃР°РЅРёСЏ СЏСЂР»С‹РєР°, С‚РѕРіРґР° РїРѕР»СЊР·РѕРІР°С‚РµР»СЊ СѓРІРёРґРёС‚ СЌС‚Рѕ РѕРїРёСЃР°РЅРёРµ РІ СЃРІРѕР№СЃС‚РІР°С… СЏСЂР»С‹РєР°, РёР»Рё РїСЂРё РЅР°РІРµРґРµРЅРёРё РјС‹С€РєРё РЅР° С„Р°Р№Р» СЏСЂР»С‹РєР°.<br/>
+    Описание ссылки. Если ОС поддерживает показ описания ярлыка, тогда пользователь увидит это описание в свойствах ярлыка, или при наведении мышки на файл ярлыка.<br/>
     <i>ShortcutTo</i><br/>
-    <span id="result_box5" lang="ru" tabindex="-1" xml:lang="ru">Р¦РµР»РµРІРѕР№ С„Р°Р№Р» РґР»СЏ СЏСЂР»С‹РєР°</span>. РќСѓР¶РЅРѕ СѓРєР°Р·Р°С‚СЊ РїРѕР»РЅС‹Р№ РїСѓС‚СЊ Рє С„Р°Р№Р»Сѓ. Р”РІРѕР№РЅС‹Рµ РєР°РІС‹С‡РєРё РґРѕР±Р°РІР»СЏСЋС‚СЃСЏ Рє РїСѓС‚Рё Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєРё.<br/>
+    <span id="result_box5" lang="ru" tabindex="-1" xml:lang="ru">Целевой файл для ярлыка</span>. Нужно указать полный путь к файлу. Двойные кавычки добавляются к пути автоматически.<br/>
     <i>Parameters</i><br/>
-    РџР°СЂР°РјРµС‚СЂС‹, РєРѕС‚РѕСЂС‹Рµ РЅСѓР¶РЅРѕ РїРµСЂРµРґР°С‚СЊ С†РµР»РµРІРѕРјСѓ С„Р°Р№Р»Сѓ СЏСЂР»С‹РєР°. РџР°СЂР°РјРµС‚СЂС‹, РєРѕС‚РѕСЂС‹Рµ СЃРѕРґРµСЂР¶Р°С‚ РїСЂРѕР±РµР»С‹, РЅСѓР¶РЅРѕ РЅР°РїРёСЃР°С‚СЊ РІ РґРІРѕР№РЅС‹С… РєР°РІС‹С‡РєР°С…. РЅР°РїСЂРёРјРµСЂ. <tt>ExpandConstant('&quot;{app}\foo&quot;')</tt><br/>
+    Параметры, которые нужно передать целевому файлу ярлыка. Параметры, которые содержат пробелы, нужно написать в двойных кавычках. например. <tt>ExpandConstant('&quot;{app}\foo&quot;')</tt><br/>
     <i>WorkingDir</i><br/>
-    <span id="result_box6" lang="ru" tabindex="-1" xml:lang="ru">Р Р°Р±РѕС‡Р°СЏ РїР°РїРєР° С†РµР»РµРІРѕРіРѕ С„Р°Р№Р»Р°</span>.<br/>
+    <span id="result_box6" lang="ru" tabindex="-1" xml:lang="ru">Рабочая папка целевого файла</span>.<br/>
     <i>IconFilename</i><br/>
-    РџСѓС‚СЊ Рє РёРєРѕРЅРєРµ РґР»СЏ СЏСЂР»С‹РєР°. Р•СЃР»Рё РѕСЃС‚Р°РІРёС‚СЊ РїСѓСЃС‚С‹Рј, С‚Рѕ СЃРёСЃС‚РµРјР° Р±СѓРґРµС‚ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РёРєРѕРЅРєСѓ С†РµР»РµРІРѕРіРѕ С„Р°Р№Р»Р°.<br/>
+    Путь к иконке для ярлыка. Если оставить пустым, то система будет использовать иконку целевого файла.<br/>
     <i>IconIndex</i><br/>
-    РРЅРґРµРєСЃ РёРєРѕРЅРєРё (РЅР°С‡РёРЅР°РµС‚СЃСЏ СЃ РЅСѓР»СЏ).<br/>
+    Индекс иконки (начинается с нуля).<br/>
     <i>ShowCmd</i><br/>
-    РћРґРёРЅ РёР· РєРѕРЅСЃС‚Р°РЅС‚ SW_*.</p>
-  <div><b>РљРѕРјРјРµРЅС‚Р°СЂРёРё:</b></div>
-  <p>Р•СЃР»Рё С…РѕС‚РёС‚Рµ РїСЂРё РґРµРёРЅСЃС‚Р°Р»Р»СЏС†РёРё СѓРґР°Р»РёС‚СЊ СЃРѕР·РґР°РЅРЅС‹Р№ СЏСЂР»С‹Рє, СЃРґРµР»Р°Р№С‚Рµ СЌС‚Рѕ СЃ РїРѕРјРѕС‰СЊСЋ СЃРµРєС†РёРё  <tt>UninstallDelete</tt>.</p>
-  <div><b>РќР°РїСЂРёРјРµСЂ:</b></div>
+    Один из констант SW_*.</p>
+  <div><b>Комментарии:</b></div>
+  <p>Если хотите при деинсталляции удалить созданный ярлык, сделайте это с помощью секции  <tt>UninstallDelete</tt>.</p>
+  <div><b>Например:</b></div>
   <pre>CreateShellLink(
   ExpandConstant('{app}\config\Open licence database.lnk'),
   'Opens the licence database in SQLite',

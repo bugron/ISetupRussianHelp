@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
 <meta http-equiv="X-UA-Compatible" content="IE=8" />
 <title>Pascal Scripting: CreateCustomForm</title>
 <link rel="stylesheet" type="text/css" href="../styles.css" />
@@ -10,16 +10,16 @@
 <body>
 <h1 class="topicheading">Pascal Scripting: CreateCustomForm</h1>
 <div class="topicbody">
-  <div><b>РџСЂРѕС‚РѕС‚РёРї:</b></div>
+  <div><b>Прототип:</b></div>
   <p><tt>function CreateCustomForm: TSetupForm;</tt></p>
-  <div><b>РћРїРёСЃР°РЅРёРµ:</b></div>
-  <p>РЎРѕР·РґР°РµС‚ С„РѕСЂРјСѓ. Р¤РѕСЂРјР° РїСѓСЃС‚Р° РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ, РІС‹ РґРѕР»Р¶РЅС‹ СЃРѕР·РґР°С‚СЊ СЃРІРѕРё СЃРѕР±СЃС‚РІРµРЅРЅС‹Рµ СЌР»РµРјРµРЅС‚С‹ СѓРїСЂР°РІР»РµРЅРёСЏ Рё СЂР°Р·РјРµСЃС‚РёС‚СЊ РёС… РЅР° С„РѕСЂРјРµ (РїСѓС‚РµРј СѓСЃС‚Р°РЅРѕРІРєРё РёС… СЂРѕРґРёС‚РµР»СЊСЃРєРёС… СЃРІРѕР№СЃС‚РІ Рє СЌРєР·РµРјРїР»СЏСЂСѓ <a href="../topic_scriptclasses.htm#TSetupForm">TSetupForm</a>, РІРѕР·РІСЂР°С‰Р°РµРјРѕР№ СЌС‚РѕР№ С„СѓРЅРєС†РёРµР№).</p>
-  <div><b>РљРѕРјРјРµРЅС‚Р°СЂРёРё:</b></div>
-  <p>Р’С‹ РґРѕР»Р¶РЅС‹ РІС‹Р·РІР°С‚СЊ СЌС‚Сѓ С„СѓРЅРєС†РёСЋ РІРјРµСЃС‚Рѕ РЅР°РїСЂСЏРјСѓСЋ СЃРѕР·РґР°РЅРёСЏ СЌРєР·РµРјРїР»СЏСЂРѕРІ <a href="../topic_scriptclasses.htm#TForm">TForm</a> РёР»Рё <a href="../topic_scriptclasses.htm#TSetupForm">TSetupForm</a>. Р­С‚Р° С„СѓРЅРєС†РёСЏ Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєРё РёРЅРёС†РёР°Р»РёР·РёСЂСѓРµС‚ С€СЂРёС„С‚ Рё РґСЂСѓРіРёРµ СЃРІРѕР№СЃС‚РІР° СЃРѕР·РґР°РЅРЅРѕР№ С„РѕСЂРјС‹, С‡С‚РѕР±С‹ СЃРѕРѕС‚РІРµС‚СЃС‚РІРѕРІР°С‚СЊ РґСЂСѓРіРёРј РґРёР°Р»РѕРіР°Рј РёРЅСЃС‚Р°Р»Р»СЏС‚РѕСЂР°.</p>
-  <p>Р”РёСЂРµРєС‚РёРІС‹ <tt>DialogFontName</tt> Рё <tt>DialogFontSize</tt> СЃРµРєС†РёРё <tt>[LangOptions]</tt> РѕРїСЂРµРґРµР»СЏСЋС‚ С€СЂРёС„С‚, РёСЃРїРѕР»СЊР·СѓРµРјС‹Р№ РІ С„РѕСЂРјРµ Рё, РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ, РІСЃРµ РґРѕС‡РµСЂРЅРёРµ СЌР»РµРјРµРЅС‚С‹ СЃРѕР·РґР°СЋС‚СЃСЏ РЅР° С„РѕСЂРјРµ.</p>
-  <div><b>РќР°РїСЂРёРјРµСЂ:</b></div>
-  <p>РџСЂРёРјРµСЂ РјРѕР¶РЅРѕ РЅР°Р№С‚Рё РІ С„Р°Р№Р»Рµ <i>CodeClasses.iss</i>.</p>
-  <div><b>РЎРј. С‚Р°РєР¶Рµ:</b></div>
+  <div><b>Описание:</b></div>
+  <p>Создает форму. Форма пуста по умолчанию, вы должны создать свои собственные элементы управления и разместить их на форме (путем установки их родительских свойств к экземпляру <a href="../topic_scriptclasses.htm#TSetupForm">TSetupForm</a>, возвращаемой этой функцией).</p>
+  <div><b>Комментарии:</b></div>
+  <p>Вы должны вызвать эту функцию вместо напрямую создания экземпляров <a href="../topic_scriptclasses.htm#TForm">TForm</a> или <a href="../topic_scriptclasses.htm#TSetupForm">TSetupForm</a>. Эта функция автоматически инициализирует шрифт и другие свойства созданной формы, чтобы соответствовать другим диалогам инсталлятора.</p>
+  <p>Директивы <tt>DialogFontName</tt> и <tt>DialogFontSize</tt> секции <tt>[LangOptions]</tt> определяют шрифт, используемый в форме и, по умолчанию, все дочерние элементы создаются на форме.</p>
+  <div><b>Например:</b></div>
+  <p>Пример можно найти в файле <i>CodeClasses.iss</i>.</p>
+  <div><b>См. также:</b></div>
   <p><a href="../topic_scriptclasses.htm#TForm">TForm</a>
   <br/>
   <a href="../topic_scriptclasses.htm#TSetupForm">TSetupForm</a></p>

@@ -1,8 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>РљР°Рє РЅР° РїР°РЅРµР»Рё Р·Р°РґР°С‡ РїРѕРєР°Р·Р°С‚СЊ СЌСЃРєРёР· РёРЅСЃС‚Р°Р»Р»СЏС‚РѕСЂР°</title><link rel="stylesheet" type="text/css" href="css.css"><script type="text/javascript" src="includer.js"></script><script language='jscript' type='text/javascript' src='copycode.js'></script></head><body><div id="heading"><h1>В» Inno Setup Faq. РљР°Рє РЅР° РїР°РЅРµР»Рё Р·Р°РґР°С‡ РїРѕРєР°Р·Р°С‚СЊ СЌСЃРєРёР· РёРЅСЃС‚Р°Р»Р»СЏС‚РѕСЂР°</h1></div><br>
-<br>Р’Р°СЂРёР°РЅС‚ 1:<br>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1251"><title>Как на панели задач показать эскиз инсталлятора</title><link rel="stylesheet" type="text/css" href="css.css"><script type="text/javascript" src="includer.js"></script><script language='jscript' type='text/javascript' src='copycode.js'></script></head><body><div id="heading"><h1>» Inno Setup Faq. Как на панели задач показать эскиз инсталлятора</h1></div><br>
+<br>Вариант 1:<br>
 <script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM">
-<input type="button" value="РљРѕРїРёСЂРѕРІР°С‚СЊ РІ Р±СѓС„РµСЂ РѕР±РјРµРЅР°" onClick="copyToClipboard( taCode1, theCode1 );">
+<input type="button" value="Копировать в буфер обмена" onClick="copyToClipboard( taCode1, theCode1 );">
 <blockquote id="theCode1"><font>
 #ifndef&nbsp;IS_ENHANCED<br>
 &nbsp;&nbsp;#error&nbsp;Enhanced&nbsp;edition&nbsp;of&nbsp;Inno&nbsp;Setup&nbsp;(restools)&nbsp;is&nbsp;required&nbsp;to&nbsp;compile&nbsp;this&nbsp;script<br>
@@ -68,22 +68,22 @@ begin<br>
 end;<br>
 </font></blockquote><textarea id="taCode1" style="display:none;" rows="1" cols="5"></textarea><textarea id='taCode' style='display:none;' rows='1' cols='20'></textarea></code><script language="javascript" type="text/javascript">highlightSyntax('delphi_Tc4NTM','delphi');</script>
 
-<br>Р’Р°СЂРёР°РЅС‚ 2: (Aero Glass)<br>
-<input type="button" value="РљРѕРїРёСЂРѕРІР°С‚СЊ РІ Р±СѓС„РµСЂ РѕР±РјРµРЅР°" onClick="copyToClipboard( taCode2, theCode2 );">
+<br>Вариант 2: (Aero Glass)<br>
+<input type="button" value="Копировать в буфер обмена" onClick="copyToClipboard( taCode2, theCode2 );">
 <blockquote id="theCode2"><font><script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTN">
-;;Р”РµРјРѕРЅСЃС‚СЂР°С†РёРѕРЅРЅС‹Р№&nbsp;СЃРєСЂРёРїС‚&nbsp;ISWin7&nbsp;v0.5<br>
+;;Демонстрационный&nbsp;скрипт&nbsp;ISWin7&nbsp;v0.5<br>
 ;;<br>
-;;[+]&nbsp;Р—РЅР°С‡РёС‚РµР»СЊРЅРѕ&nbsp;РїРµСЂРµРґРµР»Р°РЅР°&nbsp;РѕС‚СЂРёСЃРѕРІРєР°&nbsp;РїСЂРѕР·СЂР°С‡РЅС‹С…&nbsp;РѕР±Р»Р°СЃС‚РµР№<br>
+;;[+]&nbsp;Значительно&nbsp;переделана&nbsp;отрисовка&nbsp;прозрачных&nbsp;областей<br>
 ;;<br>
-;;РџРѕРґРґРµСЂР¶РєР°&nbsp;Windows&nbsp;Vista&nbsp;Р±С‹Р»Р°&nbsp;РЅРµРєРѕСЂСЂРµС‚РЅР°&nbsp;РІСЃР»РµРґСЃС‚РІРёРё&nbsp;С‡РµРіРѕ&nbsp;Р±С‹Р»Р°&nbsp;СѓРґР°Р»РµРЅР°<br>
+;;Поддержка&nbsp;Windows&nbsp;Vista&nbsp;была&nbsp;некорретна&nbsp;вследствии&nbsp;чего&nbsp;была&nbsp;удалена<br>
 ;;<br>
-;;Р­С‚Рѕ&nbsp;С‚РµСЃС‚РѕРІС‹Р№&nbsp;СЃРєСЂРёРїС‚&nbsp;РїРѕР·РІРѕР»СЏРµС‚&nbsp;СЃРґРµР»Р°С‚СЊ&nbsp;РїСЂРѕР·СЂР°С‡РЅС‹РјРё&nbsp;РєСЂР°СЏ&nbsp;РёР»Рё&nbsp;РІСЃС‘&nbsp;РѕРєРЅРѕ&nbsp;С†РµР»РёРєРѕРј.<br>
-;;Р Р°Р±РѕС‚Р°РµС‚&nbsp;РІ&nbsp;Windows&nbsp;7,&nbsp;Windows&nbsp;8<br>
+;;Это&nbsp;тестовый&nbsp;скрипт&nbsp;позволяет&nbsp;сделать&nbsp;прозрачными&nbsp;края&nbsp;или&nbsp;всё&nbsp;окно&nbsp;целиком.<br>
+;;Работает&nbsp;в&nbsp;Windows&nbsp;7,&nbsp;Windows&nbsp;8<br>
 ;;<br>
-;;Р’&nbsp;Windows&nbsp;XP&nbsp;Рё&nbsp;Windows&nbsp;Vista&nbsp;РѕРЅ&nbsp;РїСЂРѕРїСѓСЃРєР°РµС‚&nbsp;РёРЅРёС†РёР°Р»РёР·Р°С†РёСЋ<br>
-;;С‡С‚Рѕ&nbsp;РЅРµ&nbsp;РјРµС€Р°РµС‚&nbsp;СЂР°Р±РѕС‚РѕСЃРїРѕСЃРѕР±РЅРѕСЃС‚Рё&nbsp;СЃРµС‚Р°РїРЅРёРєР°&nbsp;РІ&nbsp;СЌС‚РёС…&nbsp;РѕРїРµСЂР°С†РёРѕРЅРЅС‹С…&nbsp;СЃРёСЃС‚РµРјР°С…<br>
+;;В&nbsp;Windows&nbsp;XP&nbsp;и&nbsp;Windows&nbsp;Vista&nbsp;он&nbsp;пропускает&nbsp;инициализацию<br>
+;;что&nbsp;не&nbsp;мешает&nbsp;работоспособности&nbsp;сетапника&nbsp;в&nbsp;этих&nbsp;операционных&nbsp;системах<br>
 ;;<br>
-;;РЎРѕР·РґР°С‚РµР»СЊ:&nbsp;VoLT&nbsp;(&nbsp;Vo1T&nbsp;РЅР°&nbsp;Ru-Board&nbsp;)<br>
+;;Создатель:&nbsp;VoLT&nbsp;(&nbsp;Vo1T&nbsp;на&nbsp;Ru-Board&nbsp;)<br>
 <br>
 #ifndef&nbsp;IS_ENHANCED<br>
 &nbsp;&nbsp;#error&nbsp;Enhanced&nbsp;edition&nbsp;of&nbsp;Inno&nbsp;Setup&nbsp;(restools)&nbsp;is&nbsp;required&nbsp;to&nbsp;compile&nbsp;this&nbsp;script<br>

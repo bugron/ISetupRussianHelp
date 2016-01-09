@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
 <meta http-equiv="X-UA-Compatible" content="IE=8" />
 <title>Pascal Scripting: GetSpaceOnDisk64</title>
 <!--[if IE 6]><style type="text/css">html{overflow-y:scroll}</style><![endif]-->
@@ -11,13 +11,13 @@
 <body>
 <h1 class="topicheading">Pascal Scripting: GetSpaceOnDisk64</h1>
 <div class="topicbody">
-  <div><b>РџСЂРѕС‚РѕС‚РёРї:</b></div>
+  <div><b>Прототип:</b></div>
   <p><tt>function GetSpaceOnDisk64(const Path: String; var Free, Total: Int64): Boolean;</tt></p>
-  <div><b>РћРїРёСЃР°РЅРёРµ:</b></div>
-  <p>Р’РѕР·РІСЂР°С‰Р°РµС‚ РєРѕР»РёС‡РµСЃС‚РІРѕ СЃРІРѕР±РѕРґРЅРѕРіРѕ Рё РѕР±С‰РµРіРѕ Р±Р°Р№С‚РѕРІ РЅР° РґРёСЃРєРµ. Path СѓРєР°Р·С‹РІР°РµС‚ РїР°РїРєСѓ РЅР° РґРёСЃРєРµ РёР»Рё UNC РїСѓС‚СЊ; <span id="result_box2" lang="ru" tabindex="-1" xml:lang="ru">СЌС‚Рѕ РјРѕР¶РµС‚ Р±С‹С‚СЊ РєР°Рє РєРѕСЂРµРЅСЊ</span> РґРёСЃРєР° (РЅР°РїСЂРёРјРµСЂ <tt>C:\</tt>), С‚Р°Рє Рё РїРѕРґРїР°РїРєР°. РџСЂРё СѓРґР°С‡РЅРѕРј РІС‹РїРѕР»РЅРµРЅРёРё РІРѕР·РІСЂР°С‰Р°РµС‚ True, РёРЅР°С‡Рµ False.</p>
-  <div><b>РљРѕРјРјРµРЅС‚Р°СЂРёРё:</b></div>
-  <p>РўСЂРµР±СѓРµС‚СЃСЏ Unicode Inno Setup.</p>
-  <div><b>РќР°РїСЂРёРјРµСЂ:</b></div>
+  <div><b>Описание:</b></div>
+  <p>Возвращает количество свободного и общего байтов на диске. Path указывает папку на диске или UNC путь; <span id="result_box2" lang="ru" tabindex="-1" xml:lang="ru">это может быть как корень</span> диска (например <tt>C:\</tt>), так и подпапка. При удачном выполнении возвращает True, иначе False.</p>
+  <div><b>Комментарии:</b></div>
+  <p>Требуется Unicode Inno Setup.</p>
+  <div><b>Например:</b></div>
   <pre>var
   Path: String;
   FreeBytes, TotalBytes: Int64;
@@ -33,7 +33,7 @@ begin
     // the function failed
   end;
 end;</pre>
-  <div><b>РЎРј. С‚Р°РєР¶Рµ:</b></div>
+  <div><b>См. также:</b></div>
   <p><a href="topic_isxfunc_getspaceondisk.htm">GetSpaceOnDisk</a> </p>
 </div>
 </body>

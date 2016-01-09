@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
 <meta http-equiv="X-UA-Compatible" content="IE=8" />
 <title>Pascal Scripting Extended: ShortCutToText</title>
 <link rel="stylesheet" type="text/css" href="../../../styles.css" />
@@ -10,12 +10,12 @@
 <body>
 <h1 class="topicheading">Pascal Scripting Extended: ShortCutToText</h1>
 <div class="topicbody">
-  <div><b>РџСЂРѕС‚РѕС‚РёРї:</b></div>
+  <div><b>Прототип:</b></div>
   <p><tt>function ShortCutToText(ShortCut: TShortCut): String;</tt><tt></tt></p>
-  <div><b>РћРїРёСЃР°РЅРёРµ:</b></div>
-  Р¤СѓРЅРєС†РёСЏ РєРѕРЅРІРµСЂС‚РёСЂСѓРµС‚ Р·РЅР°С‡РµРЅРёРµ РєРѕРјР±РёРЅР°С†РёРё &quot;РіРѕСЂСЏС‡РёС…&quot; РєР»Р°РІРёС€ С‚РёРїР° TShortCut РІ Р·РЅР°С‡РµРЅРёРµ С‚РёРїР° string.<br />
-  Р”Р°РЅРЅСѓСЋ С„СѓРЅРєС†РёСЋ СѓРґРѕР±РЅРѕ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ, РєРѕРіРґР° РЅРµРѕР±С…РѕРґРёРјРѕ РїРѕРєР°Р·Р°С‚СЊ РїРѕР»СЊР·РѕРІР°С‚РµР»СЋ РєРѕРјР±РёРЅР°С†РёСЋ &quot;РіРѕСЂСЏС‡РёС…&quot; РєР»Р°РІРёС€ РЅРµ РѕС‚РєСЂС‹РІР°СЏ РїСЂРё СЌС‚РѕРј СЃРѕРѕС‚РІРµС‚СЃС‚РІСѓСЋС‰РёР№ РїСѓРЅРєС‚ РјРµРЅСЋ.<br />
-  <div><b>РџСЂРёРјРµСЂ:</b></div>
+  <div><b>Описание:</b></div>
+  Функция конвертирует значение комбинации &quot;горячих&quot; клавиш типа TShortCut в значение типа string.<br />
+  Данную функцию удобно использовать, когда необходимо показать пользователю комбинацию &quot;горячих&quot; клавиш не открывая при этом соответствующий пункт меню.<br />
+  <div><b>Пример:</b></div>
   <p><tt>Edit1.Text:= ShortCutToText( MainMenu1.items[0].ShortCut);</tt></p>
 </div>
 </body>

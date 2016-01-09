@@ -1,25 +1,25 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
 <meta http-equiv="X-UA-Compatible" content="IE=8" />
-<title>Inno Setup Preprocessor: Р”РёСЂРµРєС‚РёРІС‹</title>
+<title>Inno Setup Preprocessor: Директивы</title>
 <link rel="stylesheet" type="text/css" href="../styles.css" />
 <script type="text/javascript" src="../topic.js"></script>
 </head>
 <body>
-<h1 class="topicheading">Inno Setup Preprocessor: Р”РёСЂРµРєС‚РёРІС‹</h1>
+<h1 class="topicheading">Inno Setup Preprocessor: Директивы</h1>
 <div class="topicbody">
-  <p>Р”РёСЂРµРєС‚РёРІС‹ ISPP РјРѕРіСѓС‚ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊСЃСЏ РґРІСѓРјСЏ СЃРїРѕСЃРѕР±Р°РјРё: РїСЂРѕСЃС‚С‹Рј РёР»Рё РІСЃС‚СЂРѕРµРЅРЅС‹Рј.</p>
-  <p>РџСЂРѕСЃС‚С‹Рµ РґРёСЂРµРєС‚РёРІС‹ Р·Р°РЅРёРјР°СЋС‚ С†РµР»СѓСЋ СЃС‚СЂРѕРєСѓ, Рё РЅР°С‡РёРЅР°СЋС‚СЃСЏ СЃРёРјРІРѕР»РѕРј <tt>#</tt>. РќР°РїСЂРёРјРµСЂ, СЃР»РµРґСѓСЋС‰РµРµ РѕРїСЂРµРґРµР»СЏРµС‚ РїРµСЂРµРјРµРЅРЅСѓСЋ, РЅР°Р·РІР°РЅРЅСѓСЋ <tt>MyAppName</tt>:</p>
+  <p>Директивы ISPP могут использоваться двумя способами: простым или встроенным.</p>
+  <p>Простые директивы занимают целую строку, и начинаются символом <tt>#</tt>. Например, следующее определяет переменную, названную <tt>MyAppName</tt>:</p>
   <p><tt>#define MyAppName &quot;My Program&quot;<br />
   </tt></p>
-  <p>Р’СЃС‚СЂРѕРµРЅРЅС‹Рµ РґРёСЂРµРєС‚РёРІС‹ РЅР°С‡РёРЅР°СЋС‚СЃСЏ СЃ <tt>&quot;{#</tt><tt>&quot;</tt> Рё Р·Р°РєР°РЅС‡РёРІР°СЋС‚СЃСЏ СЃ <tt>&quot;</tt><tt>}</tt><tt>&quot;</tt>. РќР°РїСЂРёРјРµСЂ, СЃР»РµРґСѓСЋС‰РёР№ РїСЂРёРјРµСЂ РѕРїСЂРµРґРµР»СЏРµС‚ РґРёСЂРµРєС‚РёРІСѓ Inno Setup <tt>AppName</tt>, РєРѕС‚РѕСЂРѕРјСѓ РїСЂРёСЃРІР°РёРІР°РµС‚СЃСЏ Р·РЅР°С‡РµРЅРёРµ СЂР°РЅРµРµ РѕРїСЂРµРґРµР»РµРЅРЅРѕР№ РїРµСЂРµРјРµРЅРЅРѕР№:</p>
+  <p>Встроенные директивы начинаются с <tt>&quot;{#</tt><tt>&quot;</tt> и заканчиваются с <tt>&quot;</tt><tt>}</tt><tt>&quot;</tt>. Например, следующий пример определяет директиву Inno Setup <tt>AppName</tt>, которому присваивается значение ранее определенной переменной:</p>
   <p><tt>[Setup]<br />
     AppName={#MyAppName}<br />
   </tt></p>
-  <p>РљР°Рє РІРёРґРЅРѕ РёР· РїСЂРёРІРµРґРµРЅРЅРѕРіРѕ РІС‹С€Рµ РїСЂРёРјРµСЂР° РЅРµ РѕР±СЏР·Р°С‚РµР»СЊРЅРѕ СѓРєР°Р·С‹РІР°С‚СЊ РёРјСЏ РґРёСЂРµРєС‚РёРІС‹ <tt><a href="topic_emit.htm">emit</a></tt>, РєРѕРіРґР° РѕРЅ РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РєР°Рє РІСЃС‚СЂРѕРµРЅРЅС‹Р№,<tt><a href="topic_emit.htm"></a></tt> С‚Р°Рє С‡С‚Рѕ <tt>{#MyAppName}</tt> РєСЂР°С‚РєР°СЏ Р·Р°РїРёСЃСЊ <tt>{#emit MyAppName}</tt>.</p>
-  <p><b>Р”РѕСЃС‚СѓРїРЅС‹Рµ РґРёСЂРµРєС‚РёРІС‹</b></p>
+  <p>Как видно из приведенного выше примера не обязательно указывать имя директивы <tt><a href="topic_emit.htm">emit</a></tt>, когда он используется как встроенный,<tt><a href="topic_emit.htm"></a></tt> так что <tt>{#MyAppName}</tt> краткая запись <tt>{#emit MyAppName}</tt>.</p>
+  <p><b>Доступные директивы</b></p>
   <ul>
     <li><a href="topic_define.htm">#define</a></li>
     <li><a href="topic_dim.htm">#dim, </a><a href="topic_dim.htm">#redim</a></li>

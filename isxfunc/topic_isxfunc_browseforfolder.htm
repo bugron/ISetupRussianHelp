@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
 <meta http-equiv="X-UA-Compatible" content="IE=8" />
 <title>Pascal Scripting: BrowseForFolder</title>
 <link rel="stylesheet" type="text/css" href="../styles.css" />
@@ -10,12 +10,12 @@
 <body>
 <h1 class="topicheading">Pascal Scripting: BrowseForFolder</h1>
 <div class="topicbody">
-  <div><b>РџСЂРѕС‚РѕС‚РёРї:</b></div>
+  <div><b>Прототип:</b></div>
   <p><tt>function BrowseForFolder(const Prompt: String; var Directory: String; const NewFolderButton: Boolean): Boolean;</tt></p>
-  <div><b>РћРїРёСЃР°РЅРёРµ:</b></div>
-  <p>РћС‚РѕР±СЂР°Р¶Р°РµС‚ РґРёР°Р»РѕРіРѕРІРѕРµ РѕРєРЅРѕ, РєРѕС‚РѕСЂРѕРµ РїРѕР·РІРѕР»СЏРµС‚ РїРѕР»СЊР·РѕРІР°С‚РµР»СЋ РІС‹Р±СЂР°С‚СЊ РїР°РїРєСѓ. РўРµРєСѓС‰РµРµ Р·РЅР°С‡РµРЅРёРµ Directory РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РєР°Рє РёР·РЅР°С‡Р°Р»СЊРЅРѕ РІС‹Р±СЂР°РЅРЅР°СЏ РїР°РїРєР°. Р•СЃР»Рё NewFolderButton СЏРІР»СЏРµС‚СЃСЏ True, РїРѕР»СЊР·РѕРІР°С‚РµР»СЊ СЃ РїРѕРјРѕС‰СЊ РєРЅРѕРїРєРё <i>РќРѕРІР°СЏ РїР°РїРєР°</i> СЃРјРѕР¶РµС‚ СЃРѕР·РґР°С‚СЊ РЅРѕРІСѓСЋ РїР°РїРєСѓ. Р’РѕР·РІСЂР°С‰Р°РµС‚ True, РµСЃР»Рё РїРѕР»СЊР·РѕРІР°С‚РµР»СЊ РІС‹Р±СЂР°Р» РїР°РїРєСѓ Рё РЅР°Р¶Р°Р» OK, РёРЅР°С‡Рµ False. Р’С‹Р±СЂР°РЅРЅР°СЏ РїР°РїРєР° РІРѕР·РІСЂР°С‰Р°РµС‚СЃСЏ РІ СЃС‚СЂРѕРєРµ Directory.</p>
-  <div><b>РљРѕРјРјРµРЅС‚Р°СЂРёРё:</b></div>
-  <p>Р’ РІРµСЂСЃРёСЏС… Windows РґРѕ вЂ‹вЂ‹XP, РґР°Р¶Рµ РїСЂРё Р·РЅР°С‡РµРЅРёРё False РїР°СЂР°РјРµС‚СЂР° NewFolderButton РєРЅРѕРїРєР° РќРѕРІР°СЏ РїР°РїРєР° РІСЃРµРіРґР° Р±СѓРґРµС‚ РїРѕРєР°Р·Р°РЅР°. Р­С‚Рѕ РѕРіСЂР°РЅРёС‡РµРЅРёРµ Windows.</p>
+  <div><b>Описание:</b></div>
+  <p>Отображает диалоговое окно, которое позволяет пользователю выбрать папку. Текущее значение Directory используется как изначально выбранная папка. Если NewFolderButton является True, пользователь с помощь кнопки <i>Новая папка</i> сможет создать новую папку. Возвращает True, если пользователь выбрал папку и нажал OK, иначе False. Выбранная папка возвращается в строке Directory.</p>
+  <div><b>Комментарии:</b></div>
+  <p>В версиях Windows до ??XP, даже при значении False параметра NewFolderButton кнопка Новая папка всегда будет показана. Это ограничение Windows.</p>
 </div>
 </body>
 </html>

@@ -1,9 +1,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>РњРµРЅСЏРµРј РёРєРѕРЅРєСѓ РїР°РїРєРё РїСЂРѕРіРё</title><link rel="stylesheet" type="text/css" href="css.css">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1251"><title>Меняем иконку папки проги</title><link rel="stylesheet" type="text/css" href="css.css">
 <script language='jscript' type='text/javascript' src='copycode.js'></script>
-<script type="text/javascript" src="includer.js"></script></head><body><div id="heading"><h1>В» Inno Setup Faq. РњРµРЅСЏРµРј РёРєРѕРЅРєСѓ РїР°РїРєРё РїСЂРѕРіРё</h1></div><br>
+<script type="text/javascript" src="includer.js"></script></head><body><div id="heading"><h1>» Inno Setup Faq. Меняем иконку папки проги</h1></div><br>
 <script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM">
-<input type="button" value="РљРѕРїРёСЂРѕРІР°С‚СЊ РІ Р±СѓС„РµСЂ РѕР±РјРµРЅР°" onClick="copyToClipboard( taCode1, theCode1 );">
+<input type="button" value="Копировать в буфер обмена" onClick="copyToClipboard( taCode1, theCode1 );">
 <blockquote id="theCode1"><font>
 [Setup]<br>
 AppName=FolderIcon<br>
@@ -11,12 +11,12 @@ AppVerName=FolderIcon<br>
 DefaultDirName={pf}\My&nbsp;Program<br>
 <br>
 [Code]<br>
-function&nbsp;ExpandConstantENV(String:&nbsp;String):&nbsp;String;&nbsp;var&nbsp;n:&nbsp;Integer;	Begin&nbsp;{{ExpandConstant&nbsp;+&nbsp;СЂР°Р·РІС‘СЂС‚С‹РІР°РЅРёРµ&nbsp;РїРµСЂРµРјРµРЅРЅС‹С…&nbsp;С‚РёРїР°&nbsp;%SystemRoot%}<br>
+function&nbsp;ExpandConstantENV(String:&nbsp;String):&nbsp;String;&nbsp;var&nbsp;n:&nbsp;Integer;	Begin&nbsp;{{ExpandConstant&nbsp;+&nbsp;развёртывание&nbsp;переменных&nbsp;типа&nbsp;%SystemRoot%}<br>
 Result:=&nbsp;ExpandConstant(String);&nbsp;n:=&nbsp;Pos('%',&nbsp;Result);&nbsp;if&nbsp;n&nbsp;=&nbsp;0&nbsp;then&nbsp;Exit;<br>
 Delete(Result,&nbsp;n,&nbsp;1);&nbsp;Result:=&nbsp;Copy(Result,&nbsp;1,&nbsp;n-1)&nbsp;+&nbsp;ExpandConstant('{%'&nbsp;+Copy(Result,&nbsp;n,&nbsp;Pos('%',&nbsp;Result)&nbsp;-n)&nbsp;+&nbsp;'}')&nbsp;+&nbsp;Copy(Result,&nbsp;Pos('%',&nbsp;Result)&nbsp;+1,&nbsp;Length(Result))<br>
 end;<br>
 <br>
-function&nbsp;FolderIcon(AFolder,&nbsp;AIcon:&nbsp;String;&nbsp;Index:&nbsp;Integer):&nbsp;Boolean;&nbsp;var&nbsp;Folder,&nbsp;Icon,&nbsp;IniFile:&nbsp;String;&nbsp;ErrorCode:&nbsp;Integer;&nbsp;{{РїРѕСЃС‚Р°РІРёС‚СЊ&nbsp;РёРєРѕРЅРєСѓ&nbsp;РЅР°&nbsp;РїР°РїРєСѓ}<br>
+function&nbsp;FolderIcon(AFolder,&nbsp;AIcon:&nbsp;String;&nbsp;Index:&nbsp;Integer):&nbsp;Boolean;&nbsp;var&nbsp;Folder,&nbsp;Icon,&nbsp;IniFile:&nbsp;String;&nbsp;ErrorCode:&nbsp;Integer;&nbsp;{{поставить&nbsp;иконку&nbsp;на&nbsp;папку}<br>
 Begin<br>
 Folder:=&nbsp;ExpandConstantENV(AFolder);&nbsp;IniFile:=&nbsp;AddBackslash(Folder)&nbsp;+&nbsp;'desktop.ini';&nbsp;Icon:=&nbsp;ExpandConstantENV(AIcon);<br>
 if&nbsp;DirExists(Folder)&nbsp;and&nbsp;FileExists(Icon)&nbsp;and&nbsp;SaveStringToFile(IniFile,&nbsp;'[.ShellClassInfo]'&nbsp;+&nbsp;#13,&nbsp;true)&nbsp;then&nbsp;Result:=&nbsp;true&nbsp;else&nbsp;Exit;<br>

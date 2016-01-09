@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
 <meta http-equiv="X-UA-Compatible" content="IE=8" />
 <title>Pascal Scripting: ProcessorArchitecture</title>
 <link rel="stylesheet" type="text/css" href="../styles.css" />
@@ -10,24 +10,26 @@
 <body>
 <h1 class="topicheading">Pascal Scripting: ProcessorArchitecture</h1>
 <div class="topicbody">
-  <div><b>РџСЂРѕС‚РѕС‚РёРї:</b></div>
+  <div><b>Прототип:</b></div>
   <p><tt>function ProcessorArchitecture: TSetupProcessorArchitecture;</tt></p>
-  <div><b>РћРїРёСЃР°РЅРёРµ:</b></div>
-  <p>Р’РѕР·РІСЂР°С‰Р°РµС‚ С‚РёРї Р°СЂС…РёС‚РµРєС‚СѓСЂС‹ РїСЂРѕС†РµСЃСЃРѕСЂР° (Р¦Рџ).</p>
-  <p>TSetupProcessorArchitecture РѕРїСЂРµРґРµР»СЏРµС‚СЃСЏ РєР°Рє:</p>
+  <div><b>Описание:</b></div>
+  <p>Возвращает тип архитектуры процессора (ЦП).</p>
+  <p>TSetupProcessorArchitecture определяется как:</p>
   <p><tt>TSetupProcessorArchitecture = (paUnknown, paX86, paX64, paIA64);</tt></p>
-  <div><b>РљРѕРјРјРµРЅС‚Р°СЂРёРё:</b></div>
-  <p>64-Р±РёС‚РЅР°СЏ&nbsp;Р°СЂС…РёС‚РµРєС‚СѓСЂР° Р¦Рџ РЅРёРєРѕРіРґР° РЅРµ Р±СѓРґРµС‚ РІРѕР·РІР°СЂР°С‰РµРЅР° РЅР° 32-Р±РёС‚РЅС‹С… РІРµСЂСЃРёСЏС… Windows. РЎР»РµРґРѕРІР°С‚РµР»СЊРЅРѕ, РІС‹ РЅРµ РјРѕР¶РµС‚Рµ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ СЌС‚Сѓ С„СѓРЅРєС†РёСЋ РґР»СЏ РѕР±РЅР°СЂСѓР¶РµРЅРёСЏ 64-Р±РёС‚РЅРѕРіРѕ Р¦Рџ AMD РЅР° 32-Р±РёС‚РЅС‹С… РІРµСЂСЃРёСЏС… Windows; РІС‹ РїСЂРѕСЃС‚Рѕ, РєР°Рє СЂРµР·СѓР»СЊС‚Р°С‚, РїРѕР»СѓС‡РёС‚Рµ Р·РЅР°С‡РµРЅРёРµ <tt>paX86</tt>.</p>
-  <p>Р•СЃР»Рё РёРЅСЃС‚Р°Р»Р»СЏС‚РѕСЂ/РґРµРёРЅСЃС‚Р°Р»Р»СЏС‚РѕСЂ РЅРµ РјРѕР¶РµС‚ РѕРїСЂРµРґРµР»РёС‚СЊ С‚РёРї Р¦Рџ, С‚Рѕ С„СѓРЅРєС†РёСЏ РІРѕР·РІСЂР°С‰Р°РµС‚ Р·РЅР°С‡РµРЅРёРµ<tt> paUnknown</tt>. РњРѕР¶РЅРѕ РїСЂРµРґРїРѕР»РѕР¶РёС‚СЊ, С‡С‚Рѕ &quot;РЅРµРёР·РІРµСЃС‚РЅС‹Рµ&quot; С‚РёРїС‹ РїСЂРѕС†РµСЃСЃРѕСЂРѕРІ, РїРѕ РєСЂР°Р№РЅРµР№ РјРµСЂРµ СЃРїРѕСЃРѕР±РЅС‹ РІС‹РїРѕР»РЅРёС‚СЊ 32-Р±РёС‚РЅС‹Р№ РєРѕРґ.</p>
-  <p>If <tt>paIA64</tt> is returned, and <tt>ia64</tt> is <i>not</i> included in the value of the <a href="../topic_setup_architecturesinstallin64bitmode.htm">ArchitecturesInstallIn64BitMode</a> [Setup] section directive, you should not assume that Inno Setup's 64-bit-only features are available -- for example, the <tt>{pf64}</tt> constant. Those features only work when <a href="topic_isxfunc_iswin64.htm">IsWin64</a> returns True, and as documented, it may not return True on older Itanium versions of Windows that lack certain APIs Inno Setup requires.</p>
-  <p>Therefore, instead of:</p>
-  <pre>  if ProcessorArchitecture = paIA64 then<br />    // perform some Itanium-specific install task that<br />    // involves expanding {pf64}</pre>
-  <p>you should additionally check that IsWin64 returns True:</p>
-  <pre>  if ProcessorArchitecture = paIA64 then<br />  begin<br />    if IsWin64 then<br />      // perform some Itanium-specific install task that<br />      // involves expanding {pf64}<br />    else<br />      // cannot use 64-bit features; display an error message,<br />      // fail silently, try something else, etc.<br />  end;</pre>
-  <p>If <tt>ia64</tt> <i>is</i> included in the value of the <a href="../topic_setup_architecturesinstallin64bitmode.htm">ArchitecturesInstallIn64BitMode</a> [Setup] section directive, then it is not necessary to check IsWin64 because Setup will do so itself at startup, and fail with an error message (<tt>MissingWOW64APIs</tt>) if it is False.</p>
-  <div><b>РќР°РїСЂРёРјРµСЂ:</b></div>
+  <div><b>Комментарии:</b></div>
+  <p>64-битная&nbsp;архитектура ЦП никогда не будет возваращена на 32-битных версиях Windows. Следовательно, вы не можете использовать эту функцию для обнаружения 64-битного ЦП AMD на 32-битных версиях Windows; вы просто, как результат, получите значение <tt>paX86</tt>.</p>
+  <p>Если инсталлятор/деинсталлятор не может определить тип ЦП, то функция возвращает значение<tt> paUnknown</tt>. Можно предположить, что &quot;неизвестные&quot; типы процессоров, по крайней мере способны выполнить 32-битный код.</p>
+  <p>Если функция возвращает значение <tt>paIA64</tt> и <tt>ia64</tt> <i>не</i> содержится в значении директивы <a href="../topic_setup_architecturesinstallin64bitmode.htm">ArchitecturesInstallIn64BitMode</a> секции [Setup], Вы не должны считать, что 64-разрадные возможности Inno Setup доступны, например, константа <tt>{pf64}</tt>. Эти возможности работают только тогда, когда функция <a href="topic_isxfunc_iswin64.htm">IsWin64</a> возвращает True и как документировано, она не может вернуть значение True на старых версиях Windows Itanium, из-за того, что некоторые требуемые для Inno Setup API недоступны.</p>
+  <p>Следовательно, вместо:</p>
+  <pre>  if ProcessorArchitecture = paIA64 then<br />    // выполнить некоторые специфичные для Itanium<br />    // задачи установки, которые включают в себя {pf64}<br />
+</pre>
+  <p>нужно дополнительно проверить, что IsWin64 возвращает True:</p>
+  <pre>  if ProcessorArchitecture = paIA64 then<br />  begin<br />    if IsWin64 then<br />      // выполнить некоторые специфичные для Itanium<br />      // задачи установки, которые включают в себя {pf64}<br />    else<br />      // нельзя использовать 64-разрадные возможности; показать сообщение об ошибке,<br />      // тихо завершить работу, попробовать что-то другое, и т. д.<br />  end;<br />
+</pre>
+  <p>Если <tt>ia64</tt> <i>содержится</i> в значении директивы <a href="../topic_setup_architecturesinstallin64bitmode.htm">ArchitecturesInstallIn64BitMode</a> секции [Setup], то не обязательно проверить возвращаемое значение функции IsWin64, потому что инсталлятор сам это сделает при запуске и если это значение False, завершит работу с сообщением об ошибке (<tt>MissingWOW64APIs</tt>).</p>
+  <div><b>Например:</b></div>
   <pre>var<br />  S: String;<br />begin<br />  case ProcessorArchitecture of<br />    paX86: S := 'x86';<br />    paX64: S := 'x64';<br />    paIA64: S := 'Itanium';<br />  else<br />    S := 'Unrecognized';<br />  end;<br />  MsgBox('Your processor architecture: ' + S, mbInformation, MB_OK);<br />end;</pre>
-  <div><b>РЎРј. С‚Р°РєР¶Рµ:</b></div>
+  <div><b>См. также:</b></div>
   <p><a href="topic_isxfunc_iswin64.htm">IsWin64</a> <br />
     <a href="topic_isxfunc_is64bitinstallmode.htm">Is64BitInstallMode</a></p>
 </div>

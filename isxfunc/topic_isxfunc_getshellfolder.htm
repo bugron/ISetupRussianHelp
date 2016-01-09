@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
 <meta http-equiv="X-UA-Compatible" content="IE=8" />
 <title>Pascal Scripting: GetShellFolder</title>
 <link rel="stylesheet" type="text/css" href="../styles.css" />
@@ -10,13 +10,13 @@
 <body>
 <h1 class="topicheading">Pascal Scripting: GetShellFolder</h1>
 <div class="topicbody">
-  <div><b>РџСЂРѕС‚РѕС‚РёРї:</b></div>
+  <div><b>Прототип:</b></div>
   <p><tt>function GetShellFolder(Common: Boolean; const ID: TShellFolderID): String;</tt></p>
-  <div><b>РћРїРёСЃР°РЅРёРµ:</b></div>
-  <p>РџРѕР»СѓС‡Р°РµС‚ РїСѓС‚СЊ Рє СѓРєР°Р·Р°РЅРЅРѕР№ РїР°РїРєРµ РѕР±РѕР»РѕС‡РєРё. Р•СЃР»Рё Common СЂР°РІРµРЅ True Рё РїРѕР»СЊР·РѕРІР°С‚РµР»СЊ РѕР±Р»Р°РґР°РµС‚ РїСЂР°РІР°РјРё Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂР°, С‚Рѕ РІРѕР·РІСЂР°С‰Р°РµС‚ РїСѓС‚СЊ Рє С‚Р°Рє РЅР°Р·С‹РІР°РµРјРѕР№ 'РѕР±С‰РµР№' РІРµСЂСЃРёРё РїР°РїРєРё РѕР±РѕР»РѕС‡РєРё. РџСЂРё РЅРµСѓРґР°С‡Рµ (РјР°Р»РѕРІРµСЂРѕСЏС‚РЅРѕ, РЅРѕ РІРѕР·РјРѕР¶РЅРѕ), РІРѕР·РІСЂР°С‰Р°РµС‚СЃСЏ РїСѓСЃС‚Р°СЏ СЃС‚СЂРѕРєР°.</p>
-  <div><b>РљРѕРјРјРµРЅС‚Р°СЂРёРё:</b></div>
-  <p>РЎСѓС‰РµСЃС‚РІСѓРµС‚ РјР°Р»Рѕ РѕСЃРЅРѕРІР°РЅРёР№ РґР»СЏ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ СЌС‚РѕР№ С„СѓРЅРєС†РёРё. Р РµРєРѕРјРµРЅРґСѓРµС‚СЃСЏ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ С„СѓРЅРєС†РёСЋ ExpandConstant, С‡С‚РѕР±С‹ РїРѕР»СѓС‡РёС‚СЊ РїСѓС‚Рё Рє РїР°РїРєР°Рј РѕР±РѕР»РѕС‡РєРё.</p>
-  <div><b>РќР°РїСЂРёРјРµСЂ:</b></div>
+  <div><b>Описание:</b></div>
+  <p>Получает путь к указанной папке оболочки. Если Common равен True и пользователь обладает правами администратора, то возвращает путь к так называемой 'общей' версии папки оболочки. При неудаче (маловероятно, но возможно), возвращается пустая строка.</p>
+  <div><b>Комментарии:</b></div>
+  <p>Существует мало оснований для использования этой функции. Рекомендуется использовать функцию ExpandConstant, чтобы получить пути к папкам оболочки.</p>
+  <div><b>Например:</b></div>
   <pre>var
   Path: String;
 begin

@@ -1,13 +1,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Р’С‹РІРµСЃС‚Рё РјРµСЃСЃР°Р¶Рґ, РµСЃР»Рё РЅР° РґРёСЃРєРµ РЅРµ С…РІР°С‚Р°РµС‚ РјРµСЃС‚Р°</title><link rel="stylesheet" type="text/css" href="css.css">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1251"><title>Вывести мессажд, если на диске не хватает места</title><link rel="stylesheet" type="text/css" href="css.css">
 <script language='jscript' type='text/javascript' src='copycode.js'></script>
-<script type="text/javascript" src="includer.js"></script></head><body><div id="heading"><h1>В» Inno Setup Faq. Р’С‹РІРµСЃС‚Рё РјРµСЃСЃР°Р¶Рґ, РµСЃР»Рё РЅР° РґРёСЃРєРµ РЅРµ С…РІР°С‚Р°РµС‚ РјРµСЃС‚Р°</h1></div><br>
+<script type="text/javascript" src="includer.js"></script></head><body><div id="heading"><h1>» Inno Setup Faq. Вывести мессажд, если на диске не хватает места</h1></div><br>
 <script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM">
-<input type="button" value="РљРѕРїРёСЂРѕРІР°С‚СЊ РІ Р±СѓС„РµСЂ РѕР±РјРµРЅР°" onClick="copyToClipboard( taCode1, theCode1 );">
+<input type="button" value="Копировать в буфер обмена" onClick="copyToClipboard( taCode1, theCode1 );">
 <blockquote id="theCode1"><font>
 #define&nbsp;NeedSize&nbsp;10240<br>
-;;Р•СЃР»Рё&nbsp;Сѓ&nbsp;РІР°СЃ&nbsp;Р°СЂС…РёРІС‹&nbsp;FreeArc,&nbsp;С‚Рѕ&nbsp;СЃРґРµСЃСЊ&nbsp;СѓРєР°Р¶РёС‚Рµ&nbsp;СЃРєРѕР»СЊРєРѕ&nbsp;РЅРµРѕР±С…РѕРґРёРјРѕ&nbsp;РјРµСЃС‚Р°&nbsp;РІ&nbsp;РњР±<br>
-;;РРЅР°С‡Рµ&nbsp;РїСЂРѕСЃС‚Рѕ&nbsp;Р·Р°РєРѕРјРµРЅС‚РёСЂСѓР№С‚Рµ&nbsp;СЃС‚СЂРѕРєСѓ<br>
+;;Если&nbsp;у&nbsp;вас&nbsp;архивы&nbsp;FreeArc,&nbsp;то&nbsp;сдесь&nbsp;укажите&nbsp;сколько&nbsp;необходимо&nbsp;места&nbsp;в&nbsp;Мб<br>
+;;Иначе&nbsp;просто&nbsp;закоментируйте&nbsp;строку<br>
 <br>
 [Setup]<br>
 AppName=My&nbsp;Program<br>
@@ -27,8 +27,8 @@ Name:&nbsp;RUS;&nbsp;MessagesFile:&nbsp;&quot;compiler:Languages\Russian.isl&quo
 Source:&nbsp;{win}\help\*.hlp;&nbsp;DestDir:&nbsp;{app}\Files;&nbsp;Flags:&nbsp;external<br>
 <br>
 [CustomMessages]<br>
-RUS.FreeSpace=Р”РѕСЃС‚СѓРїРЅРѕ&nbsp;РјРµСЃС‚Р°&nbsp;РЅР°&nbsp;РґРёСЃРєРµ:<br>
-RUS.NeedSpace=РўСЂРµР±СѓРµС‚СЃСЏ&nbsp;РјРµСЃС‚Р°&nbsp;РЅР°&nbsp;РґРёСЃРєРµ:<br>
+RUS.FreeSpace=Доступно&nbsp;места&nbsp;на&nbsp;диске:<br>
+RUS.NeedSpace=Требуется&nbsp;места&nbsp;на&nbsp;диске:<br>
 ENG.FreeSpace=Free&nbsp;space&nbsp;on&nbsp;disk:<br>
 ENG.NeedSpace=Need&nbsp;space&nbsp;on&nbsp;disk:<br>
 <br>
@@ -51,13 +51,13 @@ function&nbsp;GetSize():&nbsp;Integer;<br>
 begin<br>
 SizeStr:=&nbsp;WizardForm.DiskSpaceLabel.Caption;<br>
 for&nbsp;SymbolNumber:=&nbsp;97&nbsp;to&nbsp;122&nbsp;do&nbsp;begin<br>
-while&nbsp;(Pos(Chr(SymbolNumber),&nbsp;SizeStr)&nbsp;&gt;&nbsp;0)&nbsp;do&nbsp;Delete(SizeStr,&nbsp;Pos(Chr(SymbolNumber),&nbsp;SizeStr),1);&nbsp;///РќР°С…РѕРґРёРј&nbsp;РІСЃРµ&nbsp;СЃРёРјРІРѕР»С‹&nbsp;РЅРёР¶РЅРµРіРѕ&nbsp;СЂРµРіРёСЃС‚СЂР°&nbsp;Рё&nbsp;СѓРґР°Р»СЏРµРј<br>
-while&nbsp;(Pos(AnsiUppercase(Chr(SymbolNumber)),&nbsp;SizeStr)&nbsp;&gt;&nbsp;0)&nbsp;do&nbsp;Delete(SizeStr,&nbsp;Pos(AnsiUppercase(Chr(SymbolNumber)),&nbsp;SizeStr),1);&nbsp;end;&nbsp;///РќР°С…РѕРґРёРј&nbsp;РІСЃРµ&nbsp;СЃРёРјРІРѕР»С‹&nbsp;РІРµСЂС…РЅРµРіРѕ&nbsp;СЂРµРіРёСЃС‚СЂР°&nbsp;Рё&nbsp;СѓРґР°Р»СЏРµРј<br>
+while&nbsp;(Pos(Chr(SymbolNumber),&nbsp;SizeStr)&nbsp;&gt;&nbsp;0)&nbsp;do&nbsp;Delete(SizeStr,&nbsp;Pos(Chr(SymbolNumber),&nbsp;SizeStr),1);&nbsp;///Находим&nbsp;все&nbsp;символы&nbsp;нижнего&nbsp;регистра&nbsp;и&nbsp;удаляем<br>
+while&nbsp;(Pos(AnsiUppercase(Chr(SymbolNumber)),&nbsp;SizeStr)&nbsp;&gt;&nbsp;0)&nbsp;do&nbsp;Delete(SizeStr,&nbsp;Pos(AnsiUppercase(Chr(SymbolNumber)),&nbsp;SizeStr),1);&nbsp;end;&nbsp;///Находим&nbsp;все&nbsp;символы&nbsp;верхнего&nbsp;регистра&nbsp;и&nbsp;удаляем<br>
 for&nbsp;SymbolNumber:=&nbsp;192&nbsp;to&nbsp;255&nbsp;do&nbsp;begin<br>
-while&nbsp;(Pos(Chr(SymbolNumber),&nbsp;SizeStr)&nbsp;&gt;&nbsp;0)&nbsp;do&nbsp;Delete(SizeStr,&nbsp;Pos(Chr(SymbolNumber),&nbsp;SizeStr),1);&nbsp;end;&nbsp;///РќР°С…РѕРґРёРј&nbsp;РІСЃРµ&nbsp;СЃРёРјРІРѕР»С‹&nbsp;РЅРёР¶РЅРµРіРѕ&nbsp;СЂРµРіРёСЃС‚СЂР°&nbsp;Рё&nbsp;СѓРґР°Р»СЏРµРј<br>
-while&nbsp;(Pos('.',&nbsp;SizeStr)&nbsp;&gt;&nbsp;0)&nbsp;do&nbsp;Delete(SizeStr,&nbsp;Pos('.',&nbsp;SizeStr),&nbsp;1)&nbsp;///РЈРґР°Р»СЏРµРј&nbsp;С‚РѕС‡РєРё<br>
-Delete(SizeStr,&nbsp;Pos(',',&nbsp;SizeStr),&nbsp;5)&nbsp;///РЈРґР°Р»СЏРµРј&nbsp;РґСЂРѕР±РЅСѓСЋ&nbsp;С‡Р°СЃС‚СЊ<br>
-Result:=&nbsp;StrToInt(Trim(SizeStr));&nbsp;///РџРµСЂРµРІРѕРґРёРј&nbsp;РІ&nbsp;С‡РёСЃР»Рѕ<br>
+while&nbsp;(Pos(Chr(SymbolNumber),&nbsp;SizeStr)&nbsp;&gt;&nbsp;0)&nbsp;do&nbsp;Delete(SizeStr,&nbsp;Pos(Chr(SymbolNumber),&nbsp;SizeStr),1);&nbsp;end;&nbsp;///Находим&nbsp;все&nbsp;символы&nbsp;нижнего&nbsp;регистра&nbsp;и&nbsp;удаляем<br>
+while&nbsp;(Pos('.',&nbsp;SizeStr)&nbsp;&gt;&nbsp;0)&nbsp;do&nbsp;Delete(SizeStr,&nbsp;Pos('.',&nbsp;SizeStr),&nbsp;1)&nbsp;///Удаляем&nbsp;точки<br>
+Delete(SizeStr,&nbsp;Pos(',',&nbsp;SizeStr),&nbsp;5)&nbsp;///Удаляем&nbsp;дробную&nbsp;часть<br>
+Result:=&nbsp;StrToInt(Trim(SizeStr));&nbsp;///Переводим&nbsp;в&nbsp;число<br>
 end;<br>
 <br>
 function&nbsp;CompareNum(FirstNum,&nbsp;SecondNum:&nbsp;Integer):&nbsp;Boolean;<br>
@@ -67,9 +67,9 @@ end;<br>
 <br>
 function&nbsp;MbOrTb(Byte:&nbsp;Extended):&nbsp;String;<br>
 begin<br>
-if&nbsp;Byte&nbsp;&lt;&nbsp;1024&nbsp;then&nbsp;Result:=&nbsp;NumToStr(Byte)&nbsp;+&nbsp;'&nbsp;РњР±'&nbsp;else<br>
-if&nbsp;Byte/1024&nbsp;&lt;&nbsp;1024&nbsp;then&nbsp;Result:=&nbsp;NumToStr(round(Byte/1024*100)/100)&nbsp;+&nbsp;'&nbsp;Р“Р±'&nbsp;else<br>
-Result:=&nbsp;NumToStr(round((Byte/(1024*1024))*100)/100)&nbsp;+&nbsp;'&nbsp;РўР±'<br>
+if&nbsp;Byte&nbsp;&lt;&nbsp;1024&nbsp;then&nbsp;Result:=&nbsp;NumToStr(Byte)&nbsp;+&nbsp;'&nbsp;Мб'&nbsp;else<br>
+if&nbsp;Byte/1024&nbsp;&lt;&nbsp;1024&nbsp;then&nbsp;Result:=&nbsp;NumToStr(round(Byte/1024*100)/100)&nbsp;+&nbsp;'&nbsp;Гб'&nbsp;else<br>
+Result:=&nbsp;NumToStr(round((Byte/(1024*1024))*100)/100)&nbsp;+&nbsp;'&nbsp;Тб'<br>
 end;<br>
 procedure&nbsp;GetFreeSpaceCaption(Sender:&nbsp;TObject);<br>
 var&nbsp;Path:&nbsp;String;<br>
@@ -82,7 +82,7 @@ if&nbsp;WizardForm.CurPageID&nbsp;=&nbsp;wpSelectDir&nbsp;then&nbsp;begin<br>
 begin<br>
 WizardForm.NextButton.Enabled:=&nbsp;CompareNum(FreeMB,&nbsp;SizeInt)<br>
 if&nbsp;&nbsp;CompareNum(FreeMB,&nbsp;SizeInt)&nbsp;=&nbsp;false&nbsp;then<br>
-MsgBox('РЈ&nbsp;РІР°СЃ&nbsp;РЅР°&nbsp;РґРёСЃРєРµ&nbsp;РЅРµ&nbsp;С…РІР°С‚Р°РµС‚&nbsp;РјРµСЃС‚Р°,&nbsp;РІС‹Р±РµСЂРёС‚Рµ&nbsp;РґСЂСѓРіРѕР№&nbsp;СЂР°Р·РґРµР».&nbsp;РўСЂРµР±СѓРµРјС‹Р№&nbsp;СЂР°Р·РјРµСЂ'&nbsp;+&nbsp;'&nbsp;'&nbsp;+&nbsp;IntToStr(SizeInt)&nbsp;+&nbsp;'&nbsp;РњР±',&nbsp;mbError,&nbsp;mb_ok);<br>
+MsgBox('У&nbsp;вас&nbsp;на&nbsp;диске&nbsp;не&nbsp;хватает&nbsp;места,&nbsp;выберите&nbsp;другой&nbsp;раздел.&nbsp;Требуемый&nbsp;размер'&nbsp;+&nbsp;'&nbsp;'&nbsp;+&nbsp;IntToStr(SizeInt)&nbsp;+&nbsp;'&nbsp;Мб',&nbsp;mbError,&nbsp;mb_ok);<br>
 end;<br>
 end;<br>
 end;<br>

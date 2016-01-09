@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 <title>[Setup]: AppendDefaultDirName</title>
-<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="text/html; charset=windows-1251" http-equiv="Content-Type">
 <meta content="IE=8" http-equiv="X-UA-Compatible">
 <link rel="stylesheet" type="text/css" href="styles.css">
 <script type="text/javascript" src="topic.js"></script>
@@ -13,18 +13,18 @@
   <table class="setuphdr">
     <tbody>
       <tr>
-        <td class="setuphdrl"><p>Р’РѕР·РјРѕР¶РЅС‹Рµ Р·РЅР°С‡РµРЅРёСЏ:</p></td>
-        <td class="setuphdrr"><div class="margined"><a href="topic_yesnonotes.htm"><tt>yes</tt> РёР»Рё <tt>no</tt></a></div></td>
+        <td class="setuphdrl"><p>Возможные значения:</p></td>
+        <td class="setuphdrr"><div class="margined"><a href="topic_yesnonotes.htm"><tt>yes</tt> или <tt>no</tt></a></div></td>
       </tr>
       <tr>
-        <td class="setuphdrl"><p>Р—РЅР°С‡РµРЅРёРµ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ:</p></td>
+        <td class="setuphdrl"><p>Значение по умолчанию:</p></td>
         <td class="setuphdrr"><div class="margined"><tt>yes</tt></div></td>
       </tr>
     </tbody>
   </table>
-  <div><b>РћРїРёСЃР°РЅРёРµ:</b></div>
-  <p>РџРѕ СѓРјРѕР»С‡Р°РЅРёСЋ РїСЂРё СѓРєР°Р·Р°РЅРёРё РїСѓС‚Рё РЅР° СЃС‚СЂР°РЅРёС†Рµ <i>Р’С‹Р±РѕСЂ РїР°РїРєРё РЅР°Р·РЅР°С‡РµРЅРёСЏ</i> СЃ РїРѕРјРѕС‰СЊСЋ РєРЅРѕРїРєРё РћР±Р·РѕСЂ... (Browse...) РёРЅСЃС‚Р°Р»Р»СЏС‚РѕСЂ Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєРё РґРѕР±Р°РІР»СЏРµС‚ РІ РєРѕРЅС†Рµ РёРјСЏ РїР°РїРєРё, СѓРєР°Р·Р°РЅРЅРѕР№ РІ РґРёСЂРµРєС‚РёРІРµ <tt>DefaultDirName</tt>, РІ РєРѕС‚РѕСЂСѓСЋ Р±СѓРґРµС‚ СѓСЃС‚Р°РЅРѕРІР»РµРЅР° РїСЂРѕРіСЂР°РјРјР°. РќР°РїСЂРёРјРµСЂ, РµСЃР»Рё <tt>DefaultDirName</tt>=<tt>{pf}\My Program</tt> Рё РїРѕР»СЊР·РѕРІР°С‚РµР»СЊ РІС‹Р±СЂР°Р» РІ РѕР±Р·РѕСЂРµ РґРёСЃРє "Z:\", С‚Рѕ РїСЂРѕРіСЂР°РјРјР° СѓСЃС‚Р°РЅРѕРІРёС‚СЃСЏ РІ "Z:\My Program".</p>
-  <p>Р•СЃР»Рё Р·РЅР°С‡РµРЅРёРµ РґРёСЂРµРєС‚РёРІС‹ <tt>no</tt>, С‚Рѕ РїР°РїРєР° СЃ СѓРєР°Р·Р°РЅРЅС‹Рј DefaultDirName РёРјРµРЅРµРј РІ РєРѕРЅРµС‡РЅРѕРј РєР°С‚Р°Р»РѕРіРµ СЃРѕР·РґР°РІР°С‚СЊСЃСЏ РЅРµ Р±СѓРґРµС‚. РќР° СЃС‚СЂР°РЅРёС†Рµ РІС‹Р±РѕСЂР° РїРѕСЏРІРёС‚СЃСЏ РєРЅРѕРїРєР° "РЎРѕР·РґР°С‚СЊ РїР°РїРєСѓ" (<i>Make New Folder</i>).</p>
+  <div><b>Описание:</b></div>
+  <p>По умолчанию при указании пути на странице <i>Выбор папки назначения</i> с помощью кнопки Обзор... (Browse...) инсталлятор автоматически добавляет в конце имя папки, указанной в директиве <tt>DefaultDirName</tt>, в которую будет установлена программа. Например, если <tt>DefaultDirName</tt>=<tt>{pf}\My Program</tt> и пользователь выбрал в обзоре диск "Z:\", то программа установится в "Z:\My Program".</p>
+  <p>Если значение директивы <tt>no</tt>, то папка с указанным DefaultDirName именем в конечном каталоге создаваться не будет. На странице выбора появится кнопка "Создать папку" (<i>Make New Folder</i>).</p>
 </div>
 </body>
 </html>

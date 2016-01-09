@@ -1,55 +1,55 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
 <meta http-equiv="X-UA-Compatible" content="IE=8" />
-<title>РЎС‚СЂСѓРєС‚СѓСЂР° СЃРєСЂРёРїС‚Р°</title>
+<title>Структура скрипта</title>
 <!--[if IE 6]><style type="text/css">html{overflow-y:scroll}</style><![endif]-->
 <link rel="stylesheet" type="text/css" href="styles.css" />
 <script type="text/javascript" src="topic.js"></script>
 </head>
 <body>
-<h1 class="topicheading">РЎС‚СЂСѓРєС‚СѓСЂР° СЃРєСЂРёРїС‚Р°</h1>
+<h1 class="topicheading">Структура скрипта</h1>
 <div class="topicbody">
-  <p>РЎРєСЂРёРїС‚ Inno Setup СЂР°Р·РґРµР»РµРЅ РЅР° <i>СЃРµРєС†РёРё</i>. РљР°Р¶РґР°СЏ СЃРµРєС†РёСЏ РѕС‚РІРµС‡Р°РµС‚ Р·Р° СЃРІРѕР№ СѓС‡Р°СЃС‚РѕРє РёРЅСЃС‚Р°Р»Р»СЏС†РёРё. РЎРµРєС†РёРё РЅР°С‡РёРЅР°СЋС‚СЃСЏ СЃ РѕРїСЂРµРґРµР»РµРЅРёРµРј РёС… РёРјРµРЅРё, РІРєР»СЋС‡РµРЅРЅРѕРіРѕ РІ РєРІР°РґСЂР°С‚РЅС‹Рµ СЃРєРѕР±РєРё (<tt>[]</tt>). Р’ РєР°Р¶РґРѕРј СЂР°Р·РґРµР»Рµ РјРѕР¶РµС‚ Р±С‹С‚СЊ Р»СЋР±РѕРµ С‡РёСЃР»Рѕ <i>СЃС‚СЂРѕРє</i>.</p>
-  <p>РЎСѓС‰РµСЃС‚РІСѓРµС‚ РґРІР° РіР»Р°РІРЅС‹С… С‚РёРїР° СЃРµРєС†РёР№: СЃРµРєС†РёРё С‚РёРїР° [Setup] РІРєР»СЋС‡Р°СЋС‚ РІ СЃРµР±СЏ СЃРїРёСЃРѕРє РґРёСЂРµРєС‚РёРІ Рё РёС… Р·РЅР°С‡РµРЅРёР№ (РІ С„РѕСЂРјРµ <tt>Р”РёСЂРµРєС‚РёРІР°=Р—РЅР°С‡РµРЅРёРµ</tt>) Рё СЃРµРєС†РёРё С‚РёРїР° [Files], РєРѕС‚РѕСЂС‹Рµ РІРєР»СЋС‡Р°СЋС‚ РІ СЃРµР±СЏ СЃРїРёСЃРѕРє <a href="topic_params.htm">РїР°СЂР°РјРµС‚СЂРѕРІ</a>.</p>
-  <p>РџСЂРёРјРµСЂС‹ РґРІСѓС… РІРёРґРѕРІ СЃРµРєС†РёР№:</p>
+  <p>Скрипт Inno Setup разделен на <i>секции</i>. Каждая секция отвечает за свой участок инсталляции. Секции начинаются с определением их имени, включенного в квадратные скобки (<tt>[]</tt>). В каждом разделе может быть любое число <i>строк</i>.</p>
+  <p>Существует два главных типа секций: секции типа [Setup] включают в себя список директив и их значений (в форме <tt>Директива=Значение</tt>) и секции типа [Files], которые включают в себя список <a href="topic_params.htm">параметров</a>.</p>
+  <p>Примеры двух видов секций:</p>
   <pre class="indent examplebox">[Setup]<br />AppName=My Program<br /><br />[Files]<br />Source: &quot;MYPROG.EXE&quot;; DestDir: &quot;{app}&quot;</pre>
-  <p>РћР±СЂР°С‚РёС‚Рµ РІРЅРёРјР°РЅРёРµ, С‡С‚Рѕ РјРѕР¶РЅРѕ СѓРєР°Р·Р°С‚СЊ РЅРµСЃРєРѕР»СЊРєРѕ СЃРµРєС†РёР№ СЃ РѕРґРЅРёРј Рё С‚РµРј Р¶Рµ РЅР°Р·РІР°РЅРёРµРј.</p>
-  <p>Р’ СЃРєСЂРёРїС‚ РјРѕР¶РЅРѕ РґРѕР±Р°РІРёС‚СЊ РєРѕРјРјРµРЅС‚Р°СЂРёР№, РєРѕС‚РѕСЂС‹Р№ Р±СѓРґРµС‚ РёРіРЅРѕСЂРёСЂРѕРІР°РЅ РїСЂРё РєРѕРјРїРёР»СЏС†РёРё. Р”Р»СЏ СЌС‚РѕРіРѕ РІ РЅР°С‡Р°Р»Рµ СЃС‚СЂРѕРєРё СЃС‚Р°РІРёС‚СЃСЏ С‚РѕС‡РєР° СЃ Р·Р°РїСЏС‚РѕР№ (&quot;;&quot;). РќР°РїСЂРёРјРµСЂ:</p>
-  <pre class="indent examplebox">; Р­С‚Рѕ РєРѕРјРјРµРЅС‚Р°СЂРёР№</pre>
-  <p>Р”РёСЂРµРєС‚РёРІР° <a name="include" id="include"><tt>#include</tt></a> РїРѕР·РІРѕР»СЏРµС‚ РІР·СЏС‚СЊ Р·РЅР°С‡РµРЅРёРµ РёР· РѕС‚РґРµР»СЊРЅРѕРіРѕ С„Р°Р№Р»Р° Рё РІСЃС‚Р°РІРёС‚СЊ РµРіРѕ РІ СЃРєСЂРёРїС‚ РІ С‚РѕРј РјРµСЃС‚Рµ, РіРґРµ РѕРЅР° РІС‹Р·С‹РІР°РµС‚СЃСЏ. РЎРёРЅС‚Р°РєСЃРёСЃ РґРёСЂРµРєС‚РёРІС‹ СЃР»РµРґСѓСЋС‰РёР№:</p>
+  <p>Обратите внимание, что можно указать несколько секций с одним и тем же названием.</p>
+  <p>В скрипт можно добавить комментарий, который будет игнорирован при компиляции. Для этого в начале строки ставится точка с запятой (&quot;;&quot;). Например:</p>
+  <pre class="indent examplebox">; Это комментарий</pre>
+  <p>Директива <a name="include" id="include"><tt>#include</tt></a> позволяет взять значение из отдельного файла и вставить его в скрипт в том месте, где она вызывается. Синтаксис директивы следующий:</p>
   <pre class="indent examplebox">#include &quot;filename.txt&quot;</pre>
-  <p>Р•СЃР»Рё РёРјСЏ С„Р°Р№Р»Р° СѓРєР°Р·Р°РЅРѕ РЅРµ РїРѕР»РЅРѕСЃС‚СЊСЋ, РєРѕРјРїРёР»СЏС‚РѕСЂ Р±СѓРґРµС‚ РёСЃРєР°С‚СЊ РµРіРѕ РІ РєР°С‚Р°Р»РѕРіРµ, СѓРєР°Р·Р°РЅРЅРѕРј РґРёСЂРµРєС‚РёРІРѕР№ <tt>#include</tt>. Р•СЃР»Рё РёРјСЏ С„Р°Р№Р»Р° РёРјРµРµС‚ РїСЂРµС„РёРєСЃ &quot;compiler:&quot;, РєРѕРјРїРёР»СЏС‚РѕСЂ Р±СѓРґРµС‚ РёСЃРєР°С‚СЊ С„Р°Р№Р» РІ СЃРІРѕРµРј РєР°С‚Р°Р»РѕРіРµ (РєР°С‚Р°Р»РѕРіРµ РєРѕРјРїРёР»СЏС‚РѕСЂР°).</p>
-  <p>РџРѕРґРґРµСЂР¶РёРІР°РµС‚СЃСЏ РґРёСЂРµРєС‚РёРІР° <a name="preproc" id="preproc"><tt>#preproc</tt></a>, РєРѕС‚РѕСЂР°СЏ СѓРєР°Р·С‹РІР°РµС‚, РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РІСЃС‚СЂРѕРµРЅРЅС‹Р№ РїСЂРµРїСЂРѕС†РµСЃСЃРѕСЂ, РєРѕС‚РѕСЂС‹Р№ РїРѕРґРґРµСЂР¶РёРІР°РµС‚ С‚РѕР»СЊРєРѕ РґРёСЂРµРєС‚РёРІСѓ <tt>#include</tt>, РёР»Рё РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РїСЂРµРїСЂРѕС†РєРµСЃСЃРѕСЂ Inno Setup (ISPP), РєРѕС‚РѕСЂС‹Р№ РїРѕРґРґРµСЂР¶РёРІР°РµС‚ РјРЅРѕР¶РµСЃС‚РІРѕ РґСЂСѓРіРёС… РґРёСЂРµРєС‚РёРІ.  РЎРёРЅС‚Р°РєСЃРёСЃ РґРёСЂРµРєС‚РёРІС‹ СЃР»РµРґСѓСЋС‰РёР№:</p>
+  <p>Если имя файла указано не полностью, компилятор будет искать его в каталоге, указанном директивой <tt>#include</tt>. Если имя файла имеет префикс &quot;compiler:&quot;, компилятор будет искать файл в своем каталоге (каталоге компилятора).</p>
+  <p>Поддерживается директива <a name="preproc" id="preproc"><tt>#preproc</tt></a>, которая указывает, использовать встроенный препроцессор, поддерживающий только директиву <tt>#include</tt>, или использовать препроцессор Inno Setup (ISPP), который поддерживает множество других директив. Синтаксис директивы следующий:</p>
   <pre class="indent examplebox">
 #preproc builtin
 #preproc ispp</pre>
-  <p>РџРѕ СѓРјРѕР»С‡Р°РЅРёСЋ, РїСЂРё РІРѕР·РјРѕР¶РЅРѕСЃС‚Рё СЃРєСЂРёРїС‚С‹ РёСЃРїРѕР»СЊР·СѓСЋС‚ ISPP, Р° .isl С„Р°Р№Р»С‹ РІСЃС‚СЂРѕРµРЅРЅС‹Р№ РїСЂРµРїСЂРѕС†РµСЃСЃРѕСЂ.</p>
+  <p>По умолчанию, при возможности скрипты используют ISPP, а .isl файлы встроенный препроцессор.</p>
   <p><br />
-    <b>РЎРј. С‚Р°РєР¶Рµ:</b><br />
-    <a href="topic_params.htm">РџР°СЂР°РјРµС‚СЂС‹ РІ СЃРµРєС†РёСЏС…</a><br />
-    <a href="topic_consts.htm">РљРѕРЅСЃС‚Р°РЅС‚С‹</a><br />
-    <a href="topic_commonparams.htm">РћР±С‰РёРµ РїР°СЂР°РјРµС‚СЂС‹</a><br />
-    <a href="topic_componentstasksparams.htm">РџР°СЂР°РјРµС‚СЂС‹ СЃРµРєС†РёР№ [Components] Рё [Tasks]</a><br />
-    <a href="topic_setupsection.htm">РЎРµРєС†РёСЏ [Setup]</a><br />
-    <a href="topic_typessection.htm">РЎРµРєС†РёСЏ [Types]</a><br />
-    <a href="topic_componentssection.htm">РЎРµРєС†РёСЏ [Components]</a><br />
-    <a href="topic_taskssection.htm">РЎРµРєС†РёСЏ [Tasks]</a><br />
-    <a href="topic_dirssection.htm">РЎРµРєС†РёСЏ [Dirs]</a><br />
-    <a href="topic_filessection.htm">РЎРµРєС†РёСЏ [Files]</a><br />
-    <a href="topic_iconssection.htm">РЎРµРєС†РёСЏ [Icons]</a><br />
-    <a href="topic_inisection.htm">РЎРµРєС†РёСЏ [INI]</a><br />
-    <a href="topic_installdeletesection.htm">РЎРµРєС†РёСЏ [InstallDelete]</a><br />
-    <a href="topic_languagessection.htm">РЎРµРєС†РёСЏ [Languages]</a><br />
-    <a href="topic_messagessection.htm">РЎРµРєС†РёСЏ [Messages]</a><br />
-    <a href="topic_custommessagessection.htm">РЎРµРєС†РёСЏ [CustomMessages]</a><br />
-    <a href="topic_langoptionssection.htm">РЎРµРєС†РёСЏ [LangOptions]</a><br />
-    <a href="topic_registrysection.htm">РЎРµРєС†РёСЏ [Registry]</a><br />
-    <a href="topic_runsection.htm">РЎРµРєС†РёСЏ [Run]</a><br />
-    <a href="topic_uninstalldeletesection.htm">РЎРµРєС†РёСЏ [UninstallDelete]</a><br />
-    <a href="topic_runsection.htm">РЎРµРєС†РёСЏ [UninstallRun]</a><br />
-    <a href="topic_scriptintro.htm">Pascal Scripting: Р’РІРµРґРµРЅРёРµ</a></p>
+    <b>См. также:</b><br />
+    <a href="topic_params.htm">Параметры в секциях</a><br />
+    <a href="topic_consts.htm">Константы</a><br />
+    <a href="topic_commonparams.htm">Общие параметры</a><br />
+    <a href="topic_componentstasksparams.htm">Параметры секций [Components] и [Tasks]</a><br />
+    <a href="topic_setupsection.htm">Секция [Setup]</a><br />
+    <a href="topic_typessection.htm">Секция [Types]</a><br />
+    <a href="topic_componentssection.htm">Секция [Components]</a><br />
+    <a href="topic_taskssection.htm">Секция [Tasks]</a><br />
+    <a href="topic_dirssection.htm">Секция [Dirs]</a><br />
+    <a href="topic_filessection.htm">Секция [Files]</a><br />
+    <a href="topic_iconssection.htm">Секция [Icons]</a><br />
+    <a href="topic_inisection.htm">Секция [INI]</a><br />
+    <a href="topic_installdeletesection.htm">Секция [InstallDelete]</a><br />
+    <a href="topic_languagessection.htm">Секция [Languages]</a><br />
+    <a href="topic_messagessection.htm">Секция [Messages]</a><br />
+    <a href="topic_custommessagessection.htm">Секция [CustomMessages]</a><br />
+    <a href="topic_langoptionssection.htm">Секция [LangOptions]</a><br />
+    <a href="topic_registrysection.htm">Секция [Registry]</a><br />
+    <a href="topic_runsection.htm">Секция [Run]</a><br />
+    <a href="topic_uninstalldeletesection.htm">Секция [UninstallDelete]</a><br />
+    <a href="topic_runsection.htm">Секция [UninstallRun]</a><br />
+    <a href="topic_scriptintro.htm">Pascal Scripting: Введение</a></p>
 </div>
 </body>
 </html>

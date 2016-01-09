@@ -1,24 +1,24 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
 <meta http-equiv="X-UA-Compatible" content="IE=8" />
-<title>Pascal Scripting: РџР°СЂР°РјРµС‚СЂС‹ BeforeInstall Рё AfterInstall</title>
+<title>Pascal Scripting: Параметры BeforeInstall и AfterInstall</title>
 <!--[if IE 6]><style type="text/css">html{overflow-y:scroll}</style><![endif]-->
 <link rel="stylesheet" type="text/css" href="styles.css" />
 <script type="text/javascript" src="topic.js"></script>
 </head>
 <body>
-<h1 class="topicheading">Pascal Scripting: РџР°СЂР°РјРµС‚СЂС‹ BeforeInstall Рё AfterInstall</h1>
+<h1 class="topicheading">Pascal Scripting: Параметры BeforeInstall и AfterInstall</h1>
 <div class="topicbody">
-  <p>РЎСѓС‰РµСЃС‚РІСѓРµС‚ РґРІР° РЅРµРѕР±СЏР·Р°С‚РµР»СЊРЅС‹С… <a href="topic_params.htm">РїР°СЂР°РјРµС‚СЂР°</a>, РїРѕРґРґРµСЂР¶РёРІР°РµРјС‹Рµ РІСЃРµРјРё СЃРµРєС†РёСЏРјРё, СЃРѕРґРµСЂР¶Р°С‰РёРјРё РїР°СЂР°РјРµС‚СЂС‹, РєСЂРѕРјРµ СЃРµРєС†РёР№ [Languages], [Types], [Components] Рё [Tasks]. Р­С‚Рѕ:</p>
+  <p>Существует два необязательных <a href="topic_params.htm">параметра</a>, поддерживаемые всеми секциями, содержащими параметры, кроме секций [Languages], [Types], [Components] и [Tasks]. Это:</p>
   <dl>
     <dt class="paramlist"><b><a name="BeforeInstall" id="BeforeInstall">BeforeInstall</a></b></dt>
     <dd class="paramlist">
-      <p>РРјСЏ С„СѓРЅРєС†РёРё, РєРѕС‚РѕСЂР°СЏ Р±СѓРґРµС‚ РІС‹Р·С‹РІР°С‚СЊСЃСЏ РѕРґРёРЅ СЂР°Р· РїРµСЂРµРґ СѓСЃС‚Р°РЅРѕРІРєРѕР№ РїР°СЂР°РјРµС‚СЂР°. Р­С‚Р° С„СѓРЅРєС†РёСЏ РјРѕР¶РµС‚ Р±С‹С‚СЊ РѕРїРёСЃР°РЅР° РІ СЃРµРєС†РёРё [Code], РёР»Рё РјРѕР¶РµС‚ Р±С‹С‚СЊ <a href="topic_scriptfunctions.htm">РІСЃС‚СЂРѕРµРЅРЅРѕР№ С„СѓРЅРєС†РёРµР№</a>.</p>
-      <p>РњРѕР¶РµС‚ СЃРѕРґРµСЂР¶Р°С‚СЊ СЃРїРёСЃРѕРє РїР°СЂР°РјРµС‚СЂРѕРІ, СЂР°Р·РґРµР»РµРЅРЅС‹С… Р·Р°РїСЏС‚С‹РјРё, РєРѕС‚РѕСЂС‹Рµ РёРЅСЃС‚Р°Р»Р»СЏС‚РѕСЂ РґРѕР»Р¶РµРЅ РїСЂРµРґРѕСЃС‚Р°РІРёС‚СЊ С„СѓРЅРєС†РёРё. Р”РѕРїСѓСЃС‚РёРјС‹Рµ С‚РёРїС‹ РїР°СЂР°РјРµС‚СЂРѕРІ: СЃС‚СЂРѕРєРѕРІС‹Р№ (String), С†РµР»РѕС‡РёСЃР»РµРЅРЅС‹Р№ (Integer) Рё Р»РѕРіРёС‡РµСЃРєРёР№ (Boolean). РЎС‚СЂРѕРєРѕРІС‹Рµ РїР°СЂР°РјРµС‚СЂС‹ РјРѕРіСѓС‚ СЃРѕРґРµСЂР¶Р°С‚СЊ РєРѕРЅСЃС‚Р°РЅС‚С‹. These constants will not be automatically expanded. If you want to pass an expanded constant, СЃСѓС‰РµСЃС‚РІСѓРµС‚ РѕРґРЅР° <a href="topic_scriptfunctions.htm">РІСЃС‚СЂРѕРµРЅРЅР°СЏ С„СѓРЅРєС†РёСЏ</a>, РєРѕС‚РѕСЂСѓСЋ РјРѕР¶РЅРѕ РґРѕР±Р°РІР»СЏС‚СЊ РІ СЃРїРёСЃРѕРє РїР°СЂР°РјРµС‚СЂРѕРІ: СЌС‚Рѕ <tt>ExpandConstant</tt>.</p>
+      <p>Имя функции, которая будет вызываться один раз перед установкой параметра. Эта функция может быть описана в секции [Code], или может быть <a href="topic_scriptfunctions.htm">встроенной функцией</a>.</p>
+      <p>Может содержать список параметров, разделенных запятыми, которые инсталлятор должен предоставить функции. Допустимые типы параметров: строковый (String), целочисленный (Integer) и логический (Boolean). Строковые параметры могут содержать константы. These constants will not be automatically expanded. If you want to pass an expanded constant, существует одна <a href="topic_scriptfunctions.htm">встроенная функция</a>, которую можно добавлять в список параметров: это <tt>ExpandConstant</tt>.</p>
       <div class="examplebox">
-        <div class="exampleheader">РќР°РїСЂРёРјРµСЂ:</div>
+        <div class="exampleheader">Например:</div>
         <pre class="nomargin">[Files]
 Source: &quot;MYPROG.EXE&quot;; DestDir: &quot;{app}&quot;; BeforeInstall: MyBeforeInstall
 Source: &quot;A\MYFILE.TXT&quot;; DestDir: &quot;{app}&quot;; BeforeInstall: MyBeforeInstall2('{app}\A\MYFILE.TXT')
@@ -28,10 +28,10 @@ Source: &quot;MYPROG.CHM&quot;; DestDir: &quot;{app}&quot;; BeforeInstall: Log('
     </dd>
     <dt class="paramlist"><b><a name="AfterInstall" id="AfterInstall">AfterInstall</a></b></dt>
     <dd class="paramlist">
-      <p>РРјСЏ С„СѓРЅРєС†РёРё, РєРѕС‚РѕСЂР°СЏ Р±СѓРґРµС‚ РІС‹Р·С‹РІР°С‚СЊСЃСЏ РѕРґРёРЅ СЂР°Р· РїРѕСЃР»Рµ СѓСЃС‚Р°РЅРѕРІРєРё РїР°СЂР°РјРµС‚СЂР°. Р­С‚Р° С„СѓРЅРєС†РёСЏ РјРѕР¶РµС‚ Р±С‹С‚СЊ РѕРїРёСЃР°РЅР° РІ СЃРµРєС†РёРё [Code], РёР»Рё РјРѕР¶РµС‚ Р±С‹С‚СЊ <a href="topic_scriptfunctions.htm">РІСЃС‚СЂРѕРµРЅРЅРѕР№ С„СѓРЅРєС†РёРµР№</a>.</p>
-      <p>РњРѕР¶РµС‚ СЃРѕРґРµСЂР¶Р°С‚СЊ СЃРїРёСЃРѕРє РїР°СЂР°РјРµС‚СЂРѕРІ, СЂР°Р·РґРµР»РµРЅРЅС‹С… Р·Р°РїСЏС‚С‹РјРё, РєРѕС‚РѕСЂС‹Рµ РёРЅСЃС‚Р°Р»Р»СЏС‚РѕСЂ РґРѕР»Р¶РµРЅ РїСЂРµРґРѕСЃС‚Р°РІРёС‚СЊ С„СѓРЅРєС†РёРё. Р”РѕРїСѓСЃС‚РёРјС‹Рµ С‚РёРїС‹ РїР°СЂР°РјРµС‚СЂРѕРІ: СЃС‚СЂРѕРєРѕРІС‹Р№ (String), С†РµР»РѕС‡РёСЃР»РµРЅРЅС‹Р№ (Integer) Рё Р»РѕРіРёС‡РµСЃРєРёР№ (Boolean). РЎС‚СЂРѕРєРѕРІС‹Рµ РїР°СЂР°РјРµС‚СЂС‹ РјРѕРіСѓС‚ СЃРѕРґРµСЂР¶Р°С‚СЊ РєРѕРЅСЃС‚Р°РЅС‚С‹. These constants will not be automatically expanded. If you want to pass an expanded constant, СЃСѓС‰РµСЃС‚РІСѓРµС‚ РѕРґРЅР° <a href="topic_scriptfunctions.htm">РІСЃС‚СЂРѕРµРЅРЅР°СЏ С„СѓРЅРєС†РёСЏ</a>, РєРѕС‚РѕСЂСѓСЋ РјРѕР¶РЅРѕ РґРѕР±Р°РІР»СЏС‚СЊ РІ СЃРїРёСЃРѕРє РїР°СЂР°РјРµС‚СЂРѕРІ: СЌС‚Рѕ <tt>ExpandConstant</tt>.</p>
+      <p>Имя функции, которая будет вызываться один раз после установки параметра. Эта функция может быть описана в секции [Code], или может быть <a href="topic_scriptfunctions.htm">встроенной функцией</a>.</p>
+      <p>Может содержать список параметров, разделенных запятыми, которые инсталлятор должен предоставить функции. Допустимые типы параметров: строковый (String), целочисленный (Integer) и логический (Boolean). Строковые параметры могут содержать константы. These constants will not be automatically expanded. If you want to pass an expanded constant, существует одна <a href="topic_scriptfunctions.htm">встроенная функция</a>, которую можно добавлять в список параметров: это <tt>ExpandConstant</tt>.</p>
       <div class="examplebox">
-        <div class="exampleheader">РќР°РїСЂРёРјРµСЂ:</div>
+        <div class="exampleheader">Например:</div>
         <pre class="nomargin">[Files]
 Source: &quot;MYPROG.EXE&quot;; DestDir: &quot;{app}&quot;; AfterInstall: MyAfterInstall
 Source: &quot;A\MYFILE.TXT&quot;; DestDir: &quot;{app}&quot;; AfterInstall: MyAfterInstall2('{app}\A\MYFILE.TXT')
@@ -40,10 +40,10 @@ Source: &quot;MYPROG.CHM&quot;; DestDir: &quot;{app}&quot;; AfterInstall: Log('A
       </div>
     </dd>
   </dl>
-  <p>Р¤СѓРЅРєС†РёРё <tt>BeforeInstall</tt> Рё <tt>AfterInstall</tt> РЅРµ РґРѕР»Р¶РЅС‹ РІРѕР·РІСЂР°С‰Р°С‚СЊ РЅРёС‡РµРіРѕ.</p>
-  <p>Р¤СѓРЅРєС†РёРё <tt>BeforeInstall</tt> РёР»Рё <tt>AfterInstall</tt> РЅРµ РІС‹Р·С‹РІР°СЋС‚СЃСЏ, РµСЃР»Рё РёРЅСЃС‚Р°Р»Р»СЏС‚РѕСЂ РѕРїСЂРµРґРµР»РёР», С‡С‚Рѕ РЅРµ Р±СѓРґРµС‚ РѕР±СЂР°Р±РѕС‚Р°С‚СЊ РїР°СЂР°РјРµС‚СЂ.</p>
-  <p>Р¤СѓРЅРєС†РёРё <tt>BeforeInstall</tt> РёР»Рё <tt>AfterInstall</tt> РІС‹Р·С‹РІР°СЋС‚СЃСЏ РѕРґРЅР°Р¶РґС‹ РґР»СЏ РєР°Р¶РґРѕРіРѕ С„Р°Р№Р»Р° СЃРµРєС†РёРё [Files], СЃРѕРІРїРѕРґР°СЋС‰РµРіРѕ СЃ <span id="result_box" lang="ru" xml:lang="ru">РїРѕРґСЃС‚Р°РЅРѕРІРѕС‡РЅС‹Рј Р·РЅР°Рє</span>РѕРј. РСЃРїРѕР»СЊР·СѓР№С‚Рµ <tt>CurrentFileName</tt>, С‡С‚РѕР±С‹ РїСЂРѕРІРµСЂРёС‚СЊ РґР»СЏ РєР°РєРѕРіРѕ С„Р°Р№Р»Р° Р±С‹Р»Р° РІС‹Р·РІР°РЅР° С„СѓРЅРєС†РёСЏ.</p>
-  <p>Р’РѕС‚ РїСЂРёРјРµСЂ СЃРµРєС†РёРё <tt>[Code]</tt>, СЃРѕРґРµСЂР¶Р°С‰РµР№ С„СѓРЅРєС†РёРё BeforeInstall Рё AfterInstall. Р¤СѓРЅРєС†РёРё <tt>CurrentFileName</tt> Рё <tt>Log</tt> СЏРІР»СЏСЋС‚СЃСЏ <a href="topic_scriptfunctions.htm">РІСЃС‚СЂРѕРµРЅРЅС‹РјРё С„СѓРЅРєС†РёСЏРјРё</a>, РїРѕСЌС‚РѕРјСѓ РЅРµ РѕРїРёСЃР°РЅС‹ РІ СЃРµРєС†РёРё [Code].</p>
+  <p>Функции <tt>BeforeInstall</tt> и <tt>AfterInstall</tt> не должны возвращать ничего.</p>
+  <p>Функции <tt>BeforeInstall</tt> или <tt>AfterInstall</tt> не вызываются, если инсталлятор определил, что не будет обработать параметр.</p>
+  <p>Функции <tt>BeforeInstall</tt> или <tt>AfterInstall</tt> вызываются однажды для каждого файла секции [Files], совподающего с <span id="result_box" lang="ru" xml:lang="ru">подстановочным знак</span>ом. Используйте <tt>CurrentFileName</tt>, чтобы проверить для какого файла была вызвана функция.</p>
+  <p>Вот пример секции <tt>[Code]</tt>, содержащей функции BeforeInstall и AfterInstall. Функции <tt>CurrentFileName</tt> и <tt>Log</tt> являются <a href="topic_scriptfunctions.htm">встроенными функциями</a>, поэтому не описаны в секции [Code].</p>
   <pre class="indent examplebox">
 [Code]
 procedure MyBeforeInstall();

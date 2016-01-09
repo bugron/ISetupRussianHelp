@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
 <meta http-equiv="X-UA-Compatible" content="IE=8" />
 <title>Pascal Scripting Extended: Sqrt</title>
 <link rel="stylesheet" type="text/css" href="../../../styles.css" />
@@ -10,31 +10,31 @@
 <body>
 <h1 class="topicheading">Pascal Scripting Extended: Sqrt</h1>
 <div class="topicbody">
-  <div><b>РџСЂРѕС‚РѕС‚РёРї:</b></div>
+  <div><b>Прототип:</b></div>
   <p><tt>function Sqrt(E: Extended): Extended;</tt></p>
-  <div><b>РћРїРёСЃР°РЅРёРµ:</b></div>
-  Р¤СѓРЅРєС†РёСЏ Sqrt РІРѕР·РІСЂР°С‰Р°РµС‚ РєРІР°РґСЂР°С‚РЅС‹Р№ РєРѕСЂРµРЅСЊ С‡РёСЃР»Р°&nbsp;EСЋ<br />
-  Р§РёСЃР»Рѕ РґРѕР»Р¶РЅРѕ Р±С‹С‚СЊ РІРµС‰РµСЃС‚РІРµРЅРЅРѕРіРѕ С‚РёРїР°.<br />
+  <div><b>Описание:</b></div>
+  Функция Sqrt возвращает квадратный корень числа&nbsp;Eю<br />
+  Число должно быть вещественного типа.<br />
   <br />
-  <div><b>РџСЂРёРјРµСЂС‹:</b></div>
+  <div><b>Примеры:</b></div>
   <p><tt>var<br />
     &nbsp;number, squareRoot : Extended;<br />
     <br />
     begin<br />
-    // РљРІР°РґСЂР°С‚РЅС‹Р№ РєРѕСЂРµРЅСЊ 225 = 15<br />
+    // Квадратный корень 225 = 15<br />
     &nbsp;number := 225;<br />
     &nbsp;squareRoot := Sqrt(number);<br />
-    &nbsp;ShowMessageFmt('РљРІР°РґСЂР°С‚РЅС‹Р№ РєРѕСЂРµРЅСЊ %f = %f',[number, squareRoot]);<br />
+    &nbsp;ShowMessageFmt('Квадратный корень %f = %f',[number, squareRoot]);<br />
     <br />
     // The square root of 3.456 = 1.859...<br />
     &nbsp;number := 3.456;<br />
     &nbsp;squareRoot := Sqrt(number);<br />
-    &nbsp;ShowMessageFmt('РљРІР°РґСЂР°С‚РЅС‹Р№ РєРѕСЂРµРЅСЊ %7.3f = %12.12f',[number, squareRoot]);<br />
+    &nbsp;ShowMessageFmt('Квадратный корень %7.3f = %12.12f',[number, squareRoot]);<br />
     <br />
-    // РљРІР°РґСЂР°С‚РЅС‹Р№ РєРѕСЂРµРЅСЊ Р±РµСЃРєРѕРЅРµС‡РЅРѕСЃС‚Рё С‚РѕР¶Рµ Р±РµСЃРєРѕРЅРµС‡РЅРѕСЃС‚СЊ<br />
+    // Квадратный корень бесконечности тоже бесконечность<br />
     &nbsp;number := Infinity;<br />
     &nbsp;number := Sqrt(number);<br />
-    &nbsp;ShowMessageFmt('РљРІР°РґСЂР°С‚РЅС‹Р№ РєРѕСЂРµРЅСЊ Р±РµСЃРєРѕРЅРµС‡РЅРѕСЃС‚Рё = %f',[number]);<br />
+    &nbsp;ShowMessageFmt('Квадратный корень бесконечности = %f',[number]);<br />
     end;</tt></p>
 </div>
 </body>

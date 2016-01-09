@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
 <meta http-equiv="X-UA-Compatible" content="IE=8" />
 <title>Inno Setup Preprocessor: #for</title>
 <link rel="stylesheet" type="text/css" href="../styles.css" />
@@ -10,28 +10,28 @@
 <body>
 <h1 class="topicheading">Inno Setup Preprocessor: #for</h1>
 <div class="topicbody">
-  <h2 class="heading notopmargin">РЎРёРЅС‚Р°С‚СЃРёСЃ</h2>
+  <h2 class="heading notopmargin">Синтатсис</h2>
   <table>
     <tr>
       <td class="cellleft"><i>for-directive:</i></td>
       <td class="cellright"><b>for</b> <b>&nbsp;</b> <b>{</b> &lt;expr1&gt; <b>;</b> &lt;expr2&gt; <b>;</b> &lt;expr3&gt; <b>}</b> &lt;expr4&gt;</td>
     </tr>
   </table>
-  <h2 class="heading">РћРїРёСЃР°РЅРёРµ</h2>
-  <p>РСЃРїРѕР»СЊР·СѓР№С‚Рµ РґРёСЂРµРєС‚РёРІСѓ <tt>for</tt>, С‡С‚РѕР±С‹ РїРѕР»СѓС‡РёС‚СЊ С†РёРєР». <tt>for</tt> РїРѕР»СѓС‡Р°РµС‚ 4 РІС‹СЂР°Р¶РµРЅРёСЏ. РџРµСЂРІРѕРµ РІС‹СЂР°Р¶РµРЅРёРµ (<tt>expr1</tt>) РЅР°Р·С‹РІР°РµС‚СЃСЏ &quot;РІС‹СЂР°Р¶РµРЅРёРµ РёРЅРёС†РёР°Р»РёР·Р°С†РёРё,&quot; РІС‚РѕСЂРѕРµ РІС‹СЂР°Р¶РµРЅРёРµ (<tt>expr2</tt>) &quot;СѓСЃР»РѕРІРёРµ,&quot; С‚СЂРµС‚СЊРµ РІС‹СЂР°Р¶РµРЅРёРµ (<tt>expr3</tt>) &quot;РґРµР№СЃС‚РІРёРµ,&quot; Рё РїРѕСЃР»РµРґРЅРµРµ РІС‹СЂР°Р¶РµРЅРёРµ (<tt>expr4</tt>) &quot;С‚РµР»Рѕ С†РёРєР»Р°.&quot;</p>
-  <p>Р›РѕРіРёРєР° РґРёСЂРµРєС‚РёРІС‹ <tt>for</tt>:</p>
-  <p>&nbsp;&nbsp;1. РћС†РµРЅРёРІР°РµС‚СЃСЏ РІС‹СЂР°Р¶РµРЅРёРµ РёРЅРёС†РёР°Р»РёР·Р°С†РёРё.</p>
-  <p>&nbsp;&nbsp;2. РћС†РµРЅРёРІР°РµС‚СЃСЏ СѓСЃР»РѕРІРёРµ. Р•СЃР»Рё СЌС‚Рѕ 0, С†РёРєР»Р° РѕСЃС‚Р°РЅР°РІР»РёРІР°РµС‚СЃСЏ.</p>
-  <p>&nbsp;&nbsp;3. РћС†РµРЅРёРІР°РµС‚СЃСЏ С‚РµР»Рѕ С†РёРєР»Р°.</p>
-  <p>&nbsp;&nbsp;4. РћС†РµРЅРёРІР°РµС‚СЃСЏ РґРµР№СЃС‚РІРёРµ.</p>
-  <p>&nbsp;&nbsp;5. РџСЂРѕС†РµСЃСЃ РїРѕРІС‚РѕСЂСЏРµС‚СЃСЏ.</p>
-  <h2 class="heading">РџСЂРёРјРµСЂС‹</h2>
+  <h2 class="heading">Описание</h2>
+  <p>Используйте директиву <tt>for</tt>, чтобы получить цикл. <tt>for</tt> получает 4 выражения. Первое выражение (<tt>expr1</tt>) называется &quot;выражение инициализации,&quot; второе выражение (<tt>expr2</tt>) &quot;условие,&quot; третье выражение (<tt>expr3</tt>) &quot;действие,&quot; и последнее выражение (<tt>expr4</tt>) &quot;тело цикла.&quot;</p>
+  <p>Логика директивы <tt>for</tt>:</p>
+  <p>&nbsp;&nbsp;1. Оценивается выражение инициализации.</p>
+  <p>&nbsp;&nbsp;2. Оценивается условие. Если это 0, цикла останавливается.</p>
+  <p>&nbsp;&nbsp;3. Оценивается тело цикла.</p>
+  <p>&nbsp;&nbsp;4. Оценивается действие.</p>
+  <p>&nbsp;&nbsp;5. Процесс повторяется.</p>
+  <h2 class="heading">Примеры</h2>
   <p><tt>// Call AddFile user defined procedure 200 times<br/>
     #for {i = 200; i &gt; 0; i--} AddFile<br/>
   </tt></p>
-  <h2 class="heading">Р‘РѕР»СЊС€Рµ РїСЂРёРјРµСЂРѕРІ</h2>
+  <h2 class="heading">Больше примеров</h2>
   <p><a href="topic_findfirst.htm">FindFirst</a>, <a href="topic_fileread.htm">FileRead</a>.</p>
-  <h2 class="heading">РЎРј. С‚Р°РєР¶Рµ:</h2>
+  <h2 class="heading">См. также:</h2>
   <p><tt><a href="topic_sub.htm">sub</a></tt>, <tt><a href="topic_include.htm">include</a></tt>.</p>
 </div>
 </body>

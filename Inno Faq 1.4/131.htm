@@ -1,9 +1,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>РЈРґР°Р»РµРЅРёРµ РёР»Рё РїРµСЂРµР·Р°РїРёСЃСЊ СѓР¶Рµ СѓСЃС‚Р°РЅРѕРІР»РµРЅРЅРѕР№ РїСЂРѕРіСЂР°РјРјС‹</title><link rel="stylesheet" type="text/css" href="css.css">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1251"><title>Удаление или перезапись уже установленной программы</title><link rel="stylesheet" type="text/css" href="css.css">
 <script language='jscript' type='text/javascript' src='copycode.js'></script>
-<script type="text/javascript" src="includer.js"></script></head><body><div id="heading"><h1>В» Inno Setup Faq. РЈРґР°Р»РµРЅРёРµ РёР»Рё РїРµСЂРµР·Р°РїРёСЃСЊ СѓР¶Рµ СѓСЃС‚Р°РЅРѕРІР»РµРЅРЅРѕР№ РїСЂРѕРіСЂР°РјРјС‹</h1></div><br>
+<script type="text/javascript" src="includer.js"></script></head><body><div id="heading"><h1>» Inno Setup Faq. Удаление или перезапись уже установленной программы</h1></div><br>
 <script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM">
-<input type="button" value="РљРѕРїРёСЂРѕРІР°С‚СЊ РІ Р±СѓС„РµСЂ РѕР±РјРµРЅР°" onClick="copyToClipboard( taCode1, theCode1 );">
+<input type="button" value="Копировать в буфер обмена" onClick="copyToClipboard( taCode1, theCode1 );">
 <blockquote id="theCode1"><font>
 [Setup]<br>
 AppName=My&nbsp;Program<br>
@@ -17,7 +17,7 @@ var<br>
 &nbsp;&nbsp;Uninstall,Location:string;<br>
 &nbsp;&nbsp;ResultCode:Integer;<br>
 <br>
-///РџСЂРѕС†РµРґСѓСЂР°&nbsp;NextButtonClick&nbsp;РґР»СЏ&nbsp;РЅРѕРІРѕР№&nbsp;СЃС‚СЂР°РЅРёС†С‹.<br>
+///Процедура&nbsp;NextButtonClick&nbsp;для&nbsp;новой&nbsp;страницы.<br>
 function&nbsp;Page_NextButtonClick(Page:&nbsp;TWizardPage):&nbsp;Boolean;<br>
 begin<br>
 if&nbsp;RegQueryStringValue(HKLM,&nbsp;'SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\My&nbsp;Program_is1','UninstallString',&nbsp;Uninstall)&nbsp;then<br>
@@ -25,7 +25,7 @@ Uninstall:=RemoveQuotes(Uninstall);<br>
 if&nbsp;RadioButton_1.Checked&nbsp;then<br>
 begin<br>
 if&nbsp;not&nbsp;Exec(Uninstall,&nbsp;'&nbsp;/SILENT',&nbsp;'',&nbsp;SW_SHOW,&nbsp;ewWaitUntilTerminated,&nbsp;ResultCode)&nbsp;then<br>
-MsgBox('РћС€РёР±РєР°&nbsp;СѓРґР°Р»РµРЅРёСЏ.&nbsp;'&nbsp;#13#13&nbsp;''&nbsp;+&nbsp;SysErrorMessage(ResultCode)&nbsp;+&nbsp;'.'&nbsp;#13#13&nbsp;'Р’РµСЂРѕСЏС‚РЅРѕ,&nbsp;РґРµРёРЅСЃС‚Р°Р»Р»СЏС‚РѕСЂ&nbsp;Р±С‹Р»&nbsp;РїРµСЂРµРјРµС‰РµРЅ,&nbsp;СѓРґР°Р»РµРЅ&nbsp;РёР»Рё&nbsp;РїРµСЂРµРёРјРµРЅРѕРІР°РЅ.',&nbsp;mbError,&nbsp;MB_OK);<br>
+MsgBox('Ошибка&nbsp;удаления.&nbsp;'&nbsp;#13#13&nbsp;''&nbsp;+&nbsp;SysErrorMessage(ResultCode)&nbsp;+&nbsp;'.'&nbsp;#13#13&nbsp;'Вероятно,&nbsp;деинсталлятор&nbsp;был&nbsp;перемещен,&nbsp;удален&nbsp;или&nbsp;переименован.',&nbsp;mbError,&nbsp;MB_OK);<br>
 Result:=True;<br>
 end<br>
 else<br>
@@ -35,21 +35,21 @@ Result:=True;<br>
 end;<br>
 end;<br>
 <br>
-///РџСЂРѕС†РµРґСѓСЂР°&nbsp;CancelButtonClick&nbsp;РґР»СЏ&nbsp;РЅРѕРІРѕР№&nbsp;СЃС‚СЂР°РЅРёС†С‹.<br>
+///Процедура&nbsp;CancelButtonClick&nbsp;для&nbsp;новой&nbsp;страницы.<br>
 procedure&nbsp;Page_CancelButtonClick(Page:&nbsp;TWizardPage;&nbsp;var&nbsp;Cancel,&nbsp;Confirm:&nbsp;Boolean);<br>
 begin<br>
 Confirm:=False;<br>
 Cancel:=True;<br>
 end;<br>
 <br>
-///Р­С‚Р°&nbsp;РїСЂРѕС†РµРґСѓСЂР°&nbsp;СЃРѕР·РґР°РµС‚&nbsp;РЅРѕРІСѓСЋ&nbsp;СЃС‚СЂР°РЅРёС†Сѓ&nbsp;Рё&nbsp;РІСЃРµ&nbsp;С‡С‚Рѕ&nbsp;РЅР°&nbsp;РЅРµРµ&nbsp;РЅР°С…РѕРґРёС‚СЃСЏ<br>
+///Эта&nbsp;процедура&nbsp;создает&nbsp;новую&nbsp;страницу&nbsp;и&nbsp;все&nbsp;что&nbsp;на&nbsp;нее&nbsp;находится<br>
 function&nbsp;CheckInstalledPage(PreviousPageId:&nbsp;Integer):&nbsp;Integer;<br>
 var<br>
 &nbsp;&nbsp;Page:&nbsp;TWizardPage;<br>
 begin<br>
 RegQueryStringValue(HKLM,&nbsp;'Software\Microsoft\Windows\CurrentVersion\Uninstall\My&nbsp;Program_is1','InstallLocation',&nbsp;Location)<br>
 Page&nbsp;:=&nbsp;CreateCustomPage(PreviousPageId,'Previous&nbsp;Installation&nbsp;Found','Please&nbsp;choose&nbsp;how&nbsp;you&nbsp;want&nbsp;to&nbsp;proceed.');<br>
-///РўРµРєСЃС‚&nbsp;РЅР°&nbsp;СЃС‚СЂР°РЅРёС†Рµ<br>
+///Текст&nbsp;на&nbsp;странице<br>
 StaticText&nbsp;:=&nbsp;TNewStaticText.Create(Page);<br>
 StaticText.Parent&nbsp;:=&nbsp;Page.Surface;<br>
 StaticText.Caption&nbsp;:='Inno&nbsp;Setup&nbsp;is&nbsp;already&nbsp;installed&nbsp;in'+'&nbsp;'+'&quot;'&nbsp;+&nbsp;Location&nbsp;+'&quot;'++'&nbsp;&nbsp;'+'on&nbsp;your&nbsp;system.'#13+&nbsp;'It&nbsp;is&nbsp;recommended&nbsp;that&nbsp;you&nbsp;uninstall&nbsp;the&nbsp;current&nbsp;version&nbsp;before&nbsp;continuing.';<br>
@@ -57,7 +57,7 @@ StaticText.Left&nbsp;:=&nbsp;0;<br>
 StaticText.Top&nbsp;:=&nbsp;ScaleY(24);<br>
 StaticText.TabOrder&nbsp;:=&nbsp;0;<br>
 StaticText.AutoSize:=True;<br>
-///РџРµСЂРІС‹Р№&nbsp;RadioButton<br>
+///Первый&nbsp;RadioButton<br>
 RadioButton_1&nbsp;:=&nbsp;TRadioButton.Create(Page);<br>
 RadioButton_1.Parent&nbsp;:=&nbsp;Page.Surface;<br>
 RadioButton_1.Caption&nbsp;:=&nbsp;'Uninstall&nbsp;before&nbsp;continuing&nbsp;(recommended)';<br>
@@ -68,7 +68,7 @@ RadioButton_1.Height&nbsp;:=&nbsp;ScaleY(17);<br>
 RadioButton_1.Checked&nbsp;:=&nbsp;True;<br>
 RadioButton_1.TabOrder&nbsp;:=&nbsp;1;<br>
 RadioButton_1.TabStop&nbsp;:=&nbsp;True;<br>
-///Р’С‚РѕСЂРѕР№&nbsp;RadioButton<br>
+///Второй&nbsp;RadioButton<br>
 RadioButton_2&nbsp;:=&nbsp;TRadioButton.Create(Page);<br>
 RadioButton_2.Parent&nbsp;:=&nbsp;Page.Surface;<br>
 RadioButton_2.Caption&nbsp;:=&nbsp;'Overwrite&nbsp;current&nbsp;version';<br>
@@ -88,6 +88,6 @@ procedure&nbsp;InitializeWizard();<br>
 begin<br>
 if&nbsp;RegQueryStringValue(HKLM,&nbsp;'Software\Microsoft\Windows\CurrentVersion\Uninstall\My&nbsp;Program_is1','UninstallString',&nbsp;Uninstall)&nbsp;then<br>
 CheckInstalledPage(wpLicense);<br>
-///Р•СЃР»Рё&nbsp;РїР°СЂР°РјРµС‚СЂ&nbsp;СЂРµРіРёСЃС‚СЂР°&nbsp;РїСЂРёСЃСѓС‚СЃС‚РІСѓРµС‚,&nbsp;Р±СѓРґРµС‚&nbsp;СЃРѕР·РґР°РЅР°&nbsp;РЅРѕРІР°СЏ&nbsp;СЃС‚СЂР°РЅРёС†Р°<br>
+///Если&nbsp;параметр&nbsp;регистра&nbsp;присутствует,&nbsp;будет&nbsp;создана&nbsp;новая&nbsp;страница<br>
 end;<br>
 </font></blockquote><textarea id="taCode1" style="display:none;" rows="1" cols="5"></textarea><textarea id='taCode' style='display:none;' rows='1' cols='20'></textarea></code><script language="javascript" type="text/javascript">highlightSyntax('delphi_Tc4NTM','delphi');</script><br><div id="heading"><h1><font size="1" face="Consolas">Copyright (c) <a href="http://www.krinkels.org/" target="_blank">Krinkels Inc</a></font></h1></div></body></html>

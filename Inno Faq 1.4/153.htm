@@ -1,9 +1,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>РљР°Рє Р·Р°РїСЂРµС‚РёС‚СЊ Р·Р°РїРєСЃРє Р±РѕР»РµРµ РѕРґРЅРѕР№ РєРѕРїРёРё РёРЅСЃС‚Р°Р»Р»СЏС‚РѕСЂР°</title><link rel="stylesheet" type="text/css" href="css.css">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1251"><title>Как запретить запкск более одной копии инсталлятора</title><link rel="stylesheet" type="text/css" href="css.css">
 <script language='jscript' type='text/javascript' src='copycode.js'></script>
-<script type="text/javascript" src="includer.js"></script></head><body><div id="heading"><h1>В» Inno Setup Faq. РљР°Рє Р·Р°РїСЂРµС‚РёС‚СЊ Р·Р°РїРєСЃРє Р±РѕР»РµРµ РѕРґРЅРѕР№ РєРѕРїРёРё РёРЅСЃС‚Р°Р»Р»СЏС‚РѕСЂР°</h1></div><br>
+<script type="text/javascript" src="includer.js"></script></head><body><div id="heading"><h1>» Inno Setup Faq. Как запретить запкск более одной копии инсталлятора</h1></div><br>
 <script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM">
-<input type="button" value="РљРѕРїРёСЂРѕРІР°С‚СЊ РІ Р±СѓС„РµСЂ РѕР±РјРµРЅР°" onClick="copyToClipboard( taCode1, theCode1 );">
+<input type="button" value="Копировать в буфер обмена" onClick="copyToClipboard( taCode1, theCode1 );">
 <blockquote id="theCode1"><font>
 #define Name2&nbsp;&nbsp;&quot;OLOLO&quot;<br>
 <br>
@@ -14,7 +14,7 @@ DefaultDirName={pf}\{#Name2}<br>
 AppMutex={#Name2}<br>
 <br>
 [Code]<br>
-///РЎР°РјР° РїСЂРѕС†РµРґСѓСЂР° Mutex<br>
+///Сама процедура Mutex<br>
 var<br>
 &nbsp;&nbsp;Mutex: THandle;<br>
 <br>
@@ -31,7 +31,7 @@ function InitializeSetup(): Boolean;<br>
 begin<br>
 &nbsp;&nbsp;Result:= not CheckForMutexes(ExpandConstant('{#SetupSetting(&quot;AppMutex&quot;)}'));<br>
 &nbsp;&nbsp;if not Result then<br>
-&nbsp;&nbsp;///MsgBox('РЈР¶Рµ Р·Р°РїСѓС‰РµРЅР° РѕРґРЅР° РІРµСЂСЃРёСЏ РёРЅСЃС‚Р°Р»Р»СЏС‚РѕСЂР°. РћРґРЅРѕРІСЂРµРјРµРЅРЅС‹Р№ Р·Р°РїСѓСЃРє Р·Р°РїСЂРµС‰С‘РЅ', mbError,mb_Ok);<br>
+&nbsp;&nbsp;///MsgBox('Уже запущена одна версия инсталлятора. Одновременный запуск запрещён', mbError,mb_Ok);<br>
 &nbsp;&nbsp;&nbsp;&nbsp;CloseHandle(Mutex);<br>
 end;<br>
 <br>

@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
 <meta http-equiv="X-UA-Compatible" content="IE=8" />
 <title>Pascal Scripting: WizardGroupValue</title>
 <link rel="stylesheet" type="text/css" href="../styles.css" />
@@ -10,11 +10,11 @@
 <body>
 <h1 class="topicheading">Pascal Scripting: WizardGroupValue</h1>
 <div class="topicbody">
-  <div><b>РџСЂРѕС‚РѕС‚РёРї:</b></div>
+  <div><b>Прототип:</b></div>
   <p><tt>function WizardGroupValue: String;</tt></p>
-  <div><b>РћРїРёСЃР°РЅРёРµ:</b></div>
-  <p>Р’РѕР·РІСЂР°С‰Р°РµС‚ С‚РµРєСѓС‰РµРµ СЃРѕРґРµСЂР¶РёРјРѕРµ РєРѕРЅС‚СЂРѕР»Р° Edit РЅР° СЃС‚СЂР°РЅРёС†Рµ РјР°СЃС‚РµСЂР° <i>Р’С‹Р±РѕСЂ РїР°РїРєРё РјРµРЅСЋ РїСѓСЃРє</i>.</p>
-  <p>Р’ РѕС‚Р»РёС‡РёРё РѕС‚ <tt>ExpandConstant('{group}')</tt>, СЌС‚Р° С„СѓРЅРєС†РёСЏ РЅРµ Р±СѓРґРµС‚ РІС‹РїРѕР»РЅРµРЅР°, РµСЃР»Рё РѕРЅР° РІС‹Р·РІР°РЅР° РїРѕСЃР»Рµ С‚РѕРіРѕ РєР°Рє РјР°СЃС‚РµСЂ РїРѕСЏРІРёР»СЃСЏ, РЅРѕ РґРѕР»Р¶РЅР° Р±С‹С‚СЊ РІС‹Р·РІР°РЅР° РґРѕ РІС‹Р±РѕСЂР° РїР°РїРєРё РїРѕР»СЊР·РѕРІР°С‚РµР»РµРј. РЎРєРѕСЂРµРµ РІСЃРµРіРѕ, РѕРЅР° Р±СѓРґРµС‚ РІРѕР·РІСЂР°С‰Р°С‚СЊ РёРјСЏ РєР°С‚Р°Р»РѕРіР° РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ.</p>
+  <div><b>Описание:</b></div>
+  <p>Возвращает текущее содержимое контрола Edit на странице мастера <i>Выбор папки меню пуск</i>.</p>
+  <p>В отличии от <tt>ExpandConstant('{group}')</tt>, эта функция не будет выполнена, если она вызвана после того как мастер появился, но должна быть вызвана до выбора папки пользователем. Скорее всего, она будет возвращать имя каталога по умолчанию.</p>
 </div>
 </body>
 </html>

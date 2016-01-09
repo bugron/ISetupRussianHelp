@@ -1,8 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>РџСЂРёРјРµСЂС‹ РїСЂРµРґ РёРЅСЃС‚Р°Р»Р»СЏС†РёРѕРЅРЅС‹С… РїСЂРѕС†РµСЃСЃРѕРІ</title><link rel="stylesheet" type="text/css" href="css.css"><script type="text/javascript" src="includer.js"></script><script language='jscript' type='text/javascript' src='copycode.js'></script></head><body><div id="heading"><h1>В» Inno Setup Faq. РџСЂРёРјРµСЂС‹ РїСЂРµРґ РёРЅСЃС‚Р°Р»Р»СЏС†РёРѕРЅРЅС‹С… РїСЂРѕС†РµСЃСЃРѕРІ</h1></div><br>
-<br>Р’Р°СЂРёР°РЅС‚ 1:<br>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1251"><title>Примеры пред инсталляционных процессов</title><link rel="stylesheet" type="text/css" href="css.css"><script type="text/javascript" src="includer.js"></script><script language='jscript' type='text/javascript' src='copycode.js'></script></head><body><div id="heading"><h1>» Inno Setup Faq. Примеры пред инсталляционных процессов</h1></div><br>
+<br>Вариант 1:<br>
 <script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM">
-<input type="button" value="РљРѕРїРёСЂРѕРІР°С‚СЊ РІ Р±СѓС„РµСЂ РѕР±РјРµРЅР°" onClick="copyToClipboard( taCode1, theCode1 );">
+<input type="button" value="Копировать в буфер обмена" onClick="copyToClipboard( taCode1, theCode1 );">
 <blockquote id="theCode1"><font>
 [Setup]<br>
 AppName=Example.Mini.Progress.Bar<br>
@@ -34,12 +34,12 @@ begin<br>
 &nbsp;&nbsp;try<br>
 &nbsp;&nbsp;&nbsp;&nbsp;with&nbsp;Form&nbsp;do<br>
 &nbsp;&nbsp;&nbsp;&nbsp;begin<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ClientWidth&nbsp;:=&nbsp;ScaleX(375);&nbsp;///РЁРёСЂРёРЅР°&nbsp;С„РѕСЂРјС‹&nbsp;РґР»СЏ&nbsp;ProgressBar<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ClientHeight&nbsp;:=&nbsp;ScaleY(120);&nbsp;///Р’С‹СЃРѕС‚Р°&nbsp;С„РѕСЂРјС‹&nbsp;РґР»СЏ&nbsp;ProgressBar<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ClientWidth&nbsp;:=&nbsp;ScaleX(375);&nbsp;///Ширина&nbsp;формы&nbsp;для&nbsp;ProgressBar<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ClientHeight&nbsp;:=&nbsp;ScaleY(120);&nbsp;///Высота&nbsp;формы&nbsp;для&nbsp;ProgressBar<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BorderStyle&nbsp;:=&nbsp;bsDialog;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Left&nbsp;:=&nbsp;GetSystemMetrics(16)&nbsp;-&nbsp;ClientWidth&nbsp;-&nbsp;ScaleX(5);<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Top&nbsp;:=&nbsp;GetSystemMetrics(17)&nbsp;-&nbsp;ClientHeight&nbsp;-&nbsp;ScaleY(5);<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Caption&nbsp;:=&nbsp;'Inno&nbsp;Setup&nbsp;Wizard'&nbsp;///Р—Р°РіРѕР»РѕРІРѕРє&nbsp;РјРёРЅРё&nbsp;ProgressBar'a<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Caption&nbsp;:=&nbsp;'Inno&nbsp;Setup&nbsp;Wizard'&nbsp;///Заголовок&nbsp;мини&nbsp;ProgressBar'a<br>
 &nbsp;&nbsp;&nbsp;&nbsp;end;<br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;BitmapFileName&nbsp;:=&nbsp;ExpandConstant('{tmp}\WizModernSmallImage.bmp');<br>
@@ -55,7 +55,7 @@ begin<br>
 &nbsp;&nbsp;&nbsp;&nbsp;StaticText&nbsp;:=&nbsp;TNewStaticText.Create(Form);<br>
 &nbsp;&nbsp;&nbsp;&nbsp;StaticText.Top&nbsp;:=&nbsp;BitmapImage.Top;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;StaticText.Left&nbsp;:=&nbsp;BitmapImage.Left&nbsp;+&nbsp;BitmapImage.Width&nbsp;+&nbsp;ScaleX(8)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;StaticText.Caption&nbsp;:=&nbsp;'РРґРµС‚&nbsp;РїРѕРґРіРѕС‚РѕРІРєР°&nbsp;Рє&nbsp;СѓСЃС‚Р°РЅРѕРІРєРµ&nbsp;S.T.A.L.K.E.R.:&nbsp;Shadow&nbsp;Of'&nbsp;+&nbsp;#10#13&nbsp;+&nbsp;'Chernobyl'&nbsp;+&nbsp;#10#13#10&nbsp;+&nbsp;'РџРѕР¶Р°Р»СѓР№СЃС‚Р°&nbsp;РїРѕРґРѕР¶РґРёС‚Рµ...';&nbsp;///РўРµРєСЃС‚&nbsp;СЃР°РјРѕРіРѕ&nbsp;РјРёРЅРё&nbsp;ProgressBar'a<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;StaticText.Caption&nbsp;:=&nbsp;'Идет&nbsp;подготовка&nbsp;к&nbsp;установке&nbsp;S.T.A.L.K.E.R.:&nbsp;Shadow&nbsp;Of'&nbsp;+&nbsp;#10#13&nbsp;+&nbsp;'Chernobyl'&nbsp;+&nbsp;#10#13#10&nbsp;+&nbsp;'Пожалуйста&nbsp;подождите...';&nbsp;///Текст&nbsp;самого&nbsp;мини&nbsp;ProgressBar'a<br>
 &nbsp;&nbsp;&nbsp;&nbsp;StaticText.AutoSize&nbsp;:=&nbsp;True;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;StaticText.Parent&nbsp;:=&nbsp;Form;<br>
 <br>
@@ -96,8 +96,8 @@ begin<br>
 end;<br>
 </font></blockquote><textarea id="taCode1" style="display:none;" rows="1" cols="5"></textarea><textarea id='taCode' style='display:none;' rows='1' cols='20'></textarea></code><script language="javascript" type="text/javascript">highlightSyntax('delphi_Tc4NTM','delphi');</script>
 
-<br>Р’Р°СЂРёР°РЅС‚ 2:<br>
-<input type="button" value="РљРѕРїРёСЂРѕРІР°С‚СЊ РІ Р±СѓС„РµСЂ РѕР±РјРµРЅР°" onClick="copyToClipboard( taCode2, theCode2 );">
+<br>Вариант 2:<br>
+<input type="button" value="Копировать в буфер обмена" onClick="copyToClipboard( taCode2, theCode2 );">
 <blockquote id="theCode2"><font><script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTN">
 [Setup]<br>
 AppName=My&nbsp;Program<br>

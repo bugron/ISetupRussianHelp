@@ -1,20 +1,20 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
 <meta http-equiv="X-UA-Compatible" content="IE=8" />
-<title>Pascal Scripting: Р’СЃС‚СЂРѕРµРЅРЅС‹Рµ С„СѓРЅРєС†РёРё</title>
+<title>Pascal Scripting: Встроенные функции</title>
 <!--[if IE 6]><style type="text/css">html{overflow-y:scroll}</style><![endif]-->
 <link rel="stylesheet" type="text/css" href="styles.css" />
 <script type="text/javascript" src="topic.js"></script>
 </head>
 <body>
-<h1 class="topicheading">Pascal Scripting: Р’СЃС‚СЂРѕРµРЅРЅС‹Рµ С„СѓРЅРєС†РёРё</h1>
+<h1 class="topicheading">Pascal Scripting: Встроенные функции</h1>
 <div class="topicbody">
-  <p>РЎРєСЂРёРїС‚ Pascal РјРѕР¶РµС‚ РІС‹Р·РІР°С‚СЊ РЅРµСЃРєРѕР»СЊРєРѕ РІСЃС‚СЂРѕРµРЅРЅС‹С… С„СѓРЅРєС†РёР№.</p>
-  <h2 class="heading">РџРѕРґРґРµСЂР¶РёРІР°РµРјС‹Рµ С„СѓРЅРєС†РёРё</h2>
-  <p>Р’РѕС‚ СЃРїРёСЃРѕРє РїРѕРґРґРµСЂР¶РёРІР°РµРјС‹С… С„СѓРЅРєС†РёР№, РєРѕС‚РѕСЂС‹Рµ РјРѕР¶РЅРѕ РІС‹Р·РІР°С‚СЊ РёР· СЃРєСЂРёРїС‚Р° Pascal.</p>
-  <p><b>РРЅС„РѕСЂРјР°С†РёРѕРЅРЅС‹Рµ С„СѓРЅРєС†РёРё РёРЅСЃС‚Р°Р»Р»СЏС‚РѕСЂР° Рё РґРµРёРЅСЃС‚Р°Р»Р»СЏС‚РѕСЂР°:</b><br />
+  <p>Скрипт Pascal может вызвать несколько встроенных функций.</p>
+  <h2 class="heading">Поддерживаемые функции</h2>
+  <p>Вот список поддерживаемых функций, которые можно вызвать из скрипта Pascal.</p>
+  <p><b>Информационные функции инсталлятора и деинсталлятора:</b><br />
     <br />
     <tt>function <a href="isxfunc/topic_isxfunc_getcmdtail.htm">GetCmdTail</a>: String;</tt><br />
     <tt>function <a href="isxfunc/topic_isxfunc_paramcount.htm">ParamCount</a>: Integer;</tt><br />
@@ -58,7 +58,7 @@
     <tt>function <a href="isxfunc/topic_isxfunc_rmsessionstarted.htm">RmSessionStarted</a>: Boolean;</tt><br/>
     <br />
   </p>
-  <p><b>Р¤СѓРЅРєС†РёРё РёСЃРєР»СЋС‡РµРЅРёСЏ:</b><br />
+  <p><b>Функции исключения:</b><br />
     <br />
     <tt>procedure <a href="isxfunc/topic_isxfunc_abort.htm">Abort</a>;</tt><br />
     <tt>procedure <a href="isxfunc/topic_isxfunc_raiseexception.htm">RaiseException</a>(const Msg: String);</tt><br />
@@ -66,7 +66,7 @@
     <tt>function <a href="isxfunc/topic_isxfunc_getexceptionmessage.htm">GetExceptionMessage</a>: String;</tt><br />
     <tt>procedure <a href="isxfunc/topic_isxfunc_showexceptionmessage.htm">ShowExceptionMessage</a>;</tt><br />
   </p>
-  <p><b>РЎРёСЃС‚РµРјРЅС‹Рµ С„СѓРЅРєС†РёРё:</b><br />
+  <p><b>Системные функции:</b><br />
     <br />
     <tt>function <a href="isxfunc/topic_isxfunc_isadminloggedon.htm">IsAdminLoggedOn</a>: Boolean;</tt><br />
     <tt>function <a href="isxfunc/topic_isxfunc_ispoweruserloggedon.htm">IsPowerUserLoggedOn</a>: Boolean;</tt><br />
@@ -106,7 +106,7 @@
     <tt>procedure <a href="isxfunc/topic_isxfunc_unloaddll.htm">UnloadDLL</a>(Filename: String);</tt><br />
     <tt>function <a href="isxfunc/topic_isxfunc_dllgetlasterror.htm">DLLGetLastError</a>(): Longint;</tt><br />
   </p>
-  <p><b>РЎС‚СЂРѕРєРѕРІС‹Рµ С„СѓРЅРєС†РёРё:</b><br />
+  <p><b>Строковые функции:</b><br />
     <br />
     <tt>function <a href="isxfunc/topic_isxfunc_chr.htm">Chr</a>(B: Byte): Char;</tt><br />
     <tt>function <a href="isxfunc/topic_isxfunc_ord.htm">Ord</a>(C: Char): Byte;</tt><br />
@@ -174,12 +174,12 @@
     <br />
     <tt>function <a href="isxfunc/topic_isxfunc_minimizepathname.htm">MinimizePathName</a>(const Filename: String; const Font: TFont; MaxLen: Integer): String;</tt><br />
   </p>
-  <p><b>Р¤СѓРЅРєС†РёРё РјР°СЃСЃРёРІРѕРІ:</b><br />
+  <p><b>Функции массивов:</b><br />
     <br />
     <tt>function <a href="isxfunc/topic_isxfunc_getarraylength.htm">GetArrayLength</a>(var Arr: Array): Longint;</tt><br />
     <tt>procedure <a href="isxfunc/topic_isxfunc_setarraylength.htm">SetArrayLength</a>(var Arr: Array; I: Longint);</tt><br />
   </p>
-  <p><b>Р Р°Р·Р»РёС‡РЅС‹Рµ С„СѓРЅРєС†РёРё:</b><br />
+  <p><b>Различные функции:</b><br />
     <br />
     <tt>function <a href="isxfunc/topic_isxfunc_null.htm">Null</a>: Variant;</tt><br />
     <tt>function <a href="isxfunc/topic_isxfunc_unassigned.htm">Unassigned</a>: Variant;</tt><br />
@@ -189,7 +189,7 @@
     <tt>function <a href="isxfunc/topic_isxfunc_varisnull.htm">VarIsNull</a>(const V: Variant): Boolean;</tt><br />
     <tt>function <a href="isxfunc/topic_isxfunc_vartype.htm">VarType</a>(const V: Variant): TVarType;</tt><br />
   </p>
-  <p><b>Р¤СѓРЅРєС†РёРё С„Р°Р№Р»РѕРІРѕР№ СЃРёСЃС‚РµРјС‹:</b><br />
+  <p><b>Функции файловой системы:</b><br />
     <br />
     <tt>function <a href="isxfunc/topic_isxfunc_direxists.htm">DirExists</a>(const Name: String): Boolean;</tt><br />
     <tt>function <a href="isxfunc/topic_isxfunc_fileexists.htm">FileExists</a>(const Name: String): Boolean;</tt><br />
@@ -225,7 +225,7 @@
     <br />
     <tt>function <a href="isxfunc/topic_isxfunc_enablefsredirection.htm">EnableFsRedirection</a>(const Enable: Boolean): Boolean;</tt><br />
   </p>
-  <p><b>Р¤СѓРЅРєС†РёРё С„Р°Р№Р»РѕРІ:</b><br />
+  <p><b>Функции файлов:</b><br />
     <br />
     <tt>function <a href="isxfunc/topic_isxfunc_exec.htm">Exec</a>(const Filename, Params, WorkingDir: String; const ShowCmd: Integer; const Wait: TExecWait; var ResultCode: Integer): Boolean;</tt><br />
     <tt>function <a href="isxfunc/topic_isxfunc_execasoriginaluser.htm">ExecAsOriginalUser</a>(const Filename, Params, WorkingDir: String; const ShowCmd: Integer; const Wait: TExecWait; var ResultCode: Integer): Boolean;</tt><br />
@@ -262,7 +262,7 @@
     <tt>procedure <a href="isxfunc/topic_isxfunc_unregisterfont.htm">UnregisterFont</a>(const FontName, FontFilename: String);</tt><br />
     <tt>function <a href="isxfunc/topic_isxfunc_modifypiffile.htm">ModifyPifFile</a>(const Filename: String; const CloseOnExit: Boolean): Boolean;</tt><br />
   </p>
-  <p><b>Р¤СѓРЅРєС†РёРё СЂРµРµСЃС‚СЂР°:</b><br />
+  <p><b>Функции реестра:</b><br />
     <br />
     <tt>function <a href="isxfunc/topic_isxfunc_regkeyexists.htm">RegKeyExists</a>(const RootKey: Integer; const SubKeyName: String): Boolean;</tt><br />
     <tt>function <a href="isxfunc/topic_isxfunc_regvalueexists.htm">RegValueExists</a>(const RootKey: Integer; const SubKeyName, ValueName: String): Boolean;</tt><br />
@@ -285,7 +285,7 @@
     <tt>function <a href="isxfunc/topic_isxfunc_regdeletekeyifempty.htm">RegDeleteKeyIfEmpty</a>(const RootKey: Integer; const SubkeyName: String): Boolean;</tt><br />
     <tt>function <a href="isxfunc/topic_isxfunc_regdeletevalue.htm">RegDeleteValue</a>(const RootKey: Integer; const SubKeyName, ValueName: String): Boolean;</tt><br />
   </p>
-  <p><b>Р¤СѓРЅРєС†РёРё С„Р°Р№Р»РѕРІ INI: </b><br />
+  <p><b>Функции файлов INI: </b><br />
     <br />
     <tt>function <a href="isxfunc/topic_isxfunc_inikeyexists.htm">IniKeyExists</a>(const Section, Key, Filename: String): Boolean;</tt><br />
     <tt>function <a href="isxfunc/topic_isxfunc_isinisectionempty.htm">IsIniSectionEmpty</a>(const Section, Filename: String): Boolean;</tt><br />
@@ -301,7 +301,7 @@
     <tt>procedure <a href="isxfunc/topic_isxfunc_deleteinisection.htm">DeleteIniSection</a>(const Section, Filename: String);</tt><br />
     <tt>procedure <a href="isxfunc/topic_isxfunc_deleteinientry.htm">DeleteIniEntry</a>(const Section, Key, Filename: String);</tt><br />
   </p>
-  <p><b>Р¤СѓРЅРєС†РёРё РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹С… СЃС‚СЂР°РЅРёС† РњР°СЃС‚РµСЂР°: </b><br />
+  <p><b>Функции дополнительных страниц Мастера: </b><br />
     <br />
     <tt>function <a href="isxfunc/topic_isxfunc_createinputquerypage.htm">CreateInputQueryPage</a>(const AfterID: Integer; const ACaption, ADescription, ASubCaption: String): TInputQueryWizardPage;</tt><br />
     <tt>function <a href="isxfunc/topic_isxfunc_createinputoptionpage.htm">CreateInputOptionPage</a>(const AfterID: Integer; const ACaption, ADescription, ASubCaption: String; Exclusive, ListBox: Boolean): TInputOptionWizardPage;</tt><br />
@@ -319,7 +319,7 @@
     <tt>function <a href="isxfunc/topic_isxfunc_scalex.htm">ScaleX</a>(X: Integer): Integer;</tt><br />
     <tt>function <a href="isxfunc/topic_isxfunc_scaley.htm">ScaleY</a>(Y: Integer): Integer;</tt><br />
   </p>
-  <p><b>Р”РёР°Р»РѕРіРѕРІС‹Рµ С„СѓРЅРєС†РёРё:</b><br />
+  <p><b>Диалоговые функции:</b><br />
     <br />
     <tt>function <a href="isxfunc/topic_isxfunc_msgbox.htm">MsgBox</a>(const Text: String; const Typ: TMsgBoxType; const Buttons: Integer): Integer;</tt><br />
     <tt>function <a href="isxfunc/topic_isxfunc_suppressiblemsgbox.htm">SuppressibleMsgBox</a>(const Text: String; const Typ: TMsgBoxType; const Buttons, Default: Integer): Integer;</tt><br />
@@ -330,7 +330,7 @@
     <tt>function <a href="isxfunc/topic_isxfunc_exitsetupmsgbox.htm">ExitSetupMsgBox</a>: Boolean;</tt><br />
     <tt>function <a href="isxfunc/topic_isxfunc_selectdisk.htm">SelectDisk</a>(const DiskNumber: Integer; const AFilename: String; var Path: String): Boolean;</tt><br/>
   </p>
-  <p><b>Р¤СѓРЅРєС†РёРё, РїРѕРґРґРµСЂР¶РёРІР°СЋС‰РёРµ РѕР±СЉРµРєС‚С‹ РЎOM:</b><br />
+  <p><b>Функции, поддерживающие объекты СOM:</b><br />
     <br />
     <tt>function <a href="isxfunc/topic_isxfunc_createoleobject.htm">CreateOleObject</a>(const ClassName: string): Variant;</tt><br />
     <tt>function <a href="isxfunc/topic_isxfunc_getactiveoleobject.htm">GetActiveOleObject</a>(const ClassName: string): Variant;</tt><br />
@@ -340,11 +340,11 @@
     <tt>procedure <a href="isxfunc/topic_isxfunc_olecheck.htm">OleCheck</a>(Result: HResult);</tt><br />
     <tt>procedure <a href="isxfunc/topic_isxfunc_cofreeunusedlibraries.htm">CoFreeUnusedLibraries</a>;</tt><br />
   </p>
-  <p><b>Р¤СѓРЅРєС†РёРё LOG: </b><br />
+  <p><b>Функции LOG: </b><br />
     <br />
     <tt>procedure <a href="isxfunc/topic_isxfunc_log.htm">Log</a>(const S: String);</tt><br />
   </p>
-  <p><b></b><br />
+  <p><b>Другие фукции</b><br />
     <br />
     <tt>procedure <a href="isxfunc/topic_isxfunc_sleep.htm">Sleep</a>(const Milliseconds: LongInt);</tt><br />
     <tt>function <a href="isxfunc/topic_isxfunc_random.htm">Random</a>(const Range: Integer): Integer;</tt><br />
@@ -352,7 +352,7 @@
     <br />
     <tt>procedure <a href="isxfunc/topic_isxfunc_bringtofrontandrestore.htm">BringToFrontAndRestore</a>;</tt><br />
   </p>
-  <p><b>Р¤СѓРЅРєС†РёРё РґР»СЏ DLL:</b><br />
+  <p><b>Функции для DLL (устарели):</b><br />
     <br />
     <tt>function <a href="isxfunc/topic_isxfunc_loaddll.htm">LoadDLL</a>(const DLLName: String; var ErrorCode: Integer): Longint;</tt><br />
     <tt>function <a href="isxfunc/topic_isxfunc_calldllproc.htm">CallDLLProc</a>(const DLLHandle: Longint; const ProcName: String; const Param1, Param2: Longint; var Result: Longint): Boolean;</tt><br />
@@ -361,21 +361,21 @@
     <tt>function <a href="isxfunc/topic_isxfunc_caststringtointeger.htm">CastStringToInteger</a>(var S: String): Longint;</tt><br />
     <tt>function <a href="isxfunc/topic_isxfunc_castintegertostring.htm">CastIntegerToString</a>(const L: Longint): String;</tt><br />
   </p>
-  <h2 class="heading">РљРѕРЅСЃС‚Р°РЅС‚С‹</h2>
-  <p>РЎРїРёСЃРѕРє РєРѕРЅСЃС‚Р°РЅС‚, РёСЃРїРѕР»СЊР·СѓРµРјС‹С… С„СѓРЅРєС†РёСЏРјРё:</p>
-  <p><i>CurStep Р·РЅР°С‡РµРЅРёСЏ </i><br />
+  <h2 class="heading">Константы</h2>
+  <p>Список констант, используемых функциями:</p>
+  <p><i>CurStep значения </i><br />
     ssInstall, ssPostInstall, ssDone</p>
-  <p><i>CurPage Р·РЅР°С‡РµРЅРёСЏ </i><br />
+  <p><i>CurPage значения </i><br />
     wpWelcome, wpLicense, wpPassword, wpInfoBefore, wpUserInfo, wpSelectDir, wpSelectComponents, wpSelectProgramGroup, wpSelectTasks, wpReady, wpPreparing, wpInstalling, wpInfoAfter, wpFinished</p>
   <p><i>TMsgBoxType</i><br />
     mbInformation, mbConfirmation, mbError, mbCriticalError</p>
-  <p><i>MsgBox - - РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂС‹ РєРЅРѕРїРѕРє (Buttons flags)</i><br />
+  <p><i>MsgBox - - идентификаторы кнопок (Buttons flags)</i><br />
     MB_OK, MB_OKCANCEL, MB_ABORTRETRYIGNORE, MB_YESNOCANCEL, MB_YESNO, MB_RETRYCANCEL, MB_DEFBUTTON1, MB_DEFBUTTON2, MB_DEFBUTTON3, MB_SETFOREGROUND</p>
-  <p><i>MsgBox - РІРѕР·РІСЂР°С‰Р°РµРјС‹Рµ Р·РЅР°С‡РµРЅРёСЏ</i><br />
+  <p><i>MsgBox - возвращаемые значения</i><br />
     IDOK, IDCANCEL, IDABORT, IDRETRY, IDIGNORE, IDYES, IDNO</p>
   <p><i>TShellFolderID</i><br />
     sfDesktop, sfStartMenu, sfPrograms, sfStartup, sfSendTo, sfFonts, sfAppData, sfDocs, sfTemplates, sfFavorites, sfLocalAppData</p>
-  <p><i>Reg* - - Р·РЅР°С‡РµРЅРёСЏ РєРѕСЂРЅРµРІС‹С… Р·РЅР°С‡РµРЅРёР№ (RootKey values) (С‚Р°РєР¶Рµ СЃРј. <a href="topic_registrysection.htm">РЎРµРєС†РёСЏ [Registry]</a>)</i><br />
+  <p><i>Reg* - - значения корневых значений (RootKey values) (также см. <a href="topic_registrysection.htm">Секция [Registry]</a>)</i><br />
     HKEY_CLASSES_ROOT, HKEY_CLASSES_ROOT_32, HKEY_CLASSES_ROOT_64,<br />
     HKEY_CURRENT_USER, HKEY_CURRENT_USER_32, HKEY_CURRENT_USER_64,<br />
     HKEY_LOCAL_MACHINE, HKEY_LOCAL_MACHINE_32, HKEY_LOCAL_MACHINE_64,<br />
@@ -387,8 +387,8 @@
   <p><i>TShouldProcessEntryResult</i><br />
     srNo, srYes, srUnknown</p>
   <p><i>TSetupMessageID</i><br />
-    РСЃРїРѕР»СЊР·СѓР№С‚Рµ 'msg' + РёРјСЏ СЃРѕРѕР±С‰РµРЅРёСЏ. РќР°РїСЂРёРјРµСЂ: <i>SetupMessage(msgSetupAppTitle)</i></p>
-  <p><i>Exec Рё ShellExec - Р·РЅР°С‡РµРЅРёСЏ ShowCmd</i><br />
+    Используйте 'msg' + имя сообщения. Например: <i>SetupMessage(msgSetupAppTitle)</i></p>
+  <p><i>Exec и ShellExec - значения ShowCmd</i><br />
     SW_SHOW, SW_SHOWNORMAL, SW_SHOWMAXIMIZED, SW_SHOWMINIMIZED, SW_SHOWMINNOACTIVE, SW_HIDE</p>
 </div>
 </body>

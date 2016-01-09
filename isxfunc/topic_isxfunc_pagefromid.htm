@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
 <meta http-equiv="X-UA-Compatible" content="IE=8" />
 <title>Pascal Scripting: PageFromID</title>
 <link rel="stylesheet" type="text/css" href="../styles.css" />
@@ -10,19 +10,19 @@
 <body>
 <h1 class="topicheading">Pascal Scripting: PageFromID</h1>
 <div class="topicbody">
-  <div><b>РџСЂРѕС‚РѕС‚РёРї:</b></div>
+  <div><b>Прототип:</b></div>
   <p><tt>function PageFromID(const ID: Integer): TWizardPage;</tt></p>
-  <div><b>РћРїРёСЃР°РЅРёРµ:</b></div>
-  <p>РџРѕР»СѓС‡Р°СЏ ID СЃС‚СЂР°РЅРёС†С‹, С„СѓРЅРєС†РёСЏ РІРѕР·РІСЂР°С‰Р°РµС‚ РµРµ СЌРєР·РµРјРїР»СЏСЂ <a href="../topic_scriptclasses.htm#TWizardPage">TWizardPage</a>. РСЃРїРѕР»СЊР·СѓР№С‚Рµ РґР°РЅРЅСѓСЋ С„СѓРЅРєС†РёСЋ, РµСЃР»Рё, РЅР°РїСЂРёРјРµСЂ, РЅСѓР¶РЅРѕ РїРѕР»СѓС‡РёС‚СЊ РґРѕСЃС‚СѓРї Рє РїР°СЂР°РјРµС‚СЂР°Рј РїРѕРІРµСЂС…РЅРѕСЃС‚Рё СЃС‚СЂР°РЅРёС†С‹ Р·РЅР°СЏ С‚РѕР»СЊРєРѕ РµРµ ID.</p>
-  <p>РџСЂРё РїРµСЂРµРґР°С‡Рµ РЅРµРґРѕРїСѓСЃС‚РёРјРѕРіРѕ ID РіРµРЅРµСЂРёСЂСѓРµС‚СЃСЏ РёСЃРєР»СЋС‡РµРЅРёРµ.</p>
-  <div><b>РќР°РїСЂРёРјРµСЂ:</b></div>
+  <div><b>Описание:</b></div>
+  <p>Получая ID страницы, функция возвращает ее экземпляр <a href="../topic_scriptclasses.htm#TWizardPage">TWizardPage</a>. Используйте данную функцию, если, например, нужно получить доступ к параметрам поверхности страницы зная только ее ID.</p>
+  <p>При передаче недопустимого ID генерируется исключение.</p>
+  <div><b>Например:</b></div>
   <pre>var
   Page: TWizardPage;
 begin
   Page := PageFromID(wpWelcome);
   Page.Surface.Color := clBlue;
 end;</pre>
-<div><b>РЎРј. С‚Р°РєР¶Рµ:</b></div>
+<div><b>См. также:</b></div>
 <p><a href="../topic_scriptclasses.htm#TWizardPage">TWizardPage</a>
 </p>
 </div>

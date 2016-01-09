@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
 <meta http-equiv="X-UA-Compatible" content="IE=8" />
 <title>Pascal Scripting: MinimizePathName</title>
 <link rel="stylesheet" type="text/css" href="../styles.css" />
@@ -10,13 +10,13 @@
 <body>
 <h1 class="topicheading">Pascal Scripting: MinimizePathName</h1>
 <div class="topicbody">
-  <div><b>РџСЂРѕС‚РѕС‚РёРї:</b></div>
+  <div><b>Прототип:</b></div>
   <p><tt>function MinimizePathName(const Filename: String; const Font: TFont; MaxLen: Integer): String;</tt></p>
-  <div><b>РћРїРёСЃР°РЅРёРµ:</b></div>
-  <p>Р’РѕР·РІСЂР°С‰Р°РµС‚ СѓРєРѕСЂРѕС‡РµРЅРЅРѕРµ РёРјСЏ С„Р°Р№Р»Р°, РєРѕС‚РѕСЂРѕРµ РЅРµ Р±СѓРґРµС‚ Р·Р°РЅРёРјР°С‚СЊ РјРµСЃС‚Р° РґР»СЏ РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ Р±РѕР»РµРµ С‡РµРј MaxLen РїРёРєСЃРµР»РµР№ СЃ РґР°РЅРЅС‹Рј С€СЂРёС„С‚РѕРј.</p>
-  <div><b>РќР°РїСЂРёРјРµСЂ:</b></div>
+  <div><b>Описание:</b></div>
+  <p>Возвращает укороченное имя файла, которое не будет занимать места для отображения более чем MaxLen пикселей с данным шрифтом.</p>
+  <div><b>Например:</b></div>
   <pre>MyLabel.Caption := MinimizePathName(MyPathName, MyLabel.Font, MyLabel.Width);</pre>
-  <div><b>РЎРј. С‚Р°РєР¶Рµ:</b></div>
+  <div><b>См. также:</b></div>
 <p><a href="../topic_scriptclasses.htm#TFont">TFont</a>
 </p>
 </div>

@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
 <meta http-equiv="X-UA-Compatible" content="IE=8" />
 <title>Pascal Scripting: StringChangeEx</title>
 <link rel="stylesheet" type="text/css" href="../styles.css" />
@@ -10,13 +10,13 @@
 <body>
 <h1 class="topicheading">Pascal Scripting: StringChangeEx</h1>
 <div class="topicbody">
-  <div><b>РџСЂРѕС‚РѕС‚РёРї:</b></div>
+  <div><b>Прототип:</b></div>
   <p><tt>function StringChangeEx(var S: String; const FromStr, ToStr: String; const SupportDBCS: Boolean): Integer;</tt></p>
-  <div><b>РћРїРёСЃР°РЅРёРµ:</b></div>
-  <p>Changes all occurrences in S of FromStr to ToStr. If SupportDBCS is True (recommended unless you require binary safety), double-byte character sequences in S are recognized and handled properly. Otherwise, the function behaves in a binary-safe manner. Returns the number of times FromStr was matched and changed.</p>
-  <div><b>РљРѕРјРјРµРЅС‚Р°СЂРёРё:</b></div>
-  <p>When working with strings containing paths or filenames, be sure to pass True in the SupportDBCS parameter. Otherwise, paths with Chinese, Japanese, or Korean characters may be corrupted.</p>
-  <div><b>РќР°РїСЂРёРјРµСЂ:</b></div>
+  <div><b>Описание:</b></div>
+  <p>Заменяет все совпадения FromStr в строке S на ToStr. Если SupportDBCS равен True, символы с двухбайтовой кодировкой в строке S будут правильно распознаны и обработаны. Иначе, функция ведет себя как двоично безопасный. Возвращает количество совпадений и замен FromStr.</p>
+  <div><b>Комментарии:</b></div>
+  <p>При работе со строками, содержащими пути или имена файлов, передайте значение True в параметре SupportDBCS. Иначе, пути или имена файлов с китайскими, японскими или корейскими символами могут быть повреждены.</p>
+  <div><b>Например:</b></div>
   <pre>var
   S: String;
 begin

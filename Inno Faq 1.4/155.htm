@@ -1,9 +1,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>РљРѕРїРёСЂРѕРІР°РЅРёРµ РїР°РїРєРё (РѕС‚РґРµР»СЊРЅР°СЏ СЃС‚СЂР°РЅРёС†Р°)</title><link rel="stylesheet" type="text/css" href="css.css">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1251"><title>Копирование папки (отдельная страница)</title><link rel="stylesheet" type="text/css" href="css.css">
 <script language='jscript' type='text/javascript' src='copycode.js'></script>
-<script type="text/javascript" src="includer.js"></script></head><body><div id="heading"><h1>В» Inno Setup Faq. РљРѕРїРёСЂРѕРІР°РЅРёРµ РїР°РїРєРё (РѕС‚РґРµР»СЊРЅР°СЏ СЃС‚СЂР°РЅРёС†Р°)</h1></div><br>
+<script type="text/javascript" src="includer.js"></script></head><body><div id="heading"><h1>» Inno Setup Faq. Копирование папки (отдельная страница)</h1></div><br>
 <script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM">
-<input type="button" value="РљРѕРїРёСЂРѕРІР°С‚СЊ РІ Р±СѓС„РµСЂ РѕР±РјРµРЅР°" onClick="copyToClipboard( taCode1, theCode1 );">
+<input type="button" value="Копировать в буфер обмена" onClick="copyToClipboard( taCode1, theCode1 );">
 <blockquote id="theCode1"><font>
 [Setup]<br>
 AppName=My&nbsp;Program<br>
@@ -61,20 +61,20 @@ begin<br>
 &nbsp;&nbsp;&nbsp;&nbsp;TargetStream.CopyFrom(SourceStream,CopySize);<br>
 &nbsp;&nbsp;&nbsp;&nbsp;ElapsedSize:=SourceStream.Size-SourceStream.Position;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;a:=(ElapsedSize&nbsp;div&nbsp;FileSize)*100;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;a:=100-a;&nbsp;///С…Р·&nbsp;С‡Рµ&nbsp;Р·РґРµСЃСЊ&nbsp;Р·Р°&nbsp;РіР»СЋРєРё,&nbsp;РЅРѕ&nbsp;РїРёСЃР°С‚СЊ&nbsp;СЌС‚Рё&nbsp;РґРµР№СЃС‚РІРёСЏ&nbsp;РІ&nbsp;РѕРґРЅСѓ&nbsp;СЃС‚СЂРѕС‡РєСѓ&nbsp;РЅРµР»СЊР·СЏ<br>
+&nbsp;&nbsp;&nbsp;&nbsp;a:=100-a;&nbsp;///хз&nbsp;че&nbsp;здесь&nbsp;за&nbsp;глюки,&nbsp;но&nbsp;писать&nbsp;эти&nbsp;действия&nbsp;в&nbsp;одну&nbsp;строчку&nbsp;нельзя<br>
 &nbsp;&nbsp;&nbsp;&nbsp;PB.Position:=Round(a);///SourceStream.Position;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;L2.Caption:=IntToStr(PB.Position)+'&nbsp;%'<br>
 &nbsp;&nbsp;&nbsp;&nbsp;L2.Invalidate;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;CS:=CS+BlockSize;///(1024*1024);<br>
-&nbsp;&nbsp;&nbsp;&nbsp;a:=CS*100;&nbsp;&nbsp;&nbsp;///С‚Р°РєР°СЏ&nbsp;Р¶Рµ&nbsp;РµСЂРµСЃСЊ,&nbsp;РЅР°РїРёСЃР°РІ&nbsp;РІСЃРµ<br>
-&nbsp;&nbsp;&nbsp;&nbsp;a:=a/DS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;///РІ&nbsp;РѕРґРЅСѓ&nbsp;СЃС‚СЂРѕРєСѓ&nbsp;РЅРё&nbsp;С…СЂРµРЅР°&nbsp;РЅРµ&nbsp;СЃС‡РёС‚Р°РµС‚СЃСЏ<br>
+&nbsp;&nbsp;&nbsp;&nbsp;a:=CS*100;&nbsp;&nbsp;&nbsp;///такая&nbsp;же&nbsp;ересь,&nbsp;написав&nbsp;все<br>
+&nbsp;&nbsp;&nbsp;&nbsp;a:=a/DS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;///в&nbsp;одну&nbsp;строку&nbsp;ни&nbsp;хрена&nbsp;не&nbsp;считается<br>
 &nbsp;&nbsp;&nbsp;&nbsp;PB2.Position:=Round(a);///Round(CS*100/DS);<br>
 &nbsp;&nbsp;&nbsp;&nbsp;L3.Caption:=IntToStr(PB2.Position)+'&nbsp;%'<br>
 &nbsp;&nbsp;&nbsp;&nbsp;AppProcessMessage;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;CancelOperation&nbsp;then&nbsp;Break;<br>
 &nbsp;&nbsp;end;<br>
 &nbsp;&nbsp;///FileSetDate(TargetStream.Handle,FileGetDate(SourceStream.Handle));<br>
-&nbsp;&nbsp;///РґР°С‚Сѓ&nbsp;С„Р°Р№Р»Р°&nbsp;РЅР°РґРѕР±С‹&nbsp;СЃРјРµРЅРёС‚СЊ&nbsp;РЅР°&nbsp;СЃС‚Р°СЂСѓСЋ,&nbsp;РґР°&nbsp;РІРѕР·РёС‚СЊСЃСЏ&nbsp;Р»РµРЅСЊ<br>
+&nbsp;&nbsp;///дату&nbsp;файла&nbsp;надобы&nbsp;сменить&nbsp;на&nbsp;старую,&nbsp;да&nbsp;возиться&nbsp;лень<br>
 &nbsp;&nbsp;TargetStream.Free;<br>
 &nbsp;&nbsp;SourceStream.Free;<br>
 &nbsp;&nbsp;if&nbsp;CancelOperation&nbsp;then&nbsp;DeleteFile(Target);<br>
@@ -137,10 +137,10 @@ end;<br>
 <br>
 procedure&nbsp;InitializeWizard();<br>
 begin<br>
-&nbsp;&nbsp;Page:=CreateInputDirPage(wpSelectTasks,'РџСЂРёРјРµСЂ&nbsp;РєРѕРїРёСЂРѕРІР°РЅРёСЏ&nbsp;С„Р°Р№Р»РѕРІ',&nbsp;'РЈРєР°Р¶РёС‚Рµ&nbsp;РєР°С‚Р°Р»РѕРіРё','',False,'NewFolder');<br>
-&nbsp;&nbsp;Page.Add('РћС‚РєСѓРґР°&nbsp;РєРѕРїРёСЂРѕРІР°С‚СЊ');<br>
+&nbsp;&nbsp;Page:=CreateInputDirPage(wpSelectTasks,'Пример&nbsp;копирования&nbsp;файлов',&nbsp;'Укажите&nbsp;каталоги','',False,'NewFolder');<br>
+&nbsp;&nbsp;Page.Add('Откуда&nbsp;копировать');<br>
 &nbsp;&nbsp;Page.Values[0]&nbsp;:=&nbsp;'e:\1\1';///'c:\';//ExpandConstant('{userappdata}');<br>
-&nbsp;&nbsp;Page.Add('РљСѓРґР°&nbsp;РєРѕРїРёСЂРѕРІР°С‚СЊ');<br>
+&nbsp;&nbsp;Page.Add('Куда&nbsp;копировать');<br>
 &nbsp;&nbsp;Page.Values[1]&nbsp;:=&nbsp;'e:\1\2';///'c:\';<br>
 &nbsp;&nbsp;PB:=TNewProgressBar.Create(WizardForm);<br>
 &nbsp;&nbsp;with&nbsp;PB&nbsp;do&nbsp;begin<br>
@@ -188,7 +188,7 @@ begin<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Top:=200;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Width:=150;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Parent:=Page.Surface;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;Caption:='РћС‚РјРµРЅРёС‚СЊ&nbsp;РєРѕРїРёСЂРѕРІР°РЅРёРµ';<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Caption:='Отменить&nbsp;копирование';<br>
 &nbsp;&nbsp;&nbsp;&nbsp;OnClick:=@CancelBtnClick;<br>
 &nbsp;&nbsp;end;<br>
 <br>
@@ -198,7 +198,7 @@ function&nbsp;NextButtonClick(CurPageID:&nbsp;Integer):&nbsp;Boolean;<br>
 begin<br>
 &nbsp;&nbsp;Result:=True;<br>
 &nbsp;&nbsp;if&nbsp;CurPageID=Page.ID&nbsp;then&nbsp;begin<br>
-&nbsp;&nbsp;&nbsp;&nbsp;L1.Caption:='РџРѕРґСЃС‡РµС‚&nbsp;СЂР°Р·РјРµСЂР°&nbsp;&quot;'+Page.Values[0]+'&quot;';<br>
+&nbsp;&nbsp;&nbsp;&nbsp;L1.Caption:='Подсчет&nbsp;размера&nbsp;&quot;'+Page.Values[0]+'&quot;';<br>
 &nbsp;&nbsp;&nbsp;&nbsp;L2.Caption:='';<br>
 &nbsp;&nbsp;&nbsp;&nbsp;L3.Caption:='';<br>
 &nbsp;&nbsp;&nbsp;&nbsp;DS:=0;<br>

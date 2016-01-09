@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
 <meta http-equiv="X-UA-Compatible" content="IE=8" />
 <title>Inno Setup Preprocessor: #ifdef, #ifndef, #ifexsist, #ifnexist</title>
 <link rel="stylesheet" type="text/css" href="../styles.css" />
@@ -10,7 +10,7 @@
 <body>
 <h1 class="topicheading">Inno Setup Preprocessor: #ifdef, #ifndef, #ifexsist, #ifnexist</h1>
 <div class="topicbody">
-  <h2 class="heading notopmargin">РЎРёРЅС‚Р°С‚СЃРёСЃ</h2>
+  <h2 class="heading notopmargin">Синтатсис</h2>
   <table>
     <tr>
       <td class="cellleft"><i>ifdef-directive:</i></td>
@@ -35,10 +35,10 @@
       <td class="cellright"><b>ifnexist</b> &lt;expr&gt;</td>
     </tr>
   </table>
-  <h2 class="heading">РћРїРёСЃР°РЅРёРµ</h2>
-  <p>Р’С‹ РјРѕР¶РµС‚Рµ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РґРёСЂРµРєС‚РёРІС‹ <tt>ifdef</tt>, <tt>ifndef</tt>, <tt>ifexist</tt>, Рё <tt>ifnexist</tt> РІРµР·РґРµ, РіРґРµ <tt><a href="topic_if.htm">if</a></tt> РґРѕРїСѓСЃС‚РёРј. РћРїРµСЂР°С‚РѕСЂ <tt>ifdef identifier</tt> СЌРєРІРёРІР°Р»РµРЅС‚РµРЅ <tt>if 1,</tt> РєРѕРіРґР° СѓРєР°Р·Р°РЅРЅС‹Р№ РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ Р±С‹Р» РѕРїСЂРµРґРµР»РµРЅ, Рё СЌРєРІРёРІР°Р»РµРЅС‚РµРЅ <tt>if 0,</tt> РєРѕРіРґР° РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РЅРµ Р±С‹Р» РѕРїСЂРµРґРµР»РµРЅ РёР»Рё Р±С‹Р» РѕС‚РјРµРЅРµРЅ РґРёСЂРµРєС‚РёРІРѕР№ <tt><a href="topic_undef.htm">undef</a></tt>. Р­С‚Рё РґРёСЂРµРєС‚РёРІС‹ РїСЂРѕРІРµСЂСЏСЋС‚ С‚РѕР»СЊРєРѕ РЅР° РїСЂРёСЃСѓС‚СЃС‚РІРёРµ РёР»Рё РѕС‚СЃСѓС‚СЃС‚РІРёРµ РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂРѕРІ, РѕРїСЂРµРґРµР»РµРЅРЅС‹С… СЃ РїРѕРјРѕС‰СЊСЋ <tt><a href="topic_define.htm">define</a></tt>.</p>
-  <p>Р”РёСЂРµРєС‚РёРІС‹<tt> ifexist</tt> Рё <tt>ifnexist</tt> РїСЂРѕРІРµСЂСЏСЋС‚ РЅР° РїСЂРёСЃСѓС‚СЃС‚РІРёРµ Рё РѕС‚СЃСѓС‚СЃС‚РІРёРµ С„Р°Р№Р»Р° СЃРѕРѕС‚РІРµС‚СЃС‚РІРµРЅРЅРѕ.</p>
-  <h2 class="heading">РџСЂРёРјРµСЂС‹</h2>
+  <h2 class="heading">Описание</h2>
+  <p>Вы можете использовать директивы <tt>ifdef</tt>, <tt>ifndef</tt>, <tt>ifexist</tt>, и <tt>ifnexist</tt> везде, где <tt><a href="topic_if.htm">if</a></tt> допустим. Оператор <tt>ifdef identifier</tt> эквивалентен <tt>if 1,</tt> когда указанный идентификатор был определен, и эквивалентен <tt>if 0,</tt> когда идентификатор не был определен или был отменен директивой <tt><a href="topic_undef.htm">undef</a></tt>. Эти директивы проверяют только на присутствие или отсутствие идентификаторов, определенных с помощью <tt><a href="topic_define.htm">define</a></tt>.</p>
+  <p>Директивы<tt> ifexist</tt> и <tt>ifnexist</tt> проверяют на присутствие и отсутствие файла соответственно.</p>
+  <h2 class="heading">Примеры</h2>
   <p><tt>[Files]<br/>
     #ifexist &quot;myfile.ext&quot;<br/>
     &nbsp;&nbsp;Filename: &quot;myfile.ext&quot;; DestDir: {app}<br/>
@@ -47,7 +47,7 @@
     &nbsp;&nbsp;Filename: &quot;extra.dll&quot;; DestDir: {app}<br/>
     #endif<br/>
   </tt></p>
-  <h2 class="heading">РЎРј. С‚Р°РєР¶Рµ:</h2>
+  <h2 class="heading">См. также:</h2>
   <p><a href="topic_fileexists.htm">FileExists</a></p>
 </div>
 </body>

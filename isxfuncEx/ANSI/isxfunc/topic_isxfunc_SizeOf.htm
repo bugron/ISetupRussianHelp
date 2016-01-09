@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
 <meta http-equiv="X-UA-Compatible" content="IE=8" />
 <title>Pascal Scripting Extended: SizeOf</title>
 <link rel="stylesheet" type="text/css" href="../../../styles.css" />
@@ -10,27 +10,27 @@
 <body>
 <h1 class="topicheading">Pascal Scripting Extended: SizeOf</h1>
 <div class="topicbody">
-  <div><b>РџСЂРѕС‚РѕС‚РёРї:</b></div>
+  <div><b>Прототип:</b></div>
   <p><tt>function SizeOf(const V: Variant): Longint;</tt></p>
-  <div><b>РћРїРёСЃР°РЅРёРµ:</b></div>
-  Р¤СѓРЅРєС†РёСЏ SizeOf РІРѕР·РІСЂР°С‰Р°РµС‚ Р·Р°РЅРёРјР°РµРјС‹Р№ СЂР°Р·РјРµСЂ (РІ Р±Р°Р№С‚Р°С…) РїРµСЂРµРјРµРЅРЅРѕР№ (Variable) РёР»Рё С‚РёРїР° (Type).<br />
-  &nbsp;Р§Р°СЃС‚Рѕ Р±С‹РІР°РµС‚ РїРѕР»РµР·РЅРѕ СѓР·РЅР°С‚СЊ, СЃРєРѕР»СЊРєРѕ РјРµСЃС‚Р° Р·Р°РЅРёРјР°СЋС‚ РґР°РЅРЅС‹Рµ. РћСЃРѕР±РµРЅРЅРѕ РїСЂРё РёСЃРїРѕР»СЊР·РѕРІР°РЅРёРё СЃС‚Р°РЅРґР°СЂС‚РЅС‹С… РїСЂРѕС†РµРґСѓСЂ РІСЂРѕРґРµ GetMem.<br />
-  &nbsp;Р”Р»СЏ РЅРµРєРѕС‚РѕСЂС‹С… С‚РёРїРѕРІ РІСЃРµРіРґР° РІРѕР·РІСЂР°С‰Р°РµС‚СЃСЏ СЂР°Р·РјРµСЂ СѓРєР°Р·Р°С‚РµР»СЏ, С‚Р°Рє РєР°Рє РѕРЅРё Рё СЏРІР»СЏСЋС‚СЃСЏ РїСЂРѕСЃС‚Рѕ СѓРєР°Р·Р°С‚РµР»СЏРјРё РЅР° РґР°РЅРЅС‹Рµ, С…СЂР°РЅРёРјС‹Рµ СЌС‚Рё С‚РёРїРѕРј. РџСЂРёРјРµСЂРѕРј С‚Р°РєРёС… С‚РёРїРѕРј СЏРІР»СЏСЋС‚СЃСЏ СЃС‚СЂРѕРєРё. <br />
-  &nbsp;Р”Р»СЏ РїРѕР»СѓС‡РµРЅРёСЏ СЂР°Р·РјРµСЂР° РѕР±СЉРµРєС‚Р° РёСЃРїРѕР»СЊР·СѓР№С‚Рµ РјРµС‚РѕРґ InstanceSize.<br />
-  <div><b>РџСЂРёРјРµСЂ:</b></div>
+  <div><b>Описание:</b></div>
+  Функция SizeOf возвращает занимаемый размер (в байтах) переменной (Variable) или типа (Type).<br />
+  &nbsp;Часто бывает полезно узнать, сколько места занимают данные. Особенно при использовании стандартных процедур вроде GetMem.<br />
+  &nbsp;Для некоторых типов всегда возвращается размер указателя, так как они и являются просто указателями на данные, хранимые эти типом. Примером таких типом являются строки. <br />
+  &nbsp;Для получения размера объекта используйте метод InstanceSize.<br />
+  <div><b>Пример:</b></div>
   <p><tt>var<br />
     &nbsp;intNumber : Integer;<br />
     &nbsp;extNumber : Extended;<br />
     &nbsp;sentence : string;<br />
     <br />
     begin<br />
-    // РџРѕРєР°Р· СЂР°Р·РјРµСЂРѕРІ С‡РёСЃР»РµРЅРЅС‹С… С‚РёРїРѕРІ РґР°РЅРЅС‹С…<br />
+    // Показ размеров численных типов данных<br />
     &nbsp;ShowMessageFmt(' SizeOf(Integer) = %d',[SizeOf(Integer)]);<br />
     &nbsp;ShowMessageFmt('SizeOf(intNumber) = %d',[SizeOf(intNumber)]);<br />
     &nbsp;ShowMessageFmt(' SizeOf(Extended) = %d',[SizeOf(Extended)]);<br />
     &nbsp;ShowMessageFmt('SizeOf(extNumber) = %d',[SizeOf(extNumber)]);<br />
     <br />
-    // РЎС‚СЂРѕРєРѕРІС‹Рµ С‚РёРїС‹ Рё РїРµСЂРµРјРµРЅРЅС‹Рµ - СѓРєР°Р·Р°С‚РµР»Рё РЅР° С„Р°РєС‚РёС‡РµСЃРєРёРµ СЃС‚СЂРѕРєРё<br />
+    // Строковые типы и переменные - указатели на фактические строки<br />
     &nbsp;sentence := 'A long sentence, certainly longer than 4';<br />
     &nbsp;ShowMessageFmt(' SizeOf(string) = %d',[SizeOf(string)]);<br />
     &nbsp;ShowMessageFmt(' SizeOf(sentence) = %d',[SizeOf(sentence)]);<br />

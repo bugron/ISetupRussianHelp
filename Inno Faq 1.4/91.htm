@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>РњРѕР¶РЅРѕ Р»Рё СЃРґРµР»Р°С‚СЊ СЃРІРѕСЋ С„РѕСЂРјСѓ Р·Р°РїСЂРѕСЃР° СЃР»РµРґСѓСЋС‰РµРіРѕ РґРёСЃРєР°.</title><link rel="stylesheet" type="text/css" href="css.css"><script type="text/javascript" src="includer.js"></script><script language='jscript' type='text/javascript' src='copycode.js'></script></head><body><div id="heading"><h1>В» Inno Setup Faq. РњРѕР¶РЅРѕ Р»Рё СЃРґРµР»Р°С‚СЊ СЃРІРѕСЋ С„РѕСЂРјСѓ Р·Р°РїСЂРѕСЃР° СЃР»РµРґСѓСЋС‰РµРіРѕ РґРёСЃРєР°.</h1></div><br><script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM"> <input type="button" value="РљРѕРїРёСЂРѕРІР°С‚СЊ РІ Р±СѓС„РµСЂ РѕР±РјРµРЅР°" onClick="copyToClipboard( taCode1, theCode1 );"> <blockquote id="theCode1"><font>[Setup]<br>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1251"><title>Можно ли сделать свою форму запроса следующего диска.</title><link rel="stylesheet" type="text/css" href="css.css"><script type="text/javascript" src="includer.js"></script><script language='jscript' type='text/javascript' src='copycode.js'></script></head><body><div id="heading"><h1>» Inno Setup Faq. Можно ли сделать свою форму запроса следующего диска.</h1></div><br><script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM"> <input type="button" value="Копировать в буфер обмена" onClick="copyToClipboard( taCode1, theCode1 );"> <blockquote id="theCode1"><font>[Setup]<br>
 AppName=My Program<br>
 AppVersion=1.5<br>
 ;;AppVerName=My Program 1.5<br>
@@ -35,7 +35,7 @@ var<br>
   ModalResult: Longint;<br>
 <br>
 <br>
-///РџСѓС‚Рё РїРѕРёСЃРєР° С„Р°Р№Р»Р°<br>
+///Пути поиска файла<br>
 function GetSanitizedPath: String;<br>
 begin<br>
  Result := Trim(PathEdit.Text);<br>
@@ -47,7 +47,7 @@ begin<br>
  Confirm:=False;<br>
 end;<br>
 <br>
-///РљРЅРѕРїРєРё РћР±Р·РѕСЂ<br>
+///Кнопки Обзор<br>
 procedure BrowseButtonClick(Sender: TObject);<br>
 begin<br>
   Dir := GetSanitizedPath;<br>
@@ -56,7 +56,7 @@ begin<br>
   TNewDiskForm.show;<br>
 end;<br>
 <br>
-///Р¤РѕСЂРјР° Р·С‹РєСЂС‹С‚РёСЏ (СЂР°Р±РѕС‚Р°РµС‚ mrOK)<br>
+///Форма зыкрытия (работает mrOK)<br>
 procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);<br>
 begin<br>
 Path := PathEdit.Text;<br>
@@ -73,7 +73,7 @@ end;<br>
 end;<br>
 end;<br>
 <br>
-///Р·Р°РїСЂРѕСЃ РґРёСЃРєР°<br>
+///запрос диска<br>
 procedure SelectDisk(const DiskNumber: Integer; const Filename, Path: String);<br>
 var ExitFlag:Boolean;<br>
 begin<br>
@@ -132,10 +132,10 @@ begin<br>
     <br>
     TNewDiskForm.ShowModal; <br>
     <br>
-///Р·Р°РєСЂС‹С‚РёРµ С„РѕСЂРјС‹ (СЂР°Р±РѕС‚Р°РµС‚ mrCancel)<br>
+///закрытие формы (работает mrCancel)<br>
 case TNewDiskForm.ModalResult of mrCancel:<br>
 begin<br>
-MsgBox('Р’С‹ РЅРµ СЃРјРѕРіР»Рё РЅР°Р№С‚Рё РїСѓС‚СЊ РґРѕ Р°СЂС…РёРІР° РёР»Рё РїСЂР°РІРёР»СЊРЅРѕ СѓРєР°Р·Р°С‚СЊ РјРµСЃС‚Рѕ СЂР°СЃРїРѕР»РѕР¶РµРЅРёСЏ РґРёСЃРєР°. РџСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°, СѓСЃС‚Р°РЅРѕРІРєР° Р±СѓРґРµС‚ РїСЂРµСЂРІРѕРЅР°.',mbError, MB_OK);<br>
+MsgBox('Вы не смогли найти путь до архива или правильно указать место расположения диска. Произошла ошибка, установка будет прервона.',mbError, MB_OK);<br>
 TNewDiskForm.free;<br>
 ExitFlag:= ExitSetupMsgBox;<br>
 Case ExitFlag of True:WizardForm.Close;<br>
@@ -150,8 +150,8 @@ end;<br>
 <br>
 procedure CurStepChanged(CurStep: TSetupStep);<br>
 begin<br>
-///Р—Р°РїСѓСЃРє С„РѕСЂРјС‹ СЂР°СЃРїР°РєРѕРІРєРё            в„– РґРёСЃРєР°          РјРµСЃС‚Рѕ РїРѕРёСЃРєР°<br>
+///Запуск формы распаковки            № диска          место поиска<br>
                                  ///     |                 |<br>
 if CurStep = ssInstall then  SelectDisk (2, 'Filename','{src}');<br>
 end;                                ///        |<br>
-                              ///РїРѕРёСЃРє С„Р°Р№Р»Р° РЅР° РґРёСЃРєРµ РёР»Рё РїР°РїРєРµ<br></font></blockquote><textarea id="taCode1" style="display:none;" rows="1" cols="5"></textarea><textarea id='taCode' style='display:none;' rows='1' cols='20'></textarea></code><script language="javascript" type="text/javascript">highlightSyntax('delphi_Tc4NTM','delphi');</script><br><div id="heading"><h1><font size="1" face="Consolas">Copyright (c) <a href="http://www.krinkels.org/" target="_blank">Krinkels Inc</a></font></h1></div></body></html>
+                              ///поиск файла на диске или папке<br></font></blockquote><textarea id="taCode1" style="display:none;" rows="1" cols="5"></textarea><textarea id='taCode' style='display:none;' rows='1' cols='20'></textarea></code><script language="javascript" type="text/javascript">highlightSyntax('delphi_Tc4NTM','delphi');</script><br><div id="heading"><h1><font size="1" face="Consolas">Copyright (c) <a href="http://www.krinkels.org/" target="_blank">Krinkels Inc</a></font></h1></div></body></html>

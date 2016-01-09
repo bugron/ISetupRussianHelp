@@ -1,19 +1,19 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>РџСЂРѕР·СЂР°С‡РЅС‹Р№ РёРЅСЃС‚Р°Р»Р»СЏС‚РѕСЂ</title><link rel="stylesheet" type="text/css" href="css.css">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1251"><title>Прозрачный инсталлятор</title><link rel="stylesheet" type="text/css" href="css.css">
 <script language='jscript' type='text/javascript' src='copycode.js'></script>
-<script type="text/javascript" src="includer.js"></script></head><body><div id="heading"><h1>В» Inno Setup Faq. РџСЂРѕР·СЂР°С‡РЅС‹Р№ РёРЅСЃС‚Р°Р»Р»СЏС‚РѕСЂ</h1></div><br>
+<script type="text/javascript" src="includer.js"></script></head><body><div id="heading"><h1>» Inno Setup Faq. Прозрачный инсталлятор</h1></div><br>
 <script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM">
-<input type="button" value="РљРѕРїРёСЂРѕРІР°С‚СЊ РІ Р±СѓС„РµСЂ РѕР±РјРµРЅР°" onClick="copyToClipboard( taCode1, theCode1 );">
+<input type="button" value="Копировать в буфер обмена" onClick="copyToClipboard( taCode1, theCode1 );">
 <blockquote id="theCode1"><font>
 ///Win7Aero&nbsp;v1.0.1<br>
 ///created&nbsp;by&nbsp;troyan90&nbsp;01.2012<br>
 <br>
-///РїСЂРёРјРµСЂ&nbsp;РґРѕР±Р°РІР»СЏСЋС‰РёР№&nbsp;СЌС„С„РµРєС‚&nbsp;СЃС‚РµРєР»Р°&nbsp;РґР»СЏ&nbsp;РёРЅСЃС‚Р°Р»Р»СЏС‚РѕСЂР°<br>
-///СЃС‚РµРєР»Рѕ&nbsp;СЂР°Р±РѕС‚Р°РµС‚&nbsp;РІ&nbsp;Win&nbsp;7&nbsp;Рё&nbsp;РІС‹С€Рµ.<br>
-///РІ&nbsp;С…СЂ/vista&nbsp;РїСЂРѕРїСѓСЃРєР°РµС‚СЃСЏ&nbsp;Р·Р°РіСЂСѓР·РєР°&nbsp;СЃС‚РµРєР»Р°(РїСЂРѕР±Р»РµРј&nbsp;СЃ&nbsp;РёСЃРїРѕР»СЊР·РѕРІР°РЅРёРµРј&nbsp;РёРЅСЃС‚Р°Р»Р»СЏС‚РѕСЂР°&nbsp;РІ&nbsp;С…СЂ&nbsp;РЅРµ&nbsp;Р±СѓРґРµС‚)<br>
-///СЃРєСЂРёРїС‚&nbsp;СЃРѕРІРјРµСЃС‚РёРј&nbsp;СЃ&nbsp;СЂР°СЃС€РёСЂРµРЅРЅРѕР№&nbsp;РІРµСЂСЃРёРµР№&nbsp;Inno&nbsp;Setup<br>
+///пример&nbsp;добавляющий&nbsp;эффект&nbsp;стекла&nbsp;для&nbsp;инсталлятора<br>
+///стекло&nbsp;работает&nbsp;в&nbsp;Win&nbsp;7&nbsp;и&nbsp;выше.<br>
+///в&nbsp;хр/vista&nbsp;пропускается&nbsp;загрузка&nbsp;стекла(проблем&nbsp;с&nbsp;использованием&nbsp;инсталлятора&nbsp;в&nbsp;хр&nbsp;не&nbsp;будет)<br>
+///скрипт&nbsp;совместим&nbsp;с&nbsp;расширенной&nbsp;версией&nbsp;Inno&nbsp;Setup<br>
 <br>
-///РїСЂРѕС‚РµСЃС‚РёСЂРѕРІР°РЅРѕ&nbsp;РЅР°:&nbsp;Windows&nbsp;xp/vista/7<br>
+///протестировано&nbsp;на:&nbsp;Windows&nbsp;xp/vista/7<br>
 <br>
 [Setup]<br>
 AppName=Win7Aero&nbsp;v1.0.1<br>
@@ -31,10 +31,10 @@ OutputBaseFilename=Win7Aerov1.0.1<br>
 Name:&nbsp;&quot;ru&quot;;&nbsp;MessagesFile:&nbsp;&quot;compiler:Languages\Russian.isl&quot;;<br>
 <br>
 [Messages]<br>
-ru.ButtonBack=В«&nbsp;РќР°Р·Р°Рґ<br>
-ru.ButtonNext=Р”Р°Р»РµРµ&nbsp;В»<br>
-ru.ButtonInstall=РЈСЃС‚Р°РЅРѕРІРёС‚СЊ<br>
-ru.ButtonCancel=РћС‚РјРµРЅР°<br>
+ru.ButtonBack=«&nbsp;Назад<br>
+ru.ButtonNext=Далее&nbsp;»<br>
+ru.ButtonInstall=Установить<br>
+ru.ButtonCancel=Отмена<br>
 <br>
 [code]<br>
 type<br>

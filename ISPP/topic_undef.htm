@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
 <meta http-equiv="X-UA-Compatible" content="IE=8" />
 <title>Inno Setup Preprocessor: #undef</title>
 <link rel="stylesheet" type="text/css" href="../styles.css" />
@@ -10,22 +10,22 @@
 <body>
 <h1 class="topicheading">Inno Setup Preprocessor: #undef</h1>
 <div class="topicbody">
-  <h2 class="heading notopmargin">РЎРёРЅС‚Р°С‚СЃРёСЃ</h2>
+  <h2 class="heading notopmargin">Синтатсис</h2>
   <table>
     <tr>
       <td class="cellleft"><i>undef-directive:</i></td>
       <td class="cellright">(<b>undef</b> | <b>x</b>) [<b>private</b> | <b>protected</b> | <b>public</b>] &lt;ident&gt;</td>
     </tr>
   </table>
-  <h2 class="heading">РћРїРёСЃР°РЅРёРµ</h2>
-  <p>Р”РµРёРЅРёС†РёР°Р»РёР·РёСЂСѓРµС‚ (СѓРґР°Р»СЏРµС‚) РїРµСЂРµРјРµРЅРЅСѓСЋ РёР»Рё РјР°РєСЂРѕСЃ. Р•СЃР»Рё <a href="topic_visibility.htm">РІРёРґРёРјРѕСЃС‚СЊ</a> РЅРµ РѕРїСЂРµРґРµР»РµРЅ (<tt>public</tt>, <tt>protected</tt>, РёР»Рё <tt>private</tt>), ISPP СЃРЅР°С‡Р°Р»Р° РїС‹С‚Р°РµС‚СЃСЏ СѓРґР°Р»РёС‚СЊ РїРµСЂРµРјРµРЅРЅСѓСЋ private СЃ СЌС‚РёРј Р¶Рµ РёРјРµРЅРµРј, Р·Р°С‚РµРј protected, Рё РІ РєРѕРЅС†Рµ public.</p>
-  <h2 class="heading">РџСЂРёРјРµСЂС‹</h2>
+  <h2 class="heading">Описание</h2>
+  <p>Деинициализирует (удаляет) переменную или макрос. Если <a href="topic_visibility.htm">видимость</a> не определен (<tt>public</tt>, <tt>protected</tt>, или <tt>private</tt>), ISPP сначала пытается удалить переменную private с этим же именем, затем protected, и в конце public.</p>
+  <h2 class="heading">Примеры</h2>
   <p><tt>#undef MyVar<br/>
     #undef MyMacro<br/>
     #undef public MyVar<br/>
   </tt></p>
-  <h2 class="heading">РЎРј. С‚Р°РєР¶Рµ:</h2>
-  <p><tt><a href="topic_define.htm">define</a></tt>, <tt><a href="topic_dim.htm">dim</a></tt>, <a href="topic_visibility.htm">РћР±Р»Р°СЃС‚СЊ РІРёРґРёРјРѕСЃС‚Рё РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂРѕРІ</a>.</p>
+  <h2 class="heading">См. также:</h2>
+  <p><tt><a href="topic_define.htm">define</a></tt>, <tt><a href="topic_dim.htm">dim</a></tt>, <a href="topic_visibility.htm">Область видимости идентификаторов</a>.</p>
 </div>
 </body>
 </html>

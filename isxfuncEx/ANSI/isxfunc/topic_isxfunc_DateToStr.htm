@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
 <meta http-equiv="X-UA-Compatible" content="IE=8" />
 <title>Pascal Scripting Extended: DateToStr</title>
 <link rel="stylesheet" type="text/css" href="../../../styles.css" />
@@ -10,28 +10,28 @@
 <body>
 <h1 class="topicheading">Pascal Scripting Extended: DateToStr</h1>
 <div class="topicbody">
-  <div><b>РџСЂРѕС‚РѕС‚РёРї:</b></div>
+  <div><b>Прототип:</b></div>
   <p><tt>function DateToStr(Date: TDateTime): String;</tt></p>
-  <div><b>РћРїРёСЃР°РЅРёРµ:</b></div>
-  Р¤СѓРЅРєС†РёСЏ DateToStr РєРѕРЅРІРµСЂС‚РёСЂСѓРµС‚ Р·РЅР°С‡РµРЅРёРµ РґР°С‚С‹ TDateTime РІ СЃС‚СЂРѕРєСѓ. <br />
-  Р”Р°С‚Р° С„РѕСЂРјР°С‚РёСЂСѓРµС‚СЃСЏ СЃ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёРµРј Р·РЅР°С‡РµРЅРёСЏ ShortDateFormat, РєРѕС‚РѕСЂРѕРµ РІ СЃРІРѕСЋ РѕС‡РµСЂРµРґСЊ РёСЃРїРѕР»СЊР·СѓРµС‚ Р·РЅР°С‡РµРЅРёРµ DateSeparator. <br />
-  Р’РµСЂСЃРёСЏ 2 СЌС‚РѕР№ С„СѓРЅРєС†РёРё - РґР»СЏ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ РІ РїСЂРµРґРµР»Р°С… РїРѕС‚РѕРєРѕРІ. Р’С‹ Р·Р°РїРѕР»РЅСЏРµС‚Рµ Р·Р°РїРёСЃСЊ FormatSettings РїРµСЂРµРґ РІС‹Р·РѕРІРѕРј Р·Р°РїСЂРѕСЃР°. РћРЅР° РїРѕР»СѓС‡Р°РµС‚ Р»РѕРєР°Р»СЊРЅСѓСЋ РєРѕРїРёСЋ РіР»РѕР±Р°Р»СЊРЅРѕР№ С„РѕСЂРјР°С‚РёСЂСѓСЋС‰РµР№ РїРµСЂРµРјРµРЅРЅРѕР№, РєРѕС‚РѕСЂР°СЏ РґРµР»Р°РµС‚ РІР°С€Сѓ РїРѕРґРїСЂРѕРіСЂР°РјРјСѓ РїРѕС‚РѕРєРѕ Р±РµР·РѕРїР°СЃРЅРѕР№.<br />
+  <div><b>Описание:</b></div>
+  Функция DateToStr конвертирует значение даты TDateTime в строку. <br />
+  Дата форматируется с использованием значения ShortDateFormat, которое в свою очередь использует значение DateSeparator. <br />
+  Версия 2 этой функции - для использования в пределах потоков. Вы заполняете запись FormatSettings перед вызовом запроса. Она получает локальную копию глобальной форматирующей переменной, которая делает вашу подпрограмму потоко безопасной.<br />
   <br />
-  <div><b>РџСЂРёРјРµСЂ:</b></div>
+  <div><b>Пример:</b></div>
   <p><tt>var<br />
     &nbsp;myDate : TDateTime;<br />
     <br />
     begin<br />
     &nbsp;myDate := StrToDateTime('09/02/2002 12:00');<br />
-    &nbsp;ShowMessage('РЎРµСЂРµРґРёРЅР° РґРЅСЏ = '+DateTimeToStr(myDate));<br />
+    &nbsp;ShowMessage('Середина дня = '+DateTimeToStr(myDate));<br />
     <br />
     &nbsp;myDate := StrToDateTime('09/02/2002 00:00');<br />
-    &nbsp;ShowMessage('РќР°С‡Р°Р»Рѕ РґРЅСЏ = '+DateTimeToStr(myDate));<br />
+    &nbsp;ShowMessage('Начало дня = '+DateTimeToStr(myDate));<br />
     end; <br />
     <br />
     <br />
-    &nbsp;РЎРµСЂРµРґРёРЅР° РґРЅСЏ = 09/02/2002 12:00:00<br />
-    &nbsp;РќР°С‡Р°Р»Рѕ РґРЅСЏ = 09/02/2002</tt></p>
+    &nbsp;Середина дня = 09/02/2002 12:00:00<br />
+    &nbsp;Начало дня = 09/02/2002</tt></p>
 </div>
 </body>
 </html>

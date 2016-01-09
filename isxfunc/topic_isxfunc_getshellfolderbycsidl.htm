@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
 <meta http-equiv="X-UA-Compatible" content="IE=8" />
 <title>Pascal Scripting: GetShellFolderByCSIDL</title>
 <link rel="stylesheet" type="text/css" href="../styles.css" />
@@ -10,13 +10,13 @@
 <body>
 <h1 class="topicheading">Pascal Scripting: GetShellFolderByCSIDL</h1>
 <div class="topicbody">
-  <div><b>РџСЂРѕС‚РѕС‚РёРї:</b></div>
+  <div><b>Прототип:</b></div>
   <p><tt>function GetShellFolderByCSIDL(const Folder: Integer; const Create: Boolean): String;</tt></p>
-  <div><b>РћРїРёСЃР°РЅРёРµ:</b></div>
-  <p>РџРѕР»СѓС‡Р°РµС‚ РїСѓС‚СЊ Рє СѓРєР°Р·Р°РЅРЅРѕР№ РїР°РїРєРµ РѕР±РѕР»РѕС‡РєРё. Folder РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ СЂР°РІРµРЅ РѕРґРЅРѕР№ РёР· CSIDL РєРѕРЅСЃС‚Р°РЅС‚ (РїРѕР»РЅС‹Р№ СЃРїСЃРѕРє СЌС‚РёС… РєРѕРЅСЃС‚Р°РЅС‚ РјРѕР¶РЅРѕ РЅР°Р№С‚Рё РІ ShlObj.h). Р•СЃР»Рё Create СЂР°РІРµРЅ True Рё СѓРєР°Р·Р°РЅРЅР°СЏ РїР°РїРєР° РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚, С‚Рѕ РѕРЅР° Р±СѓРґРµС‚ СЃРѕР·РґР°РЅР°. РџСЂРё РЅРµСѓРґР°С‡Рµ РІРѕР·РІСЂР°С‰Р°РµС‚СЃСЏ РїСѓСЃС‚Р°СЏ СЃС‚СЂРѕРєР°.</p>
-  <div><b>РљРѕРјРјРµРЅС‚Р°СЂРёРё:</b></div>
-  <p>Р РµРєРѕРјРµРЅРґСѓРµС‚СЃСЏ РІСЃРµРіРґР° СѓРєР°Р·С‹РІР°С‚СЊ РїР°СЂР°РјРµС‚СЂ Create СЂР°РІРЅС‹Рј True. РРЅР°С‡Рµ, РµСЃР»Рё СѓРєР°Р·Р°РЅРѕ РїСЂР°РІРёР»СЊРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ CSIDL, РЅРѕ РІСЃРµ Р¶Рµ РїР°РїРєР° РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚, С„СѓРЅРєС†РёСЏ Р·Р°РІРµСЂС€РёС‚СЃСЏ РЅРµСѓРґР°С‡РЅРѕ. (Р­С‚Рѕ РёР·РІРµСЃС‚РЅР°СЏ РїСЂРѕР±Р»РµРјР° Windows.)</p>
-  <div><b>РќР°РїСЂРёРјРµСЂ:</b></div>
+  <div><b>Описание:</b></div>
+  <p>Получает путь к указанной папке оболочки. Folder должен быть равен одной из CSIDL констант (полный спсок этих констант можно найти в ShlObj.h). Если Create равен True и указанная папка не существует, то она будет создана. При неудаче возвращается пустая строка.</p>
+  <div><b>Комментарии:</b></div>
+  <p>Рекомендуется всегда указывать параметр Create равным True. Иначе, если указано правильное значение CSIDL, но все же папка не существует, функция завершится неудачно. (Это известная проблема Windows.)</p>
+  <div><b>Например:</b></div>
   <pre>const
   CSIDL_MYPICTURES = $0027;
 

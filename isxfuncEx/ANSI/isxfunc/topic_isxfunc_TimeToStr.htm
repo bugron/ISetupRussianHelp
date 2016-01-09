@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
 <meta http-equiv="X-UA-Compatible" content="IE=8" />
 <title>Pascal Scripting Extended: TimeToStr</title>
 <link rel="stylesheet" type="text/css" href="../../../styles.css" />
@@ -10,13 +10,13 @@
 <body>
 <h1 class="topicheading">Pascal Scripting Extended: TimeToStr</h1>
 <div class="topicbody">
-  <div><b>РџСЂРѕС‚РѕС‚РёРї:</b></div>
+  <div><b>Прототип:</b></div>
   <p><tt>function TimeToStr(Time: TDateTime): String;</tt></p>
-  <div><b>РћРїРёСЃР°РЅРёРµ:</b></div>
-  Р¤СѓРЅРєС†РёСЏ TimeToStr РїСЂРµРѕР±СЂР°Р·СѓРµС‚ Р·РЅР°С‡РµРЅРёРµ СЃ С‚РёРїРѕРј TDateTime РІ СЃС‚СЂРѕРєСѓ, СЃРѕРґРµСЂР¶Р°С‰СѓСЋ РІСЂРµРјСЏ РІ РѕРїСЂРµРґРµР»РµРЅРЅРѕРј С„РѕСЂРјР°С‚Рµ.<br />
-  Р’СЂРµРјСЏ С„РѕСЂРјР°С‚РёСЂСѓРµС‚СЃСЏ СЃ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ Р·РЅР°С‡РµРЅРёРµ РїРµСЂРµРјРµРЅРЅРѕР№ LongTimeFormat, РєРѕС‚РѕСЂР°СЏ РІ СЃРІРѕСЋ РѕС‡РµСЂРµРґСЊ РёСЃРїРѕР»СЊР·СѓРµС‚ Р·РЅР°С‡РµРЅРёРµ РїРµСЂРµРјРµРЅРѕР№ TimeSeparator. <br />
-  Р’С‚РѕСЂРѕР№ РІР°СЂРёР°РЅС‚ СЌС‚РѕР№ С„СѓРЅРєС†РёРё РїСЂРµРґРЅР°Р·РЅР°С‡РµРЅ РґР»СЏ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ РІ РїРѕС‚РѕРєР°С…. РџРµСЂРµРґ РІС‹Р·РѕРІРѕРј С„СѓРЅРєС†РёРё РІС‹ РґРѕР»Р¶РЅС‹ Р·Р°РїРѕР»РЅРёС‚СЊ Р·Р°РїРёСЃСЊ FormatSettings. Р¤СѓРЅРєС†РёСЏ РґРµР»Р°РµС‚ Р»РѕРєР°Р»СЊРЅСѓСЋ РєРѕРїРёСЋ РіР»РѕР±Р°Р»СЊРЅС‹С… РїРµСЂРµРјРµРЅРЅС‹С… С„РѕСЂРјР°С‚РёСЂРѕРІР°РЅРёСЏ, С‡С‚Рѕ РґРµР»Р°РµС‚ РµРµ РїРѕС‚РѕРєРѕР±РµР·РѕРїР°СЃРЅРѕР№.<br />
-  <div><b>РџСЂРёРјРµСЂ:</b></div>
+  <div><b>Описание:</b></div>
+  Функция TimeToStr преобразует значение с типом TDateTime в строку, содержащую время в определенном формате.<br />
+  Время форматируется с использование значение переменной LongTimeFormat, которая в свою очередь использует значение переменой TimeSeparator. <br />
+  Второй вариант этой функции предназначен для использования в потоках. Перед вызовом функции вы должны заполнить запись FormatSettings. Функция делает локальную копию глобальных переменных форматирования, что делает ее потокобезопасной.<br />
+  <div><b>Пример:</b></div>
   <p><tt>var<br />
     &nbsp;myTime : TDateTime;<br />
     <br />

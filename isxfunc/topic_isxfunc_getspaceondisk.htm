@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
 <meta http-equiv="X-UA-Compatible" content="IE=8" />
 <title>Pascal Scripting: GetSpaceOnDisk</title>
 <link rel="stylesheet" type="text/css" href="../styles.css" />
@@ -10,13 +10,13 @@
 <body>
 <h1 class="topicheading">Pascal Scripting: GetSpaceOnDisk</h1>
 <div class="topicbody">
-  <div><b>РџСЂРѕС‚РѕС‚РёРї:</b></div>
+  <div><b>Прототип:</b></div>
   <p><tt>function GetSpaceOnDisk(const Path: String; const InMegabytes: Boolean; var Free, Total: Cardinal): Boolean;</tt></p>
-  <div><b>РћРїРёСЃР°РЅРёРµ:</b></div>
-  <p><span id="result_box" lang="ru" tabindex="-1" xml:lang="ru">Р’РѕР·РІСЂР°С‰Р°РµС‚ РєРѕР»РёС‡РµСЃС‚РІРѕ СЃРІРѕР±РѕРґРЅРѕРіРѕ Рё РѕР±С‰РµРіРѕ Р±Р°Р№С‚РѕРІ РёР»Рё РјРµРіР°Р±Р°Р№С‚ РЅР° РґРёСЃРєРµ.</span> Path СѓРєР°Р·С‹РІР°РµС‚ РїР°РїРєСѓ РЅР° РґРёСЃРєРµ РёР»Рё UNC РїСѓС‚СЊ; <span id="result_box2" lang="ru" tabindex="-1" xml:lang="ru">СЌС‚Рѕ РјРѕР¶РµС‚ Р±С‹С‚СЊ РєР°Рє РєРѕСЂРµРЅСЊ</span> РґРёСЃРєР° (РЅР°РїСЂРёРјРµСЂ <tt>C:\</tt>), С‚Р°Рє Рё РїРѕРґРїР°РїРєР°. РџР°СЂР°РјРµС‚СЂ InMegabytes РѕРїСЂРµРґРµР»СЏРµС‚ <span id="result_box3" lang="ru" tabindex="-1" xml:lang="ru">РґР°РЅРЅС‹Рµ</span> РІРѕР·РІСЂР°С‰Р°СЋС‚СЃСЏ РІ Р±Р°Р№С‚Р°С…, РёР»Рё РјРµРіР°Р±Р°Р№С‚Р°С… (2^20), <span id="result_box4" lang="ru" tabindex="-1" xml:lang="ru">РѕРєСЂСѓРіР»РµРЅРЅС‹С… РІ РјРµРЅСЊС€СѓСЋ СЃС‚РѕСЂРѕРЅСѓ</span>. РџСЂРё СѓРґР°С‡РЅРѕРј РІС‹РїРѕР»РЅРµРЅРёРё РІРѕР·РІСЂР°С‰Р°РµС‚ True, РёРЅР°С‡Рµ False.</p>
-  <div><b>РљРѕРјРјРµРЅС‚Р°СЂРёРё:</b></div>
-  <p>Р’РѕР·РІСЂР°С‰Р°РµРјРѕРµ С‡РёСЃР»Рѕ РѕРіСЂР°РЅРёС‡РµРЅРѕ: 2147483647 (2^31-1). РџРѕСЌС‚РѕРјСѓ, РµСЃР»Рё InMegaBytes СЏРІР»СЏРµС‚СЃСЏ False, С„СѓРЅРєС†РёСЏ РІРѕР·РІСЂР°С‰Р°РµС‚ Р·РЅР°С‡РµРЅРёРµ РЅРµ Р±РѕР»СЊС€Рµ 2147483647 Р±Р°Р№С‚РѕРІ. Р•СЃР»Рё InMegaBytes СЏРІР»СЏРµС‚СЃСЏ True, РІРѕР·РІСЂР°С‰Р°РµС‚ Р·РЅР°С‡РµРЅРёРµ РЅРµ Р±РѕР»СЊС€Рµ 2147483647 РјРµРіР°Р±Р°Р№С‚РѕРІ.</p>
-  <div><b>РќР°РїСЂРёРјРµСЂ:</b></div>
+  <div><b>Описание:</b></div>
+  <p><span id="result_box" lang="ru" tabindex="-1" xml:lang="ru">Возвращает количество свободного и общего байтов или мегабайт на диске.</span> Path указывает папку на диске или UNC путь; <span id="result_box2" lang="ru" tabindex="-1" xml:lang="ru">это может быть как корень</span> диска (например <tt>C:\</tt>), так и подпапка. Параметр InMegabytes определяет <span id="result_box3" lang="ru" tabindex="-1" xml:lang="ru">данные</span> возвращаются в байтах, или мегабайтах (2^20), <span id="result_box4" lang="ru" tabindex="-1" xml:lang="ru">округленных в меньшую сторону</span>. При удачном выполнении возвращает True, иначе False.</p>
+  <div><b>Комментарии:</b></div>
+  <p>Возвращаемое число ограничено: 2147483647 (2^31-1). Поэтому, если InMegaBytes является False, функция возвращает значение не больше 2147483647 байтов. Если InMegaBytes является True, возвращает значение не больше 2147483647 мегабайтов.</p>
+  <div><b>Например:</b></div>
   <pre>var
   Path: String;
   FreeMB, TotalMB: Cardinal;
@@ -32,7 +32,7 @@ begin
     // the function failed
   end;
 end;</pre>
-  <div><b>РЎРј. С‚Р°РєР¶Рµ:</b></div>
+  <div><b>См. также:</b></div>
   <p><a href="topic_isxfunc_getspaceondisk64.htm">GetSpaceOnDisk64</a> </p>
 </div>
 </body>

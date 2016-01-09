@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
 <meta http-equiv="X-UA-Compatible" content="IE=8" />
 <title>Pascal Scripting: GetWindowsVersionEx</title>
 <link rel="stylesheet" type="text/css" href="../styles.css" />
@@ -10,20 +10,20 @@
 <body>
 <h1 class="topicheading">Pascal Scripting: GetWindowsVersionEx</h1>
 <div class="topicbody">
-  <div><b>РџСЂРѕС‚РѕС‚РёРї:</b></div>
+  <div><b>Прототип:</b></div>
   <p><tt>procedure GetWindowsVersionEx(var Version: TWindowsVersion);</tt></p>
-  <div><b>РћРїРёСЃР°РЅРёРµ:</b></div>
-  <p>Р’РѕР·РІСЂР°С‰Р°РµС‚ СЂР°СЃС€РёСЂРµРЅРЅСѓСЋ РёРЅС„РѕСЂРјР°С†РёСЋ Рѕ РІРµСЂСЃРёРё Windows РІ РІРёРґРµ Р·Р°РїРёСЃРё.</p>
-  <p>TWindowsVersion РѕРїСЂРµРґРµР»СЏРµС‚СЃСЏ РєР°Рє:</p>
+  <div><b>Описание:</b></div>
+  <p>Возвращает расширенную информацию о версии Windows в виде записи.</p>
+  <p>TWindowsVersion определяется как:</p>
   <pre>  TWindowsVersion = record<br />    Major: Cardinal;             // Major version number<br />    Minor: Cardinal;             // Minor version number<br />    Build: Cardinal;             // Build number<br />    ServicePackMajor: Cardinal;  // Major version number of service pack<br />    ServicePackMinor: Cardinal;  // Minor version number of service pack<br />    NTPlatform: Boolean;         // True if an NT-based platform<br />    ProductType: Byte;           // Product type (see below)<br />    SuiteMask: Word;             // Product suites installed (see below)<br />  end;</pre>
-  <p>РџРѕР»Рµ ProductType РјРѕР¶РµС‚ РѕРґРЅСѓ РёР· СЃР»РµРґСѓСЋС‰РёС… Р·РЅР°С‡РµРЅРёР№:</p>
+  <p>Поле ProductType может одну из следующих значений:</p>
   <pre>  VER_NT_WORKSTATION<br />  VER_NT_DOMAIN_CONTROLLER<br />  VER_NT_SERVER</pre>
-  <p>РћРЅР° С‚Р°РєР¶Рµ РјРѕР¶РµС‚ Р±С‹С‚СЊ РЅСѓР»РµРј, РµСЃР»Рё РїРѕР»СЊР·РѕРІР°С‚РµР»СЊ СЂР°Р±РѕС‚Р°РµС‚ РІ Windows 95/98/Me, РёР»Рё РµСЃР»Рё С‚РёРї РїСЂРѕРґСѓРєС‚Р° РЅРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ РѕРїСЂРµРґРµР»РµРЅ (С‡С‚Рѕ РјР°Р»РѕРІРµСЂРѕСЏС‚РЅРѕ). VER_NT_WORKSTATION СѓРєР°Р·С‹РІР°РµС‚ РЅР° РЅРµ-СЃРµСЂРІРµСЂРЅС‹С… РІР°СЂРёР°РЅС‚РѕРІ СЃРёСЃС‚РµРјС‹ Windows (РЅР°РїСЂРёРјРµСЂ: Workstation, Professional, РёР»Рё Home).</p>
-  <p>РџРѕР»Рµ SuiteMask field РјРѕР¶РµС‚ Р±С‹С‚СЊ РєРѕРјР±РёРЅР°С†РёРµР№ СЃР»РµРґСѓСЋС‰РёС… Р·РЅР°С‡РµРЅРёР№:</p>
+  <p>Она также может быть нулем, если пользователь работает в Windows 95/98/Me, или если тип продукта не может быть определен (что маловероятно). VER_NT_WORKSTATION указывает на не-серверных вариантов системы Windows (например: Workstation, Professional, или Home).</p>
+  <p>Поле SuiteMask field может быть комбинацией следующих значений:</p>
   <pre>  VER_SUITE_BACKOFFICE<br />  VER_SUITE_BLADE<br />  VER_SUITE_DATACENTER<br />  VER_SUITE_ENTERPRISE<br />  VER_SUITE_EMBEDDEDNT<br />  VER_SUITE_PERSONAL<br />  VER_SUITE_SINGLEUSERTS<br />  VER_SUITE_SMALLBUSINESS<br />  VER_SUITE_SMALLBUSINESS_RESTRICTED<br />  VER_SUITE_TERMINAL</pre>
-  <p>VER_SUITE_PERSONAL, РЅР°РїСЂРёРјРµСЂ, СѓСЃС‚Р°РЅРѕРІР»РµРЅ РІ Home edition Windows XP, Р° VER_SUITE_BLADE СѓСЃС‚Р°РЅРѕРІР»РµРЅ РІ Web edition Windows Server 2003. РќР° Windows 95/98/Me Рё NT 4.0, SuiteMask С‚Р°РєР¶Рµ РїСЂРёРЅРёРјР°РµС‚ Р·РЅР°С‡РµРЅРёРµ РЅРѕР»СЊ.</p>
-  <div><b>РќР°РїСЂРёРјРµСЂ:</b></div>
-  <p>РЎР»РµРґСѓСЋС‰РёР№ РїСЂРёРјРµСЂ РґРµРјРѕРЅСЃС‚СЂРёСЂСѓРµС‚, РєР°Рє РІС‹ РјРѕР¶РµС‚Рµ Р·Р°РїСЂРµС‚РёС‚СЊ СѓСЃС‚Р°РЅРѕРІРєСѓ РЅР° РѕС‚РґРµР»СЊРЅС‹С… РІС‹РїСѓСЃРєР°С… СЃРёСЃС‚РµРјС‹ Windows Рё РїСЂРѕРІРµСЂСЏС‚СЊ РїР°РєРµС‚С‹ РѕР±РЅРѕРІР»РµРЅРёР№ РЅР° РЅРµСЃРєРѕР»СЊРєРёС… РІРµСЂСЃРёСЏС… РѕРїРµСЂР°С†РёРѕРЅРЅРѕР№ СЃРёСЃС‚РµРјС‹. (РќРё РѕРґРЅР° РёР· СЌС‚РёС… РІРµС‰РµР№ РЅРµ РјРѕР¶РЅРѕ СЃРґРµР»Р°С‚СЊ СЃ РїРѕРјРѕС‰СЊСЋ РґРёСЂРµРєС‚РёРІС‹ <tt>MinVersion</tt> СЃРµРєС†РёРё [Setup]).</p>
+  <p>VER_SUITE_PERSONAL, например, установлен в Home edition Windows XP, а VER_SUITE_BLADE установлен в Web edition Windows Server 2003. На Windows 95/98/Me и NT 4.0, SuiteMask также принимает значение ноль.</p>
+  <div><b>Например:</b></div>
+  <p>Следующий пример демонстрирует, как вы можете запретить установку на отдельных выпусках системы Windows и проверять пакеты обновлений на нескольких версиях операционной системы. (Ни одна из этих вещей не можно сделать с помощью директивы <tt>MinVersion</tt> секции [Setup]).</p>
   <pre>function InitializeSetup: Boolean;<br />var<br />  Version: TWindowsVersion;<br />  S: String;<br />begin<br />  GetWindowsVersionEx(Version);<br /><br />  // Disallow installation on Home edition of Windows<br />  if Version.SuiteMask and VER_SUITE_PERSONAL &lt;&gt; 0 then<br />  begin<br />    SuppressibleMsgBox('This program cannot be installed on a Home edition of Windows.',<br />      mbCriticalError, MB_OK, IDOK);<br />    Result := False;<br />    Exit;<br />  end;<br /><br />  // Disallow installation on domain controllers<br />  if Version.ProductType = VER_NT_DOMAIN_CONTROLLER then<br />  begin<br />    SuppressibleMsgBox('This program cannot be installed on domain controllers.',<br />      mbCriticalError, MB_OK, IDOK);<br />    Result := False;<br />    Exit;<br />  end;<br /><br />  // On Windows 2000, check for SP4<br />  if Version.NTPlatform and<br />     (Version.Major = 5) and<br />     (Version.Minor = 0) and<br />     (Version.ServicePackMajor &lt; 4) then<br />  begin<br />    SuppressibleMsgBox('When running on Windows 2000, Service Pack 4 is required.',<br />      mbCriticalError, MB_OK, IDOK);<br />    Result := False;<br />    Exit;<br />  end;<br /><br />  // On Windows XP, check for SP2<br />  if Version.NTPlatform and<br />     (Version.Major = 5) and<br />     (Version.Minor = 1) and<br />     (Version.ServicePackMajor &lt; 2) then<br />  begin<br />    SuppressibleMsgBox('When running on Windows XP, Service Pack 2 is required.',<br />      mbCriticalError, MB_OK, IDOK);<br />    Result := False;<br />    Exit;<br />  end;<br /><br />  Result := True;<br />end;</pre>
 </div>
 </body>

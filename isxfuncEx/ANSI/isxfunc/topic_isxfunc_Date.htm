@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
 <meta http-equiv="X-UA-Compatible" content="IE=8" />
 <title>Pascal Scripting Extended: Date</title>
 <link rel="stylesheet" type="text/css" href="../../../styles.css" />
@@ -10,25 +10,25 @@
 <body>
 <h1 class="topicheading">Pascal Scripting Extended: Date</h1>
 <div class="topicbody">
-  <div><b>РџСЂРѕС‚РѕС‚РёРї:</b></div>
+  <div><b>Прототип:</b></div>
   <p><tt>function Date: TDateTime;</tt></p>
-  <div><b>РћРїРёСЃР°РЅРёРµ:</b></div>
-  Р¤СѓРЅРєС†РёСЏ Date РїРµСЂРµРґР°РµС‚ С‚РµРєСѓС‰СѓСЋ РґР°С‚Сѓ РЅР° РґР°РЅРЅРѕРј РєРѕРјРїСЊСЋС‚РµСЂРµ РґР»СЏ Р»РѕРєР°Р»СЊРЅРѕРіРѕ РІСЂРµРјРµРЅРЅРѕРіРѕ РїРѕСЏСЃР°. <br />
-  &nbsp;РџРѕСЃРєРѕР»СЊРєСѓ РІРѕР·РІСЂР°С‰Р°РµРјР°СЏ РІРµР»РёС‡РёРЅР° СЏРІР»СЏРµС‚СЃСЏ С‚РёРїРѕРј TDateTime, РєРѕРјРїРѕРЅРµРЅС‚ РІСЂРµРјРµРЅРё СѓСЃС‚Р°РЅРѕРІР»РµРЅ РІ РЅСѓР»СЊ (РЅР°С‡Р°Р»Рѕ РґРЅСЏ).<br />
-  <div><b>РџСЂРёРјРµСЂ:</b></div>
+  <div><b>Описание:</b></div>
+  Функция Date передает текущую дату на данном компьютере для локального временного пояса. <br />
+  &nbsp;Поскольку возвращаемая величина является типом TDateTime, компонент времени установлен в нуль (начало дня).<br />
+  <div><b>Пример:</b></div>
   <p><tt>begin<br />
-    &nbsp;ShowMessage('Р’С‡РµСЂР° = '+DateToStr(Yesterday));<br />
-    &nbsp;ShowMessage('РЎРµРіРѕРґРЅСЏ = '+DateToStr(Date));<br />
-    &nbsp;ShowMessage('Р—Р°РІС‚СЂР° = '+DateToStr(Tomorrow));<br />
+    &nbsp;ShowMessage('Вчера = '+DateToStr(Yesterday));<br />
+    &nbsp;ShowMessage('Сегодня = '+DateToStr(Date));<br />
+    &nbsp;ShowMessage('Завтра = '+DateToStr(Tomorrow));<br />
     <br />
-    &nbsp;ShowMessage('РЎРµРіРѕРґРЅСЏС€РЅРµРµ РІСЂРµРјСЏ = '+TimeToStr(Date));<br />
+    &nbsp;ShowMessage('Сегодняшнее время = '+TimeToStr(Date));<br />
     end; <br />
     <br />
     <br />
-    &nbsp;Р’С‡РµСЂР° = 28/10/2002<br />
-    &nbsp;РЎРµРіРѕРґРЅСЏ = 29/10/2002<br />
-    &nbsp;Р—Р°РІС‚СЂР° = 30/10/2002<br />
-    &nbsp;РЎРµРіРѕРґРЅСЏС€РЅРµРµ РІСЂРµРјСЏ = 00:00:00</tt></p>
+    &nbsp;Вчера = 28/10/2002<br />
+    &nbsp;Сегодня = 29/10/2002<br />
+    &nbsp;Завтра = 30/10/2002<br />
+    &nbsp;Сегодняшнее время = 00:00:00</tt></p>
 </div>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
 <meta http-equiv="X-UA-Compatible" content="IE=8" />
 <title>Pascal Scripting: FileSize</title>
 <link rel="stylesheet" type="text/css" href="../styles.css" />
@@ -10,10 +10,10 @@
 <body>
 <h1 class="topicheading">Pascal Scripting: FileSize</h1>
 <div class="topicbody">
-  <div><b>РџСЂРѕС‚РѕС‚РёРї:</b></div>
+  <div><b>Прототип:</b></div>
   <p><tt>function FileSize(const Name: String; var Size: Integer): Boolean;</tt></p>
-  <div><b>РћРїРёСЃР°РЅРёРµ:</b></div>
-  <p>РЈСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ Size РІ СЂР°Р·РјРµСЂ Р·Р°РґР°РЅРЅРѕРіРѕ С„Р°Р№Р»Р° РІ Р±Р°Р№С‚Р°С…. Р’РѕР·РІСЂР°С‰Р°РµС‚ True, РѕРїРµСЂР°С†РёСЏ РїСЂРѕС€Р»Р° СѓСЃРїРµС€РЅРѕ, РёРЅР°С‡Рµ False. РџРѕРґРґРµСЂР¶РёРІР°РµС‚ С„Р°Р№Р»С‹ С‚РѕР»СЊРєРѕ РјРµРЅСЊС€Рµ 2 Р“Р‘. Р§С‚РѕР±С‹ РїРѕР»СѓС‡РёС‚СЊ РІСЃРµ 64 Р±РёС‚Р° СЂР°Р·РјРµСЂР° С„Р°Р№Р»Р°, РІРјРµСЃС‚Рѕ РґР°РЅРЅРѕР№ С„СѓРЅРєС†РёРё РёСЃРїРѕР»СЊР·СѓР№С‚Рµ <a href="topic_isxfunc_findfirst.htm">FindFirst</a>/<a href="topic_isxfunc_findclose.htm">FindClose</a>.</p>
+  <div><b>Описание:</b></div>
+  <p>Устанавливает Size в размер заданного файла в байтах. Возвращает True, операция прошла успешно, иначе False. Поддерживает файлы только меньше 2 ГБ. Чтобы получить все 64 бита размера файла, вместо данной функции используйте <a href="topic_isxfunc_findfirst.htm">FindFirst</a>/<a href="topic_isxfunc_findclose.htm">FindClose</a>.</p>
 </div>
 </body>
 </html>

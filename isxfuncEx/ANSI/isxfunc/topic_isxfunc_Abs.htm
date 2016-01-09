@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
 <meta http-equiv="X-UA-Compatible" content="IE=8" />
 <title>Pascal Scripting Extended: Abs</title>
 <link rel="stylesheet" type="text/css" href="../../../styles.css" />
@@ -10,11 +10,11 @@
 <body>
 <h1 class="topicheading">Pascal Scripting Extended: Abs</h1>
 <div class="topicbody">
-  <div><b>РџСЂРѕС‚РѕС‚РёРї:</b></div>
+  <div><b>Прототип:</b></div>
   <p><tt>function Abs(E: Extended): Extended;</tt></p>
-  <div><b>РћРїРёСЃР°РЅРёРµ:</b></div>
-  Р¤СѓРЅРєС†РёСЏ Abs РІРѕР·РІСЂР°С‰Р°РµС‚ Р°Р±СЃРѕР»СЋС‚РЅСѓСЋ РІРµР»РёС‡РёРЅСѓ РѕС‚СЂРёС†Р°С‚РµР»СЊРЅРѕРіРѕ РёР»Рё РїРѕР»РѕР¶РёС‚РµР»СЊРЅРѕРіРѕ С‡РёСЃР»Р° (РјРѕРґСѓР»СЊ). Р­С‚Рѕ СЂРµР°Р»РёР·СѓРµС‚СЃСЏ СѓРґР°Р»РµРЅРёРµРј РѕС‚СЂРёС†Р°С‚РµР»СЊРЅРѕРіРѕ Р·РЅР°РєР°, РµСЃР»Рё С‚Р°РєРѕР№ РѕР±РЅР°СЂСѓР¶РµРЅ. Р§РёСЃР»Рѕ РјРѕР¶РµС‚ Р±С‹С‚СЊ Р»СЋР±С‹Рј С‡РёСЃР»РѕРІС‹Рј С‚РёРїРѕРј, С‚Р°РєР¶Рµ РјРѕР¶РµС‚ Р±С‹С‚СЊ Variant, РѕРЅ Р±СѓРґРµС‚ РїСЂРµРѕР±СЂР°Р·РѕРІР°РЅ РІ С‡РёСЃР»Рѕ. РќР°РїСЂРёРјРµСЂ, Variant СЃС‚СЂРѕРєСѓ '-1.23' Abs РІСЃРµРіРґР° РїСЂРµРѕР±СЂР°Р·РѕРІС‹РІР°РµС‚ РµРµ РІ Extended.<br />
-  <div><b>РџСЂРёРјРµСЂ:</b></div>
+  <div><b>Описание:</b></div>
+  Функция Abs возвращает абсолютную величину отрицательного или положительного числа (модуль). Это реализуется удалением отрицательного знака, если такой обнаружен. Число может быть любым числовым типом, также может быть Variant, он будет преобразован в число. Например, Variant строку '-1.23' Abs всегда преобразовывает ее в Extended.<br />
+  <div><b>Пример:</b></div>
   <p><tt>var <br />
     &nbsp;float, bigFloat : single; <br />
     &nbsp;int : Integer; <br />
@@ -25,16 +25,16 @@
     &nbsp;bigFloat := -4.56E100; <br />
     &nbsp;int := -7; <br />
     &nbsp;varVar := '-98'; <br />
-    // РњР°Р»РµРЅСЊРєРѕРµ РѕС‚СЂРёС†Р°С‚РµР»СЊРЅРѕРµ С‡РёСЃР»Рѕ СЃ РїР»Р°РІР°СЋС‰РµР№ С‚РѕС‡РєРѕР№ <br />
-    // РћС‚СЂРёС†Р°С‚РµР»СЊРЅРѕРµ Р±РµСЃРєРѕРЅРµС‡РЅРѕРµ С‡РёСЃР»Рѕ СЃ РїР»Р°РІР°СЋС‰РµР№ С‚РѕС‡РєРѕР№ <br />
-    // РћС‚СЂРёС†Р°С‚РµР»СЊРЅРѕРµ С†РµР»РѕРµ С‡РёСЃР»Рѕ <br />
-    // Variant РїСЂРµРѕР±СЂР°Р·СѓРµС‚СЃСЏ РІ С‡РёСЃР»Рѕ СЃ РїР»Р°РІР°СЋС‰РµР№ С‚РѕС‡РєРѕР№! <br />
+    // Маленькое отрицательное число с плавающей точкой <br />
+    // Отрицательное бесконечное число с плавающей точкой <br />
+    // Отрицательное целое число <br />
+    // Variant преобразуется в число с плавающей точкой! <br />
     <br />
     &nbsp;ShowMessage('Abs(float) = '+FloatToStr(Abs(float))); <br />
     &nbsp;ShowMessage('Abs(bigFloat) = '+FloatToStr(Abs(bigFloat))); <br />
     &nbsp;ShowMessage('Abs(int) = '+FloatToStr(Abs(int))); <br />
     <br />
-    // Variant РїСЂРµРѕР±СЂР°Р·СѓРµС‚СЃСЏ РІ Extended С‚РёРї СЃ РїР»Р°РІР°СЋС‰РµР№ С‚РѕС‡РєРѕР№ <br />
+    // Variant преобразуется в Extended тип с плавающей точкой <br />
     &nbsp;float := Abs(varVar); <br />
     &nbsp;ShowMessage('Abs(varVar) = '+FloatToStr(float)); <br />
     end; <br />

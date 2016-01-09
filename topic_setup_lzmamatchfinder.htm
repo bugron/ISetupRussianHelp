@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
 <meta http-equiv="X-UA-Compatible" content="IE=8">
 <title>[Setup]: LZMAMatchFinder</title>
 <link rel="stylesheet" type="text/css" href="styles.css">
@@ -12,20 +12,20 @@
 <div class="topicbody">
   <table class="setuphdr">
     <tr>
-      <td class="setuphdrl"><p>Р’РѕР·РјРѕР¶РЅС‹Рµ Р·РЅР°С‡РµРЅРёСЏ:</p></td>
-      <td class="setuphdrr"><div class="margined"><tt>HC</tt> РёР»Рё <tt>BT</tt></div></td>
+      <td class="setuphdrl"><p>Возможные значения:</p></td>
+      <td class="setuphdrr"><div class="margined"><tt>HC</tt> или <tt>BT</tt></div></td>
     </tr>
     <tr>
-      <td class="setuphdrl"><p>Р—РЅР°С‡РµРЅРёРµ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ:</p></td>
-      <td class="setuphdrr"><div class="margined"><tt>HC</tt>, РµСЃР»Рё <a href="topic_setup_compression.htm">СѓСЂРѕРІРµРЅСЊ СЃР¶Р°С‚РёСЏ LZMA</a> СѓСЃС‚Р°РЅРѕРІР»РµРЅ РІ <tt>fast</tt>,<br>
-          РёРЅР°С‡Рµ <tt>BT</tt></div></td>
+      <td class="setuphdrl"><p>Значение по умолчанию:</p></td>
+      <td class="setuphdrr"><div class="margined"><tt>HC</tt>, если <a href="topic_setup_compression.htm">уровень сжатия LZMA</a> установлен в <tt>fast</tt>,<br>
+          иначе <tt>BT</tt></div></td>
     </tr>
   </table>
-  <div><b>РћРїРёСЃР°РЅРёРµ:</b></div>
-  <p>РЈРїСЂР°РІР»СЏРµС‚ РјРµС‚РѕРґРѕРј СЃСЂРµРґСЃС‚РІР° РѕР±РЅР°СЂСѓР¶РµРЅРёСЏ СЃРѕРѕС‚РІРµС‚СЃС‚РІРёСЏ, РёСЃРїРѕР»СЊР·СѓРµРјС‹Рј РєРѕРјРїСЂРµСЃСЃРѕСЂР°РјРё LZMA Рё LZMA2.</p>
-  <p>Р—РЅР°С‡РµРЅРёРµ <tt>HC</tt> РІРєР»СЋС‡Р°РµС‚ РјРµС‚РѕРґ Hash Chain СЃ 4 Р±Р°Р№С‚Р°РјРё С…РµС€Р°.</p>
-  <p>Р—РЅР°С‡РµРЅРёРµ <tt>BT</tt> РІРєР»СЋС‡Р°РµС‚ РјРµС‚РѕРґ Binary Tree СЃ 4 Р±Р°Р№С‚Р°РјРё С…РµС€Р°.</p>
-  <p>РњРµС‚РѕРґ Binary Tree РјРѕР¶РµС‚ РѕР±РµСЃРїРµС‡РёС‚СЊ Р»СѓС‡С€СѓСЋ СЃС‚РµРїРµРЅСЊ СЃР¶Р°С‚РёСЏ Р·Р° СЃС‡РµС‚ СЃРєРѕСЂРѕСЃС‚Рё СЃР¶Р°С‚РёСЏ.</p>
+  <div><b>Описание:</b></div>
+  <p>Управляет методом средства обнаружения соответствия, используемым компрессорами LZMA и LZMA2.</p>
+  <p>Значение <tt>HC</tt> включает метод Hash Chain с 4 байтами хеша.</p>
+  <p>Значение <tt>BT</tt> включает метод Binary Tree с 4 байтами хеша.</p>
+  <p>Метод Binary Tree может обеспечить лучшую степень сжатия за счет скорости сжатия.</p>
 </div>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
 <meta http-equiv="X-UA-Compatible" content="IE=8" />
 <title>Inno Setup Preprocessor: #error</title>
 <link rel="stylesheet" type="text/css" href="../styles.css" />
@@ -10,7 +10,7 @@
 <body>
 <h1 class="topicheading">Inno Setup Preprocessor: #error</h1>
 <div class="topicbody">
-  <h2 class="heading notopmargin">РЎРёРЅС‚Р°С‚СЃРёСЃ</h2>
+  <h2 class="heading notopmargin">Синтатсис</h2>
   <table>
     <tbody>
       <tr>
@@ -19,14 +19,14 @@
       </tr>
     </tbody>
   </table>
-  <h2 class="heading">РћРїРёСЃР°РЅРёРµ</h2>
-  <p>Р”РёСЂРµРєС‚РёРІР° СѓРєР°Р·С‹РІР°РµС‚ РєРѕРјРїРёР»СЏС‚РѕСЂСѓ Inno Setup РІС‹РґР°РІР°С‚СЊ СЃРѕРѕР±С‰РµРЅРёРµ РѕР± РѕС€РёР±РєРµ СЃ СѓРєР°Р·Р°РЅРЅС‹Рј С‚РµРєСЃС‚РѕРј. Р’ РѕС‚Р»РёС‡РёРµ РѕС‚&nbsp;<tt>pragma error</tt>, С‚РµРєСЃС‚ РІ РґРёСЂРµРєС‚РёРІРµ <tt>error</tt> РЅРµ СЂР°Р·Р±РёСЂР°РµС‚СЃСЏ, РїРѕСЌС‚РѕРјСѓ РµРіРѕ СЂРµРєРѕРјРµРЅРґСѓРµС‚СЃСЏ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ СЌС‚Сѓ РґРёСЂРµРєС‚РёРІСѓ, Р° РЅРµ <tt><a href="topic_pragma.htm">pragma</a></tt> РєРѕРіРґР° СЌС‚Рѕ РІРѕР·РјРѕР¶РЅРѕ, С‡С‚РѕР±С‹ РёР·Р±РµР¶Р°С‚СЊ РІРѕР·РјРѕР¶РЅС‹С… РѕС€РёР±РѕРє СЃРёРЅС‚Р°РєСЃРёСЃР°, РєРѕС‚РѕСЂС‹Рµ РјРѕРіСѓС‚ СЃРєСЂС‹РІР°С‚СЊ СЂРµР°Р»СЊРЅС‹Рµ РѕС€РёР±РєРё.&nbsp;</p>
-  <h2 class="heading">РџСЂРёРјРµСЂС‹</h2>
+  <h2 class="heading">Описание</h2>
+  <p>Директива указывает компилятору Inno Setup выдавать сообщение об ошибке с указанным текстом. В отличие от&nbsp;<tt>pragma error</tt>, текст в директиве <tt>error</tt> не разбирается, поэтому его рекомендуется использовать эту директиву, а не <tt><a href="topic_pragma.htm">pragma</a></tt> когда это возможно, чтобы избежать возможных ошибок синтаксиса, которые могут скрывать реальные ошибки.&nbsp;</p>
+  <h2 class="heading">Примеры</h2>
   <p><tt>#if <a href="topic_predefinedvars.htm">VER</a> &lt; 0x04000000<br />
     &nbsp;&nbsp;#error A more recent version of Inno Setup is required to compile this script<br />
     #endif<br />
   </tt></p>
-  <h2 class="heading">РЎРј. С‚Р°РєР¶Рµ:</h2>
+  <h2 class="heading">См. также:</h2>
   <p><tt><a href="topic_pragma.htm">pragma</a></tt>, <tt><a href="topic_if.htm">if</a></tt>.</p>
 </div>
 </body>

@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>РљР°Рє РІРЅРµСЃС‚Рё Р·РЅР°С‡РµРЅРёРµ РІ INI-С„Р°Р№Р» РІ Р·Р°РІРёСЃРёРјРѕСЃС‚Рё РѕС‚ РІС‹Р±СЂР°РЅРЅРѕРіРѕ С‡РµРєР±РѕРєСЃР°</title><link rel="stylesheet" type="text/css" href="css.css"><script type="text/javascript" src="includer.js"></script><script language='jscript' type='text/javascript' src='copycode.js'></script></head><body><div id="heading"><h1>В» Inno Setup Faq. РљР°Рє РІРЅРµСЃС‚Рё Р·РЅР°С‡РµРЅРёРµ РІ INI-С„Р°Р№Р» РІ Р·Р°РІРёСЃРёРјРѕСЃС‚Рё РѕС‚ РІС‹Р±СЂР°РЅРЅРѕРіРѕ С‡РµРєР±РѕРєСЃР°</h1></div><br><script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM"> <input type="button" value="РљРѕРїРёСЂРѕРІР°С‚СЊ РІ Р±СѓС„РµСЂ РѕР±РјРµРЅР°" onClick="copyToClipboard( taCode1, theCode1 );"> <blockquote id="theCode1"><font>[Setup]<br>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1251"><title>Как внести значение в INI-файл в зависимости от выбранного чекбокса</title><link rel="stylesheet" type="text/css" href="css.css"><script type="text/javascript" src="includer.js"></script><script language='jscript' type='text/javascript' src='copycode.js'></script></head><body><div id="heading"><h1>» Inno Setup Faq. Как внести значение в INI-файл в зависимости от выбранного чекбокса</h1></div><br><script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM"> <input type="button" value="Копировать в буфер обмена" onClick="copyToClipboard( taCode1, theCode1 );"> <blockquote id="theCode1"><font>[Setup]<br>
 AppName=My Program<br>
 AppVerName=My Program 1.5<br>
 AppPublisher=My Company, Inc.<br>
@@ -26,7 +26,7 @@ IniCheckBox.Left:= WizardForm.RunList.Left + 4;<br>
 IniCheckBox.Top:= WizardForm.RunList.Top + 10;<br>
 IniCheckBox.Width:= WizardForm.RunList.Width;<br>
 IniCheckBox.Height:= 14<br>
-IniCheckBox.Caption:=' РР·РјРµРЅРёС‚СЊ СЏР·С‹Рє РёРЅС‚РµСЂС„РµР№СЃР° РЅР° СЂСѓСЃСЃРєРёР№';<br>
+IniCheckBox.Caption:=' Изменить язык интерфейса на русский';<br>
 IniCheckBox.Parent:= WizardForm.FinishedPage;<br>
 end;<br>
 <br>
@@ -35,7 +35,7 @@ begin<br>
 if WizardForm.CurPageID = WpFinished then<br>
 begin<br>
 if IniCheckBox.Checked then<br>
-SetIniString('Setting','Language', 'RU',ExpandConstant('{app}\Language.ini'))     ///РЎРµРєС†РёСЏ, РїРѕРґРєР»СЋС‡, Р·РЅР°С‡РµРЅРёРµ, С„Р°Р№Р» Ini<br>
+SetIniString('Setting','Language', 'RU',ExpandConstant('{app}\Language.ini'))     ///Секция, подключ, значение, файл Ini<br>
 else<br>
 SetIniString('Setting','Language', 'EN',ExpandConstant('{app}\Language.ini'))<br>
 end;<br>

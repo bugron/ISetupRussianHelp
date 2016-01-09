@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
 <meta http-equiv="X-UA-Compatible" content="IE=8" />
 <title>Pascal Scripting Extended: DayOfWeek</title>
 <link rel="stylesheet" type="text/css" href="../../../styles.css" />
@@ -10,20 +10,20 @@
 <body>
 <h1 class="topicheading">Pascal Scripting Extended: DayOfWeek</h1>
 <div class="topicbody">
-  <div><b>РџСЂРѕС‚РѕС‚РёРї:</b></div>
+  <div><b>Прототип:</b></div>
   <p><tt>function DayOfWeek(Date: TDateTime): Integer;</tt></p>
-  <div><b>РћРїРёСЃР°РЅРёРµ:</b></div>
-  Р¤СѓРЅРєС†РёСЏ DayOfTheWeek РІРѕР·РІСЂР°С‰Р°РµС‚ РёРЅРґРµРєСЃ РґРЅСЏ РЅРµРґРµР»Рё:<br />
+  <div><b>Описание:</b></div>
+  Функция DayOfTheWeek возвращает индекс дня недели:<br />
   <br />
-  &nbsp;1 = РџРѕРЅРµРґРµР»СЊРЅРёРє<br />
-  &nbsp;2 = Р’С‚РѕСЂРЅРёРє <br />
-  &nbsp;3 = РЎСЂРµРґР°<br />
-  &nbsp;4 = Р§РµС‚РІРµСЂРі<br />
-  &nbsp;5 = РџСЏС‚РЅРёС†Р°<br />
-  &nbsp;6 = РЎСѓР±Р±РѕС‚Р°<br />
-  &nbsp;7 = Р’РѕСЃРєСЂРµСЃРµРЅСЊРµ<br />
+  &nbsp;1 = Понедельник<br />
+  &nbsp;2 = Вторник <br />
+  &nbsp;3 = Среда<br />
+  &nbsp;4 = Четверг<br />
+  &nbsp;5 = Пятница<br />
+  &nbsp;6 = Суббота<br />
+  &nbsp;7 = Воскресенье<br />
   <br />
-  <div><b>РџСЂРёРјРµСЂ:</b></div>
+  <div><b>Пример:</b></div>
   <p><tt>var<br />
     &nbsp;myDate : TDateTime;<br />
     &nbsp;day : string;<br />
@@ -33,11 +33,11 @@
     <br />
     &nbsp;day := LongDayNames[DayOfWeek(myDate)];<br />
     <br />
-    &nbsp;ShowMessage('Р РѕР¶РґРµСЃС‚РІРѕ 2002Рі. '+day);<br />
+    &nbsp;ShowMessage('Рождество 2002г. '+day);<br />
     end; <br />
     <br />
     <br />
-    &nbsp;Р РѕР¶РґРµСЃС‚РІРѕ 2002Рі. Р’С‚РѕСЂРЅРёРє</tt></p>
+    &nbsp;Рождество 2002г. Вторник</tt></p>
 </div>
 </body>
 </html>

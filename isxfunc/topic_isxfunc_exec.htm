@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
 <meta http-equiv="X-UA-Compatible" content="IE=8" />
 <title>Pascal Scripting: Exec</title>
 <link rel="stylesheet" type="text/css" href="../styles.css" />
@@ -10,19 +10,19 @@
 <body>
 <h1 class="topicheading">Pascal Scripting: Exec</h1>
 <div class="topicbody">
-  <div><b>РџСЂРѕС‚РѕС‚РёРї:</b></div>
+  <div><b>Прототип:</b></div>
   <p><tt>function Exec(const Filename, Params, WorkingDir: String; const ShowCmd: Integer; const Wait: TExecWait; var ResultCode: Integer): Boolean;</tt></p>
-  <div><b>РћРїРёСЃР°РЅРёРµ:</b></div>
-  <p>Executes the specified executable or batch file, using the same credentials as Setup/Uninstall. The Wait parameter specifies whether the function should return immediately or wait until the launched process has termimated or is idle. Returns True if the specified file was executed successfully, False otherwise. If True is returned and Wait is ewWaitUntilTerminated then ResultCode returns the exit code of the process. If False is returned then ResultCode specifies the error that occurred. Use SysErrorMessage(ResultCode) to get a description of the error.</p>
-  <div><b>РљРѕРјРјРµРЅС‚Р°СЂРёРё:</b></div>
-  <p>TExecWait is defined as:</p>
+  <div><b>Описание:</b></div>
+  <p>Выполняет указанный исполняемый или пакетный файл с привилегиями инсталлятора/деинсталлятора. Параметр Wait определяет, закончить работу функции сразу или ждать, пока запущенный процесс завершится или станет неактивен. Возвращает True, если указанный файл был выполнен успешно, иначе False. Если функция возвратит True и Wait имеет значение ewWaitUntilTerminated, тогда ResultCode содержит код выхода запущенного процесса. Если функция возвратит False, тогда ResultCode содержит код ошибки. Чтобы получить описание ошибки, используйте SysErrorMessage(ResultCode).</p>
+  <div><b>Комментарии:</b></div>
+  <p>TExecWait определен как:</p>
   <p><tt>TExecWait = (ewNoWait, ewWaitUntilTerminated, ewWaitUntilIdle);</tt></p>
-  <p>Use the <a href="topic_isxfunc_shellexec.htm">ShellExec</a> function instead if you need to launch a file that is not an executable or batch file.</p>
-  <p>Do not include quotes in the Filename parameter; the function will add them automatically.</p>
-  <p>The WorkingDir parameter can be an empty string, in which case it will try to extract a pathname from the Filename parameter and use that as the initial current directory for the process. If no pathname was specified in Filename, a default directory will be used.</p>
-  <p>If you have a single string containing both a filename and parameters (e.g. a command line obtained from an UninstallString registry value), you need not separate them yourself; just pass <tt>'&gt;'</tt> in the Filename parameter, and the full command line in the Params parameter. (Note that when this is done, the function's special platform-independent support for .bat and .cmd files is disabled; it simply passes the specified command line to CreateProcess without any processing.)</p>
-  <p>By default, when Setup/Uninstall is running in <a href="../topic_32vs64bitinstalls.htm">64-bit mode</a>, this function disables WOW64 file system redirection when calling CreateProcess. It is possible to override this by calling <a href="topic_isxfunc_enablefsredirection.htm">EnableFsRedirection</a>.</p>
-  <div><b>РќР°РїСЂРёРјРµСЂ:</b></div>
+  <p>Используйте функцию <a href="topic_isxfunc_shellexec.htm">ShellExec</a>, если запускаемый файл не является исполняемым или пакетным файлом.</p>
+  <p>Не используйте кавычки в параметре Filename, функция добавит их автоматически.</p>
+  <p>Параметр WorkingDir может быть пустой строкой и в этом случае функция попытается извлечь путь из параметра Filename и использовать как первоначальный текущий каталог для процесса. Если этого не удастся сделать, будет использован каталог по умолчанию.</p>
+  <p>Если вы имеете строку, содержащую имя файла и параметры запуска (например, эти параметры можно получить из значения реестра UninstallString), вам нужно отделить параметры самостоятельно; просто передайте <tt>'&gt;'</tt> в параметре Filename и ключи запуска в параметре Params. (Следует отметить, что в этом случае, специальная платформо-независимая  поддержка .bat и .cmd файлов отключается и функция просто передает параметры запуска в функцию CreateProcess без дальнейшей обработки.)</p>
+  <p>По умолчанию, инсталлятор/деинсталлятор выполняется в <a href="../topic_32vs64bitinstalls.htm">64-разрядном режиме</a>, функйия отключают перенаправление файловой системы WOW64 при вызове функции CreateProcess. Можно изменить это поведение с помощью функцию <a href="topic_isxfunc_enablefsredirection.htm">EnableFsRedirection</a>.</p>
+  <div><b>Например:</b></div>
   <pre>var
   ResultCode: Integer;
 begin
@@ -36,7 +36,7 @@ begin
     // handle failure if necessary; ResultCode contains the error code
   end;
 end;</pre>
-  <div><b>РЎРј. С‚Р°РєР¶Рµ:</b></div>
+  <div><b>См. также:</b></div>
   <p><a href="topic_isxfunc_execasoriginaluser.htm">ExecAsOriginalUser</a></p>
 </div>
 </body>

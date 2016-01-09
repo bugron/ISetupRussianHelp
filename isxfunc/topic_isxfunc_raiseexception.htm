@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
 <meta http-equiv="X-UA-Compatible" content="IE=8" />
 <title>Pascal Scripting: RaiseException</title>
 <link rel="stylesheet" type="text/css" href="../styles.css" />
@@ -10,11 +10,11 @@
 <body>
 <h1 class="topicheading">Pascal Scripting: RaiseException</h1>
 <div class="topicbody">
-  <div><b>РџСЂРѕС‚РѕС‚РёРї:</b></div>
+  <div><b>Прототип:</b></div>
   <p><tt>procedure RaiseException(const Msg: String);</tt></p>
-  <div><b>РћРїРёСЃР°РЅРёРµ:</b></div>
-  <p>Р’С‹РІРѕРґРёС‚ РёСЃРєР»СЋС‡РµРЅРёРµ СЃ СѓРєР°Р·Р°РЅРЅС‹Рј СЃРѕРѕР±С‰РµРЅРёРµРј.</p>
-  <div><b>РќР°РїСЂРёРјРµСЂ:</b></div>
+  <div><b>Описание:</b></div>
+  <p>Выводит исключение с указанным сообщением.</p>
+  <div><b>Например:</b></div>
   <pre>begin<br />  RaiseException('Your message goes here');<br /><br />  // The following line will not be executed because of the exception<br />  MsgBox('You will not see this.', mbInformation, MB_OK);<br />end;</pre>
 </div>
 </body>

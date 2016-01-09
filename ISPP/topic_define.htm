@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
 <meta http-equiv="X-UA-Compatible" content="IE=8" />
 <title>Inno Setup Preprocessor: #define</title>
 <link rel="stylesheet" type="text/css" href="../styles.css" />
@@ -10,27 +10,27 @@
 <body>
 <h1 class="topicheading">Inno Setup Preprocessor: #define</h1>
 <div class="topicbody">
-  <h2 class="heading notopmargin">РЎРёРЅС‚Р°С‚СЃРёСЃ</h2>
+  <h2 class="heading notopmargin">Синтатсис</h2>
   <table>
     <tbody>
       <tr>
-        <td class="cellleft"><i>РѕРїСЂРµРґРµР»РµРЅРёРµ РґРёСЂРµРєС‚РёРІ:</i></td>
-        <td class="cellright">&lt;<i>РѕРїСЂРµРґРµР»РµРЅРёРµ РїРµСЂРµРјРµРЅРЅРѕР№</i>&gt;</td>
+        <td class="cellleft"><i>определение директив:</i></td>
+        <td class="cellright">&lt;<i>определение переменной</i>&gt;</td>
       </tr>
       <tr>
         <td class="cellleft"></td>
-        <td class="cellright">&lt;<i>РѕРїСЂРµРґРµР»РµРЅРёРµ РјР°РєСЂРѕСЃРѕРІ</i>&gt;</td>
+        <td class="cellright">&lt;<i>определение макросов</i>&gt;</td>
       </tr>
       <tr>
         <td class="cellleft"></td>
-        <td class="cellright">&lt;СѓСЃС‚Р°РЅРѕРІРєР° РѕР±Р»Р°СЃС‚Рё РІРёРґРёРјРѕСЃС‚Рё РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ.&gt;</td>
+        <td class="cellright">&lt;установка области видимости по умолчанию.&gt;</td>
       </tr>
     </tbody>
   </table>
   <table>
     <tbody>
       <tr>
-        <td class="cellleft"><i>РѕРїСЂРµРґРµР»РµРЅРёРµ РїРµСЂРµРјРµРЅРЅРѕР№</i><i>:</i></td>
+        <td class="cellleft"><i>определение переменной</i><i>:</i></td>
         <td class="cellright">(<b>define</b> | <b>:</b>) [<b>private</b> | <b>protected</b> | <b>public</b>] &lt;ident&gt; [<b>[</b> &lt;expr&gt; <b>]</b>] [[<b>=</b>] &lt;expr&gt;]</td>
       </tr>
     </tbody>
@@ -38,7 +38,7 @@
   <table>
     <tbody>
       <tr>
-        <td class="cellleft"><i>РѕРїСЂРµРґРµР»РµРЅРёРµ РјР°РєСЂРѕСЃРѕРІ</i><i>:</i></td>
+        <td class="cellleft"><i>определение макросов</i><i>:</i></td>
         <td class="cellright">(<b>define</b> | <b>:</b>) [<b>private</b> | <b>protected</b> | <b>public</b>] &lt;ident&gt; <b>(</b> [&lt;formal-macro-args&gt;] <b>)</b> &lt;expr&gt;</td>
       </tr>
     </tbody>
@@ -46,7 +46,7 @@
   <table>
     <tbody>
       <tr>
-        <td class="cellleft"><i>СѓСЃС‚Р°РЅРѕРІРєР° РѕР±Р»Р°СЃС‚Рё РІРёРґРёРјРѕСЃС‚Рё РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ:</i></td>
+        <td class="cellleft"><i>установка области видимости по умолчанию:</i></td>
         <td class="cellright">(<b>define</b> | <b>:</b>) <b>private</b> | <b>protected</b> | <b>public</b></td>
       </tr>
     </tbody>
@@ -91,18 +91,18 @@
       </tr>
     </tbody>
   </table>
-  <h2 class="heading">РћРїРёСЃР°РЅРёРµ</h2>
-  <p>РџРµСЂРІС‹Р№ СЃРёРЅС‚Р°РєСЃРёСЃ (&quot;<i>РѕРїСЂРµРґРµР»РµРЅРёРµ РїРµСЂРµРјРµРЅРЅРѕР№</i>&quot;) РѕРїСЂРµРґРµР»СЏРµС‚ РїРµСЂРµРјРµРЅРЅСѓСЋ СЃ РёРјРµРЅРµРј&nbsp;<tt>ident</tt>, РёР»Рё РїСЂРёСЃРІР°РёРІР°РµС‚ Р·РЅР°С‡РµРЅРёРµ СЌР»РµРјРµРЅС‚Сѓ РјР°СЃСЃРёРІР° СЃ РёРјРµРЅРµРј <tt>ident</tt>.Р•СЃР»Рё РЅРё РѕРґРЅР° РёР· РєР»СЋС‡РµРІС‹С… СЃР»РѕРІ <tt>public</tt>, <tt>protected</tt>, РёР»Рё <tt>private</tt> РЅРµ РѕРїСЂРµРґРµР»РµРЅС‹, РїСЂРёРЅРёРјР°РµС‚СЃСЏ&nbsp; <a href="topic_visibility.htm">РІРёРґРёРјРѕСЃС‚СЊ</a> РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ.<a href="topic_visibility.htm"></a></p>
-  <p>Р’С‚РѕСЂРѕР№ СЃРёРЅС‚Р°РєСЃРёСЃ (&quot;<i>РѕРїСЂРµРґРµР»РµРЅРёРµ РјР°РєСЂРѕСЃРѕРІ</i>&quot;) РѕРїСЂРµРґРµР»СЏРµС‚ РјР°РєСЂРѕСЃ СЃ РёРјРµРЅРµРј&nbsp;<tt>ident</tt>. РџСЂРё РѕРїСЂРµРґРµР»РµРЅРёРё РјР°РєСЂРѕСЃР° РЅРµ РґРѕР»Р¶РЅРѕ Р±С‹С‚СЊ РїСЂРѕР±РµР»РѕРІ РјРµР¶РґСѓ РёРјРµРЅРµРј РјР°РєСЂРѕСЃР° Рё РѕС‚РєСЂС‹РІР°СЋС‰РµР№ СЃРєРѕР±РєРё, РІ РїСЂРѕС‚РёРІРЅРѕРј СЃР»СѓС‡Р°Рµ РѕРЅ Р±СѓРґРµС‚ СЂР°СЃСЃРјР°С‚СЂРёРІР°С‚СЊСЃСЏ РєР°Рє РѕР±СЉСЏРІР»РµРЅРёРµ РїРµСЂРµРјРµРЅРЅРѕР№.&nbsp;</p>
-  <p>РўСЂРµС‚РёР№ СЃРёРЅС‚Р°РєСЃРёСЃ (&quot;СѓСЃС‚Р°РЅРѕРІРєР° РѕР±Р»Р°СЃС‚Рё РІРёРґРёРјРѕСЃС‚Рё РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ&quot;) СѓСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ РѕР±Р»Р°СЃС‚СЊ <a href="topic_visibility.htm">РІРёРґРёРјРѕСЃС‚Рё</a> РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ РґР»СЏ РґР°Р»СЊРЅРµР№С€РёС… РїРµСЂРµРјРµРЅРЅС‹С… Рё РјР°РєСЂРѕРѕРїСЂРµРґРµР»РµРЅРёР№ РІ СЌС‚РѕРј С„Р°Р№Р»Рµ. Р•СЃР»Рё РІ СЃРєСЂРёРїС‚Рµ РЅРµС‚ РѕР±СЉСЏРІР»РµРЅРёРµ РѕР±Р»Р°СЃС‚Рё РІРёРґРёРјРѕСЃС‚Рё, РІРёРґРёРјРѕСЃС‚СЊ public РїСЂРёРЅРёРјР°РµС‚СЃСЏ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ.</p>
-  <h2 class="heading">РџСЂРёРјРµСЂС‹</h2>
+  <h2 class="heading">Описание</h2>
+  <p>Первый синтаксис (&quot;<i>определение переменной</i>&quot;) определяет переменную с именем&nbsp;<tt>ident</tt>, или присваивает значение элементу массива с именем <tt>ident</tt>.Если ни одна из ключевых слов <tt>public</tt>, <tt>protected</tt>, или <tt>private</tt> не определены, принимается&nbsp; <a href="topic_visibility.htm">видимость</a> по умолчанию.<a href="topic_visibility.htm"></a></p>
+  <p>Второй синтаксис (&quot;<i>определение макросов</i>&quot;) определяет макрос с именем&nbsp;<tt>ident</tt>. При определении макроса не должно быть пробелов между именем макроса и открывающей скобки, в противном случае он будет рассматриваться как объявление переменной.&nbsp;</p>
+  <p>Третий синтаксис (&quot;установка области видимости по умолчанию&quot;) устанавливает область <a href="topic_visibility.htm">видимости</a> по умолчанию для дальнейших переменных и макроопределений в этом файле. Если в скрипте нет объявление области видимости, видимость public принимается по умолчанию.</p>
+  <h2 class="heading">Примеры</h2>
   <p><tt>#define MyAppName &quot;My Program&quot;<br />
     #define MyAppVer <a href="topic_getfileversion.htm">GetFileVersion</a>(&quot;MyProg.exe&quot;)<br />
     #define MyArray[0] 15<br />
     #define Multiply(int A, int B = 10) A * B<br />
   </tt></p>
-  <h2 class="heading">РЎРј. С‚Р°РєР¶Рµ:</h2>
-  <p><tt><a href="topic_dim.htm">dim</a></tt>, <tt><a href="topic_undef.htm">undef</a></tt>, <a href="topic_visibility.htm">РћР±Р»Р°С‚СЊ РІРёРґРёРјРѕСЃС‚Рё РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂРѕРІ</a></p>
+  <h2 class="heading">См. также:</h2>
+  <p><tt><a href="topic_dim.htm">dim</a></tt>, <tt><a href="topic_undef.htm">undef</a></tt>, <a href="topic_visibility.htm">Облать видимости идентификаторов</a></p>
 </div>
 </body>
 </html>

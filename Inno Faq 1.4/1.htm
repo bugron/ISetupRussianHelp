@@ -1,14 +1,14 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>РћС‚РѕР±СЂР°Р¶РµРЅРёРµ РєР°СЂС‚РёРЅРѕРє РЅР° РІСЃРµС… СЃС‚СЂР°РЅРёС†Р°С… РёРЅСЃС‚Р°Р»СЏС‚РѕСЂР°</title>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<title>Отображение картинок на всех страницах инсталятора</title>
 <link rel="stylesheet" type="text/css" href="css.css"><script type="text/javascript" src="includer.js"></script>
 
 <script language='jscript' type='text/javascript' src='copycode.js'></script>
 
-</head><body><div id="heading"><h1>В» Inno Setup Faq. РћС‚РѕР±СЂР°Р¶РµРЅРёРµ РєР°СЂС‚РёРЅРѕРє РЅР° РІСЃРµС… СЃС‚СЂР°РЅРёС†Р°С… РёРЅСЃС‚Р°Р»СЏС‚РѕСЂР°</h1></div><br>
+</head><body><div id="heading"><h1>» Inno Setup Faq. Отображение картинок на всех страницах инсталятора</h1></div><br>
 
 <script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM">
-<input type="button" value="РљРѕРїРёСЂРѕРІР°С‚СЊ РІ Р±СѓС„РµСЂ РѕР±РјРµРЅР°" onClick="copyToClipboard( taCode1, theCode1 );">
+<input type="button" value="Копировать в буфер обмена" onClick="copyToClipboard( taCode1, theCode1 );">
 <blockquote id="theCode1" ><font>
 [Setup]<br>
 AppName=My Program<br>
@@ -22,7 +22,7 @@ Name: rus; MessagesFile: compiler:Languages\Russian.isl<br>
 Source: compiler:Examples\MyProg.exe; DestDir: {app}; Flags : ignoreversion<br>
 <br>
 [Run]<br>
-FileName: {app}\MyProg.exe; Description: Р—Р°РїСѓСЃС‚РёС‚СЊ My Program?; Flags: postinstall nowait skipifsilent<br>
+FileName: {app}\MyProg.exe; Description: Запустить My Program?; Flags: postinstall nowait skipifsilent<br>
 <br>
 [Code]<br>
 var<br>

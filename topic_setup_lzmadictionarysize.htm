@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 <title>[Setup]: LZMADictionarySize</title>
-<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="text/html; charset=windows-1251" http-equiv="Content-Type">
 <meta content="IE=8" http-equiv="X-UA-Compatible">
 <link rel="stylesheet" type="text/css" href="styles.css">
 <script type="text/javascript" src="topic.js"></script>
@@ -13,25 +13,25 @@
   <table class="setuphdr">
     <tbody>
       <tr>
-        <td class="setuphdrl"><p>Р’РѕР·РјРѕР¶РЅС‹Рµ Р·РЅР°С‡РµРЅРёСЏ:</p></td>
-        <td class="setuphdrr"><div class="margined"><tt>4</tt> РґРѕ <tt>131072</tt> (РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ)<br>
-            <tt>4</tt> РґРѕ <tt>262144</tt>, РµСЃР»Рё <a href="topic_setup_lzmauseseparateprocess.htm">LZMAUseSeparateProcess</a> СѓСЃС‚Р°РЅРѕРІР»РµРЅ РІ <tt>yes</tt> Рё СЂР°Р±РѕС‚Р°РµС‚ РЅР° 64-СЂР°Р·СЂСЏРґРЅРѕРј Windows (x64)</div></td>
+        <td class="setuphdrl"><p>Возможные значения:</p></td>
+        <td class="setuphdrr"><div class="margined"><tt>4</tt> до <tt>131072</tt> (по умолчанию)<br>
+            <tt>4</tt> до <tt>262144</tt>, если <a href="topic_setup_lzmauseseparateprocess.htm">LZMAUseSeparateProcess</a> установлен в <tt>yes</tt> и работает на 64-разрядном Windows (x64)</div></td>
       </tr>
       <tr>
-        <td class="setuphdrl"><p>Р—РЅР°С‡РµРЅРёРµ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ:</p></td>
-        <td class="setuphdrr"><div class="margined"><tt>32</tt>, РµСЃР»Рё <a href="topic_setup_compression.htm">СѓСЂРѕРІРµРЅСЊ СЃР¶Р°С‚РёСЏ LZMA</a> СѓСЃС‚Р°РЅРѕРІР»РµРЅ РІ <tt>fast</tt><br>
-            <tt>2048</tt>, РµСЃР»Рё СѓСЂРѕРІРµРЅСЊ СЃР¶Р°С‚РёСЏ LZMA СѓСЃС‚Р°РЅРѕРІР»РµРЅ РІ <tt>normal</tt><br>
-            <tt>8192</tt>, РµСЃР»Рё СѓСЂРѕРІРµРЅСЊ СЃР¶Р°С‚РёСЏ LZMA СѓСЃС‚Р°РЅРѕРІР»РµРЅ РІ <tt>max</tt><br>
-            <tt>32768</tt>, РµСЃР»Рё СѓСЂРѕРІРµРЅСЊ СЃР¶Р°С‚РёСЏ LZMA СѓСЃС‚Р°РЅРѕРІР»РµРЅ РІ <tt>ultra</tt><br>
-            <tt>65536</tt>, РµСЃР»Рё СѓСЂРѕРІРµРЅСЊ СЃР¶Р°С‚РёСЏ LZMA СѓСЃС‚Р°РЅРѕРІР»РµРЅ РІ <tt>ultra64</tt></div></td>
+        <td class="setuphdrl"><p>Значение по умолчанию:</p></td>
+        <td class="setuphdrr"><div class="margined"><tt>32</tt>, если <a href="topic_setup_compression.htm">уровень сжатия LZMA</a> установлен в <tt>fast</tt><br>
+            <tt>2048</tt>, если уровень сжатия LZMA установлен в <tt>normal</tt><br>
+            <tt>8192</tt>, если уровень сжатия LZMA установлен в <tt>max</tt><br>
+            <tt>32768</tt>, если уровень сжатия LZMA установлен в <tt>ultra</tt><br>
+            <tt>65536</tt>, если уровень сжатия LZMA установлен в <tt>ultra64</tt></div></td>
       </tr>
     </tbody>
   </table>
-  <div><b>РћРїРёСЃР°РЅРёРµ:</b></div>
-  <p>РЈРїСЂР°РІР»СЏРµС‚ СЂР°Р·РјРµСЂРѕРј СЃР»РѕРІР°СЂСЏ, РёСЃРїРѕР»СЊР·СѓРµРјРѕРіРѕ РєРѕРјРїСЂРµСЃСЃРѕСЂР°РјРё LZMA Рё LZMA2, РІ РєРёР»РѕР±Р°Р№С‚Р°С…. Р‘РѕР»СЊС€РёР№ СЂР°Р·РјРµСЂ СЃР»РѕРІР°СЂСЏ РјРѕР¶РµС‚ РѕР±РµСЃРїРµС‡РёС‚СЊ Р»СѓС‡С€СѓСЋ СЃС‚РµРїРµРЅСЊ СЃР¶Р°С‚РёСЏ Р·Р° СЃС‡РµС‚ СЃРєРѕСЂРѕСЃС‚Рё СЃР¶Р°С‚РёСЏ Рё С‚СЂРµР±РѕРІР°РЅРёР№ Рє РїР°РјСЏС‚Рё.</p>
-  <p>Р Р°СЃСЃРјРѕС‚СЂРёС‚Рµ С‚СЂРµР±РѕРІР°РЅРёСЏ Рє РїР°РјСЏС‚Рё, РїРµСЂРµС‡РёСЃР»РµРЅРЅС‹Рµ РІ С‚РµРјРµ <a href="topic_setup_compression.htm">Compression</a>, РїРµСЂРµРґ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёРµРј.</p>
-  <p>Р•СЃР»Рё РІС‹РґР°РµС‚СЃСЏ РѕС€РёР±РєР° "Out of memory", С‚РѕРіРґР° РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ СЃР»РёС€РєРѕРј Р±РѕР»СЊС€РѕР№ СЂР°Р·РјРµСЂ СЃР»РѕРІР°СЂСЏ, РІРѕР·РјРѕР¶РЅРѕ, РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ СѓСЃС‚Р°РЅРѕРІР»РµРЅ <a href="topic_setup_lzmauseseparateprocess.htm">LZMAUseSeparateProcess</a>.</p>
-  <p><b>РЎРј. С‚Р°РєР¶Рµ:</b><br>
+  <div><b>Описание:</b></div>
+  <p>Управляет размером словаря, используемого компрессорами LZMA и LZMA2, в килобайтах. Больший размер словаря может обеспечить лучшую степень сжатия за счет скорости сжатия и требований к памяти.</p>
+  <p>Рассмотрите требования к памяти, перечисленные в теме <a href="topic_setup_compression.htm">Compression</a>, перед использованием.</p>
+  <p>Если выдается ошибка "Out of memory", тогда используется слишком большой размер словаря, возможно, должен быть установлен <a href="topic_setup_lzmauseseparateprocess.htm">LZMAUseSeparateProcess</a>.</p>
+  <p><b>См. также:</b><br>
     <a href="topic_setup_lzmablocksize.htm">LZMABlockSize</a></p>
 </div>
 </body>

@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
 <meta http-equiv="X-UA-Compatible" content="IE=8" />
 <title>Pascal Scripting: MsgBox</title>
 <link rel="stylesheet" type="text/css" href="../styles.css" />
@@ -10,14 +10,14 @@
 <body>
 <h1 class="topicheading">Pascal Scripting: MsgBox</h1>
 <div class="topicbody">
-  <div><b>РџСЂРѕС‚РѕС‚РёРї:</b></div>
+  <div><b>Прототип:</b></div>
   <p><tt>function MsgBox(const Text: String; const Typ: TMsgBoxType; const Buttons: Integer): Integer;</tt></p>
-  <div><b>РћРїРёСЃР°РЅРёРµ:</b></div>
-  <p>РћС‚РѕР±СЂР°Р¶Р°РµС‚ РѕРєРЅРѕ СЃРѕРѕР±С‰РµРЅРёСЏ. <tt>Text</tt> СѓРєР°Р·С‹РІР°РµС‚ РѕС‚РѕР±СЂР°Р¶Р°РµРјРѕРµ СЃРѕРѕР±С‰РµРЅРёРµ. <tt>Typ</tt> РѕРїСЂРµРґРµР»СЏРµС‚, РєР°РєСѓСЋ РёРєРѕРЅРєСѓ РЅСѓР¶РЅРѕ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РІ РѕРєРЅРµ СЃРѕРѕР±С‰РµРЅРёСЏ. <tt>Buttons</tt> РѕРїСЂРµРґРµР»СЏРµС‚, РєР°РєРёРµ РєРЅРѕРїРєРё Р±СѓРґСѓС‚ РІ РѕРєРЅРµ СЃРѕРѕР±С‰РµРЅРёСЏ. Р’РѕР·РІСЂР°С‰Р°РµС‚ ID*, СѓРєР°Р·С‹РІР°СЋС‰РёР№ РЅР° РєРЅРѕРїРєСѓ, РєРѕС‚РѕСЂС‹Р№ РїРѕР»СЊР·РѕРІР°С‚РµР»СЊ РЅР°Р¶Р°Р», РёР»Рё 0 РїСЂРё РЅРµСѓРґР°С‡РЅРѕРј РІС‹РїРѕР»РЅРµРЅРёРё (С‡РµРіРѕ РЅРµ РґРѕР»Р¶РЅРѕ РїСЂРѕРёР·РѕР№С‚Рё, РµСЃР»Рё РЅРµ Р·Р°РґР°РЅ РЅРµРІРµСЂРЅС‹Р№ РїР°СЂР°РјРµС‚СЂ РёР»Рё СЃРёСЃС‚РµРјРЅС‹Рµ СЂРµСЃСѓСЂСЃС‹ РЅРµ РёСЃС‡РµСЂРїР°РЅС‹).</p>
-  <div><b>РљРѕРјРјРµРЅС‚Р°СЂРёРё:</b></div>
-  <p>TMsgBoxType РѕРїСЂРµРґРµР»СЏРµС‚СЃСЏ С‚Р°Рє:</p>
+  <div><b>Описание:</b></div>
+  <p>Отображает окно сообщения. <tt>Text</tt> указывает отображаемое сообщение. <tt>Typ</tt> определяет, какую иконку нужно использовать в окне сообщения. <tt>Buttons</tt> определяет, какие кнопки будут в окне сообщения. Возвращает ID*, указывающий на кнопку, который пользователь нажал, или 0 при неудачном выполнении (чего не должно произойти, если не задан неверный параметр или системные ресурсы не исчерпаны).</p>
+  <div><b>Комментарии:</b></div>
+  <p>TMsgBoxType определяется так:</p>
   <p><tt>TMsgBoxType = (mbInformation, mbConfirmation, mbError, mbCriticalError);</tt></p>
-  <div><b>РќР°РїСЂРёРјРµСЂ:</b></div>
+  <div><b>Например:</b></div>
   <pre>begin
   // Display a simple message box with an OK button
   MsgBox('Hello.', mbInformation, MB_OK);

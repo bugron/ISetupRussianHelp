@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
 <meta http-equiv="X-UA-Compatible" content="IE=8" />
 <title>Pascal Scripting Extended: Pi</title>
 <link rel="stylesheet" type="text/css" href="../../../styles.css" />
@@ -10,11 +10,11 @@
 <body>
 <h1 class="topicheading">Pascal Scripting Extended: Pi</h1>
 <div class="topicbody">
-  <div><b>РџСЂРѕС‚РѕС‚РёРї:</b></div>
+  <div><b>Прототип:</b></div>
   <p><tt>function Pi: Extended;</tt></p>
-  <div><b>РћРїРёСЃР°РЅРёРµ:</b></div>
-  Р¤СѓРЅРєС†РёСЏ Pi РІРѕР·РІСЂР°С‰Р°РµС‚ Р·РЅР°С‡РµРЅРёРµ СЃ РїР»Р°РІР°СЋС‰РµР№ Р·Р°РїСЏС‚РѕР№, РґР°СЋС‰РµРµ РїРѕР»РµР·РЅРѕРµ РїСЂРёР±Р»РёР¶РµРЅРёРµ Р·РЅР°С‡РµРЅРёСЏ РџРё. Р”Р»РёРЅР° РѕРєСЂСѓР¶РЅРѕСЃС‚Рё = РџРё * Р”РёР°РјРµС‚СЂ.<br />
-  <div><b>РџСЂРёРјРµСЂ:</b></div>
+  <div><b>Описание:</b></div>
+  Функция Pi возвращает значение с плавающей запятой, дающее полезное приближение значения Пи. Длина окружности = Пи * Диаметр.<br />
+  <div><b>Пример:</b></div>
   <p><tt>var<br />
     &nbsp;myPi : Extended;<br />
     &nbsp;diam : Integer;<br />
@@ -22,17 +22,17 @@
     begin<br />
     &nbsp;diam := 10;<br />
     <br />
-    // РџРѕРєР°Р· РґР»РёРЅС‹ РѕРєСЂСѓР¶РЅРѕСЃС‚Рё Рё РїР»РѕС‰Р°РґРё РєСЂСѓРіР°<br />
-    // СЃ РґРёР°РјРµС‚СЂРѕРј - 10 СЃРј<br />
-    &nbsp;ShowMessage('Р”РёР°РјРµС‚СЂ = '+IntToStr(diam));<br />
-    &nbsp;ShowMessage('Р”Р»РёРЅР° РѕРєСЂСѓР¶РЅРѕСЃС‚Рё = '+FloatToStr(Pi*diam));<br />
-    &nbsp;ShowMessage('РџР»РѕС‰Р°РґСЊ = '+FloatToStr(Pi*(diam/2)*(diam/2)));<br />
+    // Показ длины окружности и площади круга<br />
+    // с диаметром - 10 см<br />
+    &nbsp;ShowMessage('Диаметр = '+IntToStr(diam));<br />
+    &nbsp;ShowMessage('Длина окружности = '+FloatToStr(Pi*diam));<br />
+    &nbsp;ShowMessage('Площадь = '+FloatToStr(Pi*(diam/2)*(diam/2)));<br />
     end; <br />
     <br />
     <br />
-    &nbsp;Р”РёР°РјРµС‚СЂ = 10<br />
-    &nbsp;Р”Р»РёРЅР° РѕРєСЂСѓР¶РЅРѕСЃС‚Рё = 31.4159265358979<br />
-    &nbsp;РџР»РѕС‰Р°РґСЊ = 78.5398163397448</tt></p>
+    &nbsp;Диаметр = 10<br />
+    &nbsp;Длина окружности = 31.4159265358979<br />
+    &nbsp;Площадь = 78.5398163397448</tt></p>
 </div>
 </body>
 </html>

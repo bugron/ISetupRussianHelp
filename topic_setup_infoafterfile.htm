@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 <title>[Setup]: InfoAfterFile</title>
-<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="text/html; charset=windows-1251" http-equiv="Content-Type">
 <meta content="IE=8" http-equiv="X-UA-Compatible">
 <link rel="stylesheet" type="text/css" href="styles.css">
 <script type="text/javascript" src="topic.js"></script>
@@ -10,12 +10,12 @@
 <body>
 <h1 class="topicheading">[Setup]: InfoAfterFile</h1>
 <div class="topicbody">
-  <div><b>РћРїРёСЃР°РЅРёРµ:</b></div>
-  <p>РћРїСЂРµРґРµР»СЏРµС‚ С„Р°Р№Р» РІ С„РѕСЂРјР°С‚Рµ .txt РёР»Рё .rtf, РєРѕС‚РѕСЂС‹Р№ РѕС‚РѕР±СЂР°Р¶Р°РµС‚СЃСЏ РїРѕСЃР»Рµ СѓСЃРїРµС€РЅРѕР№ СѓСЃС‚Р°РЅРѕРІРєРё. Р­С‚РѕС‚ С„Р°Р№Р» РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ СЂР°СЃРїРѕР»РѕР¶РµРЅ РІ <a href="topic_sourcedirectorynotes.htm">РёСЃС…РѕРґРЅРѕР№ РїР°РїРєРµ</a> СЃРєСЂРёРїС‚Р°, РµСЃР»Рё С‚РѕР»СЊРєРѕ РґР»СЏ РЅРµРіРѕ РЅРµ СѓРєР°Р·Р°РЅ РїРѕР»РЅС‹Р№ РїСѓС‚СЊ РёР»Рё РЅРµС‚&nbsp;РїСЂРµС„РёРєСЃР° "compiler:" - РІ СЌС‚РѕРј СЃР»СѓС‡Р°Рµ РєРѕРјРїРёР»СЏС‚РѕСЂ Р±СѓРґРµС‚ РёСЃРєР°С‚СЊ СѓРєР°Р·Р°РЅРЅС‹Р№ С„Р°Р№Р» РІ СЃРІРѕРµРј РєР°С‚Р°Р»РѕРіРµ.</p>
-  <p>РћС‚Р»РёС‡Р°РµС‚СЃСЏ РѕС‚ С„Р°Р№Р»РѕРІ СЃ С„Р»Р°РіРѕРј <tt>isreadme</tt> С‚РµРј, С‡С‚Рѕ РѕС‚РѕР±СЂР°Р¶Р°РµС‚СЃСЏ РІ РѕРєРЅРµ РёРЅСЃС‚Р°Р»Р»СЏС‚РѕСЂР°, Р° РЅРµ&nbsp;РІ Р‘Р»РѕРєРЅРѕС‚Рµ.</p>
-  <p>Р•СЃР»Рё РїРѕР»СЊР·РѕРІР°С‚РµР»СЊ РІС‹Р±РµСЂРµС‚ СЏР·С‹Рє, РґР»СЏ РєРѕС‚РѕСЂРѕРіРѕ СЃСѓС‰РµСЃС‚РІСѓРµС‚ РїР°СЂР°РјРµС‚СЂ <tt>InfoAfterFile</tt>, СЌС‚Р° РґРёСЂРµРєС‚РёРІР° Р±СѓРґРµС‚ РёРіРЅРѕСЂРёСЂРѕРІР°РЅР°. Р”Р»СЏ СЃРїСЂР°РІРєРё РѕР±СЂР°С‚РёС‚РµСЃСЊ Рє РѕРїРёСЃР°РЅРёСЋ <a href="topic_languagessection.htm">СЃРµРєС†РёРё [Languages]</a>.</p>
+  <div><b>Описание:</b></div>
+  <p>Определяет файл в формате .txt или .rtf, который отображается после успешной установки. Этот файл должен быть расположен в <a href="topic_sourcedirectorynotes.htm">исходной папке</a> скрипта, если только для него не указан полный путь или нет&nbsp;префикса "compiler:" - в этом случае компилятор будет искать указанный файл в своем каталоге.</p>
+  <p>Отличается от файлов с флагом <tt>isreadme</tt> тем, что отображается в окне инсталлятора, а не&nbsp;в Блокноте.</p>
+  <p>Если пользователь выберет язык, для которого существует параметр <tt>InfoAfterFile</tt>, эта директива будет игнорирована. Для справки обратитесь к описанию <a href="topic_languagessection.htm">секции [Languages]</a>.</p>
   <div class="examplebox">
-    <div class="exampleheader">РќР°РїСЂРёРјРµСЂ:</div>
+    <div class="exampleheader">Например:</div>
     <pre class="nomargin">InfoAfterFile=infoafter.txt</pre>
   </div>
 </div>

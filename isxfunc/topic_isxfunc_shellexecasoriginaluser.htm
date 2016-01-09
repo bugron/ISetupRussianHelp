@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
 <meta http-equiv="X-UA-Compatible" content="IE=8" />
 <title>Pascal Scripting: ShellExecAsOriginalUser</title>
 <link rel="stylesheet" type="text/css" href="../styles.css" />
@@ -10,14 +10,14 @@
 <body>
 <h1 class="topicheading">Pascal Scripting: ShellExecAsOriginalUser</h1>
 <div class="topicbody">
-  <div><b>РџСЂРѕС‚РѕС‚РёРї:</b></div>
+  <div><b>Прототип:</b></div>
   <p><tt>function ShellExecAsOriginalUser(const Verb, Filename, Params, WorkingDir: String; const ShowCmd: Integer; const Wait: TExecWait; var ErrorCode: Integer): Boolean;</tt></p>
-  <div><b>РћРїРёСЃР°РЅРёРµ:</b></div>
-  <p>РћС‚РєСЂС‹РІР°РµС‚ СѓРєР°Р·Р°РЅРЅС‹Р№ С„Р°Р№Р» РёР»Рё РІС‹РїРѕР»РЅСЏРµС‚ РґСЂСѓРіРѕРµ РґРµР№СЃС‚РІРёРµ, РѕРїСЂРµРґРµР»СЏРµРјРѕРµ РїРµСЂРµРјРµРЅРЅРѕР№ Verb, РёСЃРїРѕР»СЊР·СѓСЏ СѓС‡РµС‚РЅС‹Рµ РґР°РЅРЅС‹Рµ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ, Р·Р°РїСѓСЃС‚РёРІС€РµРіРѕ РёРЅСЃС‚Р°Р»Р»СЏС‚РѕСЂ. Р”Р»СЏ Р±РѕР»РµРµ РґРµС‚Р°Р»СЊРЅРѕР№ РёРЅС„РѕСЂРјР°С†РёРё СЃРј. <a href="topic_isxfunc_shellexec.htm">ShellExec</a> Рё С„Р»Р°Рі <tt>runasoriginaluser</tt> РІ СЃРµРєС†РёРё [Run].</p>
-  <div><b>РљРѕРјРјРµРЅС‚Р°СЂРёРё:</b></div>
-  <p>Р­С‚Р° С„СѓРЅРєС†РёСЏ РЅРµ РїРѕРґРґРµСЂР¶РёРІР°РµС‚СЃСЏ РІРѕ РІСЂРµРјСЏ РґРµРёРЅСЃС‚Р°Р»Р»СЏС†РёРё.</p>
-    <p>Р’ РѕС‡РµРЅСЊ РёСЃРєР»СЋС‡РёС‚РµР»СЊРЅС‹С… СЃР»СѓС‡Р°СЏС… РЅРµРёСЃРїСЂР°РІРЅРѕСЃС‚Рё (РЅР°РїСЂРёРјРµСЂ, РµСЃР»Рё РїСЂРѕС†РµСЃСЃ СѓСЃС‚Р°РЅРѕРІРєРё РЅРµРѕР¶РёРґР°РЅРЅРѕ Р·Р°РєРѕРЅС‡РёР»СЃСЏ), РІРѕР·РјРѕР¶РЅРѕ РґР»СЏ СЌС‚РѕР№ С„СѓРЅРєС†РёРё РІС‹Р·РІР°С‚СЊ РёСЃРєР»СЋС‡РµРЅРёРµ,   РІРјРµСЃС‚Рѕ РїСЂРѕСЃС‚РѕРіРѕ РІРѕР·РІСЂР°С‰РµРЅРёСЏ Р·РЅР°С‡РµРЅРёСЏ False.</p>
-	<p>РЎСЃС‹Р»РєР° РЅР° <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms681381.aspx" target="_blank" title="http://msdn.microsoft.com/en-us/library/windows/desktop/ms681381.aspx">РєРѕРґС‹ СЃРёСЃС‚РµРјРЅС‹С… РѕС€РёР±РѕРє РІ MSDN</a><img src="../images/extlink.gif" alt=" [external link]" />.</p>
+  <div><b>Описание:</b></div>
+  <p>Открывает указанный файл или выполняет другое действие, определяемое переменной Verb, используя учетные данные пользователя, запустившего инсталлятор. Для более детальной информации см. <a href="topic_isxfunc_shellexec.htm">ShellExec</a> и флаг <tt>runasoriginaluser</tt> в секции [Run].</p>
+  <div><b>Комментарии:</b></div>
+  <p>Эта функция не поддерживается во время деинсталляции.</p>
+    <p>В очень исключительных случаях неисправности (например, если процесс установки неожиданно закончился), возможно для этой функции вызвать исключение,   вместо простого возвращения значения False.</p>
+	<p>Ссылка на <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms681381.aspx" target="_blank" title="http://msdn.microsoft.com/en-us/library/windows/desktop/ms681381.aspx">коды системных ошибок в MSDN</a><img src="../images/extlink.gif" alt=" [external link]" />.</p>
 	</div>
 </body>
 </html>

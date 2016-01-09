@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 <title>[Setup]: DisableReadyPage</title>
-<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="text/html; charset=windows-1251" http-equiv="Content-Type">
 <meta content="IE=8" http-equiv="X-UA-Compatible">
 <link rel="stylesheet" type="text/css" href="styles.css">
 <script type="text/javascript" src="topic.js"></script>
@@ -13,21 +13,21 @@
   <table class="setuphdr">
     <tbody>
       <tr>
-        <td class="setuphdrl"><p>Р’РѕР·РјРѕР¶РЅС‹Рµ Р·РЅР°С‡РµРЅРёСЏ:</p></td>
-        <td class="setuphdrr"><div class="margined"><a href="topic_yesnonotes.htm"><tt>yes</tt> РёР»Рё <tt>no</tt></a></div></td>
+        <td class="setuphdrl"><p>Возможные значения:</p></td>
+        <td class="setuphdrr"><div class="margined"><a href="topic_yesnonotes.htm"><tt>yes</tt> или <tt>no</tt></a></div></td>
       </tr>
       <tr>
-        <td class="setuphdrl"><p>Р—РЅР°С‡РµРЅРёРµ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ:</p></td>
+        <td class="setuphdrl"><p>Значение по умолчанию:</p></td>
         <td class="setuphdrr"><div class="margined"><tt>no</tt></div></td>
       </tr>
     </tbody>
   </table>
-  <div><b>РћРїРёСЃР°РЅРёРµ:</b></div>
-  <p>РџСЂРё Р·РЅР°С‡РµРЅРёРё <tt>yes</tt>, РёРЅСЃС‚Р°Р»Р»СЏС‚РѕСЂ РЅРµ Р±СѓРґРµС‚ РѕС‚РѕР±СЂР°Р¶Р°С‚СЊ СЃС‚СЂР°РЅРёС†Сѓ <i>Р’СЃРµ РіРѕС‚РѕРІРѕ Рє СѓСЃС‚Р°РЅРѕРІРєРµ</i>.</p>
-  <p>РљРѕРіРґР° РёРЅСЃС‚Р°Р»Р»СЏС‚РѕСЂ РЅРµ РІС‹РїРѕР»РЅСЏРµС‚СЃСЏ С‚РёС…РѕРј СЂРµР¶РёРјРµ, СЌС‚Р° РґРёСЂРµРєС‚РёРІР° РёРіРЅРѕСЂРёСЂСѓРµС‚СЃСЏ, РµСЃР»Рё РЅРё РѕРґРЅРѕР№ РґСЂСѓРіРѕР№ СЃС‚СЂР°РЅРёС†С‹ РјР°СЃС‚РµСЂР° РїРµСЂРµРґ СЃС‚СЂР°РЅРёС†РµР№ <i>Р’СЃРµ РіРѕС‚РѕРІРѕ Рє СѓСЃС‚Р°РЅРѕРІРєРµ</i> РµС‰Рµ РЅРµ РїРѕРєР°Р·Р°РЅРѕ.</p>
-  <p>РџСЂРё Р·РЅР°С‡РµРЅРёРё <tt>yes</tt> РёРЅСЃС‚Р°Р»Р»СЏС‚РѕСЂ Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєРё РЅРµ РјРµРЅСЏРµС‚ Р·Р°РіРѕР»РѕРІРѕРє РєРЅРѕРїРєРё <i>Next</i> (РЅР° РїРѕСЃР»РµРґРЅРµР№ СЃС‚СЂР°РЅРёС†Рµ РїРµСЂРµРґ СѓСЃС‚Р°РЅРѕРІРєРѕР№) РЅР° <i>Install</i>. Р’С‹ РґРѕР»Р¶РЅС‹ СЃРґРµР»Р°С‚СЊ СЌС‚Рѕ РІСЂСѓС‡РЅСѓСЋ. РќР°РїСЂРёРјРµСЂ, РµСЃР»Рё РїРѕСЃР»РµРґРЅСЏСЏ СЃС‚СЂР°РЅРёС†Р° РїРµСЂРµРґ СѓСЃС‚Р°РЅРѕРІРєРѕР№ СЌС‚Рѕ <i>Р’С‹Р±РѕСЂ РїСЂРѕРіСЂР°РјРјРЅРѕР№ РіСЂСѓРїРїС‹</i>, С‚РѕРіРґР°:</p>
+  <div><b>Описание:</b></div>
+  <p>При значении <tt>yes</tt>, инсталлятор не будет отображать страницу <i>Все готово к установке</i>.</p>
+  <p>Когда инсталлятор не выполняется тихом режиме, эта директива игнорируется, если ни одной другой страницы мастера перед страницей <i>Все готово к установке</i> еще не показано.</p>
+  <p>При значении <tt>yes</tt> инсталлятор автоматически не меняет заголовок кнопки <i>Next</i> (на последней странице перед установкой) на <i>Install</i>. Вы должны сделать это вручную. Например, если последняя страница перед установкой это <i>Выбор программной группы</i>, тогда:</p>
   <div class="examplebox">
-    <div class="exampleheader">РќР°РїСЂРёРјРµСЂ:</div>
+    <div class="exampleheader">Например:</div>
     <pre class="nomargin">[Setup]
 DisableReadyPage=yes
 

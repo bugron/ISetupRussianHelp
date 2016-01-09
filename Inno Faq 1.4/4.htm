@@ -1,12 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>РџСЂРѕРІРµСЂРєР° СЃРёСЃС‚РµРјРЅС‹С… С‚СЂРµР±РѕРІР°РЅРёР№</title><link rel="stylesheet" type="text/css" href="css.css">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<title>Проверка системных требований</title><link rel="stylesheet" type="text/css" href="css.css">
 
 <script language='jscript' type='text/javascript' src='copycode.js'></script>
 <script type="text/javascript" src="includer.js"></script></head><body><div id="heading">
-<h1>В» Inno Setup Faq. РџСЂРѕРІРµСЂРєР° СЃРёСЃС‚РµРјРЅС‹С… С‚СЂРµР±РѕРІР°РЅРёР№</h1></div><br><br>Р’РЅРёРјР°РЅРёРµ: РЎРєСЂРёРїС‚ РЅРµ СЂР°Р±РѕС‚Р°РµС‚ РЅР° Uncicode-РІРµСЂСЃРёСЏС… Inno Setup!<br>
+<h1>» Inno Setup Faq. Проверка системных требований</h1></div><br><br>Внимание: Скрипт не работает на Uncicode-версиях Inno Setup!<br>
  <script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM">
-<input type="button" value="РљРѕРїРёСЂРѕРІР°С‚СЊ РІ Р±СѓС„РµСЂ РѕР±РјРµРЅР°" onClick="copyToClipboard( taCode1, theCode1 );">
+<input type="button" value="Копировать в буфер обмена" onClick="copyToClipboard( taCode1, theCode1 );">
 <blockquote id="theCode1" ><font>
 [Setup]<br>
 AppName=My Program<br>
@@ -36,7 +36,7 @@ TMixerCaps = record<br>
 &nbsp;&nbsp;Support, cDestinations: DWord;<br>
 end;<br>
 <br>
-///РџСЂРѕРІРµСЂРєР° РІРµСЂСЃРёРё Windows<br>
+///Проверка версии Windows<br>
 #if Pos(&quot;4.&quot;, GetFileVersion(AddBackslash(GetEnv(&quot;windir&quot;)) + &quot;Explorer.exe&quot;)) == 1<br>
 &nbsp;&nbsp;{{Win9x}<br>
 &nbsp;&nbsp;&nbsp;TMemoryStatusEx = record<br>
@@ -104,7 +104,7 @@ external 'mixerGetDevCapsA@winmm.dll stdcall';<br>
 function mixerGetNumDevs: Integer;<br>
 external 'mixerGetNumDevs@winmm.dll stdcall';<br>
 <br>
-///Р”РѕРїРѕР»РЅРёС‚СЊ С‡РёСЃР»Рѕ РґРѕ РєСЂР°С‚РЅРѕРіРѕ Multiple<br>
+///Дополнить число до кратного Multiple<br>
 function ToMultiple(Bytes, Multiple: Integer): Integer;<br>
 begin<br>
 &nbsp;&nbsp;if Abs(Bytes/Multiple) &gt; Bytes/Multiple then<br>
@@ -113,29 +113,29 @@ begin<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Result := Bytes<br>
 end;<br>
 <br>
-///РџРµСЂРµРІРѕРґ С‡РёСЃР»Р° РІ Р·РЅР°С‡РµРЅРёРµ Р‘С‚/РљР±/РњР±/Р“Р±/РўР± (РґРѕ 3С… Р·РЅР°РєРѕРІ РїРѕСЃР»Рµ Р·Р°РїСЏС‚РѕР№)<br>
+///Перевод числа в значение Бт/Кб/Мб/Гб/Тб (до 3х знаков после запятой)<br>
 function ByteOrTB(Bytes: Extended; noMB: Boolean): String;<br>
 begin<br>
 if not noMB then<br>
-&nbsp;&nbsp;&nbsp;&nbsp;Result := FloatToStr(Int(Bytes)) + ' РњР±'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Result := FloatToStr(Int(Bytes)) + ' Мб'<br>
 else<br>
 &nbsp;&nbsp;&nbsp;&nbsp;if Bytes &lt; 1024 then<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Result := FloatToStr(Int(Bytes)) + ' Р‘С‚'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Result := FloatToStr(Int(Bytes)) + ' Бт'<br>
 &nbsp;&nbsp;&nbsp;&nbsp;else<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if Bytes/1024 &lt; 1024 then<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Result := FloatToStr(round((Bytes/1024)*10)/10) + ' РљР±'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Result := FloatToStr(round((Bytes/1024)*10)/10) + ' Кб'<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if Bytes/oneMB &lt; 1024 then<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Result := FloatToStr(round(Bytes/oneMB*100)/100) + ' РњР±'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Result := FloatToStr(round(Bytes/oneMB*100)/100) + ' Мб'<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if Bytes/oneMB/1000 &lt; 1024 then<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Result := FloatToStr(round(Bytes/oneMB/1024*1000)/1000) + ' Р“Р±'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Result := FloatToStr(round(Bytes/oneMB/1024*1000)/1000) + ' Гб'<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Result := FloatToStr(round(Bytes/oneMB/oneMB*1000)/1000) + ' РўР±'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Result := FloatToStr(round(Bytes/oneMB/oneMB*1000)/1000) + ' Тб'<br>
 StringChange(Result, ',', '.')<br>
 end;<br>
 <br>
-///РЈРґР°Р»РµРЅРёРµ РЅР°С‡Р°Р»СЊРЅС‹С…, РєРѕРЅРµС‡РЅС‹С… Рё РїРѕРІС‚РѕСЂРЅС‹С… РїСЂРѕР±РµР»РѕРІ<br>
+///Удаление начальных, конечных и повторных пробелов<br>
 function DelSp(String: String): String;<br>
 begin<br>
 while (Pos('&nbsp;&nbsp;', String) &gt; 0) do Delete(String, Pos('&nbsp;&nbsp;', String), 1)<br>
@@ -154,7 +154,7 @@ function CheckCPU(NeedMHz: Integer): Boolean;<br>
 var<br>
 &nbsp;&nbsp;String: String;<br>
 begin<br>
-&nbsp;&nbsp;String := 'Hardware\Description\System\CentralProcessor'; RegGetSubkeyNames(HKLM, String, Keys)&nbsp;&nbsp; ///РљРѕР»РёС‡РµСЃС‚РІРѕ СЏРґРµСЂ<br>
+&nbsp;&nbsp;String := 'Hardware\Description\System\CentralProcessor'; RegGetSubkeyNames(HKLM, String, Keys)&nbsp;&nbsp; ///Количество ядер<br>
 &nbsp;&nbsp;for n := 0 to GetArrayLength(Keys)-1 do<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RegQueryStringValue(HKLM, String + '\' + Keys[n], 'ProcessorNameString', Keys[n])<br>
 &nbsp;&nbsp;if not RegQueryDWordValue(HKLM, String + '\0', '~MHz', DeviceValue) or (DeviceValue &lt; NeedMHz) then<br>
@@ -167,7 +167,7 @@ function CheckMemorySize(NeedRAM: Integer): Boolean;<br>
 begin<br>
 &nbsp;&nbsp;MemoryEx.dwLength := SizeOf(MemoryEx)<br>
 &nbsp;&nbsp;if not GlobalMemoryStatusEx(MemoryEx) then<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MsgBox('РћС€РёР±РєР° С„СѓРЅРєС†РёРё:' + #13 + 'GlobalMemoryStatusEx', mbError, mb_Ok)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MsgBox('Ошибка функции:' + #13 + 'GlobalMemoryStatusEx', mbError, mb_Ok)<br>
 &nbsp;&nbsp;else<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (ToMultiple(trunc(Size64(MemoryEx.HiTotalPhys, MemoryEx.LoTotalPhys)/oneMB), 16) &lt; NeedRAM) then<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Exit<br>
@@ -189,7 +189,7 @@ begin<br>
 &nbsp;&nbsp;with BottomText do<br>
 &nbsp;&nbsp;begin<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Parent := InfoPage.Surface<br>
-&nbsp;&nbsp;&nbsp;&nbsp;Caption := 'РљРѕРіРґР° Р’С‹ Р±СѓРґРµС‚Рµ РіРѕС‚РѕРІС‹ РїСЂРѕРґРѕР»Р¶РёС‚СЊ СѓСЃС‚Р°РЅРѕРІРєСѓ, РЅР°Р¶РјРёС‚Рµ &quot;Р”Р°Р»РµРµ&quot;.'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Caption := 'Когда Вы будете готовы продолжить установку, нажмите &quot;Далее&quot;.'<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Font.Color := clBlack<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Left := 0<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Top := 200<br>
@@ -199,7 +199,7 @@ begin<br>
 &nbsp;&nbsp;SystemPanel := TMemo.Create(InfoPage)<br>
 &nbsp;&nbsp;with SystemPanel do<br>
 &nbsp;&nbsp;begin<br>
-&nbsp;&nbsp;&nbsp;&nbsp;Text := 'РЎРёСЃС‚РµРјР°'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Text := 'Система'<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Alignment := taCenter<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Parent := InfoPage.Surface<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Left := ScaleX(0)<br>
@@ -225,7 +225,7 @@ begin<br>
 &nbsp;&nbsp;ProcessorPanel := TMemo.Create(InfoPage)<br>
 &nbsp;&nbsp;with ProcessorPanel do<br>
 &nbsp;&nbsp;begin<br>
-&nbsp;&nbsp;&nbsp;&nbsp;Text := 'РџСЂРѕС†РµСЃСЃРѕСЂ'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Text := 'Процессор'<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Alignment := taCenter<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Parent := InfoPage.Surface<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Left := ScaleX(0)<br>
@@ -251,7 +251,7 @@ begin<br>
 &nbsp;&nbsp;VideoPanel := TMemo.Create(InfoPage)<br>
 &nbsp;&nbsp;with VideoPanel do<br>
 &nbsp;&nbsp;begin<br>
-&nbsp;&nbsp;&nbsp;&nbsp;Text := 'Р’РёРґРµРѕР°РґР°РїС‚РµСЂ'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Text := 'Видеоадаптер'<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Alignment := taCenter<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Parent := InfoPage.Surface<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Left := ScaleX(0)<br>
@@ -277,7 +277,7 @@ begin<br>
 &nbsp;&nbsp;AudioPanel := TMemo.Create(InfoPage)<br>
 &nbsp;&nbsp;with AudioPanel do<br>
 &nbsp;&nbsp;begin<br>
-&nbsp;&nbsp;&nbsp;&nbsp;Text := 'Р—РІСѓРєРѕРІР°СЏ РєР°СЂС‚Р°'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Text := 'Звуковая карта'<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Alignment := taCenter<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Parent := InfoPage.Surface<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Left := ScaleX(0)<br>
@@ -303,7 +303,7 @@ begin<br>
 &nbsp;&nbsp;RAMPanel := TMemo.Create(InfoPage)<br>
 &nbsp;&nbsp;with RAMPanel do<br>
 &nbsp;&nbsp;begin<br>
-&nbsp;&nbsp;&nbsp;&nbsp;Text := 'РћР±СЉС‘Рј РїР°РјСЏС‚Рё'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Text := 'Объём памяти'<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Alignment := taCenter<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Parent := InfoPage.Surface<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Left := ScaleX(0)<br>
@@ -329,7 +329,7 @@ begin<br>
 &nbsp;&nbsp;PageFilePanel := TMemo.Create(InfoPage)<br>
 &nbsp;&nbsp;with PageFilePanel do<br>
 &nbsp;&nbsp;begin<br>
-&nbsp;&nbsp;&nbsp;&nbsp;Text := 'Р¤Р°Р№Р» РїРѕРґРєР°С‡РєРё'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Text := 'Файл подкачки'<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Alignment := taCenter<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Parent := InfoPage.Surface<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Left := ScaleX(0)<br>
@@ -361,7 +361,7 @@ begin<br>
 <br>
 &nbsp;&nbsp;GetWindowsVersionEx(Version)<br>
 <br>
-&nbsp;&nbsp;///РћРїРµСЂР°С†РёРѕРЅРЅР°СЏ СЃРёСЃС‚РµРјР°:<br>
+&nbsp;&nbsp;///Операционная система:<br>
 &nbsp;&nbsp;SystemVersionPanel.Color := $CCFFCC<br>
 <br>
 &nbsp;&nbsp;DeviceKey := 'Software\Microsoft\Windows NT\CurrentVersion'<br>
@@ -370,20 +370,20 @@ begin<br>
 &nbsp;&nbsp;if RegQueryStringValue(HKLM, DeviceKey, 'CSDVersion', DeviceKey) then<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DeviceName := DeviceName + ' ' + DeviceKey<br>
 &nbsp;&nbsp;StringChange(DeviceName, 'Microsoft ', '')<br>
-&nbsp;&nbsp;SystemVersionPanel.Text := ' ' + DeviceName + ' СЃР±РѕСЂРєР° ' + IntToStr(Version.Major) + '.' + IntToStr(Version.Minor) +<br>
+&nbsp;&nbsp;SystemVersionPanel.Text := ' ' + DeviceName + ' сборка ' + IntToStr(Version.Major) + '.' + IntToStr(Version.Minor) +<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'.' + IntToStr(Version.Build)<br>
 <br>
 &nbsp;&nbsp;if (Pos('2000 Service Pack 4', SystemVersionPanel.Text) = 0) and&nbsp;&nbsp;///Windows 2000 SP4<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Pos('XP Service Pack 2', SystemVersionPanel.Text) = 0) and&nbsp;&nbsp;///Windows XP SP2<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Pos('XP Service Pack 3', SystemVersionPanel.Text) = 0) and&nbsp;&nbsp;///Windows XP SP3<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Pos('Vista', SystemVersionPanel.Text) = 0) and<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Pos('Windows 7', SystemVersionPanel.Text) = 0) then&nbsp;&nbsp;///Windows Vista (c Р»СЋР±С‹Рј SP РёР»Рё Р±РµР· РЅРµРіРѕ)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Pos('Windows 7', SystemVersionPanel.Text) = 0) then&nbsp;&nbsp;///Windows Vista (c любым SP или без него)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;begin<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SystemVersionPanel.Color := $CCCCFF<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ChangeText := True<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end<br>
 <br>
-&nbsp;&nbsp;///РџСЂРѕС†РµСЃСЃРѕСЂ:<br>
+&nbsp;&nbsp;///Процессор:<br>
 &nbsp;&nbsp;ProcessorMHzPanel.Color := $CCFFCC<br>
 <br>
 &nbsp;&nbsp;if not CheckCPU(NeedMHz) then<br>
@@ -394,9 +394,9 @@ begin<br>
 <br>
 &nbsp;&nbsp;ProcessorMHzPanel.Text := ' ' + DelSp(Keys[0]) + ' @' + IntToStr(DeviceValue) + ' MHz'<br>
 &nbsp;&nbsp;if GetArrayLength(Keys) &gt; 1 then<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ProcessorPanel.Text := 'РџСЂРѕС†РµСЃСЃРѕСЂС‹' ///+ ' (' + IntToStr(GetArrayLength(Keys)) + ')'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ProcessorPanel.Text := 'Процессоры' ///+ ' (' + IntToStr(GetArrayLength(Keys)) + ')'<br>
 <br>
-&nbsp;&nbsp;///Р’РёРґРµРѕРєР°СЂС‚Р°:<br>
+&nbsp;&nbsp;///Видеокарта:<br>
 &nbsp;&nbsp;VideoRAMPanel.Color := $CCFFCC<br>
 <br>
 &nbsp;&nbsp;lpDisplayDevice.cb := SizeOf(lpDisplayDevice)<br>
@@ -405,7 +405,7 @@ begin<br>
 &nbsp;&nbsp;while not (EnumDisplayDevices(0, n, lpDisplayDevice, 0) and<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(lpDisplayDevice.StateFlags and DISPLAY_DEVICE_PRIMARY_DEVICE &gt; 0)) and (n &lt; 127) do n := n + 1<br>
 &nbsp;&nbsp;for n := 0 to 127 do DeviceKey := DeviceKey + lpDisplayDevice.DeviceKey[n]<br>
-&nbsp;&nbsp;Delete(DeviceKey, Pos(Chr(0), DeviceKey), 127)&nbsp;&nbsp;///РљР»СЋС‡ РґСЂР°Р№РІРµСЂР° РїРѕР»СѓС‡Р°РµРј РёР· API<br>
+&nbsp;&nbsp;Delete(DeviceKey, Pos(Chr(0), DeviceKey), 127)&nbsp;&nbsp;///Ключ драйвера получаем из API<br>
 &nbsp;&nbsp;StringChange(DeviceKey, '\Registry\Machine\', '')<br>
 &nbsp;&nbsp;errCode := 1<br>
 &nbsp;&nbsp;DeviceValue := 0<br>
@@ -430,7 +430,7 @@ begin<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VideoRAMPanel.Text := ' ' + DelSp(DeviceName) + ' (Standard), '+ ByteOrTB(DeviceValue/oneMB, False)<br>
 &nbsp;&nbsp;else<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;begin<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VideoRAMPanel.Text := ' Р”СЂР°Р№РІРµСЂ СѓСЃС‚СЂРѕР№СЃС‚РІР° РЅРµ РѕР±РЅР°СЂСѓР¶РµРЅ'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VideoRAMPanel.Text := ' Драйвер устройства не обнаружен'<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VideoRAMPanel.Color := $CCCCFF<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ChangeText := True<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end<br>
@@ -443,10 +443,10 @@ begin<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IntToStr(GetSystemMetrics(1)) + ' (' + IntToStr(GetDeviceCaps(CreateDC('DISPLAY','','',0),14) *<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GetDeviceCaps(CreateDC('DISPLAY','','',0),12)) + ' bit)'<br>
 <br>
-&nbsp;&nbsp;///Р—РІСѓРєРѕРІР°СЏ РєР°СЂС‚Р°:<br>
+&nbsp;&nbsp;///Звуковая карта:<br>
 &nbsp;&nbsp;AudioNamePanel.Color := $CCFFCC<br>
 <br>
-&nbsp;&nbsp;///for errCode := 0 to 1 do&nbsp;&nbsp;///Р’С‹РІРѕРґ РѕСЃРЅРѕРІРЅРѕРіРѕ Р·РІСѓРєРѕРІРѕРіРѕ СѓСЃС‚СЂРѕР№СЃС‚РІР°<br>
+&nbsp;&nbsp;///for errCode := 0 to 1 do&nbsp;&nbsp;///Вывод основного звукового устройства<br>
 &nbsp;&nbsp;for errCode := 0 to mixerGetNumDevs do<br>
 &nbsp;&nbsp;&nbsp;&nbsp;begin<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mixerGetDevCaps(errCode-1, lpCaps, SizeOf(lpCaps))<br>
@@ -462,8 +462,8 @@ begin<br>
 <br>
 &nbsp;&nbsp;if GetArrayLength(Keys) &gt; 1 then<br>
 &nbsp;&nbsp;&nbsp;&nbsp;begin<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AudioPanel.Text := 'Р—РІСѓРєРѕРІС‹Рµ РєР°СЂС‚С‹'<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;///AudioPanel.Text := 'Р—РІСѓРєРѕРІС‹Рµ РєР°СЂС‚С‹ (' + IntToStr(GetArrayLength(Keys)) +')'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AudioPanel.Text := 'Звуковые карты'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;///AudioPanel.Text := 'Звуковые карты (' + IntToStr(GetArrayLength(Keys)) +')'<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AudioNamePanel.Text := ''<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for n := 1 to GetArrayLength(Keys) do<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AudioNamePanel.Text := AudioNamePanel.Text + Keys[n-1]&nbsp;&nbsp;///+ '(' + IntToStr(n) + ')'<br>
@@ -471,32 +471,32 @@ begin<br>
 &nbsp;&nbsp;&nbsp;else<br>
 &nbsp;&nbsp;&nbsp;&nbsp;if GetArrayLength(Keys) = 0 then<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;begin<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AudioNamePanel.Text := ' Р”СЂР°Р№РІРµСЂ СѓСЃС‚СЂРѕР№СЃС‚РІР° РЅРµ РѕР±РЅР°СЂСѓР¶РµРЅ'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AudioNamePanel.Text := ' Драйвер устройства не обнаружен'<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AudioNamePanel.Color := $CCCCFF<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ChangeText := True<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AudioNamePanel.Text := Keys[0]<br>
 &nbsp;&nbsp;if Pos(NeedSoundCard, AudioNamePanel.Text) = 0 then<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AudioNamePanel.Text := AudioNamePanel.Text + ' (СЂРµРєРѕРјРµРЅРґСѓРµС‚СЃСЏ ' + NeedSoundCard + ')'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AudioNamePanel.Text := AudioNamePanel.Text + ' (рекомендуется ' + NeedSoundCard + ')'<br>
 <br>
-&nbsp;&nbsp;///РћР±СЉС‘Рј РїР°РјСЏС‚Рё:<br>
+&nbsp;&nbsp;///Объём памяти:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;RAMTotalPanel.Color := $CCFFCC<br>
 &nbsp;&nbsp;if not CheckMemorySize(NeedMB) then<br>
 &nbsp;&nbsp;&nbsp;&nbsp;begin<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RAMTotalPanel.Color := $CCCCFF<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ChangeText := True<br>
 &nbsp;&nbsp;&nbsp;&nbsp;end<br>
-&nbsp;&nbsp;RAMTotalPanel.Text := ' ' + ByteOrTB(ToMultiple(trunc(Size64(MemoryEx.HiTotalPhys, MemoryEx.LoTotalPhys)/oneMB), 16), False) + ' РІСЃРµРіРѕ, ' +<br>
+&nbsp;&nbsp;RAMTotalPanel.Text := ' ' + ByteOrTB(ToMultiple(trunc(Size64(MemoryEx.HiTotalPhys, MemoryEx.LoTotalPhys)/oneMB), 16), False) + ' всего, ' +<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ByteOrTB(ToMultiple(trunc(Size64(MemoryEx.HiTotalPhys, MemoryEx.LoTotalPhys)/oneMB), 16) -<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Size64(MemoryEx.HiAvailPhys, MemoryEx.LoAvailPhys)/oneMB, False) + ' РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ, ' +<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ByteOrTB(Size64(MemoryEx.HiAvailPhys, MemoryEx.LoAvailPhys)/oneMB, False) + ' СЃРІРѕР±РѕРґРЅРѕ'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Size64(MemoryEx.HiAvailPhys, MemoryEx.LoAvailPhys)/oneMB, False) + ' используется, ' +<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ByteOrTB(Size64(MemoryEx.HiAvailPhys, MemoryEx.LoAvailPhys)/oneMB, False) + ' свободно'<br>
 <br>
-&nbsp;&nbsp;///Р’РёСЂС‚СѓР°Р»СЊРЅР°СЏ РїР°РјСЏС‚СЊ:<br>
+&nbsp;&nbsp;///Виртуальная память:<br>
 &nbsp;&nbsp;PageFileTotalPanel.Color := $CCFFCC<br>
-&nbsp;&nbsp;PageFileTotalPanel.Text := ' ' + ByteOrTB(Size64(MemoryEx.HiTotalPageFile, MemoryEx.LoTotalPageFile)/oneMB, False) + ' РІСЃРµРіРѕ, ' +<br>
+&nbsp;&nbsp;PageFileTotalPanel.Text := ' ' + ByteOrTB(Size64(MemoryEx.HiTotalPageFile, MemoryEx.LoTotalPageFile)/oneMB, False) + ' всего, ' +<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ByteOrTB((Size64(MemoryEx.HiTotalPageFile, MemoryEx.LoTotalPageFile) -<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Size64(MemoryEx.HiAvailPageFile, MemoryEx.LoAvailPageFile))/oneMB, False) + ' Р·Р°РЅСЏС‚Рѕ СЃРёСЃС‚РµРјРЅС‹Рј РєСЌС€РµРј'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Size64(MemoryEx.HiAvailPageFile, MemoryEx.LoAvailPageFile))/oneMB, False) + ' занято системным кэшем'<br>
 &nbsp;&nbsp;if Size64(MemoryEx.HiTotalPageFile, MemoryEx.LoTotalPageFile)/oneMB &lt; NeedPageFile then<br>
 &nbsp;&nbsp;&nbsp;&nbsp;begin<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PageFileTotalPanel.Color := $CCCCFF<br>
@@ -506,14 +506,14 @@ begin<br>
 &nbsp;&nbsp;if ChangeText = True then<br>
 &nbsp;&nbsp;&nbsp;&nbsp;begin<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TopText.Top := 0<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TopText.Caption := 'РќРµ РІСЃРµ РєРѕРјРїРѕРЅРµРЅС‚С‹ СѓРґРѕРІР»РµС‚РІРѕСЂСЏСЋС‚ РјРёРЅРёРјР°Р»СЊРЅС‹Рј С‚СЂРµР±РѕРІР°РЅРёСЏРј.' #13<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РїСЂРѕРІРµСЂСЊС‚Рµ РїРѕР·РёС†РёРё, РІС‹РґРµР»РµРЅРЅС‹Рµ РєСЂР°СЃРЅС‹Рј С†РІРµС‚РѕРј.'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TopText.Caption := 'Не все компоненты удовлетворяют минимальным требованиям.' #13<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'Пожалуйста, проверьте позиции, выделенные красным цветом.'<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TopText.Font.Color := clRed<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WizardForm.NextButton.Enabled := False<br>
 &nbsp;&nbsp;&nbsp;&nbsp;end<br>
 &nbsp;&nbsp;else<br>
 &nbsp;&nbsp;&nbsp;&nbsp;begin<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TopText.Caption := 'Р’СЃРµ РєРѕРјРїРѕРЅРµРЅС‚С‹ СЃРѕРѕС‚РІРµС‚СЃС‚РІСѓСЋС‚ РјРёРЅРёРјР°Р»СЊРЅС‹Рј С‚СЂРµР±РѕРІР°РЅРёСЏРј.'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TopText.Caption := 'Все компоненты соответствуют минимальным требованиям.'<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TopText.Font.Color := clGreen<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TopText.Top := 8<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WizardForm.NextButton.Enabled := True<br>
@@ -523,15 +523,15 @@ end;<br>
 <br>
 procedure InitializeWizard();<br>
 begin<br>
-&nbsp;&nbsp;InfoPage := CreateCustomPage(wpLicense, 'РђРїРїР°СЂР°С‚РЅРѕРµ Рё РїСЂРѕРіСЂР°РјРјРЅРѕРµ РѕР±РµСЃРїРµС‡РµРЅРёРµ',<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'РџСЂРѕРіСЂР°РјРјР° СѓСЃС‚Р°РЅРѕРІРєРё РѕР±РЅР°СЂСѓР¶РёР»Р° СЃР»РµРґСѓСЋС‰РёРµ РЅР°РѕР±С…РѕРґРёРјС‹Рµ РєРѕРјРїРѕРЅРµРЅС‚С‹.')<br>
-&nbsp;&nbsp;CreateCheckForm()&nbsp;&nbsp;///РЎРѕР·РґР°РЅРёРµ РѕР±СЉРµРєС‚РѕРІ TMemo, РІ РєРѕС‚РѕСЂС‹С… Р±СѓРґРµС‚ РІС‹РІРѕРґРёС‚СЃСЏ РёРЅС„РѕСЂРјР°С†РёСЏ Рѕ СЃРёСЃС‚РµРјРµ<br>
-&nbsp;&nbsp;UpdateInfo()&nbsp;&nbsp;///РћР±РЅРѕРІР»РµРЅРёРµ РёРЅС„РѕСЂРјР°С†РёРё Рѕ СЃРёСЃС‚РµРјРµ<br>
+&nbsp;&nbsp;InfoPage := CreateCustomPage(wpLicense, 'Аппаратное и программное обеспечение',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'Программа установки обнаружила следующие наобходимые компоненты.')<br>
+&nbsp;&nbsp;CreateCheckForm()&nbsp;&nbsp;///Создание объектов TMemo, в которых будет выводится информация о системе<br>
+&nbsp;&nbsp;UpdateInfo()&nbsp;&nbsp;///Обновление информации о системе<br>
 end;<br>
 <br>
 procedure CurPageChanged(CurPageID: Integer);<br>
 begin<br>
-&nbsp;&nbsp;if CurPageID = InfoPage.ID then UpdateInfo()&nbsp;&nbsp;///РћР±РЅРѕРІР»РµРЅРёРµ РёРЅС„РѕСЂРјР°С†РёРё Рѕ СЃРёСЃС‚РµРјРµ<br>
+&nbsp;&nbsp;if CurPageID = InfoPage.ID then UpdateInfo()&nbsp;&nbsp;///Обновление информации о системе<br>
 end;
 </font></blockquote><textarea id="taCode1" style="display:none;" rows="1" cols="5"></textarea>
 <textarea id='taCode' style='display:none;' rows='1' cols='20'></textarea></code>

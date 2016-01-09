@@ -1,14 +1,14 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>РџРµС‡Р°С‚РЅР°СЏ РјР°С€РёРЅРєР°</title><link rel="stylesheet" type="text/css" href="css.css">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1251"><title>Печатная машинка</title><link rel="stylesheet" type="text/css" href="css.css">
 <script language='jscript' type='text/javascript' src='copycode.js'></script>
-<script type="text/javascript" src="includer.js"></script></head><body><div id="heading"><h1>В» Inno Setup Faq. РџРµС‡Р°С‚РЅР°СЏ РјР°С€РёРЅРєР°</h1></div><br>
+<script type="text/javascript" src="includer.js"></script></head><body><div id="heading"><h1>» Inno Setup Faq. Печатная машинка</h1></div><br>
 <script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM">
-<input type="button" value="РљРѕРїРёСЂРѕРІР°С‚СЊ РІ Р±СѓС„РµСЂ РѕР±РјРµРЅР°" onClick="copyToClipboard( taCode1, theCode1 );">
+<input type="button" value="Копировать в буфер обмена" onClick="copyToClipboard( taCode1, theCode1 );">
 <blockquote id="theCode1"><font>
-;;РРЅС‚РµСЂРµСЃРЅС‹Р№&nbsp;СЌС„С„РµРєС‚&nbsp;РґР»СЏ&nbsp;Р’Р°С€РµРіРѕ&nbsp;РёРЅСЃС‚Р°Р»Р»СЏС‚РѕСЂР°,&nbsp;СЌС„С„РµРєС‚&nbsp;РїРµС‡Р°С‚РЅРѕР№&nbsp;РјР°С€РёРЅРєРё...<br>
-;;Р”Р»СЏ&nbsp;РЅРѕСЂРјР°Р»СЊРЅРѕР№&nbsp;СЂР°Р±РѕС‚С‹&nbsp;Сѓ&nbsp;Р’Р°СЃ&nbsp;РґРѕР»Р¶РµРЅ&nbsp;Р±С‹С‚СЊ&nbsp;СѓСЃС‚Р°РЅРѕРІР»РµРЅ&nbsp;РЅР°Р±РѕСЂ&nbsp;РѕС‚&nbsp;Restools&nbsp;http://restools.hanzify.org/<br>
-;;РџРѕРґСЂР°Р·СѓРјРµРІР°СЋ&nbsp;РїРѕРґ&nbsp;СЃР»РѕРІРѕРј&nbsp;РЅР°Р±РѕСЂ&nbsp;-&nbsp;InnoCompiler&nbsp;Рё&nbsp;ISCmplr,&nbsp;РїРѕСЃР»РµРґРЅРёРµ&nbsp;РІРµСЂСЃРёРё&nbsp;Р’С‹&nbsp;РјРѕР¶РµС‚Рµ&nbsp;РЅР°Р№С‚Рё&nbsp;РЅР°&nbsp;СЃР°Р№С‚Рµ&nbsp;Restools.<br>
-;;РђРІС‚РѕСЂ:&nbsp;Serega,&nbsp;http://forum.oszone.net/member.php?userid=88670<br>
+;;Интересный&nbsp;эффект&nbsp;для&nbsp;Вашего&nbsp;инсталлятора,&nbsp;эффект&nbsp;печатной&nbsp;машинки...<br>
+;;Для&nbsp;нормальной&nbsp;работы&nbsp;у&nbsp;Вас&nbsp;должен&nbsp;быть&nbsp;установлен&nbsp;набор&nbsp;от&nbsp;Restools&nbsp;http://restools.hanzify.org/<br>
+;;Подразумеваю&nbsp;под&nbsp;словом&nbsp;набор&nbsp;-&nbsp;InnoCompiler&nbsp;и&nbsp;ISCmplr,&nbsp;последние&nbsp;версии&nbsp;Вы&nbsp;можете&nbsp;найти&nbsp;на&nbsp;сайте&nbsp;Restools.<br>
+;;Автор:&nbsp;Serega,&nbsp;http://forum.oszone.net/member.php?userid=88670<br>
 <br>
 [Setup]<br>
 AppName=My&nbsp;Program<br>
@@ -35,28 +35,28 @@ begin<br>
 <br>
 &nbsp;&nbsp;lbl1.Caption:=&nbsp;'';<br>
 &nbsp;&nbsp;for&nbsp;i:=&nbsp;1&nbsp;to&nbsp;Length(txt1)&nbsp;do&nbsp;begin<br>
-&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;Application.Terminated&nbsp;then&nbsp;Break;&nbsp;///РєРѕРЅС‚СЂРѕР»СЊ&nbsp;Р·Р°РєСЂС‹С‚РёСЏ&nbsp;РїСЂРёР»РѕР¶РµРЅРёСЏ&nbsp;Рё&nbsp;РІС‹С…РѕРґ&nbsp;РёР·&nbsp;С†РёРєР»Р°<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;Application.Terminated&nbsp;then&nbsp;Break;&nbsp;///контроль&nbsp;закрытия&nbsp;приложения&nbsp;и&nbsp;выход&nbsp;из&nbsp;цикла<br>
 &nbsp;&nbsp;&nbsp;&nbsp;lbl1.Caption:=&nbsp;lbl1.Caption&nbsp;+&nbsp;txt1[i];<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Application.ProcessMessages;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;Sleep(100);&nbsp;///РІСЂРµРјСЏ&nbsp;Р·Р°РґРµСЂР¶РєРё&nbsp;РјРµР¶РґСѓ&nbsp;РїРѕРєР°Р·РѕРј&nbsp;Р±СѓРєРІ<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Sleep(100);&nbsp;///время&nbsp;задержки&nbsp;между&nbsp;показом&nbsp;букв<br>
 &nbsp;&nbsp;end;<br>
 <br>
 &nbsp;&nbsp;lbl2.Caption:=&nbsp;'';<br>
 &nbsp;&nbsp;for&nbsp;i:=&nbsp;1&nbsp;to&nbsp;Length(txt2)&nbsp;do&nbsp;begin<br>
-&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;Application.Terminated&nbsp;then&nbsp;Break;&nbsp;///РєРѕРЅС‚СЂРѕР»СЊ&nbsp;Р·Р°РєСЂС‹С‚РёСЏ&nbsp;РїСЂРёР»РѕР¶РµРЅРёСЏ&nbsp;Рё&nbsp;РІС‹С…РѕРґ&nbsp;РёР·&nbsp;С†РёРєР»Р°<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;Application.Terminated&nbsp;then&nbsp;Break;&nbsp;///контроль&nbsp;закрытия&nbsp;приложения&nbsp;и&nbsp;выход&nbsp;из&nbsp;цикла<br>
 &nbsp;&nbsp;&nbsp;&nbsp;lbl2.Caption:=&nbsp;lbl2.Caption&nbsp;+&nbsp;txt2[i];<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Application.ProcessMessages;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;Sleep(60);&nbsp;///РІСЂРµРјСЏ&nbsp;Р·Р°РґРµСЂР¶РєРё&nbsp;РјРµР¶РґСѓ&nbsp;РїРѕРєР°Р·РѕРј&nbsp;Р±СѓРєРІ<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Sleep(60);&nbsp;///время&nbsp;задержки&nbsp;между&nbsp;показом&nbsp;букв<br>
 &nbsp;&nbsp;end;<br>
 end;<br>
 <br>
 procedure&nbsp;CreateComponents;<br>
 begin<br>
-///СЃРєСЂС‹РІР°РµРј&nbsp;СЃС‚Р°РЅРґР°СЂС‚РЅС‹Рµ&nbsp;Label'С‹<br>
+///скрываем&nbsp;стандартные&nbsp;Label'ы<br>
 &nbsp;&nbsp;WizardForm.WelcomeLabel1.Hide;<br>
 &nbsp;&nbsp;WizardForm.WelcomeLabel2.Hide;<br>
 <br>
-///Р·Р°РґР°С‘Рј&nbsp;СЃРІРѕРё&nbsp;Label'С‹<br>
+///задаём&nbsp;свои&nbsp;Label'ы<br>
 &nbsp;&nbsp;lbl1:=&nbsp;TLabel.Create(WizardForm);<br>
 &nbsp;&nbsp;with&nbsp;lbl1&nbsp;do&nbsp;begin<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Left:=&nbsp;WizardForm.WelcomeLabel1.Left;<br>
@@ -91,7 +91,7 @@ begin<br>
 <br>
 &nbsp;&nbsp;tmr1:=&nbsp;TTimer.Create(WizardForm);<br>
 &nbsp;&nbsp;with&nbsp;tmr1&nbsp;do&nbsp;begin<br>
-&nbsp;&nbsp;&nbsp;&nbsp;Interval:=&nbsp;500;&nbsp;///РІСЂРµРјСЏ&nbsp;Р·Р°РґРµСЂР¶РєРё&nbsp;РїРµСЂРµРґ&nbsp;РЅР°С‡Р°Р»РѕРј&nbsp;РїРѕРєР°Р·Р°&nbsp;С‚РµРєСЃС‚Р°<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Interval:=&nbsp;500;&nbsp;///время&nbsp;задержки&nbsp;перед&nbsp;началом&nbsp;показа&nbsp;текста<br>
 &nbsp;&nbsp;&nbsp;&nbsp;OnTimer:=&nbsp;@tmr1Timer;<br>
 &nbsp;&nbsp;end;<br>
 end;<br>

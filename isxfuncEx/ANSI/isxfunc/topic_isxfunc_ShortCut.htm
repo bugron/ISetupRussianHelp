@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
 <meta http-equiv="X-UA-Compatible" content="IE=8" />
 <title>Pascal Scripting Extended: ShortCut</title>
 <link rel="stylesheet" type="text/css" href="../../../styles.css" />
@@ -10,13 +10,13 @@
 <body>
 <h1 class="topicheading">Pascal Scripting Extended: ShortCut</h1>
 <div class="topicbody">
-  <div><b>РџСЂРѕС‚РѕС‚РёРї:</b></div>
+  <div><b>Прототип:</b></div>
   <p><tt>function ShortCut(Key: Word; Shift: TShiftState): TShortCut;</tt></p>
-  <div><b>РћРїРёСЃР°РЅРёРµ:</b></div>
-  РЎРѕР·РґР°РµС‚ РєР»Р°РІРёР°С‚СѓСЂРЅРѕРµ СЃРѕРєСЂР°С‰РµРЅРёРµ. РџРµСЂРІС‹Р№ РїР°СЂР°РјРµС‚СЂ Key Р±СѓРґРµС‚ Р·Р°РІРµСЂС€Р°СЋС‰РёРј СЃРёРјРІРѕР»РѕРј РІ СЃРѕРєСЂР°С‰РµРЅРёРё, РїСЂРµРѕР±СЂР°Р·РѕРІР°РЅРЅС‹Рј РІ Word. Р’ РґР°РЅРЅРѕРј СЃР»СѓС‡Р°Рµ РєР»Р°РІРёС€РµР№ СЏРІР»СЏРµС‚СЃСЏ X. РџР°СЂР°РјРµС‚СЂ Shift РїСЂРµРґСЃС‚Р°РІР»СЏРµС‚ СЃРїРµС†РёР°Р»СЊРЅСѓСЋ РєР»Р°РІРёС€Сѓ, РєРѕС‚РѕСЂР°СЏ СѓРґРµСЂР¶РёРІР°РµС‚СЃСЏ РЅР°Р¶Р°С‚РѕР№ РІРѕ РІСЂРµРјСЏ РЅР°Р¶Р°С‚РёСЏ РґСЂСѓРіРѕР№ РєР»Р°РІРёС€Рё, Рё РѕР±СЉСЏРІР»РµРЅ РєР°Рє TShiftState = set of (ssShift,ssAlt,ssCtrl,ssLeft,ssRight,ssMiddle, ssDouble); <br />
-  РіРґРµ ssShift РїСЂРµРґСЃС‚Р°РІР»СЏРµС‚ РєР»Р°РІРёС€Сѓ &lt;Shift&gt;, ssAlt &mdash; РєР»Р°РІРёС€Сѓ &lt;Alt&gt; Рё С‚.Рґ.<br />
+  <div><b>Описание:</b></div>
+  Создает клавиатурное сокращение. Первый параметр Key будет завершающим символом в сокращении, преобразованным в Word. В данном случае клавишей является X. Параметр Shift представляет специальную клавишу, которая удерживается нажатой во время нажатия другой клавиши, и объявлен как TShiftState = set of (ssShift,ssAlt,ssCtrl,ssLeft,ssRight,ssMiddle, ssDouble); <br />
+  где ssShift представляет клавишу &lt;Shift&gt;, ssAlt &mdash; клавишу &lt;Alt&gt; и т.д.<br />
   <br />
-  <div><b>РџСЂРёРјРµСЂ:</b><br />
+  <div><b>Пример:</b><br />
   </div>
   <p><tt>procedure TForm1.FormCreate(Sender: TObject);<br />
     begin<br />

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 <title>[Setup]: UninstallLogMode</title>
-<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="text/html; charset=windows-1251" http-equiv="Content-Type">
 <meta content="IE=8" http-equiv="X-UA-Compatible">
 <link rel="stylesheet" type="text/css" href="styles.css">
 <script type="text/javascript" src="topic.js"></script>
@@ -13,21 +13,21 @@
   <table class="setuphdr">
     <tbody>
       <tr>
-        <td class="setuphdrl"><p>Р’РѕР·РјРѕР¶РЅС‹Рµ Р·РЅР°С‡РµРЅРёСЏ:</p></td>
-        <td class="setuphdrr"><div class="margined"><tt>append</tt>, <tt>new</tt>, РёР»Рё <tt>overwrite</tt></div></td>
+        <td class="setuphdrl"><p>Возможные значения:</p></td>
+        <td class="setuphdrr"><div class="margined"><tt>append</tt>, <tt>new</tt>, или <tt>overwrite</tt></div></td>
       </tr>
       <tr>
-        <td class="setuphdrl"><p>Р—РЅР°С‡РµРЅРёРµ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ:</p></td>
+        <td class="setuphdrl"><p>Значение по умолчанию:</p></td>
         <td class="setuphdrr"><div class="margined"><tt>append</tt></div></td>
       </tr>
     </tbody>
   </table>
-  <div><b>РћРїРёСЃР°РЅРёРµ:</b></div>
-  <p>РџСЂРё Р·РЅР°С‡РµРЅРёРё <tt>append</tt> РґРµРёРЅСЃС‚Р°Р»Р»СЏС‚РѕСЂ РїРѕ РІРѕР·РјРѕР¶РЅРѕСЃС‚Рё <a href="topic_appendnotes.htm">РґРѕРїРѕР»РЅСЏРµС‚СЃСЏ</a>.</p>
-  <p>РџСЂРё Р·РЅР°С‡РµРЅРёРё <tt>new</tt> СЃРѕР·РґР°РµС‚СЃСЏ РЅРѕРІС‹Р№ РґРµРёРЅСЃС‚Р°Р»Р»СЏС‚РѕСЂ.</p>
-  <p>РџСЂРё Р·РЅР°С‡РµРЅРёРё <tt>overwrite</tt> СЃСѓС‰РµСЃС‚РІСѓСЋС‰РёР№ РґРµРёРЅСЃС‚Р°Р»Р»СЏС‚РѕСЂ <a href="topic_sameappnotes.htm">С‚РѕРіРѕ Р¶Рµ РїСЂРёР»РѕР¶РµРЅРёСЏ</a> РїРµСЂРµР·Р°РїРёСЃС‹РІР°РµС‚СЃСЏ, Р° РЅРµ РґРѕРїРѕР»РЅСЏРµС‚СЃСЏ (РёСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ РЅРµ СЂРµРєРѕРјРµРЅРґСѓРµС‚СЃСЏ). Р”Р»СЏ РґРѕРїРѕР»РЅРµРЅРёСЏ РґРµРёРЅСЃС‚Р°Р»Р»СЏС‚РѕСЂР° РґРµР№СЃС‚РІСѓСЋС‚ С‚Рµ Р¶Рµ РїСЂР°РІРёР»Р°, С‡С‚Рѕ Рё РґР»СЏ РїРµСЂРµР·Р°РїРёСЃС‹РІР°РЅРёСЏ.</p>
+  <div><b>Описание:</b></div>
+  <p>При значении <tt>append</tt> деинсталлятор по возможности <a href="topic_appendnotes.htm">дополняется</a>.</p>
+  <p>При значении <tt>new</tt> создается новый деинсталлятор.</p>
+  <p>При значении <tt>overwrite</tt> существующий деинсталлятор <a href="topic_sameappnotes.htm">того же приложения</a> перезаписывается, а не дополняется (использование не рекомендуется). Для дополнения деинсталлятора действуют те же правила, что и для перезаписывания.</p>
   <div class="examplebox">
-    <div class="exampleheader">РќР°РїСЂРёРјРµСЂ:</div>
+    <div class="exampleheader">Например:</div>
     <pre class="nomargin">UninstallLogMode=append</pre>
   </div>
 </div>

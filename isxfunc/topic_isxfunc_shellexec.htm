@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
 <meta http-equiv="X-UA-Compatible" content="IE=8" />
 <title>Pascal Scripting: ShellExec</title>
 <link rel="stylesheet" type="text/css" href="../styles.css" />
@@ -10,16 +10,16 @@
 <body>
 <h1 class="topicheading">Pascal Scripting: ShellExec</h1>
 <div class="topicbody">
-  <div><b>РџСЂРѕС‚РѕС‚РёРї:</b></div>
+  <div><b>Прототип:</b></div>
   <p><tt>function ShellExec(const Verb, Filename, Params, WorkingDir: String; const ShowCmd: Integer; const Wait: TExecWait; var ErrorCode: Integer): Boolean;</tt></p>
-  <div><b>РћРїРёСЃР°РЅРёРµ:</b></div>
-  <p>Opens the specified file or performs another action specified by Verb, using the same credentials as Setup/Uninstall. The filename can be an executable file, a document file, a folder, or a URL. Verb may be an empty string, in which case the default verb for the file type is used (usually &quot;open&quot;). The Wait parameter specifies whether the function should return immediately or wait until the launched process has termimated or is idle. Returns True if the specified file was opened successfully, False otherwise. If False is returned then ErrorCode specifies the error that occurred. Use SysErrorMessage(ErrorCode) to get a description of the error.</p>
-  <div><b>РљРѕРјРјРµРЅС‚Р°СЂРёРё:</b></div>
-  <p>TExecWait is defined as:</p>
+  <div><b>Описание:</b></div>
+  <p>Открывает файл или выполняет другое действие указанное параметром Verb с привилегиями инсталлятора/деинсталлятора. Filename может быть исполняемым файлом, документом, папкой, или веб-ссылкой. Verb может быть пустой строкой и в этом случае для данного типа файла выполняется действие по умолчанию (как правило &quot;open&quot;). Параметр Wait определяет, закончить работу функции сразу или ждать, пока запущенный процесс завершится или станет неактивен. Возвращает True, если указанный файл был открыт успешно, иначе False. Если функция возвратит False, тогда ErrorCode содержит код ошибки. Чтобы получить описание ошибки, используйте SysErrorMessage(ResultCode).</p>
+  <div><b>Комментарии:</b></div>
+  <p>TExecWait определен как:</p>
   <p><tt>TExecWait = (ewNoWait, ewWaitUntilTerminated, ewWaitUntilIdle);</tt></p>
-  <p>Note that passing a Wait value other than <tt>ewNoWait</tt> will have no effect if a new process isn't spawned (for example, if the file is opened inside an already-running instance of the program that handles the file type).</p>
-  <p>РЎСЃС‹Р»РєР° РЅР° <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms681381.aspx" target="_blank" title="http://msdn.microsoft.com/en-us/library/windows/desktop/ms681381.aspx">РєРѕРґС‹ СЃРёСЃС‚РµРјРЅС‹С… РѕС€РёР±РѕРє РІ MSDN</a><img src="../images/extlink.gif" alt=" [external link]" />.</p>
-  <div><b>РќР°РїСЂРёРјРµСЂ:</b></div>
+  <p>Обратите внимание, что передача значения Wait отличного от <tt>ewNoWait</tt> не будет иметь никакого эффекта, если в результате выполнения функции не породится новый процесс (например, если указанный файл уже открыт в процессе, который обрабатывает данный тип файлов).</p>
+  <p>Ссылка на <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms681381.aspx" target="_blank" title="http://msdn.microsoft.com/en-us/library/windows/desktop/ms681381.aspx">коды системных ошибок в MSDN</a><img src="../images/extlink.gif" alt=" [external link]" />.</p>
+  <div><b>Например:</b></div>
   <pre>var
   ErrorCode: Integer;
 begin
@@ -29,7 +29,7 @@ begin
     // handle failure if necessary
   end;
 end;</pre>
-  <div><b>РЎРј. С‚Р°РєР¶Рµ:</b></div>
+  <div><b>См. также:</b></div>
   <p><a href="topic_isxfunc_shellexecasoriginaluser.htm">ShellExecAsOriginalUser</a></p>
 </div>
 </body>

@@ -1,9 +1,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>РџСЂРѕРІРµСЂРєР° Р·РЅР°С‡РµРЅРёСЏ РІ СЂРµРµСЃС‚СЂРµ СЃ РІС‹РІРѕРґРѕРј РЅСѓР¶РЅРѕР№ РёРЅС„С‹ РІ РїР°РЅРµР»СЊ</title><link rel="stylesheet" type="text/css" href="css.css">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1251"><title>Проверка значения в реестре с выводом нужной инфы в панель</title><link rel="stylesheet" type="text/css" href="css.css">
 <script language='jscript' type='text/javascript' src='copycode.js'></script>
-<script type="text/javascript" src="includer.js"></script></head><body><div id="heading"><h1>В» Inno Setup Faq. РџСЂРѕРІРµСЂРєР° Р·РЅР°С‡РµРЅРёСЏ РІ СЂРµРµСЃС‚СЂРµ СЃ РІС‹РІРѕРґРѕРј РЅСѓР¶РЅРѕР№ РёРЅС„С‹ РІ РїР°РЅРµР»СЊ</h1></div><br>
+<script type="text/javascript" src="includer.js"></script></head><body><div id="heading"><h1>» Inno Setup Faq. Проверка значения в реестре с выводом нужной инфы в панель</h1></div><br>
 <script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM">
-<input type="button" value="РљРѕРїРёСЂРѕРІР°С‚СЊ РІ Р±СѓС„РµСЂ РѕР±РјРµРЅР°" onClick="copyToClipboard( taCode1, theCode1 );">
+<input type="button" value="Копировать в буфер обмена" onClick="copyToClipboard( taCode1, theCode1 );">
 <blockquote id="theCode1"><font>
 [Setup]<br>
 AppName=My&nbsp;program<br>
@@ -14,8 +14,8 @@ DefaultDirName={pf}\My&nbsp;program<br>
 Name:&nbsp;rus;&nbsp;MessagesFile:&nbsp;compiler:Languages\Russian.isl<br>
 <br>
 [CustomMessages]<br>
-NotFound=Starcraft&nbsp;РЅРµ&nbsp;РЅР°Р№РґРµРЅ,&nbsp;Р±РµР·&nbsp;РµРіРѕ&nbsp;РЅР°Р»РёС‡РёСЏ&nbsp;РјРѕРґ&nbsp;Realistic&nbsp;СЂР°Р±РѕС‚Р°С‚СЊ&nbsp;РЅРµ&nbsp;Р±СѓРґРµС‚.%nРџРѕР¶Р°Р»СѓР№СЃС‚Р°,&nbsp;СЃРЅР°С‡Р°Р»Р°&nbsp;СѓСЃС‚Р°РЅРѕРІРёС‚Рµ&nbsp;Starcraft,&nbsp;Р·Р°С‚РµРј&nbsp;РёРЅСЃС‚Р°Р»Р»СЏС‚РѕСЂ&nbsp;РјРѕРґР°.<br>
-Continue=РџСЂРѕ&amp;РґРѕР»Р¶РёС‚СЊ<br>
+NotFound=Starcraft&nbsp;не&nbsp;найден,&nbsp;без&nbsp;его&nbsp;наличия&nbsp;мод&nbsp;Realistic&nbsp;работать&nbsp;не&nbsp;будет.%nПожалуйста,&nbsp;сначала&nbsp;установите&nbsp;Starcraft,&nbsp;затем&nbsp;инсталлятор&nbsp;мода.<br>
+Continue=Про&amp;должить<br>
 <br>
 [Code]<br>
 var&nbsp;MessageForm:&nbsp;TPanel;&nbsp;MessageLabel:&nbsp;TLabel;<br>
@@ -41,14 +41,14 @@ end;<br>
 <br>
 procedure&nbsp;ObjectOnClick(Sender:&nbsp;TObject);<br>
 Begin<br>
-&nbsp;&nbsp;Case&nbsp;TObject(Sender)&nbsp;of	{{РЅР°Р¶Р°С‚РёРµ&nbsp;РѕР±СЉРµРєС‚Р°}<br>
+&nbsp;&nbsp;Case&nbsp;TObject(Sender)&nbsp;of	{{нажатие&nbsp;объекта}<br>
 MessageLabel:	MessageForm.Hide;<br>
 &nbsp;&nbsp;end;<br>
 end;<br>
 <br>
-procedure&nbsp;Message(String:&nbsp;String;&nbsp;AIndex,&nbsp;IconSize:&nbsp;Integer);	Begin	{{СЂР°Р·РјРµСЂС‹&nbsp;С„РѕСЂРјС‹&nbsp;РїРѕРґСЃС‚СЂР°РёРІР°СЋС‚СЃСЏ&nbsp;РїРѕРґ&nbsp;С‚РµРєСЃС‚&nbsp;СЃРѕРѕР±С‰РµРЅРёСЏ}<br>
+procedure&nbsp;Message(String:&nbsp;String;&nbsp;AIndex,&nbsp;IconSize:&nbsp;Integer);	Begin	{{размеры&nbsp;формы&nbsp;подстраиваются&nbsp;под&nbsp;текст&nbsp;сообщения}<br>
 MessageLabel.Left:=&nbsp;IconSize&nbsp;+&nbsp;10&nbsp;+&nbsp;IconSize/3;&nbsp;MessageLabel.Top:=&nbsp;10;&nbsp;MessageLabel.Font.Size:=&nbsp;WizardForm.Font.Size&nbsp;+&nbsp;1<br>
-MessageLabel.Caption:=&nbsp;String;&nbsp;{{Р°РІС‚РѕСЂР°Р·РјРµСЂ}&nbsp;if&nbsp;MessageLabel.Height&nbsp;&lt;&nbsp;IconSize&nbsp;then&nbsp;MessageLabel.Height:=&nbsp;IconSize;<br>
+MessageLabel.Caption:=&nbsp;String;&nbsp;{{авторазмер}&nbsp;if&nbsp;MessageLabel.Height&nbsp;&lt;&nbsp;IconSize&nbsp;then&nbsp;MessageLabel.Height:=&nbsp;IconSize;<br>
 MessageForm.SetBounds((WizardForm.ClientWidth&nbsp;-&nbsp;(MessageLabel.Width&nbsp;+&nbsp;MessageLabel.Left&nbsp;+&nbsp;12))/2,&nbsp;(WizardForm.ClientHeight&nbsp;-&nbsp;(MessageLabel.Height&nbsp;+&nbsp;MessageLabel.Top&nbsp;+&nbsp;8))/2,&nbsp;MessageLabel.Width&nbsp;+&nbsp;MessageLabel.Left&nbsp;+&nbsp;12,&nbsp;MessageLabel.Height&nbsp;+&nbsp;MessageLabel.Top&nbsp;+&nbsp;8)<br>
 DrawIcon(MessageForm,&nbsp;'{sys}\shell32.dll',&nbsp;AIndex,&nbsp;10,&nbsp;10,&nbsp;IconSize,&nbsp;MessageForm.Color);<br>
 MessageForm.Show;<br>

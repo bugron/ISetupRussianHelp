@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>РљР°Рє РїРѕР»СѓС‡РёС‚СЊ РѕРїСЂРµРґРµР»РµРЅРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ РёР· INI-С„Р°Р№Р»Р°?</title><link rel="stylesheet" type="text/css" href="css.css"><script type="text/javascript" src="includer.js"></script><script language='jscript' type='text/javascript' src='copycode.js'></script></head><body><div id="heading"><h1>В» Inno Setup Faq. РљР°Рє РїРѕР»СѓС‡РёС‚СЊ РѕРїСЂРµРґРµР»РµРЅРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ РёР· INI-С„Р°Р№Р»Р°?</h1></div><br><script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM"> <input type="button" value="РљРѕРїРёСЂРѕРІР°С‚СЊ РІ Р±СѓС„РµСЂ РѕР±РјРµРЅР°" onClick="copyToClipboard( taCode1, theCode1 );"> <blockquote id="theCode1"><font>[Setup]<br>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1251"><title>Как получить определенное значение из INI-файла?</title><link rel="stylesheet" type="text/css" href="css.css"><script type="text/javascript" src="includer.js"></script><script language='jscript' type='text/javascript' src='copycode.js'></script></head><body><div id="heading"><h1>» Inno Setup Faq. Как получить определенное значение из INI-файла?</h1></div><br><script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM"> <input type="button" value="Копировать в буфер обмена" onClick="copyToClipboard( taCode1, theCode1 );"> <blockquote id="theCode1"><font>[Setup]<br>
 AppName={code:GetAppName}<br>
 AppVerName=My Program 1.5<br>
 AppPublisher=My Company, Inc.<br>
@@ -13,17 +13,17 @@ Name: "russian"; MessagesFile: "compiler:Languages\Russian.isl"<br>
 [Code]<br>
 var<br>
 IniValue, IniFile: String;<br>
-///Р”Р»СЏ РїРѕР»СѓС‡РµРЅРёСЏ Р·РЅР°С‡РµРЅРёСЏ РІ РґСЂСѓРіСѓСЋ СЃРµРєС†РёСЋ<br>
+///Для получения значения в другую секцию<br>
 function GetAppName(IniFile: String): String;<br>
 begin<br>
 IniFile:='G:\Name.ini'<br>
 IniValue:= GetIniString('ModuleName', 'AppName', '', IniFile);<br>
 Result:=IniValue<br>
 end;<br>
-///РџСЂРѕСЃС‚Рѕ РїРѕР»СѓС‡РµРЅРёРµ Р·РЅР°С‡РµРЅРёСЏ<br>
+///Просто получение значения<br>
 procedure InitializeWizard();<br>
 begin<br>
 IniFile:='G:\Name.ini'<br>
-IniValue:= GetIniString('ModuleName'{РќР°Р·РІР°РЅРёРµ СЃРµРєС†РёРё}, 'AppName'{РџРѕРґРєР»СЋС‡}, '', IniFile{Ini С„Р°Р№Р»});<br>
+IniValue:= GetIniString('ModuleName'{Название секции}, 'AppName'{Подключ}, '', IniFile{Ini файл});<br>
 WizardForm.WelcomeLabel2.Caption:= IniValue;<br>
 end;</font></blockquote><textarea id="taCode1" style="display:none;" rows="1" cols="5"></textarea><textarea id='taCode' style='display:none;' rows='1' cols='20'></textarea></code><script language="javascript" type="text/javascript">highlightSyntax('delphi_Tc4NTM','delphi');</script><br><div id="heading"><h1><font size="1" face="Consolas">Copyright (c) <a href="http://www.krinkels.org/" target="_blank">Krinkels Inc</a></font></h1></div></body></html>

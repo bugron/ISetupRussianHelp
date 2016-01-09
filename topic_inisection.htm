@@ -1,82 +1,82 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
 <meta http-equiv="X-UA-Compatible" content="IE=8" />
-<title>РЎРµРєС†РёСЏ [INI]</title>
+<title>Секция [INI]</title>
 <!--[if IE 6]><style type="text/css">html{overflow-y:scroll}</style><![endif]-->
 <link rel="stylesheet" type="text/css" href="styles.css" />
 <script type="text/javascript" src="topic.js"></script>
 </head>
 <body>
-<h1 class="topicheading">РЎРµРєС†РёСЏ [INI]</h1>
+<h1 class="topicheading">Секция [INI]</h1>
 <div class="topicbody">
-  <p>Р­С‚Рѕ РЅРµ РѕР±СЏР·Р°С‚РµР»СЊРЅР°СЏ СЃРµРєС†РёСЏ. РћРЅР° РѕРїСЂРµРґРµР»СЏРµС‚ РєР»СЋС‡Рё Рё Р·РЅР°С‡РµРЅРёСЏ, СЃРѕР·РґР°РІР°РµРјС‹Рµ РёРЅСЃС‚Р°Р»Р»СЏС‚РѕСЂРѕРј РІ .INI С„Р°Р№Р»Р°С… РїРѕСЃР»Рµ РєРѕРїРёСЂРѕРІР°РЅРёСЏ С„Р°Р№Р»РѕРІ.</p>
-  <p>РџСЂРёРјРµСЂ СЃРµРєС†РёРё <tt>[INI]</tt>:</p>
+  <p>Это не обязательная секция. Она определяет ключи и значения, создаваемые инсталлятором в .INI файлах после копирования файлов.</p>
+  <p>Пример секции <tt>[INI]</tt>:</p>
   <pre class="indent examplebox">[INI]<br />Filename: &quot;MyProg.ini&quot;; Section: &quot;InstallSettings&quot;; Flags: uninsdeletesection<br />Filename: &quot;MyProg.ini&quot;; Section: &quot;InstallSettings&quot;; Key: &quot;InstallPath&quot;; String: &quot;{app}&quot;</pre>
-  <p>РЎРїРёСЃРѕРє РїРѕРґРґРµСЂР¶РёРІР°РµРјС‹С… <a href="topic_params.htm">РїР°СЂР°РјРµС‚СЂРѕРІ</a>:</p>
+  <p>Список поддерживаемых <a href="topic_params.htm">параметров</a>:</p>
   <dl>
-    <dt class="paramlist"><b><a name="Filename" id="Filename">Filename</a></b>&nbsp;<i>(РћР±СЏР·Р°С‚РµР»СЊРЅРѕ)</i></dt>
+    <dt class="paramlist"><b><a name="Filename" id="Filename">Filename</a></b>&nbsp;<i>(Обязательно)</i></dt>
     <dd class="paramlist">
-      <p>РРјСЏ .INI С„Р°Р№Р»Р°, РєРѕС‚РѕСЂС‹Р№ РёРЅСЃС‚Р°Р»Р»СЏС‚РѕСЂ РґРѕР»Р¶РµРЅ СЃРѕР·РґР°С‚СЊ РёР»Рё РјРѕРґРёС„РёС†РёСЂРѕРІР°С‚СЊ, РјРѕР¶РµС‚ СЃРѕРґРµСЂР¶Р°С‚СЊ РєРѕРЅСЃС‚Р°РЅС‚С‹. Р•СЃР»Рё СЌС‚РѕС‚ РїР°СЂР°РјРµС‚СЂ РїСѓСЃС‚РѕР№, Р·Р°РїРёСЃСЊ Р±СѓРґРµС‚ РїСЂРѕРёР·РІРѕРґРёС‚СЊСЃСЏ РІ&nbsp;С„Р°Р№Р»Рµ WIN.INI РІ СЃРёСЃС‚РµРјРЅРѕР№ РїР°РїРєРµ Windows.</p>
+      <p>Имя .INI файла, который инсталлятор должен создать или модифицировать, может содержать константы. Если этот параметр пустой, запись будет производиться в&nbsp;файле WIN.INI в системной папке Windows.</p>
       <div class="examplebox">
-        <div class="exampleheader">РќР°РїСЂРёРјРµСЂ:</div>
+        <div class="exampleheader">Например:</div>
         <pre class="nomargin">Filename: &quot;{app}\MyProg.ini&quot;</pre>
       </div>
     </dd>
-    <dt class="paramlist"><b><a name="Section" id="Section">Section</a></b>&nbsp;<i>(РћР±СЏР·Р°С‚РµР»СЊРЅРѕ)</i></dt>
+    <dt class="paramlist"><b><a name="Section" id="Section">Section</a></b>&nbsp;<i>(Обязательно)</i></dt>
     <dd class="paramlist">
-      <p>РРјСЏ СЃРµРєС†РёРё, РІ РєРѕС‚РѕСЂРѕРј РЅСѓР¶РЅРѕ СЃРґРµР»Р°С‚СЊ Р·Р°РїРёСЃСЊ, РјРѕР¶РµС‚ СЃРѕРґРµСЂР¶Р°С‚СЊ РєРѕРЅСЃС‚Р°РЅС‚С‹.</p>
+      <p>Имя секции, в котором нужно сделать запись, может содержать константы.</p>
       <div class="examplebox">
-        <div class="exampleheader">РќР°РїСЂРёРјРµСЂ:</div>
+        <div class="exampleheader">Например:</div>
         <pre class="nomargin">Section: &quot;Settings&quot;</pre>
       </div>
     </dd>
     <dt class="paramlist"><b><a name="Key" id="Key">Key</a></b></dt>
     <dd class="paramlist">
-      <p>РРјСЏ РєР»СЋС‡Р°, РІ РєРѕС‚РѕСЂС‹Р№ РЅСѓР¶РЅРѕ Р·Р°РїРёСЃР°С‚СЊ РґР°РЅРЅС‹Рµ, РјРѕР¶РµС‚ СЃРѕРґРµСЂР¶Р°С‚СЊ РєРѕРЅСЃС‚Р°РЅС‚С‹. Р•СЃР»Рё СЌС‚РѕС‚ РїР°СЂР°РјРµС‚СЂ РЅРµ СѓРєР°Р·Р°РЅ РёР»Рё РїСѓСЃС‚РѕР№, РєР»СЋС‡ РЅРµ СЃРѕР·РґР°РµС‚СЃСЏ.</p>
+      <p>Имя ключа, в который нужно записать данные, может содержать константы. Если этот параметр не указан или пустой, ключ не создается.</p>
       <div class="examplebox">
-        <div class="exampleheader">РќР°РїСЂРёРјРµСЂ:</div>
+        <div class="exampleheader">Например:</div>
         <pre class="nomargin">Key: &quot;Version&quot;</pre>
       </div>
     </dd>
     <dt class="paramlist"><b><a name="String" id="String">String</a></b></dt>
     <dd class="paramlist">
-      <p>Р—РЅР°С‡РµРЅРёРµ, РєРѕС‚РѕСЂРѕРµ РЅСѓР¶РЅРѕ РїСЂРѕРїРёСЃР°С‚СЊ РІ РєР»СЋС‡Рµ, РјРѕР¶РµС‚ СЃРѕРґРµСЂР¶Р°С‚СЊ РєРѕРЅСЃС‚Р°РЅС‚С‹. Р•СЃР»Рё СЌС‚РѕС‚ РїР°СЂР°РјРµС‚СЂ РЅРµ СѓРєР°Р·Р°РЅ РёР»Рё РїСѓСЃС‚РѕР№, РєР»СЋС‡ РЅРµ СЃРѕР·РґР°РµС‚СЃСЏ</p>
+      <p>Значение, которое нужно прописать в ключе, может содержать константы. Если этот параметр не указан или пустой, ключ не создается</p>
       <div class="examplebox">
-        <div class="exampleheader">РќР°РїСЂРёРјРµСЂ:</div>
+        <div class="exampleheader">Например:</div>
         <pre class="nomargin">String: &quot;1.0&quot;</pre>
       </div>
     </dd>
     <dt class="paramlist"><b><a name="Flags" id="Flags">Flags</a></b></dt>
     <dd class="paramlist">
-      <p>РџР°СЂР°РјРµС‚СЂС‹ РґР»СЏ СѓСЃС‚Р°РЅРѕРІРєРё РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹С… РѕРїС†РёР№. Р Р°Р·РґРµР»СЏСЋС‚СЃСЏ РїСЂРѕР±РµР»Р°РјРё. РџРѕРґРґРµСЂР¶РёРІР°РµРјС‹Рµ Р·РЅР°С‡РµРЅРёСЏ:</p>
+      <p>Параметры для установки дополнительных опций. Разделяются пробелами. Поддерживаемые значения:</p>
       <dl>
         <dt class="flaglist"><a name="createkeyifdoesntexist" id="createkeyifdoesntexist">createkeyifdoesntexist</a></dt>
         <dd>
-          <p>Р—Р°РїРёСЃС‹РІР°С‚СЊ Р·РЅР°С‡РµРЅРёРµ РІ РєР»СЋС‡, <i>С‚РѕР»СЊРєРѕ</i> РµСЃР»Рё РєР»СЋС‡ РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚. Р•СЃР»Рё СЌС‚РѕС‚ С„Р»Р°Рі <i>РЅРµ СѓРєР°Р·Р°РЅ</i>, Р·РЅР°С‡РµРЅРёРµ Р±СѓРґРµС‚ Р·Р°РїРёСЃР°РЅРѕ РІ РєР»СЋС‡ РЅРµР·Р°РІРёСЃРёРјРѕ РѕС‚ РµРіРѕ СЃСѓС‰РµСЃС‚РІРѕРІР°РЅРёСЏ.</p>
+          <p>Записывать значение в ключ, <i>только</i> если ключ не существует. Если этот флаг <i>не указан</i>, значение будет записано в ключ независимо от его существования.</p>
         </dd>
         <dt class="flaglist"><a name="uninsdeleteentry" id="uninsdeleteentry">uninsdeleteentry</a></dt>
         <dd>
-          <p>РЈРґР°Р»РёС‚СЊ Р·Р°РїРёСЃСЊ РїСЂРё СѓРґР°Р»РµРЅРёРё РїСЂРѕРіСЂР°РјРјС‹. РњРѕР¶РµС‚ РєРѕРјР±РёРЅРёСЂРѕРІР°С‚СЊСЃСЏ СЃ С„Р»Р°РіРѕРј <tt>uninsdeletesectionifempty</tt>.</p>
+          <p>Удалить запись при удалении программы. Может комбинироваться с флагом <tt>uninsdeletesectionifempty</tt>.</p>
         </dd>
         <dt class="flaglist"><a name="uninsdeletesection" id="uninsdeletesection">uninsdeletesection</a></dt>
         <dd>
-          <p>РџРѕСЃР»Рµ СѓРґР°Р»РµРЅРёСЏ РїСЂРѕРіСЂР°РјРјС‹ СѓРґР°Р»РёС‚СЊ СЃРµРєС†РёСЋ СЃ РїР°СЂР°РјРµС‚СЂРѕРј, РІ РєРѕС‚РѕСЂРѕРј РѕРЅ РЅР°С…РѕРґРёС‚СЃСЏ. РќРµ СЂРµРєРѕРјРµРЅРґСѓРµС‚СЃСЏ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ СЌС‚РѕС‚ С„Р»Р°Рі РґР»СЏ СЃРµРєС†РёРё, РєРѕС‚РѕСЂРѕР№ РїРѕР»СЊР·СѓРµС‚СЃСЏ Windows (РЅР°РїСЂРёРјРµСЂ, РЅРµРєРѕС‚РѕСЂС‹Рµ СЃРµРєС†РёРё РІ WIN.INI). РЎР»РµРґСѓРµС‚ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ СЌС‚РѕС‚ С„Р»Р°Рі С‚РѕР»СЊРєРѕ РІ СЃРµРєС†РёСЏС…&nbsp;РІР°С€РµРіРѕ РїСЂРёР»РѕР¶РµРЅРёСЏ.</p>
+          <p>После удаления программы удалить секцию с параметром, в котором он находится. Не рекомендуется использовать этот флаг для секции, которой пользуется Windows (например, некоторые секции в WIN.INI). Следует использовать этот флаг только в секциях&nbsp;вашего приложения.</p>
         </dd>
         <dt class="flaglist"><a name="uninsdeletesectionifempty" id="uninsdeletesectionifempty">uninsdeletesectionifempty</a></dt>
         <dd>
-          <p>РўРѕ Р¶Рµ, С‡С‚Рѕ Рё <tt>uninsdeletesection</tt>, РЅРѕ СѓРґР°Р»СЏРµС‚ СЃРµРєС†РёСЋ, С‚РѕР»СЊРєРѕ РµСЃР»Рё РІ РЅРµР№ РЅРµ РѕСЃС‚Р°Р»РѕСЃСЊ РєР»СЋС‡РµР№. РњРѕР¶РµС‚ РєРѕРјР±РёРЅРёСЂРѕРІР°С‚СЊСЃСЏ СЃ С„Р»Р°РіРѕРј <tt>uninsdeleteentry</tt>.</p>
+          <p>То же, что и <tt>uninsdeletesection</tt>, но удаляет секцию, только если в ней не осталось ключей. Может комбинироваться с флагом <tt>uninsdeleteentry</tt>.</p>
         </dd>
       </dl>
       <div class="examplebox">
-        <div class="exampleheader">РќР°РїСЂРёРјРµСЂ:</div>
+        <div class="exampleheader">Например:</div>
         <pre class="nomargin">Flags: uninsdeleteentry</pre>
       </div>
     </dd>
   </dl>
-  <p><b><a href="topic_componentstasksparams.htm">РџР°СЂР°РјРµС‚СЂС‹ СЃРµРєС†РёР№ РЎomponents Рё Tasks</a></b></p>
-  <p><b><a href="topic_commonparams.htm">РћР±С‰РёРµ РїР°СЂР°РјРµС‚СЂС‹</a></b></p>
+  <p><b><a href="topic_componentstasksparams.htm">Параметры секций Сomponents и Tasks</a></b></p>
+  <p><b><a href="topic_commonparams.htm">Общие параметры</a></b></p>
 </div>
 </body>
 </html>

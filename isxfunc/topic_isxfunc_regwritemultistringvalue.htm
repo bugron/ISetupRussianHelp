@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
 <meta http-equiv="X-UA-Compatible" content="IE=8" />
 <title>Pascal Scripting: RegWriteMultiStringValue</title>
 <link rel="stylesheet" type="text/css" href="../styles.css" />
@@ -10,13 +10,13 @@
 <body>
 <h1 class="topicheading">Pascal Scripting: RegWriteMultiStringValue</h1>
 <div class="topicbody">
-  <div><b>РџСЂРѕС‚РѕС‚РёРї:</b></div>
+  <div><b>Прототип:</b></div>
   <p><tt>function RegWriteMultiStringValue(const RootKey: Integer; const SubKeyName, ValueName, Data: String): Boolean;</tt></p>
-  <div><b>РћРїРёСЃР°РЅРёРµ:</b></div>
-  <p>Р—Р°РїРёСЃС‹РІР°РµС‚ СѓРєР°Р·Р°РЅРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ СЂРµРµСЃС‚СЂР° С‚РёРїР° REG_MULTI_SZ. РџСЂРё СѓСЃРїРµС€РЅРѕРј РІС‹РїРѕР»РЅРµРЅРёРё РІРѕР·РІСЂР°С‰Р°РµС‚ True, РёРЅР°С‡Рµ False.</p>
-  <div><b>РљРѕРјРјРµРЅС‚Р°СЂРёРё:</b></div>
-  <p>Р’ Р·РЅР°С‡РµРЅРёРё С‚РёРїР° REG_MULTI_SZ РєР°Р¶РґР°СЏ СЃС‚СЂРѕРєР° СЂР°Р·РґРµР»СЏРµС‚СЃСЏ РЅСѓР»РµРІС‹Рј СЃРёРјРІРѕР»РѕРј (<tt>#0</tt>).</p>
-  <div><b>РќР°РїСЂРёРјРµСЂ:</b></div>
+  <div><b>Описание:</b></div>
+  <p>Записывает указанное значение реестра типа REG_MULTI_SZ. При успешном выполнении возвращает True, иначе False.</p>
+  <div><b>Комментарии:</b></div>
+  <p>В значении типа REG_MULTI_SZ каждая строка разделяется нулевым символом (<tt>#0</tt>).</p>
+  <div><b>Например:</b></div>
   <pre>begin
   RegWriteMultiStringValue(HKEY_CURRENT_USER, 'Software\My Company\My Program',
     'MultiStringTest', 'String1' + #0 + 'String2' + #0 + 'String3');

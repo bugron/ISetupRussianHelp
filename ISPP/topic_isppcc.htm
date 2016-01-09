@@ -1,51 +1,51 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
 <meta http-equiv="X-UA-Compatible" content="IE=8" />
-<title>Inno Setup Preprocessor: Р Р°СЃС€РёСЂРµРЅРЅС‹Р№ РєРѕРјРїРёР»СЏС‚РѕСЂ РєРѕРјР°РЅРґРЅРѕР№ СЃС‚СЂРѕРєРё</title>
+<title>Inno Setup Preprocessor: Расширенный компилятор командной строки</title>
 <link rel="stylesheet" type="text/css" href="../styles.css" />
 <script type="text/javascript" src="../topic.js"></script>
 </head>
 <body>
-<h1 class="topicheading">Inno Setup Preprocessor: Р Р°СЃС€РёСЂРµРЅРЅС‹Р№ РєРѕРјРїРёР»СЏС‚РѕСЂ РєРѕРјР°РЅРґРЅРѕР№ СЃС‚СЂРѕРєРё</h1>
+<h1 class="topicheading">Inno Setup Preprocessor: Расширенный компилятор командной строки</h1>
 <div class="topicbody">
-  <p>РџСЂРµРїСЂРѕС†РµСЃСЃРѕСЂ Inno Setup Р·Р°РјРµРЅСЏРµС‚ СЃС‚Р°РЅРґР°СЂС‚РЅС‹Р№ РєРѕРјРїРёР»СЏС‚РѕСЂ РєРѕРјР°РЅРґРЅРѕР№ СЃС‚СЂРѕРєРё Inno Setup (ISCC.exe) Р±РѕР»РµРµ СЂР°СЃС€РёСЂРµРЅРЅРѕР№ РІРµСЂСЃРёРµР№. Р­С‚Р° СЂР°СЃС€РёСЂРµРЅРЅР°СЏ РІРµСЂСЃРёСЏ РѕР±РµСЃРїРµС‡РёРІР°РµС‚ РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Рµ РїР°СЂР°РјРµС‚СЂС‹, С‡С‚РѕР±С‹ СѓРїСЂР°РІР»СЏС‚СЊ РїСЂРµРїСЂРѕС†РµСЃСЃРѕСЂРѕРј Inno Setup.</p>
-  <p>РџСЂРёРјРµСЂ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ: <tt>iscc [options] scriptfile.iss</tt>. РР»Рё РјРѕР¶РЅРѕ С‡РёС‚Р°С‚СЊ РёР· СЃС‚Р°РЅРґР°СЂС‚РЅРѕРіРѕ РІРІРѕРґР°: <tt>iscc [options] -</tt>.</p>
-  <p>РћРїС†РёРё, РєРѕС‚РѕСЂС‹Рµ СЌРјСѓР»РёСЂСѓСЋС‚ РґРёСЂРµРєС‚РёРІС‹ <a href="topic_define.htm">define</a> РёР»Рё <a href="topic_pragma.htm">pragma</a>:</p>
+  <p>Препроцессор Inno Setup заменяет стандартный компилятор командной строки Inno Setup (ISCC.exe) более расширенной версией. Эта расширенная версия обеспечивает дополнительные параметры, чтобы управлять препроцессором Inno Setup.</p>
+  <p>Пример использования: <tt>iscc [options] scriptfile.iss</tt>. Или можно читать из стандартного ввода: <tt>iscc [options] -</tt>.</p>
+  <p>Опции, которые эмулируют директивы <a href="topic_define.htm">define</a> или <a href="topic_pragma.htm">pragma</a>:</p>
   <table width="560">
     <tr>
       <td width="146" class="cellleft"><tt>/d&lt;name&gt;[=&lt;value&gt;]</tt></td>
-      <td width="410" class="cellright">РЈСЃС‚Р°РЅР°РІР»РёРІР°РµС‚<tt> #define public &lt;name&gt; &lt;value&gt;</tt></td>
+      <td width="410" class="cellright">Устанавливает<tt> #define public &lt;name&gt; &lt;value&gt;</tt></td>
     </tr>
     <tr>
       <td class="cellleft"><tt>/$&lt;letter&gt;(+|-)</tt></td>
-      <td class="cellright">РЈСЃС‚Р°РЅР°РІР»РёРІР°РµС‚<tt> #pragma option -&lt;letter&gt;(+|-)</tt></td>
+      <td class="cellright">Устанавливает<tt> #pragma option -&lt;letter&gt;(+|-)</tt></td>
     </tr>
     <tr>
       <td class="cellleft"><tt>/p&lt;letter&gt;(+|-)</tt></td>
-      <td class="cellright">РЈСЃС‚Р°РЅР°РІР»РёРІР°РµС‚<tt> #pragma parseroption -&lt;letter&gt;(+|-)</tt></td>
+      <td class="cellright">Устанавливает<tt> #pragma parseroption -&lt;letter&gt;(+|-)</tt></td>
     </tr>
     <tr>
       <td class="cellleft"><tt>/i&lt;paths&gt;</tt></td>
-      <td class="cellright">РЈСЃС‚Р°РЅР°РІР»РёРІР°РµС‚<tt> #pragma include -&lt;paths&gt;</tt></td>
+      <td class="cellright">Устанавливает<tt> #pragma include -&lt;paths&gt;</tt></td>
     </tr>
     <tr>
       <td class="cellleft"><tt>/{#&lt;string&gt;</tt></td>
-      <td class="cellright">РЈСЃС‚Р°РЅР°РІР»РёРІР°РµС‚<tt> #pragma inlinestart -&lt;string&gt;</tt></td>
+      <td class="cellright">Устанавливает<tt> #pragma inlinestart -&lt;string&gt;</tt></td>
     </tr>
     <tr>
       <td class="cellleft"><tt>/}&lt;string&gt;</tt></td>
-      <td class="cellright">РЈСЃС‚Р°РЅР°РІР»РёРІР°РµС‚<tt> #pragma inlineend -&lt;string&gt;</tt></td>
+      <td class="cellright">Устанавливает<tt> #pragma inlineend -&lt;string&gt;</tt></td>
     </tr>
     <tr>
       <td class="cellleft"><tt>/v&lt;number&gt;</tt></td>
-      <td class="cellright">РЈСЃС‚Р°РЅР°РІР»РёРІР°РµС‚<tt> #pragma verboselevel -&lt;number&gt;</tt></td>
+      <td class="cellright">Устанавливает<tt> #pragma verboselevel -&lt;number&gt;</tt></td>
     </tr>
   </table>
-  <p>Р”СЂСѓРіРёРµ РґРѕРїСѓСЃС‚РёРјС‹Рµ РѕРїС†РёРё: &quot;/O&quot; - РѕРїСЂРµРґРµР»СЏРµС‚ РІС‹С…РѕРґРЅРѕР№ РїСѓС‚СЊ (РїРµСЂРµР·Р°РїРёСЃС‹РІР°СЏ OutputDir), &quot;/F&quot; - РѕРїСЂРµРґРµР»СЏРµС‚ РІС‹С…РѕРґРЅРѕРµ РёРјСЏ С„Р°Р№Р»Р° (РїРµСЂРµР·Р°РїРёСЃС‹РІР°СЏ OutputBaseFilename), Рё &quot;/Q[p]&quot; - С‚РёС…Р°СЏ РєРѕРјРїРёР»СЏС†РёСЏ (РІС‹РІРѕРґСЏС‚СЃСЏ С‚РѕР»СЊРєРѕ СЃРѕРѕР±С‰РµРЅРёСЏ РѕР± РѕС€РёР±РєР°С…, РїР°СЂР°РјРµС‚СЂ "p" РїРѕРєР°Р·С‹РІР°РµС‚ РёРЅС„РѕСЂРјР°С†РёСЋ Рѕ РїСЂРѕРіСЂРµСЃСЃРµ).</p>
-  <p>РџСЂРёРјРµСЂ: <tt>iscc /$c- /pu+ &quot;/dLic=Trial Lic.txt&quot; /iC:\INC;D:\INC &quot;c:\isetup\samples\my script.iss&quot;</tt></p>
-  <p>ISCC РІРѕР·РІСЂР°С‚РёС‚ РєРѕРґ РІС‹С…РѕРґР° 0, РµСЃР»Рё РєРѕРјРїРёР»СЏС†РёСЏ Р±С‹Р»Р° СѓСЃРїРµС€РЅР°, 1, РµСЃР»Рё РїР°СЂР°РјРµС‚СЂС‹ РєРѕРјР°РЅРґРЅРѕР№ СЃС‚СЂРѕРєРё Р±С‹Р»Рё РЅРµРґРѕРїСѓСЃС‚РёРјС‹, РёР»Рё РїСЂРѕРёР·РѕС€Р»Р° РІРЅСѓС‚СЂРµРЅРЅСЏСЏ РѕС€РёР±РєР°, РёР»Рё 2, РµСЃР»Рё РєРѕРјРїРёР»СЏС†РёСЏ РЅРµ РІС‹РїРѕР»РЅРёР»Р°СЃСЊ.</p>
+  <p>Другие допустимые опции: &quot;/O&quot; - определяет выходной путь (перезаписывая OutputDir), &quot;/F&quot; - определяет выходное имя файла (перезаписывая OutputBaseFilename), и &quot;/Q[p]&quot; - тихая компиляция (выводятся только сообщения об ошибках, параметр "p" показывает информацию о прогрессе).</p>
+  <p>Пример: <tt>iscc /$c- /pu+ &quot;/dLic=Trial Lic.txt&quot; /iC:\INC;D:\INC &quot;c:\isetup\samples\my script.iss&quot;</tt></p>
+  <p>ISCC возвратит код выхода 0, если компиляция была успешна, 1, если параметры командной строки были недопустимы, или произошла внутренняя ошибка, или 2, если компиляция не выполнилась.</p>
 </div>
 </body>
 </html>

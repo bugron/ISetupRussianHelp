@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
 <meta http-equiv="X-UA-Compatible" content="IE=8" />
 <title>Pascal Scripting: ExtractRelativePath</title>
 <link rel="stylesheet" type="text/css" href="../styles.css" />
@@ -10,11 +10,11 @@
 <body>
 <h1 class="topicheading">Pascal Scripting: ExtractRelativePath</h1>
 <div class="topicbody">
-  <div><b>РџСЂРѕС‚РѕС‚РёРї:</b></div>
+  <div><b>Прототип:</b></div>
   <p><tt>function ExtractRelativePath(const BaseName, DestName: String): String;</tt></p>
-  <div><b>РћРїРёСЃР°РЅРёРµ:</b></div>
-  <p>РљРѕРЅРІРµСЂС‚РёСЂСѓРµС‚ РїРѕР»РЅС‹Р№ РїСѓС‚СЊ РІ РѕС‚РЅРѕСЃРёС‚РµР»СЊРЅС‹Р№. РџР°СЂР°РјРµС‚СЂ DestName СѓРєР°Р·С‹РІР°РµС‚ РёРјСЏ С„Р°Р№Р»Р° (РІРєР»СЋС‡Р°СЏ РїСѓС‚СЊ) РґР»СЏ РєРѕРЅРІРµСЂС‚Р°С†РёРё. BaseName - СЌС‚Рѕ РїРѕР»РЅРѕРµ РёРјСЏ РїР°РїРєРё, Рє РєРѕС‚РѕСЂРѕРјСѓ РІРѕР·РІСЂР°С‰Р°РµРјС‹Р№ РїСѓС‚СЊ СЏРІР»СЏРµС‚СЃСЏ РѕС‚РЅРѕСЃРёС‚РµР»СЊРЅС‹Рј. BaseName РјРѕР¶РµС‚ РёР»Рё РЅРµ РјРѕР¶РµС‚ РІРєР»СЋС‡Р°С‚СЊ РІ СЃРµР±СЏ РёРјСЏ С„Р°Р№Р»Р°, РЅРѕ РѕРЅР° РґРѕР»Р¶РЅР° СЃРѕРґРµСЂР¶Р°С‚СЊ РѕРєРѕРЅС‡Р°С‚РµР»СЊРЅС‹Р№ СЂР°Р·РґРµР»РёС‚РµР»СЊ РїСѓС‚Рё.</p>
-  <div><b>РќР°РїСЂРёРјРµСЂ:</b></div>
+  <div><b>Описание:</b></div>
+  <p>Конвертирует полный путь в относительный. Параметр DestName указывает имя файла (включая путь) для конвертации. BaseName - это полное имя папки, к которому возвращаемый путь является относительным. BaseName может или не может включать в себя имя файла, но она должна содержать окончательный разделитель пути.</p>
+  <div><b>Например:</b></div>
   <pre>var
   S: String;
 begin

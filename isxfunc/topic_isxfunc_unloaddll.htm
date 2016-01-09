@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
 <meta http-equiv="X-UA-Compatible" content="IE=8" />
 <title>Pascal Scripting: UnloadDLL</title>
 <link rel="stylesheet" type="text/css" href="../styles.css" />
@@ -10,15 +10,15 @@
 <body>
 <h1 class="topicheading">Pascal Scripting: UnloadDLL</h1>
 <div class="topicbody">
-  <div><b>РџСЂРѕС‚РѕС‚РёРї:</b></div>
+  <div><b>Прототип:</b></div>
   <p><tt>procedure UnloadDLL(Filename: String);</tt></p>
-  <div><b>РћРїРёСЃР°РЅРёРµ:</b></div>
-  <p>Р’С‹РіСЂСѓР¶Р°РµС‚ Р·Р°РґР°РЅРЅС‹Р№ DLL, РєРѕС‚РѕСЂС‹Р№ Р±С‹Р» Р·Р°РіСЂСѓР¶РµРЅ РёР· СЃРµРєС†РёРё [Code], РёСЃРїРѕР»СЊР·СѓСЏ РєР»СЋС‡РµРІРѕРµ СЃР»РѕРІРѕ &quot;external&quot;. Р­С‚Рѕ РјРѕР¶РµС‚ Р±С‹С‚СЊ РїРѕР»РµР·РЅРѕ, РµСЃР»Рё РІС‹ С…РѕС‚РёС‚Рµ СѓРґР°Р»РёС‚СЊ DLL.<br />
-    РРјСЏ С„Р°Р№Р»Р° Рё РїСѓС‚СЊ РґРѕР»Р¶РЅС‹ С‚РѕС‡РЅРѕ СЃРѕРІРїР°РґР°С‚СЊ. Р’С‹ РґРѕР»Р¶РЅС‹ СЂР°Р·РІРµСЂРЅСѓС‚СЊ Р»СЋР±С‹Рµ РєРѕРЅСЃС‚Р°РЅС‚С‹ РІ РёРјРµРЅРё С„Р°Р№Р»Р° СЃР°РјРѕСЃС‚РѕСЏС‚РµР»СЊРЅРѕ РїСЂРµР¶РґРµ, С‡РµРј РїРµСЂРµРґР°С‚СЊ РёС… UnloadDLL.<br />
+  <div><b>Описание:</b></div>
+  <p>Выгружает заданный DLL, который был загружен из секции [Code], используя ключевое слово &quot;external&quot;. Это может быть полезно, если вы хотите удалить DLL.<br />
+    Имя файла и путь должны точно совпадать. Вы должны развернуть любые константы в имени файла самостоятельно прежде, чем передать их UnloadDLL.<br />
     If the function import used a &quot;files:&quot; prefix, prepend the value of the <tt>{tmp}</tt> constant to the filename (e.g. <tt>ExpandConstant('{tmp}\filename.dll')</tt>).</p>
-  <div><b>РљРѕРјРјРµРЅС‚Р°СЂРёРё:</b></div>
-  <p>РќРµ СЂРµРєРѕРјРµРЅРґСѓРµС‚СЃСЏ РїРѕРїСЂРѕР±РѕРІР°С‚СЊ, РЅРѕ РµСЃР»Рё Р’С‹ РїРѕРїС‹С‚Р°РµС‚РµСЃСЊ РІС‹Р·РІР°С‚СЊ С„СѓРЅРєС†РёСЋ РІ DLL, РєРѕС‚РѕСЂС‹Р№ СѓР¶Рµ РІС‹РіСЂСѓР¶РµРЅ, С‚Рѕ DLL Р±СѓРґРµС‚ РїРµСЂРµР·Р°РіСЂСѓР¶РµРЅ.</p>
-  <div><b>РќР°РїСЂРёРјРµСЂ:</b></div>
+  <div><b>Комментарии:</b></div>
+  <p>Не рекомендуется попробовать, но если Вы попытаетесь вызвать функцию в DLL, который уже выгружен, то DLL будет перезагружен.</p>
+  <div><b>Например:</b></div>
   <pre>procedure DllFunc; external 'DllFunc@{app}\MyDll.dll stdcall uninstallonly';<br /><br />...<br /><br />begin<br />  // Call DllFunc<br />  DllFunc;<br /><br />  // Unload the DLL<br />  UnloadDLL(ExpandConstant('{app}\MyDll.dll'));<br /><br />  // Now we can delete the DLL<br />  DeleteFile(ExpandConstant('{app}\MyDll.dll'));<br />end;</pre>
 </div>
 </body>

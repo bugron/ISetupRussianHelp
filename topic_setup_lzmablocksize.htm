@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 <title>[Setup]: LZMABlockSize</title>
-<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="text/html; charset=windows-1251" http-equiv="Content-Type">
 <meta content="IE=8" http-equiv="X-UA-Compatible">
 <link rel="stylesheet" type="text/css" href="styles.css">
 <script type="text/javascript" src="topic.js"></script>
@@ -13,19 +13,19 @@
   <table class="setuphdr">
     <tbody>
       <tr>
-        <td class="setuphdrl"><p>Р’РѕР·РјРѕР¶РЅС‹Рµ Р·РЅР°С‡РµРЅРёСЏ:</p></td>
-        <td class="setuphdrr"><div class="margined"><tt>1024</tt> РґРѕ <tt>262144</tt></div></td>
+        <td class="setuphdrl"><p>Возможные значения:</p></td>
+        <td class="setuphdrr"><div class="margined"><tt>1024</tt> до <tt>262144</tt></div></td>
       </tr>
       <tr>
-        <td class="setuphdrl"><p>Р—РЅР°С‡РµРЅРёРµ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ:</p></td>
+        <td class="setuphdrl"><p>Значение по умолчанию:</p></td>
         <td class="setuphdrr"><div class="margined">4 * <a href="topic_setup_lzmadictionarysize.htm">LZMADictionarySize</a></div></td>
       </tr>
     </tbody>
   </table>
-  <div><b>РћРїРёСЃР°РЅРёРµ:</b></div>
-  <p>РЈРїСЂР°РІР»СЏРµС‚ СЂР°Р·РјРµСЂРѕРј Р±Р»РѕРєР°, РёСЃРїРѕР»СЊР·СѓРµРјРѕРіРѕ РєРѕРјРїСЂРµСЃСЃРѕСЂРѕРј LZMA2, РІ РєРёР»РѕР±Р°Р№С‚Р°С…, РєРѕРіРґР° <a href="topic_setup_lzmanumblockthreads.htm">LZMANumBlockThreads</a>=<tt>2</tt> РёР»Рё РІС‹С€Рµ.</p>
-  <p>РРјРµР№С‚Рµ РІРІРёРґСѓ, С‡С‚Рѕ СѓСЃС‚Р°РЅРѕРІРєР° СЃР»РёС€РєРѕРј РІС‹СЃРѕРєРѕРіРѕ Р·РЅР°С‡РµРЅРёСЏ РјРѕР¶РµС‚ РёРЅРІРµСЂС‚РёСЂРѕРІР°С‚СЊ РїСЂРµРёРјСѓС‰РµСЃС‚РІР° РёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ РјРЅРѕРіРѕРєСЂР°С‚РЅС‹С… Р±Р»РѕС‡РЅС‹С… РїРѕС‚РѕРєРѕРІ. РљР°Рє РїСЂР°РІРёР»Рѕ, СЂР°Р·РјРµСЂ Р±Р»РѕРєР° РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ РЅРµ Р±РѕР»СЊС€Рµ, С‡РµРј РїРѕР»РЅС‹Р№ СЂР°Р·РјРµСЂ Р’Р°С€РёС… РґР°РЅРЅС‹С…, СЂР°Р·РґРµР»РµРЅРЅС‹С… РЅР° С‡РёСЃР»Рѕ Р±Р»РѕС‡РЅС‹С… РїРѕС‚РѕРєРѕРІ.</p>
-  <p><b>РЎРј. С‚Р°РєР¶Рµ:</b><br>
+  <div><b>Описание:</b></div>
+  <p>Управляет размером блока, используемого компрессором LZMA2, в килобайтах, когда <a href="topic_setup_lzmanumblockthreads.htm">LZMANumBlockThreads</a>=<tt>2</tt> или выше.</p>
+  <p>Имейте ввиду, что установка слишком высокого значения может инвертировать преимущества использования многократных блочных потоков. Как правило, размер блока должен быть не больше, чем полный размер Ваших данных, разделенных на число блочных потоков.</p>
+  <p><b>См. также:</b><br>
     <a href="topic_setup_lzmadictionarysize.htm">LZMADictionarySize</a><br>
     <a href="topic_setup_lzmanumblockthreads.htm">LZMANumBlockThreads</a></p>
 </div>

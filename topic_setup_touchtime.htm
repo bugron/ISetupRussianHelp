@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 <title>[Setup]: TouchTime</title>
-<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="text/html; charset=windows-1251" http-equiv="Content-Type">
 <meta content="IE=8" http-equiv="X-UA-Compatible">
 <link rel="stylesheet" type="text/css" href="styles.css">
 <script type="text/javascript" src="topic.js"></script>
@@ -13,20 +13,20 @@
   <table class="setuphdr">
     <tbody>
       <tr>
-        <td class="setuphdrl"><p>Р’РѕР·РјРѕР¶РЅС‹Рµ Р·РЅР°С‡РµРЅРёСЏ:</p></td>
-        <td class="setuphdrr"><div class="margined"><tt>current</tt>, <tt>none</tt>, <tt><i>HH</i>:<i>MM</i></tt>, РёР»Рё <tt><i>HH</i>:<i>MM</i>:<i>SS</i></tt></div></td>
+        <td class="setuphdrl"><p>Возможные значения:</p></td>
+        <td class="setuphdrr"><div class="margined"><tt>current</tt>, <tt>none</tt>, <tt><i>HH</i>:<i>MM</i></tt>, или <tt><i>HH</i>:<i>MM</i>:<i>SS</i></tt></div></td>
       </tr>
       <tr>
-        <td class="setuphdrl"><p>Р—РЅР°С‡РµРЅРёРµ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ:</p></td>
+        <td class="setuphdrl"><p>Значение по умолчанию:</p></td>
         <td class="setuphdrr"><div class="margined"><tt>current</tt></div></td>
       </tr>
     </tbody>
   </table>
-  <div><b>РћРїРёСЃР°РЅРёРµ:</b></div>
-  <p>Р’СЂРµРјСЏ РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РІ РѕС‚РјРµС‚РєРµ РІСЂРµРјСЏ/РґР°С‚Р° РґР»СЏ С„Р°Р№Р»РѕРІ СЃРµРєС†РёРё [Files] СЃ С„Р»Р°РіРѕРј <tt>touch</tt>.</p>
-  <p>РџСЂРё Р·РЅР°С‡РµРЅРёРё <tt>current</tt> РІСЂРµРјСЏ СЂР°РІРЅРѕ СЃРёСЃС‚РµРјРЅРѕРјСѓ РІСЂРµРјРµРЅРё (РІРѕ РІСЂРµРјСЏ РєРѕРјРїРёР»СЏС†РёРё). РџСЂРё Р·РЅР°С‡РµРЅРёРё <tt>none</tt> РІСЂРµРјСЏ РѕСЃС‚Р°РµС‚СЃСЏ РЅРµ С‚СЂРѕРЅСѓС‚С‹Рј. РРЅР°С‡Рµ <tt>TouchTime</tt> С‚РѕР»РєСѓРµС‚СЃСЏ РѕС‚РєСЂС‹С‚Рѕ РІ С„РѕСЂРјР°С‚Рµ <tt><i>HH</i>:<i>MM</i></tt> РёР»Рё <tt><i>HH</i>:<i>MM</i>:<i>SS</i></tt>. Р•СЃР»Рё <a href="topic_setup_timestampsinutc.htm">TimeStampsInUTC</a>=<tt>yes</tt>, РІСЂРµРјСЏ РїСЂРёРЅРёРјР°РµС‚ Р·РЅР°С‡РµРЅРёРµ UTC-РІСЂРµРјРµРЅРё.</p>
+  <div><b>Описание:</b></div>
+  <p>Время используется в отметке время/дата для файлов секции [Files] с флагом <tt>touch</tt>.</p>
+  <p>При значении <tt>current</tt> время равно системному времени (во время компиляции). При значении <tt>none</tt> время остается не тронутым. Иначе <tt>TouchTime</tt> толкуется открыто в формате <tt><i>HH</i>:<i>MM</i></tt> или <tt><i>HH</i>:<i>MM</i>:<i>SS</i></tt>. Если <a href="topic_setup_timestampsinutc.htm">TimeStampsInUTC</a>=<tt>yes</tt>, время принимает значение UTC-времени.</p>
   <div class="examplebox">
-    <div class="exampleheader">РќР°РїСЂРёРјРµСЂ:</div>
+    <div class="exampleheader">Например:</div>
     <pre class="nomargin">TouchTime=13:00</pre>
   </div>
 </div>

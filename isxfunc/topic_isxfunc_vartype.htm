@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
 <meta http-equiv="X-UA-Compatible" content="IE=8" />
 <title>Pascal Scripting: VarType</title>
 <link rel="stylesheet" type="text/css" href="../styles.css" />
@@ -10,12 +10,12 @@
 <body>
 <h1 class="topicheading">Pascal Scripting: VarType</h1>
 <div class="topicbody">
-  <div><b>РџСЂРѕС‚РѕС‚РёРї:</b></div>
+  <div><b>Прототип:</b></div>
   <p><tt>function VarType(const V: Variant): TVarType;</tt></p>
-  <div><b>РћРїРёСЃР°РЅРёРµ:</b></div>
+  <div><b>Описание:</b></div>
   <p>Returns the type code of the specified variant.</p>
-  <p>РњР»Р°РґС€РёРµ РґРІРµРЅР°РґС†Р°С‚СЊ Р±РёС‚РѕРІ РєРѕРґР° С‚РёРїР° (РѕРЅРё РѕРїСЂРµРґРµР»РµРЅС‹ РјР°СЃРєРѕР№ varTypeMask) РѕРїСЂРµРґРµР»СЏСЋС‚ С‚РёРї РїРµСЂРµРјРµРЅРЅРѕР№. Р•СЃР»Рё РїРµСЂРµРјРµРЅРЅР°СЏ СЏРІР»СЏРµС‚СЃСЏ РјР°СЃСЃРёРІРѕРј СѓРєР°Р·Р°РЅРЅРѕРіРѕ С‚РёРїР°, С‚Рѕ СЃС‚РѕРёС‚ Р±РёС‚ varArray. Р•СЃР»Рё РїРµСЂРµРјРµРЅРЅР°СЏ СЏРІР»СЏРµС‚СЃСЏ СЃСЃС‹Р»РєРѕР№ Р·РЅР°С‡РµРЅРёСЏ СѓРєР°Р·Р°РЅРЅРѕРіРѕ С‚РёРїР° РІРјРµСЃС‚Рѕ СЂРµР°Р»СЊРЅРѕРіРѕ Р·РЅР°С‡РµРЅРёСЏ, С‚Рѕ СЃС‚РѕРёС‚ Р±РёС‚ varByRef.</p>
-  <p>РћРїСЂРµРґРµР»РµРЅС‹ СЃР»РµРґСѓСЋС‰РёРµ РєРѕРґС‹ С‚РёРїРѕРІ:</p>
+  <p>Младшие двенадцать битов кода типа (они определены маской varTypeMask) определяют тип переменной. Если переменная является массивом указанного типа, то стоит бит varArray. Если переменная является ссылкой значения указанного типа вместо реального значения, то стоит бит varByRef.</p>
+  <p>Определены следующие коды типов:</p>
   <pre>
 const
   varEmpty    = $0000;

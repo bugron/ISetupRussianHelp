@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
 <meta http-equiv="X-UA-Compatible" content="IE=8" />
 <title>Pascal Scripting: CreateInputDirPage</title>
 <link rel="stylesheet" type="text/css" href="../styles.css" />
@@ -10,13 +10,13 @@
 <body>
 <h1 class="topicheading">Pascal Scripting: CreateInputDirPage</h1>
 <div class="topicbody">
-  <div><b>РџСЂРѕС‚РѕС‚РёРї:</b></div>
+  <div><b>Прототип:</b></div>
   <p><tt>function CreateInputDirPage(const AfterID: Integer; const ACaption, ADescription, ASubCaption: String; AAppendDir: Boolean; ANewFolderName: String): TInputDirWizardPage;</tt></p>
-  <div><b>РћРїРёСЃР°РЅРёРµ:</b></div>
-  <p>РЎРѕР·РґР°РµС‚ СЃС‚СЂР°РЅРёС†Сѓ РјР°СЃС‚РµСЂР°, РєРѕС‚РѕСЂР°СЏ СЃРѕРґРµСЂР¶РёС‚ РїРѕР»СЏ РІРІРѕРґР° Рё РєРЅРѕРїРєРё РґР»СЏ РІС‹Р±РѕСЂР° РїР°РїРѕРє. Р•СЃР»Рё AAppendDir СЏРІР»СЏРµС‚СЃСЏ True, С‚Рѕ Р·РЅР°С‡РµРЅРёРµ ANewFolderName <span id="result_box" lang="ru" xml:lang="ru">РґРѕР±Р°РІР»СЏРµС‚СЃСЏ</span> Рє РїСѓС‚Рё, РєРѕС‚РѕСЂС‹Р№ РІС‹Р±СЂР°Р» РїРѕР»СЊР·РѕРІР°С‚РµР»СЊ. Р•СЃР»Рё AAppendDir СЏРІР»СЏРµС‚СЃСЏ False Рё ANewFolderName РЅР° РїСѓСЃС‚РѕР№, Р±СѓРґРµС‚ РїРѕРєР°Р·Р°РЅР° РєРЅРѕРїРєР° &quot;РЎРѕР·РґР°С‚СЊ РЅРѕРІСѓСЋ РїР°РїРєСѓ&quot;, РєРѕС‚РѕСЂР°СЏ СЃРѕР·РґР°РµС‚ РїР°РїРєСѓ СЃ СѓРєР°Р·Р°РЅРЅС‹Рј РёРјРµРЅРµРј РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ.</p>
-  <div><b>РљРѕРјРјРµРЅС‚Р°СЂРёРё:</b></div>
-  <p>Р”Р»СЏ СЃРѕР·РґР°РЅРёСЏ РїРѕР»РµР№ РґР»СЏ РІС‹Р±РѕСЂР° РїР°РїРѕРє, РІС‹Р·РѕРІРёС‚Рµ РјРµС‚РѕРґ Add. РСЃРїРѕР»СЊР·СѓР№С‚Рµ СЃРІРѕР№СЃС‚РІРѕ ValuesвЂ‹вЂ‹, С‡С‚РѕР±С‹ РїРѕР»СѓС‡РёС‚СЊ/СѓСЃС‚Р°РЅРѕРІРёС‚СЊ Р·РЅР°С‡РµРЅРёСЏ РѕР±СЉРµРєС‚РѕРІ.</p>
-  <div><b>РќР°РїСЂРёРјРµСЂ:</b></div>
+  <div><b>Описание:</b></div>
+  <p>Создает страницу мастера, которая содержит поля ввода и кнопки для выбора папок. Если AAppendDir является True, то значение ANewFolderName <span id="result_box" lang="ru" xml:lang="ru">добавляется</span> к пути, который выбрал пользователь. Если AAppendDir является False и ANewFolderName на пустой, будет показана кнопка &quot;Создать новую папку&quot;, которая создает папку с указанным именем по умолчанию.</p>
+  <div><b>Комментарии:</b></div>
+  <p>Для создания полей для выбора папок, вызовите метод Add. Используйте свойство Values??, чтобы получить/установить значения объектов.</p>
+  <div><b>Например:</b></div>
   <pre>var
   Page: TInputDirWizardPage;
   DataDir: String;
@@ -42,7 +42,7 @@ Page.Values[0] := ExpandConstant('{userappdata}\My Company\My Program');
 DataDir := Page.Values[0];
 </pre>
 </div>
-<div><b>РЎРј. С‚Р°РєР¶Рµ:</b></div>
+<div><b>См. также:</b></div>
 <p><a href="../topic_scriptclasses.htm#TInputDirWizardPage">TInputDirWizardPage</a>
 </p>
 </body>

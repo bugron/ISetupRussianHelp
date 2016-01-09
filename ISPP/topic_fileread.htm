@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
 <meta http-equiv="X-UA-Compatible" content="IE=8" />
 <title>Inno Setup Preprocessor: FileRead</title>
 <link rel="stylesheet" type="text/css" href="../styles.css" />
@@ -10,16 +10,16 @@
 <body>
 <h1 class="topicheading">Inno Setup Preprocessor: FileRead</h1>
 <div class="topicbody">
-  <h2 class="heading notopmargin">РџСЂРѕС‚РѕС‚РёРї</h2>
+  <h2 class="heading notopmargin">Прототип</h2>
   <p><tt><b>str</b> FileRead(<b>int</b>)<br />
   </tt></p>
-  <h2 class="heading">РћРїРёСЃР°РЅРёРµ</h2>
-  <p>Р¤СѓРЅРєС†РёСЏ С‡РёС‚Р°РµС‚ СЃР»РµРґСѓСЋС‰СѓСЋ СЃС‚СЂРѕРєСѓ РІ С‚РµРєСЃС‚РѕРІРѕРј С„Р°Р№Р»Рµ, РѕС‚РєСЂС‹С‚РѕРј С„СѓРЅРєС†РёРµР№ <tt><a href="topic_fileopen.htm">FileOpen</a></tt>. Р•РґРёРЅСЃС‚РІРµРЅРЅС‹Р№ РїР°СЂР°РјРµС‚СЂ РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ РґРµСЃРєСЂРёРїС‚РѕСЂРѕРј С„Р°Р№Р»Р°, РІРѕР·РІСЂР°С‰РµРЅРЅС‹Рј&nbsp;С„СѓРЅРєС†РёРµР№ <tt>FileOpen</tt>.</p>
+  <h2 class="heading">Описание</h2>
+  <p>Функция читает следующую строку в текстовом файле, открытом функцией <tt><a href="topic_fileopen.htm">FileOpen</a></tt>. Единственный параметр должен быть дескриптором файла, возвращенным&nbsp;функцией <tt>FileOpen</tt>.</p>
   <h2 class="heading">Example</h2>
   <p><tt>#define FileHandle<br/>#define FileLine<br/>#sub ProcessFileLine<br/>&nbsp;&nbsp;#define FileLine = FileRead(FileHandle)<br/>&nbsp;&nbsp;#pragma message FileLine<br/>#endsub<br/>#for {FileHandle = FileOpen("c:\autoexec.bat"); \<br/>&nbsp;&nbsp;FileHandle &amp;&amp; !<a href="topic_fileeof.htm">FileEof</a>(FileHandle); ""}
 							\<br/>&nbsp;&nbsp;ProcessFileLine<br/>#if FileHandle<br/>&nbsp;&nbsp;#expr <a href="topic_fileclose.htm">FileClose</a>(FileHandle)<br/>#endif<br/>
 </tt></p>
-  <h2 class="heading">РЎРј. С‚Р°РєР¶Рµ:</h2>
+  <h2 class="heading">См. также:</h2>
   <p><tt><a href="topic_define.htm">define</a></tt>, <tt><a href="topic_sub.htm">sub</a></tt>, <tt><a href="topic_pragma.htm">pragma</a></tt>, <tt><a href="topic_for.htm">for</a></tt>, <tt><a href="topic_if.htm">if</a></tt>.</p>
 </div>
 </body>

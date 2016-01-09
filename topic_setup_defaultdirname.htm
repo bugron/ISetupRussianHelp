@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 <title>[Setup]: DefaultDirName</title>
-<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="text/html; charset=windows-1251" http-equiv="Content-Type">
 <meta content="IE=8" http-equiv="X-UA-Compatible">
 <link rel="stylesheet" type="text/css" href="styles.css">
 <script type="text/javascript" src="topic.js"></script>
@@ -10,19 +10,19 @@
 <body>
 <h1 class="topicheading">[Setup]: DefaultDirName</h1>
 <div class="topicbody">
-  <div><b>РћРїРёСЃР°РЅРёРµ:</b></div>
-  <p>Р­С‚Р° РѕР±СЏР·Р°С‚РµР»СЊРЅР°СЏ РґРёСЂРµРєС‚РёРІР° РѕРїСЂРµРґРµР»СЏРµС‚ РїР°РїРєСѓ, РІ РєРѕС‚РѕСЂСѓСЋ РёРЅСЃС‚Р°Р»Р»СЏС‚РѕСЂ РїСЂРµРґР»РѕР¶РёС‚ СѓСЃС‚Р°РЅРѕРІРёС‚СЊ РїСЂРѕРіСЂР°РјРјСѓ. РћР±С‹С‡РЅРѕ РѕРЅР° РЅР°С‡РёРЅР°РµС‚СЃСЏ СЃ РєРѕРЅСЃС‚Р°РЅС‚С‹.</p>
-  <p>Р•СЃР»Рё <a href="topic_setup_usepreviousappdir.htm">UsePreviousAppDir</a> = <tt>yes</tt> (РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ) Рё РїСЂРµРґС‹РґСѓС‰Р°СЏ РІРµСЂСЃРёСЏ РїСЂРѕРіСЂР°РјРјС‹ СѓР¶Рµ СѓСЃС‚Р°РЅРѕРІР»РµРЅР°, РЅРѕРІР°СЏ РІРµСЂСЃРёСЏ <a href="topic_sameappnotes.htm">С‚РѕРіРѕ Р¶Рµ РїСЂРёР»РѕР¶РµРЅРёСЏ</a> Р±СѓРґРµС‚ СѓСЃС‚Р°РЅРѕРІР»РµРЅР° РІ С‚Сѓ Р¶Рµ РїР°РїРєСѓ, С‡С‚Рѕ Рё СЃС‚Р°СЂР°СЏ. РРЅСЃС‚Р°Р»Р»СЏС‚РѕСЂ РёС‰РµС‚ РїСЂРµРґС‹РґСѓС‰СѓСЋ СѓСЃС‚Р°РЅРѕРІРєСѓ РїРѕ РґРёСЂРµРєС‚РёРІРµ AppId, РёР»Рё, РµСЃР»Рё РѕРЅР° РЅРµ СѓРєР°Р·Р°РЅР°, РїРѕ РґРёСЂРµРєС‚РёРІРµ AppName.</p>
+  <div><b>Описание:</b></div>
+  <p>Эта обязательная директива определяет папку, в которую инсталлятор предложит установить программу. Обычно она начинается с константы.</p>
+  <p>Если <a href="topic_setup_usepreviousappdir.htm">UsePreviousAppDir</a> = <tt>yes</tt> (по умолчанию) и предыдущая версия программы уже установлена, новая версия <a href="topic_sameappnotes.htm">того же приложения</a> будет установлена в ту же папку, что и старая. Инсталлятор ищет предыдущую установку по директиве AppId, или, если она не указана, по директиве AppName.</p>
   <div class="examplebox">
-    <div class="exampleheader">РќР°РїСЂРёРјРµСЂ:</div>
-    <b>Р•СЃР»Рё Р·Р°РґР°РЅРѕ</b><br>
+    <div class="exampleheader">Например:</div>
+    <b>Если задано</b><br>
     <pre>DefaultDirName={sd}\MYPROG</pre>
-    <b>РёРЅСЃС‚Р°Р»Р»СЏС‚РѕСЂ РїСЂРµРґР»РѕР¶РёС‚ РїСѓС‚СЊ РґР»СЏ СѓСЃС‚Р°РЅРѕРІРєРё</b><br>
+    <b>инсталлятор предложит путь для установки</b><br>
     C:\MYPROG<br>
     <br>
-    <b>Рђ РµСЃР»Рё Р·Р°РґР°РЅРѕ</b><br>
+    <b>А если задано</b><br>
     <pre>DefaultDirName={pf}\My Program</pre>
-    <b>РёРЅСЃС‚Р°Р»Р»СЏС‚РѕСЂ РїСЂРµРґР»РѕР¶РёС‚ РїСѓС‚СЊ</b><br>
+    <b>инсталлятор предложит путь</b><br>
     C:\Program Files\My Program</div>
 </div>
 </body>

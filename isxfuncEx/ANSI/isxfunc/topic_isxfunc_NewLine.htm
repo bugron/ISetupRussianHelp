@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
 <meta http-equiv="X-UA-Compatible" content="IE=8" />
 <title>Pascal Scripting Extended: NewLine</title>
 <link rel="stylesheet" type="text/css" href="../../../styles.css" />
@@ -10,12 +10,12 @@
 <body>
 <h1 class="topicheading">Pascal Scripting Extended: NewLine</h1>
 <div class="topicbody">
-  <div><b>РџСЂРѕС‚РѕС‚РёРї:</b></div>
+  <div><b>Прототип:</b></div>
   <p><tt>function NewLine: TMenuItem;</tt></p>
-  <div><b>РћРїРёСЃР°РЅРёРµ:</b></div>
-  Р¤СѓРЅРєС†РёСЏ СЃРѕР·РґР°РµС‚ РґРёРЅР°РјРёС‡РµСЃРєРё, РІРѕ РІСЂРµРјСЏ РІС‹РїРѕР»РЅРµРЅРёСЏ РїСЂРѕРіСЂР°РјРјС‹, СЂР°Р·РґРµР»РёС‚РµР»СЊ СЌР»РµРјРµРЅС‚РѕРІ РјРµРЅСЋ РІ РІРёРґРµ РіРѕСЂРёР·РѕРЅС‚Р°Р»СЊРЅРѕР№ С‡РµСЂС‚С‹. РЎРѕР·РґР°РЅРЅС‹Р№ СЂР°Р·РґРµР»РёС‚РµР»СЊ РјРѕР¶РµС‚ Р±С‹С‚СЊ РґРѕР±Р°РІР»РµРЅ РІ РјР°СЃСЃРёРІ СЌР»РµРјРµРЅС‚РѕРІ РјРµРЅСЋ. Р Р°Р·РґРµР»РёС‚РµР»СЊ РјРѕР¶РµС‚ Р±С‹С‚СЊ РїРµСЂРµРґР°РЅ РІ РєР°С‡РµСЃС‚РІРµ РїР°СЂР°РјРµС‚СЂР° С„СѓРЅРєС†РёР№ NewMenu, NewPopupMenu РёР»Рё NewSubMenu.<br />
-  РџСЂРё РґРёРЅР°РјРёС‡РµСЃРєРѕРј СЃРѕР·РґР°РЅРёРё СЂР°Р·РґРµР»РёС‚РµР»СЏ СЃ РїРѕРјРѕС‰СЊСЋ С„СѓРЅРєС†РёРё NewLine РЅРµРѕР±С…РѕРґРёРјРѕ РїРѕР·Р°Р±РѕС‚РёС‚СЊСЃСЏ Рѕ РІС‹СЃРІРѕР±РѕР¶РґРµРЅРёРё РїР°РјСЏС‚Рё РїРѕ РѕРєРѕРЅС‡Р°РЅРёРё РёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ СЂР°Р·РґРµР»РёС‚РµР»СЏ. Р’С‹Р·РѕРІ РјРµС‚РѕРґРѕРІ Delete Рё Remove РѕР±СЉРµРєС‚Р° TMenuItem РІ РґР°РЅРЅРѕРј СЃР»СѓС‡Р°Рµ РЅРµ Р±СѓРґСѓС‚ РїСЂРёРІРѕРґРёС‚СЊ Рє РІС‹СЃРІРѕР±РѕР¶РґРµРЅРёСЋ РїР°РјСЏС‚Рё.<br />
-  <div><b>РџСЂРёРјРµСЂ:</b></div>
+  <div><b>Описание:</b></div>
+  Функция создает динамически, во время выполнения программы, разделитель элементов меню в виде горизонтальной черты. Созданный разделитель может быть добавлен в массив элементов меню. Разделитель может быть передан в качестве параметра функций NewMenu, NewPopupMenu или NewSubMenu.<br />
+  При динамическом создании разделителя с помощью функции NewLine необходимо позаботиться о высвобождении памяти по окончании использования разделителя. Вызов методов Delete и Remove объекта TMenuItem в данном случае не будут приводить к высвобождению памяти.<br />
+  <div><b>Пример:</b></div>
   <p><tt>var<br />
     <br />
     Items: array[0..2] of TMenuItem;<br />
@@ -26,13 +26,13 @@
     <br />
     Key:=ShortCut(Word('X'),[ssShift]);<br />
     <br />
-    Items[0]:= NewItem('РџСѓРЅРєС‚1', Key, false, true, N1click, 0, 'MenuItem1');<br />
+    Items[0]:= NewItem('Пункт1', Key, false, true, N1click, 0, 'MenuItem1');<br />
     <br />
     Items[1]:= NewLine;<br />
     <br />
-    Items[2]:= NewItem('РџСѓРЅРєС‚2', 0, false, true, N2click, 0, 'MenuItem2');<br />
+    Items[2]:= NewItem('Пункт2', 0, false, true, N2click, 0, 'MenuItem2');<br />
     <br />
-    Item:= NewSubMenu('&amp;РњРµРЅСЋ1', 0, 'Submenu1', Items, true,);<br />
+    Item:= NewSubMenu('&amp;Меню1', 0, 'Submenu1', Items, true,);<br />
     &nbsp;NewMenu(Form1, 'Menu1', Item);<br />
     <br />
     end;</tt></p>

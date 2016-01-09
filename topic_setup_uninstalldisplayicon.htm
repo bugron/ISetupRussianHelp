@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 <title>[Setup]: UninstallDisplayIcon</title>
-<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="text/html; charset=windows-1251" http-equiv="Content-Type">
 <meta content="IE=8" http-equiv="X-UA-Compatible">
 <link rel="stylesheet" type="text/css" href="styles.css">
 <script type="text/javascript" src="topic.js"></script>
@@ -10,12 +10,12 @@
 <body>
 <h1 class="topicheading">[Setup]: UninstallDisplayIcon</h1>
 <div class="topicbody">
-  <div><b>РћРїРёСЃР°РЅРёРµ:</b></div>
-  <p>РћРїСЂРµРґРµР»СЏРµС‚ Р·РЅР°С‡РѕРє (.exe РёР»Рё .ico С„Р°Р№Р»), РєРѕС‚РѕСЂС‹Р№ Р±СѓРґРµС‚ РѕС‚РѕР±СЂР°Р¶Р°С‚СЊСЃСЏ РЅР° СЃС‚СЂР°РЅРёС†Рµ <i>РЈСЃС‚Р°РЅРѕРІРєР° Рё СѓРґР°Р»РµРЅРёРµ РїСЂРѕРіСЂР°РјРј</i> РџР°РЅРµР»Рё СѓРїСЂР°РІР»РµРЅРёСЏ. РРјСЏ С„Р°Р№Р»Р° РґРѕР»Р¶РЅРѕ РЅР°С‡РёРЅР°С‚СЊСЃСЏ СЃ РєРѕРЅСЃС‚Р°РЅС‚С‹, Р·Р°РґР°СЋС‰РµР№ РєР°С‚Р°Р»РѕРі.</p>
-  <p>Р•СЃР»Рё РІ С„Р°Р№Р»Рµ РЅРµСЃРєРѕР»СЊРєРѕ Р·РЅР°С‡РєРѕРІ, РІС‹ РјРѕР¶РµС‚Рµ РґРѕР±Р°РІРёС‚СЊ РѕРєРѕРЅС‡Р°РЅРёРµ ",<i>n</i>", РіРґРµ <i>n</i> вЂ“ РёРЅРґРµРєСЃ Р·РЅР°С‡РєР°.</p>
-  <p>Р•СЃР»Рё РґРёСЂРµРєС‚РёРІР° РЅРµ СѓРєР°Р·Р°РЅР° РёР»Рё РїСѓСЃС‚Р°СЏ, Windows РІС‹Р±РµСЂРµС‚ Р·РЅР°С‡РѕРє СЃР°РјР° Рё РѕРЅ РјРѕР¶РµС‚ РІР°Рј РЅРµ РїРѕРЅСЂР°РІРёС‚СЊСЃСЏ.</p>
+  <div><b>Описание:</b></div>
+  <p>Определяет значок (.exe или .ico файл), который будет отображаться на странице <i>Установка и удаление программ</i> Панели управления. Имя файла должно начинаться с константы, задающей каталог.</p>
+  <p>Если в файле несколько значков, вы можете добавить окончание ",<i>n</i>", где <i>n</i> – индекс значка.</p>
+  <p>Если директива не указана или пустая, Windows выберет значок сама и он может вам не понравиться.</p>
   <div class="examplebox">
-    <div class="exampleheader">РќР°РїСЂРёРјРµСЂ:</div>
+    <div class="exampleheader">Например:</div>
     <pre class="nomargin">UninstallDisplayIcon={app}\MyProg.exe
 UninstallDisplayIcon={app}\MyProg.exe,1
 </pre>

@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
 <meta http-equiv="X-UA-Compatible" content="IE=8" />
 <title>Inno Setup Preprocessor: GetFileVersion</title>
 <link rel="stylesheet" type="text/css" href="../styles.css" />
@@ -10,12 +10,12 @@
 <body>
 <h1 class="topicheading">Inno Setup Preprocessor: GetFileVersion</h1>
 <div class="topicbody">
-  <h2 class="heading notopmargin">РџСЂРѕС‚РѕС‚РёРї</h2>
+  <h2 class="heading notopmargin">Прототип</h2>
   <p><tt><b>str</b> GetFileVersion(<b>str</b>)<br/>
   </tt></p>
-  <h2 class="heading">РћРїРёСЃР°РЅРёРµ</h2>
-  <p>Р¤СѓРЅРєС†РёСЏ<tt> GetFileVersion</tt> РїРѕР»СѓС‡Р°РµС‚ СЃС‚СЂРѕРєРѕРІС‹Р№ РїР°СЂР°РјРµС‚СЂ, РєРѕС‚РѕСЂС‹Р№ РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ СѓСЃС‚Р°РЅРѕРІР»РµРЅ РІ РёРјСЏ С„Р°Р№Р»Р°, РёРЅС„РѕСЂРјР°С†РёСЋ Рѕ РІРµСЂСЃРёРё РєРѕС‚РѕСЂРѕРіРѕ РґРѕР»Р¶РЅР° Р±С‹С‚СЊ Р·Р°РїСЂРѕС€РµРЅР°. Р¤СѓРЅРєС†РёСЏ РІРѕР·РІСЂР°С‰Р°РµС‚ СЃС‚СЂРѕРєСѓ, СЃРѕСЃС‚Р°РІР»РµРЅРЅСѓСЋ РёР· С‡РµС‚С‹СЂРµС… РґРµСЃСЏС‚РёС‡РЅС‹С… С‡РёСЃРµР» СЂР°Р·РґРµР»РµРЅРЅС‹С… С‚РѕС‡РєР°РјРё. Р•СЃР»Рё С„Р°Р№Р» РЅРµ СЃРѕРґРµСЂР¶РёС‚ РґРѕРїСѓСЃС‚РёРјСѓСЋ РёРЅС„РѕСЂРјР°С†РёСЋ Рѕ РІРµСЂСЃРёРё, С„СѓРЅРєС†РёСЏ РІРѕР·РІСЂР°С‰Р°РµС‚ РїСѓСЃС‚СѓСЋ СЃС‚СЂРѕРєСѓ.</p>
-  <p>ISPP С‚Р°РєР¶Рµ РёРјРµРµС‚ С„СѓРЅРєС†РёСЋ <a href="topic_getstringfileinfo.htm">GetStringFileInfo</a>, РєРѕС‚РѕСЂС‹Р№ РјРѕР¶РЅРѕ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РґР»СЏ РїРѕР»СѓС‡РµРЅРёСЏ РІРµСЂСЃРёРё С„Р°Р№Р»Р° (РёСЃРїРѕР»СЊР·СѓСЏ &quot;FileVersion&quot; РёР»Рё &quot;ProductVersion&quot; РєР°Рє РІС‚РѕСЂРѕР№ РїР°СЂР°РјРµС‚СЂ). Р Р°Р·Р»РёС‡РёРµ - С‚Рѕ, С‡С‚Рѕ GetFileVersion Р±РµСЂРµС‚ СЂРµР·СѓР»СЊС‚Р°С‚ РёР· С„РёРєСЃРёСЂРѕРІР°РЅРЅРѕРіРѕ Р±Р»РѕРєР° РёРЅС„РѕСЂРјР°С†РёРё Рѕ РІРµСЂСЃРёРё, РІ РѕС‚Р»РёС‡РёРµ РѕС‚ GetStringFileInfo, РєРѕС‚РѕСЂС‹Р№ РёР·РІР»РµРєР°РµС‚ СЃС‚СЂРѕРєСѓ РёР· СЃРїРµС†РёС„РёС‡РµСЃРєРѕРіРѕ СЏР·С‹РєРѕРІРѕРіРѕ Р±Р»РѕРєР°.</p>
+  <h2 class="heading">Описание</h2>
+  <p>Функция<tt> GetFileVersion</tt> получает строковый параметр, который должен быть установлен в имя файла, информацию о версии которого должна быть запрошена. Функция возвращает строку, составленную из четырех десятичных чисел разделенных точками. Если файл не содержит допустимую информацию о версии, функция возвращает пустую строку.</p>
+  <p>ISPP также имеет функцию <a href="topic_getstringfileinfo.htm">GetStringFileInfo</a>, который можно использовать для получения версии файла (используя &quot;FileVersion&quot; или &quot;ProductVersion&quot; как второй параметр). Различие - то, что GetFileVersion берет результат из фиксированного блока информации о версии, в отличие от GetStringFileInfo, который извлекает строку из специфического языкового блока.</p>
 </div>
 </body>
 </html>

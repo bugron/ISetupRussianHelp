@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
 <meta http-equiv="X-UA-Compatible" content="IE=8" />
 <title>Pascal Scripting: GetOpenFileNameMulti</title>
 <!--[if IE 6]><style type="text/css">html{overflow-y:scroll}</style><![endif]-->
@@ -11,11 +11,11 @@
 <body>
 <h1 class="topicheading">Pascal Scripting: GetOpenFileNameMulti</h1>
 <div class="topicbody">
-<div><b>РџСЂРѕС‚РѕС‚РёРї:</b></div>
+<div><b>Прототип:</b></div>
 <p><tt>function GetOpenFileNameMulti(const Prompt: String; var FileNameList: TStrings; const InitialDirectory, Filter, DefaultExtension: String): Boolean;</tt></p>
-<div><b>РћРїРёСЃР°РЅРёРµ:</b></div>
-<p>РџРѕРєР°Р·С‹РІР°РµС‚ РґРёР°Р»РѕРіРѕРІРѕРµ РѕРєРЅРѕ, РєРѕС‚РѕСЂРѕРµ РїРѕР·РІРѕР»СЏРµС‚ РїРѕР»СЊР·РѕРІР°С‚РµР»СЋ РІС‹Р±СЂР°С‚СЊ РѕРґРёРЅ РёР»Рё РЅРµСЃРєРѕР»СЊРєРѕ С„Р°Р№Р»РѕРІ. Р’РѕР·РІСЂР°С‰Р°РµС‚ True, РµСЃР»Рё РїРѕР»СЊР·РѕРІР°С‚РµР»СЊ РІС‹Р±СЂР°Р» С„Р°Р№Р», РёРЅР°С‡Рµ False. РЎРїРёСЃРѕРє РІС‹Р±СЂР°РЅРЅС‹С… С„Р°Р№Р»РѕРІ СЃРѕС…СЂР°РЅСЏРµС‚СЃСЏ РІ FileNameList.</p><div><b>РљРѕРјРјРµРЅС‚Р°СЂРёРё:</b></div>
-<p>РџСЂРёРјРµСЂ Р·РЅР°С‡РµРЅРёСЏ РїРµСЂРµРјРµРЅРЅРѕР№ Filter: 'Text files (*.txt)|*.txt|All files (*.*)|*.*'</p><div><b>РќР°РїСЂРёРјРµСЂ:</b></div>
+<div><b>Описание:</b></div>
+<p>Показывает диалоговое окно, которое позволяет пользователю выбрать один или несколько файлов. Возвращает True, если пользователь выбрал файл, иначе False. Список выбранных файлов сохраняется в FileNameList.</p><div><b>Комментарии:</b></div>
+<p>Пример значения переменной Filter: 'Text files (*.txt)|*.txt|All files (*.*)|*.*'</p><div><b>Например:</b></div>
 <pre>var
   FileNameList: TStrings;
 begin

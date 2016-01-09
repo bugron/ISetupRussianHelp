@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 <title>[Setup]: DisableFinishedPage</title>
-<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="text/html; charset=windows-1251" http-equiv="Content-Type">
 <meta content="IE=8" http-equiv="X-UA-Compatible">
 <link rel="stylesheet" type="text/css" href="styles.css">
 <script type="text/javascript" src="topic.js"></script>
@@ -13,18 +13,18 @@
   <table class="setuphdr">
     <tbody>
       <tr>
-        <td class="setuphdrl"><p>Р’РѕР·РјРѕР¶РЅС‹Рµ Р·РЅР°С‡РµРЅРёСЏ:</p></td>
-        <td class="setuphdrr"><div class="margined"><a href="topic_yesnonotes.htm"><tt>yes</tt> РёР»Рё <tt>no</tt></a></div></td>
+        <td class="setuphdrl"><p>Возможные значения:</p></td>
+        <td class="setuphdrr"><div class="margined"><a href="topic_yesnonotes.htm"><tt>yes</tt> или <tt>no</tt></a></div></td>
       </tr>
       <tr>
-        <td class="setuphdrl"><p>Р—РЅР°С‡РµРЅРёРµ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ:</p></td>
+        <td class="setuphdrl"><p>Значение по умолчанию:</p></td>
         <td class="setuphdrr"><div class="margined"><tt>no</tt></div></td>
       </tr>
     </tbody>
   </table>
-  <div><b>РћРїРёСЃР°РЅРёРµ:</b></div>
-  <p>РџСЂРё Р·РЅР°С‡РµРЅРёРё <tt>yes</tt> РёРЅСЃС‚Р°Р»Р»СЏС‚РѕСЂ РЅРµ Р±СѓРґРµС‚ РѕС‚РѕР±СЂР°Р¶Р°С‚СЊ СЃС‚СЂР°РЅРёС†Сѓ <i>РЈСЃС‚Р°РЅРѕРІРєР° Р·Р°РІРµСЂС€РµРЅР°</i> Рё СЃСЂР°Р·Сѓ Р·Р°РІРµСЂС€РёС‚ СЃРІРѕСЋ СЂР°Р±РѕС‚Сѓ. Р­С‚Рѕ РјРѕР¶РµС‚ Р±С‹С‚СЊ РїРѕР»РµР·РЅРѕ РІ СЃР»СѓС‡Р°Рµ, РєРѕРіРґР° СЃСЂР°Р·Сѓ РїРѕСЃР»Рµ СѓСЃС‚Р°РЅРѕРІРєРё Р·Р°РїСѓСЃРєР°СЋС‚СЃСЏ С„Р°Р№Р»С‹ РёР· СЃРµРєС†РёРё [Run] СЃ С„Р»Р°РіРѕРј <tt>nowait</tt> - СЃС‚СЂР°РЅРёС†Р° <i>РЈСЃС‚Р°РЅРѕРІРєР° Р·Р°РІРµСЂС€РµРЅР°</i> РЅРµ РїРѕСЏРІРёС‚СЃСЏ РІСЃР»РµРґ Р·Р° СѓР¶Рµ Р·Р°РїСѓСЃС‚РёРІС€РёРјРёСЃСЏ С„Р°Р№Р»Р°РјРё.</p>
-  <p>РћР±СЂР°С‚РёС‚Рµ РІРЅРёРјР°РЅРёРµ, С‡С‚Рѕ РґРёСЂРµРєС‚РёРІР° <tt>DisableFinishedPage</tt> РёРіРЅРѕСЂРёСЂСѓРµС‚СЃСЏ, РµСЃР»Рё С‚СЂРµР±СѓРµС‚СЃСЏ РїРµСЂРµР·Р°РіСЂСѓР·РёС‚СЊ РєРѕРјРїСЊСЋС‚РµСЂ РёР»Рё РµСЃС‚СЊ С„Р°Р№Р» <tt>InfoAfterFile</tt> РІ СЃРµРєС†РёРё <tt>[Setup]</tt>. Р’ СЌС‚РёС… СЃР»СѓС‡Р°СЏС… СЃС‚СЂР°РЅРёС†Р° <i>РЈСЃС‚Р°РЅРѕРІРєР° Р·Р°РІРµСЂС€РµРЅР°</i> РІСЃРµ СЂР°РІРЅРѕ Р±СѓРґРµС‚ РѕС‚РѕР±СЂР°Р¶РµРЅР°.</p>
+  <div><b>Описание:</b></div>
+  <p>При значении <tt>yes</tt> инсталлятор не будет отображать страницу <i>Установка завершена</i> и сразу завершит свою работу. Это может быть полезно в случае, когда сразу после установки запускаются файлы из секции [Run] с флагом <tt>nowait</tt> - страница <i>Установка завершена</i> не появится вслед за уже запустившимися файлами.</p>
+  <p>Обратите внимание, что директива <tt>DisableFinishedPage</tt> игнорируется, если требуется перезагрузить компьютер или есть файл <tt>InfoAfterFile</tt> в секции <tt>[Setup]</tt>. В этих случаях страница <i>Установка завершена</i> все равно будет отображена.</p>
 </div>
 </body>
 </html>

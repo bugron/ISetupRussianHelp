@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
 <meta http-equiv="X-UA-Compatible" content="IE=8" />
 <title>Pascal Scripting Extended: Now</title>
 <link rel="stylesheet" type="text/css" href="../../../styles.css" />
@@ -10,25 +10,25 @@
 <body>
 <h1 class="topicheading">Pascal Scripting Extended: Now</h1>
 <div class="topicbody">
-  <div><b>РџСЂРѕС‚РѕС‚РёРї:</b></div>
+  <div><b>Прототип:</b></div>
   <p><tt>function Now: TDateTime;</tt></p>
-  <div><b>РћРїРёСЃР°РЅРёРµ:</b></div>
-  Р¤СѓРЅРєС†РёСЏ Now РІРѕР·РІСЂР°С‰Р°РµС‚ С‚РµРєСѓС‰СѓСЋ РґР°С‚Сѓ Рё РІСЂРµРјСЏ РґР»СЏ РјРµСЃС‚РЅРѕР№ РІСЂРµРјРµРЅРЅРѕР№ Р·РѕРЅС‹. <br />
-  Р’РѕР·РІСЂР°С‰РµРЅРЅС‹Р№ С‚РёРї TDateTime РјРѕР¶РµС‚ Р±С‹С‚СЊ РёСЃРїРѕР»СЊР·РѕРІР°РЅ Рё РїРѕРєР°Р·Р°РЅ РјРЅРѕРіРёРјРё SysUtil Рё DateUtils РїСЂРѕС†РµРґСѓСЂР°РјРё.<br />
+  <div><b>Описание:</b></div>
+  Функция Now возвращает текущую дату и время для местной временной зоны. <br />
+  Возвращенный тип TDateTime может быть использован и показан многими SysUtil и DateUtils процедурами.<br />
   <br />
-  <div><b>РџСЂРёРјРµСЂ:</b></div>
+  <div><b>Пример:</b></div>
   <p><tt>var<br />
     &nbsp;today : TDateTime;<br />
     <br />
     begin<br />
     &nbsp;today := Now;<br />
-    &nbsp;ShowMessage('Р”РµРЅСЊ = '+DateToStr(today));<br />
-    &nbsp;ShowMessage('Р’СЂРµРјСЏ = '+TimeToStr(today));<br />
+    &nbsp;ShowMessage('День = '+DateToStr(today));<br />
+    &nbsp;ShowMessage('Время = '+TimeToStr(today));<br />
     end; <br />
     <br />
     <br />
-    &nbsp;Р”РµРЅСЊ = 05/01/2007<br />
-    &nbsp;Р’СЂРµРјСЏ = 13:37:25</tt></p>
+    &nbsp;День = 05/01/2007<br />
+    &nbsp;Время = 13:37:25</tt></p>
 </div>
 </body>
 </html>

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 <title>[Setup]: ShowUndisplayableLanguages</title>
-<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="text/html; charset=windows-1251" http-equiv="Content-Type">
 <meta content="IE=8" http-equiv="X-UA-Compatible">
 <link rel="stylesheet" type="text/css" href="styles.css">
 <script type="text/javascript" src="topic.js"></script>
@@ -13,20 +13,20 @@
   <table class="setuphdr">
     <tbody>
       <tr>
-        <td class="setuphdrl"><p>Р’РѕР·РјРѕР¶РЅС‹Рµ Р·РЅР°С‡РµРЅРёСЏ:</p></td>
-        <td class="setuphdrr"><div class="margined"><a href="topic_yesnonotes.htm"><tt>yes</tt> РёР»Рё <tt>no</tt></a></div></td>
+        <td class="setuphdrl"><p>Возможные значения:</p></td>
+        <td class="setuphdrr"><div class="margined"><a href="topic_yesnonotes.htm"><tt>yes</tt> или <tt>no</tt></a></div></td>
       </tr>
       <tr>
-        <td class="setuphdrl"><p>Р—РЅР°С‡РµРЅРёРµ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ:</p></td>
+        <td class="setuphdrl"><p>Значение по умолчанию:</p></td>
         <td class="setuphdrr"><div class="margined"><tt>no</tt></div></td>
       </tr>
     </tbody>
   </table>
-  <div><b>РћРїРёСЃР°РЅРёРµ:</b></div>
-  <p>РџРѕ СѓРјРѕР»С‡Р°РЅРёСЋ, СЏР·С‹РєРё, РєРѕС‚РѕСЂС‹Рµ РЅРµ РјРѕРіСѓС‚ Р±С‹С‚СЊ РІС‹РІРµРґРµРЅС‹ РЅР° СЌРєСЂР°РЅ&nbsp;РІ СЃРёСЃС‚РµРјРµ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ РёР·-Р·Р° РЅРµСЃРѕРѕС‚РІРµС‚СЃС‚РІРёСЏ РєРѕРґРѕРІРѕР№ СЃС‚СЂР°РЅРёС†С‹, РЅРµ РїРµСЂРµС‡РёСЃР»РµРЅС‹ РІ РґРёР°Р»РѕРіРѕРІРѕРј РѕРєРЅРµ РІС‹Р±РѕСЂР° СЏР·С‹РєР°. РќР°РїСЂРёРјРµСЂ, СЂСѓСЃСЃРєРёР№ С‚РµРєСЃС‚ РјРѕР¶РµС‚ Р±С‹С‚СЊ РІС‹РІРµРґРµРЅ РЅР° СЌРєСЂР°РЅ РґРѕР»Р¶РЅС‹Рј РѕР±СЂР°Р·РѕРј, РµСЃР»Рё Р°РєС‚РёРІРЅР°СЏ РєРѕРґРѕРІР°СЏ СЃС‚СЂР°РЅРёС†Р° - 1251; РµСЃР»Рё РїРѕР»СЊР·РѕРІР°С‚РµР»СЊ РЅРµ РІС‹РїРѕР»РЅРёС‚ РєРѕРґРѕРІСѓСЋ СЃС‚СЂР°РЅРёС†Сѓ 1251, С‚Рѕ РѕРЅ РЅРµ СѓРІРёРґРёС‚ СЂСѓСЃСЃРєРёРµ Р±СѓРєРІС‹.</p>
-  <p>РџСЂРё Р·РЅР°С‡РµРЅРёРё <tt>yes</tt>, РІСЃРµ СЏР·С‹РєРё Р±СѓРґСѓС‚ РїРµСЂРµС‡РёСЃР»РµРЅС‹ РІ РґРёР°Р»РѕРіРѕРІРѕРј РѕРєРЅРµ РІС‹Р±РѕСЂР° СЏР·С‹РєР°.</p>
-  <p>Р­С‚Р° РґРёСЂРµРєС‚РёРІР° РёРіРЅРѕСЂРёСЂСѓРµС‚СЃСЏ <a href="topic_unicode.htm">Unicode Inno Setup</a>-РѕРј.</p>
-  <p><b>РЎРј. С‚Р°РєР¶Рµ:</b><br>
+  <div><b>Описание:</b></div>
+  <p>По умолчанию, языки, которые не могут быть выведены на экран&nbsp;в системе пользователя из-за несоответствия кодовой страницы, не перечислены в диалоговом окне выбора языка. Например, русский текст может быть выведен на экран должным образом, если активная кодовая страница - 1251; если пользователь не выполнит кодовую страницу 1251, то он не увидит русские буквы.</p>
+  <p>При значении <tt>yes</tt>, все языки будут перечислены в диалоговом окне выбора языка.</p>
+  <p>Эта директива игнорируется <a href="topic_unicode.htm">Unicode Inno Setup</a>-ом.</p>
+  <p><b>См. также:</b><br>
     <a href="topic_setup_showlanguagedialog.htm">ShowLanguageDialog</a></p>
 </div>
 </body>

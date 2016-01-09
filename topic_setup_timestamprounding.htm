@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 <title>[Setup]: TimeStampRounding</title>
-<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="text/html; charset=windows-1251" http-equiv="Content-Type">
 <meta content="IE=8" http-equiv="X-UA-Compatible">
 <link rel="stylesheet" type="text/css" href="styles.css">
 <script type="text/javascript" src="topic.js"></script>
@@ -13,18 +13,18 @@
   <table class="setuphdr">
     <tbody>
       <tr>
-        <td class="setuphdrl"><p>Р’РѕР·РјРѕР¶РЅС‹Рµ Р·РЅР°С‡РµРЅРёСЏ:</p></td>
-        <td class="setuphdrr"><div class="margined"><tt>0</tt>&nbsp;РґРѕ <tt>60</tt></div></td>
+        <td class="setuphdrl"><p>Возможные значения:</p></td>
+        <td class="setuphdrr"><div class="margined"><tt>0</tt>&nbsp;до <tt>60</tt></div></td>
       </tr>
       <tr>
-        <td class="setuphdrl"><p>Р—РЅР°С‡РµРЅРёРµ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ:</p></td>
+        <td class="setuphdrl"><p>Значение по умолчанию:</p></td>
         <td class="setuphdrr"><div class="margined"><tt>2</tt></div></td>
       </tr>
     </tbody>
   </table>
-  <div><b>РћРїРёСЃР°РЅРёРµ:</b></div>
-  <p>РџРѕ СѓРјРѕР»С‡Р°РЅРёСЋ РІСЂРµРјРµРЅРЅС‹Рµ РѕС‚РјРµС‚РєРё РґР»СЏ С„Р°Р№Р»РѕРІ СЃРµРєС†РёРё [Files], РґР»СЏ РєРѕС‚РѕСЂС‹С… РЅРµ Р·Р°РґР°РЅ С„Р»Р°Рі <tt>external</tt>, РѕРєСЂСѓРіР»СЏСЋС‚СЃСЏ РґРѕ 2-С… СЃРµРєСѓРЅРґ. Р’ СЃРёСЃС‚РµРјРµ FAT РїРѕРґРґРµСЂР¶РёРІР°СЋС‚СЃСЏ С‚РѕР»СЊРєРѕ 2-С… СЃРµРєСѓРЅРґРЅС‹Рµ РІСЂРµРјРµРЅРЅС‹Рµ РѕС‚РјРµС‚РєРё, С‚Р°Рє С‡С‚Рѕ РІСЂРµРјРµРЅРЅС‹Рµ РѕС‚РјРµС‚РєРё РґР»СЏ FAT Рё NTFS Р±СѓРґСѓС‚ РѕРґРёРЅР°РєРѕРІС‹РјРё.</p>
-  <p>РћРєСЂСѓРіР»РµРЅРёРµ РјРѕР¶РЅРѕ РїРѕРјРµРЅСЏС‚СЊ РёР»Рё РѕС‚РјРµРЅРёС‚СЊ РІ РґРёСЂРµРєС‚РёРІРµ <tt>TimeStampRounding</tt>. РћРєСЂСѓРіР»РµРЅРёРµ РѕС‚РјРµРЅРёС‚СЃСЏ РїСЂРё Р·РЅР°С‡РµРЅРёРё <tt>0</tt>. РџСЂРё Р·РЅР°С‡РµРЅРёСЏС… РѕС‚ <tt>1</tt> РґРѕ <tt>60</tt> РІСЂРµРјРµРЅРЅС‹Рµ РѕС‚РјРµС‚РєРё Р±СѓРґСѓС‚ РѕРєСЂСѓРіР»РµРЅС‹ РґРѕ Р±Р»РёР¶Р°Р№С€РµР№ РіСЂР°РЅРёС†С‹ <tt>TimeStampRounding</tt>.</p>
+  <div><b>Описание:</b></div>
+  <p>По умолчанию временные отметки для файлов секции [Files], для которых не задан флаг <tt>external</tt>, округляются до 2-х секунд. В системе FAT поддерживаются только 2-х секундные временные отметки, так что временные отметки для FAT и NTFS будут одинаковыми.</p>
+  <p>Округление можно поменять или отменить в директиве <tt>TimeStampRounding</tt>. Округление отменится при значении <tt>0</tt>. При значениях от <tt>1</tt> до <tt>60</tt> временные отметки будут округлены до ближайшей границы <tt>TimeStampRounding</tt>.</p>
 </div>
 </body>
 </html>

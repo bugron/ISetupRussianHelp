@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
 <meta http-equiv="X-UA-Compatible" content="IE=8" />
 <title>Pascal Scripting: GetSHA1OfUnicodeString</title>
 <link rel="stylesheet" type="text/css" href="../styles.css" />
@@ -10,12 +10,12 @@
 <body>
 <h1 class="topicheading">Pascal Scripting: GetSHA1OfUnicodeString</h1>
 <div class="topicbody">
-  <div><b>РџСЂРѕС‚РѕС‚РёРї:</b></div>
+  <div><b>Прототип:</b></div>
   <p><tt>function GetSHA1OfUnicodeString(const S: String): String;</tt></p>
-  <div><b>РћРїРёСЃР°РЅРёРµ:</b></div>
-  <p>РџРѕР»СѓС‡Р°РµС‚ SHA-1 С…СЌС€ СѓРєР°Р·Р°РЅРЅРѕР№ СЃС‚СЂРѕРєРё, РєР°Рє СЃС‚СЂРѕРєСѓ.</p>
-  <p>Р’С‹Р·С‹РІР°РµС‚ РІРЅСѓС‚СЂРµРЅРЅСЋСЋ РѕС€РёР±РєСѓ, РµСЃР»Рё С„СѓРЅРєС†РёСЏ РІС‹Р·РІР°РЅР° РЅРµ Unicode РІРµСЂСЃРёРµР№ РёРЅСЃС‚Р°Р»./РґРµРёРЅСЃС‚Р°Р».</p>
-  <div><b>РџСЂРёРјРµСЂ:</b></div>
+  <div><b>Описание:</b></div>
+  <p>Получает SHA-1 хэш указанной строки, как строку.</p>
+  <p>Вызывает внутреннюю ошибку, если функция вызвана не Unicode версией инстал./деинстал.</p>
+  <div><b>Пример:</b></div>
   <pre>var
   SHA1: String;
 begin

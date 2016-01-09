@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
 <meta http-equiv="X-UA-Compatible" content="IE=8" />
 <title>Pascal Scripting: CreateOutputProgressPage</title>
 <link rel="stylesheet" type="text/css" href="../styles.css" />
@@ -10,19 +10,19 @@
 <body>
 <h1 class="topicheading">Pascal Scripting: CreateOutputProgressPage</h1>
 <div class="topicbody">
-  <div><b>РџСЂРѕС‚РѕС‚РёРї:</b></div>
-  <p><tt>function CreateOutputProgressPage(const ACaption, AРћРїРёСЃР°РЅРёРµ: String): TOutputProgressWizardPage;</tt></p>
-  <div><b>РћРїРёСЃР°РЅРёРµ:</b></div>
-  <p>РЎРѕР·РґР°РµС‚ СЃС‚СЂР°РЅРёС†Сѓ РјР°СЃС‚РµСЂР°, РєРѕС‚РѕСЂР°СЏ СЃРѕРґРµСЂР¶РёС‚ СЃС‚Р°С‚РёС‡РµСЃРєРёР№ С‚РµРєСЃС‚ Рё <span id="result_box" lang="ru" xml:lang="ru">РёРЅРґРёРєР°С‚РѕСЂ С…РѕРґР° РІС‹РїРѕР»РЅРµРЅРёСЏ</span> (РєРѕС‚РѕСЂС‹Р№ СЃРєСЂС‹С‚ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ).</p>
-  <p><span id="result_box2" lang="ru" xml:lang="ru">Р’ РѕС‚Р»РёС‡РёРµ РѕС‚ РґСЂСѓРіРёС… С‚РёРїРѕРІ СЃС‚СЂР°РЅРёС† РјР°СЃС‚РµСЂР°</span>, РґР°РЅРЅС‹Рµ СЃС‚СЂР°РЅРёС†С‹ РЅРµ РїРѕРєР°Р·С‹РІР°СЋС‚СЃСЏ РІ <span id="result_box3" lang="ru" xml:lang="ru">РѕР±С‹С‡РЅРѕР№ РїРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕСЃС‚Рё СЃС‚СЂР°РЅРёС†</span> (<span id="result_box4" lang="ru" xml:lang="ru">РѕР±СЂР°С‚РёС‚Рµ РІРЅРёРјР°РЅРёРµ, С‡С‚Рѕ РЅРµС‚</span> РїР°СЂР°РјРµС‚СЂР° <tt>AfterID</tt>). РЎС‚СЂР°РЅРёС†Р° РїСЂРѕРіСЂРµСЃСЃР° РјРѕР¶РЅРѕ РїРѕРєР°Р·Р°С‚СЊ С‚РѕР»СЊРєРѕ РїСЂРѕРіСЂР°РјРјРЅРѕ, СЃ РїРѕРјРѕС‰СЊСЋ РјРµС‚РѕРґР° <tt>Show</tt>.</p>
-  <div><b>РљРѕРјРјРµРЅС‚Р°СЂРёРё:</b></div>
-  <p>Р’С‹Р·РѕРІРёС‚Рµ РјРµС‚РѕРґ <tt>Show</tt>, С‡С‚РѕР±С‹ РїРѕРєР°Р·Р°С‚СЊ СЃС‚СЂР°РЅРёС†Сѓ. Р§С‚РѕР±С‹ РІРµСЂРЅСѓС‚СЊСЃСЏ Рє РїСЂРµРґС‹РґСѓС‰РµР№ СЃС‚СЂР°РЅРёС†Рµ, РІС‹Р·РѕРІРёС‚Рµ РјРµС‚РѕРґ <tt>Hide</tt>.</p>
-  <p>Р’СЃРµРіРґР° СЂР°Р·РјРµС‰Р°Р№С‚Рµ РІС‹Р·РѕРІ <tt>Hide</tt> РІРЅСѓС‚СЂРё <tt>finally</tt>, С‡Р°СЃС‚Рё РєРѕРЅСЃС‚СЂСѓРєС†РёРё <tt>try..finally</tt>, РєР°Рє РїРѕРєР°Р·Р°РЅРѕ РІ <i>CodeDlg.iss</i>. Р•СЃР»Рё РЅРµ РІС‹Р·РІР°С‚СЊ <tt>Hide</tt>, РёРЅСЃС‚Р°Р»Р»СЏС‚РѕСЂ &quot;Р·Р°СЃС‚СЂСЏРЅРµС‚&quot; РЅР° СЃС‚СЂР°РЅРёС†Рµ РїСЂРѕРіСЂРµСЃСЃР°.</p>
-  <p>Р§С‚РѕР±С‹ СѓРєР°Р·Р°С‚СЊ С‚РµРєСЃС‚ РЅР° СЃС‚СЂР°РЅРёС†Рµ, РІС‹Р·РѕРІРёС‚Рµ РјРµС‚РѕРґ <tt>SetText</tt>. <tt>SetText</tt> <span id="result_box5" lang="ru" tabindex="-1" xml:lang="ru">РїСЂРёРЅРёРјР°РµС‚</span> РґРІР° СЃС‚СЂРѕРєРѕРІС‹С… РїР°СЂР°РјРµС‚СЂР°: РёСЃРїРѕР»СЊР·СѓР№С‚Рµ РїРµСЂРІС‹Р№, С‡С‚РѕР±С‹ СѓРєР°Р·Р°С‚СЊ РїРѕР»СЊР·РѕРІР°С‚РµР»СЋ С‡С‚Рѕ РІС‹ РґРµР»Р°РµС‚Рµ Рё РІС‚РѕСЂРѕР№, С‡С‚РѕР±С‹ РїРѕРєР°Р·Р°С‚СЊ РёРјСЏ С„Р°Р№Р»Р°, РёР»Рё РїР°РїРєРё. <span id="result_box6" lang="ru" tabindex="-1" xml:lang="ru">Р›СЋР±РѕР№ РёР· СЌС‚РёС… РґРІСѓС… РїР°СЂР°РјРµС‚СЂРѕРІ РјРѕР¶РµС‚ Р±С‹С‚СЊ РїСѓСЃС‚С‹Рј.</span></p>
-  <p>Р§С‚РѕР±С‹ РїРѕРєР°Р·Р°С‚СЊ РёР»Рё РѕР±РЅРѕРІРёС‚СЊ <span id="result_box7" lang="ru" xml:lang="ru">РёРЅРґРёРєР°С‚РѕСЂ С…РѕРґР° РІС‹РїРѕР»РЅРµРЅРёСЏ</span>, РІС‹Р·РѕРІРёС‚Рµ РјРµС‚РѕРґ <tt>SetProgress</tt>. <tt>SetProgress</tt> <span id="result_box8" lang="ru" tabindex="-1" xml:lang="ru">РїСЂРёРЅРёРјР°РµС‚ РґРІР° С†РµР»РѕС‡РёСЃР»РµРЅРЅС‹С… РїР°СЂР°РјРµС‚СЂР°</span>: РїРµСЂРІС‹С… СѓРєР°Р·С‹РІР°РµС‚ РїРѕР·РёС†РёСЋ РёРЅРґРёРєР°С‚РѕСЂР° (РѕР±С‹С‡РЅРѕ 0), <span id="result_box9" lang="ru" tabindex="-1" xml:lang="ru">Р° РІС‚РѕСЂРѕР№ РѕРїСЂРµРґРµР»СЏРµС‚ РјР°РєСЃРёРјР°Р»СЊРЅРѕ РІРѕР·РјРѕР¶РЅСѓСЋ РїРѕР·РёС†РёСЋ</span>. Р•СЃР»Рё РІС‚РѕСЂРѕР№ РїР°СЂР°РјРµС‚СЂ СЏРІР»СЏРµС‚СЃСЏ 0, РёРЅРґРёРєР°С‚РѕСЂ РІС‹РїРѕР»РЅРµРЅРёСЏ Р±СѓРґРµС‚ СЃРєСЂС‹С‚.</p>
-  <div><b>РќР°РїСЂРёРјРµСЂ:</b></div>
-  <p>Р”Р»СЏ РїСЂРёРјРµСЂР° СЃРј. <i>CodeDlg.iss</i>.</p>
-  <div><b>РЎРј. С‚Р°РєР¶Рµ:</b></div>
+  <div><b>Прототип:</b></div>
+  <p><tt>function CreateOutputProgressPage(const ACaption, AОписание: String): TOutputProgressWizardPage;</tt></p>
+  <div><b>Описание:</b></div>
+  <p>Создает страницу мастера, которая содержит статический текст и <span id="result_box" lang="ru" xml:lang="ru">индикатор хода выполнения</span> (который скрыт по умолчанию).</p>
+  <p><span id="result_box2" lang="ru" xml:lang="ru">В отличие от других типов страниц мастера</span>, данные страницы не показываются в <span id="result_box3" lang="ru" xml:lang="ru">обычной последовательности страниц</span> (<span id="result_box4" lang="ru" xml:lang="ru">обратите внимание, что нет</span> параметра <tt>AfterID</tt>). Страница прогресса можно показать только программно, с помощью метода <tt>Show</tt>.</p>
+  <div><b>Комментарии:</b></div>
+  <p>Вызовите метод <tt>Show</tt>, чтобы показать страницу. Чтобы вернуться к предыдущей странице, вызовите метод <tt>Hide</tt>.</p>
+  <p>Всегда размещайте вызов <tt>Hide</tt> внутри <tt>finally</tt>, части конструкции <tt>try..finally</tt>, как показано в <i>CodeDlg.iss</i>. Если не вызвать <tt>Hide</tt>, инсталлятор &quot;застрянет&quot; на странице прогресса.</p>
+  <p>Чтобы указать текст на странице, вызовите метод <tt>SetText</tt>. <tt>SetText</tt> <span id="result_box5" lang="ru" tabindex="-1" xml:lang="ru">принимает</span> два строковых параметра: используйте первый, чтобы указать пользователю что вы делаете и второй, чтобы показать имя файла, или папки. <span id="result_box6" lang="ru" tabindex="-1" xml:lang="ru">Любой из этих двух параметров может быть пустым.</span></p>
+  <p>Чтобы показать или обновить <span id="result_box7" lang="ru" xml:lang="ru">индикатор хода выполнения</span>, вызовите метод <tt>SetProgress</tt>. <tt>SetProgress</tt> <span id="result_box8" lang="ru" tabindex="-1" xml:lang="ru">принимает два целочисленных параметра</span>: первых указывает позицию индикатора (обычно 0), <span id="result_box9" lang="ru" tabindex="-1" xml:lang="ru">а второй определяет максимально возможную позицию</span>. Если второй параметр является 0, индикатор выполнения будет скрыт.</p>
+  <div><b>Например:</b></div>
+  <p>Для примера см. <i>CodeDlg.iss</i>.</p>
+  <div><b>См. также:</b></div>
 <p><a href="../topic_scriptclasses.htm#TOutputProgressWizardPage">TOutputProgressWizardPage</a>
 </p>
 </div>

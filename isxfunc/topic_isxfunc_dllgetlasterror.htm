@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
 <meta http-equiv="X-UA-Compatible" content="IE=8" />
 <title>Pascal Scripting: DLLGetLastError</title>
 <link rel="stylesheet" type="text/css" href="../styles.css" />
@@ -10,14 +10,14 @@
 <body>
 <h1 class="topicheading">Pascal Scripting: DLLGetLastError</h1>
 <div class="topicbody">
-  <div><b>РџСЂРѕС‚РѕС‚РёРї:</b></div>
+  <div><b>Прототип:</b></div>
   <p><tt>function DLLGetLastError(): Longint;</tt></p>
-  <div><b>РћРїРёСЃР°РЅРёРµ:</b></div>
-  <p>Р’РѕР·РІСЂР°С‰Р°РµС‚ Р·РЅР°С‡РµРЅРёРµ РєРѕРґР° РїРѕСЃР»РµРґРЅРµР№ РѕС€РёР±РєРё, РІРѕР·РЅРёРєС€РµР№ СЃСЂР°Р·Сѓ РїРѕСЃР»Рµ РІР°С€РµРіРѕ РїРѕСЃР»РµРґРЅРµРіРѕ РІС‹Р·РѕРІР° DLL С„СѓРЅРєС†РёРё. РџРѕР»РµР·РЅР° РїРѕСЃР»Рµ РІС‹Р·РѕРІР° С„СѓРЅРєС†РёРё Windows API (РµСЃР»Рё С„СѓРЅРєС†РёСЏ СѓСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ РєРѕРґ РїРѕСЃР»РµРґРЅРµР№ РѕС€РёР±РєРё).</p>
-  <div><b>РљРѕРјРјРµРЅС‚Р°СЂРёРё:</b></div>
-  <p>Р РµРєРѕРјРµРЅРґСѓРµС‚СЃСЏ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ СЌС‚Сѓ С„СѓРЅРєС†РёСЋ РІРјРµСЃС‚Рѕ РїСЂСЏРјРѕРіРѕ РІС‹Р·РѕРІР° WinAPI С„СѓРЅРєС†РёРё GetLastError, С‚Р°Рє РєР°Рє РёРЅСЃС‚Р°Р»Р»СЏС‚РѕСЂ/РґРµРёРЅСЃС‚Р°Р»Р»СЏС‚РѕСЂ РґРµР»Р°РµС‚ API РІС‹Р·РѕРІС‹ СЃР°РјРѕСЃС‚РѕСЏС‚РµР»СЊРЅРѕ, С‚Р°Рє С‡С‚Рѕ РїРѕСЃР»РµРґРЅРёР№ РєРѕРґ РѕС€РёР±РєРё РјРѕР¶РµС‚ Р±С‹С‚СЊ РїРµСЂРµР·Р°РїРёСЃР°РЅ РІ Р»СЋР±РѕРµ РІСЂРµРјСЏ.</p>
-  <p>РЎСЃС‹Р»РєР° РЅР° <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms681381.aspx" target="_blank" title="http://msdn.microsoft.com/en-us/library/windows/desktop/ms681381.aspx">РєРѕРґС‹ СЃРёСЃС‚РµРјРЅС‹С… РѕС€РёР±РѕРє РІ MSDN</a><img src="../images/extlink.gif" alt=" [external link]" />.</p>
-  <div><b>РќР°РїСЂРёРјРµСЂ:</b></div>
+  <div><b>Описание:</b></div>
+  <p>Возвращает значение кода последней ошибки, возникшей сразу после вашего последнего вызова DLL функции. Полезна после вызова функции Windows API (если функция устанавливает код последней ошибки).</p>
+  <div><b>Комментарии:</b></div>
+  <p>Рекомендуется использовать эту функцию вместо прямого вызова WinAPI функции GetLastError, так как инсталлятор/деинсталлятор делает API вызовы самостоятельно, так что последний код ошибки может быть перезаписан в любое время.</p>
+  <p>Ссылка на <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms681381.aspx" target="_blank" title="http://msdn.microsoft.com/en-us/library/windows/desktop/ms681381.aspx">коды системных ошибок в MSDN</a><img src="../images/extlink.gif" alt=" [external link]" />.</p>
+  <div><b>Например:</b></div>
   <pre>function MessageBox(hWnd: Integer; lpText, lpCaption: AnsiString; uType: Cardinal): Integer; external 'MessageBoxA@user32.dll stdcall';
 
 ...

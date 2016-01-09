@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
 <meta http-equiv="X-UA-Compatible" content="IE=8" />
 <title>Pascal Scripting Extended: Time</title>
 <link rel="stylesheet" type="text/css" href="../../../styles.css" />
@@ -10,24 +10,24 @@
 <body>
 <h1 class="topicheading">Pascal Scripting Extended: Time</h1>
 <div class="topicbody">
-  <div><b>РџСЂРѕС‚РѕС‚РёРї:</b></div>
+  <div><b>Прототип:</b></div>
   <p><tt>function Time: TDateTime;</tt></p>
-  <div><b>РћРїРёСЃР°РЅРёРµ:</b></div>
-  Р¤СѓРЅРєС†РёСЏ Time РІРѕР·РІСЂР°С‰Р°РµС‚ С‚РµРєСѓС‰РµРµ РІСЂРµРјСЏ РІ РјРµСЃС‚РЅРѕРј С‡Р°СЃРѕРІРѕРј РїРѕСЏСЃРµ.<br />
-  РР·-Р·Р° С‚РѕРіРѕ, С‡С‚Рѕ РІРѕР·РІСЂР°С‰Р°РµРјРѕРµ Р·РЅР°С‡РµРЅРёРµ С‚РёРїР° TDateTime, РґР°С‚Р° СѓСЃС‚Р°РЅР°РІР»РёРІР°РµС‚СЃСЏ РІ 0 (30/12/1899).<br />
-  <div><b>РџСЂРёРјРµСЂ:</b></div>
+  <div><b>Описание:</b></div>
+  Функция Time возвращает текущее время в местном часовом поясе.<br />
+  Из-за того, что возвращаемое значение типа TDateTime, дата устанавливается в 0 (30/12/1899).<br />
+  <div><b>Пример:</b></div>
   <p><tt>var<br />
     &nbsp;today : TDateTime;<br />
     <br />
     begin<br />
     &nbsp;today := Time;<br />
-    &nbsp;ShowMessage('С‚РµРєСѓС‰Р°СЏ РґР°С‚Р° = '+DateToStr(today));<br />
-    &nbsp;ShowMessage('С‚РµРєСѓС‰РµРµ РІСЂРµРјСЏ = '+TimeToStr(today));<br />
+    &nbsp;ShowMessage('текущая дата = '+DateToStr(today));<br />
+    &nbsp;ShowMessage('текущее время = '+TimeToStr(today));<br />
     end; <br />
     <br />
     <br />
-    &nbsp;С‚РµРєСѓС‰Р°СЏ РґР°С‚Р° = 30/12/1899<br />
-    &nbsp;С‚РµРєСѓС‰РµРµ РІСЂРµРјСЏ = 13:37:25</tt></p>
+    &nbsp;текущая дата = 30/12/1899<br />
+    &nbsp;текущее время = 13:37:25</tt></p>
 </div>
 </body>
 </html>

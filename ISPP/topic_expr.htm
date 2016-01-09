@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
 <meta http-equiv="X-UA-Compatible" content="IE=8" />
 <title>Inno Setup Preprocessor: #expr</title>
 <link rel="stylesheet" type="text/css" href="../styles.css" />
@@ -10,7 +10,7 @@
 <body>
 <h1 class="topicheading">Inno Setup Preprocessor: #expr</h1>
 <div class="topicbody">
-  <h2 class="heading notopmargin">РЎРёРЅС‚Р°С‚СЃРёСЃ</h2>
+  <h2 class="heading notopmargin">Синтатсис</h2>
   <table>
     <tbody>
       <tr>
@@ -19,13 +19,13 @@
       </tr>
     </tbody>
   </table>
-  <h2 class="heading">РћРїРёСЃР°РЅРёРµ</h2>
-  <p>Р’С‹С‡РёСЃР»СЏРµС‚ РІС‹СЂР°Р¶РµРЅРёРµ, РёРіРЅРѕСЂРёСЂСѓСЏ РµРіРѕ СЂРµР·СѓР»СЊС‚Р°С‚. Р­С‚Р° РґРёСЂРµРєС‚РёРІР° РґРµР№СЃС‚РІСѓРµС‚ РєР°Рє&nbsp;<tt><a href="topic_emit.htm">emit</a></tt> СЃ С‚РµРј РёСЃРєР»СЋС‡РµРЅРёРµРј, С‡С‚Рѕ РѕРЅ РЅРµ РІС‹РґРµР»СЏРµС‚ РЅРёС‡РµРіРѕ<a href="topic_translation.htm"></a>.</p>
-  <p>Р­С‚Р° РґРёСЂРµРєС‚РёРІР° РїСЂРµРґРЅР°Р·РЅР°С‡РµРЅР° РґР»СЏ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ СЃ С„СѓРЅРєС†РёСЏРјРё, РєРѕС‚РѕСЂС‹Рµ РїСЂРѕРёР·РІРѕРґСЏС‚ РїРѕР±РѕС‡РЅС‹Рµ СЌС„С„РµРєС‚С‹ Рё РЅРµ РІРѕР·РІСЂР°С‰Р°СЋС‚ Р·РЅР°С‡РёС‚РµР»СЊРЅСѓСЋ С†РµРЅРЅРѕСЃС‚СЊ.</p>
-  <h2 class="heading">РџСЂРёРјРµСЂС‹</h2>
+  <h2 class="heading">Описание</h2>
+  <p>Вычисляет выражение, игнорируя его результат. Эта директива действует как&nbsp;<tt><a href="topic_emit.htm">emit</a></tt> с тем исключением, что он не выделяет ничего<a href="topic_translation.htm"></a>.</p>
+  <p>Эта директива предназначена для использования с функциями, которые производят побочные эффекты и не возвращают значительную ценность.</p>
+  <h2 class="heading">Примеры</h2>
   <p><tt>#expr <a href="topic_savetofile.htm">SaveToFile</a>(AddBackslash(SourcePath) + "Preprocessed.iss"), <a href="topic_exec.htm">Exec</a>(AddBackslash(CompilerPath) + "Compil32.exe", """" + AddBackslash(SourcePath) + "Preprocessed.iss""")<br/>
   </tt></p>
-  <h2 class="heading">РЎРј. С‚Р°РєР¶Рµ:</h2>
+  <h2 class="heading">См. также:</h2>
   <p><tt><a href="topic_emit.htm">emit</a></tt>.</p>
 </div>
 </body>

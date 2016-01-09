@@ -226,7 +226,7 @@
 <li><object type="text/sitemap"><param name="Name" value="Example Script"><param name="Local" value="ISPP/topic_example.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="Exec"><param name="Local" value="ISPP/topic_exec.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="expr"><param name="Local" value="ISPP/topic_expr.htm"></object>
-<li><object type="text/sitemap"><param name="Name" value="Expression Syntax"><param name="Local" value="ISPP/topic_expressions.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Синтаксис выражений"><param name="Local" value="ISPP/topic_expressions.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="Extended Command Line Compiler"><param name="Local" value="ISPP/topic_isppcc.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="ExtractFileDir"><param name="Local" value="ISPP/topic_extractfiledir.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="ExtractFileExt"><param name="Local" value="ISPP/topic_extractfileext.htm"></object>

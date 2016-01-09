@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
 <meta http-equiv="X-UA-Compatible" content="IE=8">
 <title>[Setup]: RestartApplications</title>
 <link rel="stylesheet" type="text/css" href="styles.css">
@@ -12,18 +12,18 @@
 <div class="topicbody">
   <table class="setuphdr">
     <tr>
-      <td class="setuphdrl"><p>Р’РѕР·РјРѕР¶РЅС‹Рµ Р·РЅР°С‡РµРЅРёСЏ:</p></td>
-      <td class="setuphdrr"><div class="margined"><a href="topic_yesnonotes.htm"><tt>yes</tt> РёР»Рё <tt>no</tt></a> </div></td>
+      <td class="setuphdrl"><p>Возможные значения:</p></td>
+      <td class="setuphdrr"><div class="margined"><a href="topic_yesnonotes.htm"><tt>yes</tt> или <tt>no</tt></a> </div></td>
     </tr>
     <tr>
-      <td class="setuphdrl"><p>Р—РЅР°С‡РµРЅРёРµ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ:</p></td>
+      <td class="setuphdrl"><p>Значение по умолчанию:</p></td>
       <td class="setuphdrr"><div class="margined"><tt>yes</tt> </div></td>
     </tr>
   </table>
-  <div><b>РћРїРёСЃР°РЅРёРµ:</b></div>
-  <p>Р•СЃР»Рё <a href="topic_setup_closeapplications.htm">CloseApplications</a> Рё РґР°РЅРЅР°СЏ РґРёСЂРµРєС‚РёРІР° СѓСЃС‚Р°РЅРѕРІР»РµРЅС‹ РІ <tt>yes</tt>, С‚Рѕ РёРЅСЃС‚Р°Р»Р»СЏС‚РѕСЂ РїРµСЂРµР·Р°РїСѓСЃС‚РёС‚ Р·Р°РєСЂС‹С‚С‹Рµ РёРј РїСЂРёР»РѕР¶РµРЅРёСЏ РїРѕСЃР»Рµ Р·Р°РІРµСЂС€РµРЅРёСЏ РёРЅСЃС‚Р°Р»Р»СЏС†РёРё.</p>
-  <p>РџСЂРёРјРµС‡Р°РЅРёРµ: Р§С‚РѕР±С‹ РёРЅСЃС‚Р°Р»Р»СЏС‚РѕСЂ Р±С‹Р» РІ СЃРѕСЃС‚РѕСЏРЅРёРё РїРµСЂРµР·Р°РїСѓСЃС‚РёС‚СЊ РїСЂРёР»РѕР¶РµРЅРёРµ РїРѕСЃР»Рµ Р·Р°РІРµСЂС€РµРЅРёСЏ РёРЅСЃС‚Р°Р»Р»СЏС†РёРё, РїСЂРёР»РѕР¶РµРЅРёРµ РґРѕР»Р¶РЅРѕ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ WinAPI-С„СѓРЅРєС†РёСЋ <tt>RegisterApplicationRestart</tt>.</p>
-  <p><b>РЎРј. С‚Р°РєР¶Рµ:</b><br>
+  <div><b>Описание:</b></div>
+  <p>Если <a href="topic_setup_closeapplications.htm">CloseApplications</a> и данная директива установлены в <tt>yes</tt>, то инсталлятор перезапустит закрытые им приложения после завершения инсталляции.</p>
+  <p>Примечание: Чтобы инсталлятор был в состоянии перезапустить приложение после завершения инсталляции, приложение должно использовать WinAPI-функцию <tt>RegisterApplicationRestart</tt>.</p>
+  <p><b>См. также:</b><br>
     <a href="topic_setup_closeapplications.htm">CloseApplications</a><br>
     <a href="topic_setup_closeapplicationsfilter.htm">CloseApplicationsFilter</a></p>
 </div>

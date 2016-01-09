@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>РљР°Рє РґРѕР±Р°РІРёС‚СЊ РѕРїРёСЃР°РЅРёРµ Рє РєРѕРјРїРѕРЅРµРЅС‚Р°Рј РІ ComponentsList?</title><link rel="stylesheet" type="text/css" href="css.css"><script type="text/javascript" src="includer.js"></script><script language='jscript' type='text/javascript' src='copycode.js'></script></head><body><div id="heading"><h1>В» Inno Setup Faq. РљР°Рє РґРѕР±Р°РІРёС‚СЊ РѕРїРёСЃР°РЅРёРµ Рє РєРѕРјРїРѕРЅРµРЅС‚Р°Рј РІ ComponentsList?</h1></div><br><script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM"> <input type="button" value="РљРѕРїРёСЂРѕРІР°С‚СЊ РІ Р±СѓС„РµСЂ РѕР±РјРµРЅР°" onClick="copyToClipboard( taCode1, theCode1 );"> <blockquote id="theCode1"><font>[Setup]<br>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1251"><title>Как добавить описание к компонентам в ComponentsList?</title><link rel="stylesheet" type="text/css" href="css.css"><script type="text/javascript" src="includer.js"></script><script language='jscript' type='text/javascript' src='copycode.js'></script></head><body><div id="heading"><h1>» Inno Setup Faq. Как добавить описание к компонентам в ComponentsList?</h1></div><br><script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM"> <input type="button" value="Копировать в буфер обмена" onClick="copyToClipboard( taCode1, theCode1 );"> <blockquote id="theCode1"><font>[Setup]<br>
 AppName=My Program<br>
 AppVerName=My Program 1.5<br>
 DefaultDirName={pf}\My Program<br>
@@ -10,32 +10,32 @@ ComponentsListTVStyle=true<br>
 Name: russian; MessagesFile: compiler:Languages\Russian.isl<br>
 <br>
 [CustomMessages]<br>
-russian.ComponentsName1=РњРѕСЏ РїСЂРѕРіСЂР°РјРјР°в„ў<br>
-russian.ComponentsName2=РџРѕРјРѕС‰СЊ<br>
-russian.ComponentsName2_1=Р”РѕРєСѓРјРµРЅС‚Р°С†РёСЏ<br>
-russian.ComponentsName2_2=Р СѓРєРѕРІРѕРґСЃС‚РІРѕ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ<br>
-russian.ComponentsInfoPanel1=РћРїРёСЃР°РЅРёРµ<br>
-russian.ComponentsInfoPanel2=РќР°РІРµРґРёС‚Рµ РєСѓСЂСЃРѕСЂ РјС‹С€Рё РЅР° РєРѕРјРїРѕРЅРµРЅС‚, С‡С‚РѕР±С‹ РїСЂРѕС‡РёС‚Р°С‚СЊ РµРіРѕ РѕРїРёСЃР°РЅРёРµ.<br>
-russian.ComponentsDescription1=РЈСЃС‚Р°РЅР°РІР»РёРІР°РµС‚СЃСЏ РѕР±СЏР·Р°С‚РµР»СЊРЅРѕ<br>
-russian.ComponentsDescription2=РџРѕРјРѕС‰СЊ<br>
-russian.ComponentsDescription3=РџСЂРѕС‡РёС‚Р°С‚СЊ РґРѕРєСѓРјРµРЅС‚Р°С†РёСЋ<br>
-russian.ComponentsDescription4=РџСЂРѕС‡РёС‚Р°С‚СЊ СЂСѓРєРѕРІРѕРґСЃС‚РІРѕ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ<br>
+russian.ComponentsName1=Моя программа™<br>
+russian.ComponentsName2=Помощь<br>
+russian.ComponentsName2_1=Документация<br>
+russian.ComponentsName2_2=Руководство пользователя<br>
+russian.ComponentsInfoPanel1=Описание<br>
+russian.ComponentsInfoPanel2=Наведите курсор мыши на компонент, чтобы прочитать его описание.<br>
+russian.ComponentsDescription1=Устанавливается обязательно<br>
+russian.ComponentsDescription2=Помощь<br>
+russian.ComponentsDescription3=Прочитать документацию<br>
+russian.ComponentsDescription4=Прочитать руководство пользователя<br>
 <br>
 [Components]<br>
-Name: readme; Description: РЎРїСЂР°РІРєР°; Types: full custom;<br>
-Name: readme\en; Description: "РђРЅРіР»РёР№СЃРєР°СЏ "; Types: full custom; Flags: fixed<br>
-Name: readme\ru; Description: Р СѓСЃСЃРєР°СЏ; Types: full<br>
+Name: readme; Description: Справка; Types: full custom;<br>
+Name: readme\en; Description: "Английская "; Types: full custom; Flags: fixed<br>
+Name: readme\ru; Description: Русская; Types: full<br>
 <br>
-Name: plugs; Description: РџР»Р°РіРёРЅС‹; Types: full ; Flags: collapsed<br>
-Name: plugs\wlx; Description: Р’РЅСѓС‚СЂРµРЅРЅРµРіРѕ РїСЂРѕСЃРјРѕС‚СЂР°; Types: full<br>
-Name: plugs\wcx; Description: РђСЂС…РёРІР°С‚РѕСЂРЅС‹Рµ; Types: full<br>
-Name: plugs\wfx; Description: РЎРёСЃС‚РµРјРЅС‹Рµ; Types: full<br>
+Name: plugs; Description: Плагины; Types: full ; Flags: collapsed<br>
+Name: plugs\wlx; Description: Внутреннего просмотра; Types: full<br>
+Name: plugs\wcx; Description: Архиваторные; Types: full<br>
+Name: plugs\wfx; Description: Системные; Types: full<br>
 Name: plugs\wfx\CanonCam; Description: CanonCam; Types: full<br>
 Name: plugs\wfx\PluginManager; Description: PluginManager; Types: full<br>
 Name: plugs\wfx\Registry; Description: Registry; Types: full<br>
 Name: plugs\wfx\Services; Description: Services; Types: full<br>
 Name: plugs\wfx\StartupGuard; Description: StartupGuard; Types: full<br>
-Name: plugs\wdx; Description: Р”СЂСѓРіРёРµ; Types: full<br>
+Name: plugs\wdx; Description: Другие; Types: full<br>
 <br>
 [Code]<br>
 type<br>
@@ -98,17 +98,17 @@ begin<br>
   Info.Caption := ExpandConstant('{cm:ComponentsInfoPanel2}');<br>
   Info.WordWrap := true;<br>
 <br>
-  AddDescription(1, 'РЎРїСЂР°РІРєР°'); ///РїРµСЂРІС‹Р№ РїР°СЂР°РјРµС‚СЂ - СЌС‚Рѕ РЅРѕРјРµСЂ РєРѕРјРїРѕРЅРµРЅС‚Р°, РёРґРµС‚ РїРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕ РѕС‚ РЅР°С‡Р°Р»Р° Р·Р°РїРёСЃРё РєРѕРјРїРѕРЅРµРЅС‚РѕРІ<br>
-  AddDescription(2, 'РђРЅРіР»РёР№СЃРєР°СЏ СЃРїСЂР°РІРєР°'); ///Р’С‚РѕСЂРѕР№ РїР°СЂР°РјРµС‚СЂ - СЌС‚Рѕ СЃРѕР±СЃС‚РІРµРЅРЅРѕ РѕРїРёСЃР°РЅРёРµ РєРѕРјРїРѕРЅРµРЅС‚Р°<br>
-  AddDescription(3, 'Р СѓСЃСЃРєР°СЏ СЃРїСЂР°РІРєР°');<br>
-  AddDescription(4, 'РџР»Р°РіРёРЅС‹');<br>
-  AddDescription(5, 'Р’РЅСѓС‚СЂРµРЅРЅРµРіРѕ РїСЂРѕСЃРјРѕС‚СЂР°');<br>
-  AddDescription(6, 'РђСЂС…РёРІР°С‚РѕСЂРЅС‹Рµ');<br>
-  AddDescription(7, 'РЎРёСЃС‚РµРјРЅС‹Рµ');<br>
+  AddDescription(1, 'Справка'); ///первый параметр - это номер компонента, идет последовательно от начала записи компонентов<br>
+  AddDescription(2, 'Английская справка'); ///Второй параметр - это собственно описание компонента<br>
+  AddDescription(3, 'Русская справка');<br>
+  AddDescription(4, 'Плагины');<br>
+  AddDescription(5, 'Внутреннего просмотра');<br>
+  AddDescription(6, 'Архиваторные');<br>
+  AddDescription(7, 'Системные');<br>
   AddDescription(8, 'CanonCam');<br>
   AddDescription(9, 'PluginManager');<br>
   AddDescription(10, 'Registry');<br>
   AddDescription(11, 'Services');<br>
   AddDescription(12, 'StartupGuard');<br>
-  AddDescription(13, 'Р”СЂСѓРіРёРµ');<br>
+  AddDescription(13, 'Другие');<br>
 end;</font></blockquote><textarea id="taCode1" style="display:none;" rows="1" cols="5"></textarea><textarea id='taCode' style='display:none;' rows='1' cols='20'></textarea></code><script language="javascript" type="text/javascript">highlightSyntax('delphi_Tc4NTM','delphi');</script><br><div id="heading"><h1><font size="1" face="Consolas">Copyright (c) <a href="http://www.krinkels.org/" target="_blank">Krinkels Inc</a></font></h1></div></body></html>

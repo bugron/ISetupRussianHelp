@@ -1,8 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>РљР°Рє СЃРґРµР»Р°С‚СЊ СѓСЃС‚Р°РЅРѕРІРєСѓ РЅР° Р»РѕРіРёС‡РµСЃРєРёР№ РґРёСЃРє РЅРµ СЏРІР»СЏСЋС‰РёР№СЃСЏ СЃРёСЃС‚РµРјРЅС‹Рј?</title><link rel="stylesheet" type="text/css" href="css.css"><script type="text/javascript" src="includer.js"></script><script language='jscript' type='text/javascript' src='copycode.js'></script></head><body><div id="heading"><h1>В» Inno Setup Faq. РљР°Рє СЃРґРµР»Р°С‚СЊ СѓСЃС‚Р°РЅРѕРІРєСѓ РЅР° Р»РѕРіРёС‡РµСЃРєРёР№ РґРёСЃРє РЅРµ СЏРІР»СЏСЋС‰РёР№СЃСЏ СЃРёСЃС‚РµРјРЅС‹Рј?</h1></div><br><script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM"> <input type="button" value="РљРѕРїРёСЂРѕРІР°С‚СЊ РІ Р±СѓС„РµСЂ РѕР±РјРµРЅР°" onClick="copyToClipboard( taCode1, theCode1 );"> <blockquote id="theCode1"><font>;;СЃРєСЂРёРїС‚, РєРѕС‚РѕСЂС‹Р№ РѕРїСЂРµРґРµР»СЏРµС‚ Р»РѕРіРёС‡РµСЃРєРёРµ РґРёСЃРєРё РЅР° РєРѕРјРїСЊСЋС‚РµСЂРµ Рё РїСЂРµРґР»Р°РіР°РµС‚ СѓСЃС‚Р°РЅРѕРІРёС‚СЊ РЅР° РїРµСЂРІС‹Р№<br>
-;;Р»РѕРіРёС‡РµСЃРєРёР№ РґРёСЃРє РЅРµ СЏРІР»СЏСЋС‰РёР№СЃСЏ СЃРёСЃС‚РµРјРЅС‹Рј (РµСЃР»Рё РёС… РЅРµСЃРєРѕР»СЊРєРѕ, РІ РїСЂРѕС‚РёРІРЅРѕРј СЃР»СѓС‡Р°Рµ Р±СѓРґРµС‚ РїСЂРµРґР»РѕР¶РµРЅ<br>
-;;СЃРёСЃС‚РµРјРЅС‹Р№ РґРёСЃРє).<br>
-;;РђРІС‚РѕСЂ: Serega, http://forum.oszone.net/member.php?userid=88670<br>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1251"><title>Как сделать установку на логический диск не являющийся системным?</title><link rel="stylesheet" type="text/css" href="css.css"><script type="text/javascript" src="includer.js"></script><script language='jscript' type='text/javascript' src='copycode.js'></script></head><body><div id="heading"><h1>» Inno Setup Faq. Как сделать установку на логический диск не являющийся системным?</h1></div><br><script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM"> <input type="button" value="Копировать в буфер обмена" onClick="copyToClipboard( taCode1, theCode1 );"> <blockquote id="theCode1"><font>;;скрипт, который определяет логические диски на компьютере и предлагает установить на первый<br>
+;;логический диск не являющийся системным (если их несколько, в противном случае будет предложен<br>
+;;системный диск).<br>
+;;Автор: Serega, http://forum.oszone.net/member.php?userid=88670<br>
 <br>
 [Setup]<br>
 AppName=My Program<br>
@@ -31,30 +31,30 @@ var<br>
 begin<br>
   sd:= ExpandConstant('{sd}');<br>
   Result:= sd;<br>
-  ///Р’С‹Р·С‹РІР°РµРј С„СѓРЅРєС†РёСЋ WinAPI<br>
-  ///Р¤СѓРЅРєС†РёСЏ РІРѕР·РІСЂР°С‰Р°РµС‚ Р±РёС‚РѕРІСѓСЋ РјР°СЃРєСѓ СѓСЃС‚Р°РЅРѕРІР»РµРЅРЅС‹С… Р»РѕРіРёС‡РµСЃРєРёС… РґРёСЃРєРѕРІ.<br>
-  ///Р‘РёС‚ 0 РѕРїСЂРµРґРµР»СЏРµС‚ РЅР°Р»РёС‡РёРµ РґРёСЃРєР° Рђ:, Р±РёС‚ 1 - РґРёСЃРєР° B Рё С‚.Рґ.<br>
+  ///Вызываем функцию WinAPI<br>
+  ///Функция возвращает битовую маску установленных логических дисков.<br>
+  ///Бит 0 определяет наличие диска А:, бит 1 - диска B и т.д.<br>
   x:= GetLogicalDrives;<br>
   if x &lt;&gt; 0 then<br>
-  ///С†РёРєР» РїРѕ РїРѕР»СѓС‡РµРЅРЅС‹Рј Р±РёС‚Р°Рј РїРµСЂРµРјРµРЅРЅРѕР№ X<br>
+  ///цикл по полученным битам переменной X<br>
   for i:= 1 to 64 do<br>
     begin<br>
-      ///РќР°РєР»Р°РґС‹РІР°РµРј Р±РёС‚РѕРІСѓСЋ РјР°СЃРєСѓ РґР»СЏ РІС‹РґРµР»РµРЅРёСЏ Р±РёС‚Р° СЃ РїРѕСЂСЏРєРѕРІС‹Рј РЅРѕРјРµСЂРѕРј 0<br>
+      ///Накладываем битовую маску для выделения бита с поряковым номером 0<br>
       bit:= x and 1;<br>
-      ///РЅР°С€Р»Рё Р»РѕРіРёС‡РµСЃРєРёР№ РґРёСЃРє...<br>
+      ///нашли логический диск...<br>
       if bit = 1 then<br>
         begin<br>
-          ///РѕРїСЂРµРґРµР»СЏРµРј С‚РёРї Р»РѕРіРёС‡РµСЃРєРѕРіРѕ РґРёСЃРєР°<br>
+          ///определяем тип логического диска<br>
           tp:= GetDriveType(PChar(Chr(64 + i) + ':'));<br>
           if tp = DRIVE_FIXED then<br>
-          ///РµСЃР»Рё РґРёСЃРє РЅРµ СЏРІР»СЏРµС‚СЃСЏ СЃРёСЃС‚РµРјРЅС‹Рј<br>
+          ///если диск не является системным<br>
           if Chr(64 + i) &lt;&gt; Copy(sd, 1, 1) then<br>
             begin<br>
               Result:= Chr(64 + i) + ':';<br>
               Break;<br>
             end;<br>
         end;<br>
-      ///РїРѕР±РёС‚РѕРІС‹Р№ СЃРґРІРёРі РІРїСЂР°РІРѕ<br>
+      ///побитовый сдвиг вправо<br>
       x:= x shr 1;<br>
     end;<br>
 end;</font></blockquote><textarea id="taCode1" style="display:none;" rows="1" cols="5"></textarea><textarea id='taCode' style='display:none;' rows='1' cols='20'></textarea></code><script language="javascript" type="text/javascript">highlightSyntax('delphi_Tc4NTM','delphi');</script><br><div id="heading"><h1><font size="1" face="Consolas">Copyright (c) <a href="http://www.krinkels.org/" target="_blank">Krinkels Inc</a></font></h1></div></body></html>

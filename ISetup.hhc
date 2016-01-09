@@ -191,7 +191,7 @@
 <ul>
 <li><object type="text/sitemap"><param name="Name" value="Введение"><param name="Local" value="topic_scriptintro.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="Создание секции [Code]"><param name="Local" value="topic_scriptcreating.htm"></object>
-<li><object type="text/sitemap"><param name="Name" value="Внешние функции"><param name="Local" value="topic_scriptevents.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Функции обработки событий"><param name="Local" value="topic_scriptevents.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="Поддерживаемые константы"><param name="Local" value="topic_scriptconstants.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="Встроенные функции расширенной версии Inno Setup"><param name="Local" value="isxfuncEx\index.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="Параметры проверок"><param name="Local" value="topic_scriptcheck.htm"></object>
@@ -422,7 +422,7 @@
 <li><object type="text/sitemap"><param name="Name" value="Определяемые пользователем макросы"><param name="Local" value="ISPP\topic_macros.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="BUILTINS.ISS"><param name="Local" value="ISPP\topic_builtinsiss.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="Область видимости идентификаторов"><param name="Local" value="ISPP\topic_visibility.htm"></object>
-<li><object type="text/sitemap"><param name="Name" value="Синтаксис выражения"><param name="Local" value="ISPP\topic_expressions.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Синтаксис выражений"><param name="Local" value="ISPP\topic_expressions.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="Расширенный компилятор командной строки"><param name="Local" value="ISPP\topic_isppcc.htm"></object>
 </ul>
 </ul>

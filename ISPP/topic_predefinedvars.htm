@@ -1,76 +1,76 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
 <meta http-equiv="X-UA-Compatible" content="IE=8" />
-<title>Inno Setup Preprocessor: РџСЂРµРґРѕРїСЂРµРґРµР»РµРЅРЅС‹Рµ РїРµСЂРµРјРµРЅРЅС‹Рµ</title>
+<title>Inno Setup Preprocessor: Предопределенные переменные</title>
 <link rel="stylesheet" type="text/css" href="../styles.css" />
 <script type="text/javascript" src="../topic.js"></script>
 </head>
 <body>
-<h1 class="topicheading">Inno Setup Preprocessor: РџСЂРµРґРѕРїСЂРµРґРµР»РµРЅРЅС‹Рµ РїРµСЂРµРјРµРЅРЅС‹Рµ</h1>
+<h1 class="topicheading">Inno Setup Preprocessor: Предопределенные переменные</h1>
 <div class="topicbody">
-  <p>Р•СЃС‚СЊ РЅРµСЃРєРѕР»СЊРєРѕ РїСЂРµРґРѕРїСЂРµРґРµР»РµРЅРЅС‹Рµ РїРµСЂРµРјРµРЅРЅС‹Рµ:</p>
+  <p>Есть несколько предопределенные переменные:</p>
   <table>
     <tr>
       <td class="cellleft"><tt>__COUNTER__</tt></td>
-      <td class="cellright"><tt><b>int</b></tt>. РђРІС‚РѕРјР°С‚РёС‡РµСЃРєРё СѓРІРµР»РёС‡РёРІР°РµС‚ Р·РЅР°С‡РµРЅРёРµ РЅР° РµРґРёРЅРёС†Сѓ РїСЂРё РєР°Р¶РґРѕРј РёСЃРїРѕР»СЊР·РѕРІР°РЅРёРё (РІРїРѕСЃР»РµРґСЃС‚РІРёРё).</td>
+      <td class="cellright"><tt><b>int</b></tt>. Автоматически увеличивает значение на единицу при каждом использовании (впоследствии).</td>
     </tr>
     <tr>
       <td class="cellleft"><tt>__FILE__</tt></td>
-      <td class="cellright"><tt><b>str</b></tt>. Р’РѕР·РІСЂР°С‰Р°РµС‚ РёРјСЏ С‚РµРєСѓС‰РµРіРѕ С„Р°Р№Р»Р°. РџСѓСЃС‚Р°СЏ СЃС‚СЂРѕРєР° РґР»СЏ РєРѕСЂРЅРµРІРѕРіРѕ С„Р°Р№Р»Р°.</td>
+      <td class="cellright"><tt><b>str</b></tt>. Возвращает имя текущего файла. Пустая строка для корневого файла.</td>
     </tr>
     <tr>
       <td class="cellleft"><tt>__INCLUDE__</tt></td>
-      <td class="cellright"><tt><b>str</b></tt>. Р’РѕР·РІСЂР°С‰Р°РµС‚ РїСѓС‚СЊ С‚РµРєСѓС‰РµРіРѕ РєР°С‚Р°Р»РѕРіР° (РёР»Рё РїСѓС‚Рё, СЂР°Р·РґРµР»РµРЅРЅС‹Рµ С‚РѕС‡РєР°РјРё СЃ Р·Р°РїСЏС‚РѕР№) СѓСЃС‚Р°РЅРѕРІР»РµРЅРЅРѕРіРѕ С‡РµСЂРµР· <tt>#pragma include</tt>.</td>
+      <td class="cellright"><tt><b>str</b></tt>. Возвращает путь текущего каталога (или пути, разделенные точками с запятой) установленного через <tt>#pragma include</tt>.</td>
     </tr>
     <tr>
       <td class="cellleft"><tt>__LINE__</tt></td>
-      <td class="cellright"><tt><b>int</b></tt>. Р’РѕР·РІСЂР°С‰Р°РµС‚ РЅРѕРјРµСЂ СЃС‚СЂРѕРєРё РІ С‚РµРєСѓС‰РµРј С„Р°Р№Р»Рµ (РЅРµ <a href="topic_translation.htm">РїРµСЂРµРІРѕРґ</a>), РІ РєРѕС‚РѕСЂРѕРј РѕРЅР° РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ.</td>
+      <td class="cellright"><tt><b>int</b></tt>. Возвращает номер строки в текущем файле (не <a href="topic_translation.htm">перевод</a>), в котором она используется.</td>
     </tr>
     <tr>
       <td class="cellleft"><tt>__OPT_X__</tt></td>
-      <td class="cellright"><tt><b>void</b></tt>. РћРїСЂРµРґРµР»РµРЅ, РµСЃР»Рё Р·Р°РґР°РЅРЅР°СЏ РѕРїС†РёСЏ СѓСЃС‚Р°РЅРѕРІР»РµРЅР° С‡РµСЂРµР· <tt>#pragma option -x+</tt>. Р’РјРµСЃС‚Рѕ &quot;X&quot; РјРѕР¶РµС‚ Р±С‹С‚СЊ Р»СЋР±Р°СЏ Р±СѓРєРІР° РѕС‚ &quot;A&quot; РґРѕ &quot;Z.&quot; РСЃРїРѕР»СЊР·СѓР№С‚Рµ С„СѓРЅРєС†РёСЋ <a href="topic_defined.htm">Defined</a>, С‡С‚РѕР±С‹ СѓР·РЅР°С‚СЊ РїРµСЂРµРјРµРЅРЅР°СЏ РѕРїСЂРµРґРµР»РµРЅР° РёР»Рё РЅРµС‚.</td>
+      <td class="cellright"><tt><b>void</b></tt>. Определен, если заданная опция установлена через <tt>#pragma option -x+</tt>. Вместо &quot;X&quot; может быть любая буква от &quot;A&quot; до &quot;Z.&quot; Используйте функцию <a href="topic_defined.htm">Defined</a>, чтобы узнать переменная определена или нет.</td>
     </tr>
     <tr>
       <td class="cellleft"><tt>__PATHFILENAME__</tt></td>
-      <td class="cellright"><tt><b>str</b></tt>. РџРѕС…РѕР¶ РЅР° __FILE__ РЅРѕ, РІРѕР·РІСЂР°С‰Р°РµС‚ РїРѕР»РЅС‹Р№ РїСѓС‚СЊ Рє С„Р°Р№Р»Сѓ. РџСѓСЃС‚Р°СЏ СЃС‚СЂРѕРєР° РґР»СЏ РєРѕСЂРЅРµРІРѕРіРѕ С„Р°Р№Р»Р°.</td>
+      <td class="cellright"><tt><b>str</b></tt>. Похож на __FILE__ но, возвращает полный путь к файлу. Пустая строка для корневого файла.</td>
     </tr>
     <tr>
       <td class="cellleft"><tt>__POPT_X__</tt></td>
-      <td class="cellright"><tt><b>void</b></tt>. РћРїСЂРµРґРµР»РµРЅ, РµСЃР»Рё Р·Р°РґР°РЅРЅР°СЏ РѕРїС†РёСЏ СѓСЃС‚Р°РЅРѕРІР»РµРЅР° С‡РµСЂРµР· <tt>#pragma parseroption -x+</tt>. Р’РјРµСЃС‚Рѕ &quot;X&quot; РјРѕР¶РµС‚ Р±С‹С‚СЊ Р»СЋР±Р°СЏ Р±СѓРєРІР° РѕС‚ &quot;A&quot; РґРѕ &quot;Z.&quot; РСЃРїРѕР»СЊР·СѓР№С‚Рµ С„СѓРЅРєС†РёСЋ <a href="topic_defined.htm">Defined</a>, С‡С‚РѕР±С‹ СѓР·РЅР°С‚СЊ РїРµСЂРµРјРµРЅРЅР°СЏ РѕРїСЂРµРґРµР»РµРЅР° РёР»Рё РЅРµС‚.</td>
+      <td class="cellright"><tt><b>void</b></tt>. Определен, если заданная опция установлена через <tt>#pragma parseroption -x+</tt>. Вместо &quot;X&quot; может быть любая буква от &quot;A&quot; до &quot;Z.&quot; Используйте функцию <a href="topic_defined.htm">Defined</a>, чтобы узнать переменная определена или нет.</td>
     </tr>
     <tr>
       <td class="cellleft"><tt>__WIN32__</tt></td>
-      <td class="cellright"><tt><b>void</b></tt>. Р’СЃРµРіРґР° РѕРїСЂРµРґРµР»РµРЅ.</td>
+      <td class="cellright"><tt><b>void</b></tt>. Всегда определен.</td>
     </tr>
     <tr>
       <td class="cellleft"><tt>ISPP_INVOKED</tt></td>
-      <td class="cellright"><tt><b>void</b></tt>. Р’СЃРµРіРґР° РѕРїСЂРµРґРµР»РµРЅ.</td>
+      <td class="cellright"><tt><b>void</b></tt>. Всегда определен.</td>
     </tr>
     <tr>
       <td class="cellleft"><tt>PREPROCVER</tt></td>
-      <td class="cellright"><tt><b>int</b></tt>. Р’РѕР·РІСЂР°С‰Р°РµС‚ 32-Р±РёС‚РЅСѓСЋ Р·Р°РєРѕРґРёСЂРѕРІР°РЅРЅСѓСЋ РІРµСЂСЃРёСЋ ISPP. РЎР°РјС‹Р№ РІС‹СЃРѕРєРёР№ Р±Р°Р№С‚ СЃРѕРґРµСЂР¶РёС‚ РѕСЃРЅРѕРІРЅСѓСЋ РІРµСЂСЃРёСЋ, СЃР°РјС‹Р№ РЅРёР·РєРёР№ Р±Р°Р№С‚ СЃРѕРґРµСЂР¶РёС‚ РЅРѕРјРµСЂ СЃР±РѕСЂРєРё.</td>
+      <td class="cellright"><tt><b>int</b></tt>. Возвращает 32-битную закодированную версию ISPP. Самый высокий байт содержит основную версию, самый низкий байт содержит номер сборки.</td>
     </tr>
     <tr>
       <td class="cellleft"><tt>WINDOWS</tt></td>
-      <td class="cellright"><tt><b>void</b></tt>. Р’СЃРµРіРґР° РѕРїСЂРµРґРµР»РµРЅ.</td>
+      <td class="cellright"><tt><b>void</b></tt>. Всегда определен.</td>
     </tr>
     <tr>
       <td class="cellleft"><tt>UNICODE</tt></td>
-      <td class="cellright"><tt><b>void</b></tt>. Р’СЃРµРіРґР° РѕРїСЂРµРґРµР»РµРЅ РґР»СЏ Unicode ISPP. РСЃРїРѕР»СЊР·СѓР№С‚Рµ С„СѓРЅРєС†РёСЋ <a href="topic_defined.htm">Defined</a>, С‡С‚РѕР±С‹ СѓР·РЅР°С‚СЊ РїРµСЂРµРјРµРЅРЅР°СЏ РѕРїСЂРµРґРµР»РµРЅР°, РёР»Рё РЅРµС‚.</td>
+      <td class="cellright"><tt><b>void</b></tt>. Всегда определен для Unicode ISPP. Используйте функцию <a href="topic_defined.htm">Defined</a>, чтобы узнать переменная определена, или нет.</td>
     </tr>
     <tr>
       <td class="cellleft"><tt>CompilerPath</tt></td>
-      <td class="cellright"><tt><b>str</b></tt>. РЈРєР°Р·С‹РІР°РµС‚ РЅР° РїР°РїРєСѓ, РіРґРµ РЅР°С…РѕРґРёС‚СЃСЏ РєРѕРјРїРёР»СЏС‚РѕСЂ.</td>
+      <td class="cellright"><tt><b>str</b></tt>. Указывает на папку, где находится компилятор.</td>
     </tr>
     <tr>
       <td class="cellleft"><tt>SourcePath</tt></td>
-      <td class="cellright"><tt><b>str</b></tt>. РЈРєР°Р·С‹РІР°РµС‚ РЅР° РїР°РїРєСѓ, РіРґРµ РЅР°С…РѕРґРёС‚СЃСЏ РєРѕРјРїРёР»СЏС‚РѕСЂ С‚РµРєСѓС‰РёР№ СЃРєСЂРёРїС‚, РёР»Рё РЅР° С‚РµРєСѓС‰СѓСЋ РїР°РїРєСѓ, РµСЃР»Рё СЃРєСЂРёРїС‚ РµС‰Рµ РЅРµ Р±С‹Р» СЃРѕС…СЂР°РЅРµРЅ.</td>
+      <td class="cellright"><tt><b>str</b></tt>. Указывает на папку, где находится компилятор текущий скрипт, или на текущую папку, если скрипт еще не был сохранен.</td>
     </tr>
     <tr>
       <td class="cellleft"><tt>Ver</tt></td>
-      <td class="cellright"><tt><b>int</b></tt>. Р’РѕР·РІСЂР°С‰Р°РµС‚ 32-Р±РёС‚РЅСѓСЋ Р·Р°РєРѕРґРёСЂРѕРІР°РЅРЅСѓСЋ РІРµСЂСЃРёСЋ РєРѕРјРїРёР»СЏС‚РѕСЂР° Inno Setup. РЎР°РјС‹Р№ РІС‹СЃРѕРєРёР№ Р±Р°Р№С‚ СЃРѕРґРµСЂР¶РёС‚ РѕСЃРЅРѕРІРЅСѓСЋ РІРµСЂСЃРёСЋ, СЃР°РјС‹Р№ РЅРёР·РєРёР№ Р±Р°Р№С‚ РѕР±С‹С‡РЅРѕ СЃРѕРґРµСЂР¶РёС‚ РЅСѓР»СЊ.</td>
+      <td class="cellright"><tt><b>int</b></tt>. Возвращает 32-битную закодированную версию компилятора Inno Setup. Самый высокий байт содержит основную версию, самый низкий байт обычно содержит нуль.</td>
     </tr>
   </table>
 </div>

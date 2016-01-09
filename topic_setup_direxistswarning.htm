@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 <title>[Setup]: DirExistsWarning</title>
-<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="text/html; charset=windows-1251" http-equiv="Content-Type">
 <meta content="IE=8" http-equiv="X-UA-Compatible">
 <link rel="stylesheet" type="text/css" href="styles.css">
 <script type="text/javascript" src="topic.js"></script>
@@ -13,19 +13,19 @@
   <table class="setuphdr">
     <tbody>
       <tr>
-        <td class="setuphdrl"><p>Р’РѕР·РјРѕР¶РЅС‹Рµ Р·РЅР°С‡РµРЅРёСЏ:</p></td>
-        <td class="setuphdrr"><div class="margined"><tt>auto</tt>, <a href="topic_yesnonotes.htm"><tt>yes</tt>, РёР»Рё <tt>no</tt></a></div></td>
+        <td class="setuphdrl"><p>Возможные значения:</p></td>
+        <td class="setuphdrr"><div class="margined"><tt>auto</tt>, <a href="topic_yesnonotes.htm"><tt>yes</tt>, или <tt>no</tt></a></div></td>
       </tr>
       <tr>
-        <td class="setuphdrl"><p>Р—РЅР°С‡РµРЅРёРµ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ:</p></td>
+        <td class="setuphdrl"><p>Значение по умолчанию:</p></td>
         <td class="setuphdrr"><div class="margined"><tt>auto</tt></div></td>
       </tr>
     </tbody>
   </table>
-  <div><b>РћРїРёСЃР°РЅРёРµ:</b></div>
-  <p>РџСЂРё Р·РЅР°С‡РµРЅРёРё <tt>auto</tt> РёРЅСЃС‚Р°Р»Р»СЏС‚РѕСЂ РІС‹РґР°СЃС‚ СЃРѕРѕР±С‰РµРЅРёРµ "РџР°РїРєР°: вЂ¦ СѓР¶Рµ СЃСѓС‰РµСЃС‚РІСѓРµС‚. Р’С‹ С…РѕС‚РёС‚Рµ РїСЂРѕРґРѕР»Р¶РёС‚СЊ СѓСЃС‚Р°РЅРѕРІРєСѓ РІ СЌС‚Сѓ РїР°РїРєСѓ?" ("The directory ... already exists. Would you like to install to that directory anyway?"), РµСЃР»Рё РїРѕР»СЊР·РѕРІР°С‚РµР»СЊ СѓРєР°Р¶РµС‚ РґР»СЏ СѓСЃС‚Р°РЅРѕРІРєРё СЃСѓС‰РµСЃС‚РІСѓСЋС‰СѓСЋ РїР°РїРєСѓ, Р·Р° РёСЃРєР»СЋС‡РµРЅРёРµРј, РµСЃР»Рё СЌС‚Рѕ РїР°РїРєР° СЃ СЂР°РЅРЅРµР№ РІРµСЂСЃРёРµР№ РїСЂРѕРіСЂР°РјРјС‹ Рё С‚РѕР»СЊРєРѕ РєРѕРіРґР° <tt>UsePreviousAppDir=yes</tt>.</p>
-  <p>РџСЂРё Р·РЅР°С‡РµРЅРёРё <tt>yes</tt> РёРЅСЃС‚Р°Р»Р»СЏС‚РѕСЂ РІСЃРµРіРґР° Р±СѓРґРµС‚ РІС‹РґР°РІР°С‚СЊ СЃРѕРѕР±С‰РµРЅРёРµ "Directory Exists" РїСЂРё РїРѕРїС‹С‚РєРµ СѓСЃС‚Р°РЅРѕРІРєРё РІ СЃСѓС‰РµСЃС‚РІСѓСЋС‰СѓСЋ РїР°РїРєСѓ.</p>
-  <p>РџСЂРё Р·РЅР°С‡РµРЅРёРё <tt>no</tt> РёРЅСЃС‚Р°Р»Р»СЏС‚РѕСЂ РЅРµ Р±СѓРґРµС‚ РІС‹РґР°РІР°С‚СЊ СЃРѕРѕР±С‰РµРЅРёРµ "Directory Exists".</p>
+  <div><b>Описание:</b></div>
+  <p>При значении <tt>auto</tt> инсталлятор выдаст сообщение "Папка: … уже существует. Вы хотите продолжить установку в эту папку?" ("The directory ... already exists. Would you like to install to that directory anyway?"), если пользователь укажет для установки существующую папку, за исключением, если это папка с ранней версией программы и только когда <tt>UsePreviousAppDir=yes</tt>.</p>
+  <p>При значении <tt>yes</tt> инсталлятор всегда будет выдавать сообщение "Directory Exists" при попытке установки в существующую папку.</p>
+  <p>При значении <tt>no</tt> инсталлятор не будет выдавать сообщение "Directory Exists".</p>
 </div>
 </body>
 </html>

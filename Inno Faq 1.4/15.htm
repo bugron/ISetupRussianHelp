@@ -1,31 +1,31 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>РЎРєСЂРёРїС‚ Prototype</title>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<title>Скрипт Prototype</title>
 <link rel="stylesheet" type="text/css" href="css.css">
 <script type="text/javascript" src="includer.js"></script>
 <script language='jscript' type='text/javascript' src='copycode.js'></script></head>
 <body>
 <div id="heading">
-<h1>&raquo; Inno Setup Faq. РЎРєСЂРёРїС‚ Prototype</h1>
+<h1>&raquo; Inno Setup Faq. Скрипт Prototype</h1>
 </div>
 <br>
-<script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM"> <input type="button" value="РљРѕРїРёСЂРѕРІР°С‚СЊ РІ Р±СѓС„РµСЂ РѕР±РјРµРЅР°" onClick="copyToClipboard( taCode1, theCode1 );"> <blockquote id="theCode1"><font>///Р­С‚РѕС‚ СЃРєСЂРёРїС‚ РїСЂРµРґРЅР°Р·РЅР°С‡РµРЅ РґР»СЏ РІСЃС‚Р°РІРєРё РёР·РѕР±СЂР°Р¶РµРЅРёСЏ РІ РѕРєРЅРѕ РёРЅСЃС‚Р°Р»Р»СЏС‚РѕСЂР°<br>
-///Р’ СЌС‚РѕРј СЃРєСЂРёРїС‚Рµ РёСЃРїРѕР»СЊР·СѓСЋС‚СЃСЏ Р’СЃРµ СЃС‚СЂР°РЅРёС†РІ, РєСЂРѕРјРµ PasswordPage Рё UserInfoPage<br>
-///Р”Р»СЏ РґРѕР±Р°РІР»РµРЅРёСЏ Р·Р°РґР°С‡ РЅР° TasksPage РІР°Рј РЅСѓР¶РЅРѕ Р±СѓРґРµС‚ СЃРѕР·РґР°С‚СЊ РЅСѓР¶РЅС‹Рµ
-С‡РµРєР±РѕРєСЃС‹ Рё РЅР°РґРїРёСЃРё Рє РЅРёРј, РїРѕ Р°РЅР°Р»РѕРіРёРё СЃ С‚РµРј, С‡С‚Рѕ СѓР¶Рµ СЃРѕР·РґР°РЅРѕ, С‚Р°РєР¶Рµ РёС…
-РЅСѓР¶РЅРѕ Р±СѓРґРµС‚ РїСЂРёРІСЏР·Р°С‚СЊ Рє РѕРїСЂРµРґРµР»РµРЅРЅРѕР№ Р·Р°РґР°С‡Рµ<br>
-///Р¤СѓРЅРєС†РёРё РїРѕ СѓСЃС‚Р°РЅРѕРІРєРµ РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅРѕРіРѕ РџРћ РЅР°С…РѕРґСЏС‚СЃСЏ РІ СЃРµРєС†РёРё [Code] РІ РїСЂРѕС†РµРґСѓСЂРµ CurStepChanged<br>
-///Р—Р° Р·Р°РїСѓСЃРє С„Р°Р№Р»Р° РїРѕСЃР»Рµ СѓСЃС‚Р°РЅРѕРІРєРё РѕС‚РІРµС‡Р°РµС‚ СЃС‚СЂРѕС‡РєР° РІ РїСЂРѕС†РµРґСѓСЂРµ DeinitializeWizard<br>
-///Р”Р»СЏ РєР°Р¶РґРѕР№ РёРіСЂС‹ РЅСѓР¶РЅРѕ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ СЃРІРѕР№ AppID, РіРµРЅРµСЂРёСЂРѕРІР°С‚СЊ AppID
-РЅСѓР¶РЅРѕ С‚Р°Рє РџР°РЅРµР»СЊ РРЅСЃС‚СЂСѓРјРµРЅС‚РѕРІ --&gt; Tools --&gt; Generate GUID, РёР»Рё СЃ
-РїРѕРјРѕС‰СЊСЋ РіРѕСЂСЏС‡РёС… РєР»Р°РІРёС€, РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ Shift+Ctrl+G<br>
-///РђРІС‚РѕСЂ: Shegorat<br>
+<script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM"> <input type="button" value="Копировать в буфер обмена" onClick="copyToClipboard( taCode1, theCode1 );"> <blockquote id="theCode1"><font>///Этот скрипт предназначен для вставки изображения в окно инсталлятора<br>
+///В этом скрипте используются Все страницв, кроме PasswordPage и UserInfoPage<br>
+///Для добавления задач на TasksPage вам нужно будет создать нужные
+чекбоксы и надписи к ним, по аналогии с тем, что уже создано, также их
+нужно будет привязать к определенной задаче<br>
+///Функции по установке дополнительного ПО находятся в секции [Code] в процедуре CurStepChanged<br>
+///За запуск файла после установки отвечает строчка в процедуре DeinitializeWizard<br>
+///Для каждой игры нужно использовать свой AppID, генерировать AppID
+нужно так Панель Инструментов --&gt; Tools --&gt; Generate GUID, или с
+помощью горячих клавиш, по умолчанию Shift+Ctrl+G<br>
+///Автор: Shegorat<br>
 ///***************************************************************************************************<br>
 <br>
 #define AppRunningFile "{app}\prototypef.exe"<br>
-;;РџСѓС‚СЊ Рє С„Р°Р№Р»Сѓ, РєРѕС‚РѕСЂС‹Р№ Р·Р°РїСѓСЃРєР°РµС‚СЃСЏ РїРѕСЃР»Рµ СѓСЃС‚Р°РЅРѕРІРєРё<br>
+;;Путь к файлу, который запускается после установки<br>
 #define NeedSize "7980" <br>[Setup]<br>
 AppId={{B4866999-9FF1-4780-A2E9-A952A5E7BBCA}<br>
 AppName=[Prototype]<br>
@@ -34,7 +34,7 @@ AppPublisher=Activision<br>
 AppVersion=1.0<br>
 AppSupportURL=http://activision.custhelp.com/<br>
 DefaultDirName={pf}\Prototype<br>
-OutputDir=D:\Р РµРїР°РєРё\Prototype<br>
+OutputDir=D:\Репаки\Prototype<br>
 DefaultGroupName=Activision\Radical Entertainment\Prototype<br>
 UninstallFilesDir={app}\Uninstall<br>
 Compression=lzma/ultra64<br>
@@ -53,22 +53,22 @@ UninstallDisplayName=Prototype(TM)<br>
 Name: RUS; MessagesFile: compiler:Languages\Russian.isl<br>
 <br>
 [Icons]<br>
-;;Р­С‚Рё СЏСЂР»С‹РєРё СЃРѕР·РґР°СЋС‚СЃСЏ РІ Р“Р»Р°РІРЅРѕРј РњРµРЅСЋ<br>
-Name: "{group}\РўРµС…РЅРёС‡РµСЃРєР°СЏ РїРѕРґРґРµСЂР¶РєР°\РЎР°Р№С‚ С‚РµС…РЅРёС‡РµСЃРєРѕР№ РїРѕРґРґРµСЂР¶РєРё";
+;;Эти ярлыки создаются в Главном Меню<br>
+Name: "{group}\Техническая поддержка\Сайт технической поддержки";
 Filename: http://www.activision.com/support; WorkingDir: "{app}";
 Check: CheckIcons('Group');<br>
-Name: "{group}\РўРµС…РЅРёС‡РµСЃРєР°СЏ РїРѕРґРґРµСЂР¶РєР°\Р”РёР°РіРЅРѕСЃС‚РёРєР° DirectX"; Filename:
+Name: "{group}\Техническая поддержка\Диагностика DirectX"; Filename:
 "{sys}\dxdiag.exe"; WorkingDir: "{sys}"; Check: CheckIcons('Group');<br>
-Name: "{group}\РўРµС…РЅРёС‡РµСЃРєР°СЏ РїРѕРґРґРµСЂР¶РєР°\РЎРІРµРґРµРЅРёСЏ Рѕ СЃРёСЃС‚РµРјРµ"; Filename:
+Name: "{group}\Техническая поддержка\Сведения о системе"; Filename:
 "{pf}\Common Files\Microsoft Shared\MSInfo\msinfo32.exe"; Check:
 CheckIcons('Group');<br>
-Name: "{group}\Р—Р°РїСѓСЃС‚РёС‚СЊ РёРіСЂСѓ"; Filename: "{app}\prototypef.exe"; WorkingDir: "{app}"; Check: CheckIcons('Group');<br>
-Name: "{group}\РЎР°Р№С‚ РєРѕРјРїР°РЅРёРё Activision"; Filename: http://www.activision.com; WorkingDir: "{app}"; Check: CheckIcons('Group');<br>
-Name: "{group}\РЎР°Р№С‚ РєРѕРјРїР°РЅРёРё Radical Entertainment"; Filename:
+Name: "{group}\Запустить игру"; Filename: "{app}\prototypef.exe"; WorkingDir: "{app}"; Check: CheckIcons('Group');<br>
+Name: "{group}\Сайт компании Activision"; Filename: http://www.activision.com; WorkingDir: "{app}"; Check: CheckIcons('Group');<br>
+Name: "{group}\Сайт компании Radical Entertainment"; Filename:
 http://www.radical.ca/; WorkingDir: "{app}"; Check: CheckIcons('Group');<br>
-Name: "{group}\Р¤Р°Р№Р» Readme"; Filename: {app}\Readme.htm; WorkingDir: {app}; Check: CheckIcons('Group');<br>
-Name: "{group}\РЈРґР°Р»РёС‚СЊ РёРіСЂСѓ"; Filename: {uninstallexe}; WorkingDir: {app}; Check: CheckIcons('Group');<br>
-;;Р­С‚РѕС‚ СЏСЂР»С‹Рє СЃРѕР·РґР°РµС‚СЃСЏ РЅР° Р Р°Р±РѕС‡РµРј СЃС‚РѕР»Рµ<br>
+Name: "{group}\Файл Readme"; Filename: {app}\Readme.htm; WorkingDir: {app}; Check: CheckIcons('Group');<br>
+Name: "{group}\Удалить игру"; Filename: {uninstallexe}; WorkingDir: {app}; Check: CheckIcons('Group');<br>
+;;Этот ярлык создается на Рабочем столе<br>
 Name: "{userdesktop}\Prototype"; Filename: {app}\prototypef.exe; WorkingDir: {app}; Check: CheckIcons('Desktop');<br>
 <br>
 [Files]<br>
@@ -76,9 +76,9 @@ Source: ISSkin.dll; DestDir: {app}; Flags: dontcopy<br>
 Source: Vista.cjstyles; DestDir: {tmp}; Flags: dontcopy<br>
 Source: 1.bmp; DestDir: {tmp}; Flags: dontcopy;<br>
 ///Source: D:\Prototype\*; DestDir: {app}; BeforeInstall: FilenameExt(); Flags: ignoreversion recursesubdirs createallsubdirs<br>
-///Р¤СѓРЅРєС†РёСЏ FilenameExt() РѕС‚РѕР±СЂР°Р¶Р°РµС‚ С„Р°Р№Р»С‹, РєРѕС‚РѕСЂС‹Рµ РІ РґР°РЅРЅС‹Р№ РјРѕРјРµРЅС‚
-РёР·РІР»РµРєР°СЋС‚СЃСЏ, РґРѕР±Р°РІСЊС‚Рµ СЌС‚Сѓ С„СѓРЅРєС†РёСЋ РєРѕ РІСЃРµРј С„Р°Р№Р»Р°Рј, РєРѕС‚РѕСЂС‹Рµ РґРѕР»Р¶РЅС‹
-РёРЅСЃС‚Р°Р»Р»РёСЂРѕРІР°С‚СЊСЃСЏ<br>
+///Функция FilenameExt() отображает файлы, которые в данный момент
+извлекаются, добавьте эту функцию ко всем файлам, которые должны
+инсталлироваться<br>
 <br>
 [Registry]<br>
 Root: HKLM; SubKey: SOFTWARE\Activision\Prototype; ValueType: string;
@@ -116,48 +116,48 @@ ValueName: InstallExePath; ValueData: {app}\Prototypef.exe; Flags:
 uninsdeletevalue uninsdeletekeyifempty<br>
 <br>
 [CustomMessages]<br>
-RUS.SPACE=Р”РѕСЃС‚СѓРїРЅРѕ РјРµСЃС‚Р° РЅР° РґРёСЃРєРµ:<br>
-RUS.SPACE1=РўСЂРµР±СѓРµС‚СЃСЏ РјРµСЃС‚Р° РЅР° РґРёСЃРєРµ:<br>
-RUS.DirectX=РћР±РЅРѕРІРёС‚СЊ DirectX<br>
-RUS.DirectXInstall=РРґРµС‚ РѕР±РЅРѕРІР»РµРЅРёРµ DirectX...<br>
-RUS.Requirement1=Р’СЃРµ РєРѕРјРїРѕРЅРµРЅС‚С‹ СѓРґРѕРІР»РµС‚РІРѕСЂСЏСЋС‚ С‚СЂРµР±РѕРІР°РЅРёСЏРј РёРіСЂС‹.<br>
-RUS.Requirement2=РљРѕРіРґР° Р±СѓРґРµС‚Рµ РіРѕС‚РѕРІС‹ РїСЂРѕРґРѕР»Р¶РёС‚СЊ СѓСЃС‚Р°РЅРѕРІРєСѓ, РЅР°Р¶РјРёС‚Рµ &laquo;Р”Р°Р»РµРµ&raquo;.<br>
-RUS.Icons=РЎРѕР·РґР°С‚СЊ СЏСЂР»С‹Рє РЅР° СЂР°Р±РѕС‡РµРј СЃС‚РѕР»Рµ<br>
-RUS.Group=РЎРѕР·РґР°С‚СЊ СЏСЂР»С‹РєРё РІ РјРµРЅСЋ "РџСѓСЃРє"<br>
-RUS.Redist=РЈСЃС‚Р°РЅРѕРІРёС‚СЊ Microsoft C++ Redist<br>
-RUS.RedistInstall=РРґРµС‚ СѓСЃС‚Р°РЅРѕРІРєР° Microsoft Visual C++ Redistibutable<br>
-RUS.PhysX=РЈСЃС‚Р°РЅРѕРІРёС‚СЊ NVidia PhysX<br>
-RUS.PhysXInstall=РРґРµС‚ СѓСЃС‚Р°РЅРѕРІРєР° NVidia PhysX<br>
-RUS.Finished1=РРіСЂР° {#SetupSetting("AppName")} СѓСЃС‚Р°РЅРѕРІР»РµРЅР° РЅР° Р’Р°С€ РєРѕРјРїСЊСЋС‚РµСЂ.<br>
-RUS.Finished2=РќР°Р¶РјРёС‚Рµ &laquo;Р—Р°РІРµСЂС€РёС‚СЊ&raquo;, С‡С‚РѕР±С‹ РІС‹Р№С‚Рё РёР· РїСЂРѕРіСЂР°РјРјС‹ СѓСЃС‚Р°РЅРѕРІРєРё.<br>
-RUS.RunProgram=Р—Р°РїСѓСЃС‚РёС‚СЊ {#SetupSetting("AppName")}<br>
-RUS.TasksLabel1=Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Рµ Р·РЅР°С‡РєРё:<br>
-RUS.TasksLabel2=РЈСЃС‚Р°РЅРѕРІРєР° РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹С… РїСЂРѕРіСЂР°РјРј:<br>
+RUS.SPACE=Доступно места на диске:<br>
+RUS.SPACE1=Требуется места на диске:<br>
+RUS.DirectX=Обновить DirectX<br>
+RUS.DirectXInstall=Идет обновление DirectX...<br>
+RUS.Requirement1=Все компоненты удовлетворяют требованиям игры.<br>
+RUS.Requirement2=Когда будете готовы продолжить установку, нажмите &laquo;Далее&raquo;.<br>
+RUS.Icons=Создать ярлык на рабочем столе<br>
+RUS.Group=Создать ярлыки в меню "Пуск"<br>
+RUS.Redist=Установить Microsoft C++ Redist<br>
+RUS.RedistInstall=Идет установка Microsoft Visual C++ Redistibutable<br>
+RUS.PhysX=Установить NVidia PhysX<br>
+RUS.PhysXInstall=Идет установка NVidia PhysX<br>
+RUS.Finished1=Игра {#SetupSetting("AppName")} установлена на Ваш компьютер.<br>
+RUS.Finished2=Нажмите &laquo;Завершить&raquo;, чтобы выйти из программы установки.<br>
+RUS.RunProgram=Запустить {#SetupSetting("AppName")}<br>
+RUS.TasksLabel1=Дополнительные значки:<br>
+RUS.TasksLabel2=Установка дополнительных программ:<br>
 <br>
 [Code]<br>
-///Р­С‚Рё РґР°РЅРЅС‹Рµ РЅСѓР¶РЅС‹ РґР»СЏ СЃРѕР·РґР°РЅРёСЏ РЅР°РґРїРёСЃРµР№, РїСЂРё РІСЃС‚Р°РІРєРµ РёР·РѕР±СЂР°Р¶РµРЅРёСЏ РІ РёРЅСЃС‚СЏР»Р»СЏС‚РѕСЂ<br>
+///Эти данные нужны для создания надписей, при вставке изображения в инстяллятор<br>
 var<br>
-&nbsp; DirectX, Redist, Icons, Group, PhysX, RunProgram: TCheckBox; ///Р§РµРєР±РѕРєСЃС‹<br>
-&nbsp; IconsLabel, GroupLabel, RedistLabel, PhysXLabel, DirectXLabel: TLabel;&nbsp; ///РќР°РґРїРёСЃРё Рє С‡РµРєР±РѕРєСЃР°Рј<br>
-&nbsp; SelectDirLabel, SelectDirLabelBrowse, RunProgramLabel: TLabel;&nbsp; ///РќР°РґРїРёСЃРё РЅР° СЃС‚СЂР°РЅРёС†Рµ РІС‹Р±РѕСЂР° РјРµСЃС‚Р° СѓСЃС‚Р°РЅРѕРІРєРё<br>
-&nbsp; PageNameLabel, PageDescriptionLabel: TLabel; ///Р—Р°РіРѕР»РѕРІРѕРє СЃС‚СЂР°РЅРёС†С‹<br>
-&nbsp; StatusLabel, FilenameLabel, NeedSpaceLabel,FreeSpaceLabel: TLabel; ///Р”Р°РЅРЅС‹Рµ РЅР° СЃС‚СЂР°РЅРёС‹Рµ СѓСЃС‚Р°РЅРѕРІРєРё<br>
+&nbsp; DirectX, Redist, Icons, Group, PhysX, RunProgram: TCheckBox; ///Чекбоксы<br>
+&nbsp; IconsLabel, GroupLabel, RedistLabel, PhysXLabel, DirectXLabel: TLabel;&nbsp; ///Надписи к чекбоксам<br>
+&nbsp; SelectDirLabel, SelectDirLabelBrowse, RunProgramLabel: TLabel;&nbsp; ///Надписи на странице выбора места установки<br>
+&nbsp; PageNameLabel, PageDescriptionLabel: TLabel; ///Заголовок страницы<br>
+&nbsp; StatusLabel, FilenameLabel, NeedSpaceLabel,FreeSpaceLabel: TLabel; ///Данные на страниые установки<br>
 &nbsp; WelcomeLabel1, WelcomeLabel2,FinishedLabel,
-FinishedHeadingLabel: TLabel;&nbsp; ///РќР°РґРїРёСЃРё РЅР° РЅР° СЃС‚СЂР°РЅРёС†Рµ
-РїСЂРёРІРµС‚СЃС‚РІРёСЏ Рё РЅР° С„РёРЅРёС€РЅРѕР№ СЃС‚СЂР°РЅРёС†Рµ<br>
+FinishedHeadingLabel: TLabel;&nbsp; ///Надписи на на странице
+приветствия и на финишной странице<br>
 &nbsp; SelectStartMenuFolderLabel, SelectStartMenuFolderBrowseLabel,
-ReadyLabel, NoIconsLabel: TLabel;&nbsp; ///РќР°РґРїРёСЃРё Рё С‡РµРєР±РѕРєСЃС‹ РЅР°
-СЃС‚СЂР°РЅРёС†Рµ РІС‹Р±РѕСЂР° РјРµСЃС‚Р° СѓСЃС‚Р°РЅРѕРІРєРё СЏСЂР»С‹РєРѕРІ РІ Р“Р»Р°РІРЅРѕРј РњРµРЅСЋ<br>
-&nbsp; LicenseLabel1, LicenseAcceptedLabel, LicenseNotAcceptedLabel: Tlabel; ///РќР°РґРїРёСЃРё РЅР° СЃС‚СЂР°РЅРёС‹Рµ Р›РёС†РµРЅР·РёРѕРЅРЅРіРѕ СЃРѕРіР»Р°С€РµРЅРёСЏ<br>
+ReadyLabel, NoIconsLabel: TLabel;&nbsp; ///Надписи и чекбоксы на
+странице выбора места установки ярлыков в Главном Меню<br>
+&nbsp; LicenseLabel1, LicenseAcceptedLabel, LicenseNotAcceptedLabel: Tlabel; ///Надписи на страниые Лицензионнго соглашения<br>
 &nbsp; InfoBeforeClickLabel, InfoAfterClickLabel,
-ComponentsDiskSpaceLabel, SelectComponentsLabel: TLabel; ///РќР°РґРїРёСЃРё РЅР°
-СЃС‚СЂР°РЅРёС†Рµ РєРѕРјРїРѕРЅРµРЅС‚РѕРІ Рё СЃС‚СЂР°РЅРёС†Р°С… РїРѕРєР°Р·Р° РґР°РЅРЅС‹С… РґРѕ Рё РїРѕСЃР»Рµ СѓСЃС‚Р°РЅРѕРІРєРё<br>
-&nbsp; NeedSize:Integer;&nbsp; ///РќСѓР¶РЅРѕРµ РјРµСЃС‚Рѕ РЅР° РґРёСЃРєРµ<br>
-&nbsp; FreeMB, TotalMB: Cardinal;&nbsp; ///РЅСѓР¶РЅРѕРµ РјРµСЃС‚Рѕ РЅР° РґРёСЃРєРµ<br>
-&nbsp; BmpFile: TBitmapImage;&nbsp; ///Р’СЃС‚Р°РІРєР° РёР·РѕР±СЂРїР¶РµРЅРёСЏ РІ РѕРєРЅРѕ РёРЅСЃС‚Р°Р»Р»СЏС‚РѕСЂР°<br>
-&nbsp; PageID,ResultCode: Integer; ///Р—Р°РїСѓСЃРє РїСЂРѕРіСЂР°РјРјС‹ РїРѕСЃР»Рµ СѓСЃС‚Р°РЅРѕРІРєРё<br>
+ComponentsDiskSpaceLabel, SelectComponentsLabel: TLabel; ///Надписи на
+странице компонентов и страницах показа данных до и после установки<br>
+&nbsp; NeedSize:Integer;&nbsp; ///Нужное место на диске<br>
+&nbsp; FreeMB, TotalMB: Cardinal;&nbsp; ///нужное место на диске<br>
+&nbsp; BmpFile: TBitmapImage;&nbsp; ///Вставка изобрпжения в окно инсталлятора<br>
+&nbsp; PageID,ResultCode: Integer; ///Запуск программы после установки<br>
 &nbsp; UpBevel, DownBevel: TBevel;<br>
-&nbsp; ///РЎС‚СЂР°РЅРёС†Р° РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹С… Р·Р°РґР°С‡<br>
+&nbsp; ///Страница дополнительных задач<br>
 &nbsp; TasksPage: TWizardPage;<br>
 &nbsp; SelectTasksLabel, TasksLabel1, TasksLabel2: TLabel;<br>
 <br>
@@ -167,7 +167,7 @@ Begin<br>
 &nbsp; &nbsp; while ((Result[Length(Result)] = '0') or (Result[Length(Result)] = '.')) and (Pos('.', Result) &gt; 0) do<br>
 &nbsp; &nbsp; &nbsp; &nbsp; SetLength(Result, Length(Result)-1);<br>
 end;<br>
-///Р”Р°Р»СЊС€Рµ С„СѓРЅРєС†РёСЏ РїСЂРѕРІРµСЂРєРё С‡РµРєР±РѕРєСЃРѕРІ<br>
+///Дальше функция проверки чекбоксов<br>
 function CheckIcons(Flags: String): Boolean;<br>
 begin<br>
 case AnsiUppercase(Flags)of<br>
@@ -175,7 +175,7 @@ case AnsiUppercase(Flags)of<br>
 &nbsp; 'GROUP': Result:= Group.Checked<br>
 end;<br>
 end;<br>
-///Р¤СѓРЅРєС†РёСЏ РїСЂРѕРІРµСЂРєРё С‡РµРєР±РѕРєСЃРѕРІ<br>
+///Функция проверки чекбоксов<br>
 <br>
 procedure LabelOnClick(Sender: TObject);<br>
 begin<br>
@@ -194,7 +194,7 @@ case Sender of<br>
 end;<br>
 end;<br>
 <br>
-///РЎРІРѕР±РѕРґРЅРѕРµ РјРµСЃС‚Рѕ, РѕС‚РѕР±СЂР°Р¶Р°РµС‚ СЃРєРѕР»СЊРєРѕ РЅСѓР¶РЅРѕ Рё СЃРєРѕР»СЊРєРѕ РµСЃС‚СЊ РјРµСЃС‚Р° РЅР° РґРёСЃРєРµ, РЅР°С…РѕРґС‚СЃСЏ РЅР° СЃС‚СЂР°РЅРёС†Рµ РІС‹Р±РѕСЂР° РїСѓС‚Рё<br>
+///Свободное место, отображает сколько нужно и сколько есть места на диске, находтся на странице выбора пути<br>
 procedure GetFreeSpaceCaption(Sender: TObject);<br>
 var<br>
 &nbsp; Path: String;<br>
@@ -215,12 +215,12 @@ begin<br>
 &nbsp; &nbsp; NeedSpaceLabel.Caption := ExpandConstant('{cm:SPACE1}')+ NumToStr(round(NeedSize/1024*100)/100) + ' GB' else<br>
 &nbsp; NeedSpaceLabel.Caption := ExpandConstant('{cm:SPACE1}')+ IntToStr(NeedSize)+ ' MB';<br>
 end;<br>
-///РЎРІРѕР±РѕРґРЅРѕРµ РјРµСЃС‚Рѕ<br>
+///Свободное место<br>
 procedure FilenameExt();<br>
 begin<br>
 FilenameLabel.Caption:= AddBackslash(ExpandConstant(ExtractFileDir(CurrentFilename))) + ExtractFilename(CurrentFilename);<br>
 end;<br>
-///Р—Р°РіСЂСѓР·РєР° СЃРєРёРЅР°<br>
+///Загрузка скина<br>
 procedure LoadSkin(lpszPath: String; lpszIniFileName: String); external 'LoadSkin@files:isskin.dll stdcall';<br>
 procedure UnloadSkin(); external 'UnloadSkin@files:isskin.dll stdcall';<br>
 function ShowWindow(hWnd: Integer; uType: Integer): Integer; external 'ShowWindow@user32.dll stdcall';<br>
@@ -238,32 +238,32 @@ ShowWindow(StrToInt(ExpandConstant('{wizardhwnd}')), 0);<br>
 &nbsp; &nbsp; UnloadSkin();<br>
 if (PageID=wpFinished) and (RunProgram.Checked)<br>
 &nbsp; &nbsp; then Exec(ExpandConstant('{#AppRunningFile}'), '', '',
-SW_SHOWNORMAL, ewNoWait, ResultCode); ///Р—Р°РїСѓСЃРєР°РµС‚ С„Р°Р№Р» РµСЃР»Рё РЅР° С„РёРЅРёС€РЅРѕР№
-СЃС‚СЂР°РЅРёС†Рµ РІС‹Р±СЂР°РЅ С‡РµРєР±РѕРєСЃ<br>
+SW_SHOWNORMAL, ewNoWait, ResultCode); ///Запускает файл если на финишной
+странице выбран чекбокс<br>
 end;<br>
-///Р—Р°РіСЂСѓР·РєР° СЃРєРёРЅР°<br>
+///Загрузка скина<br>
 <br>
 procedure InitializeWizard();<br>
 begin<br>
-&nbsp; ExtractTemporaryFile('1.bmp');&nbsp; ///РР·РІР»РµРєР°РµРј С„Р°Р№Р», РєРѕС‚РѕСЂС‹Р№ РїРѕР№РґРµС‚ РІ РѕРєРЅРѕ РёРЅСЃС‚Р°Р»Р»СЏС‚РѕСЂР°<br>
-&nbsp; NeedSize:= {#NeedSize};&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ///РќРµРѕР±С…РѕРґРёРјРѕРµ РјРµСЃС‚Рѕ РґР»СЏ СѓСЃС‚Р°РЅРѕРІРєРё<br>
+&nbsp; ExtractTemporaryFile('1.bmp');&nbsp; ///Извлекаем файл, который пойдет в окно инсталлятора<br>
+&nbsp; NeedSize:= {#NeedSize};&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ///Необходимое место для установки<br>
 <br>
-&nbsp; TasksPage := CreateCustomPage(wpSelectProgramGroup, 'Р’С‹Р±РµСЂРёС‚Рµ РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Рµ Р·Р°РґР°С‡Рё',<br>
+&nbsp; TasksPage := CreateCustomPage(wpSelectProgramGroup, 'Выберите дополнительные задачи',<br>
 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-&nbsp; 'РљР°РєРёРµ РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Рµ Р·Р°РґР°С‡Рё РЅРµРѕР±С…РѕРґРёРјРѕ РІС‹РїРѕР»РЅРёС‚СЊ?');<br>
-&nbsp; ///Р’СЃС‚Р°РІР»СЏРµРј РёР·РѕР±СЂР°Р¶РµРЅРёРµ РІ РѕРєРЅРѕ РёРЅСЃС‚Р°Р»Р»СЏС‚РѕСЂР°, РґР»СЏ РєР°Р¶РґРѕР№ СЃС‚СЂР°РЅРёС†С‹ РЅСѓР¶РЅРѕ РґРѕР±РІР»СЏС‚СЊ РёР·РѕР±СЂР°Р¶РµРЅРёРµ Р·Р°РЅРѕРІРѕ<br>
+&nbsp; 'Какие дополнительные задачи необходимо выполнить?');<br>
+&nbsp; ///Вставляем изображение в окно инсталлятора, для каждой страницы нужно добвлять изображение заново<br>
 &nbsp; BmpFile:= TBitmapImage.Create(WizardForm);<br>
 &nbsp; BmpFile.Bitmap.LoadFromFile(ExpandConstant('{tmp}\1.bmp'));<br>
 &nbsp; BmpFile.SetBounds(0, 0, 497, 360);<br>
 &nbsp; BmpFile.Stretch:= true<br>
 &nbsp; BmpFile.Parent:= WizardForm;<br>
 <br>
-&nbsp; ///Р’СЃС‚Р°РІР»СЏРµРј РёР·РѕР±СЂР°Р¶РµРЅРёРµ РІ РѕРєРЅРѕ РёРЅСЃС‚Р°Р»Р»СЏС‚РѕСЂР°, РґР»СЏ РєР°Р¶РґРѕР№ СЃС‚СЂР°РЅРёС†С‹ РЅСѓР¶РЅРѕ РґРѕР±РІР»СЏС‚СЊ РёР·РѕР±СЂР°Р¶РµРЅРёРµ Р·Р°РЅРѕРІРѕ<br>
-&nbsp; ///РЎРєСЂС‹РІРµРј СЃС‚Р°РЅРґР°СЂС‚РЅС‹Рµ РЅР°РґРїРёСЃРё, Р·РЅР°С‡РєРё Рё С‡РµРєР±РѕРєСЃС‹<br>
+&nbsp; ///Вставляем изображение в окно инсталлятора, для каждой страницы нужно добвлять изображение заново<br>
+&nbsp; ///Скрывем стандартные надписи, значки и чекбоксы<br>
 &nbsp; &nbsp; WizardForm.InnerNotebook.Hide;<br>
 &nbsp; &nbsp; WizardForm.OuterNotebook.Hide;<br>
-&nbsp; ///РЎРєСЂС‹РІРµРј СЃС‚Р°РЅРґР°СЂС‚РЅС‹Рµ РЅР°РґРїРёСЃРё, Р·РЅР°С‡РєРё Рё С‡РµРєР±РѕРєСЃС‹<br>
+&nbsp; ///Скрывем стандартные надписи, значки и чекбоксы<br>
 &nbsp; with WizardForm do<br>
 &nbsp; begin<br>
 &nbsp; &nbsp; DirBrowseButton.Left:= DirBrowseButton.Left + ScaleX(40);<br>
@@ -297,8 +297,8 @@ begin<br>
 &nbsp; &nbsp; ReadyMemo.ScrollBars:= ssVertical;&nbsp; &nbsp; ///ssNone<br>
 &nbsp; &nbsp; ReadyMemo.Parent:= WizardForm;<br>
 &nbsp; end;<br>
-&nbsp; ///Р­С‚Рѕ РЅСѓР¶РЅРѕ РґР»СЏ С‚РѕРіРѕ С‡С‚РѕР± РєР°СЂС‚РёРЅРєР° РЅРѕСЂРјР°Р»СЊРЅРѕ РѕС‚РѕР±СЂР°Р¶Р°Р»Р°СЃСЊ<br>
-&nbsp; ///РћСЃС‚Р°Р»СЊРЅРѕРµ<br>
+&nbsp; ///Это нужно для того чтоб картинка нормально отображалась<br>
+&nbsp; ///Остальное<br>
 &nbsp; PageNameLabel:= TLabel.Create(WizardForm);<br>
 &nbsp; with PageNameLabel do<br>
 &nbsp; begin<br>
@@ -341,7 +341,7 @@ end;<br>
 &nbsp; &nbsp; Width:= ScaleX(497);<br>
 &nbsp; &nbsp; Parent:= WizardForm;<br>
 &nbsp; end;<br>
-&nbsp; ///WelcomePage,&nbsp; СЃРѕР·РґР°РµРј РЅР°РґРїРёСЃРё РЅР° СЃС‚СЂР°РЅРёС†Рµ<br>
+&nbsp; ///WelcomePage,&nbsp; создаем надписи на странице<br>
 &nbsp; WelcomeLabel1:= TLabel.Create(WizardForm);<br>
 &nbsp; with WelcomeLabel1 do<br>
 &nbsp; begin<br>
@@ -367,7 +367,7 @@ end;<br>
 &nbsp; &nbsp; Caption:= WizardForm.WelcomeLabel2.Caption;<br>
 end;<br>
 ///WelcomePage<br>
-///licensePage, СЃРѕР·РґР°РµРј РЅР°РґРїРёСЃРё, РєРЅРѕРїРєРё РЅР° СЃС‚СЂР°РЅРёС‹Рµ<br>
+///licensePage, создаем надписи, кнопки на страниые<br>
 &nbsp; LicenseLabel1:=TLabel.Create(WizardForm)<br>
 &nbsp; with LicenseLabel1 do<br>
 &nbsp; begin<br>
@@ -686,9 +686,9 @@ GroupLabel:= TLabel.Create(TasksPage);<br>
 &nbsp; &nbsp; AutoSize:= False;<br>
 &nbsp; &nbsp; WordWrap:= true;<br>
 &nbsp; &nbsp; Transparent:= true;<br>
-&nbsp; &nbsp; Caption:= 'РќР°Р¶РјРёС‚Рµ &laquo;РЈСЃС‚Р°РЅРѕРІРёС‚СЊ&raquo;, С‡С‚РѕР±С‹
-РїСЂРѕРґРѕР»Р¶РёС‚СЊ, РёР»Рё &laquo;РќР°Р·Р°Рґ&raquo;, РµСЃР»Рё Р’С‹ С…РѕС‚РёС‚Рµ РїСЂРѕСЃРјРѕС‚СЂРµС‚СЊ РёР»Рё
-РёР·РјРµРЅРёС‚СЊ РѕРїС†РёРё СѓСЃС‚Р°РЅРѕРІРєРё.'<br>
+&nbsp; &nbsp; Caption:= 'Нажмите &laquo;Установить&raquo;, чтобы
+продолжить, или &laquo;Назад&raquo;, если Вы хотите просмотреть или
+изменить опции установки.'<br>
 &nbsp; &nbsp; Parent:= WizardForm;<br>
 &nbsp; end;<br>
 &nbsp; ///ReadyPage<br>
@@ -700,7 +700,7 @@ GroupLabel:= TLabel.Create(TasksPage);<br>
 &nbsp; &nbsp; AutoSize:= False;<br>
 &nbsp; &nbsp; Transparent := True;<br>
 &nbsp; &nbsp; Parent:= WizardForm;<br>
-&nbsp; &nbsp; Caption:= 'Р Р°СЃРїР°РєРѕРІРєР° С„Р°Р№Р»РѕРІ...'<br>
+&nbsp; &nbsp; Caption:= 'Распаковка файлов...'<br>
 &nbsp; end;<br>
 <br>
 &nbsp; &nbsp; FilenameLabel:= TLabel.Create(WizardForm);<br>
@@ -773,7 +773,7 @@ GroupLabel:= TLabel.Create(TasksPage);<br>
 &nbsp; &nbsp; OnClick:= @LabelOnClick;<br>
 &nbsp; end;<br>
 &nbsp; ///FinishedPage<br>
-&nbsp; ///РЎРєСЂС‹РІР°РµРј РІСЃРµ<br>
+&nbsp; ///Скрываем все<br>
 <br>
 &nbsp; end;<br>
 <br>
@@ -864,9 +864,9 @@ begin<br>
 &nbsp; &nbsp; Group.Show; GroupLabel.Show; Redist.Show;<br>
 &nbsp; &nbsp; RedistLabel.Show; DirectX.Show; DirectXLabel.Show;<br>
 &nbsp; &nbsp; PhysX.Show; PhysXLabel.Show;<br>
-&nbsp; &nbsp; WizardForm.NextButton.Caption:= 'РЈСЃС‚Р°РЅРѕРІРёС‚СЊ';<br>
-&nbsp; &nbsp; PageNameLabel.Caption:= 'Р’С‹Р±РµСЂРёС‚Рµ РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Рµ Р·Р°РґР°С‡Рё';<br>
-&nbsp; &nbsp; PageDescriptionLabel.Caption:= 'РљР°РєРёРµ РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Рµ Р·Р°РґР°С‡Рё РЅРµРѕР±С…РѕРґРёРјРѕ РІС‹РїРѕР»РЅРёС‚СЊ?';<br>
+&nbsp; &nbsp; WizardForm.NextButton.Caption:= 'Установить';<br>
+&nbsp; &nbsp; PageNameLabel.Caption:= 'Выберите дополнительные задачи';<br>
+&nbsp; &nbsp; PageDescriptionLabel.Caption:= 'Какие дополнительные задачи необходимо выполнить?';<br>
 &nbsp; end;<br>
 &nbsp; if CurPageID = wpReady then<br>
 &nbsp; begin<br>
@@ -931,7 +931,7 @@ ResultCode);<br>
 &nbsp; end;<br>
 end;<br>
 <br>
-///Р­С‚Р° СЃС‚СЂРѕС‡РєР° СѓРґР°Р»СЏРµС‚ СЏСЂР»С‹РєРё РёР· GameExplorer'Р° РІ Windows Vista Рё Windows Se7en<br>
+///Эта строчка удаляет ярлыки из GameExplorer'а в Windows Vista и Windows Se7en<br>
 [UninstallDelete]<br>
 Type: filesandordirs; Name: {app};<br>
 </font></blockquote><textarea id="taCode1" style="display:none;" rows="1" cols="5"></textarea><textarea id='taCode' style='display:none;' rows='1' cols='20'></textarea></code><script language="javascript" type="text/javascript">highlightSyntax('delphi_Tc4NTM','delphi');</script>

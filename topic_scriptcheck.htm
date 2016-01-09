@@ -1,34 +1,34 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
 <meta http-equiv="X-UA-Compatible" content="IE=8" />
-<title>Pascal Scripting: РџР°СЂР°РјРµС‚СЂ Check</title>
+<title>Pascal Scripting: Параметр Check</title>
 <!--[if IE 6]><style type="text/css">html{overflow-y:scroll}</style><![endif]-->
 <link rel="stylesheet" type="text/css" href="styles.css" />
 <script type="text/javascript" src="topic.js"></script>
 </head>
 <body>
-<h1 class="topicheading">Pascal Scripting: РџР°СЂР°РјРµС‚СЂ Check</h1>
+<h1 class="topicheading">Pascal Scripting: Параметр Check</h1>
 <div class="topicbody">
-  <p>РЎСѓС‰РµСЃС‚РІСѓРµС‚ РѕРґРёРЅ РЅРµРѕР±СЏР·Р°С‚РµР»СЊРЅС‹Р№ <a href="topic_params.htm">РїР°СЂР°РјРµС‚СЂ</a>, РїРѕРґРґРµСЂР¶РёРІР°РµРјС‹Р№ РІСЃРµРјРё СЃРµРєС†РёСЏРјРё, СЃРѕРґРµСЂР¶Р°С‰РёРµ РїР°СЂР°РјРµС‚СЂС‹. Р­С‚Рѕ:</p>
+  <p>Существует один необязательный <a href="topic_params.htm">параметр</a>, поддерживаемый всеми секциями, содержащие параметры. Это:</p>
   <dl>
     <dt class="paramlist"><b><a name="Check" id="Check">Check</a></b></dt>
     <dd class="paramlist">
-      <p>РРјСЏ РїСЂРѕРІРµСЂРѕС‡РЅРѕР№ С„СѓРЅРєС†РёРё, РєРѕС‚РѕСЂР°СЏ РѕРїСЂРµРґРµР»СЏРµС‚, РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ РїСЂРёРјРµРЅРµРЅ РїР°СЂР°РјРµС‚СЂ РёР»Рё РЅРµС‚. Р­С‚Р° С„СѓРЅРєС†РёСЏ РґРѕР»Р¶РЅР° Р±С‹С‚СЊ Р»РёР±Рѕ РѕРїРёСЃР°РЅР° РІ СЃРµРєС†РёРё [Code], Р»РёР±Рѕ Р±С‹С‚СЊ <a href="topic_scriptfunctions.htm">РІСЃС‚СЂРѕРµРЅРЅРѕР№ С„СѓРЅРєС†РёРµР№</a>.</p>
-      <p>РљСЂРѕРјРµ РїСЂРѕСЃС‚РѕРіРѕ РёРјРµРЅРё РјРѕР¶РЅРѕ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ Р»РѕРіРёС‡РµСЃРєРёРµ РІС‹СЂР°Р¶РµРЅРёСЏ. Р”Р»СЏ СЃРїСЂР°РІРєРё РѕР±СЂР°С‚РёС‚РµСЃСЊ Рє СЂР°Р·РґРµР»Сѓ <a href="topic_componentstasksparams.htm">РџР°СЂР°РјРµС‚СЂС‹ СЃРµРєС†РёР№ [Components] Рё [Tasks]</a>.</p>
-      <p>Р”Р»СЏ РєР°Р¶РґРѕР№ check-С„СѓРЅРєС†РёРё РјРѕР¶РЅРѕ РґРѕР±Р°РІРёС‚СЊ СЃРїРёСЃРѕРє РїР°СЂР°РјРµС‚СЂРѕРІ, СЂР°Р·РґРµР»РµРЅРЅС‹С… Р·Р°РїСЏС‚С‹РјРё, РєРѕС‚РѕСЂС‹Рµ РёРЅСЃС‚Р°Р»Р»СЏС‚РѕСЂ РґРѕР»Р¶РµРЅ РїСЂРµРґРѕСЃС‚Р°РІРёС‚СЊ check-С„СѓРЅРєС†РёРё. Р”РѕРїСѓСЃС‚РёРјС‹Рµ С‚РёРїС‹ РїР°СЂР°РјРµС‚СЂРѕРІ: СЃС‚СЂРѕРєРѕРІС‹Р№ (String), С†РµР»РѕС‡РёСЃР»РµРЅРЅС‹Р№ (Integer) Рё Р»РѕРіРёС‡РµСЃРєРёР№ (Boolean). РЎС‚СЂРѕРєРѕРІС‹Рµ РїР°СЂР°РјРµС‚СЂС‹ РјРѕРіСѓС‚ СЃРѕРґРµСЂР¶Р°С‚СЊ РєРѕРЅСЃС‚Р°РЅС‚С‹. These constants will not be automatically expanded. If you want to pass an expanded constant, СЃСѓС‰РµСЃС‚РІСѓРµС‚ РѕРґРЅР° <a href="topic_scriptfunctions.htm">РІСЃС‚СЂРѕРµРЅРЅР°СЏ С„СѓРЅРєС†РёСЏ</a>, РєРѕС‚РѕСЂСѓСЋ РјРѕР¶РЅРѕ РґРѕР±Р°РІР»СЏС‚СЊ РІ СЃРїРёСЃРѕРє РїР°СЂР°РјРµС‚СЂРѕРІ: СЌС‚Рѕ <tt>ExpandConstant</tt>.</p>
+      <p>Имя проверочной функции, которая определяет, должен быть применен параметр или нет. Эта функция должна быть либо описана в секции [Code], либо быть <a href="topic_scriptfunctions.htm">встроенной функцией</a>.</p>
+      <p>Кроме простого имени можно использовать логические выражения. Для справки обратитесь к разделу <a href="topic_componentstasksparams.htm">Параметры секций [Components] и [Tasks]</a>.</p>
+      <p>Для каждой check-функции можно добавить список параметров, разделенных запятыми, которые инсталлятор должен предоставить check-функции. Допустимые типы параметров: строковый (String), целочисленный (Integer) и логический (Boolean). Строковые параметры могут содержать константы. These constants will not be automatically expanded. If you want to pass an expanded constant, существует одна <a href="topic_scriptfunctions.htm">встроенная функция</a>, которую можно добавлять в список параметров: это <tt>ExpandConstant</tt>.</p>
       <div class="examplebox">
-        <div class="exampleheader">РќР°РїСЂРёРјРµСЂ:</div>
+        <div class="exampleheader">Например:</div>
         <pre class="nomargin">[Files]<br />Source: &quot;MYPROG.EXE&quot;; DestDir: &quot;{app}&quot;; Check: MyProgCheck<br />Source: &quot;A\MYFILE.TXT&quot;; DestDir: &quot;{app}&quot;; Check: MyDirCheck(ExpandConstant('{app}\A'))<br />Source: &quot;B\MYFILE.TXT&quot;; DestDir: &quot;{app}&quot;; Check: DirExists(ExpandConstant('{app}\B'))</pre>
       </div>
     </dd>
   </dl>
-  <p>Р’СЃРµ check-С„СѓРЅРєС†РёРё РґРѕР»Р¶РЅС‹ РІРѕР·РІСЂР°С‰Р°С‚СЊ Р·РЅР°С‡РµРЅРёРµ С‚РёРїР° Boolean. Р•СЃР»Рё check-С„СѓРЅРєС†РёСЏ (РёР»Рё Р»РѕРіРёС‡РµСЃРєРѕРµ РІС‹СЂР°Р¶РµРЅРёРµ) РІРѕР·РІСЂР°С‰Р°РµС‚ True, Р·РЅР°С‡РµРЅРёРµ Р±СѓРґРµС‚ РїСЂРёРјРµРЅРµРЅРѕ, РёРЅР°С‡Рµ Р±СѓРґРµС‚ РїСЂРѕРїСѓС‰РµРЅРѕ.</p>
-  <p>РРЅСЃС‚Р°Р»Р»СЏС‚РѕСЂ РјРѕР¶РµС‚ РІС‹Р·С‹РІР°С‚СЊ РєР°Р¶РґСѓСЋ check-С„СѓРЅРєС†РёСЋ РїРѕ РЅРµСЃРєРѕР»СЊРєРѕ СЂР°Р·, РґР°Р¶Рµ РµСЃР»Рё С‚РѕР»СЊРєРѕ РѕРґРЅРѕ Р·РЅР°С‡РµРЅРёРµ РёСЃРїРѕР»СЊР·СѓРµС‚ СЌС‚Сѓ check-С„СѓРЅРєС†РёСЋ. Р•СЃР»Рё РІР°С€Р° С„СѓРЅРєС†РёСЏ РІС‹РїРѕР»РЅСЏРµС‚ РґР»РёРЅРЅС‹Р№ СЃРµРіРјРµРЅС‚ РєРѕРґР°, РјРѕР¶РЅРѕ РѕРїС‚РёРјРёР·РёСЂРѕРІР°С‚СЊ РµРµ - РІС‹РїРѕР»РЅРёРІ РѕРґРЅР°Р¶РґС‹ Рё РїСЂРёСЃРІРѕРёРІ РїРѕР»СѓС‡РµРЅРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ РіР»РѕР±Р°Р»СЊРЅРѕР№ РїРµСЂРµРјРµРЅРЅРѕР№.</p>
-  <p>Check-С„СѓРЅРєС†РёСЏ РЅРµ РІС‹Р·С‹РІР°РµС‚СЃСЏ РґР»СЏ Р·РЅР°С‡РµРЅРёСЏ, РґР»СЏ РєРѕС‚РѕСЂРѕРіРѕ РёРЅСЃС‚Р°Р»Р»СЏС‚РѕСЂ СѓР¶Рµ РѕРїСЂРµРґРµР»РёР», С‡С‚Рѕ РЅРµ Р±СѓРґРµС‚ РµРіРѕ РїСЂРёРјРµРЅСЏС‚СЊ.</p>
-  <p>Р”Р°РЅРЅР°СЏ С„СѓРЅРєС†РёСЏ РІС‹Р·С‹РІР°РµС‚СЃСЏ РѕРґРЅР°Р¶РґС‹ РґР»СЏ РєР°Р¶РґРѕРіРѕ С„Р°Р№Р»Р° СЃРµРєС†РёРё [Files], СЃРѕРІРїРѕРґР°СЋС‰РµРіРѕ СЃ <span id="result_box" lang="ru" xml:lang="ru">РїРѕРґСЃС‚Р°РЅРѕРІРѕС‡РЅС‹Рј Р·РЅР°Рє</span>РѕРј. РСЃРїРѕР»СЊР·СѓР№С‚Рµ <tt>CurrentFileName</tt>, С‡С‚РѕР±С‹ РїСЂРѕРІРµСЂРёС‚СЊ РґР»СЏ РєР°РєРѕРіРѕ С„Р°Р№Р»Р° Р±С‹Р»Р° РІС‹Р·РІР°РЅР° С„СѓРЅРєС†РёСЏ.</p>
-  <p>РџСЂРёРјРµСЂ СЃРµРєС†РёРё [Code], СЃРѕРґРµСЂР¶Р°С‰РµР№ РїСЂРѕРІРµСЂРѕС‡РЅС‹Рµ С„СѓРЅРєС†РёРё (check-С„СѓРЅРєС†РёРё). Р¤СѓРЅРєС†РёСЏ <tt>DirExists</tt> СЏРІР»СЏРµС‚СЃСЏ <a href="topic_scriptfunctions.htm">РІСЃС‚СЂРѕРµРЅРЅРѕР№ С„СѓРЅРєС†РёРµР№</a>, РїРѕСЌС‚РѕРјСѓ РЅРµ РѕРїРёСЃР°РЅР° РІ СЃРµРєС†РёРё [Code].</p>
+  <p>Все check-функции должны возвращать значение типа Boolean. Если check-функция (или логическое выражение) возвращает True, значение будет применено, иначе будет пропущено.</p>
+  <p>Инсталлятор может вызывать каждую check-функцию по несколько раз, даже если только одно значение использует эту check-функцию. Если ваша функция выполняет длинный сегмент кода, можно оптимизировать ее - выполнив однажды и присвоив полученное значение глобальной переменной.</p>
+  <p>Check-функция не вызывается для значения, для которого инсталлятор уже определил, что не будет его применять.</p>
+  <p>Данная функция вызывается однажды для каждого файла секции [Files], совподающего с <span id="result_box" lang="ru" xml:lang="ru">подстановочным знак</span>ом. Используйте <tt>CurrentFileName</tt>, чтобы проверить для какого файла была вызвана функция.</p>
+  <p>Пример секции [Code], содержащей проверочные функции (check-функции). Функция <tt>DirExists</tt> является <a href="topic_scriptfunctions.htm">встроенной функцией</a>, поэтому не описана в секции [Code].</p>
   <pre class="indent examplebox">[Code]<br />var<br />  MyProgChecked: Boolean;<br />  MyProgCheckResult: Boolean;<br /><br />function MyProgCheck(): Boolean;<br />begin<br />  if not MyProgChecked then begin<br />    MyProgCheckResult := MsgBox('Do you want to install MyProg.exe to ' + ExtractFilePath(CurrentFileName) + '?', mbConfirmation, MB_YESNO) = idYes;<br />    MyProgChecked := True;<br />  end;<br />  Result := MyProgCheckResult;<br />end;<br /><br />function MyDirCheck(DirName: String): Boolean;<br />begin<br />  Result := DirExists(DirName);<br />end;</pre>
 </div>
 </body>

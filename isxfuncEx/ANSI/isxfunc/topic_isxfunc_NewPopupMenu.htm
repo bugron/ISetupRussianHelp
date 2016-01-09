@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Pascal Scripting Extended: NewPopupMenu</title>
+<link rel="stylesheet" type="text/css" href="../../../styles.css" />
+<script type="text/javascript" src="../../../topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Pascal Scripting Extended: NewPopupMenu</h1>
+<div class="topicbody">
+  <div><b>Прототип:</b></div>
+  <p><tt>function NewPopupMenu(Owner: TComponent; const AName: String; Alignment: TPopupAlignment; AutoPopup: Boolean; Items: array of TMenuItem): TPopupMenu;</tt></p>
+  <div><b>Описание:</b></div>
+  Функция создает, во время выполнения программы, и инициализирует всплывающее меню, элементы которого заданы параметром Items.<br />
+  Параметр Owner определяет компонент-владелец, с которым будет ассоциировано меню. Параметр AutoPopup определяет, должно ли появляться меню при щелчке правой кнопкой мыши на компоненте. В параметре AName указывается имя, которое будет идентифицировать всплывающего меню в исходном коде программы. Параметр Alignment определяет, в каком месте относительно указателя мыши появится меню.<br />
+  Элементы меню можно создать с помощью функции NewItem.<br />
+  Функция NewPopupMenu не может ассоциировать всплывающее меню с элементами управления.<br />
+</div>
+</body>
+</html>

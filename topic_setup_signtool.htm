@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=8">
+<title>[Setup]: SignTool</title>
+<link rel="stylesheet" type="text/css" href="styles.css">
+<script type="text/javascript" src="topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">[Setup]: SignTool</h1>
+<div class="topicbody">
+  <table class="setuphdr">
+    <tr>
+      <td class="setuphdrl"><p>Возможные значения:</p></td>
+      <td class="setuphdrr"><div class="margined">Имя, сопровождаемое нулем или большим количеством параметров, которые разделены пробелами.</div></td>
+    </tr>
+  </table>
+  <div><b>Описание:</b></div>
+  <p>Определяет имя и параметры Sign Tool, который будет использоваться, чтобы в цифровой форме подписать инсталлятор (и деинсталлятор, если <a href="topic_setup_signeduninstaller.htm">SignedUninstaller</a> установлен в <tt>yes</tt>). Когда у инсталлятора будет допустимая цифровая подпись, пользователи не увидят предупреждение о "неопознанной программе".</p>
+  <p>Указанное имя Sign Tool и его команда должна быть определена в IDE компилятора (через меню <i>Tools | Configure Sign Tools...</i>) или через <a href="topic_compilercmdline.htm">командную строку компилятора</a> (через параметр "/S"), иначе произойдет ошибка.</p>
+  <p>Следующие специальные последовательности могут использоваться в параметрах и командах Sign Tool:</p>
+  <p><tt>$f</tt>, заменяется заключенным в кавычки именем файла, который будет подписан.</p>
+  <p><tt>$p</tt>, заменяется параметрами Sign Tool.</p>
+  <p><tt>$q</tt>, заменяется кавычкой, полезной для определения Sign Tool, который содержит кавычки от командной строки.</p>
+  <p><tt>$$</tt>, заменяется символом <tt>$</tt>.</p>
+  <div class="examplebox">
+    <div class="exampleheader">Например:</div>
+    <p>Примите следующий Sign Tools, определенный в IDE:</p>
+    <pre>
+mystandard=signtool.exe /x /y /d $qMy Program$q $f
+mycustom=signtool.exe $p
+byparam=$p
+</pre>
+    <p>некоторые примеры:</p>
+    <pre>
+SignTool=mystandard
+SignTool=mycustom /x /y /d $qMy Program$q $f
+SignTool=byparam signtool.exe /x /y /d $qMy Program$q $f
+</pre>
+    <p>Примечание: для соображений безопасности следует дать уникальное имя любому Sign Tool set to <tt>$p</tt>, и не использовать имя <tt>byparam</tt>. Рассмотрите то, что происходит, если Вы включаете сторонний файл, который говорит:</p>
+    <pre class="nomargin">
+SignTool=byparam format c: 
+</pre>
+  </div>
+  <p>Детали о получении сертификатов подписания и использовании инструментов выходят за рамки этой документации.</p>
+  <p><i>Примечание:</i> Если Вы используете Sign Tool, и Ваш инсталлятор содержит большой объем данных, рекомендуется, чтобы Вы включили <a href="topic_setup_diskspanning.htm">разбиение на диски</a> с <a href="topic_setup_diskslicesize.htm">DiskSliceSize</a>=<tt>max</tt>. Если Вы не сделаете этого, после запуска инсталлятора пользователь будет испытывать длинную задержку, вызванной Windows при проверке цифровой подписи. Все извлеченные файлы из .bin файлов подвергаются проверке SHA-1 (если <tt>dontverifychecksum</tt> не используется). SHA-1 хеши этих файлов (наряду со всеми другими метаданными) сохраняются внутри EXE файла инсталлятора, который защищается цифровой подписью.</p>
+</div>
+</body>
+</html>

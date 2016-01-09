@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Секция [CustomMessages]</title>
+<!--[if IE 6]><style type="text/css">html{overflow-y:scroll}</style><![endif]-->
+<link rel="stylesheet" type="text/css" href="styles.css" />
+<script type="text/javascript" src="topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Секция [CustomMessages]</h1>
+<div class="topicbody">
+  <p>В секции [CustomMessages] задаются индивидуальные значения сообщений для констант {cm:...}. Для информации обратитесь к разделу <a href="topic_consts.htm#cm">Константы</a>.</p>
+  <p>Пример задания с описанием, взятым из секции [CustomMessages] с использованием константы {cm:...}:</p>
+  <pre class="indent examplebox">[CustomMessages]<br />CreateDesktopIcon=Create a &amp;desktop icon<br /><br />[Tasks]<br />Name: desktopicon; Description: &quot;{cm:CreateDesktopIcon}&quot;</pre>
+  <p>Сообщения могут содержать константы с %1 до %9. Вы можете изменить порядок этих символов (т.е. поставить %2 перед %1) и при необходимости дублировать их (т.е. &quot;%1...%1 %2&quot;). Для того чтобы добавить символ &quot;%&quot;, наберите его два раза. &quot;%n&quot; означает перевод каретки.</p>
+  <p>В случаях, когда в секции [Languages] указаны несколько параметров, заданные в секции [CustomMessages] параметры вашего скрипта (в противоположность .isl файлу) по умолчанию заменят сообщения для всех языков. Для применения параметра секции [CustomMessages] только для одного языка, допишите префикс перед именем языка.</p>
+  <pre class="indent examplebox">nl.CreateDesktopIcon=Maak een snelkoppeling op het &amp;bureaublad</pre>
+  <p>В настоящее время .isl-файлы для всех языков, поддерживаемых Inno Setup, имеют следующие стандартные сообщения, описанные и переведенные для каждого языка (показаны значения для английского языка):</p>
+  <pre class="indent examplebox">NameAndVersion=%1 version %2<br />AdditionalIcons=Additional icons:<br />CreateDesktopIcon=Create a &amp;desktop icon<br />CreateQuickLaunchIcon=Create a &amp;Quick Launch icon<br />ProgramOnTheWeb=%1 on the Web<br />UninstallProgram=Uninstall %1<br />LaunchProgram=Launch %1<br />AssocFileExtension=&amp;Associate %1 with the %2 file extension<br />AssocingFileExtension=Associating %1 with the %2 file extension...</pre>
+  <p>Можете использовать приведенные стандартные сообщения в своих скриптах. Пример, который использует <tt>UninstallProgram</tt>:</p>
+  <pre class="indent examplebox">[Icons]<br />Name: &quot;{group}\{cm:UninstallProgram,My Program}&quot;; Filename: &quot;{uninstallexe}&quot;</pre>
+</div>
+</body>
+</html>

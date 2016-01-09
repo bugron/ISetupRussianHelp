@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>[Setup]: TouchTime</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="IE=8" http-equiv="X-UA-Compatible">
+<link rel="stylesheet" type="text/css" href="styles.css">
+<script type="text/javascript" src="topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">[Setup]: TouchTime</h1>
+<div class="topicbody">
+  <table class="setuphdr">
+    <tbody>
+      <tr>
+        <td class="setuphdrl"><p>Возможные значения:</p></td>
+        <td class="setuphdrr"><div class="margined"><tt>current</tt>, <tt>none</tt>, <tt><i>HH</i>:<i>MM</i></tt>, или <tt><i>HH</i>:<i>MM</i>:<i>SS</i></tt></div></td>
+      </tr>
+      <tr>
+        <td class="setuphdrl"><p>Значение по умолчанию:</p></td>
+        <td class="setuphdrr"><div class="margined"><tt>current</tt></div></td>
+      </tr>
+    </tbody>
+  </table>
+  <div><b>Описание:</b></div>
+  <p>Время используется в отметке время/дата для файлов секции [Files] с флагом <tt>touch</tt>.</p>
+  <p>При значении <tt>current</tt> время равно системному времени (во время компиляции). При значении <tt>none</tt> время остается не тронутым. Иначе <tt>TouchTime</tt> толкуется открыто в формате <tt><i>HH</i>:<i>MM</i></tt> или <tt><i>HH</i>:<i>MM</i>:<i>SS</i></tt>. Если <a href="topic_setup_timestampsinutc.htm">TimeStampsInUTC</a>=<tt>yes</tt>, время принимает значение UTC-времени.</p>
+  <div class="examplebox">
+    <div class="exampleheader">Например:</div>
+    <pre class="nomargin">TouchTime=13:00</pre>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Коды выхода деинсталлятора</title>
+<!--[if IE 6]><style type="text/css">html{overflow-y:scroll}</style><![endif]-->
+<link rel="stylesheet" type="text/css" href="styles.css" />
+<script type="text/javascript" src="topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Коды выхода деинсталлятора</h1>
+<div class="topicbody">
+  <p>Начиная с Inno Setup 4.0.8, деинсталлятор возвращает ненулевой код выхода, если удаление прерывается пользователем или возникает фатальная ошибка. Программы, проверяющие коды выхода для обнаружения ошибок не должны проверять ненулевые коды выхода; каждый ненулевой код выхода означает, что удаление не прошло успешно.</p>
+  <p> Обратите внимание, что в момент получения кода выхода от деинсталлятора, некоторые из них могут все еще работать. Т.к. Windows не позволяет программам удалять их собственные EXE-файлы, деинсталлятор создает и вызывает свою копию во временной папке TEMP. Этот &quot;клон&quot; выполняет удаление, в конце которого завершает работу настоящего деинсталлятора (в этот момент он возвращает код выхода), удаляет его и отображает окно &quot;Удаление завершено&quot; (если не заданы /SILENT или /VERYSILENT).</p>
+</div>
+</body>
+</html>

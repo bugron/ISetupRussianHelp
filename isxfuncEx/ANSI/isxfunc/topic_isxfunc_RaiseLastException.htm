@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Pascal Scripting Extended: RaiseLastException</title>
+<link rel="stylesheet" type="text/css" href="../../../styles.css" />
+<script type="text/javascript" src="../../../topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Pascal Scripting Extended: RaiseLastException</h1>
+<div class="topicbody">
+  <div><b>Прототип:</b></div>
+  <p><tt>procedure RaiseLastException;</tt></p>
+  <div><b>Описание:</b></div>
+  <p>Выходит из текущего пути исполнения, без сообщения о какой-либо ошибке.</p>
+  <tt>Abort</tt> выводит специальное &quot;тихие исключение&quot;, которая работает как и любое другое исключение, но не отображает сообщение об ошибке на конечному пользователю.
+  <div><b>Пример:</b></div>
+  <p>Abort не завершает работу инсталлятора/деинсталлятора, если не вызывается в одной из этих функций (или в другой функции, вызываемой ими):</p>
+  <p><tt>InitializeSetup<br />
+    InitializeWizard<br />
+    CurStepChanged(ssInstall)</tt></p>
+  <p><tt>InitializeUninstall<br />
+    CurUninstallStepChanged(usAppMutexCheck)<br />
+    CurUninstallStepChanged(usUninstall)</tt></p>
+</div>
+</body>
+</html>

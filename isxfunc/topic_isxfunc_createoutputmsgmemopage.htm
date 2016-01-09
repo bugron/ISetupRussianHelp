@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Pascal Scripting: CreateOutputMsgMemoPage</title>
+<link rel="stylesheet" type="text/css" href="../styles.css" />
+<script type="text/javascript" src="../topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Pascal Scripting: CreateOutputMsgMemoPage</h1>
+<div class="topicbody">
+  <div><b>Прототип:</b></div>
+  <p><tt>function CreateOutputMsgMemoPage(const AfterID: Integer; const ACaption, ADescription, ASubCaption: String; const AMsg: AnsiString): TOutputMsgMemoWizardPage;</tt></p>
+  <div><b>Описание:</b></div>
+  <p>Создает страницу мастера, содержащую статический текст, многострочное поле ввода, способное отображать RTF текст, такое же поле, только для чтения. Параметр ASubCaption определяет отображаемый статический текст. AMsg определяет текст поля ввода.</p>
+  <div><b>Например:</b></div>
+  <pre>var
+  Page: TOutputMsgMemoWizardPage;
+
+...
+
+// Create the page
+Page := CreateOutputMsgMemoPage(wpWelcome,
+  'Information', 'Please read the following important information before continuing.',
+  'When you are ready to continue with Setup, click Next.',
+  'Blah blah blah.');
+</pre>
+</div>
+</body>
+</html>

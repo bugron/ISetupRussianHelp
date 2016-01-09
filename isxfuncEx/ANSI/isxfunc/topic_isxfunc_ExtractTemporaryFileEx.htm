@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Pascal Scripting Extended: ExtractTemporaryFileEx</title>
+<link rel="stylesheet" type="text/css" href="../../../styles.css" />
+<script type="text/javascript" src="../../../topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Pascal Scripting Extended: ExtractTemporaryFileEx</h1>
+<div class="topicbody">
+  <div><b>Прототип:</b></div>
+  <p><tt>procedure ExtractTemporaryFileEx(const FileName: String; const DestDir: String);</tt></p>
+  <div><b>Описание:</b></div>
+  <p>Распаковывает заданный файл секции [Files] в указанную папку. Чтобы найти расположение временной папки, используйте <tt>ExpandConstant('{tmp}')</tt>.</p>
+  <p>Распакованные файлы автоматически удаляются при закрытии инсталлятора.</p>
+  <p>Будет вызвано исключение, если файл не извлекается успешно, если файл не найден, или если файл существует.</p>
+  <div><b>Комментарии:</b></div>
+  <p>Используйте <tt>Flags: dontcopy</tt> в секции [Files], если извлеченный файл не нужно установить.</p>
+  <p>Если непрерывное сжатие включено, то добавьте такие временные файлы в начало секции [Files]. Для того чтобы извлечь произвольный файл из непрерывно сжатого инсталлятора, он сначала должен разжать все предыдущие файлы (во временной буфер в памяти). Это может привести к существенным задержкам, если ряд других файлов перечислены выше указанного файла в секции [Files].</p>
+  <p></p>
+</div>
+</body>
+</html>

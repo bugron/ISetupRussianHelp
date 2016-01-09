@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Inno Setup Preprocessor: #file</title>
+<link rel="stylesheet" type="text/css" href="../styles.css" />
+<script type="text/javascript" src="../topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Inno Setup Preprocessor: #file</h1>
+<div class="topicbody">
+  <h2 class="heading notopmargin">Синтатсис</h2>
+  <table>
+    <tbody>
+      <tr>
+        <td class="cellleft"><i>file-directive:</i></td>
+        <td class="cellright"><b>file</b> &lt;expr&gt;</td>
+      </tr>
+    </tbody>
+  </table>
+  <h2 class="heading">Описание</h2>
+  <p>Заменяет директиву с именем временного файла, содержащего <a href="topic_translation.htm">перевод</a> указанного файла. После завершения компиляции временной файл автоматически удаляется.</p>
+  <p>Включая используемый файл, эта директива создает новый независимый экземпляр препроцессора, передавая ему и опции в реальном времени, и все объявленные идентификаторы. Если включенный файл изменяет опции в некотором роде, они не распространяются назад.</p>
+  <p>При использовании этой директивы в параметре Source&nbsp; секции [Files] также определите параметр DestName, иначе файл не будет установлен с исходным именем.</p>
+  <p>Данная директива может использоваться только встроенно.</p>
+  <h2 class="heading">Примеры</h2>
+  <p><tt>[Setup]<br />
+    LicenseFile={#file &quot;mylic.txt&quot;}<br />
+  </tt></p>
+  <h2 class="heading">См. также</h2>
+  <p><tt><a href="topic_include.htm">include</a></tt>.</p>
+</div>
+</body>
+</html>

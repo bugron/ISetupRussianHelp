@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Как получить тип диска</title><link rel="stylesheet" type="text/css" href="css.css">
+<script language='jscript' type='text/javascript' src='copycode.js'></script>
+<script type="text/javascript" src="includer.js"></script></head><body><div id="heading"><h1>» Inno Setup Faq. Как получить тип диска</h1></div><br>
+<script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM">
+<input type="button" value="Копировать в буфер обмена" onClick="copyToClipboard( taCode1, theCode1 );">
+<blockquote id="theCode1"><font>
+#ifdef&nbsp;UNICODE<br>
+#define&nbsp;A&nbsp;&quot;W&quot;<br>
+#else<br>
+#define&nbsp;A&nbsp;&quot;A&quot;<br>
+#endif<br>
+<br>
+[Setup]<br>
+AppName=DriveType<br>
+AppVerName=DriveType<br>
+Uninstallable=false<br>
+UpdateUninstallLogAppName=false<br>
+DisableDirPage=true<br>
+DisableProgramGroupPage=true<br>
+DefaultDirName={pf}\Drvtype<br>
+DisableStartupPrompt=true<br>
+<br>
+[Code]<br>
+function&nbsp;GetDriveType(lpDisk:&nbsp;String):&nbsp;Integer;<br>
+external&nbsp;'GetDriveType{#A}@kernel32.dll&nbsp;stdcall';<br>
+<br>
+const<br>
+&nbsp;&nbsp;DRIVE_UNKNOWN&nbsp;=&nbsp;0;&nbsp;///The&nbsp;drive&nbsp;type&nbsp;cannot&nbsp;be&nbsp;determined.<br>
+&nbsp;&nbsp;DRIVE_NO_ROOT_DIR&nbsp;=&nbsp;1;&nbsp;///The&nbsp;root&nbsp;path&nbsp;is&nbsp;invalid.&nbsp;For&nbsp;example,&nbsp;no&nbsp;volume&nbsp;is&nbsp;mounted&nbsp;at&nbsp;the&nbsp;path.<br>
+&nbsp;&nbsp;DRIVE_REMOVABLE&nbsp;=&nbsp;2;&nbsp;///The&nbsp;disk&nbsp;can&nbsp;be&nbsp;removed&nbsp;from&nbsp;the&nbsp;drive.<br>
+&nbsp;&nbsp;DRIVE_FIXED&nbsp;=&nbsp;3;&nbsp;///The&nbsp;disk&nbsp;cannot&nbsp;be&nbsp;removed&nbsp;from&nbsp;the&nbsp;drive.<br>
+&nbsp;&nbsp;DRIVE_REMOTE&nbsp;=&nbsp;4;&nbsp;///The&nbsp;drive&nbsp;is&nbsp;a&nbsp;remote&nbsp;(network)&nbsp;drive.<br>
+&nbsp;&nbsp;DRIVE_CDROM&nbsp;=&nbsp;5;&nbsp;///The&nbsp;drive&nbsp;is&nbsp;a&nbsp;CD-ROM&nbsp;drive.<br>
+&nbsp;&nbsp;DRIVE_RAMDISK&nbsp;=&nbsp;6;&nbsp;///The&nbsp;drive&nbsp;is&nbsp;a&nbsp;RAM&nbsp;disk.<br>
+<br>
+///function&nbsp;to&nbsp;convert&nbsp;disk&nbsp;type&nbsp;to&nbsp;string<br>
+function&nbsp;DriveTypeString(dtype:&nbsp;Integer):&nbsp;String;<br>
+begin<br>
+&nbsp;&nbsp;case&nbsp;dtype&nbsp;of<br>
+&nbsp;&nbsp;&nbsp;&nbsp;DRIVE_NO_ROOT_DIR&nbsp;:&nbsp;Result&nbsp;:=&nbsp;'Root&nbsp;path&nbsp;invalid';<br>
+&nbsp;&nbsp;&nbsp;&nbsp;DRIVE_REMOVABLE&nbsp;:&nbsp;Result&nbsp;:=&nbsp;'Removable';<br>
+&nbsp;&nbsp;&nbsp;&nbsp;DRIVE_FIXED&nbsp;:&nbsp;Result&nbsp;:=&nbsp;'Fixed';<br>
+&nbsp;&nbsp;&nbsp;&nbsp;DRIVE_REMOTE&nbsp;:&nbsp;Result&nbsp;:=&nbsp;'Network';<br>
+&nbsp;&nbsp;&nbsp;&nbsp;DRIVE_CDROM&nbsp;:&nbsp;Result&nbsp;:=&nbsp;'CD-ROM';<br>
+&nbsp;&nbsp;&nbsp;&nbsp;DRIVE_RAMDISK&nbsp;:&nbsp;Result&nbsp;:=&nbsp;'Ram&nbsp;disk';<br>
+&nbsp;&nbsp;else<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Result&nbsp;:=&nbsp;'Unknown';<br>
+&nbsp;&nbsp;end;<br>
+end;<br>
+<br>
+function&nbsp;InitializeSetup():&nbsp;Boolean;<br>
+var&nbsp;srcdisk,&nbsp;ss:&nbsp;String;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;disktype:&nbsp;Integer;<br>
+begin<br>
+&nbsp;&nbsp;Result&nbsp;:=&nbsp;true;<br>
+&nbsp;&nbsp;///get&nbsp;drive&nbsp;from&nbsp;where&nbsp;setup&nbsp;was&nbsp;launched<br>
+&nbsp;&nbsp;srcdisk&nbsp;:=&nbsp;AddBackSlash(ExtractFileDrive(ExpandConstant('{srcexe}')));<br>
+&nbsp;&nbsp;///get&nbsp;number&nbsp;type&nbsp;of&nbsp;disk<br>
+&nbsp;&nbsp;disktype&nbsp;:=&nbsp;GetDriveType(srcdisk);<br>
+&nbsp;&nbsp;ss&nbsp;:=&nbsp;DriveTypeString(disktype);<br>
+&nbsp;&nbsp;///show&nbsp;which&nbsp;type&nbsp;of&nbsp;disk&nbsp;it&nbsp;is<br>
+&nbsp;&nbsp;MsgBox(Format('Setup&nbsp;lanuched&nbsp;from&nbsp;%s&nbsp;of&nbsp;type,&nbsp;%srcdisk',&nbsp;[srcdisk,&nbsp;ss]),<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mbInformation,&nbsp;MB_OK);<br>
+end;<br>
+
+</font></blockquote><textarea id="taCode1" style="display:none;" rows="1" cols="5"></textarea><textarea id='taCode' style='display:none;' rows='1' cols='20'></textarea></code><script language="javascript" type="text/javascript">highlightSyntax('delphi_Tc4NTM','delphi');</script><br><div id="heading"><h1><font size="1" face="Consolas">Copyright (c) <a href="http://www.krinkels.org/" target="_blank">Krinkels Inc</a></font></h1></div></body></html>

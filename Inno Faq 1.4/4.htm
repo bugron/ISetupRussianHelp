@@ -1,0 +1,538 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Проверка системных требований</title><link rel="stylesheet" type="text/css" href="css.css">
+
+<script language='jscript' type='text/javascript' src='copycode.js'></script>
+<script type="text/javascript" src="includer.js"></script></head><body><div id="heading">
+<h1>» Inno Setup Faq. Проверка системных требований</h1></div><br><br>Внимание: Скрипт не работает на Uncicode-версиях Inno Setup!<br>
+ <script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM">
+<input type="button" value="Копировать в буфер обмена" onClick="copyToClipboard( taCode1, theCode1 );">
+<blockquote id="theCode1" ><font>
+[Setup]<br>
+AppName=My Program<br>
+AppVerName=My Program v 1.5<br>
+DefaultDirName={pf}\My Program<br>
+OutputDir=.<br>
+Compression=lzma/ultra<br>
+InternalCompressLevel=ultra<br>
+SolidCompression=yes<br>
+<br>
+[Languages]<br>
+Name: rus; MessagesFile: compiler:Languages\Russian.isl<br>
+<br>
+[Code]<br>
+type<br>
+PDisplay_Device = record<br>
+&nbsp;&nbsp;cb: DWord;<br>
+&nbsp;&nbsp;DeviceName: array [0..31] of char;<br>
+&nbsp;&nbsp;DeviceString: array [0..127] of char;<br>
+&nbsp;&nbsp;StateFlags: DWord;<br>
+&nbsp;&nbsp;DeviceID, DeviceKey: array [0..127] of char;<br>
+end;<br>
+<br>
+TMixerCaps = record<br>
+&nbsp;&nbsp;vPid, vDriverVersion: DWord;<br>
+&nbsp;&nbsp;sName: array [0..31] of char;<br>
+&nbsp;&nbsp;Support, cDestinations: DWord;<br>
+end;<br>
+<br>
+///Проверка версии Windows<br>
+#if Pos(&quot;4.&quot;, GetFileVersion(AddBackslash(GetEnv(&quot;windir&quot;)) + &quot;Explorer.exe&quot;)) == 1<br>
+&nbsp;&nbsp;{{Win9x}<br>
+&nbsp;&nbsp;&nbsp;TMemoryStatusEx = record<br>
+&nbsp;&nbsp;&nbsp;&nbsp;dwLength, dwMemoryLoad: DWord;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;LoTotalPhys, LoAvailPhys, LoTotalPageFile, LoAvailPageFile,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;LoTotalVirtual, LoAvailVirtual, LoAvailExtendedVirtual, HiTotalPhys,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;HiAvailPhys, HiTotalPageFile, HiAvailPageFile, HiTotalVirtual, HiAvailVirtual,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;HiAvailExtendedVirtual: Integer;<br>
+&nbsp;&nbsp;&nbsp;end;<br>
+&nbsp;&nbsp;function GlobalMemoryStatusEx(var lpBuffer: TMemoryStatusEx): Boolean;<br>
+&nbsp;&nbsp;&nbsp;external 'GlobalMemoryStatus@kernel32.dll stdcall';<br>
+#else<br>
+&nbsp;&nbsp;{{WinNT}<br>
+&nbsp;&nbsp;&nbsp;TMemoryStatusEx = record<br>
+&nbsp;&nbsp;&nbsp;&nbsp;dwLength, dwMemoryLoad: DWord;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;LoTotalPhys, HiTotalPhys, LoAvailPhys, HiAvailPhys,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;LoTotalPageFile, HiTotalPageFile, LoAvailPageFile, HiAvailPageFile,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;LoTotalVirtual, HiTotalVirtual, LoAvailVirtual, HiAvailVirtual, LoAvailExtendedVirtual,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;HiAvailExtendedVirtual: Integer;<br>
+&nbsp;&nbsp;&nbsp;end;<br>
+&nbsp;&nbsp;function GlobalMemoryStatusEx(var lpBuffer: TMemoryStatusEx): Boolean;<br>
+&nbsp;&nbsp;&nbsp;external 'GlobalMemoryStatusEx@kernel32.dll stdcall';<br>
+#endif<br>
+<br>
+const<br>
+&nbsp;&nbsp;DISPLAY_DEVICE_PRIMARY_DEVICE = 4;<br>
+&nbsp;&nbsp;oneMB = 1024*1024;<br>
+&nbsp;&nbsp;NeedMHz = 1800;<br>
+&nbsp;&nbsp;NeedVideoRAM = 128;<br>
+&nbsp;&nbsp;NeedSoundCard = 'Creative X-Fi';<br>
+&nbsp;&nbsp;NeedMB = 512;<br>
+&nbsp;&nbsp;NeedPageFile = 1024;<br>
+<br>
+var<br>
+&nbsp;&nbsp;InfoPage: TWizardPage;<br>
+&nbsp;&nbsp;TopText, BottomText: TNewStaticText;<br>
+&nbsp;&nbsp;ChangeText: Boolean;<br>
+&nbsp;&nbsp;SystemPanel, ProcessorPanel, VideoPanel,<br>
+&nbsp;&nbsp;AudioPanel, RAMPanel, PageFilePanel: TMemo;<br>
+&nbsp;&nbsp;SystemVersionPanel, ProcessorMHzPanel, VideoRAMPanel,<br>
+&nbsp;&nbsp;AudioNamePanel, RAMTotalPanel, PageFileTotalPanel: TMemo;<br>
+&nbsp;&nbsp;lpCaps: TMixerCaps;<br>
+&nbsp;&nbsp;Version: TWindowsVersion;<br>
+&nbsp;&nbsp;MemoryEx: TMemoryStatusEx;<br>
+&nbsp;&nbsp;n, errCode: Integer;<br>
+&nbsp;&nbsp;Keys: TArrayOfString;<br>
+&nbsp;&nbsp;DeviceValue: Cardinal;<br>
+&nbsp;&nbsp;lpDisplayDevice: PDisplay_Device;<br>
+<br>
+function GetSystemMetrics(nIndex: Integer): Integer;<br>
+external 'GetSystemMetrics@user32.dll stdcall';<br>
+<br>
+function GetDeviceCaps(hDC, nIndex: Integer): Integer;<br>
+external 'GetDeviceCaps@GDI32 stdcall';<br>
+<br>
+function CreateDC(lpDriverName, lpDeviceName, lpOutput: String; lpInitData: Integer): Integer;<br>
+external 'CreateDCA@GDI32 stdcall';<br>
+<br>
+function EnumDisplayDevices(lpDevice, iDevNum: DWord; var lpDisplayDevice: PDisplay_Device; dwFlags: DWord): Boolean;<br>
+external 'EnumDisplayDevicesA@user32.dll stdcall';<br>
+<br>
+function mixerGetDevCaps(uDeviceID: LongInt; var lpCaps: TMixerCaps; uSize: LongInt): LongInt;<br>
+external 'mixerGetDevCapsA@winmm.dll stdcall';<br>
+<br>
+function mixerGetNumDevs: Integer;<br>
+external 'mixerGetNumDevs@winmm.dll stdcall';<br>
+<br>
+///Дополнить число до кратного Multiple<br>
+function ToMultiple(Bytes, Multiple: Integer): Integer;<br>
+begin<br>
+&nbsp;&nbsp;if Abs(Bytes/Multiple) &gt; Bytes/Multiple then<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Result := (Bytes/Multiple + 1)*Multiple<br>
+&nbsp;&nbsp;else<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Result := Bytes<br>
+end;<br>
+<br>
+///Перевод числа в значение Бт/Кб/Мб/Гб/Тб (до 3х знаков после запятой)<br>
+function ByteOrTB(Bytes: Extended; noMB: Boolean): String;<br>
+begin<br>
+if not noMB then<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Result := FloatToStr(Int(Bytes)) + ' Мб'<br>
+else<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if Bytes &lt; 1024 then<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Result := FloatToStr(Int(Bytes)) + ' Бт'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;else<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if Bytes/1024 &lt; 1024 then<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Result := FloatToStr(round((Bytes/1024)*10)/10) + ' Кб'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if Bytes/oneMB &lt; 1024 then<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Result := FloatToStr(round(Bytes/oneMB*100)/100) + ' Мб'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if Bytes/oneMB/1000 &lt; 1024 then<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Result := FloatToStr(round(Bytes/oneMB/1024*1000)/1000) + ' Гб'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Result := FloatToStr(round(Bytes/oneMB/oneMB*1000)/1000) + ' Тб'<br>
+StringChange(Result, ',', '.')<br>
+end;<br>
+<br>
+///Удаление начальных, конечных и повторных пробелов<br>
+function DelSp(String: String): String;<br>
+begin<br>
+while (Pos('&nbsp;&nbsp;', String) &gt; 0) do Delete(String, Pos('&nbsp;&nbsp;', String), 1)<br>
+Result := Trim(String)<br>
+end;<br>
+<br>
+function Size64(Hi, Lo: Integer): Extended;<br>
+begin<br>
+Result := Lo<br>
+if Lo &lt; 0 then<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Result := Result + $7FFFFFFF + $7FFFFFFF + 2<br>
+for Hi := Hi-1 downto 0 do Result := Result + $7FFFFFFF + $7FFFFFFF + 2<br>
+end;<br>
+<br>
+function CheckCPU(NeedMHz: Integer): Boolean;<br>
+var<br>
+&nbsp;&nbsp;String: String;<br>
+begin<br>
+&nbsp;&nbsp;String := 'Hardware\Description\System\CentralProcessor'; RegGetSubkeyNames(HKLM, String, Keys)&nbsp;&nbsp; ///Количество ядер<br>
+&nbsp;&nbsp;for n := 0 to GetArrayLength(Keys)-1 do<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RegQueryStringValue(HKLM, String + '\' + Keys[n], 'ProcessorNameString', Keys[n])<br>
+&nbsp;&nbsp;if not RegQueryDWordValue(HKLM, String + '\0', '~MHz', DeviceValue) or (DeviceValue &lt; NeedMHz) then<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Exit<br>
+&nbsp;&nbsp;else<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Result := True<br>
+end;<br>
+<br>
+function CheckMemorySize(NeedRAM: Integer): Boolean;<br>
+begin<br>
+&nbsp;&nbsp;MemoryEx.dwLength := SizeOf(MemoryEx)<br>
+&nbsp;&nbsp;if not GlobalMemoryStatusEx(MemoryEx) then<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MsgBox('Ошибка функции:' + #13 + 'GlobalMemoryStatusEx', mbError, mb_Ok)<br>
+&nbsp;&nbsp;else<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (ToMultiple(trunc(Size64(MemoryEx.HiTotalPhys, MemoryEx.LoTotalPhys)/oneMB), 16) &lt; NeedRAM) then<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Exit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Result := True<br>
+end;<br>
+<br>
+procedure CreateCheckForm();<br>
+begin<br>
+&nbsp;&nbsp;TopText := TNewStaticText.Create(InfoPage)<br>
+&nbsp;&nbsp;with TopText do<br>
+&nbsp;&nbsp;begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Parent := InfoPage.Surface<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Left := 0<br>
+&nbsp;&nbsp;&nbsp;&nbsp;AutoSize := True<br>
+&nbsp;&nbsp;end<br>
+<br>
+&nbsp;&nbsp;BottomText := TNewStaticText.Create(InfoPage)<br>
+&nbsp;&nbsp;with BottomText do<br>
+&nbsp;&nbsp;begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Parent := InfoPage.Surface<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Caption := 'Когда Вы будете готовы продолжить установку, нажмите &quot;Далее&quot;.'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Font.Color := clBlack<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Left := 0<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Top := 200<br>
+&nbsp;&nbsp;&nbsp;&nbsp;AutoSize := True<br>
+&nbsp;&nbsp;end<br>
+<br>
+&nbsp;&nbsp;SystemPanel := TMemo.Create(InfoPage)<br>
+&nbsp;&nbsp;with SystemPanel do<br>
+&nbsp;&nbsp;begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Text := 'Система'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Alignment := taCenter<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Parent := InfoPage.Surface<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Left := ScaleX(0)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Top := ScaleY(33)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Width := ScaleX(100)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Height := ScaleY(22)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ReadOnly := True<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Color := $EEEEEE<br>
+&nbsp;&nbsp;end<br>
+<br>
+&nbsp;&nbsp;SystemVersionPanel := TMemo.Create(InfoPage)<br>
+&nbsp;&nbsp;with SystemVersionPanel do<br>
+&nbsp;&nbsp;begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Alignment := taLeftJustify<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Parent := InfoPage.Surface<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Left := ScaleX(104)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Top := SystemPanel.Top<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Width := ScaleX(310)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Height := ScaleY(22)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ReadOnly := True<br>
+&nbsp;&nbsp;&nbsp;end<br>
+<br>
+&nbsp;&nbsp;ProcessorPanel := TMemo.Create(InfoPage)<br>
+&nbsp;&nbsp;with ProcessorPanel do<br>
+&nbsp;&nbsp;begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Text := 'Процессор'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Alignment := taCenter<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Parent := InfoPage.Surface<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Left := ScaleX(0)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Top := SystemPanel.Top + 27<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Width := ScaleX(100)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Height := ScaleY(22)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ReadOnly := True<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Color := $EEEEEE<br>
+&nbsp;&nbsp;end<br>
+<br>
+&nbsp;&nbsp;ProcessorMHzPanel := TMemo.Create(InfoPage)<br>
+&nbsp;&nbsp;with ProcessorMHzPanel do<br>
+&nbsp;&nbsp;begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Alignment := taLeftJustify<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Parent := InfoPage.Surface<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Left := ScaleX(104)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Top := ProcessorPanel.Top<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Width := ScaleX(310)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Height := ScaleY(22)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ReadOnly := True<br>
+&nbsp;&nbsp;end<br>
+<br>
+&nbsp;&nbsp;VideoPanel := TMemo.Create(InfoPage)<br>
+&nbsp;&nbsp;with VideoPanel do<br>
+&nbsp;&nbsp;begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Text := 'Видеоадаптер'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Alignment := taCenter<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Parent := InfoPage.Surface<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Left := ScaleX(0)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Top := ProcessorPanel.Top + 27<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Width := ScaleX(100)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Height := ScaleY(22)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ReadOnly := True<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Color := $EEEEEE<br>
+&nbsp;&nbsp;end<br>
+<br>
+&nbsp;&nbsp;VideoRAMPanel := TMemo.Create(InfoPage)<br>
+&nbsp;&nbsp;with VideoRAMPanel do<br>
+&nbsp;&nbsp;begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Alignment := taLeftJustify<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Parent := InfoPage.Surface<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Left := ScaleX(104)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Top := VideoPanel.Top<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Width := ScaleX(310)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Height := ScaleY(22)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ReadOnly := True<br>
+&nbsp;&nbsp;end<br>
+<br>
+&nbsp;&nbsp;AudioPanel := TMemo.Create(InfoPage)<br>
+&nbsp;&nbsp;with AudioPanel do<br>
+&nbsp;&nbsp;begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Text := 'Звуковая карта'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Alignment := taCenter<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Parent := InfoPage.Surface<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Left := ScaleX(0)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Top := VideoPanel.Top + 27<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Width := ScaleX(100)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Height := ScaleY(22)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ReadOnly := True<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Color := $EEEEEE<br>
+&nbsp;&nbsp;end<br>
+<br>
+&nbsp;&nbsp;AudioNamePanel := TMemo.Create(InfoPage)<br>
+&nbsp;&nbsp;with AudioNamePanel do<br>
+&nbsp;&nbsp;begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Alignment := taLeftJustify<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Parent := InfoPage.Surface<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Left := ScaleX(104)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Top := AudioPanel.Top<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Width := ScaleX(310)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Height := ScaleY(22)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ReadOnly := True<br>
+&nbsp;&nbsp;end<br>
+<br>
+&nbsp;&nbsp;RAMPanel := TMemo.Create(InfoPage)<br>
+&nbsp;&nbsp;with RAMPanel do<br>
+&nbsp;&nbsp;begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Text := 'Объём памяти'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Alignment := taCenter<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Parent := InfoPage.Surface<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Left := ScaleX(0)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Top := AudioPanel.Top + 27<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Width := ScaleX(100)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Height := ScaleY(22)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ReadOnly := True<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Color := $EEEEEE<br>
+&nbsp;&nbsp;end<br>
+<br>
+&nbsp;&nbsp;RAMTotalPanel := TMemo.Create(InfoPage)<br>
+&nbsp;&nbsp;with RAMTotalPanel do<br>
+&nbsp;&nbsp;begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Alignment := taLeftJustify<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Parent := InfoPage.Surface<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Left := ScaleX(104)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Top := RAMPanel.Top<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Width := ScaleX(310)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Height := ScaleY(22)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ReadOnly := True<br>
+&nbsp;&nbsp;end<br>
+<br>
+&nbsp;&nbsp;PageFilePanel := TMemo.Create(InfoPage)<br>
+&nbsp;&nbsp;with PageFilePanel do<br>
+&nbsp;&nbsp;begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Text := 'Файл подкачки'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Alignment := taCenter<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Parent := InfoPage.Surface<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Left := ScaleX(0)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Top := RAMPanel.Top + 27<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Width := ScaleX(100)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Height := ScaleY(22)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ReadOnly := True<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Color := $EEEEEE<br>
+&nbsp;&nbsp;end;<br>
+<br>
+&nbsp;&nbsp;PageFileTotalPanel := TMemo.Create(InfoPage)<br>
+&nbsp;&nbsp;with PageFileTotalPanel do<br>
+&nbsp;&nbsp;begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Alignment := taLeftJustify<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Parent := InfoPage.Surface<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Left := ScaleX(104)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Top := PageFilePanel.Top<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Width := ScaleX(310)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Height := ScaleY(22)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ReadOnly := True<br>
+&nbsp;&nbsp;end<br>
+end;<br>
+<br>
+procedure UpdateInfo();<br>
+var<br>
+&nbsp;&nbsp;DeviceName, DeviceKey: String;<br>
+begin<br>
+&nbsp;&nbsp;ChangeText := False<br>
+<br>
+&nbsp;&nbsp;GetWindowsVersionEx(Version)<br>
+<br>
+&nbsp;&nbsp;///Операционная система:<br>
+&nbsp;&nbsp;SystemVersionPanel.Color := $CCFFCC<br>
+<br>
+&nbsp;&nbsp;DeviceKey := 'Software\Microsoft\Windows NT\CurrentVersion'<br>
+&nbsp;&nbsp;if not UsingWinNT then StringChange(DeviceKey, 'Windows NT', 'Windows')<br>
+&nbsp;&nbsp;RegQueryStringValue(HKLM, DeviceKey, 'ProductName', DeviceName)<br>
+&nbsp;&nbsp;if RegQueryStringValue(HKLM, DeviceKey, 'CSDVersion', DeviceKey) then<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DeviceName := DeviceName + ' ' + DeviceKey<br>
+&nbsp;&nbsp;StringChange(DeviceName, 'Microsoft ', '')<br>
+&nbsp;&nbsp;SystemVersionPanel.Text := ' ' + DeviceName + ' сборка ' + IntToStr(Version.Major) + '.' + IntToStr(Version.Minor) +<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'.' + IntToStr(Version.Build)<br>
+<br>
+&nbsp;&nbsp;if (Pos('2000 Service Pack 4', SystemVersionPanel.Text) = 0) and&nbsp;&nbsp;///Windows 2000 SP4<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Pos('XP Service Pack 2', SystemVersionPanel.Text) = 0) and&nbsp;&nbsp;///Windows XP SP2<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Pos('XP Service Pack 3', SystemVersionPanel.Text) = 0) and&nbsp;&nbsp;///Windows XP SP3<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Pos('Vista', SystemVersionPanel.Text) = 0) and<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Pos('Windows 7', SystemVersionPanel.Text) = 0) then&nbsp;&nbsp;///Windows Vista (c любым SP или без него)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SystemVersionPanel.Color := $CCCCFF<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ChangeText := True<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end<br>
+<br>
+&nbsp;&nbsp;///Процессор:<br>
+&nbsp;&nbsp;ProcessorMHzPanel.Color := $CCFFCC<br>
+<br>
+&nbsp;&nbsp;if not CheckCPU(NeedMHz) then<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ProcessorMHzPanel.Color := $CCCCFF<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ChangeText := True<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end<br>
+<br>
+&nbsp;&nbsp;ProcessorMHzPanel.Text := ' ' + DelSp(Keys[0]) + ' @' + IntToStr(DeviceValue) + ' MHz'<br>
+&nbsp;&nbsp;if GetArrayLength(Keys) &gt; 1 then<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ProcessorPanel.Text := 'Процессоры' ///+ ' (' + IntToStr(GetArrayLength(Keys)) + ')'<br>
+<br>
+&nbsp;&nbsp;///Видеокарта:<br>
+&nbsp;&nbsp;VideoRAMPanel.Color := $CCFFCC<br>
+<br>
+&nbsp;&nbsp;lpDisplayDevice.cb := SizeOf(lpDisplayDevice)<br>
+&nbsp;&nbsp;DeviceKey := ''<br>
+&nbsp;&nbsp;n := 0<br>
+&nbsp;&nbsp;while not (EnumDisplayDevices(0, n, lpDisplayDevice, 0) and<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(lpDisplayDevice.StateFlags and DISPLAY_DEVICE_PRIMARY_DEVICE &gt; 0)) and (n &lt; 127) do n := n + 1<br>
+&nbsp;&nbsp;for n := 0 to 127 do DeviceKey := DeviceKey + lpDisplayDevice.DeviceKey[n]<br>
+&nbsp;&nbsp;Delete(DeviceKey, Pos(Chr(0), DeviceKey), 127)&nbsp;&nbsp;///Ключ драйвера получаем из API<br>
+&nbsp;&nbsp;StringChange(DeviceKey, '\Registry\Machine\', '')<br>
+&nbsp;&nbsp;errCode := 1<br>
+&nbsp;&nbsp;DeviceValue := 0<br>
+&nbsp;&nbsp;if RegQueryBinaryValue(HKLM, DeviceKey, 'HardwareInformation.MemorySize', DeviceName) then<br>
+&nbsp;&nbsp;&nbsp;&nbsp; for n := 1 to Length(DeviceName) do<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DeviceValue := DeviceValue + Ord(DeviceName[n])*errCode<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;errCode := errCode*$100<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end<br>
+&nbsp;&nbsp;else<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if RegQueryDWordValue(HKLM, DeviceKey, 'HardwareInformation.MemorySize', DeviceValue) then<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RegQueryDWordValue(HKLM, DeviceKey + '\Info', 'VideoMemory', DeviceValue)<br>
+&nbsp;&nbsp;DeviceName := ''<br>
+&nbsp;&nbsp;for n := 0 to 127 do DeviceName := DeviceName + lpDisplayDevice.DeviceString[n]<br>
+&nbsp;&nbsp;Delete(DeviceName, Pos(Chr(0), DeviceName), 127)<br>
+<br>
+&nbsp;&nbsp;if DeviceName &lt;&gt; '' then<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if DeviceValue &gt; 0 then<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VideoRAMPanel.Text := ' ' + DelSp(DeviceName) + ', '+ ByteOrTB(DeviceValue/oneMB, False)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;else<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VideoRAMPanel.Text := ' ' + DelSp(DeviceName) + ' (Standard), '+ ByteOrTB(DeviceValue/oneMB, False)<br>
+&nbsp;&nbsp;else<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VideoRAMPanel.Text := ' Драйвер устройства не обнаружен'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VideoRAMPanel.Color := $CCCCFF<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ChangeText := True<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end<br>
+&nbsp;&nbsp;if (DeviceValue/oneMB &lt; NeedVideoRAM) then<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VideoRAMPanel.Color := $CCCCFF<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ChangeText := True<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end<br>
+&nbsp;&nbsp;VideoRAMPanel.Text := VideoRAMPanel.Text + ', ' + IntToStr(GetSystemMetrics(0)) + 'x' +<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IntToStr(GetSystemMetrics(1)) + ' (' + IntToStr(GetDeviceCaps(CreateDC('DISPLAY','','',0),14) *<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GetDeviceCaps(CreateDC('DISPLAY','','',0),12)) + ' bit)'<br>
+<br>
+&nbsp;&nbsp;///Звуковая карта:<br>
+&nbsp;&nbsp;AudioNamePanel.Color := $CCFFCC<br>
+<br>
+&nbsp;&nbsp;///for errCode := 0 to 1 do&nbsp;&nbsp;///Вывод основного звукового устройства<br>
+&nbsp;&nbsp;for errCode := 0 to mixerGetNumDevs do<br>
+&nbsp;&nbsp;&nbsp;&nbsp;begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mixerGetDevCaps(errCode-1, lpCaps, SizeOf(lpCaps))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DeviceName := ' '<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for n := 0 to 31 do DeviceName := DeviceName + lpCaps.sName[n]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Delete(DeviceName, Pos(Chr(0), DeviceName), 31)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Delete(DeviceName, Pos(' [', DeviceName), 31)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;StringChange(DeviceName, 'SB ', 'Creative ')<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Delete(DeviceName, Pos(' Audio', DeviceName), 31)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SetArrayLength(Keys, errCode)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if errCode &gt; 0 then Keys[errCode-1] := DeviceName<br>
+&nbsp;&nbsp;&nbsp;&nbsp;end<br>
+<br>
+&nbsp;&nbsp;if GetArrayLength(Keys) &gt; 1 then<br>
+&nbsp;&nbsp;&nbsp;&nbsp;begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AudioPanel.Text := 'Звуковые карты'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;///AudioPanel.Text := 'Звуковые карты (' + IntToStr(GetArrayLength(Keys)) +')'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AudioNamePanel.Text := ''<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for n := 1 to GetArrayLength(Keys) do<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AudioNamePanel.Text := AudioNamePanel.Text + Keys[n-1]&nbsp;&nbsp;///+ '(' + IntToStr(n) + ')'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;end<br>
+&nbsp;&nbsp;&nbsp;else<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if GetArrayLength(Keys) = 0 then<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AudioNamePanel.Text := ' Драйвер устройства не обнаружен'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AudioNamePanel.Color := $CCCCFF<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ChangeText := True<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AudioNamePanel.Text := Keys[0]<br>
+&nbsp;&nbsp;if Pos(NeedSoundCard, AudioNamePanel.Text) = 0 then<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AudioNamePanel.Text := AudioNamePanel.Text + ' (рекомендуется ' + NeedSoundCard + ')'<br>
+<br>
+&nbsp;&nbsp;///Объём памяти:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;RAMTotalPanel.Color := $CCFFCC<br>
+&nbsp;&nbsp;if not CheckMemorySize(NeedMB) then<br>
+&nbsp;&nbsp;&nbsp;&nbsp;begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RAMTotalPanel.Color := $CCCCFF<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ChangeText := True<br>
+&nbsp;&nbsp;&nbsp;&nbsp;end<br>
+&nbsp;&nbsp;RAMTotalPanel.Text := ' ' + ByteOrTB(ToMultiple(trunc(Size64(MemoryEx.HiTotalPhys, MemoryEx.LoTotalPhys)/oneMB), 16), False) + ' всего, ' +<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ByteOrTB(ToMultiple(trunc(Size64(MemoryEx.HiTotalPhys, MemoryEx.LoTotalPhys)/oneMB), 16) -<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Size64(MemoryEx.HiAvailPhys, MemoryEx.LoAvailPhys)/oneMB, False) + ' используется, ' +<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ByteOrTB(Size64(MemoryEx.HiAvailPhys, MemoryEx.LoAvailPhys)/oneMB, False) + ' свободно'<br>
+<br>
+&nbsp;&nbsp;///Виртуальная память:<br>
+&nbsp;&nbsp;PageFileTotalPanel.Color := $CCFFCC<br>
+&nbsp;&nbsp;PageFileTotalPanel.Text := ' ' + ByteOrTB(Size64(MemoryEx.HiTotalPageFile, MemoryEx.LoTotalPageFile)/oneMB, False) + ' всего, ' +<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ByteOrTB((Size64(MemoryEx.HiTotalPageFile, MemoryEx.LoTotalPageFile) -<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Size64(MemoryEx.HiAvailPageFile, MemoryEx.LoAvailPageFile))/oneMB, False) + ' занято системным кэшем'<br>
+&nbsp;&nbsp;if Size64(MemoryEx.HiTotalPageFile, MemoryEx.LoTotalPageFile)/oneMB &lt; NeedPageFile then<br>
+&nbsp;&nbsp;&nbsp;&nbsp;begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PageFileTotalPanel.Color := $CCCCFF<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ChangeText := True<br>
+&nbsp;&nbsp;&nbsp;&nbsp;end<br>
+<br>
+&nbsp;&nbsp;if ChangeText = True then<br>
+&nbsp;&nbsp;&nbsp;&nbsp;begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TopText.Top := 0<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TopText.Caption := 'Не все компоненты удовлетворяют минимальным требованиям.' #13<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'Пожалуйста, проверьте позиции, выделенные красным цветом.'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TopText.Font.Color := clRed<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WizardForm.NextButton.Enabled := False<br>
+&nbsp;&nbsp;&nbsp;&nbsp;end<br>
+&nbsp;&nbsp;else<br>
+&nbsp;&nbsp;&nbsp;&nbsp;begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TopText.Caption := 'Все компоненты соответствуют минимальным требованиям.'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TopText.Font.Color := clGreen<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TopText.Top := 8<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WizardForm.NextButton.Enabled := True<br>
+&nbsp;&nbsp;&nbsp;&nbsp;end<br>
+<br>
+end;<br>
+<br>
+procedure InitializeWizard();<br>
+begin<br>
+&nbsp;&nbsp;InfoPage := CreateCustomPage(wpLicense, 'Аппаратное и программное обеспечение',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'Программа установки обнаружила следующие наобходимые компоненты.')<br>
+&nbsp;&nbsp;CreateCheckForm()&nbsp;&nbsp;///Создание объектов TMemo, в которых будет выводится информация о системе<br>
+&nbsp;&nbsp;UpdateInfo()&nbsp;&nbsp;///Обновление информации о системе<br>
+end;<br>
+<br>
+procedure CurPageChanged(CurPageID: Integer);<br>
+begin<br>
+&nbsp;&nbsp;if CurPageID = InfoPage.ID then UpdateInfo()&nbsp;&nbsp;///Обновление информации о системе<br>
+end;
+</font></blockquote><textarea id="taCode1" style="display:none;" rows="1" cols="5"></textarea>
+<textarea id='taCode' style='display:none;' rows='1' cols='20'></textarea></code>
+<script language="javascript" type="text/javascript">highlightSyntax('delphi_Tc4NTM','delphi');</script><br><div id="heading"><h1><font size="1" face="Consolas">Copyright (c) <a href="http://www.krinkels.org/" target="_blank">Krinkels Inc</a></font></h1></div></body></html>

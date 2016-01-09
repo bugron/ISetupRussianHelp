@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=8">
+<title>[Setup]: CloseApplications</title>
+<link rel="stylesheet" type="text/css" href="styles.css">
+<script type="text/javascript" src="topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">[Setup]: CloseApplications</h1>
+<div class="topicbody">
+  <table class="setuphdr">
+    <tr>
+      <td class="setuphdrl"><p>Возможные значения:</p></td>
+      <td class="setuphdrr"><div class="margined"><a href="topic_yesnonotes.htm"><tt>yes</tt> или <tt>no</tt></a> </div></td>
+    </tr>
+    <tr>
+      <td class="setuphdrl"><p>Значение по умолчанию:</p></td>
+      <td class="setuphdrr"><div class="margined"><tt>yes</tt> </div></td>
+    </tr>
+  </table>
+  <div><b>Описание:</b></div>
+  <p>Если установлено в <tt>yes</tt> и инсталлятор не работает в тихом режиме, то установка приостановится на странице <i>Подготовка к установке,</i> если будет обнаружено, что файлы секций [Files] или  [InstallDelete], нуждающихся в замене/обновлении, используются другими приложениями. Инсталлятор покажет список приложений и, если хотите, автоматически закроет эти приложения, а после завершения инсталляции перезапустит их.</p>
+  <p>Если установлено в <tt>yes</tt> и инсталлятор работает в тихом режиме, инсталлятор закроет и перезапустит эти приложения, если по командной строке не передан запрещающее данное действие параметр.</p>
+  <p>Примечание: Чтобы закрыть и перезапустить приложения, инсталлятор использует WinAPI <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/aa373524.aspx" target="_blank" title="http://msdn.microsoft.com/en-us/library/windows/desktop/aa373524.aspx">Restart Manager</a><img src="images/extlink.gif" alt=" [external link]">, которое есть только в Windows Vista и позднее.</p>
+  <p><b>См. также:</b><br>
+    <a href="topic_setup_closeapplicationsfilter.htm">CloseApplicationsFilter</a><br>
+    <a href="topic_scriptevents.htm#RegisterExtraCloseApplicationsResources">RegisterExtraCloseApplicationsResources</a><br>
+    <a href="topic_setup_restartapplications.htm">RestartApplications</a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Inno Setup Preprocessor: Директивы</title>
+<link rel="stylesheet" type="text/css" href="../styles.css" />
+<script type="text/javascript" src="../topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Inno Setup Preprocessor: Директивы</h1>
+<div class="topicbody">
+  <p>Директивы ISPP могут использоваться двумя способами: простым или встроенным.</p>
+  <p>Простые директивы занимают целую строку, и начинаются символом <tt>#</tt>. Например, следующее определяет переменную, названную <tt>MyAppName</tt>:</p>
+  <p><tt>#define MyAppName &quot;My Program&quot;<br />
+  </tt></p>
+  <p>Встроенные директивы начинаются с <tt>&quot;{#</tt><tt>&quot;</tt> и заканчиваются с <tt>&quot;</tt><tt>}</tt><tt>&quot;</tt>. Например, следующий пример определяет директиву Inno Setup <tt>AppName</tt>, которому присваивается значение ранее определенной переменной:</p>
+  <p><tt>[Setup]<br />
+    AppName={#MyAppName}<br />
+  </tt></p>
+  <p>Как видно из приведенного выше примера не обязательно указывать имя директивы <tt><a href="topic_emit.htm">emit</a></tt>, когда он используется как встроенный,<tt><a href="topic_emit.htm"></a></tt> так что <tt>{#MyAppName}</tt> краткая запись <tt>{#emit MyAppName}</tt>.</p>
+  <p><b>Доступные директивы</b></p>
+  <ul>
+    <li><a href="topic_define.htm">#define</a></li>
+    <li><a href="topic_dim.htm">#dim, </a><a href="topic_dim.htm">#redim</a></li>
+    <li><a href="topic_undef.htm">#undef</a></li>
+    <li><a href="topic_include.htm">#include</a></li>
+    <li><a href="topic_file.htm">#file</a></li>
+    <li><a href="topic_emit.htm">#emit</a></li>
+    <li><a href="topic_expr.htm">#expr</a></li>
+    <li><a href="topic_insert.htm">#insert</a></li>
+    <li><a href="topic_append.htm">#append</a></li>
+    <li><a href="topic_if.htm">#if, #elif, #else, #endif</a></li>
+    <li><a href="topic_ifdef.htm">#ifdef, #ifndef, #ifexist, #ifnexist</a></li>
+    <li><a href="topic_for.htm">#for</a></li>
+    <li><a href="topic_sub.htm">#sub, #endsub</a></li>
+    <li><a href="topic_pragma.htm">#pragma</a></li>
+    <li><a href="topic_error.htm">#error</a></li>
+  </ul>
+</div>
+</body>
+</html>

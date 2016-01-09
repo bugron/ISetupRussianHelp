@@ -1,0 +1,157 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Можно ли сделать свою форму запроса следующего диска.</title><link rel="stylesheet" type="text/css" href="css.css"><script type="text/javascript" src="includer.js"></script><script language='jscript' type='text/javascript' src='copycode.js'></script></head><body><div id="heading"><h1>» Inno Setup Faq. Можно ли сделать свою форму запроса следующего диска.</h1></div><br><script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM"> <input type="button" value="Копировать в буфер обмена" onClick="copyToClipboard( taCode1, theCode1 );"> <blockquote id="theCode1"><font>[Setup]<br>
+AppName=My Program<br>
+AppVersion=1.5<br>
+;;AppVerName=My Program 1.5<br>
+AppPublisher=Winst@n, Inc.<br>
+DefaultDirName={pf}\My Program<br>
+DefaultGroupName=My Program<br>
+OutputDir=.<br>
+OutputBaseFilename=setup<br>
+Compression=lzma<br>
+SolidCompression=yes<br>
+<br>
+[Languages]<br>
+Name: "rus"; MessagesFile: "compiler:Languages\Russian.isl"<br>
+<br>
+[Files]<br>
+Source: {win}\help\*; DestDir: {app}\files1\; Flags: external recursesubdirs;<br>
+Source: {win}\help\*; DestDir: {app}\files2\; Flags: external recursesubdirs;<br>
+Source: {win}\help\*; DestDir: {app}\files3\; Flags: external recursesubdirs;<br>
+Source: {win}\help\*; DestDir: {app}\files4\; Flags: external recursesubdirs;<br>
+<br>
+[Code]<br>
+var<br>
+  TNewDiskForm :TSetupForm;<br>
+  DiskBitmapImage: TBitmapImage;<br>
+  SelectDiskLabel,PathLabel: TLabel;<br>
+  PathEdit: TEdit;<br>
+  BrowseButton: TButton;<br>
+  OKButton: TButton;<br>
+  CancelButton: TButton;<br>
+  Filename: String;<br>
+  Path: String;<br>
+  Dir: String;<br>
+  ModalResult: Longint;<br>
+<br>
+<br>
+///Пути поиска файла<br>
+function GetSanitizedPath: String;<br>
+begin<br>
+ Result := Trim(PathEdit.Text);<br>
+end;<br>
+<br>
+procedure CancelButtonClick(CurPageID: Integer; var Cancel, Confirm: Boolean);<br>
+begin<br>
+ Cancel:=True;<br>
+ Confirm:=False;<br>
+end;<br>
+<br>
+///Кнопки Обзор<br>
+procedure BrowseButtonClick(Sender: TObject);<br>
+begin<br>
+  Dir := GetSanitizedPath;<br>
+  if BrowseForFolder(SetupMessage (msgSelectDirectoryLabel), Dir, False) then<br>
+  PathEdit.Text := Dir + '\';<br>
+  TNewDiskForm.show;<br>
+end;<br>
+<br>
+///Форма зыкрытия (работает mrOK)<br>
+procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);<br>
+begin<br>
+Path := PathEdit.Text;<br>
+Filename:= ExpandConstant ('data_2.arc');<br>
+case TNewDiskForm.ModalResult of mrOK: begin<br>
+if (Path = '') or not FileExists(Path + Filename) then begin CanClose := false<br>
+MsgBox(FmtMessage(SetupMessage(msgFileNotInDir2), [Filename, Path]), mbError, MB_OK);<br>
+end;<br>
+end;<br>
+mrCancel:<br>
+begin<br>
+CanClose := True;<br>
+end;<br>
+end;<br>
+end;<br>
+<br>
+///запрос диска<br>
+procedure SelectDisk(const DiskNumber: Integer; const Filename, Path: String);<br>
+var ExitFlag:Boolean;<br>
+begin<br>
+  repeat<br>
+    TNewDiskForm:= CreateCustomForm();<br>
+    TNewDiskForm.SetBounds(ScaleX(0), ScaleY(0), ScaleX(377), ScaleY(200));<br>
+    TNewDiskForm.CenterInsideControl(WizardForm, False);<br>
+    TNewDiskForm.Caption:=SetupMessage(msgChangeDiskTi  tle);<br>
+    TNewDiskForm.Font.Color:= clWindowText<br>
+    TNewDiskForm.Font.Height:= -11<br>
+    TNewDiskForm.Font.Name:= 'MS Sans Serif'<br>
+    TNewDiskForm.Font.Style:= []<br>
+    TNewDiskForm.OnCloseQuery:=@FormCloseQuery;<br>
+<br>
+    SelectDiskLabel:=TLabel.Create(TNewDiskForm)<br>
+    SelectDiskLabel.SetBounds(ScaleX(72),ScaleY(8), ScaleX(297), ScaleY(72));<br>
+    SelectDiskLabel.AutoSize:=False<br>
+    SelectDiskLabel.WordWrap:=True<br>
+    SelectDiskLabel.Transparent:=True<br>
+    SelectDiskLabel.Font.Color:=clBlack<br>
+    SelectDiskLabel.Font.Size:=8<br>
+    SelectDiskLabel.Caption:=FmtMessage(SetupMessage(m  sgSelectDiskLabel2), [IntToStr(DiskNumber)]);<br>
+    SelectDiskLabel.Parent:=TNewDiskForm<br>
+    SelectDiskLabel.ShowAccelChar:= False<br>
+<br>
+    PathEdit:=TEdit.Create(TNewDiskForm)<br>
+    PathEdit.SetBounds(ScaleX(8), ScaleY(96), ScaleX(281), ScaleY(21));<br>
+    PathEdit.TabOrder:=2<br>
+    PathEdit.Text := ExpandConstant('{src}\');<br>
+    PathEdit.Parent := TNewDiskForm;<br>
+<br>
+    PathLabel:= TLabel.Create(TNewDiskForm);<br>
+    PathLabel.SetBounds(ScaleX(8),ScaleY(80), ScaleX(5), ScaleY(14));<br>
+    PathLabel.Font.Color:=clBlack<br>
+    PathLabel.FocusControl:= PathEdit<br>
+    PathLabel.Caption := SetupMessage(msgPathLabel);<br>
+    PathLabel.Parent:=TNewDiskForm<br>
+<br>
+    BrowseButton := TNewButton.Create(TNewDiskForm);<br>
+    BrowseButton.SetBounds(ScaleX(296), ScaleY(95), ScaleX(73), ScaleY(23));<br>
+    BrowseButton.Parent := TNewDiskForm;<br>
+    BrowseButton.OnClick:=@BrowseButtonClick;<br>
+    BrowseButton.Caption := SetupMessage(msgButtonBrowse);<br>
+<br>
+    CancelButton := TNewButton.Create(TNewDiskForm);<br>
+    CancelButton.SetBounds(ScaleX(296), ScaleY(137), ScaleX(73), ScaleY(23));<br>
+    CancelButton.ModalResult := mrCancel;<br>
+    CancelButton.Parent := TNewDiskForm;<br>
+    CancelButton.Caption := SetupMessage (msgButtonCancel);<br>
+<br>
+    OkButton := TNewButton.Create(TNewDiskForm);<br>
+    OkButton.SetBounds(ScaleX(216), ScaleY(137), ScaleX(73), ScaleY(23));<br>
+    OkButton.ModalResult := mrOk;<br>
+    OkButton.Parent := TNewDiskForm;<br>
+    OKButton.Caption := SetupMessage(msgButtonOK);<br>
+    <br>
+    TNewDiskForm.ShowModal; <br>
+    <br>
+///закрытие формы (работает mrCancel)<br>
+case TNewDiskForm.ModalResult of mrCancel:<br>
+begin<br>
+MsgBox('Вы не смогли найти путь до архива или правильно указать место расположения диска. Произошла ошибка, установка будет прервона.',mbError, MB_OK);<br>
+TNewDiskForm.free;<br>
+ExitFlag:= ExitSetupMsgBox;<br>
+Case ExitFlag of True:WizardForm.Close;<br>
+False:SelectDisk (DiskNumber,Filename,Path);<br>
+True:TNewDiskForm.free;<br>
+end;<br>
+end;<br>
+end;<br>
+until ((TNewDiskForm.ModalResult=mrOk)or(TNewDiskForm.Mo  dalResult=mrCancel));<br>
+end;<br>
+<br>
+<br>
+procedure CurStepChanged(CurStep: TSetupStep);<br>
+begin<br>
+///Запуск формы распаковки            № диска          место поиска<br>
+                                 ///     |                 |<br>
+if CurStep = ssInstall then  SelectDisk (2, 'Filename','{src}');<br>
+end;                                ///        |<br>
+                              ///поиск файла на диске или папке<br></font></blockquote><textarea id="taCode1" style="display:none;" rows="1" cols="5"></textarea><textarea id='taCode' style='display:none;' rows='1' cols='20'></textarea></code><script language="javascript" type="text/javascript">highlightSyntax('delphi_Tc4NTM','delphi');</script><br><div id="heading"><h1><font size="1" face="Consolas">Copyright (c) <a href="http://www.krinkels.org/" target="_blank">Krinkels Inc</a></font></h1></div></body></html>

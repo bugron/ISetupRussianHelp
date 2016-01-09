@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=8">
+<title>[Setup]: UsePreviousGroup</title>
+<link rel="stylesheet" type="text/css" href="styles.css">
+<script type="text/javascript" src="topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">[Setup]: UsePreviousGroup</h1>
+<div class="topicbody">
+  <table class="setuphdr">
+    <tr>
+      <td class="setuphdrl"><p>Возможные значения:</p></td>
+      <td class="setuphdrr"><div class="margined"><a href="topic_yesnonotes.htm"><tt>yes</tt> или <tt>no</tt></a></div></td>
+    </tr>
+    <tr>
+      <td class="setuphdrl"><p>Значение по умолчанию:</p></td>
+      <td class="setuphdrr"><div class="margined"><tt>yes</tt></div></td>
+    </tr>
+  </table>
+  <div><b>Описание:</b></div>
+  <p>При значении директивы <tt>yes</tt>, в начале установки инсталлятор поищет в реестре, не была ли установлена <a href="topic_sameappnotes.htm">данная программа</a> на данном компьютере, и если так, будет использовать ту же группу в меню Пуск, которую выбрал пользователь в прошлый раз при установке. Если <tt>AllowNoIcons=yes</tt>, тогда настройка <i>Не создать папку в Меню "Пуск"</i> предыдущей установки будет восстановлен.</p>
+  <p>Обратите внимание, что только с версии 1.3.10 Inno Setup сохраняет в реестре папку меню Пуск, так что инсталлятор "не увидит" приложение, установленное с помощью старых версий Inno Setup. Если <tt>Uninstallable=no</tt>, эта директива имеет значение <tt>no</tt>.</p>
+</div>
+</body>
+</html>

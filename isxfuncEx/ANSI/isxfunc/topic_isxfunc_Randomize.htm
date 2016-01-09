@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Pascal Scripting Extended: Randomize</title>
+<link rel="stylesheet" type="text/css" href="../../../styles.css" />
+<script type="text/javascript" src="../../../topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Pascal Scripting Extended: Randomize</h1>
+<div class="topicbody">
+  <div><b>Прототип:</b></div>
+  <p><tt>procedure Randomize;</tt></p>
+  <div><b>Описание:</b></div>
+  Процедура Randomize используется вместе с функцией Random. Она устанавливает генератор случайных чисел в его последовательность из 232 псевдослучайных чисел.<br />
+  Randomize для этого повторного установления использует время дня как начальное значение, обеспечивая, таким образом, надежный метод создания непредсказуемой последовательности чисел, даже если они часть предопределенной последовательности.<br />
+  <div><b>Пример:</b></div>
+  <p><tt>var<br />
+    &nbsp;int : Integer;<br />
+    &nbsp;i : Integer;<br />
+    <br />
+    begin<br />
+    // Если Вы выполните эту программу дважды, гарантируется, что только <br />
+    // первые 5 значений randomize<br />
+    // снова установит в различную часть<br />
+    // псевдо случайной последовательности чисел.<br />
+    // Получение случайного целого числа в диапазоне 1..100<br />
+    &nbsp;ShowMessage('Первые 5 фиксированных чисел');<br />
+    &nbsp;for i := 1 to 5 do<br />
+    &nbsp;begin<br />
+    &nbsp;int := 1 + Random(100); // Эти 100 значений дают диапазон 0..99<br />
+    &nbsp;ShowMessage('int = '+IntToStr(int));<br />
+    &nbsp;end;<br />
+    <br />
+    // Теперь, чтобы снова установить выполняем randomize<br />
+    &nbsp;Randomize;<br />
+    &nbsp;ShowMessage('');<br />
+    <br />
+    // Получение случайного целого числа в диапазоне 1..100<br />
+    &nbsp;ShowMessage('Следующие 5 случайных чисел');<br />
+    &nbsp;for i := 1 to 5 do<br />
+    &nbsp;begin<br />
+    &nbsp;int := 1 + Random(100); // Эти 100 значений дают диапазон 0..99<br />
+    &nbsp;ShowMessage('int = '+IntToStr(int));<br />
+    &nbsp;end;<br />
+    end; <br />
+    <br />
+    <br />
+    &nbsp;Первые 5 фиксированных чисел<br />
+    &nbsp;int = 1<br />
+    &nbsp;int = 4<br />
+    &nbsp;int = 87<br />
+    &nbsp;int = 21<br />
+    &nbsp;int = 28<br />
+    <br />
+    &nbsp;Следующие 5 случайных чисел<br />
+    &nbsp;int = 35<br />
+    &nbsp;int = 74<br />
+    &nbsp;int = 45<br />
+    &nbsp;int = 50<br />
+    &nbsp;int = 3</tt></p>
+</div>
+</body>
+</html>

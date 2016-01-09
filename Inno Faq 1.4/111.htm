@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Как проверить на JDK</title><link rel="stylesheet" type="text/css" href="css.css">
+<script language='jscript' type='text/javascript' src='copycode.js'></script>
+<script type="text/javascript" src="includer.js"></script></head><body><div id="heading"><h1>» Inno Setup Faq. Как проверить на JDK</h1></div><br>
+<script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM">
+<input type="button" value="Копировать в буфер обмена" onClick="copyToClipboard( taCode1, theCode1 );">
+<blockquote id="theCode1"><font>
+#define&nbsp;JavaVer&nbsp;&quot;1.2.2&quot;<br>
+<br>
+[Setup]<br>
+AppName=ExcelRunning<br>
+AppVerName=ExcelRunning<br>
+DefaultDirName={pf}\ExcelRunning<br>
+DisableStartupPrompt=true<br>
+Uninstallable=false<br>
+DisableDirPage=true<br>
+OutputBaseFilename=ExcelRunning<br>
+CreateAppDir=false<br>
+DisableProgramGroupPage=true<br>
+<br>
+[Code]<br>
+///*&nbsp;Getting&nbsp;Java&nbsp;version&nbsp;from&nbsp;registry&nbsp;*///<br>
+function&nbsp;getJavaVersion():&nbsp;String;<br>
+var<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;javaVersion:&nbsp;String;<br>
+begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;javaVersion&nbsp;:=&nbsp;'';<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RegQueryStringValue(HKLM,&nbsp;'SOFTWARE\JavaSoft\Java&nbsp;Runtime&nbsp;Environment',&nbsp;'CurrentVersion',&nbsp;javaVersion);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GetVersionNumbersString(javaVersion,&nbsp;javaVersion);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Result&nbsp;:=&nbsp;javaVersion;<br>
+end;<br>
+<br>
+///*&nbsp;Called&nbsp;on&nbsp;setup&nbsp;startup&nbsp;*///<br>
+function&nbsp;InitializeSetup():&nbsp;Boolean;<br>
+begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Result&nbsp;:=&nbsp;true;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;Length(getJavaVersion())&nbsp;=&nbsp;0&nbsp;then&nbsp;begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;///*&nbsp;No&nbsp;Java&nbsp;detected&nbsp;*///<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MsgBox('Setup&nbsp;detected,&nbsp;that&nbsp;there&nbsp;is&nbsp;no&nbsp;Java&nbsp;Runtime&nbsp;installed.'&nbsp;+&nbsp;#13&nbsp;+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'You&nbsp;must&nbsp;have&nbsp;installed&nbsp;at&nbsp;least&nbsp;Java&nbsp;Runtime&nbsp;'&nbsp;+&nbsp;ExpandConstant('{#JavaVer}')&nbsp;+&nbsp;'&nbsp;or&nbsp;higher&nbsp;to&nbsp;continue&nbsp;setup.'&nbsp;+&nbsp;#13&nbsp;+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'Please&nbsp;install&nbsp;one&nbsp;from&nbsp;http://java.sun.com&nbsp;and&nbsp;restart&nbsp;setup.',&nbsp;mbInformation,&nbsp;MB_OK);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Result&nbsp;:=&nbsp;false;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else&nbsp;begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;///*&nbsp;Java&nbsp;version&nbsp;lower&nbsp;than&nbsp;JavaVer&nbsp;detected&nbsp;*///<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(getJavaVersion())&nbsp;&lt;&nbsp;ExpandConstant('{#JavaVer}')&nbsp;then&nbsp;begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MsgBox('Setup&nbsp;detected,&nbsp;that&nbsp;you&nbsp;have&nbsp;not&nbsp;installed&nbsp;at&nbsp;least&nbsp;Java&nbsp;Runtime&nbsp;'&nbsp;+&nbsp;ExpandConstant('{#JavaVer}')&nbsp;+&nbsp;'.'&nbsp;+&nbsp;#13&nbsp;+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'Please&nbsp;install&nbsp;and&nbsp;run&nbsp;setup&nbsp;again!',&nbsp;mbInformation,&nbsp;MB_OK);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Result&nbsp;:=&nbsp;false<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end;<br>
+end;<br>
+</font></blockquote><textarea id="taCode1" style="display:none;" rows="1" cols="5"></textarea><textarea id='taCode' style='display:none;' rows='1' cols='20'></textarea></code><script language="javascript" type="text/javascript">highlightSyntax('delphi_Tc4NTM','delphi');</script><br><div id="heading"><h1><font size="1" face="Consolas">Copyright (c) <a href="http://www.krinkels.org/" target="_blank">Krinkels Inc</a></font></h1></div></body></html>

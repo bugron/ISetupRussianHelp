@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Pascal Scripting Extended: Now</title>
+<link rel="stylesheet" type="text/css" href="../../../styles.css" />
+<script type="text/javascript" src="../../../topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Pascal Scripting Extended: Now</h1>
+<div class="topicbody">
+  <div><b>Прототип:</b></div>
+  <p><tt>function Now: TDateTime;</tt></p>
+  <div><b>Описание:</b></div>
+  Функция Now возвращает текущую дату и время для местной временной зоны. <br />
+  Возвращенный тип TDateTime может быть использован и показан многими SysUtil и DateUtils процедурами.<br />
+  <br />
+  <div><b>Пример:</b></div>
+  <p><tt>var<br />
+    &nbsp;today : TDateTime;<br />
+    <br />
+    begin<br />
+    &nbsp;today := Now;<br />
+    &nbsp;ShowMessage('День = '+DateToStr(today));<br />
+    &nbsp;ShowMessage('Время = '+TimeToStr(today));<br />
+    end; <br />
+    <br />
+    <br />
+    &nbsp;День = 05/01/2007<br />
+    &nbsp;Время = 13:37:25</tt></p>
+</div>
+</body>
+</html>

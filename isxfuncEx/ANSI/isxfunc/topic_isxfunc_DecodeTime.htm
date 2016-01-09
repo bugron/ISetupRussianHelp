@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Pascal Scripting Extended: DecodeTime</title>
+<link rel="stylesheet" type="text/css" href="../../../styles.css" />
+<script type="text/javascript" src="../../../topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Pascal Scripting Extended: DecodeTime</h1>
+<div class="topicbody">
+  <div><b>Прототип:</b></div>
+  <p><tt>procedure DecodeTime(Time: TDateTime; var Hour, Min, Sec, MSec: Word);</tt></p>
+  <div><b>Описание:</b></div>
+  Процедура DecodeTime извлекает значения часа, минуты, секунды и миллисекунды из данного SourceDateTime TDateTime значение типа.<br />
+  Она сохраняет значения в переменных вывода: Hour, Min, Sec и MSec.<br />
+  <div><b>Пример:</b></div>
+  <p><tt>var<br />
+    &nbsp;myDate : TDateTime;<br />
+    &nbsp;myHour, myMin, mySec, myMilli : Word;<br />
+    <br />
+    begin<br />
+    // Установка переменной myDate в значение декабря 2000 <br />
+    &nbsp;myDate := StrToDateTime('29/12/2000 12:45:12.34');<br />
+    <br />
+    // Теперь добавляем минут к этому значению<br />
+    &nbsp;myDate := IncMinute(myDate, 5);<br />
+    <br />
+    // И позволяем нам увидеть то, что мы получили<br />
+    &nbsp;DecodeTime(myDate, myHour, myMin, mySec, myMilli);<br />
+    &nbsp;ShowMessage('Time сейчас = '+TimeToStr(myDate));<br />
+    &nbsp;ShowMessage('Hour = '+IntToStr(myHour));<br />
+    &nbsp;ShowMessage('Minute = '+IntToStr(myMin));<br />
+    &nbsp;ShowMessage('Second = '+IntToStr(mySec));<br />
+    &nbsp;ShowMessage('MilliSec = '+IntToStr(myMilli));<br />
+    end; <br />
+    <br />
+    <br />
+    &nbsp;Time сейчас = 12:50:12<br />
+    &nbsp;Hour = 12<br />
+    &nbsp;Minute = 50<br />
+    &nbsp;Second = 12<br />
+    &nbsp;MilliSec = 34</tt></p>
+</div>
+</body>
+</html>

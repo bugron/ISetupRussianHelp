@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Inno Setup Preprocessor: #dim, #redim</title>
+<link rel="stylesheet" type="text/css" href="../styles.css" />
+<script type="text/javascript" src="../topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Inno Setup Preprocessor: #dim, #redim</h1>
+<div class="topicbody">
+  <h2 class="heading notopmargin">Синтатсис</h2>
+  <table>
+    <tbody>
+      <tr>
+        <td class="cellleft"><i>dim-directive:</i></td>
+        <td class="cellright"><b>dim</b> [<b>private</b> | <b>protected</b> | <b>public</b>] &lt;ident&gt; <b>[</b> &lt;expr&gt; <b>]</b></td>
+      </tr>
+    </tbody>
+  </table>
+  <table>
+    <tbody>
+      <tr>
+        <td class="cellleft"><i>redim-directive:</i></td>
+        <td class="cellright"><b>redim</b> [<b>private</b> | <b>protected</b> | <b>public</b>] &lt;ident&gt; <b>[</b> &lt;expr&gt; <b>]</b></td>
+      </tr>
+    </tbody>
+  </table>
+  <h2 class="heading">Описание</h2>
+  <p>Используйте <tt>dim</tt>, чтобы объявить переменную массива и устанавливать ее размер. Все
+    элементы массива инициализируются как null (void). Чтобы присвоить
+    значение элемента после объявления массива, используйте&nbsp;<tt><a href="topic_define.htm">define</a></tt>. Вместо назначения значений
+    элементов с помощью <tt><a href="topic_define.htm">define</a></tt>,
+    можно также установить значение элемента, используя его в качестве
+    левого операнда операции присваивания.</p>
+  <p>Используйте <tt>redim</tt>, чтобы увеличить или уменьшить размер существующей переменной массива. Все
+    новые элементы массива инициализируются как null (void), а существующие элементы остаются неизменными. Идентичен директиве <tt>dim</tt>, если переменная массива (<tt>ident</tt>) не существует.</p>
+  <h2 class="heading">Примеры</h2>
+  <p><tt>#dim MyArray[10]<br />
+    #define MyArray[0] 15<br />
+    #redim MyArray[20]<br />
+    #define MyArray[10] 30<br />
+    #redim MyArray[10]</tt><tt> </tt></p>
+  <h2 class="heading">См. также</h2>
+  <p><tt><a href="topic_define.htm">define</a></tt>, <tt><a href="topic_undef.htm">undef</a></tt>, <a href="topic_dimof.htm">DimOf</a>, <a href="topic_visibility.htm">Область
+    видимости идентификаторов</a>.</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Inno Setup Preprocessor: GetMD5OfUnicodeString</title>
+<link rel="stylesheet" type="text/css" href="../styles.css" />
+<script type="text/javascript" src="../topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Inno Setup Preprocessor: GetMD5OfUnicodeString</h1>
+<div class="topicbody">
+  <h2 class="heading notopmargin">Прототип</h2>
+  <p><tt><b>str</b> GetMD5OfString(<b>str</b>)<br/>
+  </tt></p>
+  <h2 class="heading">Описание</h2>
+  <p>Возвращает сумму MD5 указанной Unicode строки, как строку.</p>
+  <p>Использовать только в Unicode версии Inno Setup, иначе компилятор выдаст ошибку.</p>
+  <h2 class="heading">Пример</h2>
+  <p><tt>#define MD5 GetMD5OfUnicodeString('Test')<br/>
+    // MD5 = '8e06915d5f5d4f8754f51892d884c477'<br/>
+  </tt></p>
+</div>
+</body>
+</html>

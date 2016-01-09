@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Как сделать установку на логический диск не являющийся системным?</title><link rel="stylesheet" type="text/css" href="css.css"><script type="text/javascript" src="includer.js"></script><script language='jscript' type='text/javascript' src='copycode.js'></script></head><body><div id="heading"><h1>» Inno Setup Faq. Как сделать установку на логический диск не являющийся системным?</h1></div><br><script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM"> <input type="button" value="Копировать в буфер обмена" onClick="copyToClipboard( taCode1, theCode1 );"> <blockquote id="theCode1"><font>;;скрипт, который определяет логические диски на компьютере и предлагает установить на первый<br>
+;;логический диск не являющийся системным (если их несколько, в противном случае будет предложен<br>
+;;системный диск).<br>
+;;Автор: Serega, http://forum.oszone.net/member.php?userid=88670<br>
+<br>
+[Setup]<br>
+AppName=My Program<br>
+AppVerName=My Program v 1.5<br>
+DefaultDirName={code:NoSD}\Games\My Program<br>
+OutputDir=.<br>
+Compression=lzma/ultra<br>
+InternalCompressLevel=ultra<br>
+SolidCompression=yes<br>
+<br>
+[Languages]<br>
+Name: rus; MessagesFile: compiler:Languages\Russian.isl<br>
+<br>
+[Code]<br>
+function GetLogicalDrives: DWORD; external 'GetLogicalDrives@kernel32.dll stdcall';<br>
+function GetDriveType(lpRootPathName: PChar): Cardinal; external 'GetDriveTypeA@kernel32.dll stdcall';<br>
+<br>
+const<br>
+  DRIVE_FIXED = 3;<br>
+<br>
+function NoSD(s: string): string;<br>
+var<br>
+  x, bit, i: Integer;<br>
+  tp: Cardinal;<br>
+  sd: string;<br>
+begin<br>
+  sd:= ExpandConstant('{sd}');<br>
+  Result:= sd;<br>
+  ///Вызываем функцию WinAPI<br>
+  ///Функция возвращает битовую маску установленных логических дисков.<br>
+  ///Бит 0 определяет наличие диска А:, бит 1 - диска B и т.д.<br>
+  x:= GetLogicalDrives;<br>
+  if x &lt;&gt; 0 then<br>
+  ///цикл по полученным битам переменной X<br>
+  for i:= 1 to 64 do<br>
+    begin<br>
+      ///Накладываем битовую маску для выделения бита с поряковым номером 0<br>
+      bit:= x and 1;<br>
+      ///нашли логический диск...<br>
+      if bit = 1 then<br>
+        begin<br>
+          ///определяем тип логического диска<br>
+          tp:= GetDriveType(PChar(Chr(64 + i) + ':'));<br>
+          if tp = DRIVE_FIXED then<br>
+          ///если диск не является системным<br>
+          if Chr(64 + i) &lt;&gt; Copy(sd, 1, 1) then<br>
+            begin<br>
+              Result:= Chr(64 + i) + ':';<br>
+              Break;<br>
+            end;<br>
+        end;<br>
+      ///побитовый сдвиг вправо<br>
+      x:= x shr 1;<br>
+    end;<br>
+end;</font></blockquote><textarea id="taCode1" style="display:none;" rows="1" cols="5"></textarea><textarea id='taCode' style='display:none;' rows='1' cols='20'></textarea></code><script language="javascript" type="text/javascript">highlightSyntax('delphi_Tc4NTM','delphi');</script><br><div id="heading"><h1><font size="1" face="Consolas">Copyright (c) <a href="http://www.krinkels.org/" target="_blank">Krinkels Inc</a></font></h1></div></body></html>

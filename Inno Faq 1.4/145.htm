@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Проверяем подключение к Интернету</title><link rel="stylesheet" type="text/css" href="css.css">
+<script language='jscript' type='text/javascript' src='copycode.js'></script>
+<script type="text/javascript" src="includer.js"></script></head><body><div id="heading"><h1>» Inno Setup Faq. Проверяем подключение к Интернету</h1></div><br>
+<script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM">
+<input type="button" value="Копировать в буфер обмена" onClick="copyToClipboard( taCode1, theCode1 );">
+<blockquote id="theCode1"><font>
+[Setup]<br>
+AppName=My&nbsp;Program<br>
+AppVerName=My&nbsp;Program&nbsp;v.1.2<br>
+DirExistsWarning=no<br>
+DefaultDirName={pf}\My&nbsp;Program<br>
+<br>
+[CustomMessages]<br>
+DEC_1&nbsp;&nbsp;&nbsp;=Local&nbsp;system&nbsp;uses&nbsp;a&nbsp;modem&nbsp;to&nbsp;connect&nbsp;to&nbsp;the&nbsp;Internet.<br>
+DEC_2&nbsp;&nbsp;&nbsp;=Local&nbsp;system&nbsp;uses&nbsp;a&nbsp;LAN&nbsp;to&nbsp;connect&nbsp;to&nbsp;the&nbsp;Internet.<br>
+DEC_4&nbsp;&nbsp;&nbsp;=Local&nbsp;system&nbsp;uses&nbsp;a&nbsp;proxy&nbsp;server&nbsp;to&nbsp;connect&nbsp;to&nbsp;the&nbsp;Internet.<br>
+DEC_16&nbsp;&nbsp;=Local&nbsp;system&nbsp;has&nbsp;RAS&nbsp;installed.<br>
+DEC_32&nbsp;&nbsp;=Local&nbsp;system&nbsp;is&nbsp;in&nbsp;offline&nbsp;mode.<br>
+DEC_64&nbsp;&nbsp;=Local&nbsp;system&nbsp;has&nbsp;a&nbsp;valid&nbsp;connection&nbsp;to&nbsp;the&nbsp;Internet,<br>
+DEC_64P&nbsp;=but&nbsp;it&nbsp;might&nbsp;or&nbsp;might&nbsp;not&nbsp;be&nbsp;currently&nbsp;connected.<br>
+<br>
+[Code]<br>
+function&nbsp;InternetGetConnectedState(var&nbsp;lpdwFlags:&nbsp;DWORD;&nbsp;dwReserved:&nbsp;DWORD):&nbsp;boolean;&nbsp;external&nbsp;'InternetGetConnectedState@wininet.dll&nbsp;stdcall';<br>
+<br>
+const<br>
+&nbsp;&nbsp;INTERNET_CONNECTION_MODEM&nbsp;=&nbsp;$01;<br>
+&nbsp;&nbsp;INTERNET_CONNECTION_LAN&nbsp;=&nbsp;$02;<br>
+&nbsp;&nbsp;INTERNET_CONNECTION_PROXY&nbsp;=&nbsp;$04;<br>
+&nbsp;&nbsp;INTERNET_CONNECTION_MODEM_BUSY&nbsp;=&nbsp;$08;<br>
+&nbsp;&nbsp;INTERNET_CONNECTION_OFFLINE&nbsp;=&nbsp;$20;<br>
+&nbsp;&nbsp;INTERNET_CONNECTION_CONFIGURED&nbsp;=&nbsp;$40;<br>
+<br>
+var<br>
+&nbsp;&nbsp;TestSuccess:&nbsp;boolean;<br>
+&nbsp;&nbsp;ConnectionState:&nbsp;DWORD;<br>
+&nbsp;&nbsp;ConnectDescription:&nbsp;string;<br>
+<br>
+procedure&nbsp;InitializeWizard();<br>
+begin<br>
+&nbsp;&nbsp;TestSuccess:=&nbsp;InternetGetConnectedState(ConnectionState,&nbsp;0);<br>
+<br>
+&nbsp;&nbsp;If&nbsp;TestSuccess&nbsp;then<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ConnectDescription:=&nbsp;'You&nbsp;have&nbsp;connection&nbsp;to&nbsp;internet'&nbsp;+&nbsp;#13&nbsp;+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'and&nbsp;your&nbsp;connection&nbsp;has&nbsp;following&nbsp;parameters:'+&nbsp;#13<br>
+&nbsp;&nbsp;else<br>
+&nbsp;&nbsp;&nbsp;ConnectDescription:=&nbsp;'You&nbsp;havn''t&nbsp;connection&nbsp;to&nbsp;internet.'+&nbsp;#13;<br>
+<br>
+&nbsp;&nbsp;If&nbsp;ConnectionState&nbsp;and&nbsp;INTERNET_CONNECTION_MODEM&nbsp;=&nbsp;INTERNET_CONNECTION_MODEM<br>
+&nbsp;&nbsp;&nbsp;&nbsp;then&nbsp;ConnectDescription:=&nbsp;ConnectDescription&nbsp;+&nbsp;#13&nbsp;+&nbsp;ExpandConstant('{cm:DEC_1}');<br>
+<br>
+&nbsp;&nbsp;If&nbsp;ConnectionState&nbsp;and&nbsp;INTERNET_CONNECTION_LAN&nbsp;=&nbsp;INTERNET_CONNECTION_LAN<br>
+&nbsp;&nbsp;&nbsp;&nbsp;then&nbsp;ConnectDescription:=&nbsp;ConnectDescription&nbsp;+&nbsp;#13&nbsp;+&nbsp;ExpandConstant('{cm:DEC_2}');<br>
+<br>
+&nbsp;&nbsp;If&nbsp;ConnectionState&nbsp;and&nbsp;INTERNET_CONNECTION_PROXY&nbsp;=&nbsp;INTERNET_CONNECTION_PROXY<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;then&nbsp;ConnectDescription:=&nbsp;ConnectDescription&nbsp;+&nbsp;#13&nbsp;+&nbsp;ExpandConstant('{cm:DEC_4}');<br>
+<br>
+&nbsp;&nbsp;If&nbsp;ConnectionState&nbsp;and&nbsp;INTERNET_CONNECTION_MODEM_BUSY&nbsp;=&nbsp;INTERNET_CONNECTION_MODEM_BUSY<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;then&nbsp;ConnectDescription:=&nbsp;ConnectDescription&nbsp;+&nbsp;#13&nbsp;+&nbsp;ExpandConstant('{cm:DEC_16}');<br>
+<br>
+&nbsp;&nbsp;If&nbsp;ConnectionState&nbsp;and&nbsp;INTERNET_CONNECTION_OFFLINE&nbsp;=&nbsp;INTERNET_CONNECTION_OFFLINE<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;then&nbsp;ConnectDescription:=&nbsp;ConnectDescription&nbsp;+&nbsp;#13&nbsp;+&nbsp;ExpandConstant('{cm:DEC_32}');<br>
+<br>
+&nbsp;&nbsp;If&nbsp;ConnectionState&nbsp;and&nbsp;INTERNET_CONNECTION_CONFIGURED&nbsp;=&nbsp;INTERNET_CONNECTION_CONFIGURED<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;then&nbsp;ConnectDescription:=&nbsp;ConnectDescription&nbsp;+&nbsp;#13&nbsp;+&nbsp;ExpandConstant('{cm:DEC_64}')<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;#13&nbsp;+&nbsp;ExpandConstant('{cm:DEC_64P}');<br>
+&nbsp;&nbsp;MsgBox(ConnectDescription,&nbsp;mbInformation,&nbsp;MB_OK);<br>
+end;<br>
+</font></blockquote><textarea id="taCode1" style="display:none;" rows="1" cols="5"></textarea><textarea id='taCode' style='display:none;' rows='1' cols='20'></textarea></code><script language="javascript" type="text/javascript">highlightSyntax('delphi_Tc4NTM','delphi');</script><br><div id="heading"><h1><font size="1" face="Consolas">Copyright (c) <a href="http://www.krinkels.org/" target="_blank">Krinkels Inc</a></font></h1></div></body></html>

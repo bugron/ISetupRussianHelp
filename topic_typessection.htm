@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Секция [Types]</title>
+<!--[if IE 6]><style type="text/css">html{overflow-y:scroll}</style><![endif]-->
+<link rel="stylesheet" type="text/css" href="styles.css" />
+<script type="text/javascript" src="topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Секция [Types]</h1>
+<div class="topicbody">
+  <p>Это не обязательная секция. Она определяет типы установки, которые инсталлятор покажет на странице <i>Выбор компонентов</i>. При компиляции, если вы укажете компоненты в <a href="topic_componentssection.htm">секции [Components]</a>, но не укажите, к каким типам установки они относятся, типы будут созданы автоматически (по умолчанию). Если вы используете файлы сообщений по умолчанию (английские), типы будут те же, что и приведенном ниже примере.</p>
+  <p>Пример секции <tt>[Types]</tt>:</p>
+  <pre class="indent examplebox">[Types]<br />Name: &quot;full&quot;; Description: &quot;Full installation&quot;<br />Name: &quot;compact&quot;; Description: &quot;Compact installation&quot;<br />Name: &quot;custom&quot;; Description: &quot;Custom installation&quot;; Flags: iscustom</pre>
+  <p>Список поддерживаемых <a href="topic_params.htm">параметров</a>:</p>
+  <dl>
+    <dt class="paramlist"><b><a name="Name" id="Name">Name</a></b>&nbsp;<i>(Обязательно)</i></dt>
+    <dd class="paramlist">
+      <p>Имя типа. Используется в качестве параметра в секции [Components] и указывает инсталлятору, к какому типу установки относится данный компонент.</p>
+      <div class="examplebox">
+        <div class="exampleheader">Например:</div>
+        <pre class="nomargin">Name: &quot;full&quot;</pre>
+      </div>
+    </dd>
+    <dt class="paramlist"><b><a name="Description" id="Description">Description</a></b>&nbsp;<i>(Обязательно)</i></dt>
+    <dd class="paramlist">
+      <p>Описание типа, которое может содержать константы. Это описание отображается при установке</p>
+      <div class="examplebox">
+        <div class="exampleheader">Например:</div>
+        <pre class="nomargin">Description: &quot;Full installation&quot;</pre>
+      </div>
+    </dd>
+    <dt class="paramlist"><b><a name="Flags" id="Flags">Flags</a></b></dt>
+    <dd class="paramlist">
+      <p>Параметры для установки дополнительных опций. Разделяются пробелами. Поддерживаемые значения:</p>
+      <dl>
+        <dt class="flaglist"><a name="iscustom" id="iscustom">iscustom</a></dt>
+        <dd>
+          <p>Указывает инсталлятору, что тип является выборочным. Когда пользователь вручную меняет состав компонентов при установке, инсталлятор меняет тип установки на выборочный. Обратите внимание, что если вы не зададите выборочный тип установки, инсталлятор просто предложит пользователю выбрать тип установки и пользователь не сможет поменять состав входящих в выбранную установку компонентов.</p>
+          <p>Только один тип может иметь этот флаг.</p>
+        </dd>
+      </dl>
+      <div class="examplebox">
+        <div class="exampleheader">Например:</div>
+        <pre class="nomargin">Flags: iscustom</pre>
+      </div>
+    </dd>
+  </dl>
+  <p><b><a href="topic_commonparams.htm">Общие параметры</a></b></p>
+</div>
+</body>
+</html>

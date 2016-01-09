@@ -1,0 +1,1309 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Как узнать нажата ли клавиша</title><link rel="stylesheet" type="text/css" href="css.css">
+<script language='jscript' type='text/javascript' src='copycode.js'></script>
+<script type="text/javascript" src="includer.js"></script></head><body><div id="heading"><h1>» Inno Setup Faq. Как узнать нажата ли клавиша</h1></div><br>
+<script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM">
+<input type="button" value="Копировать в буфер обмена" onClick="copyToClipboard( taCode1, theCode1 );">
+<blockquote id="theCode1"><font>
+[Setup]<br>
+AppName=AppName<br>
+AppVerName=AppVerName<br>
+DefaultDirName={pf}\My&nbsp;Program<br>
+<br>
+[Code]<br>
+const&nbsp;VK_SHIFT&nbsp;=&nbsp;$10;<br>
+<br>
+function&nbsp;GetKeyState(nVirtKey:&nbsp;Integer):&nbsp;Shortint;&nbsp;external&nbsp;'GetKeyState@user32.dll&nbsp;stdcall';<br>
+<br>
+function&nbsp;InitializeSetup:&nbsp;Boolean;<br>
+begin<br>
+Result:=&nbsp;True;<br>
+<br>
+if&nbsp;GetKeyState(VK_SHIFT)&nbsp;&lt;&nbsp;0&nbsp;then<br>
+MsgBox('Кнопка&nbsp;Shift&nbsp;нажата',&nbsp;mbInformation,&nbsp;MB_OK)<br>
+else<br>
+MsgBox('Кнопка&nbsp;Shift&nbsp;не&nbsp;нажата',&nbsp;mbInformation,&nbsp;MB_OK);<br>
+end;<br>
+</font></blockquote><textarea id="taCode1" style="display:none;" rows="1" cols="5"></textarea><textarea id='taCode' style='display:none;' rows='1' cols='20'></textarea></code><script language="javascript" type="text/javascript">highlightSyntax('delphi_Tc4NTM','delphi');</script>
+<blockquote>
+<table border="1" cellpadding="1" cellspacing="0" width="600">
+<tbody>
+<tr bgcolor="#eeeeee" valign="top">
+<th align="left" width="100"><font
+face="Arial, Helvetica, sans-serif" size="2">Symbolic constant name</font></th>
+<th align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">Value<br>
+(decimal)</font></th>
+<th align="left"><font face="Arial, Helvetica, sans-serif"
+size="2">Mouse or keyboard equivalent</font></th>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_LBUTTON</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">1</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">Left mouse
+button </font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_RBUTTON</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">2</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">Right
+mouse button </font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_CANCEL</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">3</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">Control-break
+processing </font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_MBUTTON</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">4</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">Middle
+mouse button (three-button mouse) </font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_XBUTTON1</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">5</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2"><b>Windows&nbsp;2000:</b>
+X1 mouse button</font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_XBUTTON2</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">6</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2"><b>Windows&nbsp;2000:</b>
+X2 mouse button</font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">
+— </font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">7</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">Undefined </font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_BACK</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">8</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">BACKSPACE
+key </font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_TAB</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">9</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">TAB key </font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">
+— </font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">10–11</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">Reserved </font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_CLEAR</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">12</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">CLEAR key </font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_RETURN</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">13</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">ENTER key </font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">
+— </font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">14–15</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">Undefined </font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_SHIFT</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">16</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">SHIFT key </font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_CONTROL</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">17</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">CTRL key </font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_MENU</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">18</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">ALT key </font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_PAUSE</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">19</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">PAUSE key </font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_CAPITAL</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">20</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">CAPS LOCK
+key </font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_KANA</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">21</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">IME Kana
+mode</font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_HANGUEL</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">21</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">IME
+Hanguel mode (maintained for compatibility; use <b>VK_HANGUL</b>)</font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_HANGUL</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">21</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">IME Hangul
+mode</font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">
+— </font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">22</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">Undefined </font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_JUNJA</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">23</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">IME Junja
+mode</font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_FINAL</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">24</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">IME final
+mode</font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_HANJA</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">25</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">IME Hanja
+mode</font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_KANJI</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">25</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">IME Kanji
+mode</font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">
+— </font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">26</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">Undefined </font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_ESCAPE</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">27</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">ESC key </font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_CONVERT</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">28</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">IME convert</font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_NONCONVERT</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">29</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">IME
+nonconvert</font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_ACCEPT</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">30</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">IME accept</font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_MODECHANGE</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">31</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">IME mode
+change request</font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_SPACE</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">32</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">SPACEBAR </font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_PRIOR</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">33</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">PAGE UP
+key </font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_NEXT</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">34</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">PAGE DOWN
+key </font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_END</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">35</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">END key </font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_HOME</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">36</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">HOME key </font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_LEFT</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">37</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">LEFT ARROW
+key </font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_UP</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">38</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">UP ARROW
+key </font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_RIGHT</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">39</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">RIGHT
+ARROW key </font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_DOWN</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">40</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">DOWN ARROW
+key </font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_SELECT</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">41</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">SELECT key
+</font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_PRINT</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">42</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">PRINT key</font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_EXECUTE</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">43</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">EXECUTE
+key </font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_SNAPSHOT</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">44</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">PRINT
+SCREEN key </font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_INSERT</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">45</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">INS key </font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_DELETE</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">46</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">DEL key </font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_HELP</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">47</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">HELP key </font></td>
+</tr>
+<tr valign="top">
+<td width="100">&nbsp; </td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">48</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">0 key </font></td>
+</tr>
+<tr valign="top">
+<td width="100">&nbsp; </td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">49</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">1 key </font></td>
+</tr>
+<tr valign="top">
+<td width="100">&nbsp; </td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">50</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">2 key </font></td>
+</tr>
+<tr valign="top">
+<td width="100">&nbsp; </td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">51</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">3 key </font></td>
+</tr>
+<tr valign="top">
+<td width="100">&nbsp; </td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">52</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">4 key </font></td>
+</tr>
+<tr valign="top">
+<td width="100">&nbsp; </td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">53</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">5 key </font></td>
+</tr>
+<tr valign="top">
+<td width="100">&nbsp; </td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">54</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">6 key </font></td>
+</tr>
+<tr valign="top">
+<td width="100">&nbsp; </td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">55</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">7 key </font></td>
+</tr>
+<tr valign="top">
+<td width="100">&nbsp; </td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">56</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">8 key </font></td>
+</tr>
+<tr valign="top">
+<td width="100">&nbsp; </td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">57</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">9 key </font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">
+— </font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">58–64</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">Undefined </font></td>
+</tr>
+<tr valign="top">
+<td width="100">&nbsp; </td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">65</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">A key </font></td>
+</tr>
+<tr valign="top">
+<td width="100">&nbsp; </td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">66</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">B key </font></td>
+</tr>
+<tr valign="top">
+<td width="100">&nbsp; </td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">67</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">C key </font></td>
+</tr>
+<tr valign="top">
+<td width="100">&nbsp; </td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">68</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">D key </font></td>
+</tr>
+<tr valign="top">
+<td width="100">&nbsp; </td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">69</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">E key </font></td>
+</tr>
+<tr valign="top">
+<td width="100">&nbsp; </td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">70</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">F key </font></td>
+</tr>
+<tr valign="top">
+<td width="100">&nbsp; </td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">71</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">G key </font></td>
+</tr>
+<tr valign="top">
+<td width="100">&nbsp; </td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">72</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">H key </font></td>
+</tr>
+<tr valign="top">
+<td width="100">&nbsp; </td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">73</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">I key </font></td>
+</tr>
+<tr valign="top">
+<td width="100">&nbsp; </td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">74</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">J key </font></td>
+</tr>
+<tr valign="top">
+<td width="100">&nbsp; </td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">75</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">K key </font></td>
+</tr>
+<tr valign="top">
+<td width="100">&nbsp; </td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">76</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">L key </font></td>
+</tr>
+<tr valign="top">
+<td width="100">&nbsp; </td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">77</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">M key </font></td>
+</tr>
+<tr valign="top">
+<td width="100">&nbsp; </td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">78</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">N key </font></td>
+</tr>
+<tr valign="top">
+<td width="100">&nbsp; </td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">79</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">O key </font></td>
+</tr>
+<tr valign="top">
+<td width="100">&nbsp; </td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">80</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">P key </font></td>
+</tr>
+<tr valign="top">
+<td width="100">&nbsp; </td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">81</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">Q key </font></td>
+</tr>
+<tr valign="top">
+<td width="100">&nbsp; </td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">82</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">R key </font></td>
+</tr>
+<tr valign="top">
+<td width="100">&nbsp; </td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">83</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">S key </font></td>
+</tr>
+<tr valign="top">
+<td width="100">&nbsp; </td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">84</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">T key </font></td>
+</tr>
+<tr valign="top">
+<td width="100">&nbsp; </td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">85</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">U key </font></td>
+</tr>
+<tr valign="top">
+<td width="100">&nbsp; </td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">86</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">V key </font></td>
+</tr>
+<tr valign="top">
+<td width="100">&nbsp; </td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">87</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">W key </font></td>
+</tr>
+<tr valign="top">
+<td width="100">&nbsp; </td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">88</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">X key </font></td>
+</tr>
+<tr valign="top">
+<td width="100">&nbsp; </td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">89</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">Y key </font></td>
+</tr>
+<tr valign="top">
+<td width="100">&nbsp; </td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">90</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">Z key </font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_LWIN</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">91</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">Left
+Windows key (Microsoft® Natural® keyboard) </font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_RWIN</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">92</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">Right
+Windows key (Natural keyboard) </font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_APPS</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">93</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">Applications
+key (Natural keyboard) </font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">
+— </font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">94</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">Reserved </font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_SLEEP</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">95</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">Computer
+Sleep key</font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_NUMPAD0</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">96</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">Numeric
+keypad 0 key </font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_NUMPAD1</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">97</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">Numeric
+keypad 1 key </font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_NUMPAD2</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">98</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">Numeric
+keypad 2 key </font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_NUMPAD3</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">99</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">Numeric
+keypad 3 key </font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_NUMPAD4</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">100</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">Numeric
+keypad 4 key </font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_NUMPAD5</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">101</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">Numeric
+keypad 5 key </font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_NUMPAD6</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">102</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">Numeric
+keypad 6 key </font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_NUMPAD7</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">103</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">Numeric
+keypad 7 key </font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_NUMPAD8</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">104</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">Numeric
+keypad 8 key </font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_NUMPAD9</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">105</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">Numeric
+keypad 9 key </font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_MULTIPLY</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">106</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">Multiply
+key </font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_ADD</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">107</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">Add key </font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_SEPARATOR</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">108</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">Separator
+key </font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_SUBTRACT</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">109</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">Subtract
+key </font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_DECIMAL</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">110</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">Decimal
+key </font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_DIVIDE</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">111</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">Divide key
+</font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_F1</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">112</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">F1 key </font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_F2</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">113</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">F2 key </font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_F3</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">114</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">F3 key </font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_F4</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">115</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">F4 key </font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_F5</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">116</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">F5 key </font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_F6</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">117</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">F6 key </font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_F7</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">118</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">F7 key </font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_F8</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">119</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">F8 key </font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_F9</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">120</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">F9 key </font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_F10</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">121</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">F10 key </font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_F11</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">122</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">F11 key </font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_F12</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">123</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">F12 key </font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_F13</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">124</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">F13 key </font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_F14</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">125</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">F14 key </font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_F15</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">126</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">F15 key </font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_F16</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">127</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">F16 key </font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_F17</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">128H</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">F17 key </font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_F18</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">129H</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">F18 key </font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_F19</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">130H</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">F19 key </font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_F20</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">131H</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">F20 key </font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_F21</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">132H</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">F21 key </font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_F22</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">133H</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">F22 key </font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_F23</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">134H</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">F23 key </font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_F24</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">135H</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">F24 key </font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">
+— </font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">136–143</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">Unassigned
+</font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_NUMLOCK</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">144</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">NUM LOCK
+key </font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_SCROLL</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">145</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">SCROLL
+LOCK key </font></td>
+</tr>
+<tr valign="top">
+<td width="100">&nbsp; </td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">146–150</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">OEM
+specific</font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">
+— </font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">151–159</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">Unassigned
+</font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_LSHIFT</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">160</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">Left SHIFT
+key</font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_RSHIFT</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">161</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">Right
+SHIFT key</font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_LCONTROL</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">162</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">Left
+CONTROL key</font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_RCONTROL</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">163</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">Right
+CONTROL key</font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_LMENU</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">164</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">Left MENU
+key</font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_RMENU</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">165</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">Right MENU
+key</font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_BROWSER_BACK</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">166</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2"><b>Windows&nbsp;2000:</b>
+Browser Back key</font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_BROWSER_FORWARD</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">167</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2"><b>Windows&nbsp;2000:</b>
+Browser Forward key</font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_BROWSER_REFRESH</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">168</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2"><b>Windows&nbsp;2000:</b>
+Browser Refresh key</font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_BROWSER_STOP</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">169</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2"><b>Windows&nbsp;2000:</b>
+Browser Stop key</font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_BROWSER_SEARCH</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">170</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2"><b>Windows&nbsp;2000:</b>
+Browser Search key</font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_BROWSER_FAVORITES</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">171</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2"><b>Windows&nbsp;2000:</b>
+Browser Favorites key</font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_BROWSER_HOME</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">172</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2"><b>Windows&nbsp;2000:</b>
+Browser Start and Home key</font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_VOLUME_MUTE</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">173</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2"><b>Windows&nbsp;2000:</b>
+Volume Mute key</font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_VOLUME_DOWN</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">174</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2"><b>Windows&nbsp;2000:</b>
+Volume Down key</font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_VOLUME_UP</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">175</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2"><b>Windows&nbsp;2000:</b>
+Volume Up key</font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_MEDIA_NEXT_TRACK</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">176</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2"><b>Windows&nbsp;2000:</b>
+Next Track key</font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_MEDIA_PREV_TRACK</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">177</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2"><b>Windows&nbsp;2000:</b>
+Previous Track key</font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_MEDIA_STOP</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">178</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2"><b>Windows&nbsp;2000:</b>
+Stop Media key</font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_MEDIA_PLAY_PAUSE</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">179</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2"><b>Windows&nbsp;2000:</b>
+Play/Pause Media key</font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_LAUNCH_MAIL</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">180</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2"><b>Windows&nbsp;2000:</b>
+Start Mail key</font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_LAUNCH_MEDIA_SELECT</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">181</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2"><b>Windows&nbsp;2000:</b>
+Select Media key</font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_LAUNCH_APP1</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">182</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2"><b>Windows&nbsp;2000:</b>
+Start Application 1 key</font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_LAUNCH_APP2</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">183</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2"><b>Windows&nbsp;2000:</b>
+Start Application 2 key</font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">
+— </font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">184-185</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">Reserved</font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_OEM_1</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">186</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2"><b>Windows&nbsp;2000:</b>
+For the US standard keyboard, the ';:' key</font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_OEM_PLUS</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">187</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2"><b>Windows&nbsp;2000:</b>
+For any country/region, the '+' key</font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_OEM_COMMA</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">188</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2"><b>Windows&nbsp;2000:</b>
+For any country/region, the ',' key</font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_OEM_MINUS</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">189</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2"><b>Windows&nbsp;2000:</b>
+For any country/region, the '-' key</font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_OEM_PERIOD</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">190</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2"><b>Windows&nbsp;2000:</b>
+For any country/region, the '.' key</font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_OEM_2</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">191</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2"><b>Windows&nbsp;2000:</b>
+For the US standard keyboard, the '/?' key</font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_OEM_3</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">192</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2"><b>Windows&nbsp;2000:</b>
+For the US standard keyboard, the '`~' key</font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">
+— </font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">193–215</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">Reserved </font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">
+— </font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">216–218</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">Unassigned</font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_OEM_4</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">219</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2"><b>Windows&nbsp;2000:</b>
+For the US standard keyboard, the '[{' key</font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_OEM_5</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">220</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2"><b>Windows&nbsp;2000:</b>
+For the US standard keyboard, the '\|' key</font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_OEM_6</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">221</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2"><b>Windows&nbsp;2000:</b>
+For the US standard keyboard, the ']}' key</font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_OEM_7</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">222</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2"><b>Windows&nbsp;2000:</b>
+For the US standard keyboard, the 'single-quote/double-quote' key</font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_OEM_8</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">223</font></td>
+<td> <br>
+</td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">
+— </font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">224</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">Reserved</font></td>
+</tr>
+<tr valign="top">
+<td width="100">&nbsp; </td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">225</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">OEM
+specific</font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_OEM_102</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">226</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2"><b>Windows&nbsp;2000:</b>
+Either the angle bracket key or the backslash key on the RT 102-key
+keyboard</font></td>
+</tr>
+<tr valign="top">
+<td width="100">&nbsp; </td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">227–228</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">OEM
+specific</font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_PROCESSKEY</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">229</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2"><b>Windows
+95/98, Windows&nbsp;NT 4.0, Windows&nbsp;2000:</b> IME PROCESS key</font></td>
+</tr>
+<tr valign="top">
+<td width="100">&nbsp; </td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">230</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">OEM
+specific</font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_PACKET</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">231</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2"><b>Windows&nbsp;2000:</b>
+Used to pass Unicode characters as if they were keystrokes. The
+VK_PACKET key is the low word of a 32-bit Virtual Key value used for
+non-keyboard input methods. For more information, see Remark in <b>KEYBDINPUT</b>,
+<b>SendInput</b>, <b>WM_KEYDOWN</b>, and <b>WM_KEYUP</b></font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">
+— </font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">232</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">Unassigned
+</font></td>
+</tr>
+<tr valign="top">
+<td width="100">&nbsp; </td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">233–245</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">OEM
+specific</font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_ATTN</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">246</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">Attn key</font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_CRSEL</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">247</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">CrSel key</font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_EXSEL</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">248</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">ExSel key</font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_EREOF</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">249</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">Erase EOF
+key</font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_PLAY</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">250</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">Play key</font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_ZOOM</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">251</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">Zoom key</font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_NONAME</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">252</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">Reserved
+for future use </font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_PA1</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">253</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">PA1 key</font></td>
+</tr>
+<tr valign="top">
+<td width="100"><font face="Arial, Helvetica, sans-serif" size="2">VK_OEM_CLEAR</font></td>
+<td align="center" width="50"><font
+face="Arial, Helvetica, sans-serif" size="2">254</font></td>
+<td><font face="Arial, Helvetica, sans-serif" size="2">Clear key</font></td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<br><div id="heading"><h1><font size="1" face="Consolas">Copyright (c) <a href="http://www.krinkels.org/" target="_blank">Krinkels Inc</a></font></h1></div></body></html>

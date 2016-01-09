@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Как скрыть все страницы инсталлятора?</title><link rel="stylesheet" type="text/css" href="css.css"><script type="text/javascript" src="includer.js"></script><script language='jscript' type='text/javascript' src='copycode.js'></script></head><body><div id="heading"><h1>» Inno Setup Faq. Как скрыть все страницы инсталлятора?</h1></div><br><script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM"> <input type="button" value="Копировать в буфер обмена" onClick="copyToClipboard( taCode1, theCode1 );"> <blockquote id="theCode1"><font>[Setup]<br>
+AppName=My Application<br>
+AppVersion=1.5<br>
+DefaultDirName={pf}\My Application<br>
+<br>
+[Code]<br>
+function ShouldSkipPage(PageID: Integer): Boolean;<br>
+begin<br>
+  Result:=true; ///просто пропускаем все страницыю Останется страница готовности - ее просто так не скрыть.<br>
+end;<br>
+<br>
+procedure WizardFormShow(Sender: TObject);<br>
+begin<br>
+  WizardForm.NextButton.OnClick(nil); ///нажимает на кнопку далее, в момент показа окна инсталла.<br>
+end;<br>
+<br>
+procedure InitializeWizard();<br>
+begin<br>
+  with WizardForm do<br>
+  begin<br>
+    Left:=-10000; ///задвигаем окно инсталла далеко за край экрана, чтоб его совсем не было видно.<br>
+    Show; ///без этой строчки будет ошибка при вызове OnShow.<br>
+    OnShow := @WizardFormShow;<br>
+  end;<br>
+end;</font></blockquote><textarea id="taCode1" style="display:none;" rows="1" cols="5"></textarea><textarea id='taCode' style='display:none;' rows='1' cols='20'></textarea></code><script language="javascript" type="text/javascript">highlightSyntax('delphi_Tc4NTM','delphi');</script><br><div id="heading"><h1><font size="1" face="Consolas">Copyright (c) <a href="http://www.krinkels.org/" target="_blank">Krinkels Inc</a></font></h1></div></body></html>

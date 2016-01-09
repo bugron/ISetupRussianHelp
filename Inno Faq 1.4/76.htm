@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Как растянуть картинку на первой и последней странице?</title><link rel="stylesheet" type="text/css" href="css.css"><script type="text/javascript" src="includer.js"></script><script language='jscript' type='text/javascript' src='copycode.js'></script></head><body><div id="heading"><h1>» Inno Setup Faq. Как растянуть картинку на первой и последней странице?</h1></div><br><script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM"> <input type="button" value="Копировать в буфер обмена" onClick="copyToClipboard( taCode1, theCode1 );"> <blockquote id="theCode1"><font>[Setup]<br>
+AppName=MyApp<br>
+AppVerName=MyApp<br>
+DefaultDirname={pf}\MyApp<br>
+<br>
+[Code]<br>
+var<br>
+WelcomeLabel1, WelcomeLabel2, FinishedLabel, FinishedHeadingLabel: TLabel;<br>
+PageNameLabel, PageDescriptionLabel: TLabel;<br>
+<br>
+procedure InitializeWizard();<br>
+begin<br>
+WizardForm.WizardBitmapImage.Width:= ScaleX(497);<br>
+WizardForm.WizardBitmapImage2.Width:= ScaleX(497);<br>
+<br>
+WelcomeLabel1:= TLabel.Create(WizardForm);<br>
+WelcomeLabel1.AutoSize:= False;<br>
+with WizardForm.WelcomeLabel1 do<br>
+WelcomeLabel1.SetBounds(Left, Top, Width, Height);<br>
+WelcomeLabel1.Font:= WizardForm.WelcomeLabel1.Font<br>
+WelcomeLabel1.Font.Color:= clWhite;<br>
+WelcomeLabel1.Transparent:= True;<br>
+WelcomeLabel1.WordWrap:= true;<br>
+WelcomeLabel1.Caption:= WizardForm.WelcomeLabel1.Caption;<br>
+WelcomeLabel1.Parent:= WizardForm.WelcomePage<br>
+<br>
+WelcomeLabel2:= TLabel.Create(WizardForm);<br>
+WelcomeLabel2.AutoSize:= False;<br>
+with WizardForm.WelcomeLabel2 do<br>
+WelcomeLabel2.SetBounds(Left, Top, Width, Height);<br>
+WelcomeLabel2.Font:= WizardForm.WelcomeLabel2.Font<br>
+WelcomeLabel2.Font.Color:= clWhite;<br>
+WelcomeLabel2.Transparent:= True;<br>
+WelcomeLabel2.WordWrap:= true;<br>
+WelcomeLabel2.Caption:= WizardForm.WelcomeLabel2.Caption;<br>
+WelcomeLabel2.Parent:= WizardForm.WelcomePage<br>
+<br>
+WizardForm.WizardSmallBitmapImage.SetBounds(ScaleX  (0), ScaleY(0), WizardForm.MainPanel.Width, WizardForm.MainPanel.Height);<br>
+<br>
+PageNameLabel:= TLabel.Create(WizardForm)<br>
+with WizardForm.PageNameLabel do<br>
+PageNameLabel.SetBounds(Left, Top, Width, Height);<br>
+PageNameLabel.Transparent:= True;<br>
+PageNameLabel.Font:= WizardForm.PageNameLabel.Font;<br>
+PageNameLabel.Font.Color:= clWhite;  //цвет надписи<br>
+PageNameLabel.Parent:= WizardForm.MainPanel;<br>
+<br>
+PageDescriptionLabel:= TLabel.Create(WizardForm)<br>
+with WizardForm.PageDescriptionLabel do<br>
+PageDescriptionLabel.SetBounds(Left, Top, Width, Height);<br>
+PageDescriptionLabel.Transparent:= True;<br>
+PageDescriptionLabel.Font:= WizardForm.PageDescriptionLabel.Font;<br>
+PageDescriptionLabel.Font.Color:= clWhite;  //цвет надписи<br>
+PageDescriptionLabel.Parent:= WizardForm.MainPanel;<br>
+<br>
+WizardForm.PageNameLabel.Hide;<br>
+WizardForm.PageDescriptionLabel.Hide;<br>
+<br>
+FinishedHeadingLabel:= TLabel.Create(WizardForm);<br>
+FinishedHeadingLabel.AutoSize:= False;<br>
+with WizardForm.FinishedHeadingLabel do<br>
+FinishedHeadingLabel.SetBounds(Left, Top, Width, Height);<br>
+FinishedHeadingLabel.Font:= WizardForm.FinishedHeadingLabel.Font<br>
+FinishedHeadingLabel.Font.Color:= clWhite;<br>
+FinishedHeadingLabel.Transparent:= True;<br>
+FinishedHeadingLabel.WordWrap:= true;<br>
+FinishedHeadingLabel.Caption:= WizardForm.FinishedHeadingLabel.Caption;<br>
+FinishedHeadingLabel.Parent:= WizardForm.FinishedPage<br>
+<br>
+FinishedLabel:= TLabel.Create(WizardForm);<br>
+FinishedLabel.AutoSize:= False;<br>
+with WizardForm.FinishedLabel do<br>
+FinishedLabel.SetBounds(Left, Top, Width, Height);<br>
+FinishedLabel.Font:= WizardForm.FinishedLabel.Font<br>
+FinishedLabel.Font.Color:= clWhite;<br>
+FinishedLabel.Transparent:= True;<br>
+FinishedLabel.WordWrap:= true;<br>
+FinishedLabel.Caption:= WizardForm.FinishedLabel.Caption;<br>
+FinishedLabel.Parent:= WizardForm.FinishedPage<br>
+<br>
+WizardForm.WelcomeLabel1.Hide;<br>
+WizardForm.WelcomeLabel2.Hide;<br>
+WizardForm.FinishedLabel.Hide;<br>
+WizardForm.FinishedHeadingLabel.Hide;<br>
+end;<br>
+<br>
+procedure CurPageChanged(CurPageID: Integer);<br>
+begin<br>
+FinishedLabel.Caption:= WizardForm.FinishedLabel.Caption;<br>
+PageNameLabel.Caption:= WizardForm.PageNameLabel.Caption;<br>
+PageDescriptionLabel.Caption:= WizardForm.PageDescriptionLabel.Caption;<br>
+end;</font></blockquote><textarea id="taCode1" style="display:none;" rows="1" cols="5"></textarea><textarea id='taCode' style='display:none;' rows='1' cols='20'></textarea></code><script language="javascript" type="text/javascript">highlightSyntax('delphi_Tc4NTM','delphi');</script><br><div id="heading"><h1><font size="1" face="Consolas">Copyright (c) <a href="http://www.krinkels.org/" target="_blank">Krinkels Inc</a></font></h1></div></body></html>

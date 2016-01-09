@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Меняем иконку папки проги</title><link rel="stylesheet" type="text/css" href="css.css">
+<script language='jscript' type='text/javascript' src='copycode.js'></script>
+<script type="text/javascript" src="includer.js"></script></head><body><div id="heading"><h1>» Inno Setup Faq. Меняем иконку папки проги</h1></div><br>
+<script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM">
+<input type="button" value="Копировать в буфер обмена" onClick="copyToClipboard( taCode1, theCode1 );">
+<blockquote id="theCode1"><font>
+[Setup]<br>
+AppName=FolderIcon<br>
+AppVerName=FolderIcon<br>
+DefaultDirName={pf}\My&nbsp;Program<br>
+<br>
+[Code]<br>
+function&nbsp;ExpandConstantENV(String:&nbsp;String):&nbsp;String;&nbsp;var&nbsp;n:&nbsp;Integer;	Begin&nbsp;{{ExpandConstant&nbsp;+&nbsp;развёртывание&nbsp;переменных&nbsp;типа&nbsp;%SystemRoot%}<br>
+Result:=&nbsp;ExpandConstant(String);&nbsp;n:=&nbsp;Pos('%',&nbsp;Result);&nbsp;if&nbsp;n&nbsp;=&nbsp;0&nbsp;then&nbsp;Exit;<br>
+Delete(Result,&nbsp;n,&nbsp;1);&nbsp;Result:=&nbsp;Copy(Result,&nbsp;1,&nbsp;n-1)&nbsp;+&nbsp;ExpandConstant('{%'&nbsp;+Copy(Result,&nbsp;n,&nbsp;Pos('%',&nbsp;Result)&nbsp;-n)&nbsp;+&nbsp;'}')&nbsp;+&nbsp;Copy(Result,&nbsp;Pos('%',&nbsp;Result)&nbsp;+1,&nbsp;Length(Result))<br>
+end;<br>
+<br>
+function&nbsp;FolderIcon(AFolder,&nbsp;AIcon:&nbsp;String;&nbsp;Index:&nbsp;Integer):&nbsp;Boolean;&nbsp;var&nbsp;Folder,&nbsp;Icon,&nbsp;IniFile:&nbsp;String;&nbsp;ErrorCode:&nbsp;Integer;&nbsp;{{поставить&nbsp;иконку&nbsp;на&nbsp;папку}<br>
+Begin<br>
+Folder:=&nbsp;ExpandConstantENV(AFolder);&nbsp;IniFile:=&nbsp;AddBackslash(Folder)&nbsp;+&nbsp;'desktop.ini';&nbsp;Icon:=&nbsp;ExpandConstantENV(AIcon);<br>
+if&nbsp;DirExists(Folder)&nbsp;and&nbsp;FileExists(Icon)&nbsp;and&nbsp;SaveStringToFile(IniFile,&nbsp;'[.ShellClassInfo]'&nbsp;+&nbsp;#13,&nbsp;true)&nbsp;then&nbsp;Result:=&nbsp;true&nbsp;else&nbsp;Exit;<br>
+if&nbsp;RemoveBackslash(ExtractFilePath(Icon))&nbsp;=&nbsp;Folder&nbsp;then&nbsp;Icon:=&nbsp;ExtractFileName(Icon);<br>
+SaveStringToFile(IniFile,&nbsp;'IconFile'&nbsp;+&nbsp;'='&nbsp;+&nbsp;Icon&nbsp;+&nbsp;#13&nbsp;+&nbsp;'IconIndex'&nbsp;+&nbsp;'='&nbsp;+&nbsp;IntToStr(Index)&nbsp;+&nbsp;#13,&nbsp;true);<br>
+if&nbsp;not&nbsp;Exec('attrib',&nbsp;'&nbsp;+r&nbsp;'&nbsp;+&nbsp;'&quot;'&nbsp;+&nbsp;Folder&nbsp;+&nbsp;'&quot;',&nbsp;'',&nbsp;SW_HIDE,&nbsp;ewWaitUntilTerminated,&nbsp;ErrorCode)&nbsp;then&nbsp;Exit;<br>
+Exec('attrib',&nbsp;'&nbsp;+h&nbsp;+s&nbsp;'&nbsp;+&nbsp;'&quot;'&nbsp;+&nbsp;IniFile&nbsp;+&nbsp;'&quot;',&nbsp;'',&nbsp;SW_HIDE,&nbsp;ewWaitUntilTerminated,&nbsp;ErrorCode);<br>
+end;<br>
+<br>
+procedure&nbsp;CurStepChanged(CurStep:&nbsp;TSetupStep);<br>
+Begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;CurStep&nbsp;=&nbsp;ssDone&nbsp;then&nbsp;FolderIcon('{app}',&nbsp;'{sys}\shell32.dll',&nbsp;126)<br>
+end;<br>
+</font></blockquote><textarea id="taCode1" style="display:none;" rows="1" cols="5"></textarea><textarea id='taCode' style='display:none;' rows='1' cols='20'></textarea></code><script language="javascript" type="text/javascript">highlightSyntax('delphi_Tc4NTM','delphi');</script><br><div id="heading"><h1><font size="1" face="Consolas">Copyright (c) <a href="http://www.krinkels.org/" target="_blank">Krinkels Inc</a></font></h1></div></body></html>

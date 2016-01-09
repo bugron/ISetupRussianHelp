@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Прозрачность формы инсталлятора</title><link rel="stylesheet" type="text/css" href="css.css">
+<script language='jscript' type='text/javascript' src='copycode.js'></script>
+<script type="text/javascript" src="includer.js"></script></head><body><div id="heading"><h1>» Inno Setup Faq. Прозрачность формы инсталлятора</h1></div><br>
+<script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM">
+<input type="button" value="Копировать в буфер обмена" onClick="copyToClipboard( taCode1, theCode1 );">
+<blockquote id="theCode1"><font>
+[Setup]<br>
+AppName=MyApp<br>
+AppVerName=MyApp<br>
+DefaultDirname={pf}\MyApp<br>
+<br>
+[Code]<br>
+const<br>
+TransparentPercent&nbsp;=&nbsp;50;&nbsp;///процент&nbsp;прозрачности<br>
+<br>
+WS_EX_LAYERED&nbsp;=&nbsp;$80000;<br>
+WS_EX_TRANSPARENT&nbsp;=&nbsp;$20;<br>
+LWA_COLORKEY&nbsp;=&nbsp;1;<br>
+LWA_ALPHA&nbsp;=&nbsp;2;<br>
+GWL_EXSTYLE&nbsp;=&nbsp;(-20);<br>
+<br>
+function&nbsp;SetLayeredWindowAttributes(hwnd:&nbsp;HWND;&nbsp;crKey:&nbsp;TColor;&nbsp;bAlpha:&nbsp;BYTE;&nbsp;dwFlags:&nbsp;DWORD):&nbsp;Boolean;<br>
+external&nbsp;'SetLayeredWindowAttributes@user32.dll&nbsp;stdcall';<br>
+<br>
+function&nbsp;GetWindowLong(Wnd:&nbsp;HWnd;&nbsp;Index:&nbsp;Integer):&nbsp;Longint;<br>
+external&nbsp;'GetWindowLongA@user32.dll&nbsp;stdcall';<br>
+<br>
+function&nbsp;SetWindowLong(Wnd:&nbsp;HWnd;&nbsp;Index:&nbsp;Integer;&nbsp;NewLong:&nbsp;Longint):&nbsp;Longint;<br>
+external&nbsp;'SetWindowLongA@user32.dll&nbsp;stdcall';<br>
+<br>
+procedure&nbsp;InitializeWizard();<br>
+begin<br>
+SetWindowLong(WizardForm.Handle,&nbsp;GWL_EXSTYLE,&nbsp;GetWindowLong(WizardForm.Handle,&nbsp;GWL_EXSTYLE)&nbsp;or&nbsp;WS_EX_LAYERED);<br>
+SetLayeredWindowAttributes(WizardForm.Handle,&nbsp;0,&nbsp;(255&nbsp;*&nbsp;TransparentPercent)&nbsp;/&nbsp;100,&nbsp;LWA_ALPHA);<br>
+end;
+</font></blockquote><textarea id="taCode1" style="display:none;" rows="1" cols="5"></textarea><textarea id='taCode' style='display:none;' rows='1' cols='20'></textarea></code><script language="javascript" type="text/javascript">highlightSyntax('delphi_Tc4NTM','delphi');</script><br><div id="heading"><h1><font size="1" face="Consolas">Copyright (c) <a href="http://www.krinkels.org/" target="_blank">Krinkels Inc</a></font></h1></div></body></html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Pascal Scripting: EnableFsRedirection</title>
+<link rel="stylesheet" type="text/css" href="../styles.css" />
+<script type="text/javascript" src="../topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Pascal Scripting: EnableFsRedirection</h1>
+<div class="topicbody">
+  <div><b>Прототип:</b></div>
+  <p><tt>function EnableFsRedirection(const Enable: Boolean): Boolean;</tt></p>
+  <div><b>Описание:</b></div>
+  <p>Controls whether built-in support functions that access files disable WOW64 file system redirection (with <a href="../topic_64bitlimitations.htm">some exceptions</a>). Specify True in the Enable parameter to leave redirection enabled when those functions are called; specify False to disable it. Returns the previous redirection state (True if redirection was enabled).</p>
+  <p>If False is passed in the Enable parameter and the user isn't running a supported 64-bit version of Windows, an exception will be raised. To avoid the exception, call <a href="topic_isxfunc_iswin64.htm">IsWin64</a> first.</p>
+  <div><b>Комментарии:</b></div>
+  <p>After you've performed the operation that required changing the redirection state, be sure to restore the previous state. Always use a <tt>try..finally</tt> language construct to ensure that the previous state is restored even if an exception occurs. See below for an example.</p>
+  <p>By default, file system redirection is enabled in <a href="../topic_32vs64bitinstalls.htm">32-bit mode</a> installs, and disabled in 64-bit mode installs.</p>
+  <p>This function has no effect on calls to functions in external DLLs. When invoking external functions, file system redirection is always left enabled.</p>
+  <p>It is legal to call this function with True in the Enable parameter if the user isn't running a 64-bit version of Windows. In such a case, the call has no effect.</p>
+  <div><b>Например:</b></div>
+  <p>The following example demonstrates how to launch an executable located in the 64-bit System directory. (Note: In a <a href="../topic_32vs64bitinstalls.htm">64-bit mode</a> install, it isn't necessary to call EnableFsRedirection because file system redirection is already disabled by default.)</p>
+  <pre>var
+  OldState: Boolean;
+  ResultCode: Integer;
+begin
+  // First verify that the user is running a supported 64-bit version
+  // of Windows, because calling EnableFsRedirection(False) will
+  // raise an exception otherwise.
+  if IsWin64 then
+  begin
+    // Turn off redirection, so that cmd.exe from the 64-bit System
+    // directory is launched.
+    OldState := EnableFsRedirection(False);
+    try
+      Exec(ExpandConstant('{cmd}'), '', '', SW_SHOW,
+        ewWaitUntilTerminated, ResultCode);
+    finally
+      // Restore the previous redirection state.
+      EnableFsRedirection(OldState);
+    end;
+  end;
+end;</pre>
+</div>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Pascal Scripting: ExtractTemporaryFiles</title>
+<!--[if IE 6]><style type="text/css">html{overflow-y:scroll}</style><![endif]-->
+<link rel="stylesheet" type="text/css" href="../styles.css" />
+<script type="text/javascript" src="../topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Pascal Scripting: ExtractTemporaryFiles</h1>
+<div class="topicbody">
+  <div><b>Prototype:</b></div>
+  <p><tt>function ExtractTemporaryFiles(const Pattern: String): Integer;</tt></p>
+  <div><b>Description:</b></div>
+  <p>Extracts the files matching the wildcard specified by Pattern from the [Files] section to a temporary directory. Returns the number of extracted files. To find the location of the temporary directory, use <tt>ExpandConstant('{tmp}')</tt>.</p>
+  <p>The extracted files are automatically deleted when Setup exits.</p>
+  <p>An exception will be raised if no files were extracted successfully, no files were found, or if files were found but none could be processed because of their MinVersion and/or OnlyBelowVersion parameters.</p>
+  <div><b>Remarks:</b></div>
+  <p>Use <tt>Flags: dontcopy</tt> in the [Files] section to tell Setup to skip the file during the normal file copying stage.</p>
+  <p>When solid compression is enabled, be sure to list your temporary files at (or near) the top of the [Files] section. In order to extract an arbitrary file in a solid-compressed installation, Setup must first decompress all prior files (to a temporary buffer in memory). This can result in a substantial delay if a number of other files are listed above the specified file in the [Files] section.</p>
+  <div><b>Example:</b></div>
+  <pre>[Files]
+Source: "Readme.txt"; Flags: dontcopy
+Source: "MyProg.exe"; DestDir: "{app}"
+Source: "MyProg.chm"; DestDir: "{app}"
+
+[Code]
+function InitializeSetup: Boolean;
+var
+  S: AnsiString;
+  ResultCode: Integer;
+begin
+  // Show the contents of Readme.txt (non Unicode) in a message box
+  ExtractTemporaryFiles('{tmp}\Readme.txt');
+  if LoadStringFromFile(ExpandConstant('{tmp}\Readme.txt'), S) then
+  begin
+    MsgBox(S, mbInformation, MB_OK);
+  end;
+
+  // Extract all MyProg files and launch it. Note how {app} is left unexpanded.
+  ExtractTemporaryFiles('{app}\MyProg.*');
+  ExecAsOriginalUser(ExpandConstant('{tmp}\')+'{app}\MyProg.exe', '', '',
+    SW_SHOWNORMAL, ewWaitUntilTerminated, ResultCode);
+
+  Result := True;
+end;</pre>
+  <div><b>See also:</b></div>
+  <p><a href="topic_isxfunc_extracttemporaryfile.htm">ExtractTemporaryFile</a> </p>
+</div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Параметры командной строки деинсталлятора</title>
+<!--[if IE 6]><style type="text/css">html{overflow-y:scroll}</style><![endif]-->
+<link rel="stylesheet" type="text/css" href="styles.css" />
+<script type="text/javascript" src="topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Параметры командной строки деинсталлятора</h1>
+<div class="topicbody">
+  <p>Программа-деинсталлятор (unins???.exe) поддерживает приведенные ниже параметры командной строки. Они пригодятся системным администраторам и другим программам, вызывающим деинсталлятор.</p>
+  <dl>
+    <dt><b><a name="SILENT" id="SILENT">/SILENT</a>, <a name="VERYSILENT" id="VERYSILENT">/VERYSILENT</a></b></dt>
+    <dd>
+      <p>Если указан этот параметр, деинсталлятор не будет спрашивать у пользователя подтверждения удаления и выдавать сообщение, что удаление завершено. Общие файлы, которые больше не используются, будут удалены автоматически без запроса. Все сообщения о критических ошибках будут отображаться. Если указан параметр '/VERYSILENT', окно прогресса удаления не будет отображено.</p>
+      <p>Если необходима перезагрузка, команда '/NORESTART' не задана, и указан параметр '/VERYSILENT' , деинсталлятор перезагрузит систему без предупреждения.</p>
+    </dd>
+    <dt><b><a name="SUPPRESSMSGBOXES" id="SUPPRESSMSGBOXES">/SUPPRESSMSGBOXES</a></b></dt>
+    <dd>
+      <p>Дает деинсталлятору команду подавлять окна сообщений. Дает эффект только при комбинации с '/SILENT' и '/VERYSILENT'. Для деталей см. '/SUPPRESSMSGBOXES' <a href="topic_setupcmdline.htm#SUPPRESSMSGBOXES">Параметры командной строки инсталлятора</a>.</p>
+    </dd>
+    <dt><b><a name="LOG" id="LOG">/LOG</a></b></dt>
+    <dd>
+      <p>Указывает деинсталлятору создать log-файл в папке TEMP для подробного отчета о действиях и событиях в секции [UninstallRun], и во время деинсталляции, предпринятых в ходе удаления. Применяется для отслеживания ошибок.</p>
+      <p>Log-файлу присваивается уникальное имя на базе текущей даты. (Существующие файлы не перезаписываются и не дополняются).</p>
+      <p>Информация, содержащаяся в log-файле, техническая и поэтому не может быть понята пользователем.</p>
+    </dd>
+    <dt><b><a name="LOG2" id="LOG2">/LOG=</a>&quot;<i>filename</i>&quot;</b></dt>
+    <dd>
+      <p>Параметр похож на /LOG, но в отличие от него позволяет указать фиксированный путь/имя файла для log-файла. Если файл с указанным именем уже существует, он будет заменен. Если файл не может быть создан, деинсталлятор прервется и выдаст сообщение об ошибке.</p>
+    </dd>
+    <dt><b><a name="NORESTART" id="NORESTART">/NORESTART</a></b></dt>
+    <dd>
+      <p>Указывает деинсталлятору не перезагружать систему, даже если это необходимо.</p>
+    </dd>
+  </dl>
+</div>
+</body>
+</html>

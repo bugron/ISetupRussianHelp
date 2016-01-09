@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Inno Setup Preprocessor: #undef</title>
+<link rel="stylesheet" type="text/css" href="../styles.css" />
+<script type="text/javascript" src="../topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Inno Setup Preprocessor: #undef</h1>
+<div class="topicbody">
+  <h2 class="heading notopmargin">Синтатсис</h2>
+  <table>
+    <tr>
+      <td class="cellleft"><i>undef-directive:</i></td>
+      <td class="cellright">(<b>undef</b> | <b>x</b>) [<b>private</b> | <b>protected</b> | <b>public</b>] &lt;ident&gt;</td>
+    </tr>
+  </table>
+  <h2 class="heading">Описание</h2>
+  <p>Деинициализирует (удаляет) переменную или макрос. Если <a href="topic_visibility.htm">видимость</a> не определен (<tt>public</tt>, <tt>protected</tt>, или <tt>private</tt>), ISPP сначала пытается удалить переменную private с этим же именем, затем protected, и в конце public.</p>
+  <h2 class="heading">Примеры</h2>
+  <p><tt>#undef MyVar<br/>
+    #undef MyMacro<br/>
+    #undef public MyVar<br/>
+  </tt></p>
+  <h2 class="heading">См. также</h2>
+  <p><tt><a href="topic_define.htm">define</a></tt>, <tt><a href="topic_dim.htm">dim</a></tt>, <a href="topic_visibility.htm">Область видимости идентификаторов</a>.</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Pascal Scripting: CreateInputOptionPage</title>
+<link rel="stylesheet" type="text/css" href="../styles.css" />
+<script type="text/javascript" src="../topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Pascal Scripting: CreateInputOptionPage</h1>
+<div class="topicbody">
+  <div><b>Прототип:</b></div>
+  <p><tt>function CreateInputOptionPage(const AfterID: Integer; const ACaption, ADescription, ASubCaption: String; Exclusive, ListBox: Boolean): TInputOptionWizardPage;</tt></p>
+  <div><b>Описание:</b></div>
+  <p>Создает страницу мастера, которая содержит флажки (check boxes) или радио кнопки.</p>
+  <p>Если Exclusive является True, показываются радио кнопки, <span id="result_box" lang="ru" xml:lang="ru">и одновременно только один элемент в списке может быть выбран</span>. Если ListBox является True, флажки (check boxes) или радио кнопки помещаются в <span id="result_box2" lang="ru" xml:lang="ru">прокручиваемый список</span>.</p>
+  <div><b>Комментарии:</b></div>
+  <p>Для создания флажков / радио кнопок, вызовите метод Add. Используйте   свойство Values​​, чтобы получить/установить их установленное состояние. На страницах с Exclusive=True, можно получить/установить индекс одного выбранного элемента через свойство SelectedValueIndex.</p>
+  <div><b>Например:</b></div>
+  <pre>var
+  Page: TInputOptionWizardPage;
+  IsRegisteredUser: Boolean;
+
+...
+
+// Create the page
+Page := CreateInputOptionPage(wpWelcome,
+  'License Information', 'Are you a registered user?',
+  'If you are a registered user, please check the box below, then click Next.',
+  False, False);
+
+// Add items
+Page.Add('I am a registered user');
+
+// Set initial values (optional)
+Page.Values[0] := False;
+
+...
+
+// Read values into variables
+IsRegisteredUser := Page.Values[0];
+</pre>
+</div>
+</body>
+</html>

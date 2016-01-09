@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Процедура для копирования папок</title><link rel="stylesheet" type="text/css" href="css.css">
+<script language='jscript' type='text/javascript' src='copycode.js'></script>
+<script type="text/javascript" src="includer.js"></script></head><body><div id="heading"><h1>» Inno Setup Faq. Процедура для копирования папок</h1></div><br>
+<script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM">
+<input type="button" value="Копировать в буфер обмена" onClick="copyToClipboard( taCode1, theCode1 );">
+<blockquote id="theCode1"><font>
+[Setup]<br>
+AppName=My&nbsp;Program<br>
+AppVerName=My&nbsp;Program&nbsp;version&nbsp;1.5<br>
+DefaultDirName={pf}\My&nbsp;Program<br>
+Uninstallable=no<br>
+<br>
+[Code]<br>
+type<br>
+&nbsp;&nbsp;&nbsp;TSHFileOpStruct=record<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Wnd:&nbsp;HWND;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wFunc:&nbsp;UINT;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pFrom:&nbsp;PAnsiChar;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pTo:&nbsp;PAnsiChar;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fFlags:&nbsp;Word;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fAnyOperationsAborted:&nbsp;BOOL;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hNameMappings:&nbsp;HWND;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lpszProgressTitle:&nbsp;PAnsichar;<br>
+&nbsp;&nbsp;&nbsp;end;<br>
+<br>
+function&nbsp;SHFileOperation(const&nbsp;lpFileOp:&nbsp;TSHFileOpStruct):integer;&nbsp;external&nbsp;'SHFileOperation@shell32.dll&nbsp;stdcall';<br>
+<br>
+function&nbsp;CopyFile_(FromFile,ToDir:string;IsRemove:boolean):boolean;<br>
+var<br>
+&nbsp;&nbsp;F:TShFileOpStruct;<br>
+&nbsp;&nbsp;a1,a2:string;<br>
+begin<br>
+&nbsp;&nbsp;F.Wnd:=0;<br>
+&nbsp;&nbsp;if&nbsp;IsRemove&nbsp;then&nbsp;F.wFunc:=$0001&nbsp;else&nbsp;F.wFunc:=$0002;<br>
+&nbsp;&nbsp;a1:=FromFile+#0#0;<br>
+&nbsp;&nbsp;F.pFrom:=PAnsiChar(a1);<br>
+&nbsp;&nbsp;a2:=AddBackslash(ToDir)+#0#0;<br>
+&nbsp;&nbsp;F.pTo:=PAnsiChar(a2);<br>
+&nbsp;&nbsp;F.fFlags:=$0254;<br>
+&nbsp;&nbsp;Result:=(ShFileOperation(F)=0);<br>
+end;<br>
+<br>
+procedure&nbsp;BackupDir(const&nbsp;FromDir,ToDir,FileMask:string;IsRemove,IncludeSubDirs:boolean);<br>
+var<br>
+&nbsp;&nbsp;FindRec:TFindRec;<br>
+&nbsp;&nbsp;sFileName,fd,td:string;<br>
+begin<br>
+&nbsp;&nbsp;fd:=AddBackslash(FromDir);<br>
+&nbsp;&nbsp;td:=AddBackslash(ToDir);<br>
+&nbsp;&nbsp;ForceDirectories(td);<br>
+&nbsp;&nbsp;if&nbsp;FindFirst(fd+FileMask,FindRec)&nbsp;then&nbsp;begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;try<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;repeat<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sFileName:=fd+FindRec.Name;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;((FindRec.Attributes&nbsp;and&nbsp;FILE_ATTRIBUTE_DIRECTORY)=0)&nbsp;then&nbsp;CopyFile_(sFileName,td,IsRemove)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;IncludeSubDirs&nbsp;then<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(FindRec.Name&lt;&gt;'')&nbsp;and&nbsp;(FindRec.Name&lt;&gt;'.')&nbsp;and&nbsp;(FindRec.Name&lt;&gt;'..')&nbsp;then<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BackupDir(sFileName,td+FindRec.Name,FileMask,IsRemove,IncludeSubDirs);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;until&nbsp;not&nbsp;FindNext(FindRec);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;finally<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FindClose(FindRec);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;end;<br>
+&nbsp;&nbsp;end;<br>
+end;<br>
+<br>
+procedure&nbsp;InitializeWizard();<br>
+begin<br>
+&nbsp;&nbsp;BackupDir('i:\faketwin','i:\Backup\'+GetDateTimeString('yyyy/mm/dd&nbsp;hh:nn:ss','_','.'),'*.*',False,True);<br>
+end;<br>
+</font></blockquote><textarea id="taCode1" style="display:none;" rows="1" cols="5"></textarea><textarea id='taCode' style='display:none;' rows='1' cols='20'></textarea></code><script language="javascript" type="text/javascript">highlightSyntax('delphi_Tc4NTM','delphi');</script><br><div id="heading"><h1><font size="1" face="Consolas">Copyright (c) <a href="http://www.krinkels.org/" target="_blank">Krinkels Inc</a></font></h1></div></body></html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Создание контрольной точки восстановления системы перед установкой.</title><link rel="stylesheet" type="text/css" href="css.css"><script type="text/javascript" src="includer.js"></script><script language='jscript' type='text/javascript' src='copycode.js'></script></head><body><div id="heading"><h1>» Inno Setup Faq. Создание контрольной точки восстановления системы перед установкой.</h1></div><br>
+<br>Вариант 1:<br>
+<script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM">
+<input type="button" value="Копировать в буфер обмена" onClick="copyToClipboard( taCode1, theCode1 );">
+<blockquote id="theCode1"><font>
+[Setup]<br>
+AppName=RestorePoint<br>
+AppVerName=RestorePoint<br>
+DefaultDirName={pf}\RestorePoint<br>
+DefaultGroupName=RestorePoint<br>
+Compression=lzma<br>
+SolidCompression=no<br>
+WindowVisible=no<br>
+<br>
+[Code]<br>
+function&nbsp;CreateRestorePoint(sDescription:&nbsp;String):&nbsp;Integer;<br>
+var<br>
+&nbsp;&nbsp;&nbsp;ScriptControl:&nbsp;&nbsp;Variant;<br>
+&nbsp;&nbsp;&nbsp;oWMI:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;Variant;<br>
+&nbsp;&nbsp;&nbsp;ErrCode:&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;Integer;<br>
+<br>
+begin<br>
+&nbsp;&nbsp;&nbsp;///Create&nbsp;the&nbsp;ScriptControl&nbsp;object.<br>
+&nbsp;&nbsp;&nbsp;ScriptControl&nbsp;:=&nbsp;CreateOleObject('ScriptControl');<br>
+&nbsp;&nbsp;&nbsp;///Set&nbsp;the&nbsp;Language&nbsp;property&nbsp;(VBScript&nbsp;or&nbsp;JavaScript)<br>
+&nbsp;&nbsp;&nbsp;ScriptControl.Language&nbsp;:=&nbsp;'VBScript';<br>
+&nbsp;&nbsp;&nbsp;///Now&nbsp;create&nbsp;the&nbsp;WMI&nbsp;object&nbsp;we&nbsp;could&nbsp;not&nbsp;with&nbsp;straight&nbsp;Pascal&nbsp;code.<br>
+&nbsp;&nbsp;&nbsp;oWMI&nbsp;:=&nbsp;ScriptControl.Eval('GetObject(&quot;winmgmts:\\.\root\default:Systemrestore&quot;)');<br>
+&nbsp;&nbsp;&nbsp;///Create&nbsp;the&nbsp;restore&nbsp;point.<br>
+&nbsp;&nbsp;&nbsp;ErrCode&nbsp;:=&nbsp;oWMI.CreateRestorePoint(sDescription,&nbsp;0,&nbsp;100);<br>
+&nbsp;&nbsp;&nbsp;///Return&nbsp;the&nbsp;error&nbsp;code,&nbsp;if&nbsp;any.&nbsp;&nbsp;A&nbsp;value&nbsp;of&nbsp;zero&nbsp;indicates&nbsp;success.<br>
+&nbsp;&nbsp;&nbsp;Result&nbsp;:=0;<br>
+end;<br>
+<br>
+procedure&nbsp;CurStepChanged(CurStep:&nbsp;TSetupStep);<br>
+&nbsp;&nbsp;var<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bResult:&nbsp;Integer;<br>
+begin<br>
+&nbsp;&nbsp;if&nbsp;CurStep&nbsp;=&nbsp;ssInstall&nbsp;then&nbsp;///Создаем&nbsp;точку&nbsp;перед&nbsp;установкой<br>
+&nbsp;begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bResult&nbsp;:=&nbsp;CreateRestorePoint&nbsp;('My&nbsp;App&nbsp;Installation');<br>
+&nbsp;&nbsp;&nbsp;&nbsp;///Handle&nbsp;the&nbsp;return&nbsp;value&nbsp;as&nbsp;you&nbsp;see&nbsp;fit.&nbsp;//Можете&nbsp;отсюда<br>
+&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;bResult&nbsp;=&nbsp;0&nbsp;then<br>
+&nbsp;&nbsp;&nbsp;&nbsp;begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Msgbox&nbsp;('Create&nbsp;restore&nbsp;point&nbsp;succeeded.',&nbsp;mbInformation,&nbsp;MB_OK);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;end&nbsp;else<br>
+&nbsp;&nbsp;&nbsp;&nbsp;begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Msgbox&nbsp;('Create&nbsp;restore&nbsp;point&nbsp;failed.',&nbsp;mbInformation,&nbsp;MB_OK);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;end;&nbsp;///до&nbsp;сюда&nbsp;удалить,&nbsp;чтоб&nbsp;не&nbsp;мешало<br>
+&nbsp;end;<br>
+end;<br>
+</font></blockquote><textarea id="taCode1" style="display:none;" rows="1" cols="5"></textarea><textarea id='taCode' style='display:none;' rows='1' cols='20'></textarea></code><script language="javascript" type="text/javascript">highlightSyntax('delphi_Tc4NTM','delphi');</script>
+
+<br>Вариант 2:<br>
+<input type="button" value="Копировать в буфер обмена" onClick="copyToClipboard( taCode2, theCode2 );">
+<blockquote id="theCode2"><font><script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTN">
+[Setup]<br>
+AppName=My&nbsp;Program<br>
+AppVerName=My&nbsp;Program&nbsp;v&nbsp;1.5<br>
+DefaultDirName={pf}\My&nbsp;Program<br>
+OutputDir=.<br>
+Compression=lzma2/ultra<br>
+InternalCompressLevel=ultra<br>
+SolidCompression=yes<br>
+<br>
+[Languages]<br>
+Name:&nbsp;rus;&nbsp;MessagesFile:&nbsp;compiler:Languages\Russian.isl<br>
+<br>
+[CustomMessages]<br>
+rus.otherGroup=Прочее:<br>
+rus.pointDesc=Создать&nbsp;системную&nbsp;контрольную&nbsp;точку&nbsp;(рекомендуется)<br>
+rus.pointMsg=Создание&nbsp;контрольной&nbsp;точки...<br>
+<br>
+[Tasks]<br>
+Name:&nbsp;restorepoint;&nbsp;Description:&nbsp;{cm:pointDesc};&nbsp;GroupDescription:&nbsp;{cm:otherGroup};&nbsp;MinVersion:&nbsp;0,5.1<br>
+<br>
+[Files]<br>
+Source:&nbsp;compiler:Examples\*;&nbsp;DestDir:&nbsp;{app};&nbsp;Flags:&nbsp;ignoreversion&nbsp;recursesubdirs&nbsp;createallsubdirs<br>
+<br>
+[Code]<br>
+///===============================================================================<br>
+///Script&nbsp;name:&nbsp;SetRestorePoint.iss<br>
+///Script&nbsp;version:&nbsp;1.0<br>
+///Author:&nbsp;Serega,&nbsp;http://forum.oszone.net/member.php?userid=88670<br>
+///<br>
+///This&nbsp;script&nbsp;shows&nbsp;how&nbsp;to&nbsp;create&nbsp;restore&nbsp;point&nbsp;before&nbsp;install<br>
+///Этот&nbsp;скрипт&nbsp;показывает,&nbsp;как&nbsp;создать&nbsp;контрольную&nbsp;точку&nbsp;перед&nbsp;установкой<br>
+///<br>
+///function&nbsp;SetRestorePoint(const&nbsp;PointName:&nbsp;string):&nbsp;Boolean;<br>
+///===============================================================================<br>
+const<br>
+&nbsp;&nbsp;///Description&nbsp;http://msdn.microsoft.com/en-us/library/aa378847%28VS.85%29.aspx<br>
+&nbsp;&nbsp;///Restore&nbsp;point&nbsp;type<br>
+&nbsp;&nbsp;APPLICATION_INSTALL&nbsp;=&nbsp;0;<br>
+&nbsp;&nbsp;APPLICATION_UNINSTALL&nbsp;=&nbsp;1;<br>
+&nbsp;&nbsp;DEVICE_DRIVER_INSTALL&nbsp;=&nbsp;10;<br>
+&nbsp;&nbsp;MODIFY_SETTINGS&nbsp;=&nbsp;12;<br>
+&nbsp;&nbsp;CANCELLED_OPERATION&nbsp;=&nbsp;13;<br>
+&nbsp;&nbsp;///Event&nbsp;type<br>
+&nbsp;&nbsp;BEGIN_SYSTEM_CHANGE&nbsp;=&nbsp;100;<br>
+&nbsp;&nbsp;END_SYSTEM_CHANGE&nbsp;=&nbsp;101;<br>
+&nbsp;&nbsp;BEGIN_NESTED_SYSTEM_CHANGE&nbsp;=&nbsp;102;<br>
+&nbsp;&nbsp;END_NESTED_SYSTEM_CHANGE&nbsp;=&nbsp;103;<br>
+<br>
+function&nbsp;SetRestorePoint(const&nbsp;PointName:&nbsp;string):&nbsp;Boolean;<br>
+var<br>
+&nbsp;&nbsp;vObj,&nbsp;SR:&nbsp;Variant;<br>
+begin<br>
+&nbsp;&nbsp;vObj&nbsp;:=&nbsp;CreateOleObject('ScriptControl');<br>
+&nbsp;&nbsp;vObj.Language&nbsp;:=&nbsp;'VBScript';<br>
+&nbsp;&nbsp;SR&nbsp;:=&nbsp;vObj.eval('GetObject(&quot;winmgmts:\\.\root\default:SystemRestore&quot;)');<br>
+&nbsp;&nbsp;Result&nbsp;:=&nbsp;SR.CreateRestorePoint(PointName,&nbsp;APPLICATION_INSTALL,&nbsp;BEGIN_SYSTEM_CHANGE)&nbsp;=&nbsp;0;<br>
+end;<br>
+<br>
+procedure&nbsp;CurPageChanged(CurPageID:&nbsp;Integer);<br>
+var<br>
+&nbsp;&nbsp;msg:&nbsp;string;<br>
+begin<br>
+&nbsp;&nbsp;if&nbsp;(CurPageID&nbsp;=&nbsp;wpInstalling)&nbsp;and&nbsp;IsTaskSelected('restorepoint')&nbsp;then<br>
+&nbsp;&nbsp;&nbsp;&nbsp;try<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;msg&nbsp;:=&nbsp;WizardForm.StatusLabel.Caption;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WizardForm.StatusLabel.Caption&nbsp;:=&nbsp;ExpandConstant('{cm:pointMsg}');<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WizardForm.Repaint;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;///создаём&nbsp;контрольную&nbsp;точку<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SetRestorePoint('Установка&nbsp;{#SetupSetting(&quot;AppName&quot;)}');<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WizardForm.StatusLabel.Caption&nbsp;:=&nbsp;msg;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;finally<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SetLength(msg,&nbsp;0);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;end;<br>
+end;<br>
+<script language="javascript" type="text/javascript">highlightSyntax('delphi_Tc4NTN','delphi');</script></code></font></blockquote><font><code id="delphi_Tc4NTN"><textarea id="taCode2" style="display:none;" rows="1" cols="5"></textarea><textarea id='taCode' style='display:none;' rows='1' cols='20'></textarea></code><br><br><div id="heading"><h1><font size="1" face="Consolas">Copyright (c) <a href="http://www.krinkels.org/" target="_blank">Krinkels Inc</a></font></h1></div></font></body></html>

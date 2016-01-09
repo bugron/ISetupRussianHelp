@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Как обнаружить версию установленного MS Access</title><link rel="stylesheet" type="text/css" href="css.css">
+<script language='jscript' type='text/javascript' src='copycode.js'></script>
+<script type="text/javascript" src="includer.js"></script></head><body><div id="heading"><h1>» Inno Setup Faq. Как обнаружить версию установленного MS Access</h1></div><br>
+<script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM">
+<input type="button" value="Копировать в буфер обмена" onClick="copyToClipboard( taCode1, theCode1 );">
+<blockquote id="theCode1"><font>
+[Setup]<br>
+AppName=MSAccessVersion<br>
+AppVerName=MSAccessVersion<br>
+DefaultDirName={pf}\MSAccessVersion<br>
+DisableStartupPrompt=true<br>
+Uninstallable=false<br>
+DisableDirPage=true<br>
+OutputBaseFilename=MSAccessVersion<br>
+<br>
+[Code]<br>
+///8.00.00.3512&nbsp;&nbsp;&nbsp;Access&nbsp;97<br>
+///8.00.00.4122&nbsp;&nbsp;&nbsp;Access&nbsp;97&nbsp;SR1<br>
+///8.00.00.5903&nbsp;&nbsp;&nbsp;Access&nbsp;97&nbsp;SR2<br>
+///9.00.00.2719&nbsp;&nbsp;&nbsp;Access&nbsp;2000<br>
+///9.00.00.3822&nbsp;&nbsp;&nbsp;Access&nbsp;2000&nbsp;SR1<br>
+///9.00.00.4506&nbsp;&nbsp;&nbsp;Access&nbsp;2000&nbsp;SR2<br>
+///10.00.2627.1&nbsp;&nbsp;&nbsp;Access&nbsp;XP<br>
+function&nbsp;AccessVersion():&nbsp;String;<br>
+var&nbsp;accversion,&nbsp;accpath:&nbsp;String;<br>
+begin<br>
+&nbsp;&nbsp;accversion&nbsp;:=&nbsp;'';<br>
+&nbsp;&nbsp;if&nbsp;RegQueryStringValue(HKEY_LOCAL_MACHINE,<br>
+&nbsp;&nbsp;&nbsp;'SOFTWARE\Microsoft\Windows\CurrentVersion\App&nbsp;Paths\MSACCESS.EXE',<br>
+&nbsp;&nbsp;&nbsp;'',&nbsp;accpath)&nbsp;then<br>
+&nbsp;&nbsp;begin<br>
+///in&nbsp;varResult&nbsp;there&nbsp;is&nbsp;path&nbsp;of&nbsp;msaccess.exe<br>
+GetVersionNumbersString(accpath,&nbsp;accversion);<br>
+&nbsp;&nbsp;end;<br>
+&nbsp;&nbsp;Result&nbsp;:=&nbsp;accversion;<br>
+end;<br>
+<br>
+function&nbsp;InitializeSetup():&nbsp;Boolean;<br>
+var&nbsp;accver:&nbsp;String;<br>
+begin<br>
+&nbsp;&nbsp;accver&nbsp;:=&nbsp;AccessVersion();<br>
+&nbsp;&nbsp;if&nbsp;Length(accver)&nbsp;&gt;&nbsp;0&nbsp;then<br>
+&nbsp;&nbsp;begin<br>
+&nbsp;&nbsp;	MsgBox('Version&nbsp;('+&nbsp;accver&nbsp;+')&nbsp;of&nbsp;MS&nbsp;Access&nbsp;is&nbsp;installed.',<br>
+&nbsp;&nbsp;	&nbsp;&nbsp;mbInformation,&nbsp;MB_OK);<br>
+///go&nbsp;on&nbsp;with&nbsp;setup<br>
+Result&nbsp;:=&nbsp;true;<br>
+&nbsp;&nbsp;end<br>
+&nbsp;&nbsp;else&nbsp;begin<br>
+&nbsp;&nbsp;	MsgBox('MS&nbsp;Access&nbsp;is&nbsp;not&nbsp;installed.',&nbsp;mbInformation,&nbsp;MB_OK);<br>
+&nbsp;&nbsp;	///cannot&nbsp;go&nbsp;with&nbsp;setup&nbsp;anyway<br>
+&nbsp;&nbsp;	Result&nbsp;:=&nbsp;false;<br>
+&nbsp;&nbsp;end;<br>
+end;<br>
+
+</font></blockquote><textarea id="taCode1" style="display:none;" rows="1" cols="5"></textarea><textarea id='taCode' style='display:none;' rows='1' cols='20'></textarea></code><script language="javascript" type="text/javascript">highlightSyntax('delphi_Tc4NTM','delphi');</script><br><div id="heading"><h1><font size="1" face="Consolas">Copyright (c) <a href="http://www.krinkels.org/" target="_blank">Krinkels Inc</a></font></h1></div></body></html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Страница с выбором дополнительной папки</title><link rel="stylesheet" type="text/css" href="css.css">
+<script language='jscript' type='text/javascript' src='copycode.js'></script>
+<script type="text/javascript" src="includer.js"></script></head><body><div id="heading"><h1>» Inno Setup Faq. Страница с выбором дополнительной папки</h1></div><br>
+<script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM">
+<input type="button" value="Копировать в буфер обмена" onClick="copyToClipboard( taCode1, theCode1 );">
+<blockquote id="theCode1"><font>
+[Setup]<br>
+AppName=additionalfolder<br>
+AppVerName=additionalfolder<br>
+DefaultDirName={pf}\additionalfolder<br>
+DisableProgramGroupPage=yes<br>
+<br>
+[Files]<br>
+;;Main&nbsp;program&nbsp;that&nbsp;will&nbsp;be&nbsp;installed&nbsp;in&nbsp;{app}&nbsp;folder<br>
+Source:&nbsp;MyProg.exe;&nbsp;DestDir:&nbsp;{app}<br>
+<br>
+;;Database&nbsp;file&nbsp;that&nbsp;will&nbsp;installed&nbsp;where&nbsp;user&nbsp;choosed<br>
+Source:&nbsp;DataBase.mdb;&nbsp;DestDir:&nbsp;{code:GetDataDir}<br>
+<br>
+[Code]<br>
+var<br>
+&nbsp;&nbsp;DataDirPage:&nbsp;TInputDirWizardPage;<br>
+<br>
+procedure&nbsp;InitializeWizard;<br>
+begin<br>
+&nbsp;&nbsp;///Create&nbsp;the&nbsp;page<br>
+<br>
+&nbsp;&nbsp;DataDirPage&nbsp;:=&nbsp;CreateInputDirPage(wpSelectDir,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'Select&nbsp;Personal&nbsp;Data&nbsp;Directory',&nbsp;'Where&nbsp;should&nbsp;personal&nbsp;data&nbsp;files&nbsp;be&nbsp;installed?',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'Select&nbsp;the&nbsp;folder&nbsp;in&nbsp;which&nbsp;Setup&nbsp;should&nbsp;install&nbsp;personal&nbsp;data&nbsp;files,&nbsp;then&nbsp;click&nbsp;Next.',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;False,&nbsp;'');<br>
+&nbsp;&nbsp;DataDirPage.Add('');<br>
+<br>
+&nbsp;&nbsp;DataDirPage.Values[0]&nbsp;:=&nbsp;GetPreviousData('DataDir',&nbsp;'');<br>
+end;<br>
+<br>
+procedure&nbsp;RegisterPreviousData(PreviousDataKey:&nbsp;Integer);<br>
+begin<br>
+&nbsp;&nbsp;///Store&nbsp;the&nbsp;selected&nbsp;folder&nbsp;for&nbsp;further&nbsp;reinstall/upgrade<br>
+&nbsp;&nbsp;SetPreviousData(PreviousDataKey,&nbsp;'DataDir',&nbsp;DataDirPage.Values[0]);<br>
+end;<br>
+<br>
+function&nbsp;NextButtonClick(CurPageID:&nbsp;Integer):&nbsp;Boolean;<br>
+begin<br>
+&nbsp;&nbsp;///Set&nbsp;default&nbsp;folder&nbsp;if&nbsp;empty<br>
+&nbsp;&nbsp;if&nbsp;DataDirPage.Values[0]&nbsp;=&nbsp;''&nbsp;then<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DataDirPage.Values[0]&nbsp;:=&nbsp;ExpandConstant('{sd}\DataDir');<br>
+&nbsp;&nbsp;Result&nbsp;:=&nbsp;True;<br>
+end;<br>
+<br>
+function&nbsp;UpdateReadyMemo(Space,&nbsp;NewLine,&nbsp;MemoUserInfoInfo,&nbsp;MemoDirInfo,&nbsp;MemoTypeInfo,<br>
+&nbsp;&nbsp;MemoComponentsInfo,&nbsp;MemoGroupInfo,&nbsp;MemoTasksInfo:&nbsp;String):&nbsp;String;<br>
+var<br>
+&nbsp;&nbsp;S:&nbsp;String;<br>
+begin<br>
+&nbsp;&nbsp;///Fill&nbsp;the&nbsp;'Ready&nbsp;Memo'&nbsp;with&nbsp;the&nbsp;normal&nbsp;settings&nbsp;and&nbsp;the&nbsp;custom&nbsp;settings<br>
+&nbsp;&nbsp;S&nbsp;:=&nbsp;'';<br>
+<br>
+&nbsp;&nbsp;S&nbsp;:=&nbsp;S&nbsp;+&nbsp;MemoDirInfo&nbsp;+&nbsp;NewLine&nbsp;+&nbsp;NewLine;<br>
+<br>
+&nbsp;&nbsp;S&nbsp;:=&nbsp;S&nbsp;+&nbsp;'Database&nbsp;path'&nbsp;+&nbsp;NewLine;<br>
+&nbsp;&nbsp;S&nbsp;:=&nbsp;S&nbsp;+&nbsp;Space&nbsp;+&nbsp;DataDirPage.Values[0]&nbsp;+&nbsp;NewLine;<br>
+<br>
+&nbsp;&nbsp;Result&nbsp;:=&nbsp;S;<br>
+end;<br>
+<br>
+function&nbsp;GetDataDir(Param:&nbsp;String):&nbsp;String;<br>
+begin<br>
+&nbsp;&nbsp;{{Return&nbsp;the&nbsp;selected&nbsp;DataDir}<br>
+&nbsp;&nbsp;Result&nbsp;:=&nbsp;DataDirPage.Values[0];<br>
+end;<br>
+</font></blockquote><textarea id="taCode1" style="display:none;" rows="1" cols="5"></textarea><textarea id='taCode' style='display:none;' rows='1' cols='20'></textarea></code><script language="javascript" type="text/javascript">highlightSyntax('delphi_Tc4NTM','delphi');</script><br><div id="heading"><h1><font size="1" face="Consolas">Copyright (c) <a href="http://www.krinkels.org/" target="_blank">Krinkels Inc</a></font></h1></div></body></html>

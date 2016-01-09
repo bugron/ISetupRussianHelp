@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Pascal Scripting Extended: ShortCut</title>
+<link rel="stylesheet" type="text/css" href="../../../styles.css" />
+<script type="text/javascript" src="../../../topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Pascal Scripting Extended: ShortCut</h1>
+<div class="topicbody">
+  <div><b>Прототип:</b></div>
+  <p><tt>function ShortCut(Key: Word; Shift: TShiftState): TShortCut;</tt></p>
+  <div><b>Описание:</b></div>
+  Создает клавиатурное сокращение. Первый параметр Key будет завершающим символом в сокращении, преобразованным в Word. В данном случае клавишей является X. Параметр Shift представляет специальную клавишу, которая удерживается нажатой во время нажатия другой клавиши, и объявлен как TShiftState = set of (ssShift,ssAlt,ssCtrl,ssLeft,ssRight,ssMiddle, ssDouble); <br />
+  где ssShift представляет клавишу &lt;Shift&gt;, ssAlt &mdash; клавишу &lt;Alt&gt; и т.д.<br />
+  <br />
+  <div><b>Пример:</b><br />
+  </div>
+  <p><tt>procedure TForm1.FormCreate(Sender: TObject);<br />
+    begin<br />
+    &nbsp;&nbsp; Cut1.Shortcut := Shortcut(Word('X'),[ssCtrl]);<br />
+    &nbsp;&nbsp; Copy1.Shortcut := Shortcut(Word('C'),[ssCtrl]);<br />
+    &nbsp;&nbsp; Paste1.Shortcut := Shortcut(Word('T'),[ssCtrl]);<br />
+    <br />
+    end;</tt></p>
+</div>
+</body>
+</html>

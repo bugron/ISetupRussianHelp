@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>[Setup]: LanguageDetectionMethod</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="IE=8" http-equiv="X-UA-Compatible">
+<link rel="stylesheet" type="text/css" href="styles.css">
+<script type="text/javascript" src="topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">[Setup]: LanguageDetectionMethod</h1>
+<div class="topicbody">
+  <table class="setuphdr">
+    <tbody>
+      <tr>
+        <td class="setuphdrl"><p>Возможные значения:</p></td>
+        <td class="setuphdrr"><div class="margined"><tt>uilanguage</tt>, <tt>locale</tt>, <tt>none</tt></div></td>
+      </tr>
+      <tr>
+        <td class="setuphdrl"><p>Значение по умолчанию:</p></td>
+        <td class="setuphdrr"><div class="margined"><tt>uilanguage</tt></div></td>
+      </tr>
+    </tbody>
+  </table>
+  <div><b>Описание:</b></div>
+  <p>При значении <tt>uilanguage </tt>инсталлятор будет использовать принятый по умолчанию язык, который он определит по значению "UI language" (взяв значение, возвращенный функцией&nbsp;GetUserDefaultUILanguage(), либо, в версиях Windows, не поддерживающих эту функцию, взяв значение из реестра). Этот метод рекомендует Microsoft. "UI language" - язык, используемый в диалоговых окнах Windows. Так, в английских версиях Windows английский будет языком по умолчанию, а в русских - русский.</p>
+  <p>При значении <tt>locale </tt>инсталлятор будет использовать язык, указанный в GetUserDefaultLangID(). Эта функция возвращает значение "Your locale", заданное в Панели управления - Язык и стандарты. Следует заметить, что опция "Your locale" не затрагивает языки, имеются только "числа, валюта, время и даты".</p>
+  <p>При значении <tt>none</tt> инсталлятор будет использовать первый язык, указанный в секции [Languages] как язык по умолчанию.</p>
+</div>
+</body>
+</html>

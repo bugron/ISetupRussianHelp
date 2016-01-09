@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=8">
+<title>[Setup]: ArchitecturesInstallIn64BitMode</title>
+<link rel="stylesheet" type="text/css" href="styles.css">
+<script type="text/javascript" src="topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">[Setup]: ArchitecturesInstallIn64BitMode</h1>
+<div class="topicbody">
+  <table class="setuphdr">
+    <tr>
+      <td class="setuphdrl"><p>Возможные значения:</p></td>
+      <td class="setuphdrr"><div class="margined">Одно или больше из следующих значений, разделенных пробелами:<br>
+          <tt>x64</tt> <br>
+      <tt>ia64</tt></div></td>
+    </tr>
+    <tr>
+      <td class="setuphdrl"><p>Значение по умолчанию:</p></td>
+      <td class="setuphdrr"><div class="margined"><i>(пустой)</i></div></td>
+    </tr>
+  </table>
+  <div><b>Описание:</b></div>
+  <p>Определяет 64-разрядную архитектуру(ы) процессора, на которой инсталлятор будет работать в <a href="topic_32vs64bitinstalls.htm">64-разрядном режиме</a>. Если директива не определена или пустая, то инсталлятор будет всегда работать в <a href="topic_32vs64bitinstalls.htm">32-разрядном режиме</a>.</p>
+  <p>Обычно, не нужно изменить значение по умолчанию, если Ваше приложение не содержит 64-разрядные двоичные файлы.</p>
+  <p>Убедитесь, что Вы читали тему <a href="topic_64bitlimitations.htm">ограничения установки в 32-разрядном режиме</a> прежде, чем использовать эту директиву.</p>
+  <p>Если Ваше приложение работает только на 64-разрядной архитектуре процессора, следует установить <a href="topic_setup_architecturesallowed.htm">ArchitecturesAllowed</a> в значение данной директивы, чтобы препятствовать установке программы на 32-разрядный Windows.</p>
+  <p>Инсталлятор может работать только в тех 64-разрядных версиях Windows, которые имеют поддержку API, требуемый для работы инсталлятора (например. RegDeleteKeyEx). Все x64 выпуски обеспечивают необходимую поддержку API, однако версии Itanium до Windows Server 2003 SP1 нет. Если пользователь имеет более старую версию Itanium Windows, то инсталлятор покажет сообщение (<tt>MissingWOW64APIs</tt>) рекомендуя пользователю установить пакет обновления и завершится.</p>
+  <p><b>См. также:</b><br>
+    <a href="topic_setup_architecturesallowed.htm">ArchitecturesAllowed</a></p>
+</div>
+</body>
+</html>

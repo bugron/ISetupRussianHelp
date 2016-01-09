@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Режим совместимости с Вин98 для ярлыка и исполняемого файла</title><link rel="stylesheet" type="text/css" href="css.css">
+<script language='jscript' type='text/javascript' src='copycode.js'></script>
+<script type="text/javascript" src="includer.js"></script></head><body><div id="heading"><h1>» Inno Setup Faq. Режим совместимости с Вин98 для ярлыка и исполняемого файла</h1></div><br>
+<script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM">
+<input type="button" value="Копировать в буфер обмена" onClick="copyToClipboard( taCode1, theCode1 );">
+<blockquote id="theCode1"><font>
+{{Replace&nbsp;the&nbsp;ValueName&nbsp;with&nbsp;the&nbsp;location&nbsp;and&nbsp;name&nbsp;of&nbsp;your&nbsp;program&nbsp;and&nbsp;the&nbsp;ValueData&nbsp;with&nbsp;the&nbsp;Windows&nbsp;version&nbsp;you&nbsp;want&nbsp;to&nbsp;use:<br>
+&nbsp;WIN95&nbsp;-&nbsp;Windows&nbsp;95<br>
+&nbsp;WIN98&nbsp;-&nbsp;Windows&nbsp;98&nbsp;/&nbsp;Me<br>
+&nbsp;NT4SP5&nbsp;-&nbsp;Windows&nbsp;NT4.0&nbsp;(Service&nbsp;Pack&nbsp;5)<br>
+&nbsp;WIN2000&nbsp;-&nbsp;Windows&nbsp;2000<br>
+&nbsp;WINXPSP2&nbsp;-&nbsp;Windows&nbsp;XP&nbsp;(Service&nbsp;Pack&nbsp;2)<br>
+&nbsp;WINXPSP3&nbsp;-&nbsp;Windows&nbsp;XP&nbsp;(Service&nbsp;Pack&nbsp;3)<br>
+&nbsp;WINSRV03SP1&nbsp;-&nbsp;Windows&nbsp;Server&nbsp;2003&nbsp;(Service&nbsp;Pack&nbsp;1)<br>
+&nbsp;WINSRV08SP1&nbsp;-&nbsp;Windows&nbsp;Server&nbsp;2003&nbsp;(Service&nbsp;Pack&nbsp;2)<br>
+&nbsp;VISTARTM&nbsp;-&nbsp;Windows&nbsp;Vista<br>
+&nbsp;VISTASP1&nbsp;-&nbsp;Windows&nbsp;Vista&nbsp;(Service&nbsp;Pack&nbsp;1)<br>
+&nbsp;VISTASP2&nbsp;-&nbsp;Windows&nbsp;Vista&nbsp;(Service&nbsp;Pack&nbsp;2)<br>
+&nbsp;WIN7RTM&nbsp;-&nbsp;Windows&nbsp;7<br>
+&nbsp;256COLOR&nbsp;-&nbsp;Use&nbsp;256&nbsp;color<br>
+&nbsp;640X480&nbsp;-&nbsp;Use&nbsp;640x480&nbsp;resolution<br>
+&nbsp;DISABLETHEMES&nbsp;-&nbsp;Disable&nbsp;visual&nbsp;themes<br>
+&nbsp;DISABLEDWM&nbsp;-&nbsp;Disable&nbsp;desktop&nbsp;DWM<br>
+&nbsp;HIGHDPIAWARE<br>
+&nbsp;RUNASADMIN&nbsp;-&nbsp;Run&nbsp;file&nbsp;as&nbsp;Admin}<br>
+<br>
+[Registry]<br>
+Root:&nbsp;HKLM;&nbsp;Subkey:&nbsp;&quot;Software\Microsoft\Windows&nbsp;NT\CurrentVersion\AppCompatFlags\Layers&quot;;&nbsp;ValueType:&nbsp;String;&nbsp;ValueName:&nbsp;&quot;{app}\program.exe&quot;;&nbsp;ValueData:&nbsp;&quot;WIN98&quot;;&nbsp;Flags:&nbsp;Uninsdeletekey<br>
+<br>
+</font></blockquote><textarea id="taCode1" style="display:none;" rows="1" cols="5"></textarea><textarea id='taCode' style='display:none;' rows='1' cols='20'></textarea></code><script language="javascript" type="text/javascript">highlightSyntax('delphi_Tc4NTM','delphi');</script><br><div id="heading"><h1><font size="1" face="Consolas">Copyright (c) <a href="http://www.krinkels.org/" target="_blank">Krinkels Inc</a></font></h1></div></body></html>

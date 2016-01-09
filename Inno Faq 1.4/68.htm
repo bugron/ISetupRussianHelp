@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Как узнать где находится Setup.exe на CD или на жестком диске?</title><link rel="stylesheet" type="text/css" href="css.css"><script type="text/javascript" src="includer.js"></script><script language='jscript' type='text/javascript' src='copycode.js'></script></head><body><div id="heading"><h1>» Inno Setup Faq. Как узнать где находится Setup.exe на CD или на жестком диске?</h1></div><br><script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM"> <input type="button" value="Копировать в буфер обмена" onClick="copyToClipboard( taCode1, theCode1 );"> <blockquote id="theCode1"><font>[Setup]<br>
+AppName=MyApp<br>
+AppVerName=MyApp<br>
+DefaultDirName={pf}\MyApp<br>
+<br>
+[Code]<br>
+type<br>
+  SECURITY_ATTRIBUTES = record<br>
+    nLength: DWord;<br>
+    lpSecurityDescriptor: longint;<br>
+    bInheritHandle: Boolean;<br>
+  end;<br>
+<br>
+const<br>
+  GENERIC_READ = $80000000;<br>
+  GENERIC_WRITE = $40000000;<br>
+  CREATE_ALWAYS = 2;<br>
+  <br>
+function CreateFile(lpFileName: PChar; dwDesiredAccess, dwShareMode: DWord; LPSECURITY_ATTRIBUTES: SECURITY_ATTRIBUTES; dwCreationDisposition, dwFlagsAndAttributes: DWord; hTemplateFile: THandle): THandle; external 'CreateFileA@kernel32.dll stdcall';<br>
+function CloseHandle(Handle: THandle): Boolean; external 'CloseHandle@kernel32.dll stdcall';<br>
+<br>
+function ISEnvHDD(): Boolean;<br>
+var Hndl: Thandle; SA: SECURITY_ATTRIBUTES;<br>
+begin<br>
+  Result:= False;<br>
+  SA.nLength:=SizeOf(SA);<br>
+  SA.bInheritHandle:=True;<br>
+  Hndl:= CreateFile(PChar(ExpandConstant('{src}\test.tmp'))  , GENERIC_READ or GENERIC_WRITE, 0, SA, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, 0);<br>
+  if Hndl&gt;0 then Result:= True else Result:=False;<br>
+  CloseHandle(Hndl);<br>
+  DeleteFile(ExpandConstant('{src}\test.tmp'));<br>
+end;<br>
+<br>
+function InitializeSetup(): Boolean;<br>
+begin<br>
+Result:= True;<br>
+if ISEnvHDD then begin<br>
+  MsgBox('Setup.exe Находится на HDD. Запуск невозможен', mbConfirmation, MB_OK);<br>
+  Result:=False;<br>
+end;<br>
+end;</font></blockquote><textarea id="taCode1" style="display:none;" rows="1" cols="5"></textarea><textarea id='taCode' style='display:none;' rows='1' cols='20'></textarea></code><script language="javascript" type="text/javascript">highlightSyntax('delphi_Tc4NTM','delphi');</script><br><div id="heading"><h1><font size="1" face="Consolas">Copyright (c) <a href="http://www.krinkels.org/" target="_blank">Krinkels Inc</a></font></h1></div></body></html>

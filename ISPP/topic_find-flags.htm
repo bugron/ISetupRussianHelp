@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Inno Setup Preprocessor: Find flags</title>
+<link rel="stylesheet" type="text/css" href="../styles.css" />
+<script type="text/javascript" src="../topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Inno Setup Preprocessor: Find flags</h1>
+<div class="topicbody">
+  <h2 class="heading notopmargin">Описание</h2>
+  <p>Одно из следующих четырех значений должно быть определено:</p>
+  <p><tt>FIND_MATCH</tt> (0) означает, что строка должна соответствовать строку поиска.</p>
+  <p><tt>FIND_BEGINS</tt> (1) означает, что строка должна запуститься со строки поиска.</p>
+  <p><tt>FIND_ENDS</tt> (2) означает, что строка должна закончиться строкой поиска.</p>
+  <p><tt>FIND_CONTAINS</tt> (3) означает, что строка должна содержать строкe поиска.</p>
+  <p>Любой из следующих модификаторов может быть объединен с одним из предыдущих значений с помощью оператора порязрядного ИЛИ (<tt>|</tt>):</p>
+  <p><tt>FIND_CASESENSITIVE</tt> (4) означает, что сравнение должно быть чувствительным к регистру.</p>
+  <p><tt>FIND_AND</tt> (0) означает, что этот критерий (пара параметров в функции Find) должен быть встречен так же как предыдущие критерии.</p>
+  <p><tt>FIND_OR</tt> (8) means that it is allowed that this criterium is tested even if previos criteria were not met.</p>
+  <p><tt>FIND_NOT</tt> (16) означает, что этот критерий не должен быть встречен.</p>
+  <p><tt>FIND_AND</tt> и <tt>FIND_OR</tt> являются взаимоисключающими. Если оба определены, <tt>FIND_OR</tt> имеет приоритет.</p>
+  <p>Специальные флаги:</p>
+  <p><tt>FIND_TRIM</tt> (32) означает, что <span id="result_box" lang="ru" tabindex="-1" xml:lang="ru">начальные и конечные пробелы должны быть удалены из линии до тестирования его против всех критериев. Этот флаг может быть использован только в третьем аргументе функции</span> <tt>Find</tt>. <span id="result_box2" lang="ru" tabindex="-1" xml:lang="ru">Этот флаг не являются взаимоисключающим ни с одним из вышеупомянутых флагов.</span></p>
+</div>
+</body>
+</html>

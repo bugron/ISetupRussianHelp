@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Pascal Scripting: GetUILanguage</title>
+<link rel="stylesheet" type="text/css" href="../styles.css" />
+<script type="text/javascript" src="../topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Pascal Scripting: GetUILanguage</h1>
+<div class="topicbody">
+  <div><b>Прототип:</b></div>
+  <p><tt>function GetUILanguage: Integer;</tt></p>
+  <div><b>Описание:</b></div>
+  <p>Возвращает идентификатор языка интерфейса (LANGID) текущего пользователя.&nbsp;Возвращает 0, if the function fails (unlikely).</p>
+  <div><b>Комментарии:</b></div>
+  <p>Подробнее: <a href="http://msdn.microsoft.com/en-us/library/dd318693.aspx" target="_blank" title="http://msdn.microsoft.com/en-us/library/dd318693.aspx">Список национальных идентификаторов и языковых групп в MSDN</a><img src="../images/extlink.gif" alt=" [external link]" />.</p>
+  <p>Также см. файл, взятый из справки AutoIt (для удобства):&nbsp;<a href="OSLangCodes.htm" target="_blank" title="http://msdn.microsoft.com/en-us/library/dd318693.aspx">@OSLang</a><img src="../images/extlink.gif" alt=" [external link]" />.</p>
+  <div><b>Например:</b></div>
+  <pre>begin<br /> if GetUILanguage = $0409 then<br /> begin<br /> // UI language is English (United States)<br /> end;<br /><br /> // You can use &quot;and $3FF&quot; to extract the primary language identifier<br /> if GetUILanguage and $3FF = $09 then<br /> begin<br /> // Matches any variant of English<br /> end;<br />end;</pre>
+</div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Pascal Scripting: GetSHA1OfString</title>
+<link rel="stylesheet" type="text/css" href="../styles.css" />
+<script type="text/javascript" src="../topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Pascal Scripting: GetSHA1OfString</h1>
+<div class="topicbody">
+  <div><b>Прототип:</b></div>
+  <p><tt>function GetSHA1OfString(const S: AnsiString): String;</tt></p>
+  <div><b>Описание:</b></div>
+  <p>Получает SHA-1 хэш указанной строки, как строку.</p>
+  <div><b>Пример:</b></div>
+  <pre>var
+  SHA1: String;
+begin
+  SHA1 := GetSHA1OfString('Test');
+  // SHA1 = '640ab2bae07bedc4c163f679a746f7ab7fb5d1fa'
+end;
+</pre>
+</div>
+</body>
+</html>

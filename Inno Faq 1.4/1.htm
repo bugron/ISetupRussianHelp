@@ -1,0 +1,418 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Отображение картинок на всех страницах инсталятора</title>
+<link rel="stylesheet" type="text/css" href="css.css"><script type="text/javascript" src="includer.js"></script>
+
+<script language='jscript' type='text/javascript' src='copycode.js'></script>
+
+</head><body><div id="heading"><h1>» Inno Setup Faq. Отображение картинок на всех страницах инсталятора</h1></div><br>
+
+<script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM">
+<input type="button" value="Копировать в буфер обмена" onClick="copyToClipboard( taCode1, theCode1 );">
+<blockquote id="theCode1" ><font>
+[Setup]<br>
+AppName=My Program<br>
+AppVerName=My Program v 1.5<br>
+DefaultDirName={pf}\My Program<br>
+<br>
+[Languages]<br>
+Name: rus; MessagesFile: compiler:Languages\Russian.isl<br>
+<br>
+[Files]<br>
+Source: compiler:Examples\MyProg.exe; DestDir: {app}; Flags : ignoreversion<br>
+<br>
+[Run]<br>
+FileName: {app}\MyProg.exe; Description: Запустить My Program?; Flags: postinstall nowait skipifsilent<br>
+<br>
+[Code]<br>
+var<br>
+pnl: TPanel;<br>
+<br>
+///////////////////////WelcomePage//////////////////////////////////////<br>
+procedure WelcomePage;<br>
+begin<br>
+with TLabel.Create(pnl) do<br>
+begin<br>
+AutoSize:= WizardForm. WelcomeLabel1.AutoSize;<br>
+SetBounds(WizardForm.WelcomeLabel1.Left,WizardForm.WelcomeLabel1.Top,<br>
+WizardForm.WelcomeLabel1.Width,WizardForm.WelcomeLabel1.Height);<br>
+WordWrap:= WizardForm.WelcomeLabel1.WordWrap;<br>
+Caption:= WizardForm.WelcomeLabel1.Caption;<br>
+with Font do<br>
+begin<br>
+Color:= WizardForm.WelcomeLabel1.Font.Color;<br>
+Style:= WizardForm.WelcomeLabel1.Font.Style;<br>
+Name:= WizardForm.WelcomeLabel1.Font.Name;<br>
+Size:= WizardForm.WelcomeLabel1.Font.Size;<br>
+end;<br>
+Transparent:= True;<br>
+Parent:= pnl;<br>
+end;<br>
+with TLabel.Create(pnl) do<br>
+begin<br>
+AutoSize:= WizardForm.WelcomeLabel2.AutoSize;<br>
+SetBounds(WizardForm.WelcomeLabel2.Left,WizardForm.WelcomeLabel2.Top,<br>
+WizardForm.WelcomeLabel2.Width,WizardForm.WelcomeLabel2.Height);<br>
+WordWrap:= WizardForm.WelcomeLabel2.WordWrap;<br>
+Caption:= WizardForm.WelcomeLabel2.Caption;<br>
+with Font do<br>
+begin<br>
+Color:= WizardForm.WelcomeLabel2.Font.Color;<br>
+Style:= WizardForm.WelcomeLabel2.Font.Style;<br>
+Name:= WizardForm.WelcomeLabel2.Font.Name;<br>
+Size:= WizardForm.WelcomeLabel2.Font.Size;<br>
+end;<br>
+Transparent:= True;<br>
+Parent:= pnl;<br>
+end;<br>
+pnl.Repaint;<br>
+end;<br>
+<br>
+/////////////////////////////////////////////////////////////////<br>
+///////////////////////SelectDirPage//////////////////////////////////////<br>
+procedure SelectDirPage;<br>
+begin<br>
+with WizardForm do<br>
+begin<br>
+with DirEdit do<br>
+begin<br>
+Left:= 40;<br>
+Top:= 137;<br>
+Parent:= pnl;<br>
+end;<br>
+with DirBrowseButton do<br>
+begin<br>
+Left:= WizardForm.DirEdit.Left + WizardForm.DirEdit.Width + 10;<br>
+Top:= WizardForm.DirEdit.Top - 1;<br>
+Parent:= pnl;<br>
+end;<br>
+with SelectDirBitmapImage do<br>
+begin<br>
+Left:= WizardForm.DirEdit.Left;<br>
+Top:= WizardForm.DirEdit.Top - 62;<br>
+Stretch:= True;<br>
+Parent:= pnl;<br>
+end;<br>
+end;<br>
+with TLabel.Create(pnl) do<br>
+begin<br>
+AutoSize:= WizardForm.SelectDirBrowseLabel.AutoSize;<br>
+SetBounds(WizardForm.DirEdit.Left,WizardForm.DirEdit.Top - 30,<br>
+WizardForm.SelectDirBrowseLabel.Width, WizardForm.SelectDirBrowseLabel.Height);<br>
+WordWrap:= WizardForm.SelectDirBrowseLabel.WordWrap;<br>
+Caption:= WizardForm.SelectDirBrowseLabel.Caption;<br>
+with Font do<br>
+begin<br>
+Color:= WizardForm.SelectDirBrowseLabel.Font.Color;<br>
+Style:= WizardForm.SelectDirBrowseLabel.Font.Style;<br>
+Name:= WizardForm. SelectDirBrowseLabel.Font.Name;<br>
+Size:= WizardForm.SelectDirBrowseLabel.Font.Size;<br>
+end;<br>
+Transparent:= True;<br>
+Parent:= pnl;<br>
+end;<br>
+with TLabel.Create(pnl) do<br>
+begin<br>
+AutoSize:= WizardForm.SelectDirLabel.AutoSize;<br>
+SetBounds(WizardForm.SelectDirBitmapImage.Left + 50,WizardForm.SelectDirBitmapImage.Top + 10,<br>
+WizardForm.SelectDirLabel.Width,WizardForm.SelectDirLabel.Height);<br>
+WordWrap:= WizardForm.SelectDirLabel.WordWrap;<br>
+Caption:= WizardForm.SelectDirLabel.Caption;<br>
+with Font do<br>
+begin<br>
+Color:= WizardForm.SelectDirLabel.Font.Color;<br>
+Style:= WizardForm.SelectDirLabel.Font.Style;<br>
+Name:= WizardForm.SelectDirLabel.Font.Name;<br>
+Size:= WizardForm.SelectDirLabel.Font.Size;<br>
+end;<br>
+Transparent:= True;<br>
+Parent:= pnl;<br>
+end;<br>
+with TLabel.Create(pnl) do<br>
+begin<br>
+AutoSize:= WizardForm.DiskSpaceLabel.AutoSize;<br>
+SetBounds(WizardForm.DirEdit.Left,WizardForm.Bevel.Top - 25,<br>
+WizardForm.DiskSpaceLabel.Width,WizardForm.DiskSpaceLabel.Height);<br>
+WordWrap:= WizardForm.DiskSpaceLabel.WordWrap;<br>
+Caption:= WizardForm.DiskSpaceLabel.Caption;<br>
+with Font do<br>
+begin<br>
+Color:= WizardForm.DiskSpaceLabel.Font.Color;<br>
+Style:= WizardForm.DiskSpaceLabel.Font.Style;<br>
+Name:= WizardForm.DiskSpaceLabel.Font.Name;<br>
+Size:= WizardForm.DiskSpaceLabel.Font.Size;<br>
+end;<br>
+Transparent:= True;<br>
+Parent:= pnl;<br>
+end;<br>
+pnl.Repaint;<br>
+end;<br>
+<br>
+/////////////////////////////////////////////////////////////////<br>
+///////////////////////ReadyPage/////////////////////////////////<br>
+procedure ReadyPage;<br>
+var<br>
+ready_str: string;<br>
+begin<br>
+ready_str:= WizardForm.ReadyMemo.Text;<br>
+with TLabel.Create(pnl) do<br>
+begin<br>
+SetBounds(45,115,WizardForm.ReadyMemo.Width, WizardForm.ReadyMemo.Height);<br>
+Caption:= ready_str;<br>
+with Font do<br>
+begin<br>
+Color:= WizardForm.ReadyLabel.Font.Color;<br>
+Style:= WizardForm.ReadyLabel.Font.Style;<br>
+Name:= WizardForm.ReadyLabel.Font.Name;<br>
+Size:= WizardForm.ReadyLabel.Font.Size;<br>
+end;<br>
+Transparent:= True;<br>
+Parent:= pnl;<br>
+end;<br>
+with TBevel.Create(WizardForm) do<br>
+begin<br>
+SetBounds(40,110, WizardForm.ReadyMemo.Width, WizardForm.ReadyMemo.Height);<br>
+Parent:= pnl;<br>
+end;<br>
+with TLabel.Create(pnl) do<br>
+begin<br>
+AutoSize:= WizardForm.ReadyLabel.AutoSize;<br>
+SetBounds(40,70, WizardForm.ReadyLabel.Width, WizardForm.ReadyLabel.Height);<br>
+WordWrap:= WizardForm.ReadyLabel.WordWrap;<br>
+Caption:= WizardForm.ReadyLabel.Caption;<br>
+with Font do<br>
+begin<br>
+Color:= WizardForm.ReadyLabel.Font.Color;<br>
+Style:= WizardForm.ReadyLabel.Font.Style;<br>
+Name:= WizardForm.ReadyLabel.Font.Name;<br>
+Size:= WizardForm.ReadyLabel.Font.Size;<br>
+end;<br>
+Transparent:= True;<br>
+Parent:= pnl;<br>
+end;<br>
+pnl.Repaint;<br>
+end;<br>
+/////////////////////////////////////////////////////////////////<br>
+///////////////////////InstallingPage////////////////////////////<br>
+procedure InstallingPage;<br>
+begin<br>
+with WizardForm.ProgressGauge do<br>
+begin<br>
+Left:= 40;<br>
+Top:= 115;<br>
+Parent:= pnl;<br>
+end;<br>
+with TLabel.Create(pnl) do<br>
+begin<br>
+AutoSize:= WizardForm.FileNameLabel.AutoSize;<br>
+SetBounds(WizardForm.ProgressGauge.Left,WizardForm.ProgressGauge.Top-20,<br>
+WizardForm.FileNameLabel.Width,WizardForm.FileNameLabel.Height);<br>
+WordWrap:= WizardForm.FileNameLabel.WordWrap;<br>
+Caption:= WizardForm.FileNameLabel.Caption;<br>
+with Font do<br>
+begin<br>
+Color:= WizardForm.FileNameLabel.Font.Color;<br>
+Style:= WizardForm.FileNameLabel.Font.Style;<br>
+Name:= WizardForm.FileNameLabel.Font.Name;<br>
+Size:= WizardForm.FileNameLabel.Font.Size;<br>
+end;<br>
+Transparent:= True;<br>
+Parent:= pnl;<br>
+end;<br>
+with TLabel.Create(pnl) do<br>
+begin<br>
+AutoSize:= WizardForm.StatusLabel.AutoSize;<br>
+SetBounds(WizardForm.StatusLabel.Left,WizardForm.StatusLabel.Top,<br>
+WizardForm.StatusLabel.Width,WizardForm.StatusLabel.Height);<br>
+WordWrap:= WizardForm.StatusLabel.WordWrap;<br>
+Caption:= WizardForm.StatusLabel.Caption;<br>
+with Font do<br>
+begin<br>
+Color:= WizardForm.StatusLabel.Font.Color;<br>
+Style:= WizardForm.StatusLabel.Font.Style;<br>
+Name:= WizardForm.StatusLabel.Font.Name;<br>
+Size:= WizardForm.StatusLabel.Font.Size;<br>
+end;<br>
+Transparent:= True;<br>
+Parent:= pnl;<br>
+end;<br>
+pnl.Repaint;<br>
+end;<br>
+<br>
+/////////////////////////////////////////////////////////////////<br>
+///////////////////////FinishedPage//////////////////////////////<br>
+var<br>
+CheckBox: array of TNewCheckBox;<br>
+<br>
+procedure CheckBoxClick( Sender: TObject);<br>
+begin<br>
+if TNewCheckBox(Sender).Checked then<br>
+WizardForm.RunList.Checked[TNewCheckBox(Sender).Tag]:= True<br>
+else WizardForm.RunList.Checked[TNewCheckBox(Sender).Tag]:= False;<br>
+end;<br>
+<br>
+procedure LabelClick(Sender:TObject);<br>
+begin<br>
+if CheckBox[TLabel(Sender).Tag].Checked then<br>
+begin<br>
+WizardForm.RunList.Checked[TLabel(Sender).Tag]:= False;<br>
+CheckBox[TLabel( Sender).Tag].Checked:= False;<br>
+end<br>
+else<br>
+begin<br>
+WizardForm.RunList.Checked[TLabel( Sender).Tag]:= True;<br>
+CheckBox[TLabel(Sender).Tag].Checked:= True;<br>
+end;<br>
+end;<br>
+<br>
+procedure HideRunList(Control: TWinControl);<br>
+var<br>
+i, t: Integer;<br>
+str: string;<br>
+begin<br>
+if WizardForm.RunList.Items.Count > 0 then<br>
+begin<br>
+WizardForm.RunList.Hide;<br>
+SetArrayLength(CheckBox, SizeOf(WizardForm.RunList.Items.Count));<br>
+for i:= 0 to WizardForm.RunList.Items.Count-1 do<br>
+begin<br>
+CheckBox[i]:= TNewCheckBox.Create(Control);<br>
+with CheckBox[i] do<br>
+begin<br>
+SetBounds(ScaleX(WizardForm.RunList.Left+2),ScaleY(WizardForm.RunList.Top+2+t),14,14);<br>
+Tag:= i;<br>
+Checked:= WizardForm.RunList.Checked[i];<br>
+Caption:= WizardForm.RunList.Items.Strings[i];<br>
+OnClick:= @CheckBoxClick;<br>
+Color:= clWhite;<br>
+Parent:= Control;<br>
+end;<br>
+str:= WizardForm.RunList.Items.Strings[i];<br>
+with TLabel.Create(WizardForm) do<br>
+begin<br>
+SetBounds(ScaleX(WizardForm.RunList.Left+20),ScaleY(WizardForm.RunList.Top+2+t),<br>
+WizardForm.RunList.Width,14);<br>
+Caption:= str;<br>
+Tag:= i;<br>
+OnClick:= @LabelClick;<br>
+Transparent:= True;<br>
+Parent:= Control;<br>
+end;<br>
+t:= t + 20;<br>
+end;<br>
+end;<br>
+end;<br>
+<br>
+procedure FinishedPage;<br>
+begin<br>
+HideRunList(pnl);<br>
+with TLabel.Create(pnl) do<br>
+begin<br>
+AutoSize:= WizardForm.FinishedHeadingLabel.AutoSize;<br>
+SetBounds(WizardForm.FinishedHeadingLabel.Left,WizardForm.FinishedHeadingLabel.Top,<br>
+WizardForm.FinishedHeadingLabel.Width,WizardForm.FinishedHeadingLabel.Height);<br>
+WordWrap:= WizardForm.FinishedHeadingLabel.WordWrap;<br>
+Caption:= WizardForm.FinishedHeadingLabel.Caption;<br>
+with Font do<br>
+begin<br>
+Color:= WizardForm.FinishedHeadingLabel.Font.Color;<br>
+Style:= WizardForm.FinishedHeadingLabel.Font.Style;<br>
+Name:= WizardForm.FinishedHeadingLabel.Font.Name;<br>
+Size:= WizardForm.FinishedHeadingLabel.Font.Size;<br>
+end;<br>
+Transparent:= True;<br>
+Parent:= pnl;<br>
+end;<br>
+with TLabel.Create(pnl) do<br>
+begin<br>
+AutoSize:= WizardForm.FinishedLabel.AutoSize;<br>
+SetBounds(WizardForm.FinishedLabel.Left,WizardForm.FinishedLabel.Top,<br>
+WizardForm.FinishedLabel.Width,WizardForm.FinishedLabel.Height);<br>
+WordWrap:= WizardForm.FinishedLabel.WordWrap;<br>
+Caption:= WizardForm.FinishedLabel.Caption;<br>
+with Font do<br>
+begin<br>
+Color:= WizardForm.FinishedLabel.Font.Color;<br>
+Style:= WizardForm.FinishedLabel.Font.Style;<br>
+Name:= WizardForm.FinishedLabel.Font.Name;<br>
+Size:= WizardForm.FinishedLabel.Font.Size;<br>
+end;<br>
+Transparent:= True;<br>
+Parent:= pnl;<br>
+end;<br>
+pnl.Repaint;<br>
+end;<br>
+<br>
+/////////////////////////////////////////////////////////////////<br>
+procedure CurPageChanged(CurPageID: Integer);<br>
+begin<br>
+pnl:= TPanel.Create(WizardForm);<br>
+with pnl do<br>
+begin<br>
+Align:= alClient;<br>
+Parent:= WizardForm;<br>
+end;<br>
+with WizardForm do<br>
+begin<br>
+with WizardBitmapImage do<br>
+begin<br>
+Align:= alClient;<br>
+Stretch:= True;<br>
+Parent:= pnl;<br>
+end;<br>
+NextButton.Parent:= pnl;<br>
+CancelButton.Parent:= pnl;<br>
+BackButton.Parent:= pnl ;<br>
+Bevel.Parent:= pnl;<br>
+pnl.Repaint;<br>
+end;<br>
+<br>
+if (CurPageID > wpWelcome) and (CurPageID < wpFinished) then<br>
+begin<br>
+WizardForm.Bevel1.Parent:= pnl;<br>
+with TLabel.Create(pnl) do<br>
+begin<br>
+AutoSize:= WizardForm.PageNameLabel.AutoSize;<br>
+SetBounds(WizardForm.PageNameLabel.Left,WizardForm.PageNameLabel.Top,<br>
+WizardForm.PageNameLabel.Width,WizardForm.PageNameLabel.Height);<br>
+Caption:= WizardForm.PageNameLabel.Caption;<br>
+with Font do<br>
+begin<br>
+Color:= WizardForm.PageNameLabel.Font.Color;<br>
+Style:= WizardForm.PageNameLabel.Font.Style;<br>
+Name:= WizardForm.PageNameLabel.Font.Name;<br>
+Size:= WizardForm.PageNameLabel.Font.Size;<br>
+end;<br>
+Transparent:= True;<br>
+Parent:= pnl;<br>
+end;<br>
+with TLabel.Create(pnl) do<br>
+begin<br>
+AutoSize:= WizardForm.PageNameLabel.AutoSize;<br>
+SetBounds(WizardForm.PageNameLabel.Left,WizardForm.PageNameLabel.Top,<br>
+WizardForm.PageNameLabel.Width,WizardForm.PageNameLabel.Height);<br>
+Caption:= WizardForm.PageNameLabel.Caption;<br>
+with Font do<br>
+begin<br>
+Color:= WizardForm.PageNameLabel.Font.Color;<br>
+Style:= WizardForm.PageNameLabel.Font.Style;<br>
+Name:= WizardForm.PageNameLabel.Font.Name;<br>
+Size:= WizardForm.PageNameLabel.Font.Size;<br>
+end;<br>
+Transparent:= True;<br>
+Parent:= pnl;<br>
+end;<br>
+pnl.Repaint;<br>
+end;<br>
+<br>
+if CurPageID = wpWelcome then WelcomePage;<br>
+if CurPageID = wpSelectDir then SelectDirPage;<br>
+if CurPageID = wpReady then ReadyPage;<br>
+if CurPageID = wpInstalling then InstallingPage;<br>
+if CurPageID = wpFinished then FinishedPage;<br>
+end;<br>
+</font></blockquote><textarea id="taCode1" style="display:none;" rows="1" cols="5"></textarea>
+<textarea id='taCode' style='display:none;' rows='1' cols='20'></textarea></code>
+<script language="javascript" type="text/javascript">highlightSyntax('delphi_Tc4NTM','delphi');</script>
+
+<br><div id="heading"><h1><font size="1" face="Consolas">Copyright (c) <a href="http://www.krinkels.org/" target="_blank">Krinkels Inc</a></font></h1></div></body></html>

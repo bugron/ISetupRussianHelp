@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>[Setup]: LZMANumBlockThreads</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="IE=8" http-equiv="X-UA-Compatible">
+<link rel="stylesheet" type="text/css" href="styles.css">
+<script type="text/javascript" src="topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">[Setup]: LZMANumBlockThreads</h1>
+<div class="topicbody">
+  <table class="setuphdr">
+    <tbody>
+      <tr>
+        <td class="setuphdrl"><p>Возможные значения:</p></td>
+        <td class="setuphdrr"><div class="margined"><tt>1</tt> до <tt>32</tt></div></td>
+      </tr>
+      <tr>
+        <td class="setuphdrl"><p>Значение по умолчанию:</p></td>
+        <td class="setuphdrr"><div class="margined"><tt>1</tt></div></td>
+      </tr>
+    </tbody>
+  </table>
+  <div><b>Описание:</b></div>
+  <p>Сжимая большой объем данных, у компрессора LZMA2 есть возможность разделить данные на "блоки" и сжать два или больше из этих блоков параллельно с помощью дополнительных потоков (если достаточное питание процессора доступно). Эта директива определяет число потоков, которые компрессор LZMA2 может сжать параллельно.</p>
+  <p>Память, требуемая&nbsp;для сжатия, когда используются многократные блочные потоки, примерно равна:</p>
+  <div class="indent">
+    <p>LZMANumBlockThreads * (<a href="topic_setup_compression.htm">Нормальное использование памяти</a> + (<a href="topic_setup_lzmablocksize.htm">LZMABlockSize</a> * 2))</p>
+  </div>
+  <p>Так как LZMA2 (и LZMA) по умолчанию использует два потока для обнаружения соответствия (см. <a href="topic_setup_compressionthreads.htm">CompressionThreads</a>), по идеалу должно быть два ядра процессора, доступные для каждого потока блоков. Таким образом, чтобы увидеть максимальное преимущество от значении <tt>2</tt>, необходимы четыре ядра.</p>
+  <p>Деление данных в многократные блоки может уменьшить степень сжатия, поскольку компрессор не может найти соответствия через блоки. Использование большого <a href="topic_setup_lzmablocksize.htm">размер блока</a> может помочь смягчить это.</p>
+  <p>Если выдается ошибка "Out of memory", тогда многократные блочные потоки включены в комбинации с уровнем сжатия, который использует большой размер словаря (такой как <tt>ultra64</tt>), возможно, должен быть установлен <a href="topic_setup_lzmauseseparateprocess.htm">LZMAUseSeparateProcess</a>.</p>
+  <p><b>См. также:</b><br>
+    <a href="topic_setup_lzmablocksize.htm">LZMABlockSize</a></p>
+</div>
+</body>
+</html>

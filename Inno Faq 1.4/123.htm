@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Как попросить пароль при деинсталляции</title><link rel="stylesheet" type="text/css" href="css.css">
+<script language='jscript' type='text/javascript' src='copycode.js'></script>
+<script type="text/javascript" src="includer.js"></script></head><body><div id="heading"><h1>» Inno Setup Faq. Как попросить пароль при деинсталляции</h1></div><br>
+<script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM">
+<input type="button" value="Копировать в буфер обмена" onClick="copyToClipboard( taCode1, theCode1 );">
+<blockquote id="theCode1"><font>
+[Setup]<br>
+AppName=UninsPassword<br>
+AppVerName=UninsPassword<br>
+DisableProgramGroupPage=true<br>
+DisableStartupPrompt=true<br>
+DefaultDirName={pf}\UninsPassword<br>
+<br>
+[Code]<br>
+function&nbsp;AskPassword():&nbsp;Boolean;<br>
+var<br>
+&nbsp;&nbsp;Form:&nbsp;TSetupForm;<br>
+&nbsp;&nbsp;OKButton,&nbsp;CancelButton:&nbsp;TButton;<br>
+&nbsp;&nbsp;PwdEdit:&nbsp;TPasswordEdit;<br>
+begin<br>
+&nbsp;&nbsp;Result&nbsp;:=&nbsp;false;<br>
+&nbsp;&nbsp;Form&nbsp;:=&nbsp;CreateCustomForm();<br>
+&nbsp;&nbsp;try<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Form.ClientWidth&nbsp;:=&nbsp;ScaleX(256);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Form.ClientHeight&nbsp;:=&nbsp;ScaleY(100);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Form.Caption&nbsp;:=&nbsp;'Uninstall&nbsp;Password';<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Form.BorderIcons&nbsp;:=&nbsp;[biSystemMenu];<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Form.BorderStyle&nbsp;:=&nbsp;bsDialog;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Form.Center;<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;OKButton&nbsp;:=&nbsp;TButton.Create(Form);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;OKButton.Parent&nbsp;:=&nbsp;Form;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;OKButton.Width&nbsp;:=&nbsp;ScaleX(75);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;OKButton.Height&nbsp;:=&nbsp;ScaleY(23);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;OKButton.Left&nbsp;:=&nbsp;Form.ClientWidth&nbsp;-&nbsp;ScaleX(75&nbsp;+&nbsp;6&nbsp;+&nbsp;75&nbsp;+&nbsp;50);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;OKButton.Top&nbsp;:=&nbsp;Form.ClientHeight&nbsp;-&nbsp;ScaleY(23&nbsp;+&nbsp;10);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;OKButton.Caption&nbsp;:=&nbsp;'OK';<br>
+&nbsp;&nbsp;&nbsp;&nbsp;OKButton.ModalResult&nbsp;:=&nbsp;mrOk;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;OKButton.Default&nbsp;:=&nbsp;true;<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;CancelButton&nbsp;:=&nbsp;TButton.Create(Form);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;CancelButton.Parent&nbsp;:=&nbsp;Form;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;CancelButton.Width&nbsp;:=&nbsp;ScaleX(75);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;CancelButton.Height&nbsp;:=&nbsp;ScaleY(23);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;CancelButton.Left&nbsp;:=&nbsp;Form.ClientWidth&nbsp;-&nbsp;ScaleX(75&nbsp;+&nbsp;50);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;CancelButton.Top&nbsp;:=&nbsp;Form.ClientHeight&nbsp;-&nbsp;ScaleY(23&nbsp;+&nbsp;10);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;CancelButton.Caption&nbsp;:=&nbsp;'Cancel';<br>
+&nbsp;&nbsp;&nbsp;&nbsp;CancelButton.ModalResult&nbsp;:=&nbsp;mrCancel;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;CancelButton.Cancel&nbsp;:=&nbsp;True;<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;PwdEdit&nbsp;:=&nbsp;TPasswordEdit.Create(Form);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;PwdEdit.Parent&nbsp;:=&nbsp;Form;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;PwdEdit.Width&nbsp;:=&nbsp;ScaleX(210);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;PwdEdit.Height&nbsp;:=&nbsp;ScaleY(23);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;PwdEdit.Left&nbsp;:=&nbsp;ScaleX(23);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;PwdEdit.Top&nbsp;:=&nbsp;ScaleY(23);<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Form.ActiveControl&nbsp;:=&nbsp;PwdEdit;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;Form.ShowModal()&nbsp;=&nbsp;mrOk&nbsp;then<br>
+&nbsp;&nbsp;&nbsp;&nbsp;begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Result&nbsp;:=&nbsp;PwdEdit.Text&nbsp;=&nbsp;'removeme';<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;not&nbsp;Result&nbsp;then<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MsgBox('Wrong&nbsp;password&nbsp;it''s&nbsp;not&nbsp;possible&nbsp;uninstall.',&nbsp;mbInformation,&nbsp;MB_OK);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;end;<br>
+&nbsp;&nbsp;finally<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Form.Free();<br>
+&nbsp;&nbsp;end;<br>
+end;<br>
+<br>
+function&nbsp;InitializeUninstall():&nbsp;Boolean;<br>
+begin<br>
+&nbsp;&nbsp;Result&nbsp;:=&nbsp;AskPassword();<br>
+end;<br>
+</font></blockquote><textarea id="taCode1" style="display:none;" rows="1" cols="5"></textarea><textarea id='taCode' style='display:none;' rows='1' cols='20'></textarea></code><script language="javascript" type="text/javascript">highlightSyntax('delphi_Tc4NTM','delphi');</script><br><div id="heading"><h1><font size="1" face="Consolas">Copyright (c) <a href="http://www.krinkels.org/" target="_blank">Krinkels Inc</a></font></h1></div></body></html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Inno Setup Preprocessor: #if, #elif, #else, #endif</title>
+<link rel="stylesheet" type="text/css" href="../styles.css" />
+<script type="text/javascript" src="../topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Inno Setup Preprocessor: #if, #elif, #else, #endif</h1>
+<div class="topicbody">
+  <h2 class="heading notopmargin">Синтатсис</h2>
+  <table>
+    <tr>
+      <td class="cellleft"><i>if-directive:</i></td>
+      <td class="cellright"><b>if</b> &lt;expr&gt;</td>
+    </tr>
+  </table>
+  <table>
+    <tr>
+      <td class="cellleft"><i>elif-directive:</i></td>
+      <td class="cellright"><b>elif</b> &lt;expr&gt;</td>
+    </tr>
+  </table>
+  <table>
+    <tr>
+      <td class="cellleft"><i>else-directive:</i></td>
+      <td class="cellright"><b>else</b></td>
+    </tr>
+  </table>
+  <table>
+    <tr>
+      <td class="cellleft"><i>endif-directive:</i></td>
+      <td class="cellright"><b>endif</b></td>
+    </tr>
+  </table>
+  <h2 class="heading">Описание</h2>
+  <p>Условные операторы <tt>if</tt>, <tt>elif</tt>, <tt>else</tt>, и <tt>endif</tt> управляют выполнением или исключением определенного куска скрипта.</p>
+  <p>ISPP сначала оценивает выражения после каждой директивы <tt>if</tt> или <tt>elif</tt> until it finds one evaluating to non-zero. It then selects the portion of script following this directive up to its associated <tt>elif</tt>, <tt>else</tt>, or <tt>endif</tt>. Earlier portions which followed an <tt>if</tt> or <tt>elif</tt> which evaluated to zero, or which follows any next <tt>elif</tt> are not selected and thus not seen by the Inno Setup compiler.</p>
+  <p>If no expression evaluated to non-zero, the preprocessor selects the script portion after the <tt>else</tt> directive if present, else nothing is selected.</p>
+  <p>Finally, after selecting any script portion, ISPP preprocesses it too, so if it contains other preprocessor directives, ISPP carries out those directives as well.</p>
+  <p>Each <tt>if</tt> directive in a source file must be matched by a closing <tt>endif</tt> directive. Any number of <tt>elif</tt> directives can appear between the <tt>if</tt> and <tt>endif</tt> directives, but at most one <tt>else</tt> directive is allowed. The <tt>else</tt> directive, if present, must be the last directive before <tt>endif</tt>.</p>
+  <p>The <tt>if</tt>, <tt>elif</tt>, <tt>else</tt>, and <tt>endif</tt> directives can be nested. Each nested <tt>else</tt>, <tt>elif</tt>, or <tt>endif</tt> directive belongs to the closest preceding <tt>if</tt> directive.</p>
+  <p>Inline conditional directives may not be mixed with simple. If the <tt>if</tt> directive is simple (occupying a whole line), its associated directives (<tt>elif</tt>, <tt>else</tt>, or <tt>endif</tt>) must also be simple and not inline (appearing inside other lines).</p>
+  <h2 class="heading">Примеры</h2>
+  <p><tt>#define Lang<br/>
+    <br/>
+    [Tasks]<br/>
+    #if &quot;English&quot; == Lang = <a href="topic_readini.htm">ReadIni</a>(<a href="topic_setupsetting.htm">SetupSetting</a>(&quot;MessagesFile&quot;), \<br/>
+    &nbsp;&nbsp;&quot;LangOptions&quot;, &quot;LanguageName&quot;)<br/>
+    &nbsp;&nbsp;Описание: &quot;For all users&quot;; Name: all<br/>
+    #elif &quot;German&quot; == Lang<br/>
+    &nbsp;&nbsp;Описание: &quot;Fur alle&quot;; Name: all<br/>
+    #else<br/>
+    #&nbsp;error Unsupported language<br/>
+    #endif<br/>
+  </tt></p>
+</div>
+</body>
+</html>

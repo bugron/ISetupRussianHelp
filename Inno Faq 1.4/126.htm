@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Add to the setup name the build date and time</title><link rel="stylesheet" type="text/css" href="css.css"><script type="text/javascript" src="includer.js"></script><script language='jscript' type='text/javascript' src='copycode.js'></script></head><body><div id="heading"><h1>» Inno Setup Faq. Add to the setup name the build date and time</h1></div><br><script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM">
+<input type="button" value="Копировать в буфер обмена" onClick="copyToClipboard( taCode1, theCode1 );">
+<blockquote id="theCode1"><font>
+#define&nbsp;FileIni&nbsp;SourcePath+&quot;\\DateTime2INI.ini&quot;<br>
+<br>
+;;&nbsp;exec&nbsp;the&nbsp;script&nbsp;that&nbsp;creates&nbsp;the&nbsp;ini&nbsp;file<br>
+#expr&nbsp;Exec(&quot;cscript.exe&quot;,&nbsp;SourcePath+&quot;\\DateTime2INI.vbs&quot;,&nbsp;SourcePath)<br>
+<br>
+;;&nbsp;read&nbsp;infos&nbsp;in&nbsp;variables<br>
+#define&nbsp;BuildYear&nbsp;&nbsp;&nbsp;ReadIni(FileIni,&nbsp;&quot;DateTime&quot;,&nbsp;&quot;Year&quot;)<br>
+#define&nbsp;BuildMonth&nbsp;&nbsp;ReadIni(FileIni,&nbsp;&quot;DateTime&quot;,&nbsp;&quot;Month&quot;)<br>
+#define&nbsp;BuildDay&nbsp;&nbsp;&nbsp;&nbsp;ReadIni(FileIni,&nbsp;&quot;DateTime&quot;,&nbsp;&quot;Day&quot;)<br>
+#define&nbsp;BuildHour&nbsp;&nbsp;&nbsp;ReadIni(FileIni,&nbsp;&quot;DateTime&quot;,&nbsp;&quot;Hour&quot;)<br>
+#define&nbsp;BuildMinute&nbsp;ReadIni(FileIni,&nbsp;&quot;DateTime&quot;,&nbsp;&quot;Minute&quot;)<br>
+#define&nbsp;BuildSecond&nbsp;ReadIni(FileIni,&nbsp;&quot;DateTime&quot;,&nbsp;&quot;Second&quot;)<br>
+<br>
+;;&nbsp;make&nbsp;the&nbsp;Build&nbsp;String<br>
+#define&nbsp;BuildStr&nbsp;BuildYear+&quot;_&quot;+BuildMonth+&quot;_&quot;+BuildDay+&quot;_&quot;+BuildHour+&quot;_&quot;+BuildMinute+&quot;_&quot;+BuildSecond<br>
+<br>
+[Setup]<br>
+AppName=OutputTimeBuild<br>
+AppVerName=OutputTimeBuild&nbsp;{#BuildStr}<br>
+DisableStartupPrompt=true<br>
+Uninstallable=false<br>
+CreateAppDir=false<br>
+OutputBaseFilename=setup_{#BuildStr}<br>
+</font></blockquote><textarea id="taCode1" style="display:none;" rows="1" cols="5"></textarea><textarea id='taCode' style='display:none;' rows='1' cols='20'></textarea></code><script language="javascript" type="text/javascript">highlightSyntax('delphi_Tc4NTM','delphi');</script>
+
+<br>DateTime2INI.vbs<br>
+<input type="button" value="Копировать в буфер обмена" onClick="copyToClipboard( taCode2, theCode2 );">
+<blockquote id="theCode2"><font>'create&nbsp;an&nbsp;INI&nbsp;file&nbsp;with&nbsp;information&nbsp;about&nbsp;date&nbsp;and&nbsp;time<br>
+'for&nbsp;easy&nbsp;access&nbsp;from&nbsp;Inno&nbsp;Setup&nbsp;PreProcessor<br>
+<br>
+Dim&nbsp;fso,&nbsp;ts<br>
+Const&nbsp;ForWriting&nbsp;=&nbsp;2<br>
+Set&nbsp;fso&nbsp;=&nbsp;CreateObject(&quot;Scripting.FileSystemObject&quot;)<br>
+Set&nbsp;ts&nbsp;=&nbsp;fso.OpenTextFile(&quot;DateTime2INI.ini&quot;,&nbsp;ForWriting,&nbsp;True)<br>
+<br>
+ts.WriteLine(&quot;&quot;)<br>
+ts.WriteLine(&quot;[DateTime]&quot;)<br>
+ts.WriteLine(&quot;Year=&quot;&nbsp;&amp;&nbsp;Year(Now()))<br>
+ts.WriteLine(&quot;Month=&quot;&nbsp;&amp;&nbsp;Month(Now()))<br>
+ts.WriteLine(&quot;Day=&quot;&nbsp;&amp;&nbsp;Day(Now()))<br>
+ts.WriteLine(&quot;Hour=&quot;&nbsp;&amp;&nbsp;Hour(Now()))<br>
+ts.WriteLine(&quot;Minute=&quot;&nbsp;&amp;&nbsp;Minute(Now()))<br>
+ts.WriteLine(&quot;Second=&quot;&nbsp;&amp;&nbsp;Second(Now()))<br>
+<br>
+ts.close<br>
+set&nbsp;fso&nbsp;=&nbsp;nothing<br></font></blockquote><textarea id="taCode2" style="display:none;" rows="1" cols="5"></textarea><textarea id='taCode' style='display:none;' rows='1' cols='20'></textarea><br><div id="heading"><h1><font size="1" face="Consolas">Copyright (c) <a href="http://www.krinkels.org/" target="_blank">Krinkels Inc</a></font></h1></div></body></html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Я использовал предыдущий пример Как теперь сделать чтобы при перемещении доп. формы двигалась и основная форма?</title><link rel="stylesheet" type="text/css" href="css.css"><script type="text/javascript" src="includer.js"></script><script language='jscript' type='text/javascript' src='copycode.js'></script></head><body><div id="heading"><h1>» Inno Setup Faq. Я использовал предыдущий пример Как теперь сделать чтобы при перемещении доп. формы двигалась и основная форма?</h1></div><br><script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM"> <input type="button" value="Копировать в буфер обмена" onClick="copyToClipboard( taCode1, theCode1 );"> <blockquote id="theCode1"><font>[Setup]<br>
+AppName=MyApp<br>
+AppVerName=MyApp<br>
+DefaultDirname={pf}\MyApp<br>
+<br>
+[Files]<br>
+Source: compiler:innocallback.dll; DestDir: {tmp}; Flags: dontcopy<br>
+<br>
+[Code]<br>
+type<br>
+  TCallbackProc = function(h:hWnd;Msg,wParam,lParam:Longint):Longint;<br>
+<br>
+const<br>
+  WM_MOVE = $3;<br>
+  WM_ACTIVATE = $6;<br>
+  WM_CLOSE = $10;<br>
+  WM_NCACTIVATE = $86;<br>
+  GWL_WNDPROC = -4;<br>
+  <br>
+function SetWindowLong(Wnd: HWnd; Index: Integer; NewLong: Longint): Longint; external 'SetWindowLongA@user32.dll stdcall';<br>
+function WndProcCallBack(P:TCallbackProc;ParamCount:integer  ):LongWord; external 'wrapcallback@files:innocallback.dll stdcall';<br>
+function CallWindowProc(lpPrevWndFunc: Longint; hWnd: HWND; Msg: UINT; wParam, lParam: Longint): Longint; external 'CallWindowProcA@user32.dll stdcall';<br>
+function SetWindowPos(hWnd: HWND; hWndInsertAfter: HWND; X, Y, cx, cy: Integer; uFlags: UINT): BOOL; external 'SetWindowPos@user32.dll stdcall';<br>
+<br>
+var<br>
+Form1: TForm;<br>
+OldProc, OldProc1: Longint;<br>
+<br>
+function MyProc(h: HWND; Msg, wParam, lParam: longint): Longint;<br>
+begin<br>
+  if Msg=WM_MOVE then SetWindowPos(Form1.Handle, 0, WizardForm.Left+WizardForm.Width+5, WizardForm.Top, 0, 0, $415);<br>
+  Result:= CallWindowProc(OldProc, h, Msg, wParam, lParam);<br>
+  if Msg=WM_ACTIVATE then SendMessage(Form1.Handle, WM_NCACTIVATE, 1, 0);<br>
+end;<br>
+<br>
+function MyProc1(h: HWND; Msg, wParam, lParam: longint): Longint;<br>
+begin<br>
+  if Msg=WM_MOVE then begin<br>
+    SetWindowPos(WizardForm.Handle, 0, Form1.Left-(WizardForm.Width+5), Form1.Top, 0, 0, $415);<br>
+  end;<br>
+  if Msg=WM_CLOSE then begin<br>
+    SendMessage(WizardForm.handle, WM_CLOSE, 0, 0);<br>
+    Exit;<br>
+  end;<br>
+  Result:= CallWindowProc(OldProc1, h, Msg, wParam, lParam);<br>
+  if Msg=WM_ACTIVATE then SendMessage(WizardForm.Handle, WM_NCACTIVATE, 1, 0);<br>
+end;<br>
+<br>
+<br>
+procedure InitializeWizard();<br>
+begin<br>
+  Form1:= TForm.Create(MainForm);<br>
+  Form1.SetBounds(WizardForm.Left+WizardForm.Width+5  , WizardForm.Top, 160, WizardForm.Height);<br>
+  Form1.BorderStyle:= bsSingle;<br>
+  Form1.Show;<br>
+<br>
+  OldProc:= SetWindowLong(WizardForm.Handle, GWL_WNDPROC, WndProcCallBack(@MyProc, 4));<br>
+  OldProc1:= SetWindowLong(Form1.Handle, GWL_WNDPROC, WndProcCallBack(@MyProc1, 4))<br>
+end;<br>
+<br>
+procedure DeinitializeSetup();<br>
+begin<br>
+  SetWindowlong(WizardForm.Handle, GWL_WNDPROC, OldProc);<br>
+  SetWindowlong(Form1.Handle, GWL_WNDPROC, OldProc1);<br>
+end;</font></blockquote><textarea id="taCode1" style="display:none;" rows="1" cols="5"></textarea><textarea id='taCode' style='display:none;' rows='1' cols='20'></textarea></code><script language="javascript" type="text/javascript">highlightSyntax('delphi_Tc4NTM','delphi');</script><br><div id="heading"><h1><font size="1" face="Consolas">Copyright (c) <a href="http://www.krinkels.org/" target="_blank">Krinkels Inc</a></font></h1></div></body></html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Pascal Scripting: Внешние функции</title>
+<!--[if IE 6]><style type="text/css">html{overflow-y:scroll}</style><![endif]-->
+<link rel="stylesheet" type="text/css" href="styles.css" />
+<script type="text/javascript" src="topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Pascal Scripting: Внешние функции</h1>
+<div class="topicbody">
+  <p>Скрипт может содержать внешние функции, которые могут быть вызваны в любое время.</p>
+  <h2 class="heading">Функции инсталлятора:</h2>
+  <p>Инсталлятор поддерживает следующие функции:</p>
+  <dl>
+    <dt><tt>function <a name="InitializeSetup" id="InitializeSetup">InitializeSetup</a>(): Boolean;</tt></dt>
+    <dd>
+      <p>Вызывается при инициализации инсталлятора. Возвращает False при прерывании инсталлятора, иначе True.</p>
+    </dd>
+    <dt><tt>procedure <a name="InitializeWizard" id="InitializeWizard">InitializeWizard</a>();</tt></dt>
+    <dd>
+      <p>Используется для изменения мастера и его страниц при старте инсталлятора. Использовать для этого функцию <tt>InitializeSetup</tt> нельзя, так как в то время, когда инсталлятор запускается, мастер еще не существует.</p>
+    </dd>
+    <dt><tt>procedure <a name="DeinitializeSetup" id="DeinitializeSetup">DeinitializeSetup</a>();</tt></dt>
+    <dd>
+      <p>Вызывается только перед завершением установки. Эта функция вызывается даже в том случае, когда пользователь прервал установку перед тем, как что-либо было установлено.</p>
+    </dd>
+    <dt><tt>procedure <a name="CurStepChanged" id="CurStepChanged">CurStepChanged</a>(CurStep: <a href="#TSetupStep">TSetupStep</a>);</tt></dt>
+    <dd>
+      <p>Эта функция выполнит ваши собственные задания пред или после установки.</p>
+      <p>Если CurStep=ssInstall, функция вызывается только перед стартом установки, если CurStep=ssPostInstall - только после завершения установки, CurStep=ssDone - перед выходом инсталлятора после успешного окончания установки.</p>
+    </dd>
+	<dt><tt>procedure <a name="CurInstallProgressChanged">CurInstallProgressChanged</a>(CurProgress, MaxProgress: Integer);</tt></dt>
+	<dd>
+	  <p>Вы можете использовать данную функцию для слежения за прогрессом распаковки файлов, создания ярлыков, INI записей, записей реестра.</p>
+	</dd>
+    <dt><tt>function <a name="NextButtonClick" id="NextButtonClick">NextButtonClick</a>(<a href="#PageID">CurPageID</a>: Integer): Boolean;</tt></dt>
+    <dd>
+      <p>Вызывается после нажатия на кнопку Далее. При значении True мастер перейдет к следующей странице, при значении False останется на текущей странице (заданной значением CurPageID).</p>
+      <p>Обратите внимание, что эта функция также успешно вызывается при тихой установке, не смотря на то, что кнопку Далее в этом случае пользователь не видит. Инсталлятор симулирует клики&nbsp;по кнопке Далее. При тихой установке, если функция <tt>NextButtonClick</tt> возвратит False перед  началом процесса установка, работа инсталлятора будет прервана автоматически.</p>
+    </dd>
+    <dt><tt>function <a name="BackButtonClick" id="BackButtonClick">BackButtonClick</a>(<a href="#PageID">CurPageID</a>: Integer): Boolean;</tt></dt>
+    <dd>
+      <p>Вызывается, когда пользователь нажимает кнопку Назад. Если возвращает True, мастер вернется к предыдущей странице, если возвращает False, мастер останется на текущей странице (заданной значением CurPageID).</p>
+    </dd>
+    <dt><tt>procedure <a name="CancelButtonClick" id="CancelButtonClick">CancelButtonClick</a>(<a href="#PageID">CurPageID</a>: Integer; var Cancel, Confirm: Boolean);</tt></dt>
+    <dd>
+      <p>Вызывается, когда пользователь нажимает кнопку Отмена, либо кнопку Закрыть. Параметр <tt>Cancel</tt> указывает, следует ли запустить нормальный процесс отмены; по умолчанию равен True. Параметр <tt>Confirm</tt> указывает, следует ли отобразить сообщение &quot;Прервать установку?&quot;; обычно по умолчанию равен True. Если параметр <tt>Cancel</tt> равен False, значение параметра <tt>Confirm</tt> игнорируется.</p>
+    </dd>
+    <dt><tt>function <a name="ShouldSkipPage" id="ShouldSkipPage">ShouldSkipPage</a>(<a href="#PageID">PageID</a>: Integer): Boolean;</tt></dt>
+    <dd>
+      <p>Мастер вызывает данную функцию, чтобы определить, нужно ли отображать дополнительную страницу (заданную значением PageID), или нет. При значении True страница будет пропущена; при значении False страница может быть отображена.</p>
+      <p>Обратите внимание: функция не вызывается для страниц wpWelcome, wpPreparing и wpInstalling, а также для страниц, которые инсталлятор уже определил, что надо пропустить (например, wpSelectComponents, если инсталлятор не содержит компонентов).</p>
+    </dd>
+    <dt><tt>procedure <a name="CurPageChanged" id="CurPageChanged">CurPageChanged</a>(<a href="#PageID">CurPageID</a>: Integer);</tt></dt>
+    <dd>
+      <p>Вызывается после отображения новой страницы мастера (заданной значением CurPageID).</p>
+    </dd>
+    <dt><tt>function <a name="CheckPassword" id="CheckPassword">CheckPassword</a>(Password: String): Boolean;</tt></dt>
+    <dd>
+      <p>Если инсталлятор обнаружит в скрипте функцию CheckPassword, он автоматически отобразит страницу <i>&quot;Введите пароль&quot;</i> и вызовет функцию CheckPassword для проверки пароля. Возвращает True при вводе правильного пароля и False при вводе неправильного.</p>
+      <p>Чтобы избежать сохранения действительного пароля в открытом виде в инсталляторе, следует использовать сравнение хэш сумм: самостоятельно вычислите хэш сумму SHA-1 вашего пароля и затем сравните с результатом следующей функции: <tt><a href="isxfunc/topic_isxfunc_getsha1ofstring.htm">GetSHA1OfString</a>(Password)</tt>. Данный метод позволит защитить реальное содержание пароля.</p>
+      <p>Обратите внимание: Если пользователь запустит инсталлятор с <a href="topic_setupcmdline.htm#PASSWORD">параметром командной строки</a> /PASSWORD=<a href="topic_setupcmdline.htm#PASSWORD"></a>, <tt>CheckPassword</tt> будет вызвана ранее, чем другие функции, включая <tt><a href="#InitializeSetup">InitializeSetup</a></tt>.</p>
+    </dd>
+    <dt><tt>function <a name="NeedRestart" id="NeedRestart">NeedRestart</a>(): Boolean;</tt></dt>
+    <dd>
+      <p>Возвращает True для указания инсталлятору предложить пользователю перезагрузить систему после успешной установки; иначе возвращает False.</p>
+    </dd>
+    <dt><tt>function <a name="UpdateReadyMemo" id="UpdateReadyMemo">UpdateReadyMemo</a>(Space, NewLine, MemoUserInfoInfo, MemoDirInfo, MemoTypeInfo, MemoComponentsInfo, MemoGroupInfo, MemoTasksInfo: String): String;</tt></dt>
+    <dd>
+      <p>Если инсталлятор обнаружит функцию <tt>UpdateReadyMemo</tt> в Pascal-скрипте, то она вызывается автоматически, когда активизируется страница мастера <i>Все готово к установке</i>. Функция возвращает строку для отображения на странице <i>Все готово к установке</i>. Строка разделяется параметром <tt>NewLine</tt>. Параметр <tt>Space</tt> содержит строку с пробелами. Инсталлятор использует эту строку для задания установок. Другие параметры содержат (возможно, пустые) строки, которые инсталлятор может использовать для задания секций. Например, параметр <tt>MemoDirInfo</tt> содержит строку для определения секции <i>Выбор папки</i>.</p>
+    </dd>
+    <dt><tt>procedure <a name="RegisterPreviousData" id="RegisterPreviousData">RegisterPreviousData</a>(PreviousDataKey: Integer);</tt></dt>
+    <dd>
+      <p>Для сохранения настроек пользователя при выборочной установке, следует использовать функцию <tt>RegisterPreviousData</tt> в Pascal-скрипте и в ней вызвать <a href="isxfunc/topic_isxfunc_setpreviousdata.htm">SetPreviousData(PreviousDataKey, ...)</a> для каждой настройки.</p>
+    </dd>
+    <dt><tt>function <a name="CheckSerial" id="CheckSerial">CheckSerial</a>(Serial: String): Boolean;</tt></dt>
+    <dd>
+      <p>Если инсталлятор обнаружит функцию <tt>CheckSerial</tt> в Pascal-скрипте, на странице Информация о пользователе автоматически отобразится поле серийного номера   (при этом директива <tt>UserInfoPage</tt> секции [Setup] должна быть равна <tt>yes</tt>). Возвращает True при вводе правильного серийного номера и False при вводе неправильного. При использовании серийных номеров следует помнить, что исходный код Inno Setup свободно доступен и опытному пользователю не составит труда обойти защиту серийным номером при установке. Используйте функцию только для повторной проверки введенного серийного номера (константа <tt>{userinfoserial}</tt>) вашего приложения.</p>
+    </dd>
+    <dt><tt>function <a name="GetCustomSetupExitCode" id="GetCustomSetupExitCode">GetCustomSetupExitCode</a>: Integer;</tt></dt>
+    <dd>
+      <p>Возвращает ненулевое значение для того, чтобы инсталлятор возвращал пользовательский&nbsp;код выхода. Эта функция вызывается, только если инсталлятор успешно выполнил всю установку и код выхода 0. См. также <a href="topic_setupexitcodes.htm">Коды выхода инсталлятора</a>.</p>
+    </dd>
+    <dt><tt>function <a name="PrepareToInstall" id="PrepareToInstall">PrepareToInstall</a>(var NeedsRestart: Boolean): String;</tt></dt>
+    <dd>
+      <p>Вы можете использовать данную функцию для обнаружения и установки нужных компонентов и/или закрыть приложение, которое вот-вот будет обновлено.</p>
+      <p>Возвращает не пустую строку, указаывая инсталлятору приостановить выполнение на странице <a href="topic_wizardpages.htm">Подготовка к установке</a> и показавать возвращенную строку как сообщение ошибки. Если требуется перезагрузка, то установите <tt>NeedsRestart</tt> в значение True. Функция вызываеся только если инсталлятор не смог определить, что он не может продолжить работу, из за того, что некоторые файлы секций [Files] и [InstallDelete] были поставлены в очередь (скажем, в процессе другой установки) замены или удаления при следующей перезагрузке.</p>
+      <p>Если <a href="topic_setup_closeapplications.htm">CloseApplications</a> равно <tt>yes</tt>, то данная функция вызывается перед проверкой файлов на успользование.</p>
+    </dd>
+  </dl>
+  <dt><tt>procedure <a name="RegisterExtraCloseApplicationsResources" id="RegisterExtraCloseApplicationsResources">RegisterExtraCloseApplicationsResources</a>;</tt></dt>
+  <dd>
+    <p>To register extra files which Setup should check for being in-use if <a href="topic_setup_closeapplications.htm">CloseApplications</a> is set to <tt>yes</tt>, place a <tt>RegisterExtraCloseApplicationsResources</tt> event function in the Pascal script and call <a href="isxfunc/topic_isxfunc_registerextracloseapplicationsresource.htm">RegisterExtraCloseApplicationsResource</a> inside it, once per file.</p>
+  </dd>
+  <h2 class="heading">Функции деинсталлятора</h2>
+  <p>Деинсталлятор поддерживает следующие функции:</p>
+  <dl>
+    <dt><tt>function <a name="InitializeUninstall" id="InitializeUninstall">InitializeUninstall</a>(): Boolean;</tt></dt>
+    <dd>
+      <p>Возвращает False для прерывания деинсталляции (удаления), иначе возвращает True.</p>
+    </dd>
+    <dt><tt>procedure <a name="InitializeUninstallProgressForm" id="InitializeUninstallProgressForm">InitializeUninstallProgressForm</a>();</tt></dt>
+    <dd>
+      <p>Используйте эту функцию события, чтобы произвести изменения в форме деинсталлятора при запуске. Нельзя для этого использовать функцию события <tt>InitializeUninstall</tt>, так как в то время, когда деинсталлятор инициализируется, форма деинсталлятора еще не существует.</p>
+    </dd>
+    <dt><tt>procedure <a name="DeinitializeUninstall" id="DeinitializeUninstall">DeinitializeUninstall</a>();</tt></dt>
+    <dd></dd>
+    <dt><tt>procedure <a name="CurUninstallStepChanged" id="CurUninstallStepChanged">CurUninstallStepChanged</a>(CurUninstallStep: <a href="#TUninstallStep">TUninstallStep</a>);</tt></dt>
+    <dd></dd>
+    <dt><tt>function <a name="UninstallNeedRestart" id="UninstallNeedRestart">UninstallNeedRestart</a>(): Boolean;</tt></dt>
+    <dd>
+      <p>Возвращает True для указания деинсталлятору предложить пользователя перезагрузить систему в конце успешного удаления; иначе возвращает False.</p>
+    </dd>
+  </dl>
+  <h2 class="heading">Константы</h2>
+  <p>Список констант, используемых функциями:</p>
+  <ul>
+    <li><i><a name="TSetupStep" id="TSetupStep">Значения TSetupStep</a></i><br />
+      ssInstall, ssPostInstall, ssDone</li>
+    <li><i><a name="TUninstallStep" id="TUninstallStep">Значения TUninstallSteps</a></i><br />
+      usAppMutexCheck, usUninstall, usPostUninstall, usDone</li>
+    <li><i>Значения <a name="PageID" id="PageID">PageID</a> для определенных ранее <a href="topic_wizardpages.htm">страниц мастера</a></i><br />
+      wpWelcome, wpLicense, wpPassword, wpInfoBefore, wpUserInfo, wpSelectDir, wpSelectComponents, wpSelectProgramGroup, wpSelectTasks, wpReady, wpPreparing, wpInstalling, wpInfoAfter, wpFinished</li>
+  </ul>
+  <p>Ни одна из этих функций не является необходимой в Pascal-скрипте.</p>
+</div>
+</body>
+</html>

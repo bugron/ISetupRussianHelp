@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Как сохранить дату и время установки в реестре</title><link rel="stylesheet" type="text/css" href="css.css">
+<script language='jscript' type='text/javascript' src='copycode.js'></script>
+<script type="text/javascript" src="includer.js"></script></head><body><div id="heading"><h1>» Inno Setup Faq. Как сохранить дату и время установки в реестре</h1></div><br>
+<script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM">
+<input type="button" value="Копировать в буфер обмена" onClick="copyToClipboard( taCode1, theCode1 );">
+<blockquote id="theCode1"><font>
+[Setup]<br>
+AppName=DateTimeReg<br>
+AppVerName=DateTimeReg<br>
+Uninstallable=false<br>
+UpdateUninstallLogAppName=false<br>
+DisableDirPage=true<br>
+DisableProgramGroupPage=true<br>
+DefaultDirName={pf}\DateTimeReg<br>
+DisableStartupPrompt=true<br>
+<br>
+[Registry]<br>
+Root:&nbsp;HKLM;&nbsp;Subkey:&nbsp;Software\MyCompany\MyProgram;&nbsp;ValueType:&nbsp;string;&nbsp;ValueName:&nbsp;DateTimeInstall;&nbsp;ValueData:&nbsp;{code:GetMyStringNow|''}<br>
+<br>
+[Code]<br>
+type<br>
+&nbsp;&nbsp;TSystemTime&nbsp;=&nbsp;record<br>
+&nbsp;&nbsp;&nbsp;&nbsp;wYear&nbsp;:&nbsp;Word;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;wMonth&nbsp;:&nbsp;Word;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;wDayOfWeek&nbsp;:&nbsp;Word;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;wDay&nbsp;:&nbsp;Word;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;wHour&nbsp;:&nbsp;Word;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;wMinute&nbsp;:&nbsp;Word;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;wSecond&nbsp;:&nbsp;Word;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;wMilliseconds&nbsp;:&nbsp;Word;<br>
+&nbsp;&nbsp;end;<br>
+<br>
+procedure&nbsp;GetSystemTime(var&nbsp;lpSystemTime:&nbsp;TSystemTime);&nbsp;external<br>
+'GetSystemTime@kernel32.dll';<br>
+<br>
+procedure&nbsp;GetLocalTime(var&nbsp;lpSystemTime:&nbsp;TSystemTime);&nbsp;external<br>
+'GetLocalTime@kernel32.dll';<br>
+<br>
+///variable&nbsp;to&nbsp;store&nbsp;date&nbsp;time&nbsp;infos<br>
+var<br>
+&nbsp;&nbsp;st,&nbsp;lt:&nbsp;TSystemTime;<br>
+<br>
+function&nbsp;FormatDateTime(dt:&nbsp;TSystemTime):&nbsp;String;<br>
+begin<br>
+&nbsp;&nbsp;Result&nbsp;:=&nbsp;IntToStr(dt.wDay)+'/'+IntToStr(dt.wMonth)+'/'+IntToStr(dt.wYear)&nbsp;+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'&nbsp;&nbsp;'+IntToStr(dt.wHour)+':'+IntToStr(dt.wMinute)+'.'+IntToStr(dt.wSecond);<br>
+end;<br>
+<br>
+function&nbsp;FormatANSI(dt:&nbsp;TSystemTime):&nbsp;String;<br>
+var&nbsp;s:&nbsp;String;<br>
+begin<br>
+&nbsp;&nbsp;Result&nbsp;:=&nbsp;IntToStr(dt.wYear);<br>
+&nbsp;&nbsp;s&nbsp;:=&nbsp;IntToStr(dt.wMonth);&nbsp;if&nbsp;length(s)&nbsp;=&nbsp;1&nbsp;then&nbsp;s&nbsp;:=&nbsp;'0'&nbsp;+&nbsp;s;<br>
+&nbsp;&nbsp;Result&nbsp;:=&nbsp;Result&nbsp;+&nbsp;s;<br>
+&nbsp;&nbsp;s&nbsp;:=&nbsp;IntToStr(dt.wDay);&nbsp;if&nbsp;length(s)&nbsp;=&nbsp;1&nbsp;then&nbsp;s&nbsp;:=&nbsp;'0'&nbsp;+&nbsp;s;<br>
+&nbsp;&nbsp;Result&nbsp;:=&nbsp;Result&nbsp;+&nbsp;s;<br>
+&nbsp;&nbsp;s&nbsp;:=&nbsp;IntToStr(dt.wHour);&nbsp;if&nbsp;length(s)&nbsp;=&nbsp;1&nbsp;then&nbsp;s&nbsp;:=&nbsp;'0'&nbsp;+&nbsp;s;<br>
+&nbsp;&nbsp;Result&nbsp;:=&nbsp;Result&nbsp;+&nbsp;s;<br>
+&nbsp;&nbsp;s&nbsp;:=&nbsp;IntToStr(dt.wMinute);&nbsp;if&nbsp;length(s)&nbsp;=&nbsp;1&nbsp;then&nbsp;s&nbsp;:=&nbsp;'0'&nbsp;+&nbsp;s;<br>
+&nbsp;&nbsp;Result&nbsp;:=&nbsp;Result&nbsp;+&nbsp;s;<br>
+&nbsp;&nbsp;s&nbsp;:=&nbsp;IntToStr(dt.wSecond);&nbsp;if&nbsp;length(s)&nbsp;=&nbsp;1&nbsp;then&nbsp;s&nbsp;:=&nbsp;'0'&nbsp;+&nbsp;s;<br>
+&nbsp;&nbsp;Result&nbsp;:=&nbsp;Result&nbsp;+&nbsp;s;<br>
+end;<br>
+<br>
+function&nbsp;GetMyStringNow(s:&nbsp;String):&nbsp;String;<br>
+begin<br>
+Result&nbsp;:=&nbsp;FormatANSI(lt);<br>
+end;<br>
+<br>
+function&nbsp;InitializeSetup:&nbsp;Boolean;<br>
+var<br>
+&nbsp;&nbsp;s,&nbsp;crlf:&nbsp;string;<br>
+begin<br>
+&nbsp;&nbsp;crlf&nbsp;:=&nbsp;#13#10;<br>
+&nbsp;&nbsp;GetSystemTime(st);<br>
+&nbsp;&nbsp;GetLocalTime(lt);<br>
+&nbsp;&nbsp;s&nbsp;:=&nbsp;'System&nbsp;Time&nbsp;is&nbsp;:&nbsp;'&nbsp;+&nbsp;crlf&nbsp;+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FormatDateTime(st)&nbsp;+&nbsp;crlf&nbsp;+&nbsp;crlf&nbsp;+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'Local&nbsp;Time&nbsp;is&nbsp;:&nbsp;'&nbsp;+&nbsp;crlf&nbsp;+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FormatDateTime(lt);<br>
+&nbsp;&nbsp;///just&nbsp;to&nbsp;show&nbsp;datetime&nbsp;infos<br>
+&nbsp;&nbsp;MsgBox(s&nbsp;,mbInformation,&nbsp;MB_OK);<br>
+&nbsp;&nbsp;Result&nbsp;:=&nbsp;true;<br>
+end;<br>
+</font></blockquote><textarea id="taCode1" style="display:none;" rows="1" cols="5"></textarea><textarea id='taCode' style='display:none;' rows='1' cols='20'></textarea></code><script language="javascript" type="text/javascript">highlightSyntax('delphi_Tc4NTM','delphi');</script><br><div id="heading"><h1><font size="1" face="Consolas">Copyright (c) <a href="http://www.krinkels.org/" target="_blank">Krinkels Inc</a></font></h1></div></body></html>

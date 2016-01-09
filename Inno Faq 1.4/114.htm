@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Как установить дату ограничения по времени для установщика</title><link rel="stylesheet" type="text/css" href="css.css">
+<script language='jscript' type='text/javascript' src='copycode.js'></script>
+<script type="text/javascript" src="includer.js"></script></head><body><div id="heading"><h1>» Inno Setup Faq. Как установить дату ограничения по времени для установщика</h1></div><br>
+<script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM">
+<input type="button" value="Копировать в буфер обмена" onClick="copyToClipboard( taCode1, theCode1 );">
+<blockquote id="theCode1"><font>
+[Setup]<br>
+AppName=Gradient<br>
+AppVerName=Gradient<br>
+CreateAppDir=false<br>
+<br>
+[Code]<br>
+type<br>
+&nbsp;&nbsp;TSystemTime&nbsp;=&nbsp;record<br>
+&nbsp;&nbsp;&nbsp;&nbsp;wYear&nbsp;:&nbsp;Word;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;wMonth&nbsp;:&nbsp;Word;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;wDayOfWeek&nbsp;:&nbsp;Word;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;wDay&nbsp;:&nbsp;Word;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;wHour&nbsp;:&nbsp;Word;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;wMinute&nbsp;:&nbsp;Word;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;wSecond&nbsp;:&nbsp;Word;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;wMilliseconds&nbsp;:&nbsp;Word;<br>
+&nbsp;&nbsp;end;<br>
+<br>
+procedure&nbsp;GetLocalTime(var&nbsp;lpSystemTime:&nbsp;TSystemTime);&nbsp;external&nbsp;'GetLocalTime@kernel32.dll';<br>
+<br>
+function&nbsp;IsOKDateTime(dt1,&nbsp;dt2:&nbsp;TSystemTime):&nbsp;Boolean;<br>
+begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Result&nbsp;:=&nbsp;true;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;dt2.wYear&nbsp;&lt;&nbsp;dt1.wYear&nbsp;then<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;result&nbsp;:=&nbsp;false<br>
+&nbsp;&nbsp;&nbsp;&nbsp;else&nbsp;if&nbsp;dt2.wYear&nbsp;=&nbsp;dt1.wYear&nbsp;then<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;dt2.wMonth&nbsp;&lt;&nbsp;dt1.wMonth&nbsp;then<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;result&nbsp;:=&nbsp;false<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else&nbsp;if&nbsp;dt2.wMonth&nbsp;=&nbsp;dt1.wMonth&nbsp;then<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;dt2.wDay&nbsp;&lt;&nbsp;dt1.wDay&nbsp;then<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;result&nbsp;:=&nbsp;false;<br>
+end;<br>
+<br>
+function&nbsp;InitializeSetup():&nbsp;Boolean;<br>
+var<br>
+&nbsp;&nbsp;lt,&nbsp;datelimit:&nbsp;TSystemTime;<br>
+&nbsp;&nbsp;s,&nbsp;crlf:&nbsp;string;<br>
+begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;datelimit.wYear&nbsp;:=&nbsp;2011;&nbsp;///год<br>
+&nbsp;&nbsp;&nbsp;&nbsp;datelimit.wMonth&nbsp;:=&nbsp;08;&nbsp;///месяц<br>
+&nbsp;&nbsp;&nbsp;&nbsp;datelimit.wDay&nbsp;:=&nbsp;15;&nbsp;&nbsp;&nbsp;&nbsp;///день<br>
+&nbsp;&nbsp;&nbsp;&nbsp;GetLocalTime(lt);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Result&nbsp;:=&nbsp;IsOKDateTime(lt,&nbsp;datelimit);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;s&nbsp;:=&nbsp;'Install&nbsp;time&nbsp;limit,&nbsp;it&nbsp;is&nbsp;not&nbsp;possible&nbsp;to&nbsp;install&nbsp;this&nbsp;program.';<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;not&nbsp;Result&nbsp;then&nbsp;MsgBox(s,&nbsp;mbError,&nbsp;MB_OK);<br>
+&nbsp;&nbsp;end;<br>
+</font></blockquote><textarea id="taCode1" style="display:none;" rows="1" cols="5"></textarea><textarea id='taCode' style='display:none;' rows='1' cols='20'></textarea></code><script language="javascript" type="text/javascript">highlightSyntax('delphi_Tc4NTM','delphi');</script><br><div id="heading"><h1><font size="1" face="Consolas">Copyright (c) <a href="http://www.krinkels.org/" target="_blank">Krinkels Inc</a></font></h1></div></body></html>

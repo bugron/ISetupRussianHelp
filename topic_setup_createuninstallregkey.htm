@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>[Setup]: CreateUninstallRegKey</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="IE=8" http-equiv="X-UA-Compatible">
+<link rel="stylesheet" type="text/css" href="styles.css">
+<script type="text/javascript" src="topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">[Setup]: CreateUninstallRegKey</h1>
+<div class="topicbody">
+  <table class="setuphdr">
+    <tbody>
+      <tr>
+        <td class="setuphdrl"><p>Возможные значения:</p></td>
+        <td class="setuphdrr"><div class="margined"><a href="topic_yesnonotes.htm"><tt>yes</tt> или <tt>no</tt></a>, или <a href="topic_scriptexpression.htm">логическое выражение</a></div></td>
+      </tr>
+      <tr>
+        <td class="setuphdrl"><p>Значение по умолчанию:</p></td>
+        <td class="setuphdrr"><div class="margined"><tt>yes</tt></div></td>
+      </tr>
+    </tbody>
+  </table>
+  <div><b>Описание:</b></div>
+  <p>При значении <tt>no</tt> или <tt>False</tt> (<a href="topic_scriptexpression.htm">логические выражения</a>) инсталлятор не будет создавать пункта программы в диалоге Установка и удаление программ. Это может быть полезно, если программа является обновлением для уже установленного приложения и запись в этом диалоге не нужна, но надо сохранить возможность удаления обновления (<tt>Uninstallable=no</tt>). В этом случае, <a href="topic_setup_updateuninstalllogappname.htm">UpdateUninstallLogAppName</a> обычно устанавливается в <tt>no</tt>.</p>
+  <p><b>См. также:</b><br>
+    <a href="topic_setup_uninstallable.htm">Uninstallable</a></p>
+</div>
+</body>
+</html>

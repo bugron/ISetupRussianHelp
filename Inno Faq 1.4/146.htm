@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Страница лицензии</title><link rel="stylesheet" type="text/css" href="css.css">
+<script language='jscript' type='text/javascript' src='copycode.js'></script>
+<script type="text/javascript" src="includer.js"></script></head><body><div id="heading"><h1>» Inno Setup Faq. Страница лицензии</h1></div><br>
+<script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM">
+<input type="button" value="Копировать в буфер обмена" onClick="copyToClipboard( taCode1, theCode1 );">
+<blockquote id="theCode1"><font>
+[Setup]<br>
+AppName=My&nbsp;License<br>
+AppVerName=My&nbsp;License&nbsp;v&nbsp;1.3<br>
+CreateAppDir=False<br>
+OutputDir=.<br>
+licenseFile=compiler:Examples\Readme.txt<br>
+<br>
+<br>
+[Languages]<br>
+Name:&nbsp;rus;&nbsp;MessagesFile:&nbsp;compiler:Languages\Russian.isl<br>
+<br>
+[Code]<br>
+var<br>
+&nbsp;&nbsp;CheckLicense:&nbsp;TCheckBox;<br>
+<br>
+procedure&nbsp;LicenseOnClick(Sender:&nbsp;TObject);<br>
+begin<br>
+&nbsp;&nbsp;if&nbsp;(CheckLicense.Checked)&nbsp;=&nbsp;True&nbsp;then<br>
+&nbsp;&nbsp;begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;WizardForm.LicenseAcceptedRadio.Checked&nbsp;:=&nbsp;True;<br>
+&nbsp;&nbsp;end&nbsp;else<br>
+&nbsp;&nbsp;begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;WizardForm.LicenseNotAcceptedRadio.Checked&nbsp;:=&nbsp;True;<br>
+&nbsp;&nbsp;end;<br>
+end;<br>
+<br>
+procedure&nbsp;InitializeWizard();<br>
+begin<br>
+&nbsp;&nbsp;WizardForm.LicenseNotAcceptedRadio.Hide;<br>
+&nbsp;&nbsp;WizardForm.LicenseAcceptedRadio.Hide;<br>
+&nbsp;&nbsp;WizardForm.LicenseMemo.Height&nbsp;:=&nbsp;ScaleY(175);<br>
+<br>
+&nbsp;&nbsp;CheckLicense:=&nbsp;TCheckBox.Create(WizardForm);<br>
+&nbsp;&nbsp;CheckLicense.Left:=&nbsp;ScaleX(0);<br>
+&nbsp;&nbsp;CheckLicense.Top:=&nbsp;ScaleY(216);<br>
+&nbsp;&nbsp;CheckLicense.Caption:=&nbsp;WizardForm.LicenseAcceptedRadio.Caption;<br>
+&nbsp;&nbsp;CheckLicense.Width:=&nbsp;ScaleX(417);<br>
+&nbsp;&nbsp;CheckLicense.OnClick:=&nbsp;@LicenseOnClick;<br>
+&nbsp;&nbsp;CheckLicense.Parent:=&nbsp;WizardForm.LicensePage;<br>
+end;<br>
+</font></blockquote><textarea id="taCode1" style="display:none;" rows="1" cols="5"></textarea><textarea id='taCode' style='display:none;' rows='1' cols='20'></textarea></code><script language="javascript" type="text/javascript">highlightSyntax('delphi_Tc4NTM','delphi');</script><br><div id="heading"><h1><font size="1" face="Consolas">Copyright (c) <a href="http://www.krinkels.org/" target="_blank">Krinkels Inc</a></font></h1></div></body></html>

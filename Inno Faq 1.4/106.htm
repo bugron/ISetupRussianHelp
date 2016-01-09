@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Как выйти из системы, если пользователь не Администратор</title><link rel="stylesheet" type="text/css" href="css.css">
+<script language='jscript' type='text/javascript' src='copycode.js'></script>
+<script type="text/javascript" src="includer.js"></script></head><body><div id="heading"><h1>» Inno Setup Faq. Как выйти из системы, если пользователь не Администратор</h1></div><br>
+<script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM">
+<input type="button" value="Копировать в буфер обмена" onClick="copyToClipboard( taCode1, theCode1 );">
+<blockquote id="theCode1"><font>
+[Setup]<br>
+AppName=LogOff<br>
+AppVerName=LogOff<br>
+Uninstallable=false<br>
+UpdateUninstallLogAppName=false<br>
+DisableDirPage=false<br>
+DisableProgramGroupPage=true<br>
+DefaultDirName={pf}\LogOff<br>
+DisableStartupPrompt=true<br>
+<br>
+[Code]<br>
+function&nbsp;ExitWindowsEx(<br>
+uFlags:&nbsp;Longint;<br>
+dwReserved:&nbsp;LongInt)&nbsp;:&nbsp;Integer;<br>
+external&nbsp;'ExitWindowsEx@user32.dll&nbsp;stdcall';<br>
+<br>
+///from&nbsp;winuser.h<br>
+const&nbsp;EWX_LOGOFF&nbsp;=&nbsp;0;<br>
+const&nbsp;EWX_SHUTDOWN&nbsp;=&nbsp;1;<br>
+const&nbsp;EWX_REBOOT&nbsp;=&nbsp;2;<br>
+const&nbsp;EWX_FORCE&nbsp;=&nbsp;4;<br>
+const&nbsp;EWX_POWEROFF&nbsp;=&nbsp;8;<br>
+<br>
+function&nbsp;GetLastError():&nbsp;Integer;<br>
+external&nbsp;'GetLastError@kernel32.dll';<br>
+<br>
+function&nbsp;InitializeSetup():&nbsp;Boolean;<br>
+var&nbsp;answ:&nbsp;Integer;&nbsp;CrLf:&nbsp;String;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ercode:&nbsp;Integer;<br>
+begin<br>
+&nbsp;&nbsp;Result&nbsp;:=&nbsp;true;<br>
+&nbsp;&nbsp;CrLf&nbsp;:=&nbsp;#13#10;<br>
+&nbsp;&nbsp;///if&nbsp;is&nbsp;nt&nbsp;alogged&nbsp;on&nbsp;an&nbsp;Admin&nbsp;ask&nbsp;if&nbsp;wants&nbsp;logoff<br>
+&nbsp;&nbsp;if&nbsp;not&nbsp;IsAdminLoggedOn&nbsp;then<br>
+&nbsp;&nbsp;begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;///anyway&nbsp;cannot&nbsp;continue&nbsp;setup<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Result&nbsp;:=&nbsp;false;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;answ&nbsp;:=&nbsp;MsgBox('User&nbsp;logged&nbsp;on&nbsp;is&nbsp;not&nbsp;an&nbsp;Administrator,&nbsp;please&nbsp;logoff&nbsp;and&nbsp;logon&nbsp;as&nbsp;administrator.'&nbsp;+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CrLf&nbsp;+&nbsp;'Do&nbsp;you&nbsp;want&nbsp;lo&nbsp;logoff&nbsp;now&nbsp;?',&nbsp;mbConfirmation,&nbsp;MB_YESNO);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;answ&nbsp;=&nbsp;IDYES&nbsp;then<br>
+&nbsp;&nbsp;&nbsp;&nbsp;begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;answ&nbsp;:=&nbsp;ExitWindowsEx(EWX_LOGOFF,&nbsp;0);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;///if&nbsp;answ&nbsp;is&nbsp;0&nbsp;Exitwindows&nbsp;had&nbsp;erros&nbsp;so&nbsp;show&nbsp;error&nbsp;message<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;answ&nbsp;=&nbsp;0&nbsp;then<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ercode&nbsp;:=&nbsp;GetLastError();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MsgBox('Logoff&nbsp;error'&nbsp;+&nbsp;CrLf&nbsp;+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IntToStr(ercode)&nbsp;+&nbsp;':'&nbsp;+&nbsp;SysErrorMessage(ercode),&nbsp;mbError,&nbsp;MB_OK);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;end;<br>
+&nbsp;&nbsp;end;<br>
+end;<br>
+
+</font></blockquote><textarea id="taCode1" style="display:none;" rows="1" cols="5"></textarea><textarea id='taCode' style='display:none;' rows='1' cols='20'></textarea></code><script language="javascript" type="text/javascript">highlightSyntax('delphi_Tc4NTM','delphi');</script><br><div id="heading"><h1><font size="1" face="Consolas">Copyright (c) <a href="http://www.krinkels.org/" target="_blank">Krinkels Inc</a></font></h1></div></body></html>

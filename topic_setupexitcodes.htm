@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Коды выхода инсталлятора</title>
+<!--[if IE 6]><style type="text/css">html{overflow-y:scroll}</style><![endif]-->
+<link rel="stylesheet" type="text/css" href="styles.css" />
+<script type="text/javascript" src="topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Коды выхода инсталлятора</h1>
+<div class="topicbody">
+  <p>Начиная с версии 3.0.3, инсталлятор может возвращать следующие коды выхода:</p>
+  <table>
+    <tr>
+      <td class="cellleft"><b>0</b></td>
+      <td class="cellright"><p>Установка успешно завершена или был использован один из параметров командной строки /HELP или /?.</p></td>
+    </tr>
+    <tr>
+      <td class="cellleft"><b>1</b></td>
+      <td class="cellright"><p>Инсталлятор не инициализирован.</p></td>
+    </tr>
+    <tr>
+      <td class="cellleft"><b>2</b></td>
+      <td class="cellright"><p>Пользователь нажал на кнопку Отмена до начала установки или выбрал Нет в окне &quot;Эта программа установит...&quot;.</p></td>
+    </tr>
+    <tr>
+      <td class="cellleft"><b>3</b></td>
+      <td class="cellright"><p>Произошла фатальная ошибка при подготовке перехода к следующей фазе установки. Такое случается редко, в основном из-за нехватки памяти или ресурсов системы.</p></td>
+    </tr>
+    <tr>
+      <td class="cellleft"><b>4</b></td>
+      <td class="cellright"><p>Произошла фатальная ошибка в процессе установки.</p>
+        <p><i>Обратите внимание:</i> это не относится к ошибкам, которые вызывают диалог Прервать-Повторить-Пропустить. Если пользователь выберет <i>Прервать</i>, будет возвращен код выхода 5.</p></td>
+    </tr>
+    <tr>
+      <td class="cellleft"><b>5</b></td>
+      <td class="cellright"><p>Пользователь нажал Отменить во время установки или выбрал <i>Прервать</i> в диалоге Прервать-Повторить-Пропустить.</p></td>
+    </tr>
+    <tr>
+      <td class="cellleft"><b>6</b></td>
+      <td class="cellright"><p>Установка была намеренно прервана отладчиком (в IDE было использовано <i>Run | Terminate</i>).</p></td>
+    </tr>
+    <tr>
+      <td class="cellleft"><b>7</b></td>
+      <td class="cellright"><p>На этапе <i>Подготовка к установке</i> обнаружилось, что инсталлятор не может продолжить инсталляцию. <i>(Начиная с версии 5.4.1.)</i></p></td>
+    </tr>
+    <tr>
+      <td class="cellleft"><b>8</b></td>
+      <td class="cellright"><p>На этапе <i>Подготовка к установке</i> обнаружилось, что инсталлятор не может продолжить инсталляцию и что система нуждается в перезагрузке для исправления проблемы. <i>(Начиная с версии 5.4.1.)</i></p></td>
+    </tr>
+  </table>
+  <p>Перед возвращением кодов выхода 1, 3, 4, 7, или 8 обычно появляется сообщение об ошибке, описывающее ее.</p>
+  <p>Новые версии Inno Setup могут выдавать дополнительные коды выхода, поэтому приложения, проверяющие их, могут вести себя по-разному в зависимости от полученного кода выхода. Все ненулевые коды выхода значат, что инсталлятор не завершил установку успешно.</p>
+</div>
+</body>
+</html>

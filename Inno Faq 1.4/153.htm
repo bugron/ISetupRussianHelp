@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Как запретить запкск более одной копии инсталлятора</title><link rel="stylesheet" type="text/css" href="css.css">
+<script language='jscript' type='text/javascript' src='copycode.js'></script>
+<script type="text/javascript" src="includer.js"></script></head><body><div id="heading"><h1>» Inno Setup Faq. Как запретить запкск более одной копии инсталлятора</h1></div><br>
+<script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM">
+<input type="button" value="Копировать в буфер обмена" onClick="copyToClipboard( taCode1, theCode1 );">
+<blockquote id="theCode1"><font>
+#define Name2&nbsp;&nbsp;&quot;OLOLO&quot;<br>
+<br>
+[Setup]<br>
+AppName={#Name2}<br>
+AppVersion={#Name2}<br>
+DefaultDirName={pf}\{#Name2}<br>
+AppMutex={#Name2}<br>
+<br>
+[Code]<br>
+///Сама процедура Mutex<br>
+var<br>
+&nbsp;&nbsp;Mutex: THandle;<br>
+<br>
+function CreateMutex(lpMutexAttributes: Longint; bInitialOwner: BOOL; lpName: AnsiString): THandle; external 'CreateMutexA@kernel32.dll stdcall';<br>
+function ReleaseMutex(hMutex: THandle): BOOL; external 'ReleaseMutex@kernel32.dll stdcall';<br>
+function CloseHandle(hObject: THandle): BOOL; external 'CloseHandle@kernel32.dll stdcall';<br>
+<br>
+procedure SMutex;<br>
+begin<br>
+&nbsp;&nbsp;Mutex:= CreateMutex(0, False, ExpandConstant('{#SetupSetting(&quot;AppMutex&quot;)}'));<br>
+end;<br>
+<br>
+function InitializeSetup(): Boolean;<br>
+begin<br>
+&nbsp;&nbsp;Result:= not CheckForMutexes(ExpandConstant('{#SetupSetting(&quot;AppMutex&quot;)}'));<br>
+&nbsp;&nbsp;if not Result then<br>
+&nbsp;&nbsp;///MsgBox('Уже запущена одна версия инсталлятора. Одновременный запуск запрещён', mbError,mb_Ok);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;CloseHandle(Mutex);<br>
+end;<br>
+<br>
+procedure InitializeWizard();<br>
+begin<br>
+&nbsp;&nbsp;SMutex;<br>
+end;<br>
+</font></blockquote><textarea id="taCode1" style="display:none;" rows="1" cols="5"></textarea><textarea id='taCode' style='display:none;' rows='1' cols='20'></textarea></code><script language="javascript" type="text/javascript">highlightSyntax('delphi_Tc4NTM','delphi');</script><br><div id="heading"><h1><font size="1" face="Consolas">Copyright (c) <a href="http://www.krinkels.org/" target="_blank">Krinkels Inc</a></font></h1></div></body></html>

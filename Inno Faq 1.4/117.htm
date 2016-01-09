@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>How To: SplashScreen with Inno Setup 4.1.3</title><link rel="stylesheet" type="text/css" href="css.css">
+<script language='jscript' type='text/javascript' src='copycode.js'></script>
+<script type="text/javascript" src="includer.js"></script></head><body><div id="heading"><h1>» Inno Setup Faq. How To: SplashScreen with Inno Setup 4.1.3</h1></div><br>
+<script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM">
+<input type="button" value="Копировать в буфер обмена" onClick="copyToClipboard( taCode1, theCode1 );">
+<blockquote id="theCode1"><font>
+[Setup]<br>
+AppName=My&nbsp;Splash<br>
+AppVerName=My&nbsp;Splash&nbsp;1.5<br>
+AppPublisher=My&nbsp;Company,&nbsp;Inc.<br>
+AppPublisherURL=http://www.mycompany.com<br>
+AppSupportURL=http://www.mycompany.com<br>
+AppUpdatesURL=http://www.mycompany.com<br>
+DefaultDirName={pf}\My&nbsp;Splash<br>
+<br>
+[Files]<br>
+Source:&nbsp;compiler:splash.bmp;&nbsp;DestDir:&nbsp;{tmp};&nbsp;Flags:&nbsp;dontcopy<br>
+<br>
+[Code]<br>
+procedure&nbsp;InitializeWizard();<br>
+var<br>
+&nbsp;&nbsp;SplashImage:&nbsp;TBitmapImage;<br>
+&nbsp;&nbsp;SplashForm:&nbsp;TForm;<br>
+&nbsp;&nbsp;SplashFileName:&nbsp;String;<br>
+&nbsp;&nbsp;I&nbsp;:&nbsp;Integer;<br>
+begin<br>
+&nbsp;&nbsp;SplashFileName&nbsp;:=&nbsp;ExpandConstant('{tmp}\splash.bmp');<br>
+&nbsp;&nbsp;ExtractTemporaryFile(ExtractFileName(SplashFileName));<br>
+&nbsp;&nbsp;SplashForm&nbsp;:=&nbsp;TForm.create(nil);<br>
+&nbsp;&nbsp;with&nbsp;SplashForm&nbsp;do<br>
+&nbsp;&nbsp;&nbsp;begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;BorderStyle&nbsp;:=&nbsp;bsNone;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Position&nbsp;:=&nbsp;poScreenCenter;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;///Adjust&nbsp;the&nbsp;height&nbsp;and&nbsp;width&nbsp;of&nbsp;the&nbsp;SplashForm&nbsp;to&nbsp;the&nbsp;size&nbsp;of&nbsp;your&nbsp;splash&nbsp;image<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ClientWidth&nbsp;:=&nbsp;405;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ClientHeight&nbsp;:=&nbsp;310;<br>
+&nbsp;&nbsp;&nbsp;end;<br>
+&nbsp;&nbsp;SplashImage&nbsp;:=&nbsp;TBitmapImage.Create(SplashForm);<br>
+&nbsp;&nbsp;with&nbsp;SplashImage&nbsp;do<br>
+&nbsp;&nbsp;&nbsp;&nbsp;begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Bitmap.LoadFromFile(SplashFileName);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Stretch&nbsp;:=&nbsp;true;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Align&nbsp;:=&nbsp;alClient;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Parent&nbsp;:=&nbsp;SplashForm;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;end;<br>
+&nbsp;&nbsp;with&nbsp;SplashForm&nbsp;do<br>
+&nbsp;&nbsp;&nbsp;begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Show;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;///show&nbsp;for&nbsp;five&nbsp;seconds<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Repaint;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sleep(5000);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Close;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Free;<br>
+&nbsp;&nbsp;&nbsp;end;<br>
+end;<br>
+</font></blockquote><textarea id="taCode1" style="display:none;" rows="1" cols="5"></textarea><textarea id='taCode' style='display:none;' rows='1' cols='20'></textarea></code><script language="javascript" type="text/javascript">highlightSyntax('delphi_Tc4NTM','delphi');</script><br><div id="heading"><h1><font size="1" face="Consolas">Copyright (c) <a href="http://www.krinkels.org/" target="_blank">Krinkels Inc</a></font></h1></div></body></html>

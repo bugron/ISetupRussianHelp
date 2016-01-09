@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Как сделать собственную форму сообщения при нажатии на кнопку "Отмена"?</title><link rel="stylesheet" type="text/css" href="css.css"><script type="text/javascript" src="includer.js"></script><script language='jscript' type='text/javascript' src='copycode.js'></script></head><body><div id="heading"><h1>» Inno Setup Faq. Как сделать собственную форму сообщения при нажатии на кнопку "Отмена"? (Требуется Botva2.dll)</h1></div><br><script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM"> <input type="button" value="Копировать в буфер обмена" onClick="copyToClipboard( taCode1, theCode1 );"> <blockquote id="theCode1"><font>#include AddBackSlash(SourcePath) + "botva2.iss"<br>
+<br>
+[Setup]<br>
+AppName=My Program<br>
+AppVerName=My Program<br>
+DefaultDirName={pf}\My Program<br>
+OutputDir=.\InnoSetupTest<br>
+<br>
+[Files]<br>
+Source: compiler:WizModernSmallImage.bmp; Flags: dontcopy;<br>
+Source: support\botva2.dll; Flags: dontcopy;<br>
+Source: support\CallbackCtrl.dll; Flags: dontcopy;<br>
+Source: support\button2.png; Flags: dontcopy;<br>
+<br>
+[Code]<br>
+var<br>
+  MyExit: TSetupForm; <br>
+  YesBtn, NoBtn: HWND;<br>
+<br>
+function InitializeSetup:boolean;<br>
+begin<br>
+  if not FileExists(ExpandConstant('{tmp}\botva2.dll')) then <br>
+    ExtractTemporaryFile('botva2.dll');<br>
+  if not FileExists(ExpandConstant('{tmp}\innocallback.dll'  )) then<br>
+    ExtractTemporaryFile('CallbackCtrl.dll');<br>
+  Result := True;<br>
+end;<br>
+<br>
+procedure DeinitializeSetup();<br>
+begin<br>
+  gdipShutdown;<br>
+end;<br>
+<br>
+procedure ButtonOnClick(hBtn:HWND);<br>
+begin<br>
+  case hBtn of<br>
+    YesBtn: begin MyExit.ModalResult:= mrYes; end;<br>
+    NoBtn: begin MyExit.ModalResult:= mrNo; end;<br>
+  end;<br>
+end;<br>
+<br>
+procedure MyExitMessage(); <br>
+var <br>
+  MyIcon: String; <br>
+  Font: TFont;<br>
+begin <br>
+  MyExit := CreateCustomForm(); <br>
+  with MyExit do <br>
+  begin <br>
+    Position := poScreenCenter; <br>
+    ClientWidth := WizardForm.Width; <br>
+    ClientHeight := WizardForm.Height div 2; <br>
+    Caption := ExpandConstant(SetupMessage(msgExitSetupTitle)); <br>
+    Color := clBlack;<br>
+<br>
+    MyIcon := ExpandConstant(AddBackSlash('{tmp}') + 'WizModernSmallImage.bmp'); <br>
+    if not FileExists(MyIcon) then <br>
+      ExtractTemporaryFile(ExtractFileName(MyIcon)); <br>
+ <br>
+    with TBitmapImage.Create(MyExit) do <br>
+    begin <br>
+      Stretch := True;<br>
+      Left := ScaleX(10); <br>
+      Top := ScaleY(20); <br>
+      Width := 55; <br>
+      Height := 55; <br>
+      Bitmap.LoadFromFile(MyIcon);<br>
+      Parent := MyExit; <br>
+    end; <br>
+ <br>
+    with TNewStaticText.Create(MyExit) do <br>
+    begin <br>
+      Left := ScaleX(110); <br>
+      Top := ScaleY(20); <br>
+      Width := MyExit.Width - ScaleX(115); <br>
+      Height := MyExit.Height div 2; <br>
+      AutoSize := False; <br>
+      WordWrap := True; <br>
+      Caption := ExpandConstant(SetupMessage(msgExitSetupMessage)); <br>
+      Parent := MyExit; <br>
+      Font.Color := clWhite; <br>
+    end; <br>
+  end;<br>
+<br>
+  Font := TFont.Create;<br>
+  Font.Size := WizardForm.CancelButton.Font.Size;<br>
+<br>
+  ExtractTemporaryFile('button2.png');<br>
+<br>
+  NoBtn := BtnCreate(MyExit.Handle, MyExit.Width - 165,<br>
+           MyExit.Height - 50 - ScaleY(25), 160, 50,<br>
+                ExpandConstant('{tmp}\button2.png'), 18, True);<br>
+  BtnSetEvent(NoBtn, BtnClickEventID, WrapBtnCallback(@ButtonOnClick, 1));<br>
+  BtnSetText(NoBtn, 'Нет');<br>
+  BtnSetFontColor(NoBtn, clWhite, clWhite, clWhite, clWhite);<br>
+  BtnSetFont(NoBtn, Font.Handle);<br>
+<br>
+  YesBtn := BtnCreate(MyExit.Handle, MyExit.Width - 323,<br>
+           MyExit.Height - 50 - ScaleY(25), 160, 50,<br>
+            ExpandConstant('{tmp}\button2.png'), 18, True);<br>
+  BtnSetEvent(YesBtn, BtnClickEventID, WrapBtnCallback(@ButtonOnClick, 1));<br>
+  BtnSetText(YesBtn, 'Да');<br>
+  BtnSetFontColor(YesBtn, clWhite, clWhite, clWhite, clWhite);<br>
+  BtnSetFont(YesBtn, Font.Handle);<br>
+<br>
+  Font.Free;<br>
+end; <br>
+  <br>
+procedure CancelButtonClick(CurPageID: Integer; var Cancel, Confirm: Boolean); <br>
+begin <br>
+  Confirm := False; <br>
+  MyExitMessage(); <br>
+ <br>
+  if MyExit.ShowModal() = mrNo then<br>
+    Cancel := False;<br>
+end;</font></blockquote><textarea id="taCode1" style="display:none;" rows="1" cols="5"></textarea><textarea id='taCode' style='display:none;' rows='1' cols='20'></textarea></code><script language="javascript" type="text/javascript">highlightSyntax('delphi_Tc4NTM','delphi');</script><br><div id="heading"><h1><font size="1" face="Consolas">Copyright (c) <a href="http://www.krinkels.org/" target="_blank">Krinkels Inc</a></font></h1></div></body></html>

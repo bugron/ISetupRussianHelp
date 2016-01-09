@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>[Setup]: LZMAUseSeparateProcess</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="IE=8" http-equiv="X-UA-Compatible">
+<link rel="stylesheet" type="text/css" href="styles.css">
+<script type="text/javascript" src="topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">[Setup]: LZMAUseSeparateProcess</h1>
+<div class="topicbody">
+  <table class="setuphdr">
+    <tbody>
+      <tr>
+        <td class="setuphdrl"><p>Возможные значения:</p></td>
+        <td class="setuphdrr"><div class="margined"><a href="topic_yesnonotes.htm"><tt>yes</tt>, <tt>no</tt></a>, или <tt>x86</tt></div></td>
+      </tr>
+      <tr>
+        <td class="setuphdrl"><p>Значение по умолчанию:</p></td>
+        <td class="setuphdrr"><div class="margined"><tt>no</tt></div></td>
+      </tr>
+    </tbody>
+  </table>
+  <div><b>Описание:</b></div>
+  <p>Управляет выполнением сжатия LZMA в основном процессе компилятора или в отдельном процессе.</p>
+  <p>Использование отдельного процесса для сжатия LZMA позволяет компрессору выделять большие объемы памяти, которые позволяют задать значение повыше для <a href="topic_setup_lzmadictionarysize.htm">LZMADictionarySize</a> и <a href="topic_setup_lzmanumblockthreads.htm">LZMANumBlockThreads</a>, которые будут использоваться. Дополнительно, на 64-разрядном Windows (x64), может наблюдаться маленькое увеличение скорости сжатия.</p>
+  <p>На 64-разрядном Windows (x64) нет никаких ограничений на объем памяти используемый компрессором, поскольку компрессор работает в собственном 64-разрядном процессе. На 32-разрядном Windows, однако, из-за ограничений адресного пространства, обычно только приблизительно 1.5 Гбайт доступны для использования компрессором.</p>
+  <p>Значение <tt>yes</tt> включает использование 64-разрядного процесса на 64-разрядном Windows (x64) и 32-разрядного процесса на 32-разрядном Windows.</p>
+  <p>Значение <tt>x86</tt> включает использование только 32-разрядного процесса (обычно полезно для отладки).</p>
+  <p>Значение <tt>no</tt> отключает использование отдельного процесса для сжатия LZMA.</p>
+  <p>Отметьте, что эта директива только влияет на сжатие файлов, определенных в секции [Files]; сжатие внутренних структур инсталлятора всегда выполняется в основном процессе компилятора.</p>
+</div>
+</body>
+</html>

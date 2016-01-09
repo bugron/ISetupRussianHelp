@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Pascal Scripting Extended: SizeOf</title>
+<link rel="stylesheet" type="text/css" href="../../../styles.css" />
+<script type="text/javascript" src="../../../topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Pascal Scripting Extended: SizeOf</h1>
+<div class="topicbody">
+  <div><b>Прототип:</b></div>
+  <p><tt>function SizeOf(const V: Variant): Longint;</tt></p>
+  <div><b>Описание:</b></div>
+  Функция SizeOf возвращает занимаемый размер (в байтах) переменной (Variable) или типа (Type).<br />
+  &nbsp;Часто бывает полезно узнать, сколько места занимают данные. Особенно при использовании стандартных процедур вроде GetMem.<br />
+  &nbsp;Для некоторых типов всегда возвращается размер указателя, так как они и являются просто указателями на данные, хранимые эти типом. Примером таких типом являются строки. <br />
+  &nbsp;Для получения размера объекта используйте метод InstanceSize.<br />
+  <div><b>Пример:</b></div>
+  <p><tt>var<br />
+    &nbsp;intNumber : Integer;<br />
+    &nbsp;extNumber : Extended;<br />
+    &nbsp;sentence : string;<br />
+    <br />
+    begin<br />
+    // Показ размеров численных типов данных<br />
+    &nbsp;ShowMessageFmt(' SizeOf(Integer) = %d',[SizeOf(Integer)]);<br />
+    &nbsp;ShowMessageFmt('SizeOf(intNumber) = %d',[SizeOf(intNumber)]);<br />
+    &nbsp;ShowMessageFmt(' SizeOf(Extended) = %d',[SizeOf(Extended)]);<br />
+    &nbsp;ShowMessageFmt('SizeOf(extNumber) = %d',[SizeOf(extNumber)]);<br />
+    <br />
+    // Строковые типы и переменные - указатели на фактические строки<br />
+    &nbsp;sentence := 'A long sentence, certainly longer than 4';<br />
+    &nbsp;ShowMessageFmt(' SizeOf(string) = %d',[SizeOf(string)]);<br />
+    &nbsp;ShowMessageFmt(' SizeOf(sentence) = %d',[SizeOf(sentence)]);<br />
+    end; <br />
+    <br />
+    <br />
+    &nbsp;SizeOf(Integer) = 4<br />
+    &nbsp;SizeOf(intNumber) = 4<br />
+    &nbsp;SizeOf(Extended) = 10<br />
+    &nbsp;SizeOf(extNumber) = 10<br />
+    &nbsp;SizeOf(string) = 4<br />
+    &nbsp;SizeOf(sentence) = 4</tt></p>
+</div>
+</body>
+</html>

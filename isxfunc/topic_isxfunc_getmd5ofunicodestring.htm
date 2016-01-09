@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Pascal Scripting: GetMD5OfUnicodeString</title>
+<link rel="stylesheet" type="text/css" href="../styles.css" />
+<script type="text/javascript" src="../topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Pascal Scripting: GetMD5OfUnicodeString</h1>
+<div class="topicbody">
+  <div><b>Прототип:</b></div>
+  <p><tt>function GetMD5OfUnicodeString(const S: String): String;</tt></p>
+  <div><b>Описание:</b></div>
+  <p>&gt;Получает MD5 сумму указанной строки, как строку.</p>
+  <p>Вызывает внутреннюю ошибку, если функция вызвана не Unicode версией инстал./деинстал.</p>
+  <div><b>Например:</b></div>
+  <pre>var
+  MD5: String;
+begin
+  MD5 := GetMD5OfUnicodeString('Test');
+  // MD5 = '8e06915d5f5d4f8754f51892d884c477'
+end;
+</pre>
+</div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Как обнаружить версию установленного SQL Server или MSDE</title><link rel="stylesheet" type="text/css" href="css.css">
+<script language='jscript' type='text/javascript' src='copycode.js'></script>
+<script type="text/javascript" src="includer.js"></script></head><body><div id="heading"><h1>» Inno Setup Faq. Как обнаружить версию установленного SQL Server или MSDE</h1></div><br>
+<script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM">
+<input type="button" value="Копировать в буфер обмена" onClick="copyToClipboard( taCode1, theCode1 );">
+<blockquote id="theCode1"><font>
+[Setup]<br>
+AppName=SQL_MSDEVersion<br>
+AppVerName=SQL_MSDEVersion<br>
+DefaultDirName={pf}\SQL_MSDEVersion<br>
+DisableStartupPrompt=true<br>
+Uninstallable=false<br>
+OutputBaseFilename=SQL_MSDEVersion<br>
+DisableDirPage=true<br>
+PrivilegesRequired=admin<br>
+<br>
+[Code]<br>
+function&nbsp;GetSQLMSDEVersion():&nbsp;String;<br>
+var<br>
+&nbsp;&nbsp;sVersion:&nbsp;&nbsp;String;<br>
+begin<br>
+&nbsp;&nbsp;sVersion&nbsp;:=&nbsp;'';<br>
+&nbsp;&nbsp;///it&nbsp;is&nbsp;necessary&nbsp;to&nbsp;be&nbsp;an&nbsp;Admin&nbsp;to&nbsp;read&nbsp;this&nbsp;registry&nbsp;key<br>
+&nbsp;&nbsp;if&nbsp;IsAdminLoggedOn&nbsp;then<br>
+&nbsp;&nbsp;	RegQueryStringValue(HKLM,&nbsp;'SOFTWARE\Microsoft\MSSQLServer\MSSQLServer\CurrentVersion',&nbsp;'CurrentVersion',&nbsp;sVersion);<br>
+&nbsp;&nbsp;Result&nbsp;:=&nbsp;sVersion;<br>
+end;<br>
+<br>
+function&nbsp;InitializeSetup():&nbsp;Boolean;<br>
+var&nbsp;sqlver:&nbsp;String;<br>
+begin<br>
+&nbsp;&nbsp;sqlver&nbsp;:=&nbsp;GetSQLMSDEVersion();<br>
+&nbsp;&nbsp;if&nbsp;Length(sqlver)&nbsp;&gt;&nbsp;0&nbsp;then<br>
+&nbsp;&nbsp;begin<br>
+&nbsp;&nbsp;	MsgBox('Version&nbsp;('+&nbsp;sqlver&nbsp;+')&nbsp;of&nbsp;SQL&nbsp;Server/MSDE&nbsp;is&nbsp;installed.',<br>
+&nbsp;&nbsp;	&nbsp;&nbsp;mbInformation,&nbsp;MB_OK);<br>
+///go&nbsp;on&nbsp;with&nbsp;setup<br>
+Result&nbsp;:=&nbsp;true;<br>
+&nbsp;&nbsp;end<br>
+&nbsp;&nbsp;else&nbsp;begin<br>
+&nbsp;&nbsp;	MsgBox('SQL&nbsp;Server/MSDE&nbsp;is&nbsp;not&nbsp;installed.',&nbsp;mbInformation,&nbsp;MB_OK);<br>
+&nbsp;&nbsp;	///cannot&nbsp;go&nbsp;with&nbsp;setup&nbsp;anyway<br>
+&nbsp;&nbsp;	Result&nbsp;:=&nbsp;false;<br>
+&nbsp;&nbsp;end;<br>
+end;<br>
+
+</font></blockquote><textarea id="taCode1" style="display:none;" rows="1" cols="5"></textarea><textarea id='taCode' style='display:none;' rows='1' cols='20'></textarea></code><script language="javascript" type="text/javascript">highlightSyntax('delphi_Tc4NTM','delphi');</script><br><div id="heading"><h1><font size="1" face="Consolas">Copyright (c) <a href="http://www.krinkels.org/" target="_blank">Krinkels Inc</a></font></h1></div></body></html>

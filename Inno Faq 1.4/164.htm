@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Бегущая строка на WizardForm</title><link rel="stylesheet" type="text/css" href="css.css">
+<script language='jscript' type='text/javascript' src='copycode.js'></script>
+<script type="text/javascript" src="includer.js"></script></head><body><div id="heading"><h1>» Inno Setup Faq. Бегущая строка на WizardForm</h1></div><br>
+<script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM">
+<input type="button" value="Копировать в буфер обмена" onClick="copyToClipboard( taCode1, theCode1 );">
+<blockquote id="theCode1"><font>
+;;Решил&nbsp;реализовать&nbsp;в&nbsp;Inno&nbsp;Setup&nbsp;'Бегущую&nbsp;строку'&nbsp;и&nbsp;вот,&nbsp;что&nbsp;получилось...<br>
+;;Для&nbsp;нормальной&nbsp;работы&nbsp;у&nbsp;Вас&nbsp;должен&nbsp;быть&nbsp;установлен&nbsp;набор&nbsp;от&nbsp;Restools&nbsp;http://restools.hanzify.org/<br>
+;;Подразумеваю&nbsp;под&nbsp;словом&nbsp;набор&nbsp;-&nbsp;InnoCompiler&nbsp;и&nbsp;ISCmplr,&nbsp;последние&nbsp;версии&nbsp;Вы&nbsp;можете&nbsp;найти&nbsp;на&nbsp;сайте&nbsp;Restools.<br>
+;;Автор:&nbsp;Serega,&nbsp;http://forum.oszone.net/member.php?userid=88670<br>
+<br>
+[Setup]<br>
+AppName=My&nbsp;Program<br>
+AppVerName=My&nbsp;Program&nbsp;v&nbsp;1.5<br>
+DefaultDirName={pf}\My&nbsp;Program<br>
+OutputDir=.<br>
+Compression=lzma/ultra<br>
+InternalCompressLevel=ultra<br>
+SolidCompression=yes<br>
+<br>
+[Languages]<br>
+Name:&nbsp;russian;&nbsp;MessagesFile:&nbsp;compiler:Languages\Russian.isl<br>
+<br>
+[Code]<br>
+var<br>
+&nbsp;&nbsp;lbl1:&nbsp;TLabel;<br>
+&nbsp;&nbsp;tmr1:&nbsp;TTimer;<br>
+<br>
+procedure&nbsp;tmr1Timer(Sender:&nbsp;TObject);<br>
+var<br>
+&nbsp;&nbsp;str:&nbsp;string;<br>
+begin<br>
+&nbsp;&nbsp;str:=&nbsp;lbl1.Caption;<br>
+&nbsp;&nbsp;lbl1.Caption:=&nbsp;Copy(str,&nbsp;2,&nbsp;Length(str)&nbsp;-&nbsp;1)&nbsp;+&nbsp;Copy(str,&nbsp;1,&nbsp;1);<br>
+end;<br>
+<br>
+procedure&nbsp;InitializeWizard();<br>
+begin<br>
+&nbsp;&nbsp;///lbl1<br>
+&nbsp;&nbsp;lbl1:=&nbsp;TLabel.Create(WizardForm);<br>
+&nbsp;&nbsp;with&nbsp;lbl1&nbsp;do&nbsp;begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Parent:=&nbsp;WizardForm;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Left:=&nbsp;20;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Top:=&nbsp;325;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Width:=&nbsp;200;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Height:=&nbsp;20;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;AutoSize:=&nbsp;False;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Caption:=&nbsp;'Вот,&nbsp;что&nbsp;можно&nbsp;сделать&nbsp;средствами&nbsp;Inno&nbsp;Setup...&nbsp;&nbsp;&nbsp;';<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Font.Color:=&nbsp;clWindowText;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Font.Height:=&nbsp;-16;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Font.Name:=&nbsp;'MS&nbsp;Sans&nbsp;Serif';<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Font.Style:=&nbsp;[];<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ParentFont:=&nbsp;False;<br>
+&nbsp;&nbsp;end;<br>
+<br>
+&nbsp;&nbsp;///tmr1<br>
+&nbsp;&nbsp;tmr1:=&nbsp;TTimer.Create(WizardForm);<br>
+&nbsp;&nbsp;with&nbsp;tmr1&nbsp;do&nbsp;begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Interval:=&nbsp;200;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;OnTimer:=&nbsp;@tmr1Timer;<br>
+&nbsp;&nbsp;end;<br>
+end;<br>
+</font></blockquote><textarea id="taCode1" style="display:none;" rows="1" cols="5"></textarea><textarea id='taCode' style='display:none;' rows='1' cols='20'></textarea></code><script language="javascript" type="text/javascript">highlightSyntax('delphi_Tc4NTM','delphi');</script><br><div id="heading"><h1><font size="1" face="Consolas">Copyright (c) <a href="http://www.krinkels.org/" target="_blank">Krinkels Inc</a></font></h1></div></body></html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>[Setup]: TimeStampsInUTC</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="IE=8" http-equiv="X-UA-Compatible">
+<link rel="stylesheet" type="text/css" href="styles.css">
+<script type="text/javascript" src="topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">[Setup]: TimeStampsInUTC</h1>
+<div class="topicbody">
+  <table class="setuphdr">
+    <tbody>
+      <tr>
+        <td class="setuphdrl"><p>Возможные значения:</p></td>
+        <td class="setuphdrr"><div class="margined"><a href="topic_yesnonotes.htm"><tt>yes</tt> или <tt>no</tt></a></div></td>
+      </tr>
+      <tr>
+        <td class="setuphdrl"><p>Значение по умолчанию:</p></td>
+        <td class="setuphdrr"><div class="margined"><tt>no</tt></div></td>
+      </tr>
+    </tbody>
+  </table>
+  <div><b>Описание:</b></div>
+  <p>По умолчанию временные отметки файлов секции [Files], сохраняются и отображаются как локальные. Это значит, что если отдельный файл имеет временную отметку 01:00 по локальному времени во время компиляции, инсталлятор установит файл с отметкой 01:00, игнорируя временную зону, в которой находится пользователь или при действии DST.</p>
+  <p>При значении <tt>yes</tt> временные отметки будут сохранены и отображены в UTC - временном формате Win32 и NTFS. В этом режиме файл с временной отметкой 01:00 по локальному времени в Нью-Йорке получит временную отметку 06:00 по локальному времени в Лондоне.</p>
+</div>
+</body>
+</html>

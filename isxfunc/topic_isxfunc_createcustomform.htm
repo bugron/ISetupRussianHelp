@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Pascal Scripting: CreateCustomForm</title>
+<link rel="stylesheet" type="text/css" href="../styles.css" />
+<script type="text/javascript" src="../topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Pascal Scripting: CreateCustomForm</h1>
+<div class="topicbody">
+  <div><b>Прототип:</b></div>
+  <p><tt>function CreateCustomForm: TSetupForm;</tt></p>
+  <div><b>Описание:</b></div>
+  <p>Создает форму. Форма пуста по умолчанию, вы должны создать свои собственные элементы управления  и разместить их на форме (путем установки их родительских свойств к экземпляру TSetupForm, возвращаемой этой функцией).</p>
+  <div><b>Комментарии:</b></div>
+  <p>Вы должны вызвать эту функцию вместо напрямую создания экземпляров TForm или TSetupForm. Эта функция автоматически инициализирует шрифт и другие свойства созданной формы, чтобы соответствовать другим диалогам инсталлятора.</p>
+  <p>Директивы <tt>DialogFontName</tt> и <tt>DialogFontSize</tt> секции <tt>[LangOptions]</tt> определяют шрифт, используемый в форме и, по умолчанию, все дочерние элементы создаются на форме.</p>
+  <div><b>Например:</b></div>
+  <p>Пример можно найти в файле <i>CodeClasses.iss</i>.</p>
+</div>
+</body>
+</html>

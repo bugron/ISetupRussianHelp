@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Структура скрипта</title>
+<!--[if IE 6]><style type="text/css">html{overflow-y:scroll}</style><![endif]-->
+<link rel="stylesheet" type="text/css" href="styles.css" />
+<script type="text/javascript" src="topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Структура скрипта</h1>
+<div class="topicbody">
+  <p>Скрипт Inno Setup разделен на <i>секции</i>. Каждая секция отвечает за свой участок инсталляции. Секции начинаются с определением их имени, включенного в квадратные скобки (<tt>[]</tt>). В каждом разделе может быть любое число <i>строк</i>.</p>
+  <p>Существует два главных типа секций: секции типа [Setup] включают в себя список директив и их значений (в форме <tt>Директива=Значение</tt>) и секции типа [Files], которые включают в себя список <a href="topic_params.htm">параметров</a>.</p>
+  <p>Примеры двух видов секций:</p>
+  <pre class="indent examplebox">[Setup]<br />AppName=My Program<br /><br />[Files]<br />Source: &quot;MYPROG.EXE&quot;; DestDir: &quot;{app}&quot;</pre>
+  <p>Обратите внимание, что можно указать несколько секций с одним и тем же названием.</p>
+  <p>В скрипт можно добавить комментарий, который будет игнорирован при компиляции. Для этого в начале строки ставится точка с запятой (&quot;;&quot;). Например:</p>
+  <pre class="indent examplebox">; Это комментарий</pre>
+  <p>Директива <a name="include" id="include"><tt>#include</tt></a> позволяет взять значение из отдельного файла и вставить его в скрипт в том месте, где она вызывается. Синтаксис директивы следующий:</p>
+  <pre class="indent examplebox">#include &quot;filename.txt&quot;</pre>
+  <p>Если имя файла указано не полностью, компилятор будет искать его в каталоге, указанном директивой <tt>#include</tt>. Если имя файла имеет префикс &quot;compiler:&quot;, компилятор будет искать файл в своем каталоге (каталоге компилятора).</p>
+  <p>Поддерживается директива <a name="preproc" id="preproc"><tt>#preproc</tt></a>, которая указывает, использовать встроенный препроцессор, который поддерживает только директиву <tt>#include</tt>, или использовать препроцкессор Inno Setup (ISPP), который поддерживает множество других директив.  Синтаксис директивы следующий:</p>
+  <pre class="indent examplebox">
+#preproc builtin
+#preproc ispp</pre>
+  <p>По умолчанию, при возможности скрипты используют ISPP, а .isl файлы встроенный препроцессор.</p>
+  <p><br />
+    <b>См. также</b><br />
+    <a href="topic_params.htm">Параметры в секциях</a><br />
+    <a href="topic_consts.htm">Константы</a><br />
+    <a href="topic_commonparams.htm">Общие параметры</a><br />
+    <a href="topic_componentstasksparams.htm">Параметры секций [Components] и [Tasks]</a><br />
+    <a href="topic_setupsection.htm">Секция [Setup]</a><br />
+    <a href="topic_typessection.htm">Секция [Types]</a><br />
+    <a href="topic_componentssection.htm">Секция [Components]</a><br />
+    <a href="topic_taskssection.htm">Секция [Tasks]</a><br />
+    <a href="topic_dirssection.htm">Секция [Dirs]</a><br />
+    <a href="topic_filessection.htm">Секция [Files]</a><br />
+    <a href="topic_iconssection.htm">Секция [Icons]</a><br />
+    <a href="topic_inisection.htm">Секция [INI]</a><br />
+    <a href="topic_installdeletesection.htm">Секция [InstallDelete]</a><br />
+    <a href="topic_languagessection.htm">Секция [Languages]</a><br />
+    <a href="topic_messagessection.htm">Секция [Messages]</a><br />
+    <a href="topic_custommessagessection.htm">Секция [CustomMessages]</a><br />
+    <a href="topic_langoptionssection.htm">Секция [LangOptions]</a><br />
+    <a href="topic_registrysection.htm">Секция [Registry]</a><br />
+    <a href="topic_runsection.htm">Секция [Run]</a><br />
+    <a href="topic_uninstalldeletesection.htm">Секция [UninstallDelete]</a><br />
+    <a href="topic_runsection.htm">Секция [UninstallRun]</a><br />
+    <a href="topic_scriptintro.htm">Pascal Scripting: Введение</a></p>
+</div>
+</body>
+</html>

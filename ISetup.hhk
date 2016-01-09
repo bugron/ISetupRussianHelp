@@ -1,0 +1,1307 @@
+<html><head></head><body>
+<ul>
+<li><object type="text/sitemap"><param name="Name" value="Главная страница"><param name="Local" value="Inno Faq 1.4/index.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Оглавление"><param name="Local" value="Inno Faq 1.4/Primeri.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Отображение картинок на всех страницах инсталятора"><param name="Local" value="Inno Faq 1.4/1.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Ожидание завершения"><param name="Local" value="Inno Faq 1.4/2.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Выделение всех компонентов"><param name="Local" value="Inno Faq 1.4/3.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Проверка системных требований"><param name="Local" value="Inno Faq 1.4/4.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Место на диске"><param name="Local" value="Inno Faq 1.4/5.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Проценты"><param name="Local" value="Inno Faq 1.4/6.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Текстурирование кнопок"><param name="Local" value="Inno Faq 1.4/7.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Текстурирование кнопок через botva2.dll"><param name="Local" value="Inno Faq 1.4/8.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Пример использования визуальных стилей (скинов)"><param name="Local" value="Inno Faq 1.4/9.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Путь из реестра"><param name="Local" value="Inno Faq 1.4/10.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Объем извлеченных файлов"><param name="Local" value="Inno Faq 1.4/11.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Запись в ini"><param name="Local" value="Inno Faq 1.4/12.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Пакетная обработка Precomp"><param name="Local" value="Inno Faq 1.4/13.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Текстурирование прогресс бара"><param name="Local" value="Inno Faq 1.4/14.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Скрипт Prototype"><param name="Local" value="Inno Faq 1.4/15.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Запуск доп. ПО через Code"><param name="Local" value="Inno Faq 1.4/16.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Время до завершения"><param name="Local" value="Inno Faq 1.4/17.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Лингвистическая защита"><param name="Local" value="Inno Faq 1.4/18.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Ассоциация файлов"><param name="Local" value="Inno Faq 1.4/19.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Шифрование инсталятора"><param name="Local" value="Inno Faq 1.4/20.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Запуск файла через [Code]"><param name="Local" value="Inno Faq 1.4/21.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Слайд-шоу в окне инсталляции"><param name="Local" value="Inno Faq 1.4/22.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Бекап файлов"><param name="Local" value="Inno Faq 1.4/23.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Добавление чекбокса"><param name="Local" value="Inno Faq 1.4/24.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Проигрывание музыки"><param name="Local" value="Inno Faq 1.4/25.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Вызов системных MessageBox"><param name="Local" value="Inno Faq 1.4/26.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Создание панели"><param name="Local" value="Inno Faq 1.4/27.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Обводка изображения"><param name="Local" value="Inno Faq 1.4/28.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Картинка внизу страницы со ссылкой"><param name="Local" value="Inno Faq 1.4/29.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Описание компонентов"><param name="Local" value="Inno Faq 1.4/30.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Autorun"><param name="Local" value="Inno Faq 1.4/31.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="При инсталяции создать пустые папки"><param name="Local" value="Inno Faq 1.4/32.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="На этапе установки убить процесс"><param name="Local" value="Inno Faq 1.4/33.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="На этапе деинсталляции убить процесс"><param name="Local" value="Inno Faq 1.4/34.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Дата и время компиляции"><param name="Local" value="Inno Faq 1.4/35.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Проигрывание 2-3 песен во время установки"><param name="Local" value="Inno Faq 1.4/36.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Нативный пример Inno Callback"><param name="Local" value="Inno Faq 1.4/37.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Описание устанавливаемых компонентов"><param name="Local" value="Inno Faq 1.4/38.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Прозрачный инсталятор"><param name="Local" value="Inno Faq 1.4/39.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Добавление чекбоксов на страницу"><param name="Local" value="Inno Faq 1.4/40.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="DirectX через code"><param name="Local" value="Inno Faq 1.4/41.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Запуск MSI инсталятора"><param name="Local" value="Inno Faq 1.4/42.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Запуск от имени администратора"><param name="Local" value="Inno Faq 1.4/43.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Запуск ПО с корня диска"><param name="Local" value="Inno Faq 1.4/44.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Иконка вверху слева"><param name="Local" value="Inno Faq 1.4/45.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Запись имя пользователя в ini"><param name="Local" value="Inno Faq 1.4/46.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Регулятор громкости"><param name="Local" value="Inno Faq 1.4/47.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Переименование файла"><param name="Local" value="Inno Faq 1.4/48.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Проверка параметра DWORD в реестре"><param name="Local" value="Inno Faq 1.4/49.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Прогресс-бар справа внизу"><param name="Local" value="Inno Faq 1.4/50.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Отслеживаем положение мышки"><param name="Local" value="Inno Faq 1.4/51.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Ярлык на рабочем столе на FinishedPage"><param name="Local" value="Inno Faq 1.4/52.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Цвет и подчеркивание URL"><param name="Local" value="Inno Faq 1.4/53.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Чекбоксы(1из3)"><param name="Local" value="Inno Faq 1.4/54.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Ярлык на раб. стол и прог. папку на одной стр."><param name="Local" value="Inno Faq 1.4/55.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Батник после арка."><param name="Local" value="Inno Faq 1.4/56.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Кнопка слева внизу."><param name="Local" value="Inno Faq 1.4/57.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="RecodeOgg."><param name="Local" value="Inno Faq 1.4/58.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Проверка на версию Windows."><param name="Local" value="Inno Faq 1.4/59.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="IsWin64."><param name="Local" value="Inno Faq 1.4/60.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Добавить свой пункт в системное меню 'О программе' ."><param name="Local" value="Inno Faq 1.4/61.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Запрещаем установку в папку Windows."><param name="Local" value="Inno Faq 1.4/62.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Пути к стандартным папкам Windows."><param name="Local" value="Inno Faq 1.4/63.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Двойной слешь для записи в ini."><param name="Local" value="Inno Faq 1.4/64.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Замена меню "О программе"."><param name="Local" value="Inno Faq 1.4/65.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Запрет использования русских символов в пути."><param name="Local" value="Inno Faq 1.4/66.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Дерево дисков и папок."><param name="Local" value="Inno Faq 1.4/67.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Как узнать где находится Setup.exe на CD или на жестком диске?"><param name="Local" value="Inno Faq 1.4/68.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Как сделать проверку через реестр установлена программа или нет?"><param name="Local" value="Inno Faq 1.4/69.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Как добавить описание к компонентам в ComponentsList?"><param name="Local" value="Inno Faq 1.4/70.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Как внести значение в INI-файл в зависимости от выбранного чекбокса"><param name="Local" value="Inno Faq 1.4/71.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Как удалить кнопки свернуть, развернуть из окна инсталлятора?"><param name="Local" value="Inno Faq 1.4/72.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Как динамически создать батник?"><param name="Local" value="Inno Faq 1.4/73.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Как добавить проверку свободного/необходимого места на жестком диске?"><param name="Local" value="Inno Faq 1.4/74.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Как получить определенное значение из INI-файла?"><param name="Local" value="Inno Faq 1.4/75.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Как растянуть картинку на первой и последней странице?"><param name="Local" value="Inno Faq 1.4/76.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Как добавить TMemo на страницу установки, в котором будут отображаться извлекаемые файлы?"><param name="Local" value="Inno Faq 1.4/77.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Как сделать проверку на количество извлеченных файлов?"><param name="Local" value="Inno Faq 1.4/78.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Как добавить свой шрифт в инсталлятор?"><param name="Local" value="Inno Faq 1.4/79.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Как &quot;прицепить&quot; дополнительную форму к окну инсталлятора, чтобы при перемещении дополнительная форма двигалась вместе с окном инсталлятора?"><param name="Local" value="Inno Faq 1.4/80.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Я использовал предыдущий пример Как теперь сделать чтобы при перемещении доп. формы двигалась и основная форма?"><param name="Local" value="Inno Faq 1.4/81.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Как сделать собственную форму сообщения при нажатии на кнопку "Отмена"? (Требуется Botva2.dll)"><param name="Local" value="Inno Faq 1.4/82.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Как разрешить установку продукта только на диск с файловой системой NTFS?"><param name="Local" value="Inno Faq 1.4/83.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Как запретить установку в папку с русскими буквами?"><param name="Local" value="Inno Faq 1.4/84.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Как установить приоритет для инсталлятора?"><param name="Local" value="Inno Faq 1.4/85.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Меняем стандартный вид папки на иконку установленной программы как в меню "Пуск" так и в "пути" установки."><param name="Local" value="Inno Faq 1.4/86.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="А прочитать список файлов в папке как нить можно?"><param name="Local" value="Inno Faq 1.4/87.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Как отключить закрытие хендла клавишами ALT+F4 и кнопкой X у созданной ранее дополнительной Tform?"><param name="Local" value="Inno Faq 1.4/88.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Как сделать установку на логический диск не являющийся системным?"><param name="Local" value="Inno Faq 1.4/89.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Как скрыть все страницы инсталлятора?"><param name="Local" value="Inno Faq 1.4/90.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Можно ли сделать свою форму запроса следующего диска."><param name="Local" value="Inno Faq 1.4/91.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Как сделать, чтобы при распаковке файлов, инсталл убирался в маленькое окошко в углу экрана?"><param name="Local" value="Inno Faq 1.4/92.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Как обнаружить версию установленного IE"><param name="Local" value="Inno Faq 1.4/93.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Как обнаружить, установлен ли windows installer"><param name="Local" value="Inno Faq 1.4/94.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Как обнаружить версию DirectX"><param name="Local" value="Inno Faq 1.4/95.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Как обнаружить vbscript во время выполнения wscript.exe"><param name="Local" value="Inno Faq 1.4/96.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Как обнаружить текущее разрешение дисплея и глубину цвета"><param name="Local" value="Inno Faq 1.4/97.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Как обнаружить версию установленного IIS"><param name="Local" value="Inno Faq 1.4/98.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Как добавить строку в текстовом файле"><param name="Local" value="Inno Faq 1.4/99.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Как заменить строку в текстовом файле"><param name="Local" value="Inno Faq 1.4/100.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Как обнаружить версию установленного ADSI"><param name="Local" value="Inno Faq 1.4/101.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Как получить тип диска"><param name="Local" value="Inno Faq 1.4/102.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Как обнаружить версию установленного MS Access"><param name="Local" value="Inno Faq 1.4/103.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Как обнаружить версию установленного SQL Server или MSDE"><param name="Local" value="Inno Faq 1.4/104.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Как обнаружить физическую память"><param name="Local" value="Inno Faq 1.4/105.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Как выйти из системы, если пользователь не Администратор"><param name="Local" value="Inno Faq 1.4/106.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Как обнаружить первый дисковод в системе"><param name="Local" value="Inno Faq 1.4/107.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Функции для запуска, остановки, установки и удаления служб Windows NT"><param name="Local" value="Inno Faq 1.4/108.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Как обнаружить версию установленного Acrobat Reader"><param name="Local" value="Inno Faq 1.4/109.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Как обнаружить по имени класса окна выполняется ли Excel"><param name="Local" value="Inno Faq 1.4/110.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Как проверить на JDK"><param name="Local" value="Inno Faq 1.4/111.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Как запретить пользователю выбрать папку установки с пробелами"><param name="Local" value="Inno Faq 1.4/112.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Как сохранить дату и время установки в реестре"><param name="Local" value="Inno Faq 1.4/113.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Как установить дату ограничения по времени для установщика"><param name="Local" value="Inno Faq 1.4/114.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Как обнаружить версию поискогово дополнения Acrobat Reader"><param name="Local" value="Inno Faq 1.4/115.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Как создать карту диска, используя диалоговое окно сетевого соединения"><param name="Local" value="Inno Faq 1.4/116.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="How To: SplashScreen with Inno Setup 4.1.3"><param name="Local" value="Inno Faq 1.4/117.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Как изменить курсор в WizardForm"><param name="Local" value="Inno Faq 1.4/118.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="How to close an application posting a QUIT message"><param name="Local" value="Inno Faq 1.4/119.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Как проверить на наличие .NET Framework для Inno Setup 5"><param name="Local" value="Inno Faq 1.4/120.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Как включать вторую страницу лицензии"><param name="Local" value="Inno Faq 1.4/121.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Установка переменных среды в Windows 9x, NT, 2000 или XP"><param name="Local" value="Inno Faq 1.4/122.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Как попросить пароль при деинсталляции"><param name="Local" value="Inno Faq 1.4/123.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Add a button to License page to print it for IS 5"><param name="Local" value="Inno Faq 1.4/124.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Create an auto increment build number"><param name="Local" value="Inno Faq 1.4/125.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Add to the setup name the build date and time"><param name="Local" value="Inno Faq 1.4/126.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Custom message box"><param name="Local" value="Inno Faq 1.4/127.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Compile different builds in a snap"><param name="Local" value="Inno Faq 1.4/128.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Страница с выбором дополнительной папки"><param name="Local" value="Inno Faq 1.4/129.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Как добавить дополнительную страницу лицензии"><param name="Local" value="Inno Faq 1.4/130.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value=" Удаление или перезапись уже установленной программы"><param name="Local" value="Inno Faq 1.4/131.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Анимированное появление формы инсталлятора"><param name="Local" value="Inno Faq 1.4/132.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Установка программы в корне выбранного диска"><param name="Local" value="Inno Faq 1.4/133.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Пример заднего фона"><param name="Local" value="Inno Faq 1.4/134.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Бекап устанавливаемых файлов"><param name="Local" value="Inno Faq 1.4/135.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Изменение надписи в панели задач"><param name="Local" value="Inno Faq 1.4/136.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Проверка значения в реестре с выводом нужной инфы в панель"><param name="Local" value="Inno Faq 1.4/137.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Процедура для копирования папок"><param name="Local" value="Inno Faq 1.4/138.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Улучшенный деинсталлятор 2"><param name="Local" value="Inno Faq 1.4/139.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Отдельная страница для установки DirectX"><param name="Local" value="Inno Faq 1.4/140.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Как добавить исключение в Windows Firewall"><param name="Local" value="Inno Faq 1.4/141.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Меняем иконку папки проги"><param name="Local" value="Inno Faq 1.4/142.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Как узнать нажата ли клавиша"><param name="Local" value="Inno Faq 1.4/143.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Установка экранной заставки"><param name="Local" value="Inno Faq 1.4/144.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Проверяем подключение к Интернету"><param name="Local" value="Inno Faq 1.4/145.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Страница лицензии"><param name="Local" value="Inno Faq 1.4/146.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Проверка версии MDAC"><param name="Local" value="Inno Faq 1.4/147.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Изменение кнопки зарытия"><param name="Local" value="Inno Faq 1.4/148.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Ссылка на сайт"><param name="Local" value="Inno Faq 1.4/149.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Как сделать форму инсталлятора не перемещаемым"><param name="Local" value="Inno Faq 1.4/150.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Отключение экранной заставки"><param name="Local" value="Inno Faq 1.4/151.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Удаляем границы инсталлятора"><param name="Local" value="Inno Faq 1.4/152.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Как запретить запкск более одной копии инсталлятора"><param name="Local" value="Inno Faq 1.4/153.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Печать текста лицензии, улучшенный вариант"><param name="Local" value="Inno Faq 1.4/154.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Копирование папки (отдельная страница)"><param name="Local" value="Inno Faq 1.4/155.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Пример использования PSVince"><param name="Local" value="Inno Faq 1.4/156.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Поиск файлов"><param name="Local" value="Inno Faq 1.4/157.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Создаем панель"><param name="Local" value="Inno Faq 1.4/158.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Выводим время старта и завершения инсталяции"><param name="Local" value="Inno Faq 1.4/159.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Прозрачный инсталлятор"><param name="Local" value="Inno Faq 1.4/160.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Режим совместимости с Вин98 для ярлыка и исполняемого файла"><param name="Local" value="Inno Faq 1.4/161.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Форма инсталла поверх остальных"><param name="Local" value="Inno Faq 1.4/162.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Иконка вверху слева 2"><param name="Local" value="Inno Faq 1.4/163.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Бегущая строка на WizardForm"><param name="Local" value="Inno Faq 1.4/164.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Вывести мессажд, если на диске не хватает места"><param name="Local" value="Inno Faq 1.4/165.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Печатная машинка"><param name="Local" value="Inno Faq 1.4/166.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Плавное закрытие инсталлятора"><param name="Local" value="Inno Faq 1.4/167.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Прозрачность формы инсталлятора"><param name="Local" value="Inno Faq 1.4/168.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Улучшенный деинсталлятор"><param name="Local" value="Inno Faq 1.4/169.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Как на панели задач показать эскиз инсталлятора"><param name="Local" value="Inno Faq 1.4/170.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Примеры пред инсталляционных процессов"><param name="Local" value="Inno Faq 1.4/171.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Создание контрольной точки восстановления системы перед установкой."><param name="Local" value="Inno Faq 1.4/172.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Компактный режим установки"><param name="Local" value="Inno Faq 1.4/173.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Деактивация кнопки закрытия"><param name="Local" value="Inno Faq 1.4/174.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Изменение иконки системного меню"><param name="Local" value="Inno Faq 1.4/175.htm"></object>
+</ul>
+<ul>
+<li><object type="text/sitemap"><param name="Name" value="#include"><param name="Local" value="topic_scriptformatoverview.htm#include"></object>
+<li><object type="text/sitemap"><param name="Name" value="#append"><param name="Local" value="ISPP/topic_append.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="#define"><param name="Local" value="ISPP/topic_macros.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="#define"><param name="Local" value="ISPP/topic_define.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="#dim, #redim"><param name="Local" value="ISPP/topic_dim.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="#emit"><param name="Local" value="ISPP/topic_emit.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="#error"><param name="Local" value="ISPP/topic_error.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="#expr"><param name="Local" value="ISPP/topic_expr.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="#file"><param name="Local" value="ISPP/topic_file.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="#for"><param name="Local" value="ISPP/topic_for.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="#if, #elif, #else, #endif"><param name="Local" value="ISPP/topic_if.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="#ifdef, #ifndef, #ifexist, #ifnexist"><param name="Local" value="ISPP/topic_ifdef.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="#include"><param name="Local" value="ISPP/topic_include.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="#insert"><param name="Local" value="ISPP/topic_insert.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="#pragma"><param name="Local" value="ISPP/topic_pragma.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="#sub, #endsub"><param name="Local" value="ISPP/topic_sub.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="#undef"><param name="Local" value="ISPP/topic_undef.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="AddBackslash"><param name="Local" value="ISPP/topic_addbackslash.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="append"><param name="Local" value="ISPP/topic_append.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="ChangeFileExt"><param name="Local" value="ISPP/topic_changefileext.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Comments"><param name="Local" value="ISPP/topic_expressions.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Copy"><param name="Local" value="ISPP/topic_copy.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="CopyFile"><param name="Local" value="ISPP/topic_copyfile.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Current translation"><param name="Local" value="ISPP/topic_current-translation.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="DecodeVer"><param name="Local" value="ISPP/topic_decodever.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="define"><param name="Local" value="ISPP/topic_macros.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="define"><param name="Local" value="ISPP/topic_define.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Defined"><param name="Local" value="ISPP/topic_defined.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Delete"><param name="Local" value="ISPP/topic_delete.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="DeleteFile"><param name="Local" value="ISPP/topic_deletefile.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="DeleteFileNow"><param name="Local" value="ISPP/topic_deletefilenow.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="dim"><param name="Local" value="ISPP/topic_dim.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="DimOf"><param name="Local" value="ISPP/topic_dimof.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Directives"><param name="Local" value="ISPP/topic_directives.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="DirExists"><param name="Local" value="ISPP/topic_direxists.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Documentation Conventions"><param name="Local" value="ISPP/topic_docconv.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="elif"><param name="Local" value="ISPP/topic_if.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="else"><param name="Local" value="ISPP/topic_if.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="emit"><param name="Local" value="ISPP/topic_emit.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="EncodeVer"><param name="Local" value="ISPP/topic_encodever.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="endif"><param name="Local" value="ISPP/topic_if.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="endsub"><param name="Local" value="ISPP/topic_sub.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="EntryCount"><param name="Local" value="ISPP/topic_entrycount.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="error"><param name="Local" value="ISPP/topic_error.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Example Script"><param name="Local" value="ISPP/topic_example.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Exec"><param name="Local" value="ISPP/topic_exec.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="expr"><param name="Local" value="ISPP/topic_expr.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Expression Syntax"><param name="Local" value="ISPP/topic_expressions.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Extended Command Line Compiler"><param name="Local" value="ISPP/topic_isppcc.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="ExtractFileDir"><param name="Local" value="ISPP/topic_extractfiledir.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="ExtractFileExt"><param name="Local" value="ISPP/topic_extractfileext.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="ExtractFileName"><param name="Local" value="ISPP/topic_extractfilename.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="ExtractFilePath"><param name="Local" value="ISPP/topic_extractfilepath.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="file"><param name="Local" value="ISPP/topic_file.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="FileClose"><param name="Local" value="ISPP/topic_fileclose.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="FileEof"><param name="Local" value="ISPP/topic_fileeof.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="FileExists"><param name="Local" value="ISPP/topic_fileexists.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="FileOpen"><param name="Local" value="ISPP/topic_fileopen.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="FileRead"><param name="Local" value="ISPP/topic_fileread.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="FileReset"><param name="Local" value="ISPP/topic_filereset.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="FileSize"><param name="Local" value="ISPP/topic_filesize.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Find"><param name="Local" value="ISPP/topic_find.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Find flags"><param name="Local" value="ISPP/topic_find-flags.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="FindClose"><param name="Local" value="ISPP/topic_findclose.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="FindCode"><param name="Local" value="ISPP/topic_findcode.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="FindFirst"><param name="Local" value="ISPP/topic_findfirst.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="FindGetFileName"><param name="Local" value="ISPP/topic_findgetfilename.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="FindNext"><param name="Local" value="ISPP/topic_findnext.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="FindSection"><param name="Local" value="ISPP/topic_findsection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="FindSectionEnd"><param name="Local" value="ISPP/topic_findsectionend.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="for"><param name="Local" value="ISPP/topic_for.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Functions"><param name="Local" value="ISPP/topic_funcs.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="GetDateTimeString"><param name="Local" value="ISPP/topic_getdatetimestring.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="GetEnv"><param name="Local" value="ISPP/topic_getenv.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="GetFileDateTimeString"><param name="Local" value="ISPP/topic_getfiledatetimestring.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="GetFileVersion"><param name="Local" value="ISPP/topic_getfileversion.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="GetMD5OfFile"><param name="Local" value="ISPP/topic_getmd5offile.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="GetMD5OfString"><param name="Local" value="ISPP/topic_getmd5ofstring.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="GetMD5OfUnicodeString"><param name="Local" value="ISPP/topic_getmd5ofunicodestring.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="GetSHA1OfFile"><param name="Local" value="ISPP/topic_getsha1offile.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="GetSHA1OfString"><param name="Local" value="ISPP/topic_getsha1ofstring.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="GetSHA1OfUnicodeString"><param name="Local" value="ISPP/topic_getsha1ofunicodestring.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="GetStringFileInfo"><param name="Local" value="ISPP/topic_getstringfileinfo.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="if"><param name="Local" value="ISPP/topic_if.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="ifdef"><param name="Local" value="ISPP/topic_ifdef.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="ifexist"><param name="Local" value="ISPP/topic_ifdef.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="ifndef"><param name="Local" value="ISPP/topic_ifdef.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="ifnexist"><param name="Local" value="ISPP/topic_ifdef.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="include"><param name="Local" value="ISPP/topic_include.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Insert"><param name="Local" value="ISPP/topic_insert2.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="insert"><param name="Local" value="ISPP/topic_insert.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Int"><param name="Local" value="ISPP/topic_int.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Introduction"><param name="Local" value="ISPP/topic_isppoverview.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="ISPPBuiltins.iss"><param name="Local" value="ISPP/topic_builtinsiss.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Len"><param name="Local" value="ISPP/topic_len.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Line Spanning"><param name="Local" value="ISPP/topic_linespan.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="LowerCase"><param name="Local" value="ISPP/topic_lowercase.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="macros"><param name="Local" value="ISPP/topic_macros.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Macros' Local array"><param name="Local" value="ISPP/topic_localarray.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Max"><param name="Local" value="ISPP/topic_max.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Min"><param name="Local" value="ISPP/topic_min.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="ParseVersion"><param name="Local" value="ISPP/topic_parseversion.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Pos"><param name="Local" value="ISPP/topic_pos.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Power"><param name="Local" value="ISPP/topic_power.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="pragma"><param name="Local" value="ISPP/topic_pragma.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Predefined Variables"><param name="Local" value="ISPP/topic_predefinedvars.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="private"><param name="Local" value="ISPP/topic_visibility.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="protected"><param name="Local" value="ISPP/topic_visibility.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="public"><param name="Local" value="ISPP/topic_visibility.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="ReadIni"><param name="Local" value="ISPP/topic_readini.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="ReadReg"><param name="Local" value="ISPP/topic_readreg.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="redim"><param name="Local" value="ISPP/topic_dim.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="RemoveBackslash"><param name="Local" value="ISPP/topic_removebackslash.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="RPos"><param name="Local" value="ISPP/topic_rpos.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="SaveToFile"><param name="Local" value="ISPP/topic_savetofile.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="SetSetupSetting"><param name="Local" value="ISPP/topic_setsetupsetting.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="SetupSetting"><param name="Local" value="ISPP/topic_setupsetting.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Str"><param name="Local" value="ISPP/topic_str.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="StringChange"><param name="Local" value="ISPP/topic_stringchange.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="sub"><param name="Local" value="ISPP/topic_sub.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Translation"><param name="Local" value="ISPP/topic_translation.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Trim"><param name="Local" value="ISPP/topic_trim.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="TypeOf"><param name="Local" value="ISPP/topic_typeof.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="undef"><param name="Local" value="ISPP/topic_undef.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="User Defined Macros"><param name="Local" value="ISPP/topic_macros.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="visibility"><param name="Local" value="ISPP/topic_visibility.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Visibility of Identifiers"><param name="Local" value="ISPP/topic_visibility.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="WriteIni"><param name="Local" value="ISPP/topic_writeini.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="YesNo"><param name="Local" value="ISPP/topic_yesno.htm"></object>
+</ul>
+<ul>
+<li><object type="text/sitemap"><param name="Name" value="#include"><param name="Local" value="topic_scriptformatoverview.htm#include"></object>
+<li><object type="text/sitemap"><param name="Name" value="#preproc"><param name="Local" value="topic_scriptformatoverview.htm#preproc"></object>
+<li><object type="text/sitemap"><param name="Name" value="/?"><param name="Local" value="topic_setupcmdline.htm#HELP2"></object>
+<li><object type="text/sitemap"><param name="Name" value="/CLOSEAPPLICATIONS"><param name="Local" value="topic_setupcmdline.htm#CLOSEAPPLICATIONS"></object>
+<li><object type="text/sitemap"><param name="Name" value="/COMPONENTS="><param name="Local" value="topic_setupcmdline.htm#COMPONENTS"></object>
+<li><object type="text/sitemap"><param name="Name" value="/DIR="><param name="Local" value="topic_setupcmdline.htm#DIR"></object>
+<li><object type="text/sitemap"><param name="Name" value="/GROUP="><param name="Local" value="topic_setupcmdline.htm#GROUP"></object>
+<li><object type="text/sitemap"><param name="Name" value="/HELP"><param name="Local" value="topic_setupcmdline.htm#HELP"></object>
+<li><object type="text/sitemap"><param name="Name" value="/LANG="><param name="Local" value="topic_setupcmdline.htm#LANG"></object>
+<li><object type="text/sitemap"><param name="Name" value="/LOADINF="><param name="Local" value="topic_setupcmdline.htm#LOADINF"></object>
+<li><object type="text/sitemap"><param name="Name" value="/LOG"><param name="Local" value="topic_setup_setuplogging.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="/LOG"><param name="Local" value="topic_uninstcmdline.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="/LOG"><param name="Local" value="topic_setupcmdline.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="/LOG="><param name="Local" value="topic_uninstcmdline.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="/LOG="><param name="Local" value="topic_setupcmdline.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="/MERGETASKS="><param name="Local" value="topic_setupcmdline.htm#MERGETASKS"></object>
+<li><object type="text/sitemap"><param name="Name" value="/NOCANCEL"><param name="Local" value="topic_setupcmdline.htm#NOCANCEL"></object>
+<li><object type="text/sitemap"><param name="Name" value="/NOCLOSEAPPLICATIONS"><param name="Local" value="topic_setupcmdline.htm#NOCLOSEAPPLICATIONS"></object>
+<li><object type="text/sitemap"><param name="Name" value="/NOICONS"><param name="Local" value="topic_setupcmdline.htm#NOICONS"></object>
+<li><object type="text/sitemap"><param name="Name" value="/NORESTART"><param name="Local" value="topic_uninstcmdline.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="/NORESTART"><param name="Local" value="topic_setupcmdline.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="/NORESTARTAPPLICATIONS"><param name="Local" value="topic_setupcmdline.htm#NORESTARTAPPLICATIONS"></object>
+<li><object type="text/sitemap"><param name="Name" value="/PASSWORD="><param name="Local" value="topic_setupcmdline.htm#PASSWORD"></object>
+<li><object type="text/sitemap"><param name="Name" value="/RESTARTAPPLICATIONS"><param name="Local" value="topic_setupcmdline.htm#RESTARTAPPLICATIONS"></object>
+<li><object type="text/sitemap"><param name="Name" value="/RESTARTEXITCODE="><param name="Local" value="topic_setupcmdline.htm#RESTARTEXITCODE"></object>
+<li><object type="text/sitemap"><param name="Name" value="/SAVEINF="><param name="Local" value="topic_setupcmdline.htm#SAVEINF"></object>
+<li><object type="text/sitemap"><param name="Name" value="/SILENT"><param name="Local" value="topic_uninstcmdline.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="/SILENT"><param name="Local" value="topic_setupcmdline.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="/SP-"><param name="Local" value="topic_setupcmdline.htm#SP-"></object>
+<li><object type="text/sitemap"><param name="Name" value="/SUPPRESSMSGBOXES"><param name="Local" value="topic_uninstcmdline.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="/SUPPRESSMSGBOXES"><param name="Local" value="topic_setupcmdline.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="/TASKS="><param name="Local" value="topic_setupcmdline.htm#TASKS"></object>
+<li><object type="text/sitemap"><param name="Name" value="/TYPE="><param name="Local" value="topic_setupcmdline.htm#TYPE"></object>
+<li><object type="text/sitemap"><param name="Name" value="/VERYSILENT"><param name="Local" value="topic_uninstcmdline.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="/VERYSILENT"><param name="Local" value="topic_setupcmdline.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="[Code] section"><param name="Local" value="topic_scriptcreating.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="[Components] section"><param name="Local" value="topic_componentssection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="[CustomMessages] section"><param name="Local" value="topic_custommessagessection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="[Dirs] section"><param name="Local" value="topic_dirssection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="[Files] section"><param name="Local" value="topic_filessection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="[Icons] section"><param name="Local" value="topic_iconssection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="[INI] section"><param name="Local" value="topic_inisection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="[InstallDelete] section"><param name="Local" value="topic_installdeletesection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="[LangOptions] section"><param name="Local" value="topic_langoptionssection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="[Languages] section"><param name="Local" value="topic_languagessection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="[Messages] section"><param name="Local" value="topic_messagessection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="[Registry] section"><param name="Local" value="topic_registrysection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="[Run] section"><param name="Local" value="topic_runsection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="[Setup] section"><param name="Local" value="topic_setupsection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="[Tasks] section"><param name="Local" value="topic_taskssection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="[Types] section"><param name="Local" value="topic_typessection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="[UninstallDelete] section"><param name="Local" value="topic_uninstalldeletesection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="[UninstallRun] section"><param name="Local" value="topic_runsection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="{%NAME}"><param name="Local" value="topic_consts.htm#name"></object>
+<li><object type="text/sitemap"><param name="Name" value="{\}"><param name="Local" value="topic_consts.htm#bs"></object>
+<li><object type="text/sitemap"><param name="Name" value="{app}"><param name="Local" value="topic_consts.htm#app"></object>
+<li><object type="text/sitemap"><param name="Name" value="{cf}"><param name="Local" value="topic_consts.htm#cf"></object>
+<li><object type="text/sitemap"><param name="Name" value="{cf32}"><param name="Local" value="topic_consts.htm#cf32"></object>
+<li><object type="text/sitemap"><param name="Name" value="{cf64}"><param name="Local" value="topic_consts.htm#cf64"></object>
+<li><object type="text/sitemap"><param name="Name" value="{cm:...}"><param name="Local" value="topic_consts.htm#cm"></object>
+<li><object type="text/sitemap"><param name="Name" value="{cmd}"><param name="Local" value="topic_consts.htm#cmd"></object>
+<li><object type="text/sitemap"><param name="Name" value="{code:...}"><param name="Local" value="topic_scriptconstants.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="{commonappdata}"><param name="Local" value="topic_consts.htm#commonappdata"></object>
+<li><object type="text/sitemap"><param name="Name" value="{commondesktop}"><param name="Local" value="topic_consts.htm#commondesktop"></object>
+<li><object type="text/sitemap"><param name="Name" value="{commondocs}"><param name="Local" value="topic_consts.htm#commondocs"></object>
+<li><object type="text/sitemap"><param name="Name" value="{commonfavorites}"><param name="Local" value="topic_consts.htm#commonfavorites"></object>
+<li><object type="text/sitemap"><param name="Name" value="{commonprograms}"><param name="Local" value="topic_consts.htm#commonprograms"></object>
+<li><object type="text/sitemap"><param name="Name" value="{commonstartmenu}"><param name="Local" value="topic_consts.htm#commonstartmenu"></object>
+<li><object type="text/sitemap"><param name="Name" value="{commonstartup}"><param name="Local" value="topic_consts.htm#commonstartup"></object>
+<li><object type="text/sitemap"><param name="Name" value="{commontemplates}"><param name="Local" value="topic_consts.htm#commontemplates"></object>
+<li><object type="text/sitemap"><param name="Name" value="{computername}"><param name="Local" value="topic_consts.htm#computername"></object>
+<li><object type="text/sitemap"><param name="Name" value="{dao}"><param name="Local" value="topic_consts.htm#dao"></object>
+<li><object type="text/sitemap"><param name="Name" value="{dotnet11}"><param name="Local" value="topic_consts.htm#dotnet11"></object>
+<li><object type="text/sitemap"><param name="Name" value="{dotnet20}"><param name="Local" value="topic_consts.htm#dotnet20"></object>
+<li><object type="text/sitemap"><param name="Name" value="{dotnet2032}"><param name="Local" value="topic_consts.htm#dotnet2032"></object>
+<li><object type="text/sitemap"><param name="Name" value="{dotnet2064}"><param name="Local" value="topic_consts.htm#dotnet2064"></object>
+<li><object type="text/sitemap"><param name="Name" value="{dotnet40}"><param name="Local" value="topic_consts.htm#dotnet40"></object>
+<li><object type="text/sitemap"><param name="Name" value="{dotnet4032}"><param name="Local" value="topic_consts.htm#dotnet4032"></object>
+<li><object type="text/sitemap"><param name="Name" value="{dotnet4064}"><param name="Local" value="topic_consts.htm#dotnet4064"></object>
+<li><object type="text/sitemap"><param name="Name" value="{drive:...}"><param name="Local" value="topic_consts.htm#drive"></object>
+<li><object type="text/sitemap"><param name="Name" value="{fonts}"><param name="Local" value="topic_consts.htm#fonts"></object>
+<li><object type="text/sitemap"><param name="Name" value="{group}"><param name="Local" value="topic_consts.htm#group"></object>
+<li><object type="text/sitemap"><param name="Name" value="{groupname}"><param name="Local" value="topic_consts.htm#groupname"></object>
+<li><object type="text/sitemap"><param name="Name" value="{hwnd}"><param name="Local" value="topic_consts.htm#hwnd"></object>
+<li><object type="text/sitemap"><param name="Name" value="{ini:...}"><param name="Local" value="topic_consts.htm#ini"></object>
+<li><object type="text/sitemap"><param name="Name" value="{language}"><param name="Local" value="topic_consts.htm#language"></object>
+<li><object type="text/sitemap"><param name="Name" value="{localappdata}"><param name="Local" value="topic_consts.htm#localappdata"></object>
+<li><object type="text/sitemap"><param name="Name" value="{log}"><param name="Local" value="topic_consts.htm#log"></object>
+<li><object type="text/sitemap"><param name="Name" value="{param:...}"><param name="Local" value="topic_consts.htm#param"></object>
+<li><object type="text/sitemap"><param name="Name" value="{pf}"><param name="Local" value="topic_consts.htm#pf"></object>
+<li><object type="text/sitemap"><param name="Name" value="{pf32}"><param name="Local" value="topic_consts.htm#pf32"></object>
+<li><object type="text/sitemap"><param name="Name" value="{pf64}"><param name="Local" value="topic_consts.htm#pf64"></object>
+<li><object type="text/sitemap"><param name="Name" value="{reg:...}"><param name="Local" value="topic_consts.htm#reg"></object>
+<li><object type="text/sitemap"><param name="Name" value="{sd}"><param name="Local" value="topic_consts.htm#sd"></object>
+<li><object type="text/sitemap"><param name="Name" value="{sendto}"><param name="Local" value="topic_consts.htm#sendto"></object>
+<li><object type="text/sitemap"><param name="Name" value="{src}"><param name="Local" value="topic_consts.htm#src"></object>
+<li><object type="text/sitemap"><param name="Name" value="{srcexe}"><param name="Local" value="topic_consts.htm#srcexe"></object>
+<li><object type="text/sitemap"><param name="Name" value="{sys}"><param name="Local" value="topic_consts.htm#sys"></object>
+<li><object type="text/sitemap"><param name="Name" value="{sysuserinfoname}"><param name="Local" value="topic_consts.htm#sysuserinfoname"></object>
+<li><object type="text/sitemap"><param name="Name" value="{sysuserinfoorg}"><param name="Local" value="topic_consts.htm#sysuserinfoorg"></object>
+<li><object type="text/sitemap"><param name="Name" value="{syswow64}"><param name="Local" value="topic_consts.htm#syswow64"></object>
+<li><object type="text/sitemap"><param name="Name" value="{tmp}"><param name="Local" value="topic_consts.htm#tmp"></object>
+<li><object type="text/sitemap"><param name="Name" value="{uninstallexe}"><param name="Local" value="topic_consts.htm#uninstallexe"></object>
+<li><object type="text/sitemap"><param name="Name" value="{userappdata}"><param name="Local" value="topic_consts.htm#userappdata"></object>
+<li><object type="text/sitemap"><param name="Name" value="{usercf}"><param name="Local" value="topic_consts.htm#usercf"></object>
+<li><object type="text/sitemap"><param name="Name" value="{userdesktop}"><param name="Local" value="topic_consts.htm#userdesktop"></object>
+<li><object type="text/sitemap"><param name="Name" value="{userdocs}"><param name="Local" value="topic_consts.htm#userdocs"></object>
+<li><object type="text/sitemap"><param name="Name" value="{userfavorites}"><param name="Local" value="topic_consts.htm#userfavorites"></object>
+<li><object type="text/sitemap"><param name="Name" value="{userinfoname}"><param name="Local" value="topic_consts.htm#userinfoname"></object>
+<li><object type="text/sitemap"><param name="Name" value="{userinfoorg}"><param name="Local" value="topic_consts.htm#userinfoorg"></object>
+<li><object type="text/sitemap"><param name="Name" value="{userinfoserial}"><param name="Local" value="topic_consts.htm#userinfoserial"></object>
+<li><object type="text/sitemap"><param name="Name" value="{username}"><param name="Local" value="topic_consts.htm#username"></object>
+<li><object type="text/sitemap"><param name="Name" value="{userpf}"><param name="Local" value="topic_consts.htm#userpf"></object>
+<li><object type="text/sitemap"><param name="Name" value="{userprograms}"><param name="Local" value="topic_consts.htm#userprograms"></object>
+<li><object type="text/sitemap"><param name="Name" value="{userstartmenu}"><param name="Local" value="topic_consts.htm#userstartmenu"></object>
+<li><object type="text/sitemap"><param name="Name" value="{userstartup}"><param name="Local" value="topic_consts.htm#userstartup"></object>
+<li><object type="text/sitemap"><param name="Name" value="{usertemplates}"><param name="Local" value="topic_consts.htm#usertemplates"></object>
+<li><object type="text/sitemap"><param name="Name" value="{win}"><param name="Local" value="topic_consts.htm#win"></object>
+<li><object type="text/sitemap"><param name="Name" value="{wizardhwnd}"><param name="Local" value="topic_consts.htm#wizardhwnd"></object>
+<li><object type="text/sitemap"><param name="Name" value="32bit"><param name="Local" value="topic_runsection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="32bit"><param name="Local" value="topic_filessection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="32-bit install mode"><param name="Local" value="topic_setup_architecturesinstallin64bitmode.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="32-bit install mode"><param name="Local" value="topic_32vs64bitinstalls.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="64bit"><param name="Local" value="topic_runsection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="64bit"><param name="Local" value="topic_filessection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="64-bit install mode"><param name="Local" value="topic_setup_architecturesinstallin64bitmode.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="64-bit install mode"><param name="Local" value="topic_64bitlimitations.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="64-bit install mode"><param name="Local" value="topic_32vs64bitinstalls.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="64-bit Installation Limitations"><param name="Local" value="topic_64bitlimitations.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Abort"><param name="Local" value="isxfunc/topic_isxfunc_abort.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="ActiveLanguage"><param name="Local" value="isxfunc/topic_isxfunc_activelanguage.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="ActiveX Automation"><param name="Local" value="topic_scriptautomation.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="AddBackslash"><param name="Local" value="isxfunc/topic_isxfunc_addbackslash.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="AddPeriod"><param name="Local" value="isxfunc/topic_isxfunc_addperiod.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="AddQuotes"><param name="Local" value="isxfunc/topic_isxfunc_addquotes.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="AfterInstall"><param name="Local" value="topic_scriptinstall.htm#AfterInstall"></object>
+<li><object type="text/sitemap"><param name="Name" value="AfterInstall parameters"><param name="Local" value="topic_scriptinstall.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="AllowCancelDuringInstall"><param name="Local" value="topic_setup_allowcancelduringinstall.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="AllowNetworkDrive"><param name="Local" value="topic_setup_allownetworkdrive.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="AllowNoIcons"><param name="Local" value="topic_setup_allownoicons.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="AllowRootDirectory"><param name="Local" value="topic_setup_allowrootdirectory.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="AllowUNCPath"><param name="Local" value="topic_setup_allowuncpath.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="allowunsafefiles"><param name="Local" value="topic_filessection.htm#allowunsafefiles"></object>
+<li><object type="text/sitemap"><param name="Name" value="AlwaysCreateUninstallIcon"><param name="Local" value="topic_setup_alwayscreateuninstallicon.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="AlwaysRestart"><param name="Local" value="topic_setup_alwaysrestart.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="AlwaysShowComponentsList"><param name="Local" value="topic_setup_alwaysshowcomponentslist.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="AlwaysShowDirOnReadyPage"><param name="Local" value="topic_setup_alwaysshowdironreadypage.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="AlwaysShowGroupOnReadyPage"><param name="Local" value="topic_setup_alwaysshowgrouponreadypage.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="AlwaysUsePersonalGroup"><param name="Local" value="topic_setup_alwaysusepersonalgroup.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="AMD64"><param name="Local" value="topic_setup_architecturesinstallin64bitmode.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="AMD64"><param name="Local" value="topic_setup_architecturesallowed.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="AnsiLowercase"><param name="Local" value="isxfunc/topic_isxfunc_ansilowercase.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="AnsiUppercase"><param name="Local" value="isxfunc/topic_isxfunc_ansiuppercase.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="AppComments"><param name="Local" value="topic_setup_appcomments.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="AppContact"><param name="Local" value="topic_setup_appcontact.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="AppCopyright"><param name="Local" value="topic_setup_appcopyright.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="AppendDefaultDirName"><param name="Local" value="topic_setup_appenddefaultdirname.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="AppendDefaultGroupName"><param name="Local" value="topic_setup_appenddefaultgroupname.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Appending to Existing Uninstall Logs"><param name="Local" value="topic_appendnotes.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="AppId"><param name="Local" value="topic_setup_appid.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="AppModifyPath"><param name="Local" value="topic_setup_appmodifypath.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="AppMutex"><param name="Local" value="topic_setup_appmutex.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="AppName"><param name="Local" value="topic_setup_appname.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="AppPublisher"><param name="Local" value="topic_setup_apppublisher.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="AppPublisherURL"><param name="Local" value="topic_setup_apppublisherurl.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="AppReadmeFile"><param name="Local" value="topic_setup_appreadmefile.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="AppSupportPhone"><param name="Local" value="topic_setup_appsupportphone.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="AppSupportURL"><param name="Local" value="topic_setup_appsupporturl.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="AppUpdatesURL"><param name="Local" value="topic_setup_appupdatesurl.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="AppUserModelID"><param name="Local" value="topic_iconssection.htm#AppUserModelID"></object>
+<li><object type="text/sitemap"><param name="Name" value="AppVerName"><param name="Local" value="topic_setup_appvername.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="AppVersion"><param name="Local" value="topic_setup_appversion.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="ArchitecturesAllowed"><param name="Local" value="topic_setup_architecturesallowed.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="ArchitecturesInstallIn64BitMode"><param name="Local" value="topic_setup_architecturesinstallin64bitmode.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Attribs"><param name="Local" value="topic_filessection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Attribs"><param name="Local" value="topic_dirssection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="BackButtonClick"><param name="Local" value="topic_scriptevents.htm#BackButtonClick"></object>
+<li><object type="text/sitemap"><param name="Name" value="BackColor"><param name="Local" value="topic_setup_backcolor.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="BackColor2"><param name="Local" value="topic_setup_backcolor.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="BackColorDirection"><param name="Local" value="topic_setup_backcolordirection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="BackSolid"><param name="Local" value="topic_setup_backsolid.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="BDE installation"><param name="Local" value="topic_faq.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Beep"><param name="Local" value="isxfunc/topic_isxfunc_beep.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="BeforeInstall"><param name="Local" value="topic_scriptinstall.htm#BeforeInstall"></object>
+<li><object type="text/sitemap"><param name="Name" value="BeforeInstall parameters"><param name="Local" value="topic_scriptinstall.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="BeveledLabel"><param name="Local" value="topic_messagessection.htm#BeveledLabel"></object>
+<li><object type="text/sitemap"><param name="Name" value="BringToFrontAndRestore"><param name="Local" value="isxfunc/topic_isxfunc_bringtofrontandrestore.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="BrowseForFolder"><param name="Local" value="isxfunc/topic_isxfunc_browseforfolder.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="bzip"><param name="Local" value="topic_setup_compression.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="CallDLLProc"><param name="Local" value="isxfunc/topic_isxfunc_calldllproc.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="CancelButtonClick"><param name="Local" value="topic_scriptevents.htm#CancelButtonClick"></object>
+<li><object type="text/sitemap"><param name="Name" value="CastIntegerToString"><param name="Local" value="isxfunc/topic_isxfunc_castintegertostring.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="CastStringToInteger"><param name="Local" value="isxfunc/topic_isxfunc_caststringtointeger.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="ChangeFileExt"><param name="Local" value="isxfunc/topic_isxfunc_changefileext.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="ChangesAssociations"><param name="Local" value="topic_setup_changesassociations.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="ChangesEnvironment"><param name="Local" value="topic_setup_changesenvironment.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="CharLength"><param name="Local" value="isxfunc/topic_isxfunc_charlength.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="CharToOemBuff"><param name="Local" value="isxfunc/topic_isxfunc_chartooembuff.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Check"><param name="Local" value="topic_scriptcheck.htm#Check"></object>
+<li><object type="text/sitemap"><param name="Name" value="Check parameters"><param name="Local" value="topic_scriptcheck.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="checkablealone"><param name="Local" value="topic_taskssection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="checkablealone"><param name="Local" value="topic_componentssection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="checkedonce"><param name="Local" value="topic_taskssection.htm#checkedonce"></object>
+<li><object type="text/sitemap"><param name="Name" value="CheckForMutexes"><param name="Local" value="isxfunc/topic_isxfunc_checkformutexes.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="CheckPassword"><param name="Local" value="topic_scriptevents.htm#CheckPassword"></object>
+<li><object type="text/sitemap"><param name="Name" value="CheckSerial"><param name="Local" value="topic_scriptevents.htm#CheckSerial"></object>
+<li><object type="text/sitemap"><param name="Name" value="Chr"><param name="Local" value="isxfunc/topic_isxfunc_chr.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="CloseApplications"><param name="Local" value="topic_setup_closeapplications.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="CloseApplicationsFilter"><param name="Local" value="topic_setup_closeapplicationsfilter.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="closeonexit"><param name="Local" value="topic_iconssection.htm#closeonexit"></object>
+<li><object type="text/sitemap"><param name="Name" value="Code"><param name="Local" value="topic_scriptcreating.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="code signing"><param name="Local" value="topic_setup_signtool.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="code signing"><param name="Local" value="topic_setup_signeduninstaller.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="CoFreeUnusedLibraries"><param name="Local" value="isxfunc/topic_isxfunc_cofreeunusedlibraries.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="COM Automation"><param name="Local" value="topic_scriptautomation.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Command Line Compiler Execution"><param name="Local" value="topic_compilercmdline.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="command line parameters"><param name="Local" value="topic_uninstcmdline.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="command line parameters"><param name="Local" value="topic_setupcmdline.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="command line parameters"><param name="Local" value="topic_compilercmdline.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Comment"><param name="Local" value="topic_iconssection.htm#Comment"></object>
+<li><object type="text/sitemap"><param name="Name" value="Comments"><param name="Local" value="topic_scriptformatoverview.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Common Parameters"><param name="Local" value="topic_commonparams.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="CompareStr"><param name="Local" value="isxfunc/topic_isxfunc_comparestr.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="CompareText"><param name="Local" value="isxfunc/topic_isxfunc_comparetext.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="comparetimestamp"><param name="Local" value="topic_filessection.htm#comparetimestamp"></object>
+<li><object type="text/sitemap"><param name="Name" value="compil32"><param name="Local" value="topic_compilercmdline.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Components"><param name="Local" value="topic_taskssection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Components"><param name="Local" value="topic_componentssection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Components"><param name="Local" value="topic_componentstasksparams.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Components and Tasks Parameters"><param name="Local" value="topic_componentstasksparams.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Compression"><param name="Local" value="topic_setup_compression.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="CompressionThreads"><param name="Local" value="topic_setup_compressionthreads.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="confirmoverwrite"><param name="Local" value="topic_filessection.htm#confirmoverwrite"></object>
+<li><object type="text/sitemap"><param name="Name" value="Constants"><param name="Local" value="topic_consts.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="ConvertPercentStr"><param name="Local" value="isxfunc/topic_isxfunc_convertpercentstr.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Copy"><param name="Local" value="isxfunc/topic_isxfunc_copy.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="CopyMode"><param name="Local" value="topic_filessection.htm#CopyMode"></object>
+<li><object type="text/sitemap"><param name="Name" value="CopyrightFontName"><param name="Local" value="topic_langoptionssection.htm#CopyrightFontName"></object>
+<li><object type="text/sitemap"><param name="Name" value="CopyrightFontSize"><param name="Local" value="topic_langoptionssection.htm#CopyrightFontSize"></object>
+<li><object type="text/sitemap"><param name="Name" value="createallsubdirs"><param name="Local" value="topic_filessection.htm#createallsubdirs"></object>
+<li><object type="text/sitemap"><param name="Name" value="CreateAppDir"><param name="Local" value="topic_setup_createappdir.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="CreateComObject"><param name="Local" value="isxfunc/topic_isxfunc_createcomobject.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="CreateCustomForm"><param name="Local" value="isxfunc/topic_isxfunc_createcustomform.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="CreateCustomPage"><param name="Local" value="isxfunc/topic_isxfunc_createcustompage.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="CreateDir"><param name="Local" value="isxfunc/topic_isxfunc_createdir.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="CreateInputDirPage"><param name="Local" value="isxfunc/topic_isxfunc_createinputdirpage.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="CreateInputFilePage"><param name="Local" value="isxfunc/topic_isxfunc_createinputfilepage.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="CreateInputOptionPage"><param name="Local" value="isxfunc/topic_isxfunc_createinputoptionpage.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="CreateInputQueryPage"><param name="Local" value="isxfunc/topic_isxfunc_createinputquerypage.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="createkeyifdoesntexist"><param name="Local" value="topic_inisection.htm#createkeyifdoesntexist"></object>
+<li><object type="text/sitemap"><param name="Name" value="CreateMutex"><param name="Local" value="isxfunc/topic_isxfunc_createmutex.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="CreateOleObject"><param name="Local" value="isxfunc/topic_isxfunc_createoleobject.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="createonlyiffileexists"><param name="Local" value="topic_iconssection.htm#createonlyiffileexists"></object>
+<li><object type="text/sitemap"><param name="Name" value="CreateOutputMsgMemoPage"><param name="Local" value="isxfunc/topic_isxfunc_createoutputmsgmemopage.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="CreateOutputMsgPage"><param name="Local" value="isxfunc/topic_isxfunc_createoutputmsgpage.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="CreateOutputProgressPage"><param name="Local" value="isxfunc/topic_isxfunc_createoutputprogresspage.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="CreateShellLink"><param name="Local" value="isxfunc/topic_isxfunc_createshelllink.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="CreateUninstallRegKey"><param name="Local" value="topic_setup_createuninstallregkey.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="createvalueifdoesntexist"><param name="Local" value="topic_registrysection.htm#createvalueifdoesntexist"></object>
+<li><object type="text/sitemap"><param name="Name" value="Creating Installations"><param name="Local" value="topic_creatinginstallations.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Credits"><param name="Local" value="topic_credits.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="CurInstallProgressChanged"><param name="Local" value="topic_scriptevents.htm#CurInstallProgressChanged"></object>
+<li><object type="text/sitemap"><param name="Name" value="CurPageChanged"><param name="Local" value="topic_scriptevents.htm#CurPageChanged"></object>
+<li><object type="text/sitemap"><param name="Name" value="CurrentFileName"><param name="Local" value="isxfunc/topic_isxfunc_currentfilename.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="CurrentSourceFilename"><param name="Local" value="isxfunc/topic_isxfunc_currentsourcefilename.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="CurStepChanged"><param name="Local" value="topic_scriptevents.htm#CurStepChanged"></object>
+<li><object type="text/sitemap"><param name="Name" value="CurUninstallStepChanged"><param name="Local" value="topic_scriptevents.htm#CurUninstallStepChanged"></object>
+<li><object type="text/sitemap"><param name="Name" value="Custom Wizard Pages"><param name="Local" value="topic_scriptpages.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="CustomMessage"><param name="Local" value="isxfunc/topic_isxfunc_custommessage.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="CustomMessages"><param name="Local" value="topic_custommessagessection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="DecrementSharedCount"><param name="Local" value="isxfunc/topic_isxfunc_decrementsharedcount.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Default.isl"><param name="Local" value="topic_messagessection.htm#Default.isl"></object>
+<li><object type="text/sitemap"><param name="Name" value="DefaultDialogFontName"><param name="Local" value="topic_setup_defaultdialogfontname.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="DefaultDirName"><param name="Local" value="topic_setup_defaultdirname.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="DefaultGroupName"><param name="Local" value="topic_setup_defaultgroupname.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="DefaultUserInfoName"><param name="Local" value="topic_setup_defaultuserinfoname.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="DefaultUserInfoOrg"><param name="Local" value="topic_setup_defaultuserinfoorg.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="DefaultUserInfoSerial"><param name="Local" value="topic_setup_defaultuserinfoserial.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="DeinitializeSetup"><param name="Local" value="topic_scriptevents.htm#DeinitializeSetup"></object>
+<li><object type="text/sitemap"><param name="Name" value="DeinitializeUninstall"><param name="Local" value="topic_scriptevents.htm#DeinitializeUninstall"></object>
+<li><object type="text/sitemap"><param name="Name" value="DelayDeleteFile"><param name="Local" value="isxfunc/topic_isxfunc_delaydeletefile.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="delayload"><param name="Local" value="topic_scriptdll.htm#delayload"></object>
+<li><object type="text/sitemap"><param name="Name" value="Delete"><param name="Local" value="isxfunc/topic_isxfunc_delete.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="deleteafterinstall"><param name="Local" value="topic_filessection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="deleteafterinstall"><param name="Local" value="topic_dirssection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="DeleteFile"><param name="Local" value="isxfunc/topic_isxfunc_deletefile.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="DeleteIniEntry"><param name="Local" value="isxfunc/topic_isxfunc_deleteinientry.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="DeleteIniSection"><param name="Local" value="isxfunc/topic_isxfunc_deleteinisection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="deletekey"><param name="Local" value="topic_registrysection.htm#deletekey"></object>
+<li><object type="text/sitemap"><param name="Name" value="deletevalue"><param name="Local" value="topic_registrysection.htm#deletevalue"></object>
+<li><object type="text/sitemap"><param name="Name" value="DelTree"><param name="Local" value="isxfunc/topic_isxfunc_deltree.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Description"><param name="Local" value="topic_runsection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Description"><param name="Local" value="topic_taskssection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Description"><param name="Local" value="topic_componentssection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Description"><param name="Local" value="topic_typessection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="DestDir"><param name="Local" value="topic_filessection.htm#DestDir"></object>
+<li><object type="text/sitemap"><param name="Name" value="DestName"><param name="Local" value="topic_filessection.htm#DestName"></object>
+<li><object type="text/sitemap"><param name="Name" value="DialogFontName"><param name="Local" value="topic_langoptionssection.htm#DialogFontName"></object>
+<li><object type="text/sitemap"><param name="Name" value="DialogFontSize"><param name="Local" value="topic_langoptionssection.htm#DialogFontSize"></object>
+<li><object type="text/sitemap"><param name="Name" value="digital signature"><param name="Local" value="topic_setup_signtool.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="digital signature"><param name="Local" value="topic_setup_signeduninstaller.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="DirExists"><param name="Local" value="isxfunc/topic_isxfunc_direxists.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="DirExistsWarning"><param name="Local" value="topic_setup_direxistswarning.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="dirifempty"><param name="Local" value="topic_uninstalldeletesection.htm#dirifempty"></object>
+<li><object type="text/sitemap"><param name="Name" value="Dirs"><param name="Local" value="topic_dirssection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="DisableAppendDir"><param name="Local" value="topic_setup_disableappenddir.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="DisableDirPage"><param name="Local" value="topic_setup_disabledirpage.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="DisableFinishedPage"><param name="Local" value="topic_setup_disablefinishedpage.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="disablenouninstallwarning"><param name="Local" value="topic_componentssection.htm#disablenouninstallwarning"></object>
+<li><object type="text/sitemap"><param name="Name" value="DisableProgramGroupPage"><param name="Local" value="topic_setup_disableprogramgrouppage.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="DisableReadyMemo"><param name="Local" value="topic_setup_disablereadymemo.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="DisableReadyPage"><param name="Local" value="topic_setup_disablereadypage.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="DisableStartupPrompt"><param name="Local" value="topic_setup_disablestartupprompt.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="DisableWelcomePage"><param name="Local" value="topic_setup_disablewelcomepage.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="disk spanning"><param name="Local" value="topic_setup_diskspanning.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="DiskClusterSize"><param name="Local" value="topic_setup_diskclustersize.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="DiskSliceSize"><param name="Local" value="topic_setup_diskslicesize.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="DiskSpanning"><param name="Local" value="topic_setup_diskspanning.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="DLLGetLastError"><param name="Local" value="isxfunc/topic_isxfunc_dllgetlasterror.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="DLLs"><param name="Local" value="topic_scriptdll.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Documentation Conventions"><param name="Local" value="topic_conventions.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="dontcloseonexit"><param name="Local" value="topic_iconssection.htm#dontcloseonexit"></object>
+<li><object type="text/sitemap"><param name="Name" value="dontcopy"><param name="Local" value="topic_filessection.htm#dontcopy"></object>
+<li><object type="text/sitemap"><param name="Name" value="dontcreatekey"><param name="Local" value="topic_registrysection.htm#dontcreatekey"></object>
+<li><object type="text/sitemap"><param name="Name" value="dontinheritcheck"><param name="Local" value="topic_taskssection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="dontinheritcheck"><param name="Local" value="topic_componentssection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="DontMergeDuplicateFiles"><param name="Local" value="topic_setup_dontmergeduplicatefiles.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="dontverifychecksum"><param name="Local" value="topic_filessection.htm#dontverifychecksum"></object>
+<li><object type="text/sitemap"><param name="Name" value="EnableDirDoesntExistWarning"><param name="Local" value="topic_setup_enabledirdoesntexistwarning.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="EnableFsRedirection"><param name="Local" value="isxfunc/topic_isxfunc_enablefsredirection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Encryption"><param name="Local" value="topic_setup_encryption.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Event Functions"><param name="Local" value="topic_scriptevents.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Example Scripts"><param name="Local" value="topic_examples.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="excludefromshowinnewinstall"><param name="Local" value="topic_iconssection.htm#excludefromshowinnewinstall"></object>
+<li><object type="text/sitemap"><param name="Name" value="Excludes"><param name="Local" value="topic_filessection.htm#Excludes"></object>
+<li><object type="text/sitemap"><param name="Name" value="exclusive"><param name="Local" value="topic_taskssection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="exclusive"><param name="Local" value="topic_componentssection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Exec"><param name="Local" value="isxfunc/topic_isxfunc_exec.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="ExecAsOriginalUser"><param name="Local" value="isxfunc/topic_isxfunc_execasoriginaluser.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="exit codes"><param name="Local" value="topic_uninstexitcodes.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="exit codes"><param name="Local" value="topic_setupexitcodes.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="ExitSetupMsgBox"><param name="Local" value="isxfunc/topic_isxfunc_exitsetupmsgbox.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="ExpandConstant"><param name="Local" value="isxfunc/topic_isxfunc_expandconstant.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="ExpandConstantEx"><param name="Local" value="isxfunc/topic_isxfunc_expandconstantex.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="ExpandFileName"><param name="Local" value="isxfunc/topic_isxfunc_expandfilename.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="ExpandUNCFileName"><param name="Local" value="isxfunc/topic_isxfunc_expanduncfilename.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="external"><param name="Local" value="topic_filessection.htm#external"></object>
+<li><object type="text/sitemap"><param name="Name" value="ExternalSize"><param name="Local" value="topic_filessection.htm#ExternalSize"></object>
+<li><object type="text/sitemap"><param name="Name" value="ExtractFileDir"><param name="Local" value="isxfunc/topic_isxfunc_extractfiledir.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="ExtractFileDrive"><param name="Local" value="isxfunc/topic_isxfunc_extractfiledrive.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="ExtractFileExt"><param name="Local" value="isxfunc/topic_isxfunc_extractfileext.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="ExtractFileName"><param name="Local" value="isxfunc/topic_isxfunc_extractfilename.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="ExtractFilePath"><param name="Local" value="isxfunc/topic_isxfunc_extractfilepath.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="ExtractRelativePath"><param name="Local" value="isxfunc/topic_isxfunc_extractrelativepath.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="ExtractTemporaryFile"><param name="Local" value="isxfunc/topic_isxfunc_extracttemporaryfile.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="ExtractTemporaryFiles"><param name="Local" value="isxfunc/topic_isxfunc_extracttemporaryfiles.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="ExtraDiskSpaceRequired"><param name="Local" value="topic_setup_extradiskspacerequired.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="ExtraDiskSpaceRequired"><param name="Local" value="topic_componentssection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="FAQ"><param name="Local" value="topic_faq.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="file associations, creating"><param name="Local" value="topic_faq.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="FileCopy"><param name="Local" value="isxfunc/topic_isxfunc_filecopy.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="FileExists"><param name="Local" value="isxfunc/topic_isxfunc_fileexists.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Filename"><param name="Local" value="topic_runsection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Filename"><param name="Local" value="topic_inisection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Filename"><param name="Local" value="topic_iconssection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="FileOrDirExists"><param name="Local" value="isxfunc/topic_isxfunc_fileordirexists.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="files"><param name="Local" value="topic_uninstalldeletesection.htm#files"></object>
+<li><object type="text/sitemap"><param name="Name" value="Files"><param name="Local" value="topic_filessection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="filesandordirs"><param name="Local" value="topic_uninstalldeletesection.htm#filesandordirs"></object>
+<li><object type="text/sitemap"><param name="Name" value="FileSearch"><param name="Local" value="isxfunc/topic_isxfunc_filesearch.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="FileSize"><param name="Local" value="isxfunc/topic_isxfunc_filesize.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="FindClose"><param name="Local" value="isxfunc/topic_isxfunc_findclose.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="FindFirst"><param name="Local" value="isxfunc/topic_isxfunc_findfirst.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="FindNext"><param name="Local" value="isxfunc/topic_isxfunc_findnext.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="FindWindowByClassName"><param name="Local" value="isxfunc/topic_isxfunc_findwindowbyclassname.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="FindWindowByWindowName"><param name="Local" value="isxfunc/topic_isxfunc_findwindowbywindowname.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="fixed"><param name="Local" value="topic_componentssection.htm#fixed"></object>
+<li><object type="text/sitemap"><param name="Name" value="Flags"><param name="Local" value="topic_runsection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Flags"><param name="Local" value="topic_registrysection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Flags"><param name="Local" value="topic_inisection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Flags"><param name="Local" value="topic_iconssection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Flags"><param name="Local" value="topic_filessection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Flags"><param name="Local" value="topic_dirssection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Flags"><param name="Local" value="topic_taskssection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Flags"><param name="Local" value="topic_componentssection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Flags"><param name="Local" value="topic_typessection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="FlatComponentsList"><param name="Local" value="topic_setup_flatcomponentslist.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="FloatToStr"><param name="Local" value="isxfunc/topic_isxfunc_floattostr.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="FmtMessage"><param name="Local" value="isxfunc/topic_isxfunc_fmtmessage.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="foldershortcut"><param name="Local" value="topic_iconssection.htm#foldershortcut"></object>
+<li><object type="text/sitemap"><param name="Name" value="FontExists"><param name="Local" value="isxfunc/topic_isxfunc_fontexists.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="FontInstall"><param name="Local" value="topic_filessection.htm#FontInstall"></object>
+<li><object type="text/sitemap"><param name="Name" value="fontisnttruetype"><param name="Local" value="topic_filessection.htm#fontisnttruetype"></object>
+<li><object type="text/sitemap"><param name="Name" value="fonts"><param name="Local" value="topic_langoptionssection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="ForceDirectories"><param name="Local" value="isxfunc/topic_isxfunc_forcedirectories.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Format"><param name="Local" value="isxfunc/topic_isxfunc_format.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="FreeDLL"><param name="Local" value="isxfunc/topic_isxfunc_freedll.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Frequently Asked Questions"><param name="Local" value="topic_faq.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="full"><param name="Local" value="topic_registrysection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="full"><param name="Local" value="topic_filessection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="full"><param name="Local" value="topic_dirssection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="gacinstall"><param name="Local" value="topic_filessection.htm#gacinstall"></object>
+<li><object type="text/sitemap"><param name="Name" value="GenerateUniqueName"><param name="Local" value="isxfunc/topic_isxfunc_generateuniquename.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="GetActiveOleObject"><param name="Local" value="isxfunc/topic_isxfunc_getactiveoleobject.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="GetArrayLength"><param name="Local" value="isxfunc/topic_isxfunc_getarraylength.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="GetCmdTail"><param name="Local" value="isxfunc/topic_isxfunc_getcmdtail.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="GetComputerNameString"><param name="Local" value="isxfunc/topic_isxfunc_getcomputernamestring.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="GetCurrentDir"><param name="Local" value="isxfunc/topic_isxfunc_getcurrentdir.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="GetCustomSetupExitCode"><param name="Local" value="topic_scriptevents.htm#GetCustomSetupExitCode"></object>
+<li><object type="text/sitemap"><param name="Name" value="GetDateTimeString"><param name="Local" value="isxfunc/topic_isxfunc_getdatetimestring.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="GetEnv"><param name="Local" value="isxfunc/topic_isxfunc_getenv.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="GetExceptionMessage"><param name="Local" value="isxfunc/topic_isxfunc_getexceptionmessage.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="GetIniBool"><param name="Local" value="isxfunc/topic_isxfunc_getinibool.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="GetIniInt"><param name="Local" value="isxfunc/topic_isxfunc_getiniint.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="GetIniString"><param name="Local" value="isxfunc/topic_isxfunc_getinistring.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="GetMD5OfFile"><param name="Local" value="isxfunc/topic_isxfunc_getmd5offile.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="GetMD5OfString"><param name="Local" value="isxfunc/topic_isxfunc_getmd5ofstring.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="GetMD5OfUnicodeString"><param name="Local" value="isxfunc/topic_isxfunc_getmd5ofunicodestring.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="GetOpenFileName"><param name="Local" value="isxfunc/topic_isxfunc_getopenfilename.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="GetPreviousData"><param name="Local" value="isxfunc/topic_isxfunc_getpreviousdata.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="GetSaveFileName"><param name="Local" value="isxfunc/topic_isxfunc_getsavefilename.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="GetSHA1OfFile"><param name="Local" value="isxfunc/topic_isxfunc_getsha1offile.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="GetSHA1OfString"><param name="Local" value="isxfunc/topic_isxfunc_getsha1ofstring.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="GetSHA1OfUnicodeString"><param name="Local" value="isxfunc/topic_isxfunc_getsha1ofunicodestring.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="GetShellFolder"><param name="Local" value="isxfunc/topic_isxfunc_getshellfolder.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="GetShellFolderByCSIDL"><param name="Local" value="isxfunc/topic_isxfunc_getshellfolderbycsidl.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="GetShortName"><param name="Local" value="isxfunc/topic_isxfunc_getshortname.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="GetSpaceOnDisk"><param name="Local" value="isxfunc/topic_isxfunc_getspaceondisk.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="GetSpaceOnDisk64"><param name="Local" value="isxfunc/topic_isxfunc_getspaceondisk64.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="GetSystemDir"><param name="Local" value="isxfunc/topic_isxfunc_getsystemdir.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="GetSysWow64Dir"><param name="Local" value="isxfunc/topic_isxfunc_getsyswow64dir.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="GetTempDir"><param name="Local" value="isxfunc/topic_isxfunc_gettempdir.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="GetUILanguage"><param name="Local" value="isxfunc/topic_isxfunc_getuilanguage.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="GetUserNameString"><param name="Local" value="isxfunc/topic_isxfunc_getusernamestring.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="GetVersionNumbers"><param name="Local" value="isxfunc/topic_isxfunc_getversionnumbers.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="GetVersionNumbersString"><param name="Local" value="isxfunc/topic_isxfunc_getversionnumbersstring.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="GetWinDir"><param name="Local" value="isxfunc/topic_isxfunc_getwindir.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="GetWindowsVersion"><param name="Local" value="isxfunc/topic_isxfunc_getwindowsversion.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="GetWindowsVersionEx"><param name="Local" value="isxfunc/topic_isxfunc_getwindowsversionex.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="GetWindowsVersionString"><param name="Local" value="isxfunc/topic_isxfunc_getwindowsversionstring.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="GroupDescription"><param name="Local" value="topic_taskssection.htm#GroupDescription"></object>
+<li><object type="text/sitemap"><param name="Name" value="hidewizard"><param name="Local" value="topic_runsection.htm#hidewizard"></object>
+<li><object type="text/sitemap"><param name="Name" value="HotKey"><param name="Local" value="topic_iconssection.htm#HotKey"></object>
+<li><object type="text/sitemap"><param name="Name" value="IA-64"><param name="Local" value="topic_setup_architecturesinstallin64bitmode.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="IA-64"><param name="Local" value="topic_setup_architecturesallowed.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="IconFilename"><param name="Local" value="topic_iconssection.htm#IconFilename"></object>
+<li><object type="text/sitemap"><param name="Name" value="IconIndex"><param name="Local" value="topic_iconssection.htm#IconIndex"></object>
+<li><object type="text/sitemap"><param name="Name" value="Icons"><param name="Local" value="topic_iconssection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="IDispatchInvoke"><param name="Local" value="isxfunc/topic_isxfunc_idispatchinvoke.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="ignoreversion"><param name="Local" value="topic_filessection.htm#ignoreversion"></object>
+<li><object type="text/sitemap"><param name="Name" value="include"><param name="Local" value="topic_scriptformatoverview.htm#include"></object>
+<li><object type="text/sitemap"><param name="Name" value="IncrementSharedCount"><param name="Local" value="isxfunc/topic_isxfunc_incrementsharedcount.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="InfoAfterFile"><param name="Local" value="topic_setup_infoafterfile.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="InfoAfterFile"><param name="Local" value="topic_languagessection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="InfoBeforeFile"><param name="Local" value="topic_setup_infobeforefile.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="InfoBeforeFile"><param name="Local" value="topic_languagessection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="INI"><param name="Local" value="topic_inisection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="IniKeyExists"><param name="Local" value="isxfunc/topic_isxfunc_inikeyexists.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="InitializeSetup"><param name="Local" value="topic_scriptevents.htm#InitializeSetup"></object>
+<li><object type="text/sitemap"><param name="Name" value="InitializeUninstall"><param name="Local" value="topic_scriptevents.htm#InitializeUninstall"></object>
+<li><object type="text/sitemap"><param name="Name" value="InitializeUninstallProgressForm"><param name="Local" value="topic_scriptevents.htm#InitializeUninstallProgressForm"></object>
+<li><object type="text/sitemap"><param name="Name" value="InitializeWizard"><param name="Local" value="topic_scriptevents.htm#InitializeWizard"></object>
+<li><object type="text/sitemap"><param name="Name" value="Insert"><param name="Local" value="isxfunc/topic_isxfunc_insert.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="install mode"><param name="Local" value="topic_32vs64bitinstalls.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Install Mode: 32-bit vs. 64-bit"><param name="Local" value="topic_32vs64bitinstalls.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Installation Order"><param name="Local" value="topic_installorder.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="InstallDelete"><param name="Local" value="topic_installdeletesection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="InstallOnThisVersion"><param name="Local" value="isxfunc/topic_isxfunc_installonthisversion.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="InternalCompressLevel"><param name="Local" value="topic_setup_internalcompresslevel.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="IntToStr"><param name="Local" value="isxfunc/topic_isxfunc_inttostr.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Is64BitInstallMode"><param name="Local" value="isxfunc/topic_isxfunc_is64bitinstallmode.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="IsAdminLoggedOn"><param name="Local" value="isxfunc/topic_isxfunc_isadminloggedon.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="ISCC"><param name="Local" value="topic_compilercmdline.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="IsComponentSelected"><param name="Local" value="isxfunc/topic_isxfunc_iscomponentselected.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="iscustom"><param name="Local" value="topic_typessection.htm#iscustom"></object>
+<li><object type="text/sitemap"><param name="Name" value="IsIniSectionEmpty"><param name="Local" value="isxfunc/topic_isxfunc_isinisectionempty.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="IsPowerUserLoggedOn"><param name="Local" value="isxfunc/topic_isxfunc_ispoweruserloggedon.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="IsProtectedSystemFile"><param name="Local" value="isxfunc/topic_isxfunc_isprotectedsystemfile.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="isreadme"><param name="Local" value="topic_filessection.htm#isreadme"></object>
+<li><object type="text/sitemap"><param name="Name" value="IsTaskSelected"><param name="Local" value="isxfunc/topic_isxfunc_istaskselected.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="IsUninstaller"><param name="Local" value="isxfunc/topic_isxfunc_isuninstaller.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="IsWin64"><param name="Local" value="isxfunc/topic_isxfunc_iswin64.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Itanium"><param name="Local" value="topic_setup_architecturesinstallin64bitmode.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Itanium"><param name="Local" value="topic_setup_architecturesallowed.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Key"><param name="Local" value="topic_inisection.htm#Key"></object>
+<li><object type="text/sitemap"><param name="Name" value="LangOptions"><param name="Local" value="topic_langoptionssection.htm#LangOptions"></object>
+<li><object type="text/sitemap"><param name="Name" value="language"><param name="Local" value="topic_langoptionssection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="language"><param name="Local" value="topic_messagessection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="language"><param name="Local" value="topic_languagessection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="LanguageCodePage"><param name="Local" value="topic_langoptionssection.htm#LanguageCodePage"></object>
+<li><object type="text/sitemap"><param name="Name" value="LanguageDetectionMethod"><param name="Local" value="topic_setup_languagedetectionmethod.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="LanguageID"><param name="Local" value="topic_langoptionssection.htm#LanguageID"></object>
+<li><object type="text/sitemap"><param name="Name" value="LanguageName"><param name="Local" value="topic_langoptionssection.htm#LanguageName"></object>
+<li><object type="text/sitemap"><param name="Name" value="Languages"><param name="Local" value="topic_languagessection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Languages"><param name="Local" value="topic_commonparams.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Length"><param name="Local" value="isxfunc/topic_isxfunc_length.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="LicenseFile"><param name="Local" value="topic_setup_licensefile.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="LicenseFile"><param name="Local" value="topic_languagessection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="LoadDLL"><param name="Local" value="isxfunc/topic_isxfunc_loaddll.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="LoadStringFromFile"><param name="Local" value="isxfunc/topic_isxfunc_loadstringfromfile.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="LoadStringsFromFile"><param name="Local" value="isxfunc/topic_isxfunc_loadstringsfromfile.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="loadwithalteredsearchpath"><param name="Local" value="topic_scriptdll.htm#loadwithalteredsearchpath"></object>
+<li><object type="text/sitemap"><param name="Name" value="Log"><param name="Local" value="isxfunc/topic_isxfunc_log.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="logging"><param name="Local" value="topic_setup_setuplogging.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="logging"><param name="Local" value="topic_uninstcmdline.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="logging"><param name="Local" value="topic_setupcmdline.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Lowercase"><param name="Local" value="isxfunc/topic_isxfunc_lowercase.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="lzma"><param name="Local" value="topic_setup_compression.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="lzma2"><param name="Local" value="topic_setup_compression.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="LZMAAlgorithm"><param name="Local" value="topic_setup_lzmaalgorithm.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="LZMABlockSize"><param name="Local" value="topic_setup_lzmablocksize.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="LZMADictionarySize"><param name="Local" value="topic_setup_lzmadictionarysize.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="LZMAMatchFinder"><param name="Local" value="topic_setup_lzmamatchfinder.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="LZMANumBlockThreads"><param name="Local" value="topic_setup_lzmanumblockthreads.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="LZMANumFastBytes"><param name="Local" value="topic_setup_lzmanumfastbytes.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="LZMAUseSeparateProcess"><param name="Local" value="topic_setup_lzmauseseparateprocess.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="MainForm"><param name="Local" value="topic_scriptclasses.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="MakePendingFileRenameOperationsChecksum"><param name="Local" value="isxfunc/topic_isxfunc_makependingfilerenameoperationschecksum.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="MergeDuplicateFiles"><param name="Local" value="topic_setup_mergeduplicatefiles.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Messages"><param name="Local" value="topic_messagessection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="MessagesFile"><param name="Local" value="topic_setup_messagesfile.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="MessagesFile"><param name="Local" value="topic_languagessection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="MinimizePathName"><param name="Local" value="isxfunc/topic_isxfunc_minimizepathname.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="MinVersion"><param name="Local" value="topic_setup_minversion.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="MinVersion"><param name="Local" value="topic_commonparams.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Miscellaneous Notes"><param name="Local" value="topic_technotes.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="modify"><param name="Local" value="topic_registrysection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="modify"><param name="Local" value="topic_filessection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="modify"><param name="Local" value="topic_dirssection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="ModifyPifFile"><param name="Local" value="isxfunc/topic_isxfunc_modifypiffile.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="MsgBox"><param name="Local" value="isxfunc/topic_isxfunc_msgbox.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="multi-threading"><param name="Local" value="topic_setup_compressionthreads.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Name"><param name="Local" value="topic_uninstalldeletesection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Name"><param name="Local" value="topic_languagessection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Name"><param name="Local" value="topic_iconssection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Name"><param name="Local" value="topic_dirssection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Name"><param name="Local" value="topic_taskssection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Name"><param name="Local" value="topic_componentssection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Name"><param name="Local" value="topic_typessection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="NeedRestart"><param name="Local" value="topic_scriptevents.htm#NeedRestart"></object>
+<li><object type="text/sitemap"><param name="Name" value="NextButtonClick"><param name="Local" value="topic_scriptevents.htm#NextButtonClick"></object>
+<li><object type="text/sitemap"><param name="Name" value="nocompression"><param name="Local" value="topic_filessection.htm#nocompression"></object>
+<li><object type="text/sitemap"><param name="Name" value="noencryption"><param name="Local" value="topic_filessection.htm#noencryption"></object>
+<li><object type="text/sitemap"><param name="Name" value="noerror"><param name="Local" value="topic_registrysection.htm#noerror"></object>
+<li><object type="text/sitemap"><param name="Name" value="noregerror"><param name="Local" value="topic_filessection.htm#noregerror"></object>
+<li><object type="text/sitemap"><param name="Name" value="Notes on &quot;yes&quot; and &quot;no&quot;"><param name="Local" value="topic_yesnonotes.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="nowait"><param name="Local" value="topic_runsection.htm#nowait"></object>
+<li><object type="text/sitemap"><param name="Name" value="Null"><param name="Local" value="isxfunc/topic_isxfunc_null.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="OemToCharBuff"><param name="Local" value="isxfunc/topic_isxfunc_oemtocharbuff.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="OLE Automation"><param name="Local" value="topic_scriptautomation.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="OleCheck"><param name="Local" value="isxfunc/topic_isxfunc_olecheck.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="OnlyBelowVersion"><param name="Local" value="topic_setup_onlybelowversion.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="OnlyBelowVersion"><param name="Local" value="topic_commonparams.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="onlyifdestfileexists"><param name="Local" value="topic_filessection.htm#onlyifdestfileexists"></object>
+<li><object type="text/sitemap"><param name="Name" value="onlyifdoesntexist"><param name="Local" value="topic_filessection.htm#onlyifdoesntexist"></object>
+<li><object type="text/sitemap"><param name="Name" value="Ord"><param name="Local" value="isxfunc/topic_isxfunc_ord.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Output"><param name="Local" value="isxfunc/topic_setup_output.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="OutputBaseFilename"><param name="Local" value="topic_setup_outputbasefilename.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="OutputDir"><param name="Local" value="topic_setup_outputdir.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="OutputManifestFile"><param name="Local" value="topic_setup_outputmanifestfile.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="overwritereadonly"><param name="Local" value="topic_filessection.htm#overwritereadonly"></object>
+<li><object type="text/sitemap"><param name="Name" value="PageFromID"><param name="Local" value="isxfunc/topic_isxfunc_pagefromid.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="PageIndexFromID"><param name="Local" value="isxfunc/topic_isxfunc_pageindexfromid.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="ParamCount"><param name="Local" value="isxfunc/topic_isxfunc_paramcount.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Parameters"><param name="Local" value="topic_runsection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Parameters"><param name="Local" value="topic_iconssection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Parameters in Sections"><param name="Local" value="topic_params.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="ParamStr"><param name="Local" value="isxfunc/topic_isxfunc_paramstr.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Pascal Scripting: BeforeInstall and AfterInstall Parameters"><param name="Local" value="topic_scriptinstall.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Pascal Scripting: Boolean Expressions"><param name="Local" value="topic_scriptexpression.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Pascal Scripting: Check Parameters"><param name="Local" value="topic_scriptcheck.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Pascal Scripting: Creating the [Code] Section"><param name="Local" value="topic_scriptcreating.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Pascal Scripting: Event Functions"><param name="Local" value="topic_scriptevents.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Pascal Scripting: Examples"><param name="Local" value="topic_scriptexamples.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Pascal Scripting: Introduction"><param name="Local" value="topic_scriptintro.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Pascal Scripting: Scripted Constants"><param name="Local" value="topic_scriptconstants.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Pascal Scripting: Support Classes Reference"><param name="Local" value="topic_scriptclasses.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Pascal Scripting: Support Functions Reference"><param name="Local" value="topic_scriptfunctions.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Pascal Scripting: Uninstall Code"><param name="Local" value="topic_scriptuninstall.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Pascal Scripting: Using COM Automation objects"><param name="Local" value="topic_scriptautomation.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Pascal Scripting: Using Custom Wizard Pages"><param name="Local" value="topic_scriptpages.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Pascal Scripting: Using DLLs"><param name="Local" value="topic_scriptdll.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Password"><param name="Local" value="topic_setup_password.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Permissions"><param name="Local" value="topic_registrysection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Permissions"><param name="Local" value="topic_filessection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Permissions"><param name="Local" value="topic_dirssection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Pos"><param name="Local" value="isxfunc/topic_isxfunc_pos.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="PostBroadcastMessage"><param name="Local" value="isxfunc/topic_isxfunc_postbroadcastmessage.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="postinstall"><param name="Local" value="topic_runsection.htm#postinstall"></object>
+<li><object type="text/sitemap"><param name="Name" value="PostMessage"><param name="Local" value="isxfunc/topic_isxfunc_postmessage.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="PrepareToInstall"><param name="Local" value="topic_scriptevents.htm#PrepareToInstall"></object>
+<li><object type="text/sitemap"><param name="Name" value="preproc"><param name="Local" value="topic_scriptformatoverview.htm#preproc"></object>
+<li><object type="text/sitemap"><param name="Name" value="preservestringtype"><param name="Local" value="topic_registrysection.htm#preservestringtype"></object>
+<li><object type="text/sitemap"><param name="Name" value="preventpinning"><param name="Local" value="topic_iconssection.htm#preventpinning"></object>
+<li><object type="text/sitemap"><param name="Name" value="PrivilegesRequired"><param name="Local" value="topic_setup_privilegesrequired.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="ProcessorArchitecture"><param name="Local" value="isxfunc/topic_isxfunc_processorarchitecture.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="processors allowed"><param name="Local" value="topic_setup_architecturesallowed.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="promptifolder"><param name="Local" value="topic_filessection.htm#promptifolder"></object>
+<li><object type="text/sitemap"><param name="Name" value="RaiseException"><param name="Local" value="isxfunc/topic_isxfunc_raiseexception.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Random"><param name="Local" value="isxfunc/topic_isxfunc_random.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="read"><param name="Local" value="topic_registrysection.htm#read"></object>
+<li><object type="text/sitemap"><param name="Name" value="readexec"><param name="Local" value="topic_filessection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="readexec"><param name="Local" value="topic_dirssection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="reboot"><param name="Local" value="topic_setup_restartifneededbyrun.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="reboot"><param name="Local" value="topic_setup_alwaysrestart.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="recursesubdirs"><param name="Local" value="topic_filessection.htm#recursesubdirs"></object>
+<li><object type="text/sitemap"><param name="Name" value="RegDeleteKeyIfEmpty"><param name="Local" value="isxfunc/topic_isxfunc_regdeletekeyifempty.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="RegDeleteKeyIncludingSubkeys"><param name="Local" value="isxfunc/topic_isxfunc_regdeletekeyincludingsubkeys.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="RegDeleteValue"><param name="Local" value="isxfunc/topic_isxfunc_regdeletevalue.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="RegGetSubkeyNames"><param name="Local" value="isxfunc/topic_isxfunc_reggetsubkeynames.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="RegGetValueNames"><param name="Local" value="isxfunc/topic_isxfunc_reggetvaluenames.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="RegisterExtraCloseApplicationsResource"><param name="Local" value="isxfunc/topic_isxfunc_registerextracloseapplicationsresource.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="RegisterExtraCloseApplicationsResources"><param name="Local" value="topic_scriptevents.htm#RegisterExtraCloseApplicationsResources"></object>
+<li><object type="text/sitemap"><param name="Name" value="RegisterPreviousData"><param name="Local" value="topic_scriptevents.htm#RegisterPreviousData"></object>
+<li><object type="text/sitemap"><param name="Name" value="RegisterServer"><param name="Local" value="isxfunc/topic_isxfunc_registerserver.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="RegisterTypeLibrary"><param name="Local" value="isxfunc/topic_isxfunc_registertypelibrary.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="RegisterWindowMessage"><param name="Local" value="isxfunc/topic_isxfunc_registerwindowmessage.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Registry"><param name="Local" value="topic_registrysection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="RegKeyExists"><param name="Local" value="isxfunc/topic_isxfunc_regkeyexists.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="RegQueryBinaryValue"><param name="Local" value="isxfunc/topic_isxfunc_regquerybinaryvalue.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="RegQueryDWordValue"><param name="Local" value="isxfunc/topic_isxfunc_regquerydwordvalue.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="RegQueryMultiStringValue"><param name="Local" value="isxfunc/topic_isxfunc_regquerymultistringvalue.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="RegQueryStringValue"><param name="Local" value="isxfunc/topic_isxfunc_regquerystringvalue.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="regserver"><param name="Local" value="topic_filessection.htm#regserver"></object>
+<li><object type="text/sitemap"><param name="Name" value="regtypelib"><param name="Local" value="topic_filessection.htm#regtypelib"></object>
+<li><object type="text/sitemap"><param name="Name" value="RegValueExists"><param name="Local" value="isxfunc/topic_isxfunc_regvalueexists.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="RegWriteBinaryValue"><param name="Local" value="isxfunc/topic_isxfunc_regwritebinaryvalue.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="RegWriteDWordValue"><param name="Local" value="isxfunc/topic_isxfunc_regwritedwordvalue.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="RegWriteExpandStringValue"><param name="Local" value="isxfunc/topic_isxfunc_regwriteexpandstringvalue.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="RegWriteMultiStringValue"><param name="Local" value="isxfunc/topic_isxfunc_regwritemultistringvalue.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="RegWriteStringValue"><param name="Local" value="isxfunc/topic_isxfunc_regwritestringvalue.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="RemoveBackslash"><param name="Local" value="isxfunc/topic_isxfunc_removebackslash.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="RemoveBackslashUnlessRoot"><param name="Local" value="isxfunc/topic_isxfunc_removebackslashunlessroot.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="RemoveDir"><param name="Local" value="isxfunc/topic_isxfunc_removedir.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="RemoveQuotes"><param name="Local" value="isxfunc/topic_isxfunc_removequotes.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="RenameFile"><param name="Local" value="isxfunc/topic_isxfunc_renamefile.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="replacesameversion"><param name="Local" value="topic_filessection.htm#replacesameversion"></object>
+<li><object type="text/sitemap"><param name="Name" value="ReserveBytes"><param name="Local" value="topic_setup_reservebytes.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="restart"><param name="Local" value="topic_setup_restartifneededbyrun.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="restart"><param name="Local" value="topic_setup_alwaysrestart.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="restart"><param name="Local" value="topic_taskssection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="restart"><param name="Local" value="topic_componentssection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="RestartApplications"><param name="Local" value="topic_setup_restartapplications.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="RestartIfNeededByRun"><param name="Local" value="topic_setup_restartifneededbyrun.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="RestartReplace"><param name="Local" value="isxfunc/topic_isxfunc_restartreplace.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="restartreplace"><param name="Local" value="topic_filessection.htm#restartreplace"></object>
+<li><object type="text/sitemap"><param name="Name" value="return codes"><param name="Local" value="topic_uninstexitcodes.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="return codes"><param name="Local" value="topic_setupexitcodes.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="RightToLeft"><param name="Local" value="topic_langoptionssection.htm#RightToLeft"></object>
+<li><object type="text/sitemap"><param name="Name" value="RmSessionStarted"><param name="Local" value="isxfunc/topic_isxfunc_rmsessionstarted.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Root"><param name="Local" value="topic_registrysection.htm#Root"></object>
+<li><object type="text/sitemap"><param name="Name" value="Run"><param name="Local" value="topic_runsection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="runascurrentuser"><param name="Local" value="topic_runsection.htm#runascurrentuser"></object>
+<li><object type="text/sitemap"><param name="Name" value="runasoriginaluser"><param name="Local" value="topic_runsection.htm#runasoriginaluser"></object>
+<li><object type="text/sitemap"><param name="Name" value="runhidden"><param name="Local" value="topic_runsection.htm#runhidden"></object>
+<li><object type="text/sitemap"><param name="Name" value="runmaximized"><param name="Local" value="topic_runsection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="runmaximized"><param name="Local" value="topic_iconssection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="runminimized"><param name="Local" value="topic_runsection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="runminimized"><param name="Local" value="topic_iconssection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="RunOnceId"><param name="Local" value="topic_runsection.htm#RunOnceId"></object>
+<li><object type="text/sitemap"><param name="Name" value="Same Application"><param name="Local" value="topic_sameappnotes.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="SaveStringsToFile"><param name="Local" value="isxfunc/topic_isxfunc_savestringstofile.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="SaveStringsToUTF8File"><param name="Local" value="isxfunc/topic_isxfunc_savestringstoutf8file.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="SaveStringToFile"><param name="Local" value="isxfunc/topic_isxfunc_savestringtofile.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="ScaleX"><param name="Local" value="isxfunc/topic_isxfunc_scalex.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="ScaleY"><param name="Local" value="isxfunc/topic_isxfunc_scaley.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Script Format Overview"><param name="Local" value="topic_scriptformatoverview.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Scripted Constants"><param name="Local" value="topic_scriptconstants.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Section"><param name="Local" value="topic_inisection.htm#Section"></object>
+<li><object type="text/sitemap"><param name="Name" value="SendBroadcastMessage"><param name="Local" value="isxfunc/topic_isxfunc_sendbroadcastmessage.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="SendBroadcastNotifyMessage"><param name="Local" value="isxfunc/topic_isxfunc_sendbroadcastnotifymessage.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="SendMessage"><param name="Local" value="isxfunc/topic_isxfunc_sendmessage.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="SendNotifyMessage"><param name="Local" value="isxfunc/topic_isxfunc_sendnotifymessage.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="SetArrayLength"><param name="Local" value="isxfunc/topic_isxfunc_setarraylength.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="SetCurrentDir"><param name="Local" value="isxfunc/topic_isxfunc_setcurrentdir.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="SetIniBool"><param name="Local" value="isxfunc/topic_isxfunc_setinibool.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="SetIniInt"><param name="Local" value="isxfunc/topic_isxfunc_setiniint.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="SetIniString"><param name="Local" value="isxfunc/topic_isxfunc_setinistring.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="SetLength"><param name="Local" value="isxfunc/topic_isxfunc_setlength.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="SetNTFSCompression"><param name="Local" value="isxfunc/topic_isxfunc_setntfscompression.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="setntfscompression"><param name="Local" value="topic_filessection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="setntfscompression"><param name="Local" value="topic_dirssection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="SetPreviousData"><param name="Local" value="isxfunc/topic_isxfunc_setpreviousdata.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Setup"><param name="Local" value="topic_setupsection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Setup Command Line Parameters"><param name="Local" value="topic_setupcmdline.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Setup Exit Codes"><param name="Local" value="topic_setupexitcodes.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="SetupIconFile"><param name="Local" value="topic_setup_setupiconfile.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="SetupLogging"><param name="Local" value="topic_setup_setuplogging.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="SetupMessage"><param name="Local" value="isxfunc/topic_isxfunc_setupmessage.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="setuponly"><param name="Local" value="topic_scriptdll.htm#setuponly"></object>
+<li><object type="text/sitemap"><param name="Name" value="sharedfile"><param name="Local" value="topic_filessection.htm#sharedfile"></object>
+<li><object type="text/sitemap"><param name="Name" value="ShellExec"><param name="Local" value="isxfunc/topic_isxfunc_shellexec.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="shellexec"><param name="Local" value="topic_runsection.htm#shellexec"></object>
+<li><object type="text/sitemap"><param name="Name" value="ShellExecAsOriginalUser"><param name="Local" value="isxfunc/topic_isxfunc_shellexecasoriginaluser.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="ShouldSkipPage"><param name="Local" value="topic_scriptevents.htm#ShouldSkipPage"></object>
+<li><object type="text/sitemap"><param name="Name" value="ShowComponentSizes"><param name="Local" value="topic_setup_showcomponentsizes.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="ShowExceptionMessage"><param name="Local" value="isxfunc/topic_isxfunc_showexceptionmessage.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="ShowLanguageDialog"><param name="Local" value="topic_setup_showlanguagedialog.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="ShowTasksTreeLines"><param name="Local" value="topic_setup_showtaskstreelines.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="ShowUndisplayableLanguages"><param name="Local" value="topic_setup_showundisplayablelanguages.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="signature"><param name="Local" value="topic_setup_signtool.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="signature"><param name="Local" value="topic_setup_signeduninstaller.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="SignedUninstaller"><param name="Local" value="topic_setup_signeduninstaller.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="SignedUninstallerDir"><param name="Local" value="topic_setup_signeduninstallerdir.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="SignTool"><param name="Local" value="topic_setup_signtool.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="silent installation"><param name="Local" value="topic_setupcmdline.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="silent uninstallation"><param name="Local" value="topic_uninstcmdline.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="skipifdoesntexist"><param name="Local" value="topic_runsection.htm#skipifdoesntexist"></object>
+<li><object type="text/sitemap"><param name="Name" value="skipifnotsilent"><param name="Local" value="topic_runsection.htm#skipifnotsilent"></object>
+<li><object type="text/sitemap"><param name="Name" value="skipifsilent"><param name="Local" value="topic_runsection.htm#skipifsilent"></object>
+<li><object type="text/sitemap"><param name="Name" value="skipifsourcedoesntexist"><param name="Local" value="topic_filessection.htm#skipifsourcedoesntexist"></object>
+<li><object type="text/sitemap"><param name="Name" value="Sleep"><param name="Local" value="isxfunc/topic_isxfunc_sleep.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="SlicesPerDisk"><param name="Local" value="topic_setup_slicesperdisk.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="solidbreak"><param name="Local" value="topic_filessection.htm#solidbreak"></object>
+<li><object type="text/sitemap"><param name="Name" value="SolidCompression"><param name="Local" value="topic_setup_solidcompression.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="sortfilesbyextension"><param name="Local" value="topic_filessection.htm#sortfilesbyextension"></object>
+<li><object type="text/sitemap"><param name="Name" value="sortfilesbyname"><param name="Local" value="topic_filessection.htm#sortfilesbyname"></object>
+<li><object type="text/sitemap"><param name="Name" value="Source"><param name="Local" value="topic_filessection.htm#Source"></object>
+<li><object type="text/sitemap"><param name="Name" value="Source Directory"><param name="Local" value="topic_sourcedirectorynotes.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="SourceDir"><param name="Local" value="topic_setup_sourcedir.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="ssDone"><param name="Local" value="topic_scriptevents.htm#TSetupStep"></object>
+<li><object type="text/sitemap"><param name="Name" value="ssInstall"><param name="Local" value="topic_scriptevents.htm#TSetupStep"></object>
+<li><object type="text/sitemap"><param name="Name" value="ssPostInstall"><param name="Local" value="topic_scriptevents.htm#TSetupStep"></object>
+<li><object type="text/sitemap"><param name="Name" value="StatusMsg"><param name="Local" value="topic_runsection.htm#StatusMsg"></object>
+<li><object type="text/sitemap"><param name="Name" value="String"><param name="Local" value="topic_inisection.htm#String"></object>
+<li><object type="text/sitemap"><param name="Name" value="StringChange"><param name="Local" value="isxfunc/topic_isxfunc_stringchange.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="StringChangeEx"><param name="Local" value="isxfunc/topic_isxfunc_stringchangeex.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="StringOfChar"><param name="Local" value="isxfunc/topic_isxfunc_stringofchar.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="StringToGUID"><param name="Local" value="isxfunc/topic_isxfunc_stringtoguid.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="StrongAssemblyName"><param name="Local" value="topic_filessection.htm#StrongAssemblyName"></object>
+<li><object type="text/sitemap"><param name="Name" value="StrToFloat"><param name="Local" value="isxfunc/topic_isxfunc_strtofloat.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="StrToInt"><param name="Local" value="isxfunc/topic_isxfunc_strtoint.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="StrToInt64"><param name="Local" value="isxfunc/topic_isxfunc_strtoint64.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="StrToInt64Def"><param name="Local" value="isxfunc/topic_isxfunc_strtoint64def.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="StrToIntDef"><param name="Local" value="isxfunc/topic_isxfunc_strtointdef.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Subkey"><param name="Local" value="topic_registrysection.htm#Subkey"></object>
+<li><object type="text/sitemap"><param name="Name" value="Support Classes Reference"><param name="Local" value="topic_scriptclasses.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Support Functions Reference"><param name="Local" value="topic_scriptfunctions.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Support Inno Setup"><param name="Local" value="topic_donate.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="SuppressibleMsgBox"><param name="Local" value="isxfunc/topic_isxfunc_suppressiblemsgbox.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="SysErrorMessage"><param name="Local" value="isxfunc/topic_isxfunc_syserrormessage.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="TAlign"><param name="Local" value="topic_scriptclasses.htm#TAlign"></object>
+<li><object type="text/sitemap"><param name="Name" value="TAlignment"><param name="Local" value="topic_scriptclasses.htm#TAlignment"></object>
+<li><object type="text/sitemap"><param name="Name" value="Tasks"><param name="Local" value="topic_taskssection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Tasks"><param name="Local" value="topic_componentstasksparams.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="TBevel"><param name="Local" value="topic_scriptclasses.htm#TBevel"></object>
+<li><object type="text/sitemap"><param name="Name" value="TBevelShape"><param name="Local" value="topic_scriptclasses.htm#TBevelShape"></object>
+<li><object type="text/sitemap"><param name="Name" value="TBevelStyle"><param name="Local" value="topic_scriptclasses.htm#TBevelStyle"></object>
+<li><object type="text/sitemap"><param name="Name" value="TBevelWidth"><param name="Local" value="topic_scriptclasses.htm#TBevelWidth"></object>
+<li><object type="text/sitemap"><param name="Name" value="TBitmap"><param name="Local" value="topic_scriptclasses.htm#TBitmap"></object>
+<li><object type="text/sitemap"><param name="Name" value="TBitmapImage"><param name="Local" value="topic_scriptclasses.htm#TBitmapImage"></object>
+<li><object type="text/sitemap"><param name="Name" value="TBorderIcon"><param name="Local" value="topic_scriptclasses.htm#TBorderIcon"></object>
+<li><object type="text/sitemap"><param name="Name" value="TBorderIcons"><param name="Local" value="topic_scriptclasses.htm#TBorderIcons"></object>
+<li><object type="text/sitemap"><param name="Name" value="TBorderStyle"><param name="Local" value="topic_scriptclasses.htm#TBorderStyle"></object>
+<li><object type="text/sitemap"><param name="Name" value="TBorderWidth"><param name="Local" value="topic_scriptclasses.htm#TBorderWidth"></object>
+<li><object type="text/sitemap"><param name="Name" value="TBrush"><param name="Local" value="topic_scriptclasses.htm#TBrush"></object>
+<li><object type="text/sitemap"><param name="Name" value="TBrushStyle"><param name="Local" value="topic_scriptclasses.htm#TBrushStyle"></object>
+<li><object type="text/sitemap"><param name="Name" value="TButton"><param name="Local" value="topic_scriptclasses.htm#TButton"></object>
+<li><object type="text/sitemap"><param name="Name" value="TButtonControl"><param name="Local" value="topic_scriptclasses.htm#TButtonControl"></object>
+<li><object type="text/sitemap"><param name="Name" value="TCanvas"><param name="Local" value="topic_scriptclasses.htm#TCanvas"></object>
+<li><object type="text/sitemap"><param name="Name" value="TCheckBox"><param name="Local" value="topic_scriptclasses.htm#TCheckBox"></object>
+<li><object type="text/sitemap"><param name="Name" value="TCheckBoxState"><param name="Local" value="topic_scriptclasses.htm#TCheckBoxState"></object>
+<li><object type="text/sitemap"><param name="Name" value="TCheckItemOperation"><param name="Local" value="topic_scriptclasses.htm#TCheckItemOperation"></object>
+<li><object type="text/sitemap"><param name="Name" value="TCloseAction"><param name="Local" value="topic_scriptclasses.htm#TCloseAction"></object>
+<li><object type="text/sitemap"><param name="Name" value="TCloseEvent"><param name="Local" value="topic_scriptclasses.htm#TCloseEvent"></object>
+<li><object type="text/sitemap"><param name="Name" value="TCloseQueryEvent"><param name="Local" value="topic_scriptclasses.htm#TCloseQueryEvent"></object>
+<li><object type="text/sitemap"><param name="Name" value="TComboBox"><param name="Local" value="topic_scriptclasses.htm#TComboBox"></object>
+<li><object type="text/sitemap"><param name="Name" value="TComboBoxStyle"><param name="Local" value="topic_scriptclasses.htm#TComboBoxStyle"></object>
+<li><object type="text/sitemap"><param name="Name" value="TComponent"><param name="Local" value="topic_scriptclasses.htm#TComponent"></object>
+<li><object type="text/sitemap"><param name="Name" value="TControl"><param name="Local" value="topic_scriptclasses.htm#TControl"></object>
+<li><object type="text/sitemap"><param name="Name" value="TCustomCheckBox"><param name="Local" value="topic_scriptclasses.htm#TCustomCheckBox"></object>
+<li><object type="text/sitemap"><param name="Name" value="TCustomComboBox"><param name="Local" value="topic_scriptclasses.htm#TCustomComboBox"></object>
+<li><object type="text/sitemap"><param name="Name" value="TCustomControl"><param name="Local" value="topic_scriptclasses.htm#TCustomControl"></object>
+<li><object type="text/sitemap"><param name="Name" value="TCustomEdit"><param name="Local" value="topic_scriptclasses.htm#TCustomEdit"></object>
+<li><object type="text/sitemap"><param name="Name" value="TCustomFolderTreeView"><param name="Local" value="topic_scriptclasses.htm#TCustomFolderTreeView"></object>
+<li><object type="text/sitemap"><param name="Name" value="TCustomLabel"><param name="Local" value="topic_scriptclasses.htm#TCustomLabel"></object>
+<li><object type="text/sitemap"><param name="Name" value="TCustomListBox"><param name="Local" value="topic_scriptclasses.htm#TCustomListBox"></object>
+<li><object type="text/sitemap"><param name="Name" value="TCustomMemo"><param name="Local" value="topic_scriptclasses.htm#TCustomMemo"></object>
+<li><object type="text/sitemap"><param name="Name" value="TCustomPanel"><param name="Local" value="topic_scriptclasses.htm#TCustomPanel"></object>
+<li><object type="text/sitemap"><param name="Name" value="TEdit"><param name="Local" value="topic_scriptclasses.htm#TEdit"></object>
+<li><object type="text/sitemap"><param name="Name" value="TEditCharCase"><param name="Local" value="topic_scriptclasses.htm#TEditCharCase"></object>
+<li><object type="text/sitemap"><param name="Name" value="TerminalServicesAware"><param name="Local" value="topic_setup_terminalservicesaware.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Terminated"><param name="Local" value="isxfunc/topic_isxfunc_terminated.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="TEShiftState"><param name="Local" value="topic_scriptclasses.htm#TEShiftState"></object>
+<li><object type="text/sitemap"><param name="Name" value="TFileStream"><param name="Local" value="topic_scriptclasses.htm#TFileStream"></object>
+<li><object type="text/sitemap"><param name="Name" value="TFolderRenameEvent"><param name="Local" value="topic_scriptclasses.htm#TFolderRenameEvent"></object>
+<li><object type="text/sitemap"><param name="Name" value="TFolderTreeView"><param name="Local" value="topic_scriptclasses.htm#TFolderTreeView"></object>
+<li><object type="text/sitemap"><param name="Name" value="TFont"><param name="Local" value="topic_scriptclasses.htm#TFont"></object>
+<li><object type="text/sitemap"><param name="Name" value="TFontStyle"><param name="Local" value="topic_scriptclasses.htm#TFontStyle"></object>
+<li><object type="text/sitemap"><param name="Name" value="TFontStyles"><param name="Local" value="topic_scriptclasses.htm#TFontStyles"></object>
+<li><object type="text/sitemap"><param name="Name" value="TForm"><param name="Local" value="topic_scriptclasses.htm#TForm"></object>
+<li><object type="text/sitemap"><param name="Name" value="TFormBorderStyle"><param name="Local" value="topic_scriptclasses.htm#TFormBorderStyle"></object>
+<li><object type="text/sitemap"><param name="Name" value="TGraphic"><param name="Local" value="topic_scriptclasses.htm#TGraphic"></object>
+<li><object type="text/sitemap"><param name="Name" value="TGraphicControl"><param name="Local" value="topic_scriptclasses.htm#TGraphicControl"></object>
+<li><object type="text/sitemap"><param name="Name" value="TGraphicsObject"><param name="Local" value="topic_scriptclasses.htm#TGraphicsObject"></object>
+<li><object type="text/sitemap"><param name="Name" value="THandleStream"><param name="Local" value="topic_scriptclasses.htm#THandleStream"></object>
+<li><object type="text/sitemap"><param name="Name" value="threads"><param name="Local" value="topic_setup_compressionthreads.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="TimeStampRounding"><param name="Local" value="topic_setup_timestamprounding.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="TimeStampsInUTC"><param name="Local" value="topic_setup_timestampsinutc.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="TInputDirWizardPage"><param name="Local" value="topic_scriptclasses.htm#TInputDirWizardPage"></object>
+<li><object type="text/sitemap"><param name="Name" value="TInputFileWizardPage"><param name="Local" value="topic_scriptclasses.htm#TInputFileWizardPage"></object>
+<li><object type="text/sitemap"><param name="Name" value="TInputOptionWizardPage"><param name="Local" value="topic_scriptclasses.htm#TInputOptionWizardPage"></object>
+<li><object type="text/sitemap"><param name="Name" value="TInputQueryWizardPage"><param name="Local" value="topic_scriptclasses.htm#TInputQueryWizardPage"></object>
+<li><object type="text/sitemap"><param name="Name" value="TitleFontName"><param name="Local" value="topic_langoptionssection.htm#TitleFontName"></object>
+<li><object type="text/sitemap"><param name="Name" value="TitleFontSize"><param name="Local" value="topic_langoptionssection.htm#TitleFontSize"></object>
+<li><object type="text/sitemap"><param name="Name" value="TKeyEvent"><param name="Local" value="topic_scriptclasses.htm#TKeyEvent"></object>
+<li><object type="text/sitemap"><param name="Name" value="TKeyPressEvent"><param name="Local" value="topic_scriptclasses.htm#TKeyPressEvent"></object>
+<li><object type="text/sitemap"><param name="Name" value="TLabel"><param name="Local" value="topic_scriptclasses.htm#TLabel"></object>
+<li><object type="text/sitemap"><param name="Name" value="TListBox"><param name="Local" value="topic_scriptclasses.htm#TListBox"></object>
+<li><object type="text/sitemap"><param name="Name" value="TListBoxStyle"><param name="Local" value="topic_scriptclasses.htm#TListBoxStyle"></object>
+<li><object type="text/sitemap"><param name="Name" value="TMainForm"><param name="Local" value="topic_scriptclasses.htm#TMainForm"></object>
+<li><object type="text/sitemap"><param name="Name" value="TMemo"><param name="Local" value="topic_scriptclasses.htm#TMemo"></object>
+<li><object type="text/sitemap"><param name="Name" value="TNewButton"><param name="Local" value="topic_scriptclasses.htm#TNewButton"></object>
+<li><object type="text/sitemap"><param name="Name" value="TNewCheckBox"><param name="Local" value="topic_scriptclasses.htm#TNewCheckBox"></object>
+<li><object type="text/sitemap"><param name="Name" value="TNewCheckListBox"><param name="Local" value="topic_scriptclasses.htm#TNewCheckListBox"></object>
+<li><object type="text/sitemap"><param name="Name" value="TNewComboBox"><param name="Local" value="topic_scriptclasses.htm#TNewComboBox"></object>
+<li><object type="text/sitemap"><param name="Name" value="TNewEdit"><param name="Local" value="topic_scriptclasses.htm#TNewEdit"></object>
+<li><object type="text/sitemap"><param name="Name" value="TNewListBox"><param name="Local" value="topic_scriptclasses.htm#TNewListBox"></object>
+<li><object type="text/sitemap"><param name="Name" value="TNewMemo"><param name="Local" value="topic_scriptclasses.htm#TNewMemo"></object>
+<li><object type="text/sitemap"><param name="Name" value="TNewNotebook"><param name="Local" value="topic_scriptclasses.htm#TNewNotebook"></object>
+<li><object type="text/sitemap"><param name="Name" value="TNewNotebookPage"><param name="Local" value="topic_scriptclasses.htm#TNewNotebookPage"></object>
+<li><object type="text/sitemap"><param name="Name" value="TNewProgressBar"><param name="Local" value="topic_scriptclasses.htm#TNewProgressBar"></object>
+<li><object type="text/sitemap"><param name="Name" value="TNewProgressBarState"><param name="Local" value="topic_scriptclasses.htm#TNewProgressBarState"></object>
+<li><object type="text/sitemap"><param name="Name" value="TNewProgressBarStyle"><param name="Local" value="topic_scriptclasses.htm#TNewProgressBarStyle"></object>
+<li><object type="text/sitemap"><param name="Name" value="TNewRadioButton"><param name="Local" value="topic_scriptclasses.htm#TNewRadioButton"></object>
+<li><object type="text/sitemap"><param name="Name" value="TNewStaticText"><param name="Local" value="topic_scriptclasses.htm#TNewStaticText"></object>
+<li><object type="text/sitemap"><param name="Name" value="TNotifyEvent"><param name="Local" value="topic_scriptclasses.htm#TNotifyEvent"></object>
+<li><object type="text/sitemap"><param name="Name" value="TObject"><param name="Local" value="topic_scriptclasses.htm#TObject"></object>
+<li><object type="text/sitemap"><param name="Name" value="touch"><param name="Local" value="topic_filessection.htm#touch"></object>
+<li><object type="text/sitemap"><param name="Name" value="TouchDate"><param name="Local" value="topic_setup_touchdate.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="TouchTime"><param name="Local" value="topic_setup_touchtime.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="TOutputMsgMemoWizardPage"><param name="Local" value="topic_scriptclasses.htm#TOutputMsgMemoWizardPage"></object>
+<li><object type="text/sitemap"><param name="Name" value="TOutputMsgWizardPage"><param name="Local" value="topic_scriptclasses.htm#TOutputMsgWizardPage"></object>
+<li><object type="text/sitemap"><param name="Name" value="TOutputProgressWizardPage"><param name="Local" value="topic_scriptclasses.htm#TOutputProgressWizardPage"></object>
+<li><object type="text/sitemap"><param name="Name" value="TPanel"><param name="Local" value="topic_scriptclasses.htm#TPanel"></object>
+<li><object type="text/sitemap"><param name="Name" value="TPanelBevel"><param name="Local" value="topic_scriptclasses.htm#TPanelBevel"></object>
+<li><object type="text/sitemap"><param name="Name" value="TPasswordEdit"><param name="Local" value="topic_scriptclasses.htm#TPasswordEdit"></object>
+<li><object type="text/sitemap"><param name="Name" value="TPen"><param name="Local" value="topic_scriptclasses.htm#TPen"></object>
+<li><object type="text/sitemap"><param name="Name" value="TPenMode"><param name="Local" value="topic_scriptclasses.htm#TPenMode"></object>
+<li><object type="text/sitemap"><param name="Name" value="TPenStyle"><param name="Local" value="topic_scriptclasses.htm#TPenStyle"></object>
+<li><object type="text/sitemap"><param name="Name" value="TPersistent"><param name="Local" value="topic_scriptclasses.htm#TPersistent"></object>
+<li><object type="text/sitemap"><param name="Name" value="TPosition"><param name="Local" value="topic_scriptclasses.htm#TPosition"></object>
+<li><object type="text/sitemap"><param name="Name" value="TRadioButton"><param name="Local" value="topic_scriptclasses.htm#TRadioButton"></object>
+<li><object type="text/sitemap"><param name="Name" value="TRichEditViewer"><param name="Local" value="topic_scriptclasses.htm#TRichEditViewer"></object>
+<li><object type="text/sitemap"><param name="Name" value="Trim"><param name="Local" value="isxfunc/topic_isxfunc_trim.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="TrimLeft"><param name="Local" value="isxfunc/topic_isxfunc_trimleft.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="TrimRight"><param name="Local" value="isxfunc/topic_isxfunc_trimright.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="TScrollBarInc"><param name="Local" value="topic_scriptclasses.htm#TScrollBarInc"></object>
+<li><object type="text/sitemap"><param name="Name" value="TScrollBarKind"><param name="Local" value="topic_scriptclasses.htm#TScrollBarKind"></object>
+<li><object type="text/sitemap"><param name="Name" value="TScrollingWinControl"><param name="Local" value="topic_scriptclasses.htm#TScrollingWinControl"></object>
+<li><object type="text/sitemap"><param name="Name" value="TScrollStyle"><param name="Local" value="topic_scriptclasses.htm#TScrollStyle"></object>
+<li><object type="text/sitemap"><param name="Name" value="TSetupForm"><param name="Local" value="topic_scriptclasses.htm#TSetupForm"></object>
+<li><object type="text/sitemap"><param name="Name" value="TShiftState"><param name="Local" value="topic_scriptclasses.htm#TShiftState"></object>
+<li><object type="text/sitemap"><param name="Name" value="TStartMenuFolderTreeView"><param name="Local" value="topic_scriptclasses.htm#TStartMenuFolderTreeView"></object>
+<li><object type="text/sitemap"><param name="Name" value="TStream"><param name="Local" value="topic_scriptclasses.htm#TStream"></object>
+<li><object type="text/sitemap"><param name="Name" value="TStringList"><param name="Local" value="topic_scriptclasses.htm#TStringList"></object>
+<li><object type="text/sitemap"><param name="Name" value="TStrings"><param name="Local" value="topic_scriptclasses.htm#TStrings"></object>
+<li><object type="text/sitemap"><param name="Name" value="TStringStream"><param name="Local" value="topic_scriptclasses.htm#TStringStream"></object>
+<li><object type="text/sitemap"><param name="Name" value="TUIStateForm"><param name="Local" value="topic_scriptclasses.htm#TUIStateForm"></object>
+<li><object type="text/sitemap"><param name="Name" value="TUninstallProgressForm"><param name="Local" value="topic_scriptclasses.htm#TUninstallProgressForm"></object>
+<li><object type="text/sitemap"><param name="Name" value="TWinControl"><param name="Local" value="topic_scriptclasses.htm#TWinControl"></object>
+<li><object type="text/sitemap"><param name="Name" value="TWizardForm"><param name="Local" value="topic_scriptclasses.htm#TWizardForm"></object>
+<li><object type="text/sitemap"><param name="Name" value="TWizardPage"><param name="Local" value="topic_scriptclasses.htm#TWizardPage"></object>
+<li><object type="text/sitemap"><param name="Name" value="TWizardPageButtonEvent"><param name="Local" value="topic_scriptclasses.htm#TWizardPageButtonEvent"></object>
+<li><object type="text/sitemap"><param name="Name" value="TWizardPageCancelEvent"><param name="Local" value="topic_scriptclasses.htm#TWizardPageCancelEvent"></object>
+<li><object type="text/sitemap"><param name="Name" value="TWizardPageNotifyEvent"><param name="Local" value="topic_scriptclasses.htm#TWizardPageNotifyEvent"></object>
+<li><object type="text/sitemap"><param name="Name" value="TWizardPageShouldSkipEvent"><param name="Local" value="topic_scriptclasses.htm#TWizardPageShouldSkipEvent"></object>
+<li><object type="text/sitemap"><param name="Name" value="Type"><param name="Local" value="topic_uninstalldeletesection.htm#Type"></object>
+<li><object type="text/sitemap"><param name="Name" value="Types"><param name="Local" value="topic_componentssection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Types"><param name="Local" value="topic_typessection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Unassigned"><param name="Local" value="isxfunc/topic_isxfunc_unassigned.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="unchecked"><param name="Local" value="topic_runsection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="unchecked"><param name="Local" value="topic_taskssection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Unicode Inno Setup"><param name="Local" value="topic_unicode.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="uninsalwaysuninstall"><param name="Local" value="topic_dirssection.htm#uninsalwaysuninstall"></object>
+<li><object type="text/sitemap"><param name="Name" value="uninsclearvalue"><param name="Local" value="topic_registrysection.htm#uninsclearvalue"></object>
+<li><object type="text/sitemap"><param name="Name" value="uninsdeleteentry"><param name="Local" value="topic_inisection.htm#uninsdeleteentry"></object>
+<li><object type="text/sitemap"><param name="Name" value="uninsdeletekey"><param name="Local" value="topic_registrysection.htm#uninsdeletekey"></object>
+<li><object type="text/sitemap"><param name="Name" value="uninsdeletekeyifempty"><param name="Local" value="topic_registrysection.htm#uninsdeletekeyifempty"></object>
+<li><object type="text/sitemap"><param name="Name" value="uninsdeletesection"><param name="Local" value="topic_inisection.htm#uninsdeletesection"></object>
+<li><object type="text/sitemap"><param name="Name" value="uninsdeletesectionifempty"><param name="Local" value="topic_inisection.htm#uninsdeletesectionifempty"></object>
+<li><object type="text/sitemap"><param name="Name" value="uninsdeletevalue"><param name="Local" value="topic_registrysection.htm#uninsdeletevalue"></object>
+<li><object type="text/sitemap"><param name="Name" value="uninsneveruninstall"><param name="Local" value="topic_iconssection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="uninsneveruninstall"><param name="Local" value="topic_filessection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="uninsneveruninstall"><param name="Local" value="topic_dirssection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="uninsnosharedfileprompt"><param name="Local" value="topic_filessection.htm#uninsnosharedfileprompt"></object>
+<li><object type="text/sitemap"><param name="Name" value="uninsremovereadonly"><param name="Local" value="topic_filessection.htm#uninsremovereadonly"></object>
+<li><object type="text/sitemap"><param name="Name" value="uninsrestartdelete"><param name="Local" value="topic_filessection.htm#uninsrestartdelete"></object>
+<li><object type="text/sitemap"><param name="Name" value="Uninstall code"><param name="Local" value="topic_scriptuninstall.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Uninstallable"><param name="Local" value="topic_setup_uninstallable.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="UninstallDelete"><param name="Local" value="topic_uninstalldeletesection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="UninstallDisplayIcon"><param name="Local" value="topic_setup_uninstalldisplayicon.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="UninstallDisplayName"><param name="Local" value="topic_setup_uninstalldisplayname.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="UninstallDisplaySize"><param name="Local" value="topic_setup_uninstalldisplaysize.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Uninstaller Command Line Parameters"><param name="Local" value="topic_uninstcmdline.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Uninstaller Exit Codes"><param name="Local" value="topic_uninstexitcodes.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="UninstallFilesDir"><param name="Local" value="topic_setup_uninstallfilesdir.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="UninstallIconFile"><param name="Local" value="topic_setup_uninstalliconfile.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="UninstallIconName"><param name="Local" value="topic_setup_uninstalliconname.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="UninstallLogMode"><param name="Local" value="topic_setup_uninstalllogmode.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="UninstallNeedRestart"><param name="Local" value="topic_scriptevents.htm#UninstallNeedRestart"></object>
+<li><object type="text/sitemap"><param name="Name" value="uninstallonly"><param name="Local" value="topic_scriptdll.htm#uninstallonly"></object>
+<li><object type="text/sitemap"><param name="Name" value="UninstallProgressForm"><param name="Local" value="topic_scriptclasses.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="UninstallRestartComputer"><param name="Local" value="topic_setup_uninstallrestartcomputer.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="UninstallRun"><param name="Local" value="topic_runsection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="UninstallSilent"><param name="Local" value="isxfunc/topic_isxfunc_uninstallsilent.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="UninstallStyle"><param name="Local" value="topic_setup_uninstallstyle.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="UnloadDLL"><param name="Local" value="isxfunc/topic_isxfunc_unloaddll.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="UnregisterFont"><param name="Local" value="isxfunc/topic_isxfunc_unregisterfont.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="UnregisterServer"><param name="Local" value="isxfunc/topic_isxfunc_unregisterserver.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="UnregisterTypeLibrary"><param name="Local" value="isxfunc/topic_isxfunc_unregistertypelibrary.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Unsafe Files"><param name="Local" value="topic_unsafefiles.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="unsetntfscompression"><param name="Local" value="topic_filessection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="unsetntfscompression"><param name="Local" value="topic_dirssection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="UpdateReadyMemo"><param name="Local" value="topic_scriptevents.htm#UpdateReadyMemo"></object>
+<li><object type="text/sitemap"><param name="Name" value="UpdateUninstallLogAppName"><param name="Local" value="topic_setup_updateuninstalllogappname.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Uppercase"><param name="Local" value="isxfunc/topic_isxfunc_uppercase.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="usAppMutexCheck"><param name="Local" value="topic_scriptevents.htm#TUninstallStep"></object>
+<li><object type="text/sitemap"><param name="Name" value="useapppaths"><param name="Local" value="topic_iconssection.htm#useapppaths"></object>
+<li><object type="text/sitemap"><param name="Name" value="UsePreviousAppDir"><param name="Local" value="topic_setup_usepreviousappdir.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="UsePreviousGroup"><param name="Local" value="topic_setup_usepreviousgroup.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="UsePreviousLanguage"><param name="Local" value="topic_setup_usepreviouslanguage.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="UsePreviousSetupType"><param name="Local" value="topic_setup_useprevioussetuptype.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="UsePreviousTasks"><param name="Local" value="topic_setup_useprevioustasks.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="UsePreviousUserInfo"><param name="Local" value="topic_setup_useprevioususerinfo.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="User &amp; Group Identifiers"><param name="Local" value="topic_usergroupids.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="UserInfoPage"><param name="Local" value="topic_setup_userinfopage.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="UseSetupLdr"><param name="Local" value="topic_setup_usesetupldr.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="usFinished"><param name="Local" value="topic_scriptevents.htm#TUninstallStep"></object>
+<li><object type="text/sitemap"><param name="Name" value="Using Build Number and/or Service Pack Levels"><param name="Local" value="topic_buildnumnotes.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="usTerminate"><param name="Local" value="topic_scriptevents.htm#TUninstallStep"></object>
+<li><object type="text/sitemap"><param name="Name" value="usUninstall"><param name="Local" value="topic_scriptevents.htm#TUninstallStep"></object>
+<li><object type="text/sitemap"><param name="Name" value="ValueData"><param name="Local" value="topic_registrysection.htm#ValueData"></object>
+<li><object type="text/sitemap"><param name="Name" value="ValueName"><param name="Local" value="topic_registrysection.htm#ValueName"></object>
+<li><object type="text/sitemap"><param name="Name" value="ValueType"><param name="Local" value="topic_registrysection.htm#ValueType"></object>
+<li><object type="text/sitemap"><param name="Name" value="VarIsEmpty"><param name="Local" value="isxfunc/topic_isxfunc_varisempty.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="VarIsNull"><param name="Local" value="isxfunc/topic_isxfunc_varisnull.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="VarType"><param name="Local" value="isxfunc/topic_isxfunc_vartype.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Verb"><param name="Local" value="topic_runsection.htm#Verb"></object>
+<li><object type="text/sitemap"><param name="Name" value="VersionInfoCompany"><param name="Local" value="topic_setup_versioninfocompany.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="VersionInfoCopyright"><param name="Local" value="topic_setup_versioninfocopyright.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="VersionInfoDescription"><param name="Local" value="topic_setup_versioninfodescription.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="VersionInfoProductName"><param name="Local" value="topic_setup_versioninfoproductname.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="VersionInfoProductTextVersion"><param name="Local" value="topic_setup_versioninfoproducttextversion.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="VersionInfoProductVersion"><param name="Local" value="topic_setup_versioninfoproductversion.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="VersionInfoTextVersion"><param name="Local" value="topic_setup_versioninfotextversion.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="VersionInfoVersion"><param name="Local" value="topic_setup_versioninfoversion.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Visual Basic"><param name="Local" value="topic_faq.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="waituntilidle"><param name="Local" value="topic_runsection.htm#waituntilidle"></object>
+<li><object type="text/sitemap"><param name="Name" value="waituntilterminated"><param name="Local" value="topic_runsection.htm#waituntilterminated"></object>
+<li><object type="text/sitemap"><param name="Name" value="WelcomeFontName"><param name="Local" value="topic_langoptionssection.htm#WelcomeFontName"></object>
+<li><object type="text/sitemap"><param name="Name" value="WelcomeFontSize"><param name="Local" value="topic_langoptionssection.htm#WelcomeFontSize"></object>
+<li><object type="text/sitemap"><param name="Name" value="What is Inno Setup?"><param name="Local" value="topic_whatisinnosetup.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="WindowResizable"><param name="Local" value="topic_setup_windowresizable.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Windows Versions"><param name="Local" value="topic_winvernotes.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="WindowShowCaption"><param name="Local" value="topic_setup_windowshowcaption.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="WindowStartMaximized"><param name="Local" value="topic_setup_windowstartmaximized.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="WindowVisible"><param name="Local" value="topic_setup_windowvisible.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Wizard Pages"><param name="Local" value="topic_wizardpages.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="WizardDirValue"><param name="Local" value="isxfunc/topic_isxfunc_wizarddirvalue.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="WizardForm"><param name="Local" value="topic_scriptclasses.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="WizardGroupValue"><param name="Local" value="isxfunc/topic_isxfunc_wizardgroupvalue.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="WizardImageBackColor"><param name="Local" value="topic_setup_wizardimagebackcolor.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="WizardImageFile"><param name="Local" value="topic_setup_wizardimagefile.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="WizardImageStretch"><param name="Local" value="topic_setup_wizardimagestretch.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="WizardNoIcons"><param name="Local" value="isxfunc/topic_isxfunc_wizardnoicons.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="WizardSelectedComponents"><param name="Local" value="isxfunc/topic_isxfunc_wizardselectedcomponents.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="WizardSelectedTasks"><param name="Local" value="isxfunc/topic_isxfunc_wizardselectedtasks.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="WizardSetupType"><param name="Local" value="isxfunc/topic_isxfunc_wizardsetuptype.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="WizardSilent"><param name="Local" value="isxfunc/topic_isxfunc_wizardsilent.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="WizardSmallImageBackColor"><param name="Local" value="topic_setup_wizardsmallimagebackcolor.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="WizardSmallImageFile"><param name="Local" value="topic_setup_wizardsmallimagefile.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="WizardStyle"><param name="Local" value="topic_setup_wizardstyle.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="WorkingDir"><param name="Local" value="topic_runsection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="WorkingDir"><param name="Local" value="topic_iconssection.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="wpFinished"><param name="Local" value="topic_scriptevents.htm#PageID"></object>
+<li><object type="text/sitemap"><param name="Name" value="wpInfoAfter"><param name="Local" value="topic_scriptevents.htm#PageID"></object>
+<li><object type="text/sitemap"><param name="Name" value="wpInfoBefore"><param name="Local" value="topic_scriptevents.htm#PageID"></object>
+<li><object type="text/sitemap"><param name="Name" value="wpInstalling"><param name="Local" value="topic_scriptevents.htm#PageID"></object>
+<li><object type="text/sitemap"><param name="Name" value="wpLicense"><param name="Local" value="topic_scriptevents.htm#PageID"></object>
+<li><object type="text/sitemap"><param name="Name" value="wpPassword"><param name="Local" value="topic_scriptevents.htm#PageID"></object>
+<li><object type="text/sitemap"><param name="Name" value="wpPreparing"><param name="Local" value="topic_scriptevents.htm#PageID"></object>
+<li><object type="text/sitemap"><param name="Name" value="wpReady"><param name="Local" value="topic_scriptevents.htm#PageID"></object>
+<li><object type="text/sitemap"><param name="Name" value="wpSelectComponents"><param name="Local" value="topic_scriptevents.htm#PageID"></object>
+<li><object type="text/sitemap"><param name="Name" value="wpSelectDir"><param name="Local" value="topic_scriptevents.htm#PageID"></object>
+<li><object type="text/sitemap"><param name="Name" value="wpSelectProgramGroup"><param name="Local" value="topic_scriptevents.htm#PageID"></object>
+<li><object type="text/sitemap"><param name="Name" value="wpSelectTasks"><param name="Local" value="topic_scriptevents.htm#PageID"></object>
+<li><object type="text/sitemap"><param name="Name" value="wpUserInfo"><param name="Local" value="topic_scriptevents.htm#PageID"></object>
+<li><object type="text/sitemap"><param name="Name" value="wpWelcome"><param name="Local" value="topic_scriptevents.htm#PageID"></object>
+<li><object type="text/sitemap"><param name="Name" value="x64"><param name="Local" value="topic_setup_architecturesinstallin64bitmode.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="x64"><param name="Local" value="topic_setup_architecturesallowed.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="x86"><param name="Local" value="topic_setup_architecturesallowed.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Y2K compliance"><param name="Local" value="topic_faq.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="zip"><param name="Local" value="topic_setup_compression.htm"></object>
+</ul></body></html>

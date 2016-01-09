@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Pascal Scripting: ProcessorArchitecture</title>
+<link rel="stylesheet" type="text/css" href="../styles.css" />
+<script type="text/javascript" src="../topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Pascal Scripting: ProcessorArchitecture</h1>
+<div class="topicbody">
+  <div><b>Прототип:</b></div>
+  <p><tt>function ProcessorArchitecture: TSetupProcessorArchitecture;</tt></p>
+  <div><b>Описание:</b></div>
+  <p>Возвращает тип архитектуры процессора (ЦП).</p>
+  <p>TSetupProcessorArchitecture определяется как:</p>
+  <p><tt>TSetupProcessorArchitecture = (paUnknown, paX86, paX64, paIA64);</tt></p>
+  <div><b>Комментарии:</b></div>
+  <p>64-битная&nbsp;архитектура ЦП никогда не будет возваращена на 32-битных версиях Windows. Следовательно, вы не можете использовать эту функцию для обнаружения 64-битного ЦП AMD на 32-битных версиях Windows; вы просто, как результат, получите значение <tt>paX86</tt>.</p>
+  <p>Если инсталлятор/деинсталлятор не может определить тип ЦП, то функция возвращает значение<tt> paUnknown</tt>. Можно предположить, что &quot;неизвестные&quot; типы процессоров, по крайней мере способны выполнить 32-битный код.</p>
+  <p>If <tt>paIA64</tt> is returned, and <tt>ia64</tt> is <i>not</i> included in the value of the <a href="../topic_setup_architecturesinstallin64bitmode.htm">ArchitecturesInstallIn64BitMode</a> [Setup] section directive, you should not assume that Inno Setup's 64-bit-only features are available -- for example, the <tt>{pf64}</tt> constant. Those features only work when <a href="topic_isxfunc_iswin64.htm">IsWin64</a> returns True, and as documented, it may not return True on older Itanium versions of Windows that lack certain APIs Inno Setup requires.</p>
+  <p>Therefore, instead of:</p>
+  <pre>  if ProcessorArchitecture = paIA64 then<br />    // perform some Itanium-specific install task that<br />    // involves expanding {pf64}</pre>
+  <p>you should additionally check that IsWin64 returns True:</p>
+  <pre>  if ProcessorArchitecture = paIA64 then<br />  begin<br />    if IsWin64 then<br />      // perform some Itanium-specific install task that<br />      // involves expanding {pf64}<br />    else<br />      // cannot use 64-bit features; display an error message,<br />      // fail silently, try something else, etc.<br />  end;</pre>
+  <p>If <tt>ia64</tt> <i>is</i> included in the value of the <a href="../topic_setup_architecturesinstallin64bitmode.htm">ArchitecturesInstallIn64BitMode</a> [Setup] section directive, then it is not necessary to check IsWin64 because Setup will do so itself at startup, and fail with an error message (<tt>MissingWOW64APIs</tt>) if it is False.</p>
+  <div><b>Например:</b></div>
+  <pre>var<br />  S: String;<br />begin<br />  case ProcessorArchitecture of<br />    paX86: S := 'x86';<br />    paX64: S := 'x64';<br />    paIA64: S := 'Itanium';<br />  else<br />    S := 'Unrecognized';<br />  end;<br />  MsgBox('Your processor architecture: ' + S, mbInformation, MB_OK);<br />end;</pre>
+  <div><b>См. также:</b></div>
+  <p><a href="topic_isxfunc_iswin64.htm">IsWin64</a> <br />
+    <a href="topic_isxfunc_is64bitinstallmode.htm">Is64BitInstallMode</a></p>
+</div>
+</body>
+</html>

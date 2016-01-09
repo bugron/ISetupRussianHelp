@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Проверка значения в реестре с выводом нужной инфы в панель</title><link rel="stylesheet" type="text/css" href="css.css">
+<script language='jscript' type='text/javascript' src='copycode.js'></script>
+<script type="text/javascript" src="includer.js"></script></head><body><div id="heading"><h1>» Inno Setup Faq. Проверка значения в реестре с выводом нужной инфы в панель</h1></div><br>
+<script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM">
+<input type="button" value="Копировать в буфер обмена" onClick="copyToClipboard( taCode1, theCode1 );">
+<blockquote id="theCode1"><font>
+[Setup]<br>
+AppName=My&nbsp;program<br>
+AppVerName=My&nbsp;program<br>
+DefaultDirName={pf}\My&nbsp;program<br>
+<br>
+[Languages]<br>
+Name:&nbsp;rus;&nbsp;MessagesFile:&nbsp;compiler:Languages\Russian.isl<br>
+<br>
+[CustomMessages]<br>
+NotFound=Starcraft&nbsp;не&nbsp;найден,&nbsp;без&nbsp;его&nbsp;наличия&nbsp;мод&nbsp;Realistic&nbsp;работать&nbsp;не&nbsp;будет.%nПожалуйста,&nbsp;сначала&nbsp;установите&nbsp;Starcraft,&nbsp;затем&nbsp;инсталлятор&nbsp;мода.<br>
+Continue=Про&amp;должить<br>
+<br>
+[Code]<br>
+var&nbsp;MessageForm:&nbsp;TPanel;&nbsp;MessageLabel:&nbsp;TLabel;<br>
+<br>
+function&nbsp;ExtractIcon(hInst:&nbsp;LongInt;&nbsp;lpszExeFileName:&nbsp;PAnsiChar;&nbsp;nIconIndex:&nbsp;LongInt):&nbsp;LongInt;&nbsp;external&nbsp;'ExtractIconA@shell32&nbsp;stdcall&nbsp;delayload';<br>
+function&nbsp;DrawIconEx(hdc,&nbsp;x,&nbsp;y,&nbsp;hIcon,&nbsp;cx,&nbsp;cy,&nbsp;AniCur,&nbsp;Draw,&nbsp;Flags:&nbsp;Longint):&nbsp;Longint;&nbsp;external&nbsp;'DrawIconEx@user32&nbsp;stdcall&nbsp;delayload';<br>
+function&nbsp;GetModuleHandle(lpModuleName:&nbsp;LongInt):&nbsp;LongInt;&nbsp;external&nbsp;'GetModuleHandleA@kernel32&nbsp;stdcall&nbsp;delayload';<br>
+<br>
+function&nbsp;CreateLabel(Parent:&nbsp;TWinControl;&nbsp;AutoSize,&nbsp;WordWrap,&nbsp;Transparent:&nbsp;Boolean;&nbsp;FontName:&nbsp;String;&nbsp;FontStyle:&nbsp;TFontStyles;&nbsp;FontColor:&nbsp;TColor;&nbsp;Left,&nbsp;Top,&nbsp;Width,&nbsp;Height:&nbsp;Integer):&nbsp;TLabel;&nbsp;var&nbsp;tmpLabel:&nbsp;TLabel;&nbsp;Begin<br>
+&nbsp;&nbsp;tmpLabel:=&nbsp;TLabel.Create(Parent)<br>
+if&nbsp;Top&nbsp;&gt;&nbsp;0&nbsp;then&nbsp;tmpLabel.Top:=&nbsp;Top;&nbsp;if&nbsp;Left&nbsp;&gt;&nbsp;0&nbsp;then&nbsp;tmpLabel.Left:=&nbsp;Left;&nbsp;if&nbsp;Width&nbsp;&gt;&nbsp;0&nbsp;then&nbsp;tmpLabel.Width:=&nbsp;Width;&nbsp;if&nbsp;Height&nbsp;&gt;&nbsp;0&nbsp;then&nbsp;tmpLabel.Height:=&nbsp;Height;<br>
+tmpLabel.AutoSize:=&nbsp;AutoSize;&nbsp;tmpLabel.WordWrap:=&nbsp;WordWrap;&nbsp;tmpLabel.Transparent:=&nbsp;Transparent;&nbsp;tmpLabel.ShowHint:=&nbsp;True<br>
+if&nbsp;FontName&nbsp;&lt;&gt;&nbsp;''&nbsp;then&nbsp;tmpLabel.Font.Name:=&nbsp;FontName;&nbsp;if&nbsp;FontColor&nbsp;&gt;&nbsp;0&nbsp;then&nbsp;tmpLabel.Font.Color:=&nbsp;FontColor;&nbsp;if&nbsp;FontStyle&nbsp;&lt;&gt;&nbsp;[]&nbsp;then&nbsp;tmpLabel.Font.Style:=&nbsp;FontStyle;<br>
+&nbsp;&nbsp;tmpLabel.Parent:=&nbsp;Parent;&nbsp;Result:=&nbsp;tmpLabel<br>
+end;<br>
+<br>
+procedure&nbsp;DrawIcon(Form:&nbsp;TWinControl;&nbsp;File:&nbsp;String;&nbsp;nIcon,&nbsp;Left,&nbsp;Top,&nbsp;Size,&nbsp;BColor:&nbsp;Integer);&nbsp;var&nbsp;Panel:&nbsp;TPanel;&nbsp;Rect:&nbsp;TRect;&nbsp;Begin<br>
+&nbsp;&nbsp;Panel:=&nbsp;TPanel.Create(Form);&nbsp;Panel.SetBounds(Left,&nbsp;Top,&nbsp;Size,&nbsp;Size);&nbsp;Panel.Parent:=&nbsp;Form<br>
+&nbsp;&nbsp;with&nbsp;TBitmapImage.Create(Panel)&nbsp;do&nbsp;begin&nbsp;Parent:=&nbsp;Panel;&nbsp;with&nbsp;Bitmap&nbsp;do&nbsp;begin<br>
+&nbsp;&nbsp;Width:=&nbsp;Size;&nbsp;Height:=&nbsp;Size;&nbsp;Rect.Right:=&nbsp;Size;&nbsp;Rect.Bottom:=&nbsp;Size;&nbsp;Canvas.Brush.Color:=&nbsp;BColor;&nbsp;Canvas.FillRect(Rect);<br>
+&nbsp;&nbsp;DrawIconEx(Canvas.Handle,&nbsp;0,0,&nbsp;ExtractIcon(GetModuleHandle(0),&nbsp;ExpandConstant(File),&nbsp;nIcon),&nbsp;Size,&nbsp;Size,0,0,3);&nbsp;end;&nbsp;end;<br>
+end;<br>
+<br>
+procedure&nbsp;ObjectOnClick(Sender:&nbsp;TObject);<br>
+Begin<br>
+&nbsp;&nbsp;Case&nbsp;TObject(Sender)&nbsp;of	{{нажатие&nbsp;объекта}<br>
+MessageLabel:	MessageForm.Hide;<br>
+&nbsp;&nbsp;end;<br>
+end;<br>
+<br>
+procedure&nbsp;Message(String:&nbsp;String;&nbsp;AIndex,&nbsp;IconSize:&nbsp;Integer);	Begin	{{размеры&nbsp;формы&nbsp;подстраиваются&nbsp;под&nbsp;текст&nbsp;сообщения}<br>
+MessageLabel.Left:=&nbsp;IconSize&nbsp;+&nbsp;10&nbsp;+&nbsp;IconSize/3;&nbsp;MessageLabel.Top:=&nbsp;10;&nbsp;MessageLabel.Font.Size:=&nbsp;WizardForm.Font.Size&nbsp;+&nbsp;1<br>
+MessageLabel.Caption:=&nbsp;String;&nbsp;{{авторазмер}&nbsp;if&nbsp;MessageLabel.Height&nbsp;&lt;&nbsp;IconSize&nbsp;then&nbsp;MessageLabel.Height:=&nbsp;IconSize;<br>
+MessageForm.SetBounds((WizardForm.ClientWidth&nbsp;-&nbsp;(MessageLabel.Width&nbsp;+&nbsp;MessageLabel.Left&nbsp;+&nbsp;12))/2,&nbsp;(WizardForm.ClientHeight&nbsp;-&nbsp;(MessageLabel.Height&nbsp;+&nbsp;MessageLabel.Top&nbsp;+&nbsp;8))/2,&nbsp;MessageLabel.Width&nbsp;+&nbsp;MessageLabel.Left&nbsp;+&nbsp;12,&nbsp;MessageLabel.Height&nbsp;+&nbsp;MessageLabel.Top&nbsp;+&nbsp;8)<br>
+DrawIcon(MessageForm,&nbsp;'{sys}\shell32.dll',&nbsp;AIndex,&nbsp;10,&nbsp;10,&nbsp;IconSize,&nbsp;MessageForm.Color);<br>
+MessageForm.Show;<br>
+end;<br>
+<br>
+procedure&nbsp;CurPageChanged(CurPageID:&nbsp;Integer);<br>
+Begin<br>
+&nbsp;&nbsp;MessageForm.Hide;<br>
+&nbsp;&nbsp;Case&nbsp;CurPageID&nbsp;of<br>
+wpWelcome:&nbsp;if&nbsp;not&nbsp;RegValueExists(HKLM,&nbsp;'Software\Blizzard&nbsp;Entertainment\Starcraft',&nbsp;'InstallPath')&nbsp;then&nbsp;begin<br>
+Message(ExpandConstant('{cm:NotFound}'),&nbsp;-1001,&nbsp;32)<br>
+WizardForm.NextButton.Caption:=&nbsp;ExpandConstant('{cm:Continue}')<br>
+end;<br>
+&nbsp;&nbsp;end;<br>
+end;<br>
+<br>
+procedure&nbsp;InitializeWizard;<br>
+Begin<br>
+&nbsp;&nbsp;MessageForm:=&nbsp;TPanel.Create(WizardForm)<br>
+MessageForm.Parent:=&nbsp;WizardForm;<br>
+MessageForm.Color:=&nbsp;$E1FFFF;&nbsp;MessageForm.BevelInner:=&nbsp;bvLowered;<br>
+&nbsp;&nbsp;MessageLabel:=&nbsp;CreateLabel(MessageForm,&nbsp;true,&nbsp;false,&nbsp;true,&nbsp;'Arial',&nbsp;[],&nbsp;$402010,&nbsp;0,&nbsp;0,&nbsp;0,&nbsp;0)<br>
+&nbsp;&nbsp;MessageLabel.OnClick:=&nbsp;@ObjectOnClick<br>
+end;<br>
+</font></blockquote><textarea id="taCode1" style="display:none;" rows="1" cols="5"></textarea><textarea id='taCode' style='display:none;' rows='1' cols='20'></textarea></code><script language="javascript" type="text/javascript">highlightSyntax('delphi_Tc4NTM','delphi');</script><br><div id="heading"><h1><font size="1" face="Consolas">Copyright (c) <a href="http://www.krinkels.org/" target="_blank">Krinkels Inc</a></font></h1></div></body></html>

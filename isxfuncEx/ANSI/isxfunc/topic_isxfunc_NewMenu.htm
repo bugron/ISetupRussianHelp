@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Pascal Scripting Extended: NewMenu</title>
+<link rel="stylesheet" type="text/css" href="../../../styles.css" />
+<script type="text/javascript" src="../../../topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Pascal Scripting Extended: NewMenu</h1>
+<div class="topicbody">
+  <div><b>Прототип:</b></div>
+  <p><tt>function NewMenu(Owner: TComponent; const AName: String; Items: array of TMenuItem): TMainMenu;</tt></p>
+  <div><b>Описание:</b></div>
+  Функция создает, во время выполнения программы, и инициализирует меню верхнего уровня.<br />
+  Параметр Items определяет массив элементов меню, параметр AName - имя которое будет идентифицировать меню в тексте программы. Параметр Owner определяет форму, которой будет принадлежать создаваемое меню. Массив элементов меню можно заполнить с помощью функции NewItem.<br />
+  <div><b>Пример:</b></div>
+  <p><tt>var<br />
+    <br />
+    Items: array[0..2] of TMenuItem;<br />
+    &nbsp;Item: TMenuItem;<br />
+    &nbsp;Key: TShortCut;<br />
+    <br />
+    begin<br />
+    <br />
+    Key:=ShortCut(Word('X'),[ssShift]);<br />
+    <br />
+    Items[0]:= NewItem('Пункт1', Key, false, true, N1click, 0, 'MenuItem1');<br />
+    <br />
+    Items[1]:= NewLine;<br />
+    <br />
+    Items[2]:= NewItem('Пункт2', 0, false, true, N2click, 0, 'MenuItem2');<br />
+    <br />
+    Item:= NewSubMenu('&amp;Меню1', 0, 'Submenu1', Items, true,);<br />
+    &nbsp;NewMenu(Form1, 'Menu1', Item);<br />
+    <br />
+    end;</tt></p>
+</div>
+</body>
+</html>

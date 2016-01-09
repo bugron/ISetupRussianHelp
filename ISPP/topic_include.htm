@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Inno Setup Preprocessor: #include</title>
+<link rel="stylesheet" type="text/css" href="../styles.css" />
+<script type="text/javascript" src="../topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Inno Setup Preprocessor: #include</h1>
+<div class="topicbody">
+  <h2 class="heading notopmargin">Синтатсис</h2>
+  <table>
+    <tr>
+      <td class="cellleft"><i>include-directive:</i></td>
+      <td class="cellright">(<b>include</b> | <b>+</b>) <b>&lt;</b> &lt;filename&gt; <b>&gt;</b></td>
+    </tr>
+    <tr>
+      <td class="cellleft"></td>
+      <td class="cellright">(<b>include</b> | <b>+</b>) &lt;expr&gt;</td>
+    </tr>
+  </table>
+  <h2 class="heading">Описание</h2>
+  <p>Включает <a href="topic_translation.htm">перевод</a> указанного файла.</p>
+  <p>Если имя файла включен в угловые скобки, ISPP сначала ищет файл в каталоге, где находится текущий файл, потом в каталоге, где находится файл, который включал текущий и так далее. Если файл не найден, он ищется в текущем каталоге, установленным через <tt><a href="topic_pragma.htm">pragma</a></tt>, потом в каталоге, определенного переменным окружения INCLUDE.</p>
+  <p>Если имя файла - выражение или находится в кавычках, он ищется на только в текущем каталоге.</p>
+  <p>Эта директива не может использоваться встроенно.</p>
+  <h2 class="heading">Примеры</h2>
+  <p><tt>#include &lt;file.iss&gt;<br/>
+    #include &quot;c:\dir\file.iss&quot;<br/>
+    #include AddBackslash(<a href="topic_predefinedvars.htm">CompilerPath</a>) + &quot;common.iss&quot;<br/>
+  </tt></p>
+  <h2 class="heading">См. также</h2>
+  <p><tt><a href="topic_file.htm">file</a></tt>, <tt><a href="topic_sub.htm">sub</a></tt>.</p>
+</div>
+</body>
+</html>

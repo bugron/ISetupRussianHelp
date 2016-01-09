@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Pascal Scripting: CreateOutputProgressPage</title>
+<link rel="stylesheet" type="text/css" href="../styles.css" />
+<script type="text/javascript" src="../topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Pascal Scripting: CreateOutputProgressPage</h1>
+<div class="topicbody">
+  <div><b>Прототип:</b></div>
+  <p><tt>function CreateOutputProgressPage(const ACaption, AОписание: String): TOutputProgressWizardPage;</tt></p>
+  <div><b>Описание:</b></div>
+  <p>Создает страницу мастера, которая содержит статический текст  и <span id="result_box" lang="ru" xml:lang="ru">индикатор хода выполнения</span> (который скрыт по умолчанию).</p>
+  <p><span id="result_box2" lang="ru" xml:lang="ru">В отличие от других типов страниц мастера</span>, данные страницы не показываются в <span id="result_box3" lang="ru" xml:lang="ru">обычной последовательности страниц</span> (<span id="result_box4" lang="ru" xml:lang="ru">обратите внимание, что нет</span> параметра <tt>AfterID</tt>). Страница прогресса можно показать только программно, с помощью метода <tt>Show</tt>.</p>
+  <div><b>Комментарии:</b></div>
+  <p>Вызовите метод <tt>Show</tt>, чтобы показать страницу. Чтобы вернуться к предыдущей странице, вызовите метод <tt>Hide</tt>.</p>
+  <p>Всегда размещайте вызов <tt>Hide</tt> внутри <tt>finally</tt>, части конструкции <tt>try..finally</tt>, как показано в <i>CodeDlg.iss</i>. Если не вызвать <tt>Hide</tt>, инсталлятор &quot;застрянет&quot; на странице прогресса.</p>
+  <p>Чтобы указать текст на странице, вызовите метод <tt>SetText</tt>. <tt>SetText</tt> <span id="result_box5" lang="ru" tabindex="-1" xml:lang="ru">принимает</span> два строковых параметра: используйте первый, чтобы указать пользователю что вы делаете и второй, чтобы показать имя файла, или папки. <span id="result_box6" lang="ru" tabindex="-1" xml:lang="ru">Любой из этих двух параметров может быть пустым.</span></p>
+  <p>Чтобы показать или обновить <span id="result_box7" lang="ru" xml:lang="ru">индикатор хода выполнения</span>, вызовите метод <tt>SetProgress</tt>. <tt>SetProgress</tt> <span id="result_box8" lang="ru" tabindex="-1" xml:lang="ru">принимает два целочисленных параметра</span>: первых указывает позицию индикатора (обычно 0), <span id="result_box9" lang="ru" tabindex="-1" xml:lang="ru">а второй определяет максимально возможную позицию</span>. Если второй параметр является 0, индикатор выполнения будет скрыт.</p>
+  <div><b>Например:</b></div>
+  <p>Для примера см. <i>CodeDlg.iss</i>.</p>
+</div>
+</body>
+</html>

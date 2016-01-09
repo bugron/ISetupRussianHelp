@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Pascal Scripting: GetTempDir</title>
+<link rel="stylesheet" type="text/css" href="../styles.css" />
+<script type="text/javascript" src="../topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Pascal Scripting: GetTempDir</h1>
+<div class="topicbody">
+  <div><b>Прототип:</b></div>
+  <p><tt>function GetTempDir: String;</tt></p>
+  <div><b>Описание:</b></div>
+  <p>Возвращает полный путь к временному папке, с обратным слэшом. Не использует Win32 функцию GetTempPath, из-за различий платформ.<br/>
+    Получает этот путь следующим образом:<br/>
+    1. Путь, указанный в переменной среды TMP.<br/>
+    2. Путь, указанный в переменной среды TEMP, если TMP не определен или если TMP указывает на не существующую папку.<br/>
+    3. Путь к системной папке Windows, если оба TMP и TEMP не определены или указывают на не существующую папку.</p>
+</div>
+</body>
+</html>

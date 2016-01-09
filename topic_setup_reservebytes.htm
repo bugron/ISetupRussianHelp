@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>[Setup]: ReserveBytes</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="IE=8" http-equiv="X-UA-Compatible">
+<link rel="stylesheet" type="text/css" href="styles.css">
+<script type="text/javascript" src="topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">[Setup]: ReserveBytes</h1>
+<div class="topicbody">
+  <table class="setuphdr">
+    <tbody>
+      <tr>
+        <td class="setuphdrl"><p>Значение по умолчанию:</p></td>
+        <td class="setuphdrr"><div class="margined"><tt>0</tt></div></td>
+      </tr>
+    </tbody>
+  </table>
+  <div><b>Описание:</b></div>
+  <p>Определяет минимальный размер пустого пространства на первом диске в байтах для установки с разбиением на диски. Это может быть полезно, если понадобится на первый диск скопировать файлы, не являющиеся собственно файлами инсталлятора (например, файл ReadMe).</p>
+  <p>Компилятор округляет это число до кратности кластера.</p>
+  <p>Директива игнорируется, если <tt>DiskSpanning</tt> секции <tt>[Setup]</tt> равно no.</p>
+</div>
+</body>
+</html>

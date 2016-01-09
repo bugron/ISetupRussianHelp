@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Pascal Scripting Extended: Round</title>
+<link rel="stylesheet" type="text/css" href="../../../styles.css" />
+<script type="text/javascript" src="../../../topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Pascal Scripting Extended: Round</h1>
+<div class="topicbody">
+  <div><b>Прототип:</b></div>
+  <p><tt>function Round(E: Extended): Extended;</tt></p>
+  <div><b>Описание:</b></div>
+  Функция Round округляет число с плавающей запятой (E) до целого значения.<br />
+  <br />
+  &nbsp;Округление использует банковские правила, где точная половина значения вызывает округление к четному числу:<br />
+  &nbsp;12.4 округляется до 12<br />
+  &nbsp;12.5 округляется до 12<br />
+  &nbsp;12.6 округляется до 13<br />
+  <br />
+  &nbsp;13.4 округляется до 13<br />
+  &nbsp;13.5 округляется до 14<br />
+  &nbsp;13.6 округляется до 14<br />
+  <div><b>Пример:</b></div>
+  <p><tt>begin<br />
+    &nbsp;ShowMessage('Round(12.75) = '+IntToStr(Round(12.75)));<br />
+    &nbsp;ShowMessage('Trunc(12.75) = '+IntToStr(Trunc(12.75)));<br />
+    &nbsp;ShowMessage(' Int(12.75) = '+FloatToStr(Int(12.75)));<br />
+    &nbsp;ShowMessage(' Frac(12.75) = '+FloatToStr(Frac(12.75)));<br />
+    end; <br />
+    <br />
+    <br />
+    &nbsp;Round(12.75) = 13<br />
+    &nbsp;Trunc(12.75) = 12<br />
+    &nbsp;Int(12.75) = 12<br />
+    &nbsp;Frac(12.75) = 0.75<br />
+  </tt></p>
+</div>
+</body>
+</html>

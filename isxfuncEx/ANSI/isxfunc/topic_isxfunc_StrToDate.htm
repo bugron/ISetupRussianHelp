@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Pascal Scripting Extended: StrToDate</title>
+<link rel="stylesheet" type="text/css" href="../../../styles.css" />
+<script type="text/javascript" src="../../../topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Pascal Scripting Extended: StrToDate</h1>
+<div class="topicbody">
+  <div><b>Прототип:</b></div>
+  <p><tt>functio StrToDate(const S: String): TDateTime;</tt></p>
+  <div><b>Описание:</b></div>
+  Функция StrToDate предназначена для преобразования строки Date в значение типа TDateTime.<br />
+  Строка с датой должна соответствовать формату, заданному в переменной ShortDateFormat, и использовать символ DateSeparator для разделения значений дня, месяца и года. <br />
+  Форматом по умолчанию для Англии является день/месяц/год, где <br />
+  <br />
+  &nbsp;день должен быть в диапазоне 1..31 (зависит от месяца/года) <br />
+  &nbsp;месяц должен быть в диапазоне 1..12 <br />
+  &nbsp;год должен быть в диапазоне 0..9999 (необязательный параметр) <br />
+  <br />
+  Если год не вводиться, то функция использует текущий год. <br />
+  Обратите внимание, что, к примеру, 0015-й год должен быть задан вместе с цифрами века; 15-й год будет расценен как относящийся к текущему веку. <br />
+  Если год двузначный, то век определяется значением переменной TwoDigitYearCenturyWindow. <br />
+  Время будет установлено в 0, то есть на начало заданного дня. <br />
+  Любые ошибки в строке с датой вызовут исключение EConvertError.<br />
+  Второй вариант этой функции предназначен для использования в потоках. Перед вызовом функции вы должны заполнить запись FormatSettings. Функция делает локальную копию глобальных переменных форматирования, что делает ее потокобезопасной.<br />
+  <div><b>Пример:</b></div>
+  <p><tt>var<br />
+    &nbsp;myDate : TDateTime;<br />
+    <br />
+    begin<br />
+    &nbsp;myDate := StrToDate('15/03/75');<br />
+    &nbsp;ShowMessage('15/03/75 = '+DateTimeToStr(myDate));<br />
+    &nbsp;myDate := StrToDate('01/01/2075');<br />
+    &nbsp;ShowMessage('01/01/2075 = '+DateTimeToStr(myDate));<br />
+    end; <br />
+    <br />
+    <br />
+    &nbsp;15/03/75 = 15/03/1975<br />
+    &nbsp;01/01/2075 = 01/01/2075</tt></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Pascal Scripting Extended: FloatToStr</title>
+<link rel="stylesheet" type="text/css" href="../../../styles.css" />
+<script type="text/javascript" src="../../../topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Pascal Scripting Extended: FloatToStr</h1>
+<div class="topicbody">
+  <div><b>Прототип:</b></div>
+  <p><tt>function FloatToStr(E: Extended): String;</tt></p>
+  <div><b>Описание:</b></div>
+  Функция FloatToStr преобразовывает значение Value плавающей запятой в визуализуемую строку. <br />
+  Значение отображается с 15 цифрами точности.<br />
+  Типом Value может быть любой из типов с плавающей запятой. <br />
+  Если значения перед десятичной точкой (мантиссой) превышают вместимость дисплея (15), то используется значение экспоненты, типа 1.2E9. <br />
+  Версия 2 этой функции - для использования в пределах потоков. Вы должны заполнить запись FormatSettings перед вызовом запроса. Она берет местную копию глобальной переменной, форматирующей переменные, которые делают подпрограмму потоко-безопасной.
+  <div><b>Пример:</b></div>
+  <p><tt>var<br />
+    &nbsp;amount1, amount2, amount3 : Extended;<br />
+    <br />
+    begin<br />
+    &nbsp;amount1 := 1234567890.123456789; // Высокая точность числа<br />
+    &nbsp;amount2 := 1234567890123456.123; // Высокие цифры мантиссы<br />
+    &nbsp;amount3 := 1E100; // Высокое значение числа<br />
+    <br />
+    &nbsp;ShowMessage('Amount1 = '+FloatToStr(amount1));<br />
+    &nbsp;ShowMessage('Amount2 = '+FloatToStr(amount2));<br />
+    &nbsp;ShowMessage('Amount3 = '+FloatToStr(amount3));<br />
+    end; <br />
+    <br />
+    <br />
+    &nbsp;Amount1 = 1234567890.12346<br />
+    &nbsp;Amount2 = 1.23456789012346E15<br />
+    &nbsp;Amount3 = 1E100</tt></p>
+</div>
+</body>
+</html>

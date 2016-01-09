@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Как обнаружить версию установленного IE </title><link rel="stylesheet" type="text/css" href="css.css">
+<script language='jscript' type='text/javascript' src='copycode.js'></script>
+<script type="text/javascript" src="includer.js"></script></head><body><div id="heading"><h1>» Inno Setup Faq. Как обнаружить версию установленного IE </h1></div><br>
+<script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM">
+<input type="button" value="Копировать в буфер обмена" onClick="copyToClipboard( taCode1, theCode1 );">
+<blockquote id="theCode1"><font>
+[Setup]<br>
+AppName=IEVersion<br>
+AppVerName=IEVersion<br>
+DefaultDirName=IEVersion<br>
+DisableStartupPrompt=true<br>
+Uninstallable=false<br>
+CreateAppDir=false<br>
+<br>
+[Code]<br>
+function&nbsp;GetIExplorerVersion():&nbsp;String;<br>
+var<br>
+&nbsp;&nbsp;sVersion:&nbsp;&nbsp;String;<br>
+begin<br>
+&nbsp;&nbsp;RegQueryStringValue(HKLM,&nbsp;'SOFTWARE\Microsoft\Internet&nbsp;Explorer',&nbsp;'Version',&nbsp;sVersion);<br>
+&nbsp;&nbsp;Result&nbsp;:=&nbsp;sVersion;<br>
+end;<br>
+<br>
+function&nbsp;InitializeSetup():&nbsp;Boolean;<br>
+begin<br>
+&nbsp;&nbsp;MsgBox('Version&nbsp;of&nbsp;Internet&nbsp;Explorer&nbsp;is&nbsp;('&nbsp;+&nbsp;GetIExplorerVersion()&nbsp;+&nbsp;')',<br>
+&nbsp;&nbsp;	mbInformation,&nbsp;MB_OK);<br>
+&nbsp;&nbsp;Result&nbsp;:=&nbsp;false;<br>
+end;
+
+  </font></blockquote><textarea id="taCode1" style="display:none;" rows="1" cols="5"></textarea><textarea id='taCode' style='display:none;' rows='1' cols='20'></textarea></code><script language="javascript" type="text/javascript">highlightSyntax('delphi_Tc4NTM','delphi');</script><br><div id="heading"><h1><font size="1" face="Consolas">Copyright (c) <a href="http://www.krinkels.org/" target="_blank">Krinkels Inc</a></font></h1></div></body></html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Inno Setup Preprocessor: #ifdef, #ifndef, #ifexsist, #ifnexist</title>
+<link rel="stylesheet" type="text/css" href="../styles.css" />
+<script type="text/javascript" src="../topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Inno Setup Preprocessor: #ifdef, #ifndef, #ifexsist, #ifnexist</h1>
+<div class="topicbody">
+  <h2 class="heading notopmargin">Синтатсис</h2>
+  <table>
+    <tr>
+      <td class="cellleft"><i>ifdef-directive:</i></td>
+      <td class="cellright"><b>ifdef</b> &lt;ident&gt;</td>
+    </tr>
+  </table>
+  <table>
+    <tr>
+      <td class="cellleft"><i>ifndef-directive:</i></td>
+      <td class="cellright"><b>ifndef</b> &lt;ident&gt;</td>
+    </tr>
+  </table>
+  <table>
+    <tr>
+      <td class="cellleft"><i>ifexist-directive:</i></td>
+      <td class="cellright"><b>ifexist</b> &lt;expr&gt;</td>
+    </tr>
+  </table>
+  <table>
+    <tr>
+      <td class="cellleft"><i>ifnexist-directive:</i></td>
+      <td class="cellright"><b>ifnexist</b> &lt;expr&gt;</td>
+    </tr>
+  </table>
+  <h2 class="heading">Описание</h2>
+  <p>Вы можете использовать директивы <tt>ifdef</tt>, <tt>ifndef</tt>, <tt>ifexist</tt>, и <tt>ifnexist</tt> везде, где <tt><a href="topic_if.htm">if</a></tt> допустим. Оператор <tt>ifdef identifier</tt> эквивалентен <tt>if 1,</tt> когда указанный идентификатор был определен, и эквивалентен <tt>if 0,</tt> когда идентификатор не был определен или был отменен директивой <tt><a href="topic_undef.htm">undef</a></tt>. Эти директивы проверяют только на присутствие или отсутствие идентификаторов, определенных с помощью <tt><a href="topic_define.htm">define</a></tt>.</p>
+  <p>Директивы<tt> ifexist</tt> и <tt>ifnexist</tt> проверяют на присутствие и отсутствие файла соответственно.</p>
+  <h2 class="heading">Примеры</h2>
+  <p><tt>[Files]<br/>
+    #ifexist &quot;myfile.ext&quot;<br/>
+    &nbsp;&nbsp;Filename: &quot;myfile.ext&quot;; DestDir: {app}<br/>
+    #endif<br/>
+    #ifdef Enterpise<br/>
+    &nbsp;&nbsp;Filename: &quot;extra.dll&quot;; DestDir: {app}<br/>
+    #endif<br/>
+  </tt></p>
+  <h2 class="heading">См. также</h2>
+  <p><a href="topic_fileexists.htm">FileExists</a></p>
+</div>
+</body>
+</html>

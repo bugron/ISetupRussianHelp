@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Установка экранной заставки</title><link rel="stylesheet" type="text/css" href="css.css">
+<script language='jscript' type='text/javascript' src='copycode.js'></script>
+<script type="text/javascript" src="includer.js"></script></head><body><div id="heading"><h1>» Inno Setup Faq. Установка экранной заставки</h1></div><br>
+<script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM">
+<input type="button" value="Копировать в буфер обмена" onClick="copyToClipboard( taCode1, theCode1 );">
+<blockquote id="theCode1"><font>
+[Setup]<br>
+AppName=Installingascreensaver<br>
+AppVerName=Installingascreensaver<br>
+DefaultDirName={pf}\Installingascreensaver<br>
+DisableProgramGroupPage=yes<br>
+<br>
+;;<br>
+;;Details&nbsp;on&nbsp;installing&nbsp;a&nbsp;screensaver&nbsp;can&nbsp;be&nbsp;found&nbsp;at:<br>
+;;http://msdn.microsoft.com/library/default.asp?url=/library/en-us/regentry/34635.asp<br>
+;;<br>
+<br>
+[Files]<br>
+;;Install&nbsp;new&nbsp;screensaver&nbsp;into&nbsp;system/system32<br>
+Source:&nbsp;&quot;Screensaver.scr&quot;;&nbsp;DestDir:&nbsp;&quot;{sys}&quot;;&nbsp;CopyMode:&nbsp;alwaysoverwrite<br>
+<br>
+[Run]<br>
+;;Open&nbsp;screensaver&nbsp;property&nbsp;dialog&nbsp;with&nbsp;new&nbsp;screensaver&nbsp;selected<br>
+Filename:&nbsp;&quot;{sys}\rundll32.exe&quot;;&nbsp;Parameters:&nbsp;&quot;desk.cpl,InstallScreenSaver&nbsp;{sys}\Screensaver.scr&quot;<br>
+</font></blockquote><textarea id="taCode1" style="display:none;" rows="1" cols="5"></textarea><textarea id='taCode' style='display:none;' rows='1' cols='20'></textarea></code><script language="javascript" type="text/javascript">highlightSyntax('delphi_Tc4NTM','delphi');</script><br><div id="heading"><h1><font size="1" face="Consolas">Copyright (c) <a href="http://www.krinkels.org/" target="_blank">Krinkels Inc</a></font></h1></div></body></html>

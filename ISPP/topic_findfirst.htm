@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Inno Setup Preprocessor: FindFirst</title>
+<link rel="stylesheet" type="text/css" href="../styles.css" />
+<script type="text/javascript" src="../topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Inno Setup Preprocessor: FindFirst</h1>
+<div class="topicbody">
+  <h2 class="heading notopmargin">Прототип</h2>
+  <p><tt><b>int</b> FindFirst(<b>str</b>, <b>int</b>)<br/>
+  </tt></p>
+  <h2 class="heading">Описание</h2>
+  <p><tt>FindFirst</tt> ищет каталог, определенный первым параметром для первого файла, который соответствует имени файла, подразумеваемое первым параметром и атрибутами, определенными вторым параметром. Если файл найден, результат - дескриптор поиска, который должен использоваться в последующих вызовах функций <tt><a href="topic_findgetfilename.htm">FindGetFileName</a></tt>, <tt><a href="topic_findnext.htm">FindNext</a></tt>, и <tt><a href="topic_findclose.htm">FindClose</a></tt>, иначе возвращаемое значение 0.</p>
+  <p>Первый параметр - каталог и маска имени файла, включая подстановочные символы. Например, <tt>'.\*.*'</tt> определяют все файлы в текущем каталоге).</p>
+  <p>Второй параметр определяет специальные файлы для дополнительного включения с остальными файлами. Выберите один из этих констант атрибута файла, обычно определяемых в <a href="topic_builtinsiss.htm">файле BUILTINS.ISS</a> определяя этот параметр:</p>
+  <table>
+    <tr>
+      <td class="cellleft"><tt>faReadOnly</tt></td>
+      <td class="cellright">Файлы только для чтения</td>
+    </tr>
+    <tr>
+      <td class="cellleft"><tt>faHidden</tt></td>
+      <td class="cellright">Скрытые файлы</td>
+    </tr>
+    <tr>
+      <td class="cellleft"><tt>faSysFile</tt></td>
+      <td class="cellright">Системные файлы</td>
+    </tr>
+    <tr>
+      <td class="cellleft"><tt>faVolumeID</tt></td>
+      <td class="cellright">Файлы ID тома</td>
+    </tr>
+    <tr>
+      <td class="cellleft"><tt>faDirectory</tt></td>
+      <td class="cellright">Файлы каталога</td>
+    </tr>
+    <tr>
+      <td class="cellleft"><tt>faArchive</tt></td>
+      <td class="cellright">Архивные файлы</td>
+    </tr>
+    <tr>
+      <td class="cellleft"><tt>faAnyFile</tt></td>
+      <td class="cellright">Любые файлы</td>
+    </tr>
+  </table>
+  <p>Атрибуты могут быть объединены осуществлением операции логического ИЛИ. Например, чтобы искать скрытые файлы и файлы только для чтения, передайте <tt>faReadOnly | faHidden</tt> как параметр.</p>
+  <h2 class="heading">Пример</h2>
+  <p><tt>#define FindHandle<br/>
+    #define FindResult<br/>
+    #define Mask &quot;*.pas&quot;<br/>
+    <br/>
+    #sub ProcessFoundFile<br/>
+    &nbsp;&nbsp;#define FileName FindGetFileName(FindHandle)<br/>
+    &nbsp;&nbsp;#if LowerCase(Copy(FileName, 1, 4)) == &quot;ispp&quot;<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;FileName: {#FileName}; DestDir: {app}\ispp<br/>
+    &nbsp;&nbsp;#else<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;FileName: {#FileName}; DestDir: {app}<br/>
+    &nbsp;&nbsp;#endif<br/>
+    #endsub<br/>
+    <br/>
+<br/>#for {FindHandle = FindResult = FindFirst(Mask, 0); FindResult; FindResult = FindNext(FindHandle)} ProcessFoundFile<br/>#if FindHandle<br/>&nbsp;&nbsp;#expr FindClose(FindHandle)<br/>#endif<br/>
+  </tt></p>
+  <h2 class="heading">См. также</h2>
+  <p><tt><a href="topic_define.htm">define</a></tt>, <tt><a href="topic_sub.htm">sub</a></tt>, <tt><a href="topic_if.htm">if</a></tt>.</p>
+</div>
+</body>
+</html>

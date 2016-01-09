@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>А прочитать список файлов в папке как нить можно?</title><link rel="stylesheet" type="text/css" href="css.css"><script type="text/javascript" src="includer.js"></script><script language='jscript' type='text/javascript' src='copycode.js'></script></head><body><div id="heading"><h1>» Inno Setup Faq. А прочитать список файлов в папке как нить можно?</h1></div><br><script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM"> <input type="button" value="Копировать в буфер обмена" onClick="copyToClipboard( taCode1, theCode1 );"> <blockquote id="theCode1"><font>[Setup]<br>
+AppName=My Application<br>
+AppVersion=1.5<br>
+DefaultDirName={pf}\My Application<br>
+<br>
+[Code]<br>
+var<br>
+  ISCustomPage1: TWizardPage;<br>
+  Label1: TLabel;<br>
+  NewListBox1: TNewListBox;<br>
+  NewButton1: TNewButton;<br>
+  NewEdit1: TNewEdit;<br>
+<br>
+procedure FindFile(Dir: string);<br>
+ var<br>
+ SR: TFindRec;<br>
+ FindRes: Boolean;<br>
+ begin<br>
+ FindRes := FindFirst(Dir + '*.*', SR);<br>
+ while FindRes do<br>
+ begin<br>
+ if ((SR.Attributes and $00000010) = $00000010) and<br>
+ ((SR.Name = '.') or (SR.Name = '..')) then<br>
+ begin<br>
+ FindRes := FindNext(SR);<br>
+ Continue;<br>
+ end;<br>
+<br>
+ ///если найден каталог, то<br>
+ if ((SR.Attributes and $00000010) = $00000010) then<br>
+ begin<br>
+ ///входим в процедуру поиска с параметрами текущего каталога +<br>
+ ///каталог, что мы нашли<br>
+ FindFile(Dir + SR.Name + '\');<br>
+ FindRes := FindNext(SR);<br>
+ ///после осмотра вложенного каталога мы продолжаем поиск<br>
+ ///в этом каталоге<br>
+ Continue; ///продолжить цикл<br>
+ end;<br>
+<br>
+ NewListBox1.Items.Add(SR.Name);<br>
+ FindRes := FindNext(SR);<br>
+ end;<br>
+ FindClose(SR);<br>
+ end;<br>
+<br>
+procedure NewButton1Click(Sender: TObject);<br>
+begin<br>
+ NewListBox1.Clear; ///очистка списка файлов<br>
+ FindFile(NewEdit1.Text); ///поиск файлов с начальными условиями, заданных в NewEdit1<br>
+end;<br>
+<br>
+procedure InitializeWizard();<br>
+begin<br>
+  {{Creates custom wizard page}<br>
+  ISCustomPage1 := CreateCustomPage(wpWelcome, 'Поиск', 'Здесь поиск файлов в заданном каталоге');<br>
+<br>
+  {{ISCustomPage1}<br>
+  with ISCustomPage1.Surface do<br>
+  begin<br>
+    Name := 'ISCustomPage1';<br>
+  end;<br>
+<br>
+  {{Label1}<br>
+  Label1 := TLabel.Create(WizardForm);<br>
+  with Label1 do<br>
+  begin<br>
+    Name := 'Label1';<br>
+    Parent := ISCustomPage1.Surface;<br>
+    Caption := 'Введите адрес поиска';<br>
+    Transparent := False;<br>
+    Left := ScaleX(8);<br>
+    Top := ScaleY(192);<br>
+    Width := ScaleX(114);<br>
+    Height := ScaleY(13);<br>
+  end;<br>
+<br>
+  {{NewListBox1}<br>
+  NewListBox1 := TNewListBox.Create(WizardForm);<br>
+  with NewListBox1 do<br>
+  begin<br>
+    Parent := ISCustomPage1.Surface;<br>
+    Left := ScaleX(0);<br>
+    Top := ScaleY(0);<br>
+    Width := ScaleX(417);<br>
+    Height := ScaleY(185);<br>
+    ItemHeight := 13;<br>
+    ItemIndex := -1;<br>
+  end;<br>
+<br>
+  {{NewButton1}<br>
+  NewButton1 := TNewButton.Create(WizardForm);<br>
+  with NewButton1 do<br>
+  begin<br>
+    Parent := ISCustomPage1.Surface;<br>
+    Left := ScaleX(342);<br>
+    Top := ScaleY(208);<br>
+    Width := ScaleX(75);<br>
+    Height := ScaleY(25);<br>
+    Caption := 'Искать';<br>
+    OnClick := @NewButton1Click;<br>
+  end;<br>
+<br>
+  {{NewEdit1}<br>
+  NewEdit1 := TNewEdit.Create(WizardForm);<br>
+  with NewEdit1 do<br>
+  begin<br>
+    Parent := ISCustomPage1.Surface;<br>
+    Left := ScaleX(0);<br>
+    Top := ScaleY(212);<br>
+    Width := ScaleX(329);<br>
+    Height := ScaleY(21);<br>
+    Text := ExpandConstant('{pf}\Inno Setup 5\');<br>
+  end;<br>
+end;</font></blockquote><textarea id="taCode1" style="display:none;" rows="1" cols="5"></textarea><textarea id='taCode' style='display:none;' rows='1' cols='20'></textarea></code><script language="javascript" type="text/javascript">highlightSyntax('delphi_Tc4NTM','delphi');</script><br><div id="heading"><h1><font size="1" face="Consolas">Copyright (c) <a href="http://www.krinkels.org/" target="_blank">Krinkels Inc</a></font></h1></div></body></html>

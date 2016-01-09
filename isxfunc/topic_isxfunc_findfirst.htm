@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Pascal Scripting: FindFirst</title>
+<link rel="stylesheet" type="text/css" href="../styles.css" />
+<script type="text/javascript" src="../topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Pascal Scripting: FindFirst</h1>
+<div class="topicbody">
+  <div><b>Прототип:</b></div>
+  <p><tt>function FindFirst(const FileName: String; var FindRec: TFindRec): Boolean;</tt></p>
+  <div><b>Описание:</b></div>
+  <p>Получает информацию о первом файле, который соответствует специальному символу, указанному в FileName. При успешном выполнении возвращает True.</p>
+  <p>TFindRec определен так:</p>
+  <pre>
+  TFindRec = record
+    Name: String;               // имя найденного фале (не путь)
+    Attributes: LongWord;       // атрибуты файла
+    SizeHigh: LongWord;         // размер файла, upper 32 bits
+    SizeLow: LongWord;          // размер файла, lower 32 bits
+    CreationTime: TFileTime;    // время создания файла
+    LastAccessTime: TFileTime;  // время последнего доступа к файлу
+    LastWriteTime: TFileTime;   // время последнего изменения файла
+    AlternateName: String;      // короткое имя файла
+    FindHandle: THandle;        // для внутреннего использования
+  end;
+</pre>
+  <p>TFileTime определен так:</p>
+  <pre>
+  TFileTime = record
+    dwLowDateTime: DWORD;
+    dwHighDateTime: DWORD;
+  end;
+</pre>
+  <p>Атрибуты файлов:</p>
+  <pre>
+  FILE_ATTRIBUTE_READONLY
+  FILE_ATTRIBUTE_HIDDEN
+  FILE_ATTRIBUTE_SYSTEM
+  FILE_ATTRIBUTE_DIRECTORY
+  FILE_ATTRIBUTE_ARCHIVE
+  FILE_ATTRIBUTE_DEVICE
+  FILE_ATTRIBUTE_NORMAL
+  FILE_ATTRIBUTE_TEMPORARY
+  FILE_ATTRIBUTE_SPARSE_FILE
+  FILE_ATTRIBUTE_REPARSE_POINT
+  FILE_ATTRIBUTE_COMPRESSED
+  FILE_ATTRIBUTE_OFFLINE
+  FILE_ATTRIBUTE_NOT_CONTENT_INDEXED
+  FILE_ATTRIBUTE_ENCRYPTED
+</pre>
+  <div><b>Комментарии:</b></div>
+  <p>Если FindFirst возвращает True, вызовите <a href="topic_isxfunc_findnext.htm">FindNext</a> для перечисления остальных файлов, а затем вызовите <a href="topic_isxfunc_findclose.htm">FindClose</a>.</p>
+  <div><b>Например:</b></div>
+  <p>В примере считывается число файлов в папке {sys}.</p>
+  <pre>var
+  FilesFound: Integer;
+  FindRec: TFindRec;
+begin
+  FilesFound := 0;
+  if FindFirst(ExpandConstant('{sys}\*'), FindRec) then begin
+    try
+      repeat
+        // Don't count directories
+        if FindRec.Attributes and FILE_ATTRIBUTE_DIRECTORY = 0 then
+          FilesFound := FilesFound + 1;
+      until not FindNext(FindRec);
+    finally
+      FindClose(FindRec);
+    end;
+  end;
+  MsgBox(IntToStr(FilesFound) + ' files found in the System directory.',
+    mbInformation, MB_OK);
+end;</pre>
+<div><b>См. также:</b></div>
+<p><a href="topic_isxfunc_findnext.htm">FindNext</a>
+<br/>
+<a href="topic_isxfunc_findclose.htm">FindClose</a>
+</p></div>
+</div>
+</body>
+</html>

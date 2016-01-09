@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=8">
+<title>[Setup]: UninstallFilesDir</title>
+<link rel="stylesheet" type="text/css" href="styles.css">
+<script type="text/javascript" src="topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">[Setup]: UninstallFilesDir</h1>
+<div class="topicbody">
+  <table class="setuphdr">
+    <tr>
+      <td class="setuphdrl"><p>Значение по умолчанию:</p></td>
+      <td class="setuphdrr"><div class="margined"><tt>{app}</tt></div></td>
+    </tr>
+  </table>
+  <div><b>Описание:</b></div>
+  <p>Определяет папку, в которой будут содержаться файлы деинсталлятора "unins*.*".</p>
+  <p><i>Обратите внимание:</i> здесь не следует задавать разные значения для новой версии приложения, иначе инсталлятор не найдет файлы деинсталлятора предыдущей версии и не сможет <a href="topic_appendnotes.htm">дополнить</a> их.</p>
+  <div class="examplebox">
+    <div class="exampleheader">Например:</div>
+    <pre class="nomargin">UninstallFilesDir={app}\uninst</pre>
+  </div>
+</div>
+</body>
+</html>

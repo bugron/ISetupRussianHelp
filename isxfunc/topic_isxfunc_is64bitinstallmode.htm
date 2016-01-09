@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Pascal Scripting: Is64BitInstallMode</title>
+<link rel="stylesheet" type="text/css" href="../styles.css" />
+<script type="text/javascript" src="../topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Pascal Scripting: Is64BitInstallMode</h1>
+<div class="topicbody">
+  <div><b>Прототип:</b></div>
+  <p><tt>function Is64BitInstallMode: Boolean;</tt></p>
+  <div><b>Описание:</b></div>
+  <p>Возвращает True, если инсталлятор/деинсталлятор работают в <a href="../topic_32vs64bitinstalls.htm">64-разраядном режиме</a>, или False, если в <a href="../topic_32vs64bitinstalls.htm">32-разраядном режиме</a>.</p>
+  <div><b>Комментарии:</b></div>
+  <p>При значении True, можно с уверенностью предположить, что <a href="topic_isxfunc_iswin64.htm">IsWin64</a> также вернет True.</p>
+  <div><b>Например:</b></div>
+  <pre>begin<br />  if Is64BitInstallMode then<br />    MsgBox('Installing in 64-bit mode', mbInformation, MB_OK)<br />  else<br />    MsgBox('Installing in 32-bit mode', mbInformation, MB_OK);<br />end;</pre>
+  <div><b>См. также:</b></div>
+  <p><a href="topic_isxfunc_iswin64.htm">IsWin64</a> <br />
+    <a href="topic_isxfunc_processorarchitecture.htm">ProcessorArchitecture</a></p>
+</div>
+</body>
+</html>

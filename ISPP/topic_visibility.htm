@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Inno Setup Preprocessor: Область видимости идентификаторов</title>
+<link rel="stylesheet" type="text/css" href="../styles.css" />
+<script type="text/javascript" src="../topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Inno Setup Preprocessor: Область видимости идентификаторов</h1>
+<div class="topicbody">
+  <p>Переменные (так же как макросы) могут быть определены как &quot;public&quot;, &quot;protected&quot;, или &quot;private&quot;. Примеры объявления таких переменных:</p>
+  <p><tt>#define public MyVar 12<br/>
+    #define protected MyVar 13<br/>
+    #define private MyVar 14</tt></p>
+  <p>В вышеуказанном примере, ни один из последних двух объявлений не переопределяет предыдущие переменные, несмотря на то, что они имеют одно и то же имя (<tt>MyVar</tt>). Это, потому что они имеют различные область видимости.</p>
+  <p>Переменные public - обычные переменные, доступные отовсюду после места их объявления.</p>
+  <p>Переменные protected доступны только в файле, в которой они объявлены и в файлах, включенных в основной директивами <tt><a href="topic_include.htm">include</a></tt> или <tt><a href="topic_file.htm">file</a></tt>.</p>
+  <p>Можно в основном думать о них как о public переменных, определение которых автоматически отменяется в конце файла.</p>
+  <p>Пeпеременные private доступны только в файле, в котором они объявлены. Они не распространяются ни к какому другому файлу, будь это подключенный или &quot;родительский&quot; файл.</p>
+  <p>Так как у ISPP нет семантики помещения и выталкивания значения переменной, использование области видимости может быть полезным.</p>
+  <p>Имейте ввиду, что Вы не можете обращаться к переменной определенного видимости из выражений.</p>
+  <p>Учитывая пример выше, если <tt>MyVar</tt> упоминается в выражении в файле объявления, ее идентификатор обращается к переменной private <tt>MyVar</tt>. Если она упоминается во включенном файле, ее идентификатор обращается к переменной protected <tt>MyVar</tt>. If it is mentioned in one of the files above the declaration file on the include stack (i. e. one of the files from which a chain of <tt><a href="topic_include.htm">include</a></tt> directives resulted in processing the declaration file), it refers to public <tt>MyVar</tt>.</p>
+  <p>Also note, that if we'd swap last two declarations from the above example, private <tt>MyVar</tt> would become inaccessible (until protected is undefined) because protected would be declared after it and would take precedence. But it wouldn't undefine its private counterpart.</p>
+  <p>Каждый файл может установить видимость по умолчанию, видимость, которая будет использоваться, если перед именем переменной нет необходимого идентификатора. Это можно сделать, используя директиву <tt><a href="topic_define.htm">define</a></tt>, например:</p>
+  <p><tt>#define protected<br/>
+  </tt></p>
+  <p>устанавливает видимость protected по умолчанию.</p>
+  <p>Видимость по умолчанию не используется при оценке выражения, она используется, когда переменная определяется без указания его видимости. Если видимость по умолчанию не установлена, public принимается по умолчанию. Установка видимости по умолчанию не распространяется на включенные или родительские файлы.</p>
+  <p>В макро-выражениях, избегайте использования идентификаторов более низкой видимости, чем the one macro is declared in. Это может вызвать ошибку &quot;Необъявленный идентификатор&quot; при вызове макроса из другого файла.</p>
+  <p>Рекомендуется использовать соответствующую видимость при объявлении переменных, чтобы избегать проблем с неожиданным переопределением переменной (например, во включенном стороннем файле). Если ни один из включенных файлов не использует переменную, объявите ее как private. Если они это делают, а родительский файл нет, то объявите ее как protected. В других случаях объявите ее как public. Если Вы не уверены в выборе, тогда область видимости protected является значением по умолчанию.</p>
+</div>
+</body>
+</html>

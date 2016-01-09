@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>[Setup]: AppMutex</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="IE=8" http-equiv="X-UA-Compatible">
+<link rel="stylesheet" type="text/css" href="styles.css">
+<script type="text/javascript" src="topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">[Setup]: AppMutex</h1>
+<div class="topicbody">
+  <div><b>Описание:</b></div>
+  <p>Эта директива используется для предотвращения установки новой версии программы, если программа выполняется в данный момент, и удаления запущенного в данный момент приложения. При указании имен одного и более ограничителей (множественные ограничители разделяются запятыми), они будут проверяться инсталлятором и деинсталлятором. Если ограничители присутствуют, инсталлятор/деинсталлятор выдаст сообщение: "[Setup или Uninstall] обнаружил, что [AppName] выполняется. Пожалуйста, завершите работу приложения, а потом нажмите "ОК" для продолжения или Cancel для отмены".</p>
+  <p>Использование этой директивы требует добавление в вашу программу кода, который создает при запуске такой ограничитель с именем, которое вы указываете в директиве. Примеры создания на Delphi, C и VB указаны ниже. Код должен выполняться в течении установки приложения.</p>
+  <p>Delphi:</p>
+  <pre class="indent examplebox">CreateMutex(nil, False, 'MyProgramsMutexName');
+</pre>
+  <p>C:</p>
+  <pre class="indent examplebox">CreateMutex(NULL, FALSE, "MyProgramsMutexName");
+</pre>
+  <p>Visual Basic (написал Peter Young):</p>
+  <pre class="indent examplebox">'Place in Declarations section:
+Private Declare Function CreateMutex Lib "kernel32" _
+        Alias "CreateMutexA" _
+       (ByVal lpMutexAttributes As Long, _
+        ByVal bInitialOwner As Long, _
+        ByVal lpName As String) As Long
+
+'Place in startup code (Form_Load или Sub Main):
+CreateMutex 0&amp;, 0&amp;, "MyProgramsMutexName"
+</pre>
+  <p>Нет необходимости удалить ограничитель при окончании работы приложения, система сделает это автоматически. Рекомендуется делать именно так, потому что в идеале ограничитель должен существовать до тех пор, пока процесс установки/удаления не завершится полностью.</p>
+  <p>Обратите внимание, что Windows чувствителен к совпадению имен ограничителей.</p>
+  <p>Чтобы определить взаимоисключающее имя, содержащее запятую, закончите его обратный слешом.</p>
+  <p>Для справки обратитесь к разделу CreateMutex файла MS SDK help.</p>
+  <div class="examplebox">
+    <div class="exampleheader">Например:</div>
+    <pre class="nomargin">AppMutex=MyProgramsMutexName</pre>
+  </div>
+</div>
+</body>
+</html>

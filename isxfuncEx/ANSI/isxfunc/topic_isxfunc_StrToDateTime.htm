@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Pascal Scripting Extended: StrToDateTime</title>
+<link rel="stylesheet" type="text/css" href="../../../styles.css" />
+<script type="text/javascript" src="../../../topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Pascal Scripting Extended: StrToDateTime</h1>
+<div class="topicbody">
+  <div><b>Прототип:</b></div>
+  <p><tt>function StrToDateTime(const S: String): TDateTime;</tt></p>
+  <div><b>Описание:</b></div>
+  Функция StrToDateTime предназначена для преобразования строки DateTime в значение типа TDateTime.<br />
+  &nbsp;Во-первых, часть строки с датой должна соответствовать формату, заданному в переменной ShortDateFormat, и использовать символ DateSeparator (точка - разделитель) для разделения значений дня, месяца и года.<br />
+  &nbsp;Во-вторых, часть с временем, отделенная пробелом от даты должна соответствовать формату, заданному в переменной LongTimeFormat и использовать символ TimeSeparator (точка - разделитель для разделения значений часа, минуты и секунды. <br />
+  <br />
+  &nbsp;Форматом по умолчанию для Англии является день/месяц/год час:минута:секунда.мсек, где: <br />
+  &nbsp;день должен быть в диапазоне 1..31 (зависит от месяца/года) <br />
+  &nbsp;месяц должен быть в диапазоне 1..12 <br />
+  &nbsp;год должен быть в диапазоне 0..9999 (необязательный параметр) <br />
+  &nbsp;час должен быть в диапазоне 0..23 <br />
+  &nbsp;минута должна быть в диапазоне 0..59 (необязательный параметр) <br />
+  &nbsp;секунда должна быть в диапазоне 0..59 (необязательный параметр) <br />
+  &nbsp;миллисекунда должна быть в диапазоне 0..999 (необязательный параметр) <br />
+  <br />
+  Если год не вводиться, то функция использует текущий год. <br />
+  Обратите внимание, что, к примеру, 0015-й год должен быть задан вместе с цифрами века; 15-й год будет расценен как относящийся к текущему веку. <br />
+  Если год двузначный, то век определяется значением переменной TwoDigitYearCenturyWindow. <br />
+  Если время установлено в 0, то это указывает на начало заданного дня.<br />
+  Любые ошибки в строке с датой вызовут исключение EConvertError.<br />
+  Второй вариант этой функции предназначен для использования в потоках. Перед вызовом функции вы должны заполнить запись FormatSettings. Функция делает локальную копию глобальных переменных форматирования, что делает ее потокобезопасной.<br />
+  <div><b>Пример:</b></div>
+  <p><tt>var<br />
+    &nbsp;myDateTime : TDateTime;<br />
+    <br />
+    begin<br />
+    &nbsp;myDateTime := StrToDateTime('23/02/75 12');<br />
+    &nbsp;ShowMessage('23/02/75 12 = '+DateTimeToStr(myDateTime));<br />
+    <br />
+    &nbsp;myDateTime := StrToDateTime('23/02/2075 12:34:56');<br />
+    &nbsp;ShowMessage('23/02/2075 12:34:56 = '+DateTimeToStr(myDateTime));<br />
+    end; <br />
+    <br />
+    <br />
+    &nbsp;23/02/75 12 = 23/02/1975 12:00:00<br />
+    &nbsp;23/02/2075 12:34:56 = 23/02/2075 12:34:56</tt></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Inno Setup Preprocessor: GetStringFileInfo</title>
+<link rel="stylesheet" type="text/css" href="../styles.css" />
+<script type="text/javascript" src="../topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Inno Setup Preprocessor: GetStringFileInfo</h1>
+<div class="topicbody">
+  <h2 class="heading notopmargin">Прототип</h2>
+  <p><tt><b>str</b> GetStringFileInfo(<b>str</b> 1, <b>str</b> 2, <b>int</b>? 3)<br/>
+  </tt></p>
+  <h2 class="heading">Описание</h2>
+  <p>Функция<tt> GetStringFileInfo</tt> получает строку, содержащую информацию о версии указанного файла (первый параметр)..</p>
+  <p>Второй параметр - имя строкового значения информации о версии. Это должно быть одной из предопределенных строк. Эти строки и макросы объявлены в <a href="topic_builtinsiss.htm">файле BUILTINS.ISS</a>.</p>
+  <p>Третий дополнительный параметр должен определить язык и идентификатор набора символов. Например: 0x04BE0409 равно &quot;English (United States).&quot; Если этот параметр не указан, ISPP сканирует все доступные блоки информации о версии, чтобы найти значение.</p>
+  <p>Функция возвращает пустую строку при невозможности получения требуемого строкового значения.</p>
+</div>
+</body>
+</html>

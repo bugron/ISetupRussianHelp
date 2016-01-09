@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Pascal Scripting: Поддерживаемые константы</title>
+<!--[if IE 6]><style type="text/css">html{overflow-y:scroll}</style><![endif]-->
+<link rel="stylesheet" type="text/css" href="styles.css" />
+<script type="text/javascript" src="topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Pascal Scripting: Поддерживаемые константы</h1>
+<div class="topicbody">
+  <p>Pascal-скрипт может содержать несколько функций, которые вызываются, когда инсталлятору требуется узнать значение константы типа <tt>{code:...}</tt>. Вызываемые функции должны иметь один строковый параметр под названием Param и должны возвращать строковое значение.</p>
+  <p>Синтаксис константы <tt>{code:...}</tt> следующий: <tt>{code:<i>FunctionName</i>|<i>Param</i>}</tt>.</p>
+  <ul>
+    <li><i>FunctionName</i> - имя функции Pascal-скрипта.</li>
+    <li><i>Param</i> - строковый параметр, подставляемый в функцию. Если вы пропустите <i>Param</i>, в функцию будет подставлена пустая строка.</li>
+    <li>Если Вы хотите вставить запятую (&quot;,&quot;), вертикальную черту (&quot;|&quot;), или закрывающую фигурную скобку (&quot;}&quot;) в константу, Вы должны ввести &quot;%-шестнадцатеричный номер символа в кодировке&quot;. Например, запятая &quot;%2c&quot;, &quot;|&quot; = &quot;%7c&quot;, и &quot;}&quot; = &quot;%7d&quot;. Если Вы хотите вставить &quot;%&quot;, введите &quot;%25&quot; .</li>
+    <li><i>Param</i> может содержать константы. Обратите внимание, что приведенным выше способом задается только закрывающая фигурная скобка, которая используется сама по себе. Не надо подобным образом задавать фигурные скобки, обрамляющие константу.</li>
+  </ul>
+  <div class="examplebox">
+    <div class="exampleheader">Например:</div>
+    <pre class="nomargin">DefaultDirName={code:MyConst}\My Program</pre>
+  </div>
+  <p>Пример секции <tt>[Code]</tt> с использованием функции <tt>MyConst</tt>:</p>
+  <pre class="indent examplebox">[Code]
+function MyConst(Param: String): String;
+begin
+  Result := ExpandConstant('{pf}');
+end;
+</pre>
+  <p>Если функция, указанная в константе <tt>{code:...}</tt>, не описана в секции <tt>[Code]</tt>, то она должна быть <a href="topic_scriptfunctions.htm">встроенная функция</a>. Например:</p>
+  <pre class="indent examplebox">
+[INI]
+FileName: &quot;{app}\MyIni.ini&quot;; Section: &quot;MySettings&quot;; Key: &quot;ShortApp&quot;; String: &quot;{code:GetShortName|{app}}&quot;
+</pre>
+  <p><br />
+    <b>См. также</b><br />
+    <a href="topic_consts.htm">Константы</a></p>
+</div>
+</body>
+</html>

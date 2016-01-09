@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Pascal Scripting: GetShellFolder</title>
+<link rel="stylesheet" type="text/css" href="../styles.css" />
+<script type="text/javascript" src="../topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Pascal Scripting: GetShellFolder</h1>
+<div class="topicbody">
+  <div><b>Прототип:</b></div>
+  <p><tt>function GetShellFolder(Common: Boolean; const ID: TShellFolderID): String;</tt></p>
+  <div><b>Описание:</b></div>
+  <p>Gets the location of the specified shell folder. Returns the 'common' version of the shell folder location if Common is True and the user has administrative privileges. On failure (unlikely but possible), an empty string is returned.</p>
+  <div><b>Комментарии:</b></div>
+  <p>There is little reason to use this function. It is recommended that you use the ExpandConstant function instead to get the paths of shell folders.</p>
+  <div><b>Например:</b></div>
+  <pre>var
+  Path: String;
+begin
+  Path := GetShellFolder(False, sfAppData);
+  if Path &lt;&gt; '' then
+  begin
+    MsgBox('Application Data path = ' + Path, mbInformation, MB_OK);
+  end
+  else
+  begin
+    // handle failure
+  end;
+end;</pre>
+</div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Pascal Scripting: InstallOnThisVersion</title>
+<link rel="stylesheet" type="text/css" href="../styles.css" />
+<script type="text/javascript" src="../topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Pascal Scripting: InstallOnThisVersion</h1>
+<div class="topicbody">
+  <div><b>Прототип:</b></div>
+  <p><tt>function InstallOnThisVersion(const MinVersion, OnlyBelowVersion: String): Boolean;</tt></p>
+  <div><b>Описание:</b></div>
+  <p>Эта функция устарела. Возвращает True, if an entry with the specified MinVersion and OnlyBelowVersion parameters should be installed. При передаче недопустимой строки генерируется исключение.</p>
+  <p>Функция предоставлена только для обратной совместимости и в будущем может быть удалена. В новых скриптах используйте <a href="topic_isxfunc_getwindowsversion.htm">GetWindowsVersion</a> или <a href="topic_isxfunc_getwindowsversionex.htm">GetWindowsVersionEx</a>.</p>
+  <div><b>Комментарии:</b></div>
+  <p>До Inno Setup 5.5.0, данная функция возвращала <tt>irInstall,</tt> а не логическое значение True. <tt>irInstall</tt> в настоящее время определяется как псевдоним для True.</p>
+  <div><b>Например:</b></div>
+  <pre>// Old method, deprecated
+function IsWindowsXPOrLater: Boolean;
+begin
+  Result := InstallOnThisVersion('0,5.1', '0,0');
+end;
+
+// New method
+function IsWindowsXPOrLater: Boolean;
+begin
+  Result := (GetWindowsVersion &gt;= $05010000);
+end;</pre>
+  <div><b>См. также:</b></div>
+  <p><a href="topic_isxfunc_getwindowsversion.htm">GetWindowsVersion</a> <br/>
+    <a href="topic_isxfunc_getwindowsversionex.htm">GetWindowsVersionEx</a> </p>
+</div>
+</body>
+</html>

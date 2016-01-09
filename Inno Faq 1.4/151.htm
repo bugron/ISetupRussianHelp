@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Отключение экранной заставки</title><link rel="stylesheet" type="text/css" href="css.css">
+<script language='jscript' type='text/javascript' src='copycode.js'></script>
+<script type="text/javascript" src="includer.js"></script></head><body><div id="heading"><h1>» Inno Setup Faq. Отключение экранной заставки</h1></div><br>
+<script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM">
+<input type="button" value="Копировать в буфер обмена" onClick="copyToClipboard( taCode1, theCode1 );">
+<blockquote id="theCode1"><font>
+[Setup]<br>
+AppName=NoScreensaver<br>
+AppVerName=NoScreensaver<br>
+DefaultDirName={pf}\NoScreensaver<br>
+<br>
+[Code]<br>
+var<br>
+ScreenSaver&nbsp;:&nbsp;String;<br>
+<br>
+procedure&nbsp;ScreenSaverOff;<br>
+begin<br>
+///Remember&nbsp;the&nbsp;screen&nbsp;saver&nbsp;setting&nbsp;and&nbsp;delete&nbsp;the&nbsp;key&nbsp;afterwards.<br>
+///It&nbsp;will&nbsp;be&nbsp;restored&nbsp;before&nbsp;setup&nbsp;exists&nbsp;again.<br>
+///This&nbsp;will&nbsp;switch&nbsp;the&nbsp;screen&nbsp;saver&nbsp;off.<br>
+ScreenSaver&nbsp;:=&nbsp;'';<br>
+if&nbsp;RegQueryStringValue(HKEY_CURRENT_USER,&nbsp;'Control&nbsp;Panel\Desktop',<br>
+'SCRNSAVE.EXE',&nbsp;ScreenSaver)<br>
+then<br>
+begin<br>
+RegDeleteValue(HKEY_CURRENT_USER,&nbsp;'Control&nbsp;Panel\Desktop',&nbsp;'SCRNSAVE.EXE');<br>
+end;<br>
+end;<br>
+<br>
+procedure&nbsp;ScreenSaverOn;<br>
+begin<br>
+if&nbsp;ScreenSaver&nbsp;&lt;&gt;&nbsp;''&nbsp;then<br>
+begin<br>
+RegWriteStringValue(HKEY_CURRENT_USER,&nbsp;'Control&nbsp;Panel\Desktop',<br>
+'SCRNSAVE.EXE',&nbsp;ScreenSaver);<br>
+end;<br>
+end;<br>
+<br>
+function&nbsp;InitializeSetup():&nbsp;Boolean;<br>
+begin<br>
+///Turn&nbsp;the&nbsp;screen&nbsp;saver&nbsp;off.<br>
+ScreenSaverOff;<br>
+end;<br>
+<br>
+procedure&nbsp;DeinitializeSetup&nbsp;();<br>
+begin<br>
+///Switch&nbsp;the&nbsp;screen&nbsp;saver&nbsp;back&nbsp;on.<br>
+ScreenSaverOn;<br>
+end;<br>
+</font></blockquote><textarea id="taCode1" style="display:none;" rows="1" cols="5"></textarea><textarea id='taCode' style='display:none;' rows='1' cols='20'></textarea></code><script language="javascript" type="text/javascript">highlightSyntax('delphi_Tc4NTM','delphi');</script><br><div id="heading"><h1><font size="1" face="Consolas">Copyright (c) <a href="http://www.krinkels.org/" target="_blank">Krinkels Inc</a></font></h1></div></body></html>

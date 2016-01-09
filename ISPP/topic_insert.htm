@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Inno Setup Preprocessor: #insert</title>
+<link rel="stylesheet" type="text/css" href="../styles.css" />
+<script type="text/javascript" src="../topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Inno Setup Preprocessor: #insert</h1>
+<div class="topicbody">
+  <h2 class="heading notopmargin">Синтатсис</h2>
+  <table>
+    <tr>
+      <td class="cellleft"><i>insert-directive:</i></td>
+      <td class="cellright"><b>insert</b> &lt;expr&gt;</td>
+    </tr>
+  </table>
+  <h2 class="heading">Описание</h2>
+  <p>Изменяет точку вставки. По умолчанию, каждая обработанная строка добавляется в конец <a href="topic_translation.htm">перевода</a>. Используя <tt>insert</tt>, точка, в которой следующая обработанная строка будет добавлена к <a href="topic_translation.htm">переводу</a>, может быть изменена. <tt>insert</tt> берет выражение, которое должно оценить к целому числу. Точка вставки будет установлена в это целое число.</p>
+  <p>Точка вставки также всегда автоматически постепенно увеличивается каждый раз после того, как строка была добавлена к <a href="topic_translation.htm">переводу</a>, так, чтобы каждая новая строка была вставлена после ранее вставленного.</p>
+  <p>Не рекомендуется использовать скрипт, содержащий функцию (такой как <tt><a href="topic_setsetupsetting.htm">SetSetupSetting</a></tt>) который может вставить строку, таким образом, смещая часть преобразования на одну строку вниз, при этом точка вставки не обновляется. Это может привести отличной от ожидаемой результату.</p>
+  <p>Функция <tt><a href="topic_find.htm">Find</a></tt> функция может использоваться для произведения значений для директивы <tt>insert</tt>.</p>
+  <h2 class="heading">Примеры</h2>
+  <p><tt>#insert FindSectionEnd(&quot;Icons&quot;)<br/>
+    #insert FindSection(&quot;Setup&quot;) + 1<br/>
+    #insert <a href="topic_find.htm">Find</a>(0, &quot;somefile.ext&quot;, FIND_CONTAINS)<br/>
+  </tt></p>
+  <h2 class="heading">См. также</h2>
+  <p><tt><a href="topic_append.htm">append</a></tt>.</p>
+</div>
+</body>
+</html>

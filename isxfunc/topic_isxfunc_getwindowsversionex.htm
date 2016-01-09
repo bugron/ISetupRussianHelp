@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Pascal Scripting: GetWindowsVersionEx</title>
+<link rel="stylesheet" type="text/css" href="../styles.css" />
+<script type="text/javascript" src="../topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Pascal Scripting: GetWindowsVersionEx</h1>
+<div class="topicbody">
+  <div><b>Прототип:</b></div>
+  <p><tt>procedure GetWindowsVersionEx(var Version: TWindowsVersion);</tt></p>
+  <div><b>Описание:</b></div>
+  <p>Возвращает расширенную информацию о версии Windows в виде записи.</p>
+  <p>TWindowsVersion определяется как:</p>
+  <pre>  TWindowsVersion = record<br />    Major: Cardinal;             // Major version number<br />    Minor: Cardinal;             // Minor version number<br />    Build: Cardinal;             // Build number<br />    ServicePackMajor: Cardinal;  // Major version number of service pack<br />    ServicePackMinor: Cardinal;  // Minor version number of service pack<br />    NTPlatform: Boolean;         // True if an NT-based platform<br />    ProductType: Byte;           // Product type (see below)<br />    SuiteMask: Word;             // Product suites installed (see below)<br />  end;</pre>
+  <p>Поле ProductType может одну из следующих значений:</p>
+  <pre>  VER_NT_WORKSTATION<br />  VER_NT_DOMAIN_CONTROLLER<br />  VER_NT_SERVER</pre>
+  <p>Она также может быть нулем, если пользователь работает в Windows 95/98/Me, или если тип продукта не может быть определен (что маловероятно). VER_NT_WORKSTATION указывает на не-серверных вариантов системы Windows (например: Workstation, Professional, или Home).</p>
+  <p>Поле SuiteMask field может быть комбинацией следующих значений:</p>
+  <pre>  VER_SUITE_BACKOFFICE<br />  VER_SUITE_BLADE<br />  VER_SUITE_DATACENTER<br />  VER_SUITE_ENTERPRISE<br />  VER_SUITE_EMBEDDEDNT<br />  VER_SUITE_PERSONAL<br />  VER_SUITE_SINGLEUSERTS<br />  VER_SUITE_SMALLBUSINESS<br />  VER_SUITE_SMALLBUSINESS_RESTRICTED<br />  VER_SUITE_TERMINAL</pre>
+  <p>VER_SUITE_PERSONAL, например, установлен в Home edition Windows XP, а VER_SUITE_BLADE установлен в Web edition Windows Server 2003. На Windows 95/98/Me и NT 4.0, SuiteMask также принимает значение ноль.</p>
+  <div><b>Например:</b></div>
+  <p>Следующий пример демонстрирует, как вы можете запретить установку на отдельных выпусках системы Windows и проверять пакеты обновлений на нескольких версиях операционной системы. (Ни одна из этих вещей не можно сделать с помощью директивы <tt>MinVersion</tt> секции [Setup]).</p>
+  <pre>function InitializeSetup: Boolean;<br />var<br />  Version: TWindowsVersion;<br />  S: String;<br />begin<br />  GetWindowsVersionEx(Version);<br /><br />  // Disallow installation on Home edition of Windows<br />  if Version.SuiteMask and VER_SUITE_PERSONAL &lt;&gt; 0 then<br />  begin<br />    SuppressibleMsgBox('This program cannot be installed on a Home edition of Windows.',<br />      mbCriticalError, MB_OK, MB_OK);<br />    Result := False;<br />    Exit;<br />  end;<br /><br />  // Disallow installation on domain controllers<br />  if Version.ProductType = VER_NT_DOMAIN_CONTROLLER then<br />  begin<br />    SuppressibleMsgBox('This program cannot be installed on domain controllers.',<br />      mbCriticalError, MB_OK, MB_OK);<br />    Result := False;<br />    Exit;<br />  end;<br /><br />  // On Windows 2000, check for SP4<br />  if Version.NTPlatform and<br />     (Version.Major = 5) and<br />     (Version.Minor = 0) and<br />     (Version.ServicePackMajor &lt; 4) then<br />  begin<br />    SuppressibleMsgBox('When running on Windows 2000, Service Pack 4 is required.',<br />      mbCriticalError, MB_OK, MB_OK);<br />    Result := False;<br />    Exit;<br />  end;<br /><br />  // On Windows XP, check for SP2<br />  if Version.NTPlatform and<br />     (Version.Major = 5) and<br />     (Version.Minor = 1) and<br />     (Version.ServicePackMajor &lt; 2) then<br />  begin<br />    SuppressibleMsgBox('When running on Windows XP, Service Pack 2 is required.',<br />      mbCriticalError, MB_OK, MB_OK);<br />    Result := False;<br />    Exit;<br />  end;<br /><br />  Result := True;<br />end;</pre>
+</div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>[Setup]: SolidCompression</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="IE=8" http-equiv="X-UA-Compatible">
+<link rel="stylesheet" type="text/css" href="styles.css">
+<script type="text/javascript" src="topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">[Setup]: SolidCompression</h1>
+<div class="topicbody">
+  <table class="setuphdr">
+    <tbody>
+      <tr>
+        <td class="setuphdrl"><p>Возможные значения:</p></td>
+        <td class="setuphdrr"><div class="margined"><a href="topic_yesnonotes.htm"><tt>yes</tt> или <tt>no</tt></a></div></td>
+      </tr>
+      <tr>
+        <td class="setuphdrl"><p>Значение по умолчанию:</p></td>
+        <td class="setuphdrr"><div class="margined"><tt>no</tt></div></td>
+      </tr>
+    </tbody>
+  </table>
+  <div><b>Описание:</b></div>
+  <p>При значении <tt>yes</tt> включается уплотненное сжатие. Результат такого сжатия будет лучше, особенно если инсталлятор содержит файлы одного типа и эти файлы сгруппированы в секции [Files]. Убедитесь, что Compression=lzma или Compression=bzip, т.к. zip (значение по умолчанию)&nbsp;не позволяет выгодно использовать уплотненное сжатие (потому что работает с меньшими блоками).</p>
+  <p>Неудобство использования уплотненного сжатия в состоится том, что так как все файлы сжаты единым потоком, инсталлятор не может беспорядочно обращаться к любому из файлов. Это может тормозить работу. Если определенный файл не будет установлен в систему пользователя, данные все равно придется декомпрессировать (в память) для того, чтобы инсталлятор получил доступ к следующему файлу. И если, допустим, в процессе декомпрессии возникнет ошибка и пользователь нажмет Retry, инсталлятор не сможет обратиться к файлу, в котором возникла ошибка, потому что все файлы сжаты в один файл, и придется производить повторную попытку с нуля. Если включено разбиение на диски, пользователь должен будет снова ставить первый диск.</p>
+  <p>В общем, уплотненное сжатие не рекомендуется применять к большим по размеру инсталляторам (скажем, больше 100 MB) или если используется разбиение на диски. Эта директива служит для того, чтобы при скачивании из Internet маленьких приложений экономилось время.</p>
+</div>
+</body>
+</html>

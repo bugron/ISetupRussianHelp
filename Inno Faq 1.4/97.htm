@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Как обнаружить текущее разрешение дисплея и глубину цвета </title><link rel="stylesheet" type="text/css" href="css.css">
+<script language='jscript' type='text/javascript' src='copycode.js'></script>
+<script type="text/javascript" src="includer.js"></script></head><body><div id="heading"><h1>» Inno Setup Faq. Как обнаружить текущее разрешение дисплея и глубину цвета </h1></div><br>
+<script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM">
+<input type="button" value="Копировать в буфер обмена" onClick="copyToClipboard( taCode1, theCode1 );">
+<blockquote id="theCode1"><font>
+#ifdef&nbsp;UNICODE<br>
+#define&nbsp;A&nbsp;&quot;W&quot;<br>
+#else<br>
+#define&nbsp;A&nbsp;&quot;A&quot;<br>
+#endif<br>
+<br>
+[Setup]<br>
+AppName=DisplayResoltution<br>
+AppVerName=DisplayResoltution<br>
+DefaultDirName=DisplayResoltution<br>
+DisableStartupPrompt=true<br>
+Uninstallable=false<br>
+<br>
+[Code]<br>
+///functions&nbsp;to&nbsp;get&nbsp;BPP&nbsp;&amp;&nbsp;resolution<br>
+function&nbsp;DeleteDC(hDC:&nbsp;Integer):&nbsp;Integer;<br>
+external&nbsp;'DeleteDC@GDI32&nbsp;stdcall';<br>
+<br>
+function&nbsp;CreateDC(lpDriverName,&nbsp;lpDeviceName,&nbsp;lpOutput:&nbsp;String;&nbsp;lpInitData:&nbsp;Integer):&nbsp;Integer;<br>
+external&nbsp;'CreateDC{#A}@GDI32&nbsp;stdcall';<br>
+<br>
+function&nbsp;GetDeviceCaps(hDC,&nbsp;nIndex:&nbsp;Integer):&nbsp;Integer;<br>
+external&nbsp;'GetDeviceCaps@GDI32&nbsp;stdcall';<br>
+<br>
+Const<br>
+&nbsp;&nbsp;&nbsp;&nbsp;HORZRES&nbsp;=&nbsp;8;&nbsp;&nbsp;&nbsp;&nbsp;///horizontal&nbsp;resolution<br>
+&nbsp;&nbsp;&nbsp;&nbsp;VERTRES&nbsp;=&nbsp;10;&nbsp;&nbsp;&nbsp;///vertical&nbsp;resolution<br>
+&nbsp;&nbsp;&nbsp;&nbsp;BITSPIXEL&nbsp;=&nbsp;12;&nbsp;///bits&nbsp;per&nbsp;pixel<br>
+&nbsp;&nbsp;&nbsp;&nbsp;PLANES&nbsp;=&nbsp;14;&nbsp;&nbsp;&nbsp;&nbsp;///number&nbsp;of&nbsp;planes&nbsp;(color&nbsp;depth=bits_per_pixel*number_of_planes)<br>
+<br>
+function&nbsp;InitializeSetup():&nbsp;Boolean;<br>
+&nbsp;&nbsp;var&nbsp;xres,&nbsp;yres,&nbsp;bpp,&nbsp;pl,&nbsp;tmp:&nbsp;Integer;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hDC:&nbsp;Integer;<br>
+begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;///get&nbsp;resolution&nbsp;&amp;&nbsp;BPP<br>
+&nbsp;&nbsp;&nbsp;&nbsp;hDC&nbsp;:=&nbsp;CreateDC('DISPLAY',&nbsp;'',&nbsp;'',&nbsp;0);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;pl&nbsp;:=&nbsp;GetDeviceCaps(hDC,&nbsp;PLANES);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bpp&nbsp;:=&nbsp;GetDeviceCaps(hDC,&nbsp;BITSPIXEL);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;xres&nbsp;:=&nbsp;GetDeviceCaps(hDC,&nbsp;HORZRES);&nbsp;///horizontal&nbsp;resolution<br>
+&nbsp;&nbsp;&nbsp;&nbsp;yres&nbsp;:=&nbsp;GetDeviceCaps(hDC,&nbsp;VERTRES);&nbsp;///vertical&nbsp;resolution<br>
+&nbsp;&nbsp;&nbsp;&nbsp;tmp&nbsp;:=&nbsp;DeleteDC(hDC);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bpp&nbsp;:=&nbsp;pl&nbsp;*&nbsp;bpp;&nbsp;&nbsp;&nbsp;///color&nbsp;depth<br>
+&nbsp;&nbsp;	MsgBox('Current&nbsp;resolution&nbsp;is&nbsp;'&nbsp;+&nbsp;IntToStr(xres)&nbsp;+<br>
+&nbsp;&nbsp;		'x'&nbsp;+&nbsp;IntToStr(yres)&nbsp;+<br>
+&nbsp;&nbsp;		'&nbsp;and&nbsp;color&nbsp;depth&nbsp;is&nbsp;'&nbsp;+&nbsp;IntToStr(bpp)<br>
+&nbsp;&nbsp;		,&nbsp;mbInformation,&nbsp;MB_OK);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Result&nbsp;:=&nbsp;false;<br>
+end;<br>
+
+</font></blockquote><textarea id="taCode1" style="display:none;" rows="1" cols="5"></textarea><textarea id='taCode' style='display:none;' rows='1' cols='20'></textarea></code><script language="javascript" type="text/javascript">highlightSyntax('delphi_Tc4NTM','delphi');</script><br><div id="heading"><h1><font size="1" face="Consolas">Copyright (c) <a href="http://www.krinkels.org/" target="_blank">Krinkels Inc</a></font></h1></div></body></html>

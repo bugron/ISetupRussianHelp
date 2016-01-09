@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Как добавить проверку свободного/необходимого места на жестком диске?</title><link rel="stylesheet" type="text/css" href="css.css"><script type="text/javascript" src="includer.js"></script><script language='jscript' type='text/javascript' src='copycode.js'></script></head><body><div id="heading"><h1>» Inno Setup Faq. Как добавить проверку свободного/необходимого места на жестком диске?</h1></div><br><script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM"> <input type="button" value="Копировать в буфер обмена" onClick="copyToClipboard( taCode1, theCode1 );"> <blockquote id="theCode1"><font>#define NeedSize 4380<br>
+#define NeedInstallSize 7890<br>
+<br>
+[Setup]<br>
+AppName=MyApp<br>
+AppVerName=MyApp<br>
+DefaultDirname={pf}\MyApp<br>
+<br>
+[Code]<br>
+var<br>
+  TotalSpaceLabel, FreeSpaceLabel, NeedSpacelabel, InstallSpaceLabel: TLabel;<br>
+  FreeMB, TotalMB: Cardinal;<br>
+<br>
+function NumToStr(Float: Extended): String;<br>
+begin<br>
+  Result:= format('%.2n', [Float]); StringChange(Result, ',', '.');<br>
+  while (Result[Length(Result)] = '0')or((Result[Length(Result)] = '.')and(Pos('.', Result) &gt; 0)) do<br>
+    SetLength(Result, Length(Result)-1);<br>
+end;<br>
+<br>
+function MbOrTb(Float: Extended): String;<br>
+begin<br>
+  if Float &lt; 1024 then Result:= NumToStr(Float)+' Мб' else<br>
+    if Float/1024 &lt; 1024 then Result:= NumToStr(Float/1024)+' Гб' else<br>
+      Result:= NumToStr(Float/(1024*1024))+' Тб';<br>
+end;<br>
+<br>
+procedure DirEditOnChange(Sender: TObject);<br>
+var Drive: String;<br>
+begin<br>
+  Drive:= ExtractFileDrive(WizardForm.DirEdit.Text);<br>
+  GetSpaceOnDisk(Drive, True, FreeMB, TotalMB);<br>
+  TotalSpaceLabel.Caption:= 'Всего места на диске: '+MbOrTb(TotalMB);<br>
+  FreeSpaceLabel.Caption:= 'Доступно места на диске: '+MbOrTb(FreeMB)+' ('+IntToStr(round(FreeMB*100/TotalMB))+'%)';<br>
+  InstallSpacelabel.Caption:= 'Требуется места для установки: '+MbOrTb({#NeedInstallSize});<br>
+  NeedSpaceLabel.Caption:= 'Требуется места на диске: '+MbOrTb({#NeedSize});<br>
+  WizardForm.NextButton.Enabled:= (FreeMB&gt;{#NeedInstallSize})and(FreeMB&gt;{#NeedSize});<br>
+end;<br>
+<br>
+procedure InitializeWizard();<br>
+begin<br>
+  TotalSpaceLabel:= TLabel.Create(WizardForm);<br>
+  TotalSpaceLabel.AutoSize:= False;<br>
+  TotalSpaceLabel.SetBounds(0, 120, 300, 20);<br>
+  TotalSpaceLabel.Parent:= WizardForm.SelectDirpage;<br>
+<br>
+  FreeSpaceLabel:= TLabel.Create(WizardForm);<br>
+  FreeSpaceLabel.AutoSize:= False;<br>
+  FreeSpaceLabel.SetBounds(0, 140, 300, 20);<br>
+  FreeSpaceLabel.Parent:= WizardForm.SelectDirpage;<br>
+<br>
+  InstallSpacelabel:= TLabel.Create(WizardForm);<br>
+  InstallSpacelabel.AutoSize:= False;<br>
+  InstallSpacelabel.SetBounds(0, 160, 300, 20);<br>
+  InstallSpacelabel.Parent:= WizardForm.SelectDirpage;<br>
+  <br>
+  NeedSpaceLabel:= TLabel.Create(WizardForm);<br>
+  NeedSpaceLabel.AutoSize:= False;<br>
+  NeedSpaceLabel.SetBounds(0, 180, 300, 20);<br>
+  NeedSpaceLabel.Parent:= WizardForm.SelectDirpage;<br>
+  <br>
+  WizardForm.DirEdit.OnChange:=@DirEditOnChange;<br>
+end;<br>
+<br>
+procedure CurPageChanged(CurPageID: Integer);<br>
+begin<br>
+  if CurPageID=wpSelectDir then begin<br>
+    DirEditOnChange(nil)<br>
+  end;<br>
+end;</font></blockquote><textarea id="taCode1" style="display:none;" rows="1" cols="5"></textarea><textarea id='taCode' style='display:none;' rows='1' cols='20'></textarea></code><script language="javascript" type="text/javascript">highlightSyntax('delphi_Tc4NTM','delphi');</script><br><div id="heading"><h1><font size="1" face="Consolas">Copyright (c) <a href="http://www.krinkels.org/" target="_blank">Krinkels Inc</a></font></h1></div></body></html>

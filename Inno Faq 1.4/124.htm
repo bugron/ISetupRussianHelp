@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Add a button to License page to print it for IS 5</title><link rel="stylesheet" type="text/css" href="css.css">
+<script language='jscript' type='text/javascript' src='copycode.js'></script>
+<script type="text/javascript" src="includer.js"></script></head><body><div id="heading"><h1>» Inno Setup Faq. Add a button to License page to print it for IS 5</h1></div><br>
+<script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM">
+<input type="button" value="Копировать в буфер обмена" onClick="copyToClipboard( taCode1, theCode1 );">
+<blockquote id="theCode1"><font>
+[Setup]<br>
+AppName=PrintLicV5<br>
+AppVerName=PrintLicV5<br>
+DefaultDirName={pf}\PrintLicV5<br>
+DisableStartupPrompt=true<br>
+Uninstallable=false<br>
+DisableDirPage=true<br>
+OutputBaseFilename=PrintLicV5<br>
+CreateAppDir=false<br>
+DisableProgramGroupPage=true<br>
+LicenseFile=MyLicense.rtf<br>
+<br>
+[Files]<br>
+Source:&nbsp;MyLicense.rtf;&nbsp;Flags:&nbsp;dontcopy<br>
+<br>
+[Code]<br>
+///Print&nbsp;license<br>
+procedure&nbsp;PrintButtonClick(Sender:&nbsp;TObject);<br>
+var&nbsp;WordpadLoc:&nbsp;String;<br>
+RetCode:&nbsp;Integer;<br>
+begin<br>
+&nbsp;&nbsp;if&nbsp;MsgBox('Do&nbsp;you&nbsp;want&nbsp;to&nbsp;print&nbsp;License&nbsp;to&nbsp;default&nbsp;printer&nbsp;?',&nbsp;mbConfirmation,&nbsp;MB_YESNO)&nbsp;=&nbsp;IDYES&nbsp;then<br>
+&nbsp;&nbsp;begin<br>
+///get&nbsp;WordPad&nbsp;location<br>
+RegQueryStringValue(HKLM,&nbsp;'SOFTWARE\Microsoft\Windows\CurrentVersion\App&nbsp;Paths\WORDPAD.EXE',<br>
+&nbsp;&nbsp;'',&nbsp;WordpadLoc);<br>
+///on&nbsp;NT/2000&nbsp;it's&nbsp;a&nbsp;REG_EXPAND_SZ,&nbsp;so&nbsp;expand&nbsp;constant&nbsp;ProgramFiles<br>
+StringChange(WordpadLoc,&nbsp;'%ProgramFiles%',&nbsp;ExpandConstant('{pf}'));<br>
+///remove&nbsp;&quot;&nbsp;at&nbsp;begin&nbsp;and&nbsp;end&nbsp;pf&nbsp;string<br>
+StringChange(WordpadLoc,&nbsp;'&quot;',&nbsp;'');<br>
+///extract&nbsp;License&nbsp;file<br>
+try<br>
+&nbsp;&nbsp;&nbsp;ExtractTemporaryFile('MyLicense.rtf');<br>
+<br>
+&nbsp;&nbsp;	&nbsp;if&nbsp;not&nbsp;Exec(WordPadLoc,&nbsp;'&nbsp;/p&nbsp;'&nbsp;+&nbsp;ExpandConstant('{tmp}\MyLicense.rtf')&nbsp;,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ExpandConstant('{tmp}'),&nbsp;SW_HIDE,&nbsp;ewNoWait,&nbsp;RetCode)&nbsp;then<br>
+&nbsp;&nbsp;&nbsp;MsgBox('Problems&nbsp;printing&nbsp;License&nbsp;file&nbsp;!'&nbsp;+&nbsp;IntToStr(RetCode),&nbsp;mbError,&nbsp;mb_Ok)&nbsp;;<br>
+&nbsp;&nbsp;except<br>
+&nbsp;&nbsp;&nbsp;&nbsp;RaiseException('Problem&nbsp;printing&nbsp;license&nbsp;'+#13#13&nbsp;+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'(Error&nbsp;'''&nbsp;+&nbsp;GetExceptionMessage&nbsp;+&nbsp;'''&nbsp;occurred)');<br>
+&nbsp;&nbsp;end;<br>
+&nbsp;&nbsp;end;&nbsp;///if&nbsp;user&nbsp;want&nbsp;to&nbsp;print&nbsp;the&nbsp;license<br>
+end;<br>
+<br>
+procedure&nbsp;InitializeWizard();<br>
+var<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PrintButton:&nbsp;TButton;<br>
+begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PrintButton&nbsp;:=&nbsp;TButton.Create(WizardForm.LicensePage);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PrintButton.Caption&nbsp;:=&nbsp;'&amp;Print';<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PrintButton.Left&nbsp;:=&nbsp;WizardForm.LicenseMemo.Left&nbsp;+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WizardForm.LicenseMemo.Width&nbsp;-<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PrintButton.Width;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PrintButton.Top&nbsp;:=&nbsp;WizardForm.LicenseMemo.Top&nbsp;+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WizardForm.LicenseMemo.Height&nbsp;+&nbsp;16;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PrintButton.OnClick&nbsp;:=&nbsp;@PrintButtonClick;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PrintButton.Parent&nbsp;:=&nbsp;WizardForm.LicenseAcceptedRadio.Parent;<br>
+end;<br>
+</font></blockquote><textarea id="taCode1" style="display:none;" rows="1" cols="5"></textarea><textarea id='taCode' style='display:none;' rows='1' cols='20'></textarea></code><script language="javascript" type="text/javascript">highlightSyntax('delphi_Tc4NTM','delphi');</script><br><div id="heading"><h1><font size="1" face="Consolas">Copyright (c) <a href="http://www.krinkels.org/" target="_blank">Krinkels Inc</a></font></h1></div></body></html>

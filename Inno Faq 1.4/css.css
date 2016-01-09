@@ -1,0 +1,191 @@
+body {
+	font-family:tahoma;
+	font-size:13px;
+	color:#252525;
+	padding:24px 27px;
+	margin:0;
+}
+
+a {
+	color:#1e6fd9;
+	text-decoration:underline;
+}
+
+a:hover {
+	text-decoration:none;
+}
+
+code {
+	font-family: courier new, courier, monospace;
+	font-size:12px;
+}
+
+#logo {
+	width:301px;
+}
+
+#copy {
+	font-size:11px;
+	color:#9c9c9c;
+}
+
+#header {
+    padding:0 20px;
+	padding-bottom:26px;
+}
+
+#heading {
+    background:#f6f7ff;
+	padding:19px;
+}
+
+h1 {
+    color:#1e6fd9;
+	font-size:17px;
+	padding:0;
+	margin:0;
+	font-weight:normal;
+}
+
+#url {
+	font-size:11px;
+	color:#9c9c9c;
+	padding-top:2px;
+}
+
+#desc {
+	font-size:11px;
+	color:#9c9c9c;
+	text-align:right;
+}
+
+#content {
+	padding:19px;
+	margin-bottom:13px;
+}
+
+p {
+	padding:0;
+	margin:0;
+	margin-bottom:15px;
+}
+
+#link {
+	color:#9c9c9c;
+}
+
+#footer {
+	background:#f6f7ff;
+	padding:19px;
+	border-top:1px solid #e5e5e5;
+	font-size:11px;
+	color:#9c9c9c;
+}
+
+.razd {
+	padding:0 14px;
+}
+
+h2 {
+	color:#0b7fd6;
+	padding:0;
+	margin:0;
+	font-size:14px;
+	border-bottom:1px solid #c9e3f6;
+	padding-bottom:6px;
+	margin-bottom:9px;
+}
+
+h3 {
+	color:#0b7fd6;
+	padding:0;
+	margin:0;
+	font-size:13px;
+	margin-bottom:5px;
+}
+
+h4 {
+	color:#0b7fd6;
+	padding:0;
+	margin:0;
+	font-size:12px;
+	margin-bottom:5px;
+}
+
+blockquote,pre {
+	margin:8px;
+	padding:3px;
+	background-color:#ffffff;
+	font-family:consolas,monospace;
+	border-width:1px;
+	border-style:dotted;
+	border-color:#2fa5e9;
+}
+
+blockquote {
+	word-wrap:break-word;
+}
+
+blockquote font {
+	font-family: courier new, courier, monospace;
+	font-size:12px;
+}
+
+pre {
+	overflow:auto;
+	width:90%;
+	min-height:30px;
+	height:expression(this.scrollheight<30?"30px":"auto");
+	white-space:nowrap;
+}
+
+.txt {
+	white-space:pre;
+	margin:5px;
+	padding:6px;
+	width:440px;
+	height:200px;
+	overflow:auto;
+}
+
+.txtsm {
+	white-space:pre;
+	margin:5px;
+	padding:6px;
+	width:440px;
+	height:80px;
+	overflow:auto;
+}
+
+.warning {
+	font-weight:bold;
+	color:#d30;
+}
+
+.cmd {
+	font-weight:bold;
+	color:#30992a;
+}
+
+.comment {
+	color:#999;
+}
+
+.code {
+	font-weight:normal;
+	color:#007f00;
+}
+
+a.ext {
+	color:#06c;
+	text-decoration:underline;
+}
+
+a.ext:hover {
+	color:red;
+	text-decoration:none;
+}
+
+.domhidden {
+	display:none;
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Pascal Scripting Extended: StrToTime</title>
+<link rel="stylesheet" type="text/css" href="../../../styles.css" />
+<script type="text/javascript" src="../../../topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Pascal Scripting Extended: StrToTime</h1>
+<div class="topicbody">
+  <div><b>Прототип:</b></div>
+  <p><tt>function StrToTime(const S: String): TDateTime;</tt></p>
+  <div><b>Описание:</b></div>
+  Функция StrToDate предназначена для преобразования времени из строки Time в значение типа TDateTime.<br />
+  Строка с временем должна соответствовать формату, заданному в переменной LongTimeFormat и использовать символ TimeSeparator для разделения значений часа, минуты и секунды. <br />
+  <br />
+  &nbsp;Форматом по умолчанию для Англии является час:минута:секунда.миллисеккунда, где: <br />
+  &nbsp;час должен быть в диапазоне 0..23 <br />
+  &nbsp;минута - должна быть в диапазоне 0..59 (необязательный параметр) <br />
+  &nbsp;секунда - должна быть в диапазоне 0..59 (необязательный параметр)<br />
+  &nbsp;миллисекунда - должна быть в диапазоне 0..999 (необязательный параметр) <br />
+  <br />
+  Вы можете использовать текущие значение AM (до полудня) и PM (после полудня) (как задано в TimeAMString, TimePMString) или символы 'AM', 'am', 'PM' и 'pm' до или после значение времени. <br />
+  Дата будет установлена на 30 декабря 1899 г., на день раньше начала 19 века. <br />
+  Любые ошибки в строке с датой вызовут исключение EConvertError. <br />
+  Второй вариант этой функции предназначен для использования в потоках. Перед вызовом функции вы должны заполнить запись FormatSettings. Функция делает локальную копию глобальных переменных форматирования, что делает ее потокобезопасной.<br />
+  <div><b>Пример:</b></div>
+  <p><tt>var<br />
+    &nbsp;myTime : TDateTime;<br />
+    <br />
+    begin<br />
+    &nbsp;myTime := StrToTime('3PM');<br />
+    &nbsp;ShowMessage('3PM = '+TimeToStr(mytime));<br />
+    &nbsp;myTime := StrToTime('15');<br />
+    &nbsp;ShowMessage('15 = '+TimeToStr(mytime));<br />
+    &nbsp;myTime := StrToTime('15:03');<br />
+    &nbsp;ShowMessage('15:03 = '+TimeToStr(mytime));<br />
+    &nbsp;myTime := StrToTime('15:03:45');<br />
+    &nbsp;ShowMessage('15:03:45 = '+TimeToStr(mytime));<br />
+    end; <br />
+    <br />
+    <br />
+    &nbsp;3PM = 15:00:00<br />
+    &nbsp;15 = 15:00:00<br />
+    &nbsp;15:03 = 15:23:00<br />
+    &nbsp;15:03:45 = 15:23:45</tt></p>
+</div>
+</body>
+</html>

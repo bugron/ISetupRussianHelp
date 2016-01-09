@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>[Setup]: DefaultDirName</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="IE=8" http-equiv="X-UA-Compatible">
+<link rel="stylesheet" type="text/css" href="styles.css">
+<script type="text/javascript" src="topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">[Setup]: DefaultDirName</h1>
+<div class="topicbody">
+  <div><b>Описание:</b></div>
+  <p>Эта обязательная директива определяет папку, в которую инсталлятор предложит установить программу. Обычно она начинается с константы.</p>
+  <p>Если <a href="topic_setup_usepreviousappdir.htm">UsePreviousAppDir</a> = <tt>yes</tt> (по умолчанию) и предыдущая версия программы уже установлена, новая версия <a href="topic_sameappnotes.htm">того же приложения</a> будет установлена в ту же папку, что и старая. Инсталлятор ищет предыдущую установку по директиве AppId, или, если она не указана, по директиве AppName.</p>
+  <div class="examplebox">
+    <div class="exampleheader">Например:</div>
+    <b>Если задано</b><br>
+    <pre>DefaultDirName={sd}\MYPROG</pre>
+    <b>инсталлятор предложит путь для установки</b><br>
+    C:\MYPROG<br>
+    <br>
+    <b>А если задано</b><br>
+    <pre>DefaultDirName={pf}\My Program</pre>
+    <b>инсталлятор предложит путь</b><br>
+    C:\Program Files\My Program</div>
+</div>
+</body>
+</html>

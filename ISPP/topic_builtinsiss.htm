@@ -1,0 +1,376 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>ISPPBUILTINS.ISS</title>
+<link rel="stylesheet" type="text/css" href="../styles.css" />
+<script type="text/javascript" src="../Inno%20Faq%201.4/includer.js"></script>
+<script type="text/javascript" src="../Inno%20Faq%201.4/core.js"></script>
+<script type="text/javascript" src="delphi.js"></script>
+<style>
+pre font {
+	FONT-SIZE: 13px
+}
+.codeiss {
+	font-size: 13px;
+}
+</style>
+</head>
+<body>
+<h1 class="topicheading">Inno Setup Preprocessor: BUILTINS.ISS</h1>
+<div class="topicbody">Файл BUILTINS.ISS устанавливается с препроцессором Inno Setup. Она автоматически включается в файл скрипта, если он существует в каталоге компилятора, как будто в самой первой строке&nbsp;скрипта содержится&nbsp;директива <tt><a href="topic_include.htm">include</a></tt>.
+  Этот файл содержит общие заявления, такие как специальные константы для
+  использования с функциями, и несколько полезных макросов. Файл является
+  обычным сценарием Inno Setup, но в основном содержит только ISPP
+  директивы. Чтобы узнать больше о функциональности, предоставляемой этот
+  файл, откройте его в редакторе Inno Setup, он хорошо прокомментирован. </div>
+<script language="javascript" type="text/javascript">includeSyntax('delphi');</script><br />
+<br />
+<pre class="codeiss" ><code id="delphi_Tc4NTM">
+<p>  //// BEGIN ISPPBUILTINS.ISS<br />
+  ///<br />
+  /// Inno Setup Preprocessor 5<br />
+  ///<br />
+  /// Copyright (C) 2001-2004 Alex Yackimoff. All Rights Reserved.<br />
+  /// Portions by Martijn Laan.<br />
+  /// http://ispp.sourceforge.net<br />
+  ///<br />
+  /// Inno Setup (C) 1997-2009 Jordan Russell. All Rights Reserved.<br />
+  /// Portions by Martijn Laan.<br />
+  ///<br />
+  /// $Id: ISPPBuiltins.iss,v 1.3 2010/12/29 15:20:26 mlaan Exp $<br />
+  ///<br />
+  #if defined(ISPP_INVOKED) &amp;&amp; !defined(_BUILTINS_ISS_)<br />
+  ///<br />
+  #if PREPROCVER &lt; 0x01000000<br />
+  #error Inno Setup Preprocessor version is outdated<br />
+  #endif<br />
+  ///<br />
+  #define _BUILTINS_ISS_<br />
+  ///<br />
+  /// ===========================================================================<br />
+  ///<br />
+  /// Default states for options.<br />
+  ///<br />
+  ///#pragma parseroption -b+ ; short circuit boolean evaluation: on<br />
+  ///#pragma parseroption -m- ; short circuit multiplication evaluation (0 * A will not eval A): off<br />
+  ///#pragma parseroption -p+ ; string literals without escape sequences: on<br />
+  ///#pragma parseroption -u- ; allow undeclared identifiers: off<br />
+  ///#pragma option -c+       ; pass script to the compiler: on<br />
+  ///#pragma option -e-       ; emit empty lines to translation: off<br />
+  ///#pragma option -v-       ; verbose mode: off<br />
+  ///<br />
+  /// ---------------------------------------------------------------------------<br />
+  ///<br />
+  /// Verbose levels:<br />
+  /// 0 - #include and #file acknowledgements<br />
+  /// 1 - information about any temp files created by #file<br />
+  /// 2 - #insert and #append acknowledgements<br />
+  /// 3 - reserved<br />
+  /// 4 - #dim, #define and #undef acknowledgements<br />
+  /// 5 - reserved<br />
+  /// 6 - conditional inclusion acknowledgements<br />
+  /// 7 - reserved<br />
+  /// 8 - show strings emitted with #emit directive<br />
+  /// 9 - macro and functions successfull call acknowledgements<br />
+  ///10 - Local macro array allocation acknowledgements<br />
+  ///<br />
+  ///#pragma verboselevel 0<br />
+  ///<br />
+  #ifndef __POPT_P__<br />
+  #define private CStrings<br />
+  #pragma parseroption -p+<br />
+  #endif<br />
+  ///<br />
+  #pragma spansymbol &quot;\&quot;<br />
+  ///<br />
+  <font color="red">#define True               1<br />
+  #define False              0<br />
+  #define Yes                True<br />
+  #define No		       False<br />
+  ///<br />
+  #define MaxInt             0x7FFFFFFFL<br />
+  #define MinInt             0x80000000L<br />
+  ///<br />
+  #define NULL<br />
+  #define void<br />
+  ///<br />
+  /// TypeOf constants<br />
+  ///<br />
+  #define TYPE_ERROR         0<br />
+  #define TYPE_NULL          1<br />
+  #define TYPE_INTEGER       2<br />
+  #define TYPE_STRING        3<br />
+  #define TYPE_MACRO         4<br />
+  #define TYPE_FUNC          5<br />
+  #define TYPE_ARRAY         6<br />
+  ///<br />
+  /// Helper macro to find out the type of an array element or expression. TypeOf<br />
+  /// standard function only allows identifier as its parameter. Use this macro<br />
+  /// to convert an expression to identifier.<br />
+  ///<br />
+  #define TypeOf2(any Expr) TypeOf(Expr)<br />
+  ///<br />
+  /// ReadReg constants<br />
+  ///<br />
+  #define HKEY_CLASSES_ROOT  0x80000000UL<br />
+  #define HKEY_CURRENT_USER  0x80000001UL<br />
+  #define HKEY_LOCAL_MACHINE 0x80000002UL<br />
+  #define HKEY_USERS         0x80000003UL<br />
+  ///<br />
+  #define HKCR               HKEY_CLASSES_ROOT<br />
+  #define HKCU               HKEY_CURRENT_USER<br />
+  #define HKLM               HKEY_LOCAL_MACHINE<br />
+  #define HKU                HKEY_USERS<br />
+  ///<br />
+  /// Exec constants<br />
+  ///<br />
+  #define SW_HIDE            0<br />
+  #define SW_SHOWNORMAL      1<br />
+  #define SW_NORMAL          1<br />
+  #define SW_SHOWMINIMIZED   2<br />
+  #define SW_SHOWMAXIMIZED   3<br />
+  #define SW_MAXIMIZE        3<br />
+  #define SW_SHOWNOACTIVATE  4<br />
+  #define SW_SHOW            5<br />
+  #define SW_MINIMIZE        6<br />
+  #define SW_SHOWMINNOACTIVE 7<br />
+  #define SW_SHOWNA          8<br />
+  #define SW_RESTORE         9<br />
+  #define SW_SHOWDEFAULT     10<br />
+  #define SW_MAX             10<br />
+  ///<br />
+  /// Find constants<br />
+  ///<br />
+  #define FIND_MATCH         0x00<br />
+  #define FIND_BEGINS        0x01<br />
+  #define FIND_ENDS          0x02<br />
+  #define FIND_CONTAINS      0x03<br />
+  #define FIND_CASESENSITIVE 0x04 <br />
+  #define FIND_SENSITIVE     FIND_CASESENSITIVE<br />
+  #define FIND_AND           0x00<br />
+  #define FIND_OR            0x08<br />
+  #define FIND_NOT           0x10<br />
+  #define FIND_TRIM          0x20<br />
+  ///<br />
+  /// FindFirst constants<br />
+  ///<br />
+  #define faReadOnly         0x00000001<br />
+  #define faHidden           0x00000002<br />
+  #define faSysFile          0x00000004<br />
+  #define faVolumeID         0x00000008<br />
+  #define faDirectory        0x00000010<br />
+  #define faArchive          0x00000020<br />
+  #define faSymLink          0x00000040<br />
+  #define faAnyFile          0x0000003F<br />
+  ///<br />
+  /// GetStringFileInfo standard names<br />
+  ///<br />
+  #define COMPANY_NAME       &quot;CompanyName&quot;<br />
+  #define FILE_DESCRIPTION   &quot;FileDescription&quot;<br />
+  #define FILE_VERSION       &quot;FileVersion&quot;<br />
+  #define INTERNAL_NAME      &quot;InternalName&quot;<br />
+  #define LEGAL_COPYRIGHT    &quot;LegalCopyright&quot;<br />
+  #define ORIGINAL_FILENAME  &quot;OriginalFilename&quot;<br />
+  #define PRODUCT_NAME       &quot;ProductName&quot;<br />
+  #define PRODUCT_VERSION    &quot;ProductVersion&quot;<br />
+  ///<br />
+  /// GetStringFileInfo helpers<br />
+  ///<br />
+  #define GetFileCompany(str FileName) GetStringFileInfo(FileName, COMPANY_NAME)<br />
+  #define GetFileCopyright(str FileName) GetStringFileInfo(FileName, LEGAL_COPYRIGHT)<br />
+  #define GetFileDescription(str FileName) GetStringFileInfo(FileName, FILE_DESCRIPTION)<br />
+  #define GetFileProductVersion(str FileName) GetStringFileInfo(FileName, PRODUCT_VERSION)<br />
+  #define GetFileVersionString(str FileName) GetStringFileInfo(FileName, FILE_VERSION)<br />
+  ///<br />
+  /// ParseVersion<br />
+  ///<br />
+  /// Macro internally calls GetFileVersion function and parses string returned<br />
+  /// by that function (in form &quot;0.0.0.0&quot;). All four version elements are stored<br />
+  /// in by-reference parameters Major, Minor, Rev, and Build. Macro returns<br />
+  /// string returned by GetFileVersion.<br />
+  ///<br />
+  #define DeleteToFirstPeriod(str *S) \<br />
+  Local[1] = Copy(S, 1, (Local[0] = Pos(&quot;.&quot;, S)) - 1), \<br />
+  S = Copy(S, Local[0] + 1), \<br />
+  Local[1]<br />
+  ///<br />
+  #define ParseVersion(str FileName, *Major, *Minor, *Rev, *Build) \<br />
+  Local[1]  = Local[0] = GetFileVersion(FileName), \<br />
+  Local[1] == &quot;&quot; ? &quot;&quot; : ( \<br />
+  Major   = Int(DeleteToFirstPeriod(Local[1])), \<br />
+  Minor   = Int(DeleteToFirstPeriod(Local[1])), \<br />
+  Rev     = Int(DeleteToFirstPeriod(Local[1])), \<br />
+  Build   = Int(Local[1]), \<br />
+  Local[0])<br />
+  ///<br />
+  /// EncodeVer<br />
+  ///<br />
+  /// Encodes given four version elements to a 32 bit integer number (8 bits for<br />
+  /// each element, i.e. elements must be within 0...255 range).<br />
+  ///<br />
+  #define EncodeVer(int Major, int Minor, int Revision = 0, int Build = -1) \<br />
+  Major &lt;&lt; 24 | (Minor &amp; 0xFF) &lt;&lt; 16 | (Revision &amp; 0xFF) &lt;&lt; 8 | (Build &gt;= 0 ? Build &amp; 0xFF : 0)<br />
+  ///<br />
+  /// DecodeVer<br />
+  ///<br />
+  /// Decodes given 32 bit integer encoded version to its string representation,<br />
+  /// Digits parameter indicates how many elements to show (if the fourth element<br />
+  /// is 0, it won't be shown anyway).<br />
+  ///<br />
+  #define DecodeVer(int Ver, int Digits = 3) \<br />
+  Str(Ver &gt;&gt; 0x18 &amp; 0xFF) + (Digits &gt; 1 ? &quot;.&quot; : &quot;&quot;) + \<br />
+  (Digits &gt; 1 ? \<br />
+  Str(Ver &gt;&gt; 0x10 &amp; 0xFF) + (Digits &gt; 2 ? &quot;.&quot; : &quot;&quot;) : &quot;&quot;) + \<br />
+  (Digits &gt; 2 ? \<br />
+  Str(Ver &gt;&gt; 0x08 &amp; 0xFF) + (Digits &gt; 3 &amp;&amp; (Local = Ver &amp; 0xFF) ? &quot;.&quot; : &quot;&quot;) : &quot;&quot;) + \<br />
+  (Digits &gt; 3 &amp;&amp; Local ? \<br />
+  Str(Ver &amp; 0xFF) : &quot;&quot;)<br />
+  ///<br />
+  /// FindSection<br />
+  ///<br />
+  /// Returns index of the line following the header of the section. This macro<br />
+  /// is intended to be used with #insert directive.<br />
+  ///<br />
+  #define FindSection(str Section = &quot;Files&quot;) \<br />
+  Find(0, &quot;[&quot; + Section + &quot;]&quot;, FIND_MATCH | FIND_TRIM) + 1<br />
+  ///<br />
+  /// FindSectionEnd<br />
+  ///<br />
+  /// Returns index of the line following last entry of the section. This macro<br />
+  /// is intended to be used with #insert directive.<br />
+  ///<br />
+  #if VER &gt;= 0x03000000<br />
+  # define FindNextSection(int Line) \<br />
+  Find(Line, &quot;[&quot;, FIND_BEGINS | FIND_TRIM, &quot;]&quot;, FIND_ENDS | FIND_AND)<br />
+  # define FindSectionEnd(str Section = &quot;Files&quot;) \<br />
+  FindNextSection(FindSection(Section))<br />
+  #else<br />
+  # define FindSectionEnd(str Section = &quot;Files&quot;) \<br />
+  FindSection(Section) + EntryCount(Section)<br />
+  #endif<br />
+  ///<br />
+  /// FindCode<br />
+  ///<br />
+  /// Returns index of the line (of translation) following either [Code] section<br />
+  /// header, or &quot;program&quot; keyword, if any.<br />
+  ///<br />
+  #define FindCode() \<br />
+  Local[1] = FindSection(&quot;Code&quot;), \<br />
+  Local[0] = Find(Local[1] - 1, &quot;program&quot;, FIND_BEGINS, &quot;;&quot;, FIND_ENDS | FIND_AND), \<br />
+  (Local[0] &lt; 0 ? Local[1] : Local[0] + 1)<br />
+  ///<br />
+  /// ExtractFilePath<br />
+  ///<br />
+  /// Returns directory portion of the given filename without backslash (unless<br />
+  /// it is a root directory). If PathName doesn't contain directory portion,<br />
+  /// the result is an empty string.<br />
+  ///<br />
+  #define ExtractFilePath(str PathName) \<br />
+  (Local[0] = \<br />
+  !(Local[1] = RPos(&quot;\&quot;, PathName)) ? \<br />
+  &quot;&quot; : \<br />
+  Copy(PathName, 1, Local[1] - 1)), \<br />
+  Local[0] + \<br />
+  ((Local[2] = Len(Local[0])) == 2 &amp;&amp; Copy(Local[0], Local[2]) == &quot;:&quot; ? \<br />
+  &quot;\&quot; : \<br />
+  &quot;&quot;)<br />
+  #define ExtractFileDir(str PathName) \<br />
+  RemoveBackslash(ExtractFilePath(PathName))</font></p><font color="red">
+<p>  #define ExtractFileExt(str PathName) \<br />
+  Local[0] = RPos(&quot;.&quot;, PathName), \<br />
+  Copy(PathName, Local[0] + 1)<br />
+  ///<br />
+  /// ExtractFileName<br />
+  ///<br />
+  /// Returns name portion of the given filename. If PathName ends with<br />
+  /// a backslash, the result is an empty string.<br />
+  ///<br />
+  #define ExtractFileName(str PathName) \<br />
+  !(Local[0] = RPos(&quot;\&quot;, PathName)) ? \<br />
+  PathName : \<br />
+  Copy(PathName, Local[0] + 1)<br />
+  ///<br />
+  /// ChangeFileExt<br />
+  ///<br />
+  /// Changes extension in FileName with NewExt. NewExt must not contain<br />
+  /// period.<br />
+  ///<br />
+  #define ChangeFileExt(str FileName, str NewExt) \<br />
+  !(Local[0] = RPos(&quot;.&quot;, FileName)) ? \<br />
+  FileName + &quot;.&quot; + NewExt : \<br />
+  Copy(FileName, 1, Local[0]) + NewExt<br />
+  ///<br />
+  /// AddBackslash<br />
+  ///<br />
+  /// Adds a backslash to the string, if it's not already there.<br />
+  ///<br />
+  #define AddBackslash(str S) \<br />
+  Copy(S, Len(S)) == &quot;\&quot; ? S : S + &quot;\&quot;<br />
+  ///<br />
+  /// RemoveBackslash<br />
+  ///<br />
+  /// Removes trailing backslash from the string unless the string points to<br />
+  /// a root directory.<br />
+  ///<br />
+  #define RemoveBackslash(str S) \<br />
+  Local[0] = Len(S), \<br />
+  Local[0] &gt; 0 ? \<br />
+  Copy(S, Local[0]) == &quot;\&quot; ? \<br />
+  (Local[0] == 3 &amp;&amp; Copy(S, 2, 1) == &quot;:&quot; ? \<br />
+  S : \<br />
+  Copy(S, 1, Local[0] - 1)) : \<br />
+  S : \<br />
+  &quot;&quot;<br />
+  ///<br />
+  /// Delete<br />
+  ///<br />
+  /// Deletes specified number of characters beginning with Index from S. S is<br />
+  /// passed by reference (therefore is modified). Acts like Delete function in<br />
+  /// Delphi (from System unit).<br />
+  ///<br />
+  #define Delete(str *S, int Index, int Count = MaxInt) \<br />
+  S = Copy(S, 1, Index - 1) + Copy(S, Index + Count)<br />
+  ///<br />
+  /// Insert<br />
+  ///<br />
+  /// Inserts specified Substr at Index'th character into S. S is passed by<br />
+  /// reference (therefore is modified).<br />
+  ///<br />
+  #define Insert(str *S, int Index, str Substr) \<br />
+  Index &gt; Len(S) + 1 ? \<br />
+  S : \<br />
+  S = Copy(S, 1, Index - 1) + SubStr + Copy(S, Index)<br />
+  ///<br />
+  /// YesNo, IsDirSet<br />
+  ///<br />
+  /// Returns nonzero value if given string is &quot;yes&quot;, &quot;true&quot; or &quot;1&quot;. Intended to<br />
+  /// be used with SetupSetting function. This macro replaces YesNo function<br />
+  /// available in previous releases.<br />
+  ///<br />
+  #define YesNo(str S) \<br />
+  (S = LowerCase(S)) == &quot;yes&quot; || S == &quot;true&quot; || S == &quot;1&quot;<br />
+  ///<br />
+  #define IsDirSet(str SetupDirective) \<br />
+  YesNo(SetupSetting(SetupDirective))<br />
+  ///<br />
+  ///<br />
+  #define Power(int X, int P = 2) \<br />
+  !P ? 1 : X * Power(X, P - 1)<br />
+  ///<br />
+  #define Min(int A, int B, int C = MaxInt)  \<br />
+  A &lt; B ? A &lt; C ? Int(A) : Int(C) : Int(B)<br />
+  ///<br />
+  #define Max(int A, int B, int C = MinInt)  \<br />
+  A &gt; B ? A &gt; C ? Int(A) : Int(C) : Int(B)<br />
+  ///</p><br />
+  #ifdef CStrings<br />
+  #pragma parseroption -p-<br />
+  #endif<br />
+  #endif<br />
+  /// END ISPPBUILTINS.ISS<p></p>
+</font></code></pre>
+<font color="red"><script language="javascript" type="text/javascript">highlightSyntax('delphi_Tc4NTM','delphi');</script> 
+</font>
+</body>
+</html>

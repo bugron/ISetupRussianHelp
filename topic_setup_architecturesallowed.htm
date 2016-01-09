@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>[Setup]: ArchitecturesAllowed</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="IE=8" http-equiv="X-UA-Compatible">
+<link rel="stylesheet" type="text/css" href="styles.css">
+<script type="text/javascript" src="topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">[Setup]: ArchitecturesAllowed</h1>
+<div class="topicbody">
+  <table class="setuphdr">
+    <tbody>
+      <tr>
+        <td class="setuphdrl"><p>Возможные значения:</p></td>
+        <td class="setuphdrr"><div class="margined">Одно или больше из следующих значений, разделенных пробелами: <br>
+            <tt>x86</tt> <br>
+            <tt>x64</tt> <br>
+            <tt>ia64</tt></div></td>
+      </tr>
+      <tr>
+        <td class="setuphdrl"><p>Значение по умолчанию:</p></td>
+        <td class="setuphdrr"><div class="margined"><i>(пустой)</i></div></td>
+      </tr>
+    </tbody>
+  </table>
+  <div><b>Описание:</b></div>
+  <p>Определяет, на каких процессорах позволено инсталлятору работать. Если эта директива не определена, или пустая, тогда инсталлятор может работать на всех типах процессоров, которые способны выполнить его 32-разрядный код. Иначе, если архитектура процессора пользователя не будет одним из определенных этой директивой, то инсталлятор выведет на экран сообщение об ошибке и закончит свою работу.</p>
+  <p>Если все двоичные файлы Вашего приложения являются 32-разрядными и выполняются в пользовательском режиме, ненужно изменить значение директивы по умолчанию (не устанавливайте его в <tt>x86</tt>), потому что обычно такие двоичные файлы будут работать без проблем в x64 и выпусках Itanium Windows через эмулятор WOW64.</p>
+  <p>Если Вы устанавливаете какие-либо 32-разрядные драйверы, следует установить значение директивы в <tt>x86</tt>, поскольку 32-разрядные драйверы не могут функционировать на 64-разрядном Windows.</p>
+  <p>Если двоичные файлы Вашего приложения созданы для архитектур процессоров x64 или Itanium, следует установить значение этой директивы в <tt>x64</tt> или <tt>ia64</tt> соответственно.</p>
+  <p><b>См. также:</b><br>
+    <a href="topic_setup_architecturesinstallin64bitmode.htm">ArchitecturesInstallIn64BitMode</a></p>
+</div>
+</body>
+</html>

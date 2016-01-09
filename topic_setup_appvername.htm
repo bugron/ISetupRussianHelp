@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=8">
+<title>[Setup]: AppVerName</title>
+<link rel="stylesheet" type="text/css" href="styles.css">
+<script type="text/javascript" src="topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">[Setup]: AppVerName</h1>
+<div class="topicbody">
+  <table class="setuphdr">
+    <tr>
+      <td class="setuphdrl"><p>Значение по умолчанию:</p></td>
+      <td class="setuphdrr"><div class="margined"><a href="topic_setup_appname.htm">AppName</a> версия <a href="topic_setup_appversion.htm">AppVersion</a>, локализованный согласно активному языку <a href="topic_custommessagessection.htm">пользовательского сообщения</a> <tt>NameAndVersion</tt></div></td>
+    </tr>
+  </table>
+  <div><b>Описание:</b></div>
+  <p>Значение этой обязательной директивы должно быть таким же, как AppName, но с версией программы. Значение может содержать константы.</p>
+  <p>Эта директива требуется, если директива <a href="topic_setup_appversion.htm">AppVersion</a> не установлена.</p>
+  <div class="examplebox">
+    <div class="exampleheader">Примеры:</div>
+    <pre class="nomargin">
+AppVerName=My Program 1.5
+AppVerName=My Program version 1.5
+AppVerName={cm:NameAndVersion,My Program,1.5}
+</pre>
+  </div>
+</div>
+</body>
+</html>

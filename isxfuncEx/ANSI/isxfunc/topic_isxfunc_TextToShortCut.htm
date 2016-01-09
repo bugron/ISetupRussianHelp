@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Pascal Scripting Extended: TextToShortCut</title>
+<link rel="stylesheet" type="text/css" href="../../../styles.css" />
+<script type="text/javascript" src="../../../topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Pascal Scripting Extended: TextToShortCut</h1>
+<div class="topicbody">
+  <div><b>Прототип:</b></div>
+  <p><tt>function TextToShortCut(Text: String): TShortCut;</tt></p>
+  <div><b>Описание:</b></div>
+  Функция преобразовывает строковое значение комбинации &quot;горячих&quot; клавиш в значение типа TShortCut, которое может быть использовано для переопределения комбинации &quot;горячих&quot; клавиш меню, во время выполнения программы, а также может быть передано в качестве параметра функции NewItem. С помощью функции TextToShortCut можно организовать назначение комбинации &quot;горячих клавиш самим пользователем. Функция TextToShortCut работает более медленно, чем функция ShortCut<br />
+  <div><b>Пример:</b></div>
+  <p><tt>var<br />
+    <br />
+    ShortCut: TShortCut;<br />
+    <br />
+    begin<br />
+    <br />
+    ShortCut:= TextToShortCut( Edit1.Text);<br />
+    &nbsp;MainMenu1.items[0].ShortCut:= ShortCut;<br />
+    <br />
+    end;</tt></p>
+</div>
+</body>
+</html>

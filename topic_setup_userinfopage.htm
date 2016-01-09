@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>[Setup]: UserInfoPage</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="IE=8" http-equiv="X-UA-Compatible">
+<link rel="stylesheet" type="text/css" href="styles.css">
+<script type="text/javascript" src="topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">[Setup]: UserInfoPage</h1>
+<div class="topicbody">
+  <table class="setuphdr">
+    <tbody>
+      <tr>
+        <td class="setuphdrl"><p>Возможные значения:</p></td>
+        <td class="setuphdrr"><div class="margined"><a href="topic_yesnonotes.htm"><tt>yes</tt> или <tt>no</tt></a></div></td>
+      </tr>
+      <tr>
+        <td class="setuphdrl"><p>Значение по умолчанию:</p></td>
+        <td class="setuphdrr"><div class="margined"><tt>no</tt></div></td>
+      </tr>
+    </tbody>
+  </table>
+  <div><b>Описание:</b></div>
+  <p>Инсталлятор отобразит страницу для ввода информации о пользователе, в которой нужно будет указать имя пользователя, название организации и по возможности серийный номер. Полученные значения будут присвоены константам {userinfoname}, {userinfoorg} и {userinfoserial}. Эти константы можно использовать в секциях [Registry] и [Ini], чтобы сохранить&nbsp;их значения для дальнейшего использования.</p>
+  <p>Для появления поля серийного номера, должна присутствовать функция <a href="topic_scriptevents.htm#CheckSerial">CheckSerial</a>.</p>
+  <p>Директивы <a href="topic_setup_defaultuserinfoname.htm">DefaultUserInfoName</a>, <a href="topic_setup_defaultuserinfoorg.htm">DefaultUserInfoorg</a> и <a href="topic_setup_defaultuserinfoserial.htm">DefaultUserInfoSerial</a> определяют имя пользователя, название организации и серийный номер по умолчанию. Если <a href="topic_setup_useprevioususerinfo.htm">UsePreviousUserInfo</a>=<tt>yes</tt> (по умолчанию) и инсталлятор обнаружит, что программа уже устанавливалась на компьютер пользователя,&nbsp;инсталлятор будет использовать имя, название организации и серийный номер, введенные при предыдущей установке.</p>
+  <p>На тихих инсталляторах будут приняты значения по умолчанию имя пользователя, организация и значение серийного номера. Инсталлятор не будет проверять, является ли имя пользователя пустым (так как у пользователя нет возможности исправить это), однако он все&nbsp;же проверит серийный номер.</p>
+</div>
+</body>
+</html>

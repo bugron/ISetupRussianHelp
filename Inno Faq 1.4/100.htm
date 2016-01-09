@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Как заменить строку в текстовом файле</title><link rel="stylesheet" type="text/css" href="css.css">
+<script language='jscript' type='text/javascript' src='copycode.js'></script>
+<script type="text/javascript" src="includer.js"></script></head><body><div id="heading"><h1>» Inno Setup Faq. Как заменить строку в текстовом файле</h1></div><br>
+<script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM">
+<input type="button" value="Копировать в буфер обмена" onClick="copyToClipboard( taCode1, theCode1 );">
+<blockquote id="theCode1"><font>
+[Code]<br>
+///////////////////////////////////////////////////////////////////////////////<br>
+///&nbsp;Find&nbsp;given&nbsp;text&nbsp;in&nbsp;given&nbsp;file,&nbsp;and&nbsp;insert<br>
+///&nbsp;given&nbsp;textline&nbsp;after&nbsp;line&nbsp;with&nbsp;text&nbsp;found.<br>
+///&nbsp;Created:&nbsp;March&nbsp;27,&nbsp;2002&nbsp;by&nbsp;S.T.I.Bracke<br>
+///&nbsp;Revised:&nbsp;May&nbsp;22,&nbsp;2002&nbsp;by&nbsp;S.T.I.Bracke<br>
+function&nbsp;AddTextAfterLine(strFilename,&nbsp;strFind,&nbsp;strAddLine:&nbsp;String):&nbsp;Boolean;<br>
+var<br>
+&nbsp;&nbsp;strTemp&nbsp;:&nbsp;String;<br>
+&nbsp;&nbsp;iLineCounter&nbsp;:&nbsp;Integer;<br>
+&nbsp;&nbsp;a_strTextfile&nbsp;:&nbsp;TArrayOfString;<br>
+&nbsp;&nbsp;fAlreadyExist&nbsp;:&nbsp;Boolean;<br>
+<br>
+begin<br>
+&nbsp;&nbsp;{{Load&nbsp;textfile&nbsp;into&nbsp;string&nbsp;array}<br>
+&nbsp;&nbsp;LoadStringsFromFile(strFilename,&nbsp;a_strTextfile);<br>
+&nbsp;&nbsp;{{Loop&nbsp;trough&nbsp;all&nbsp;textlines&nbsp;to&nbsp;check&nbsp;if&nbsp;line&nbsp;to&nbsp;add&nbsp;already&nbsp;exists}<br>
+&nbsp;&nbsp;///&nbsp;old&nbsp;line<br>
+&nbsp;&nbsp;///&nbsp;for&nbsp;iLineCounter&nbsp;:=&nbsp;1&nbsp;to&nbsp;High(a_strTextfile)&nbsp;do<br>
+&nbsp;&nbsp;///&nbsp;new&nbsp;line&nbsp;corrected&nbsp;by&nbsp;Nikolaus&nbsp;Moll<br>
+&nbsp;&nbsp;for&nbsp;iLineCounter&nbsp;:=&nbsp;0&nbsp;to&nbsp;GetArrayLength(a_strTextfile)-1&nbsp;do<br>
+&nbsp;&nbsp;&nbsp;&nbsp;begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(a_strTextfile[iLineCounter]&nbsp;=&nbsp;strAddLine)&nbsp;then<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fAlreadyExist&nbsp;:=&nbsp;fAlreadyExist&nbsp;or&nbsp;True<br>
+&nbsp;&nbsp;&nbsp;&nbsp;end;<br>
+&nbsp;&nbsp;{{Only&nbsp;execute&nbsp;when&nbsp;new&nbsp;line&nbsp;doesn't&nbsp;exist&nbsp;in&nbsp;textfile&nbsp;yet}<br>
+&nbsp;&nbsp;if&nbsp;not&nbsp;fAlreadyExist&nbsp;then<br>
+&nbsp;&nbsp;&nbsp;&nbsp;begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{Search&nbsp;trough&nbsp;all&nbsp;textlines&nbsp;for&nbsp;given&nbsp;text}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;///&nbsp;old&nbsp;line<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;///&nbsp;for&nbsp;iLineCounter&nbsp;:=&nbsp;1&nbsp;to&nbsp;High(a_strTextfile)&nbsp;do<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;///&nbsp;new&nbsp;line&nbsp;corrected&nbsp;by&nbsp;Nikolaus&nbsp;Moll<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;iLineCounter&nbsp;:=&nbsp;0&nbsp;to&nbsp;GetArrayLength(a_strTextfile)-1&nbsp;do<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{Add&nbsp;new&nbsp;textline&nbsp;after&nbsp;textline&nbsp;with&nbsp;text&nbsp;searched&nbsp;for}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(Pos(strFind,&nbsp;a_strTextfile[iLineCounter])&nbsp;&gt;&nbsp;0)&nbsp;then<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a_strTextfile[iLineCounter]&nbsp;:=&nbsp;a_strTextfile[iLineCounter]&nbsp;+&nbsp;#13&nbsp;+&nbsp;#10&nbsp;+&nbsp;strAddLine;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{Save&nbsp;string&nbsp;array&nbsp;to&nbsp;textfile&nbsp;(overwrite,&nbsp;no&nbsp;append!)}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SaveStringsToFile(strFilename,&nbsp;a_strTextfile,&nbsp;False);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;end;<br>
+&nbsp;&nbsp;Result&nbsp;:=&nbsp;True;<br>
+end;<br>
+
+</font></blockquote><textarea id="taCode1" style="display:none;" rows="1" cols="5"></textarea><textarea id='taCode' style='display:none;' rows='1' cols='20'></textarea></code><script language="javascript" type="text/javascript">highlightSyntax('delphi_Tc4NTM','delphi');</script><br><div id="heading"><h1><font size="1" face="Consolas">Copyright (c) <a href="http://www.krinkels.org/" target="_blank">Krinkels Inc</a></font></h1></div></body></html>

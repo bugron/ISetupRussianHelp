@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Как добавить свой шрифт в инсталлятор?</title><link rel="stylesheet" type="text/css" href="css.css"><script type="text/javascript" src="includer.js"></script><script language='jscript' type='text/javascript' src='copycode.js'></script></head><body><div id="heading"><h1>» Inno Setup Faq. Как добавить свой шрифт в инсталлятор?</h1></div><br><script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM"> <input type="button" value="Копировать в буфер обмена" onClick="copyToClipboard( taCode1, theCode1 );"> <blockquote id="theCode1"><font>#define Font "Zombie.ttf"<br>
+#define FontName "DS Zombie Cyr"<br>
+<br>
+[Setup]<br>
+AppName=My Program<br>
+AppVerName=My Program<br>
+DefaultDirName={pf}\My Program<br>
+OutputDir=.<br>
+<br>
+[Languages]<br>
+Name: "rus"; MessagesFile: "compiler:Languages\Russian.isl"<br>
+<br>
+[Files]<br>
+Source: {#Font}; Flags: dontcopy;<br>
+<br>
+[Code]<br>
+var<br>
+  IsCustomFontInstalled: boolean;<br>
+  FontName: string;<br>
+<br>
+function AddFontResource(FileName: PAnsiChar): Integer; external 'AddFontResourceA@gdi32.dll stdcall';<br>
+function RemoveFontResource(FileName: PAnsiChar): BOOL; external 'RemoveFontResourceA@gdi32.dll stdcall';<br>
+<br>
+function InitializeSetup(): Boolean;<br>
+begin<br>
+  ExtractTemporaryFile('{#Font}');<br>
+  IsCustomFontInstalled:=AddFontResource(ExpandConst  ant('{tmp}')+'\{#Font}')&gt;0;<br>
+  if IsCustomFontInstalled then SendMessage(HWND_BROADCAST,$1D,0,0);<br>
+  if FontExists('{#FontName}') then FontName:='{#FontName}' else FontName:='Arial';<br>
+  Result:= True;<br>
+end;<br>
+<br>
+procedure InitializeWizard();<br>
+begin<br>
+  WizardForm.Font.Name:= FontName;<br>
+end;<br>
+<br>
+procedure DeInitializeSetup();<br>
+begin<br>
+  WizardForm.Free;<br>
+  if IsCustomFontInstalled then<br>
+  if RemoveFontResource(PAnsiChar(ExpandConstant('{tmp}')+'\{#Font}')) then SendMessage(HWND_BROADCAST,$1D,0,0);<br>
+end;</font></blockquote><textarea id="taCode1" style="display:none;" rows="1" cols="5"></textarea><textarea id='taCode' style='display:none;' rows='1' cols='20'></textarea></code><script language="javascript" type="text/javascript">highlightSyntax('delphi_Tc4NTM','delphi');</script><br><div id="heading"><h1><font size="1" face="Consolas">Copyright (c) <a href="http://www.krinkels.org/" target="_blank">Krinkels Inc</a></font></h1></div></body></html>

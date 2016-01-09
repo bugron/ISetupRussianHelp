@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Как добавить дополнительную страницу лицензии</title><link rel="stylesheet" type="text/css" href="css.css">
+<script language='jscript' type='text/javascript' src='copycode.js'></script>
+<script type="text/javascript" src="includer.js"></script></head><body><div id="heading"><h1>» Inno Setup Faq. Как добавить дополнительную страницу лицензии</h1></div><br>
+<script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM">
+<input type="button" value="Копировать в буфер обмена" onClick="copyToClipboard( taCode1, theCode1 );">
+<blockquote id="theCode1"><font>
+[Setup]<br>
+AppName=AdditionalLicensePage<br>
+AppVerName=AdditionalLicensePage<br>
+CreateAppDir=false<br>
+Compression=lzma2<br>
+<br>
+[Files]<br>
+Source:&nbsp;lgpl-3.0.txt;&nbsp;DestDir:&nbsp;{app};&nbsp;Flags:&nbsp;ignoreversion<br>
+///можно&nbsp;также&nbsp;указать&nbsp;rtf&nbsp;файл<br>
+///Если&nbsp;требуются&nbsp;несколько&nbsp;страниц,&nbsp;то&nbsp;нужно&nbsp;вставить&nbsp;один&nbsp;и&nbsp;тот&nbsp;же&nbsp;код&nbsp;несколько&nbsp;раз<br>
+<br>
+[CustomMessages]<br>
+LGPLHeader=Please&nbsp;read&nbsp;the&nbsp;following&nbsp;License&nbsp;Agreement.&nbsp;Some&nbsp;components&nbsp;are&nbsp;licensed&nbsp;under&nbsp;the&nbsp;GNU&nbsp;Lesser&nbsp;General&nbsp;Public&nbsp;License.<br>
+<br>
+;;Shows&nbsp;a&nbsp;new&nbsp;license&nbsp;page&nbsp;for&nbsp;the&nbsp;LGPL&nbsp;with&nbsp;the&nbsp;usual&nbsp;accept/don't&nbsp;acccept&nbsp;options<br>
+[Code]<br>
+var<br>
+&nbsp;&nbsp;LGPLPage:&nbsp;TOutputMsgMemoWizardPage;<br>
+&nbsp;&nbsp;LGPLAccept:&nbsp;TNewRadioButton;<br>
+&nbsp;&nbsp;LGPLRefuse:&nbsp;TNewRadioButton;<br>
+<br>
+procedure&nbsp;LGPLPageActivate(Sender:&nbsp;TWizardPage);&nbsp;forward;<br>
+procedure&nbsp;LGPLAcceptClick(Sender:&nbsp;TObject);&nbsp;forward;<br>
+<br>
+procedure&nbsp;LGPL_InitializeWizard();<br>
+var<br>
+&nbsp;&nbsp;LGPLText:&nbsp;AnsiString;<br>
+<br>
+begin<br>
+&nbsp;&nbsp;///Create&nbsp;the&nbsp;page<br>
+&nbsp;&nbsp;LGPLPage&nbsp;:=&nbsp;CreateOutputMsgMemoPage(wpLicense,&nbsp;SetupMessage(msgWizardLicense),&nbsp;SetupMessage(msgLicenseLabel),&nbsp;CustomMessage('LGPLHeader'),&nbsp;'');<br>
+<br>
+&nbsp;&nbsp;///Adjust&nbsp;the&nbsp;memo&nbsp;and&nbsp;add&nbsp;the&nbsp;confirm/refuse&nbsp;options<br>
+&nbsp;&nbsp;LGPLPage.RichEditViewer.Height&nbsp;:=&nbsp;ScaleY(148);<br>
+&nbsp;&nbsp;LGPLAccept&nbsp;:=&nbsp;TNewRadioButton.Create(LGPLPage);<br>
+&nbsp;&nbsp;LGPLAccept.Left&nbsp;:=&nbsp;LGPLPage.RichEditViewer.Left;<br>
+&nbsp;&nbsp;LGPLAccept.Top&nbsp;:=&nbsp;LGPLPage.Surface.ClientHeight&nbsp;-&nbsp;ScaleY(41);<br>
+&nbsp;&nbsp;LGPLAccept.Width&nbsp;:=&nbsp;LGPLPage.RichEditViewer.Width;<br>
+&nbsp;&nbsp;LGPLAccept.Parent&nbsp;:=&nbsp;LGPLPage.Surface;<br>
+&nbsp;&nbsp;LGPLAccept.Caption&nbsp;:=&nbsp;SetupMessage(msgLicenseAccepted);<br>
+&nbsp;&nbsp;LGPLRefuse&nbsp;:=&nbsp;TNewRadioButton.Create(LGPLPage);<br>
+&nbsp;&nbsp;LGPLRefuse.Left&nbsp;:=&nbsp;LGPLPage.RichEditViewer.Left;<br>
+&nbsp;&nbsp;LGPLRefuse.Top&nbsp;:=&nbsp;LGPLPage.Surface.ClientHeight&nbsp;-&nbsp;ScaleY(21);<br>
+&nbsp;&nbsp;LGPLRefuse.Width&nbsp;:=&nbsp;LGPLPage.RichEditViewer.Width;<br>
+&nbsp;&nbsp;LGPLRefuse.Parent&nbsp;:=&nbsp;LGPLPage.Surface;<br>
+&nbsp;&nbsp;LGPLRefuse.Caption&nbsp;:=&nbsp;SetupMessage(msgLicenseNotAccepted);<br>
+<br>
+&nbsp;&nbsp;///Set&nbsp;the&nbsp;states&nbsp;and&nbsp;event&nbsp;handlers<br>
+&nbsp;&nbsp;LGPLPage.OnActivate&nbsp;:=&nbsp;@LGPLPageActivate;<br>
+&nbsp;&nbsp;LGPLAccept.OnClick&nbsp;:=&nbsp;@LGPLAcceptClick;<br>
+&nbsp;&nbsp;LGPLRefuse.OnClick&nbsp;:=&nbsp;@LGPLAcceptClick;<br>
+&nbsp;&nbsp;LGPLRefuse.Checked&nbsp;:=&nbsp;true;<br>
+<br>
+&nbsp;&nbsp;///Load&nbsp;the&nbsp;LGPL&nbsp;text&nbsp;into&nbsp;the&nbsp;new&nbsp;page<br>
+&nbsp;&nbsp;ExtractTemporaryFile('lgpl-3.0.txt');<br>
+&nbsp;&nbsp;LoadStringFromFile(ExpandConstant('{tmp}/lgpl-3.0.txt'),&nbsp;LGPLText);<br>
+&nbsp;&nbsp;LGPLPage.RichEditViewer.RTFText&nbsp;:=&nbsp;LGPLText;<br>
+end;<br>
+<br>
+procedure&nbsp;LGPLPageActivate(Sender:&nbsp;TWizardPage);<br>
+begin<br>
+&nbsp;&nbsp;WizardForm.NextButton.Enabled&nbsp;:=&nbsp;LGPLAccept.Checked;<br>
+end;<br>
+<br>
+procedure&nbsp;LGPLAcceptClick(Sender:&nbsp;TObject);<br>
+begin<br>
+&nbsp;&nbsp;WizardForm.NextButton.Enabled&nbsp;:=&nbsp;LGPLAccept.Checked;<br>
+end;<br>
+<br>
+procedure&nbsp;InitializeWizard();<br>
+begin<br>
+&nbsp;&nbsp;LGPL_InitializeWizard();<br>
+end;<br>
+</font></blockquote><textarea id="taCode1" style="display:none;" rows="1" cols="5"></textarea><textarea id='taCode' style='display:none;' rows='1' cols='20'></textarea></code><script language="javascript" type="text/javascript">highlightSyntax('delphi_Tc4NTM','delphi');</script><br><div id="heading"><h1><font size="1" face="Consolas">Copyright (c) <a href="http://www.krinkels.org/" target="_blank">Krinkels Inc</a></font></h1></div></body></html>

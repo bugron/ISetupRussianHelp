@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Удаляем границы инсталлятора</title><link rel="stylesheet" type="text/css" href="css.css">
+<script language='jscript' type='text/javascript' src='copycode.js'></script>
+<script type="text/javascript" src="includer.js"></script></head><body><div id="heading"><h1>» Inno Setup Faq. Удаляем границы инсталлятора</h1></div><br>
+<script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM">
+<input type="button" value="Копировать в буфер обмена" onClick="copyToClipboard( taCode1, theCode1 );">
+<blockquote id="theCode1"><font>
+[Setup]<br>
+AppName=My&nbsp;Program<br>
+AppVerName=My&nbsp;Program&nbsp;v.1.2<br>
+DefaultDirName={pf}\My&nbsp;Program<br>
+<br>
+<br>
+[Code]<br>
+procedure&nbsp;InitializeWizard();<br>
+begin<br>
+&nbsp;&nbsp;with&nbsp;WizardForm&nbsp;do<br>
+&nbsp;&nbsp;begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;BorderStyle&nbsp;:=&nbsp;bsNone;<br>
+end;<br>
+end;<br>
+<br>
+{{*const<br>
+&nbsp;&nbsp;GWL_STYLE&nbsp;=&nbsp;(-16);<br>
+&nbsp;&nbsp;WS_CAPTION&nbsp;=&nbsp;$C00000;<br>
+<br>
+function&nbsp;GetWindowLong(Wnd:&nbsp;HWnd;&nbsp;Index:&nbsp;Integer):&nbsp;Longint;<br>
+external&nbsp;'GetWindowLongA@user32.dll&nbsp;stdcall';<br>
+<br>
+function&nbsp;SetWindowLong(Wnd:&nbsp;HWnd;&nbsp;Index:&nbsp;Integer;&nbsp;NewLong:&nbsp;Longint):&nbsp;Longint;<br>
+external&nbsp;'SetWindowLongA@user32.dll&nbsp;stdcall';<br>
+<br>
+procedure&nbsp;InitializeWizard();<br>
+begin<br>
+&nbsp;&nbsp;SetWindowLong(WizardForm.Handle,&nbsp;GWL_STYLE,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GetWindowLong(WizardForm.Handle,&nbsp;GWL_STYLE)&nbsp;and&nbsp;not&nbsp;WS_CAPTION);<br>
+end;<br>
+*}<br>
+</font></blockquote><textarea id="taCode1" style="display:none;" rows="1" cols="5"></textarea><textarea id='taCode' style='display:none;' rows='1' cols='20'></textarea></code><script language="javascript" type="text/javascript">highlightSyntax('delphi_Tc4NTM','delphi');</script><br><div id="heading"><h1><font size="1" face="Consolas">Copyright (c) <a href="http://www.krinkels.org/" target="_blank">Krinkels Inc</a></font></h1></div></body></html>

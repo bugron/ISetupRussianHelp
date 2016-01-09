@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Pascal Scripting Extended: Int</title>
+<link rel="stylesheet" type="text/css" href="../../../styles.css" />
+<script type="text/javascript" src="../../../topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Pascal Scripting Extended: Int</h1>
+<div class="topicbody">
+  <div><b>Прототип:</b></div>
+  <p><tt>function Int(E: Extended): Extended;</tt></p>
+  <div><b>Описание:</b></div>
+  Функция Int возвращает целочисленную часть числа с плавающей точкой, как число с плавающей точкой.<br />
+  <div><b>Пример:</b></div>
+  <p><tt>begin<br />
+    &nbsp;ShowMessage('Round(12.75) = '+IntToStr(Round(12.75)));<br />
+    &nbsp;ShowMessage('Trunc(12.75) = '+IntToStr(Trunc(12.75)));<br />
+    &nbsp;ShowMessage(' Int(12.75) = '+FloatToStr(Int(12.75)));<br />
+    &nbsp;ShowMessage(' Frac(12.75) = '+FloatToStr(Frac(12.75)));<br />
+    end; <br />
+    <br />
+    <br />
+    &nbsp;Round(12.75) = 13<br />
+    &nbsp;Trunc(12.75) = 12<br />
+    &nbsp;Int(12.75) = 12<br />
+    &nbsp;Frac(12.75) = 0.75</tt></p>
+</div>
+</body>
+</html>

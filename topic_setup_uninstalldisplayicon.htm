@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>[Setup]: UninstallDisplayIcon</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="IE=8" http-equiv="X-UA-Compatible">
+<link rel="stylesheet" type="text/css" href="styles.css">
+<script type="text/javascript" src="topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">[Setup]: UninstallDisplayIcon</h1>
+<div class="topicbody">
+  <div><b>Описание:</b></div>
+  <p>Определяет значок (.exe или .ico файл), который будет отображаться на странице <i>Установка и удаление программ</i> Панели управления. Имя файла должно начинаться с константы, задающей каталог.</p>
+  <p>Если в файле несколько значков, вы можете добавить окончание ",<i>n</i>", где <i>n</i> – индекс значка.</p>
+  <p>Если директива не указана или пустая, Windows выберет значок сама и он может вам не понравиться.</p>
+  <div class="examplebox">
+    <div class="exampleheader">Например:</div>
+    <pre class="nomargin">UninstallDisplayIcon={app}\MyProg.exe
+UninstallDisplayIcon={app}\MyProg.exe,1
+</pre>
+  </div>
+</div>
+</body>
+</html>

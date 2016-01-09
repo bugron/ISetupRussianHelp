@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Pascal Scripting: ShellExec</title>
+<link rel="stylesheet" type="text/css" href="../styles.css" />
+<script type="text/javascript" src="../topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Pascal Scripting: ShellExec</h1>
+<div class="topicbody">
+  <div><b>Прототип:</b></div>
+  <p><tt>function ShellExec(const Verb, Filename, Params, WorkingDir: String; const ShowCmd: Integer; const Wait: TExecWait; var ErrorCode: Integer): Boolean;</tt></p>
+  <div><b>Описание:</b></div>
+  <p>Opens the specified file or performs another action specified by Verb, using the same credentials as Setup/Uninstall. The filename can be an executable file, a document file, a folder, or a URL. Verb may be an empty string, in which case the default verb for the file type is used (usually &quot;open&quot;). The Wait parameter specifies whether the function should return immediately or wait until the launched process has termimated or is idle. Returns True if the specified file was opened successfully, False otherwise. If False is returned then ErrorCode specifies the error that occurred. Use SysErrorMessage(ErrorCode) to get a description of the error.</p>
+  <div><b>Комментарии:</b></div>
+  <p>TExecWait is defined as:</p>
+  <p><tt>TExecWait = (ewNoWait, ewWaitUntilTerminated, ewWaitUntilIdle);</tt></p>
+  <p>Note that passing a Wait value other than <tt>ewNoWait</tt> will have no effect if a new process isn't spawned (for example, if the file is opened inside an already-running instance of the program that handles the file type).</p>
+  <p>Ссылка на <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms681381.aspx" target="_blank" title="http://msdn.microsoft.com/en-us/library/windows/desktop/ms681381.aspx">коды системных ошибок в MSDN</a><img src="../images/extlink.gif" alt=" [external link]" />.</p>
+  <div><b>Например:</b></div>
+  <pre>var
+  ErrorCode: Integer;
+begin
+  if not ShellExec('', ExpandConstant('{app}\filename.rtf'),
+     '', '', SW_SHOW, ewNoWait, ErrorCode) then
+  begin
+    // handle failure if necessary
+  end;
+end;</pre>
+  <div><b>См. также:</b></div>
+  <p><a href="topic_isxfunc_shellexecasoriginaluser.htm">ShellExecAsOriginalUser</a></p>
+</div>
+</body>
+</html>

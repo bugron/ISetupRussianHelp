@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Страницы Мастера</title>
+<!--[if IE 6]><style type="text/css">html{overflow-y:scroll}</style><![endif]-->
+<link rel="stylesheet" type="text/css" href="styles.css" />
+<script type="text/javascript" src="topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Страницы Мастера</h1>
+<div class="topicbody">
+  <p>Ниже приведен список всех страниц, которые может отображать инсталлятор и условия, при которых они будут отображаться.</p>
+  <ul>
+    <li><b>Приветствие (Welcome) </b><br />
+      Отображается по умолчанию, но может быть отключена через <a href="topic_setup_disablewelcomepage.htm">DisableWelcomePage</a>. </li>
+    <li><b>Лицензионное соглашение (License Agreement)</b><br />
+      Отображается, если указан файл лицензии <a href="topic_setup_licensefile.htm">LicenseFile</a>. Пользователь сможет перейти к следующей странице установки, только если выберет &quot;Я согласен с условиями данного соглашения&quot; (&quot;I accept the agreement&quot;). </li>
+    <li><b>Пароль (Password)</b><br />
+      Отображается, если задан <a href="topic_setup_password.htm">пароль</a>. Установка продолжится только в случае введения правильного пароля. </li>
+    <li><b>Информация (Information)</b><br />
+      Отображается, если указан файл <a href="topic_setup_infobeforefile.htm">InfoBeforeFile</a>. </li>
+    <li><b>Информация о пользователе (User Information)</b><br />
+      Отображается, если <a href="topic_setup_userinfopage.htm">UserInfoPage</a>=<tt>yes</tt>. </li>
+    <li><b>Выбор папки назначения (Select Destination Location) </b><br />
+      Отображается по умолчанию, но может быть отключена с помощью <a href="topic_setup_disabledirpage.htm">DisableDirPage</a>. </li>
+    <li><b>Выбор компонентов (Select Components) </b><br />
+      Отображается, если <a href="topic_componentssection.htm">секция [Components]</a> содержит параметры. </li>
+    <li><b>Выбор папки меню Пуск (Select Start Menu Folder)</b><br />
+      Отображается, если <a href="topic_iconssection.htm">секция [Icons]</a> содержит параметры, но может быть отключена с помощью <a href="topic_setup_disableprogramgrouppage.htm">DisableProgramGroupPage</a>. </li>
+    <li><b>Выбор задания (Select Tasks) </b><br />
+      Отображается, если <a href="topic_taskssection.htm">секция [Tasks]</a> содержит параметры, если только все параметры в [Tasks] не связаны с компонентами, не выбранными на странице <i>Выбор компонентов (Select Components)</i>. </li>
+    <li><b>Все готово к установке (Ready to Install)</b><br />
+      Отображается по умолчанию, но может быть отключена с помощью <a href="topic_setup_disablereadypage.htm">DisableReadyPage</a>. </li>
+    <li><b>Подготовка к установке (Preparing to Install) </b><br />
+      Обычно инсталлятор никогда не останавливается на этой странице. Остановка произойдет только в случае, если инсталлятор не сможет перезаписать/обновить необходимые файлы.<br/>
+      <br/>
+      Вышесказанное может произайти в том случае, когда функция <tt>PrepareToInstall</tt> возвращает ошибку или один или несколько файлов, указанных в секцях [Files] и &nbsp;[InstallDelete], помечены (другим   инсталлятором) на перемещение или удаление после следующей перезагрузки. В этом случае инсталлятор сообщит пользователю, что ему следует сначала   перезагрузить компьютер, а потом начать установку заново. Обратите внимание, что эта проверка применяется и к тихим установкам (с   минимумом различных диалоговых окон), только в этом случае сообщения будут   отображаться в окне сообщений (MessageBox), а не в окне инсталлятора. <br/>
+      <br/>
+      Последнее может произайти, если <a href="topic_setup_closeapplications.htm">CloseApplications</a> = <tt>yes</tt>. </li>
+    <li><b>Установка (Installing) </b><br />
+      Отображается в процессе установки. </li>
+    <li><b>Информация (Information) </b><br />
+      Отображается, если указан файл <a href="topic_setup_infoafterfile.htm">InfoAfterFile</a>. </li>
+    <li><b>Установка завершена (Setup Completed)</b><br />
+      Отображается по умолчанию, но в некоторых случаях может быть отключена с помощью <a href="topic_setup_disablefinishedpage.htm">DisableFinishedPage</a>.</li>
+  </ul>
+</div>
+</body>
+</html>

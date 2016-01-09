@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Pascal Scripting Extended: Abs</title>
+<link rel="stylesheet" type="text/css" href="../../../styles.css" />
+<script type="text/javascript" src="../../../topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Pascal Scripting Extended: Abs</h1>
+<div class="topicbody">
+  <div><b>Прототип:</b></div>
+  <p><tt>function Abs(E: Extended): Extended;</tt></p>
+  <div><b>Описание:</b></div>
+  Функция Abs возвращает абсолютную величину отрицательного или положительного числа (модуль). Это реализуется удалением отрицательного знака, если такой обнаружен. Число может быть любым числовым типом, также может быть Variant, он будет преобразован в число. Например, Variant строку '-1.23' Abs всегда преобразовывает ее в Extended.<br />
+  <div><b>Пример:</b></div>
+  <p><tt>var <br />
+    &nbsp;float, bigFloat : single; <br />
+    &nbsp;int : Integer; <br />
+    &nbsp;varVar : Variant; <br />
+    <br />
+    begin <br />
+    &nbsp;float := -1.5; <br />
+    &nbsp;bigFloat := -4.56E100; <br />
+    &nbsp;int := -7; <br />
+    &nbsp;varVar := '-98'; <br />
+    // Маленькое отрицательное число с плавающей точкой <br />
+    // Отрицательное бесконечное число с плавающей точкой <br />
+    // Отрицательное целое число <br />
+    // Variant преобразуется в число с плавающей точкой! <br />
+    <br />
+    &nbsp;ShowMessage('Abs(float) = '+FloatToStr(Abs(float))); <br />
+    &nbsp;ShowMessage('Abs(bigFloat) = '+FloatToStr(Abs(bigFloat))); <br />
+    &nbsp;ShowMessage('Abs(int) = '+FloatToStr(Abs(int))); <br />
+    <br />
+    // Variant преобразуется в Extended тип с плавающей точкой <br />
+    &nbsp;float := Abs(varVar); <br />
+    &nbsp;ShowMessage('Abs(varVar) = '+FloatToStr(float)); <br />
+    end; <br />
+    <br />
+    <br />
+    &nbsp;Abs(float) = 1.5 <br />
+    &nbsp;Abs(bigFloat) = INF <br />
+    &nbsp;Abs(int) = 7 <br />
+    &nbsp;Abs(varVar) = 98</tt></p>
+</div>
+</body>
+</html>

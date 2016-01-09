@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Бекап устанавливаемых файлов</title><link rel="stylesheet" type="text/css" href="css.css">
+<script language='jscript' type='text/javascript' src='copycode.js'></script>
+<script type="text/javascript" src="includer.js"></script></head><body><div id="heading"><h1>» Inno Setup Faq. Бекап устанавливаемых файлов</h1></div><br>
+<script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM">
+<input type="button" value="Копировать в буфер обмена" onClick="copyToClipboard( taCode1, theCode1 );">
+<blockquote id="theCode1"><font>
+[Setup]<br>
+AppName=BackupDirectory<br>
+AppVerName=BackupDirectory<br>
+DefaultDirName={pf}\Backup<br>
+Compression=lzma2<br>
+<br>
+[Files]<br>
+Source:&nbsp;{app}\*;&nbsp;DestDir:&nbsp;{app}\Archive-{code:GetTodaysName};&nbsp;Flags:&nbsp;external&nbsp;setntfscompression&nbsp;skipifsourcedoesntexist<br>
+<br>
+[Code]<br>
+var<br>
+&nbsp;&nbsp;TodaysName&nbsp;:&nbsp;String;<br>
+<br>
+function&nbsp;GetToday&nbsp;:&nbsp;String;<br>
+begin<br>
+&nbsp;&nbsp;Result&nbsp;:=&nbsp;GetDateTimeString&nbsp;('yyyy/mm/dd&nbsp;hh.nn.ss',&nbsp;'-',&nbsp;#0);<br>
+end;<br>
+<br>
+function&nbsp;GetTodaysName&nbsp;(Param:&nbsp;String):&nbsp;String;<br>
+begin<br>
+&nbsp;&nbsp;if&nbsp;(''&nbsp;=&nbsp;TodaysName)&nbsp;then<br>
+&nbsp;&nbsp;begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;TodaysName&nbsp;:=&nbsp;GetToday&nbsp;();<br>
+&nbsp;&nbsp;end;<br>
+&nbsp;&nbsp;Result&nbsp;:=&nbsp;TodaysName;<br>
+end;<br>
+</font></blockquote><textarea id="taCode1" style="display:none;" rows="1" cols="5"></textarea><textarea id='taCode' style='display:none;' rows='1' cols='20'></textarea></code><script language="javascript" type="text/javascript">highlightSyntax('delphi_Tc4NTM','delphi');</script><br><div id="heading"><h1><font size="1" face="Consolas">Copyright (c) <a href="http://www.krinkels.org/" target="_blank">Krinkels Inc</a></font></h1></div></body></html>

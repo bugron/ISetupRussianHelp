@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Inno Setup Preprocessor: ReadReg</title>
+<link rel="stylesheet" type="text/css" href="../styles.css" />
+<script type="text/javascript" src="../topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Inno Setup Preprocessor: ReadReg</h1>
+<div class="topicbody">
+  <h2 class="heading notopmargin">Прототип</h2>
+  <p><tt><b>any</b> ReadReg(<b>int</b> 1, <b>str</b> 2, <b>str</b>? 3, <b>any</b>? 4)<br/>
+  </tt></p>
+  <h2 class="heading">Описание</h2>
+  <p>Получает значение указанного ключа 32-х битного или 64-х битного системного реестра. Первый параметр - корневой ключ, такой как HKEY_LOCAL_MACHINE (32-х битный) или HKEY_LOCAL_MACHINE_64 (64-х битный). В данной функции можно использовать константы, объявленные в <a href="topic_builtinsiss.htm">файле BUILTINS.ISS</a>. Второй параметр определяет подключ. Третий параметр определяет имя значения, если этот параметр не указан, принимается значение по умолчанию. Последний дополнительный параметр может использоваться, чтобы определить значение по умолчанию, которое будет возвращено при отказе.</p>
+  <p>Отметьте, что эта функция может возвращать значение любого типа в зависимости от типа значения в реестре.</p>
+</div>
+</body>
+</html>

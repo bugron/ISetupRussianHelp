@@ -1,0 +1,356 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Функции для запуска, остановки, установки и удаления служб Windows NT</title><link rel="stylesheet" type="text/css" href="css.css">
+<script language='jscript' type='text/javascript' src='copycode.js'></script>
+<script type="text/javascript" src="includer.js"></script></head><body><div id="heading"><h1>» Inno Setup Faq. Функции для запуска, остановки, установки и удаления служб Windows NT</h1></div><br>
+<script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM">
+<input type="button" value="Копировать в буфер обмена" onClick="copyToClipboard( taCode1, theCode1 );">
+<blockquote id="theCode1"><font>
+[Setup]<br>
+AppName=test<br>
+AppVerName=test<br>
+CreateAppDir=false<br>
+UsePreviousAppDir=false<br>
+UsePreviousGroup=false<br>
+AlwaysShowComponentsList=false<br>
+ShowComponentSizes=false<br>
+FlatComponentsList=false<br>
+UsePreviousSetupType=false<br>
+UsePreviousTasks=false<br>
+UsePreviousUserInfo=false<br>
+DisableStartupPrompt=true<br>
+<br>
+[Code]<br>
+///function&nbsp;IsServiceInstalled(ServiceName:&nbsp;string):&nbsp;boolean;<br>
+///function&nbsp;IsServiceRunning(ServiceName:&nbsp;string):&nbsp;boolean;<br>
+///function&nbsp;InstallService(FileName,&nbsp;ServiceName,&nbsp;DisplayName,&nbsp;Description&nbsp;:&nbsp;string;ServiceType,StartType&nbsp;:cardinal):&nbsp;boolean;<br>
+///function&nbsp;RemoveService(ServiceName:&nbsp;string):&nbsp;boolean;<br>
+///function&nbsp;StartService(ServiceName:&nbsp;string):&nbsp;boolean;<br>
+///function&nbsp;StopService(ServiceName:&nbsp;string):&nbsp;boolean;<br>
+///function&nbsp;SetupService(service,&nbsp;port,&nbsp;comment:&nbsp;string):&nbsp;boolean;<br>
+///function&nbsp;CheckVersion(Filename&nbsp;:&nbsp;string;hh,hl,lh,ll&nbsp;:&nbsp;integer):&nbsp;boolean;<br>
+<br>
+type<br>
+SERVICE_STATUS&nbsp;=&nbsp;record<br>
+&nbsp;&nbsp;&nbsp;&nbsp;	dwServiceType				:&nbsp;cardinal;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;	dwCurrentState				:&nbsp;cardinal;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;	dwControlsAccepted			:&nbsp;cardinal;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;	dwWin32ExitCode				:&nbsp;cardinal;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;	dwServiceSpecificExitCode	:&nbsp;cardinal;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;	dwCheckPoint				:&nbsp;cardinal;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;	dwWaitHint					:&nbsp;cardinal;<br>
+end;<br>
+HANDLE&nbsp;=&nbsp;cardinal;<br>
+<br>
+const<br>
+SERVICE_QUERY_CONFIG		=&nbsp;$1;<br>
+SERVICE_CHANGE_CONFIG		=&nbsp;$2;<br>
+SERVICE_QUERY_STATUS		=&nbsp;$4;<br>
+SERVICE_START				=&nbsp;$10;<br>
+SERVICE_STOP				=&nbsp;$20;<br>
+SERVICE_ALL_ACCESS			=&nbsp;$f01ff;<br>
+SC_MANAGER_ALL_ACCESS		=&nbsp;$f003f;<br>
+SERVICE_WIN32_OWN_PROCESS	=&nbsp;$10;<br>
+SERVICE_WIN32_SHARE_PROCESS	=&nbsp;$20;<br>
+SERVICE_WIN32				=&nbsp;$30;<br>
+SERVICE_INTERACTIVE_PROCESS&nbsp;=&nbsp;$100;<br>
+SERVICE_BOOT_START&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;$0;<br>
+SERVICE_SYSTEM_START&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;$1;<br>
+SERVICE_AUTO_START&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;$2;<br>
+SERVICE_DEMAND_START&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;$3;<br>
+SERVICE_DISABLED&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;$4;<br>
+SERVICE_DELETE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;$10000;<br>
+SERVICE_CONTROL_STOP		=&nbsp;$1;<br>
+SERVICE_CONTROL_PAUSE		=&nbsp;$2;<br>
+SERVICE_CONTROL_CONTINUE	=&nbsp;$3;<br>
+SERVICE_CONTROL_INTERROGATE&nbsp;=&nbsp;$4;<br>
+SERVICE_STOPPED				=&nbsp;$1;<br>
+SERVICE_START_PENDING&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;$2;<br>
+SERVICE_STOP_PENDING&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;$3;<br>
+SERVICE_RUNNING&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;$4;<br>
+SERVICE_CONTINUE_PENDING&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;$5;<br>
+SERVICE_PAUSE_PENDING&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;$6;<br>
+SERVICE_PAUSED&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;$7;<br>
+<br>
+///#######################################################################################<br>
+///nt&nbsp;based&nbsp;service&nbsp;utilities<br>
+///#######################################################################################<br>
+function&nbsp;OpenSCManager(lpMachineName,&nbsp;lpDatabaseName:&nbsp;string;&nbsp;dwDesiredAccess&nbsp;:cardinal):&nbsp;HANDLE;<br>
+external&nbsp;'OpenSCManagerA@advapi32.dll&nbsp;stdcall';<br>
+<br>
+function&nbsp;OpenService(hSCManager&nbsp;:HANDLE;lpServiceName:&nbsp;string;&nbsp;dwDesiredAccess&nbsp;:cardinal):&nbsp;HANDLE;<br>
+external&nbsp;'OpenServiceA@advapi32.dll&nbsp;stdcall';<br>
+<br>
+function&nbsp;CloseServiceHandle(hSCObject&nbsp;:HANDLE):&nbsp;boolean;<br>
+external&nbsp;'CloseServiceHandle@advapi32.dll&nbsp;stdcall';<br>
+<br>
+function&nbsp;CreateService(hSCManager&nbsp;:HANDLE;lpServiceName,&nbsp;lpDisplayName:&nbsp;string;dwDesiredAccess,dwServiceType,dwStartType,dwErrorControl:&nbsp;cardinal;lpBinaryPathName,lpLoadOrderGroup:&nbsp;String;&nbsp;lpdwTagId&nbsp;:&nbsp;cardinal;lpDependencies,lpServiceStartName,lpPassword&nbsp;:string):&nbsp;cardinal;<br>
+external&nbsp;'CreateServiceA@advapi32.dll&nbsp;stdcall';<br>
+<br>
+function&nbsp;DeleteService(hService&nbsp;:HANDLE):&nbsp;boolean;<br>
+external&nbsp;'DeleteService@advapi32.dll&nbsp;stdcall';<br>
+<br>
+function&nbsp;StartNTService(hService&nbsp;:HANDLE;dwNumServiceArgs&nbsp;:&nbsp;cardinal;lpServiceArgVectors&nbsp;:&nbsp;cardinal):&nbsp;boolean;<br>
+external&nbsp;'StartServiceA@advapi32.dll&nbsp;stdcall';<br>
+<br>
+function&nbsp;ControlService(hService&nbsp;:HANDLE;&nbsp;dwControl&nbsp;:cardinal;var&nbsp;ServiceStatus&nbsp;:SERVICE_STATUS):&nbsp;boolean;<br>
+external&nbsp;'ControlService@advapi32.dll&nbsp;stdcall';<br>
+<br>
+function&nbsp;QueryServiceStatus(hService&nbsp;:HANDLE;var&nbsp;ServiceStatus&nbsp;:SERVICE_STATUS):&nbsp;boolean;<br>
+external&nbsp;'QueryServiceStatus@advapi32.dll&nbsp;stdcall';<br>
+<br>
+function&nbsp;QueryServiceStatusEx(hService&nbsp;:HANDLE;ServiceStatus&nbsp;:SERVICE_STATUS):&nbsp;boolean;<br>
+external&nbsp;'QueryServiceStatus@advapi32.dll&nbsp;stdcall';<br>
+<br>
+function&nbsp;OpenServiceManager()&nbsp;:&nbsp;HANDLE;<br>
+begin<br>
+if&nbsp;UsingWinNT()&nbsp;=&nbsp;true&nbsp;then&nbsp;begin<br>
+Result&nbsp;:=&nbsp;OpenSCManager('','ServicesActive',SC_MANAGER_ALL_ACCESS);<br>
+if&nbsp;Result&nbsp;=&nbsp;0&nbsp;then<br>
+MsgBox('the&nbsp;servicemanager&nbsp;is&nbsp;not&nbsp;available',&nbsp;mbError,&nbsp;MB_OK)<br>
+end<br>
+else&nbsp;begin<br>
+MsgBox('only&nbsp;nt&nbsp;based&nbsp;systems&nbsp;support&nbsp;services',&nbsp;mbError,&nbsp;MB_OK)<br>
+Result&nbsp;:=&nbsp;0;<br>
+end<br>
+end;<br>
+<br>
+function&nbsp;IsServiceInstalled(ServiceName:&nbsp;string):&nbsp;boolean;<br>
+var<br>
+hSCM	:&nbsp;HANDLE;<br>
+hService:&nbsp;HANDLE;<br>
+begin<br>
+hSCM&nbsp;:=&nbsp;OpenServiceManager();<br>
+Result&nbsp;:=&nbsp;false;<br>
+if&nbsp;hSCM&nbsp;&lt;&gt;&nbsp;0&nbsp;then&nbsp;begin<br>
+hService&nbsp;:=&nbsp;OpenService(hSCM,ServiceName,SERVICE_QUERY_CONFIG);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;hService&nbsp;&lt;&gt;&nbsp;0&nbsp;then&nbsp;begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Result&nbsp;:=&nbsp;true;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CloseServiceHandle(hService)<br>
+end;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CloseServiceHandle(hSCM)<br>
+end<br>
+end;<br>
+<br>
+function&nbsp;InstallService(FileName,&nbsp;ServiceName,&nbsp;DisplayName,&nbsp;Description&nbsp;:&nbsp;string;ServiceType,StartType&nbsp;:cardinal):&nbsp;boolean;<br>
+var<br>
+hSCM	:&nbsp;HANDLE;<br>
+hService:&nbsp;HANDLE;<br>
+begin<br>
+hSCM&nbsp;:=&nbsp;OpenServiceManager();<br>
+Result&nbsp;:=&nbsp;false;<br>
+if&nbsp;hSCM&nbsp;&lt;&gt;&nbsp;0&nbsp;then&nbsp;begin<br>
+hService&nbsp;:=&nbsp;CreateService(hSCM,ServiceName,DisplayName,SERVICE_ALL_ACCESS,ServiceType,StartType,0,FileName,'',0,'','','');<br>
+if&nbsp;hService&nbsp;&lt;&gt;&nbsp;0&nbsp;then&nbsp;begin<br>
+Result&nbsp;:=&nbsp;true;<br>
+///Win2K&nbsp;&amp;&nbsp;WinXP&nbsp;supports&nbsp;aditional&nbsp;description&nbsp;text&nbsp;for&nbsp;services<br>
+if&nbsp;Description&lt;&gt;&nbsp;''&nbsp;then<br>
+RegWriteStringValue(HKLM,'System\CurrentControlSet\Services'&nbsp;+&nbsp;ServiceName,'Description',Description);<br>
+CloseServiceHandle(hService)<br>
+end;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CloseServiceHandle(hSCM)<br>
+end<br>
+end;<br>
+<br>
+function&nbsp;RemoveService(ServiceName:&nbsp;string):&nbsp;boolean;<br>
+var<br>
+hSCM	:&nbsp;HANDLE;<br>
+hService:&nbsp;HANDLE;<br>
+begin<br>
+hSCM&nbsp;:=&nbsp;OpenServiceManager();<br>
+Result&nbsp;:=&nbsp;false;<br>
+if&nbsp;hSCM&nbsp;&lt;&gt;&nbsp;0&nbsp;then&nbsp;begin<br>
+hService&nbsp;:=&nbsp;OpenService(hSCM,ServiceName,SERVICE_DELETE);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;hService&nbsp;&lt;&gt;&nbsp;0&nbsp;then&nbsp;begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Result&nbsp;:=&nbsp;DeleteService(hService);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CloseServiceHandle(hService)<br>
+end;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CloseServiceHandle(hSCM)<br>
+end<br>
+end;<br>
+<br>
+function&nbsp;StartService(ServiceName:&nbsp;string):&nbsp;boolean;<br>
+var<br>
+hSCM	:&nbsp;HANDLE;<br>
+hService:&nbsp;HANDLE;<br>
+begin<br>
+hSCM&nbsp;:=&nbsp;OpenServiceManager();<br>
+Result&nbsp;:=&nbsp;false;<br>
+if&nbsp;hSCM&nbsp;&lt;&gt;&nbsp;0&nbsp;then&nbsp;begin<br>
+hService&nbsp;:=&nbsp;OpenService(hSCM,ServiceName,SERVICE_START);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;hService&nbsp;&lt;&gt;&nbsp;0&nbsp;then&nbsp;begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	Result&nbsp;:=&nbsp;StartNTService(hService,0,0);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CloseServiceHandle(hService)<br>
+end;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CloseServiceHandle(hSCM)<br>
+end;<br>
+end;<br>
+<br>
+function&nbsp;StopService(ServiceName:&nbsp;string):&nbsp;boolean;<br>
+var<br>
+hSCM	:&nbsp;HANDLE;<br>
+hService:&nbsp;HANDLE;<br>
+Status	:&nbsp;SERVICE_STATUS;<br>
+begin<br>
+hSCM&nbsp;:=&nbsp;OpenServiceManager();<br>
+Result&nbsp;:=&nbsp;false;<br>
+if&nbsp;hSCM&nbsp;&lt;&gt;&nbsp;0&nbsp;then&nbsp;begin<br>
+hService&nbsp;:=&nbsp;OpenService(hSCM,ServiceName,SERVICE_STOP);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;hService&nbsp;&lt;&gt;&nbsp;0&nbsp;then&nbsp;begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	Result&nbsp;:=&nbsp;ControlService(hService,SERVICE_CONTROL_STOP,Status);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CloseServiceHandle(hService)<br>
+end;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CloseServiceHandle(hSCM)<br>
+end;<br>
+end;<br>
+<br>
+function&nbsp;IsServiceRunning(ServiceName:&nbsp;string):&nbsp;boolean;<br>
+var<br>
+hSCM	:&nbsp;HANDLE;<br>
+hService:&nbsp;HANDLE;<br>
+Status	:&nbsp;SERVICE_STATUS;<br>
+begin<br>
+hSCM&nbsp;:=&nbsp;OpenServiceManager();<br>
+Result&nbsp;:=&nbsp;false;<br>
+if&nbsp;hSCM&nbsp;&lt;&gt;&nbsp;0&nbsp;then&nbsp;begin<br>
+hService&nbsp;:=&nbsp;OpenService(hSCM,ServiceName,SERVICE_QUERY_STATUS);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;	if&nbsp;hService&nbsp;&lt;&gt;&nbsp;0&nbsp;then&nbsp;begin<br>
+if&nbsp;QueryServiceStatus(hService,Status)&nbsp;then&nbsp;begin<br>
+Result&nbsp;:=(Status.dwCurrentState&nbsp;=&nbsp;SERVICE_RUNNING)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	end;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CloseServiceHandle(hService)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;end;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CloseServiceHandle(hSCM)<br>
+end<br>
+end;<br>
+<br>
+///#######################################################################################<br>
+///create&nbsp;an&nbsp;entry&nbsp;in&nbsp;the&nbsp;services&nbsp;file<br>
+///#######################################################################################<br>
+function&nbsp;SetupService(service,&nbsp;port,&nbsp;comment:&nbsp;string):&nbsp;boolean;<br>
+var<br>
+filename	:&nbsp;string;<br>
+s			:&nbsp;string;<br>
+lines		:&nbsp;TArrayOfString;<br>
+n			:&nbsp;longint;<br>
+i			:&nbsp;longint;<br>
+errcode		:&nbsp;integer;<br>
+servnamlen	:&nbsp;integer;<br>
+error		:&nbsp;boolean;<br>
+begin<br>
+if&nbsp;UsingWinNT()&nbsp;=&nbsp;true&nbsp;then<br>
+filename&nbsp;:=&nbsp;ExpandConstant('{sys}\drivers\etc\services')<br>
+else<br>
+filename&nbsp;:=&nbsp;ExpandConstant('{win}\services');<br>
+<br>
+if&nbsp;LoadStringsFromFile(filename,lines)&nbsp;=&nbsp;true&nbsp;then&nbsp;begin<br>
+Result		:=&nbsp;true;<br>
+n			:=&nbsp;GetArrayLength(lines)&nbsp;-&nbsp;1;<br>
+servnamlen	:=&nbsp;Length(service);<br>
+error		:=&nbsp;false;<br>
+<br>
+for&nbsp;i:=0&nbsp;to&nbsp;n&nbsp;do&nbsp;begin<br>
+if&nbsp;Copy(lines[i],1,1)&nbsp;&lt;&gt;&nbsp;'#'&nbsp;then&nbsp;begin<br>
+s&nbsp;:=&nbsp;Copy(lines[i],1,servnamlen);<br>
+if&nbsp;CompareText(s,service)&nbsp;=&nbsp;0&nbsp;then<br>
+exit;&nbsp;///found&nbsp;service-entry<br>
+<br>
+if&nbsp;Pos(port,lines[i])&nbsp;&gt;&nbsp;0&nbsp;then&nbsp;begin<br>
+error&nbsp;:=&nbsp;true;<br>
+lines[i]&nbsp;:=&nbsp;'#'&nbsp;+&nbsp;lines[i]&nbsp;+&nbsp;'&nbsp;&nbsp;&nbsp;#&nbsp;disabled&nbsp;because&nbsp;collision&nbsp;with&nbsp;&nbsp;'&nbsp;+&nbsp;service&nbsp;+&nbsp;'&nbsp;service';<br>
+end;<br>
+end<br>
+else&nbsp;if&nbsp;CompareText(Copy(lines[i],2,servnamlen),service)&nbsp;=&nbsp;0&nbsp;then&nbsp;begin<br>
+///service-entry&nbsp;was&nbsp;disabled<br>
+Delete(lines[i],1,1);<br>
+Result&nbsp;:=&nbsp;SaveStringsToFile(filename,lines,false);<br>
+exit;<br>
+end;<br>
+end;<br>
+<br>
+if&nbsp;error&nbsp;=&nbsp;true&nbsp;then&nbsp;begin<br>
+///save&nbsp;disabled&nbsp;entries<br>
+if&nbsp;SaveStringsToFile(filename,lines,false)&nbsp;=&nbsp;false&nbsp;then&nbsp;begin<br>
+Result&nbsp;:=&nbsp;false;<br>
+exit;<br>
+end;<br>
+end;<br>
+<br>
+///create&nbsp;new&nbsp;service&nbsp;entry<br>
+s&nbsp;:=&nbsp;service&nbsp;+&nbsp;'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'&nbsp;+&nbsp;port&nbsp;+&nbsp;'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;'&nbsp;+&nbsp;comment&nbsp;+&nbsp;#13#10;<br>
+if&nbsp;SaveStringToFile(filename,s,true)&nbsp;=&nbsp;false&nbsp;then&nbsp;begin<br>
+Result&nbsp;:=&nbsp;false;<br>
+exit;<br>
+end;<br>
+<br>
+if&nbsp;error&nbsp;=&nbsp;true&nbsp;then&nbsp;begin<br>
+MsgBox('the&nbsp;'&nbsp;+&nbsp;service&nbsp;+&nbsp;'&nbsp;port&nbsp;was&nbsp;already&nbsp;used.&nbsp;The&nbsp;old&nbsp;service&nbsp;is&nbsp;disabled&nbsp;now.&nbsp;You&nbsp;should&nbsp;check&nbsp;the&nbsp;services&nbsp;file&nbsp;manually&nbsp;now.',mbInformation,MB_OK);<br>
+InstExec('notepad.exe',filename,GetCurrentDir(),true,false,SW_SHOWNORMAL,errcode);<br>
+end;<br>
+end<br>
+else<br>
+Result&nbsp;:=&nbsp;false;<br>
+end;<br>
+<br>
+///#######################################################################################<br>
+///version&nbsp;functions<br>
+///#######################################################################################<br>
+function&nbsp;CheckVersion(Filename&nbsp;:&nbsp;string;hh,hl,lh,ll&nbsp;:&nbsp;integer):&nbsp;boolean;<br>
+var<br>
+VersionMS	:&nbsp;cardinal;<br>
+VersionLS	:&nbsp;cardinal;<br>
+CheckMS		:&nbsp;cardinal;<br>
+CheckLS		:&nbsp;cardinal;<br>
+begin<br>
+if&nbsp;GetVersionNumbers(Filename,VersionMS,VersionLS)&nbsp;=&nbsp;false&nbsp;then<br>
+Result&nbsp;:=&nbsp;false<br>
+else&nbsp;begin<br>
+CheckMS&nbsp;:=&nbsp;(hh&nbsp;shl&nbsp;$10)&nbsp;or&nbsp;hl;<br>
+CheckLS&nbsp;:=&nbsp;(lh&nbsp;shl&nbsp;$10)&nbsp;or&nbsp;ll;<br>
+Result&nbsp;:=&nbsp;(VersionMS&nbsp;&gt;&nbsp;CheckMS)&nbsp;or&nbsp;((VersionMS&nbsp;=&nbsp;CheckMS)&nbsp;and&nbsp;(VersionLS&nbsp;&gt;=&nbsp;CheckLS));<br>
+end;<br>
+end;<br>
+<br>
+///Some&nbsp;examples&nbsp;for&nbsp;version&nbsp;checking<br>
+function&nbsp;NeedShellFolderUpdate():&nbsp;boolean;<br>
+begin<br>
+Result&nbsp;:=&nbsp;CheckVersion('ShFolder.dll',5,50,4027,300)&nbsp;=&nbsp;false;<br>
+end;<br>
+<br>
+function&nbsp;NeedVCRedistUpdate():&nbsp;boolean;<br>
+begin<br>
+Result&nbsp;:=&nbsp;(CheckVersion('mfc42.dll',6,0,8665,0)&nbsp;=&nbsp;false)<br>
+or&nbsp;(CheckVersion('msvcrt.dll',6,0,8797,0)&nbsp;=&nbsp;false)<br>
+or&nbsp;(CheckVersion('comctl32.dll',5,80,2614,3600)&nbsp;=&nbsp;false);<br>
+end;<br>
+<br>
+function&nbsp;NeedHTMLHelpUpdate():&nbsp;boolean;<br>
+begin<br>
+Result&nbsp;:=&nbsp;CheckVersion('hh.exe',4,72,0,0)&nbsp;=&nbsp;false;<br>
+end;<br>
+<br>
+function&nbsp;NeedWinsockUpdate():&nbsp;boolean;<br>
+begin<br>
+Result&nbsp;:=&nbsp;(UsingWinNT()&nbsp;=&nbsp;false)&nbsp;and&nbsp;(CheckVersion('mswsock.dll',4,10,0,1656)&nbsp;=&nbsp;false);<br>
+end;<br>
+<br>
+function&nbsp;NeedDCOMUpdate():&nbsp;boolean;<br>
+begin<br>
+Result&nbsp;:=&nbsp;(UsingWinNT()&nbsp;=&nbsp;false)&nbsp;and&nbsp;(CheckVersion('oleaut32.dll',2,30,0,0)&nbsp;=&nbsp;false);<br>
+end;<br>
+<br>
+function&nbsp;InitializeSetup():&nbsp;boolean;<br>
+begin<br>
+if&nbsp;IsServiceInstalled('myservice')&nbsp;=&nbsp;false&nbsp;then&nbsp;begin<br>
+if&nbsp;InstallService('c:\winnt\system32\myservice.exe','myservice','my&nbsp;service','my&nbsp;service&nbsp;is&nbsp;doing&nbsp;usefull&nbsp;things',SERVICE_WIN32_OWN_PROCESS,SERVICE_AUTO_START)&nbsp;=&nbsp;true&nbsp;then&nbsp;begin<br>
+StartService('myservice');<br>
+StopService('myservice');<br>
+///after&nbsp;stopping&nbsp;a&nbsp;service&nbsp;you&nbsp;should&nbsp;wait&nbsp;some&nbsp;seconds&nbsp;before&nbsp;removing<br>
+RemoveService('myservice');<br>
+///otherwise&nbsp;removing&nbsp;can&nbsp;fail<br>
+end<br>
+end<br>
+else&nbsp;if&nbsp;IsServiceRunning('myservice')&nbsp;then<br>
+MsgBox('myservice&nbsp;is&nbsp;running',mbInformation,&nbsp;MB_OK);<br>
+Result&nbsp;:=&nbsp;false<br>
+end;<br>
+</font></blockquote><textarea id="taCode1" style="display:none;" rows="1" cols="5"></textarea><textarea id='taCode' style='display:none;' rows='1' cols='20'></textarea></code><script language="javascript" type="text/javascript">highlightSyntax('delphi_Tc4NTM','delphi');</script><br><div id="heading"><h1><font size="1" face="Consolas">Copyright (c) <a href="http://www.krinkels.org/" target="_blank">Krinkels Inc</a></font></h1></div></body></html>

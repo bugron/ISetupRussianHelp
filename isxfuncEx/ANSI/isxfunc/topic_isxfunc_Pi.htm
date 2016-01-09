@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Pascal Scripting Extended: Pi</title>
+<link rel="stylesheet" type="text/css" href="../../../styles.css" />
+<script type="text/javascript" src="../../../topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Pascal Scripting Extended: Pi</h1>
+<div class="topicbody">
+  <div><b>Прототип:</b></div>
+  <p><tt>function Pi: Extended;</tt></p>
+  <div><b>Описание:</b></div>
+  Функция Pi возвращает значение с плавающей запятой, дающее полезное приближение значения Пи. Длина окружности = Пи * Диаметр.<br />
+  <div><b>Пример:</b></div>
+  <p><tt>var<br />
+    &nbsp;myPi : Extended;<br />
+    &nbsp;diam : Integer;<br />
+    <br />
+    begin<br />
+    &nbsp;diam := 10;<br />
+    <br />
+    // Показ длины окружности и площади круга<br />
+    // с диаметром - 10 см<br />
+    &nbsp;ShowMessage('Диаметр = '+IntToStr(diam));<br />
+    &nbsp;ShowMessage('Длина окружности = '+FloatToStr(Pi*diam));<br />
+    &nbsp;ShowMessage('Площадь = '+FloatToStr(Pi*(diam/2)*(diam/2)));<br />
+    end; <br />
+    <br />
+    <br />
+    &nbsp;Диаметр = 10<br />
+    &nbsp;Длина окружности = 31.4159265358979<br />
+    &nbsp;Площадь = 78.5398163397448</tt></p>
+</div>
+</body>
+</html>

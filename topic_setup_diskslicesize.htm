@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>[Setup]: DiskSliceSize</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="IE=8" http-equiv="X-UA-Compatible">
+<link rel="stylesheet" type="text/css" href="styles.css">
+<script type="text/javascript" src="topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">[Setup]: DiskSliceSize</h1>
+<div class="topicbody">
+  <table class="setuphdr">
+    <tbody>
+      <tr>
+        <td class="setuphdrl"><p>Возможные значения:</p></td>
+        <td class="setuphdrr"><div class="margined"><tt>262144</tt> до <tt>2100000000</tt>, или <tt>max</tt></div></td>
+      </tr>
+      <tr>
+        <td class="setuphdrl"><p>Значение по умолчанию:</p></td>
+        <td class="setuphdrr"><div class="margined"><tt>max</tt> (2100000000)</div></td>
+      </tr>
+    </tbody>
+  </table>
+  <div><b>Описание:</b></div>
+  <p>Определяет максимальное количество байтов на дисковую часть (SETUP-*.BIN файл). Обычно, оно должно быть установлено в общее количество байтов, доступных на дисковых носителях, разделенных на значение директивы <tt>SlicesPerDisk</tt> секции <tt>[Setup]</tt>, значение которого по умолчанию 1.</p>
+  <p>Директива игнорируется, если разбиение на диски не включено (директива <tt>DiskSpanning</tt> секции <tt>[Setup]</tt>).</p>
+  <p>Чтобы оптимально заполнить DVD диск размером 4.7 Гбайт, используйте:</p>
+  <pre class="indent examplebox">SlicesPerDisk=3
+DiskSliceSize=1566000000
+</pre>
+  <p>Чтобы оптимально заполнить DVD диск размером 8.5 Гбайт, используйте:</p>
+  <pre class="indent examplebox">SlicesPerDisk=5
+DiskSliceSize=1708200000
+</pre>
+  <p>Чтобы оптимально заполнить CD (80-минутные) диск размером 700 Мбайт, используйте:</p>
+  <pre class="indent examplebox">SlicesPerDisk=1
+DiskSliceSize=736000000
+</pre>
+  <p>Чтобы оптимально заполнить 1.44MБ гибкие диски, используйте:</p>
+  <pre class="indent examplebox">SlicesPerDisk=1
+DiskSliceSize=1457664
+</pre>
+</div>
+</body>
+</html>

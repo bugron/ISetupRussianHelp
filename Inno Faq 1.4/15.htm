@@ -1,0 +1,943 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Скрипт Prototype</title>
+<link rel="stylesheet" type="text/css" href="css.css">
+<script type="text/javascript" src="includer.js"></script>
+<script language='jscript' type='text/javascript' src='copycode.js'></script></head>
+<body>
+<div id="heading">
+<h1>&raquo; Inno Setup Faq. Скрипт Prototype</h1>
+</div>
+<br>
+<script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM"> <input type="button" value="Копировать в буфер обмена" onClick="copyToClipboard( taCode1, theCode1 );"> <blockquote id="theCode1"><font>///Этот скрипт предназначен для вставки изображения в окно инсталлятора<br>
+///В этом скрипте используются Все страницв, кроме PasswordPage и UserInfoPage<br>
+///Для добавления задач на TasksPage вам нужно будет создать нужные
+чекбоксы и надписи к ним, по аналогии с тем, что уже создано, также их
+нужно будет привязать к определенной задаче<br>
+///Функции по установке дополнительного ПО находятся в секции [Code] в процедуре CurStepChanged<br>
+///За запуск файла после установки отвечает строчка в процедуре DeinitializeWizard<br>
+///Для каждой игры нужно использовать свой AppID, генерировать AppID
+нужно так Панель Инструментов --&gt; Tools --&gt; Generate GUID, или с
+помощью горячих клавиш, по умолчанию Shift+Ctrl+G<br>
+///Автор: Shegorat<br>
+///***************************************************************************************************<br>
+<br>
+#define AppRunningFile "{app}\prototypef.exe"<br>
+;;Путь к файлу, который запускается после установки<br>
+#define NeedSize "7980" <br>[Setup]<br>
+AppId={{B4866999-9FF1-4780-A2E9-A952A5E7BBCA}<br>
+AppName=[Prototype]<br>
+AppVerName=[Prototype]<br>
+AppPublisher=Activision<br>
+AppVersion=1.0<br>
+AppSupportURL=http://activision.custhelp.com/<br>
+DefaultDirName={pf}\Prototype<br>
+OutputDir=D:\Репаки\Prototype<br>
+DefaultGroupName=Activision\Radical Entertainment\Prototype<br>
+UninstallFilesDir={app}\Uninstall<br>
+Compression=lzma/ultra64<br>
+InternalCompressLevel=ultra64<br>
+SolidCompression=true<br>
+DiskSpanning=yes<br>
+SlicesPerDisk=3<br>
+DiskSliceSize=1100000000<br>
+DisableProgramGroupPage=true<br>
+DisableReadyPage=true<br>
+SetupIconFile=Icon.ico<br>
+UninstallDisplayIcon={app}\prototypef.exe, 0<br>
+UninstallDisplayName=Prototype(TM)<br>
+<br>
+[Languages]<br>
+Name: RUS; MessagesFile: compiler:Languages\Russian.isl<br>
+<br>
+[Icons]<br>
+;;Эти ярлыки создаются в Главном Меню<br>
+Name: "{group}\Техническая поддержка\Сайт технической поддержки";
+Filename: http://www.activision.com/support; WorkingDir: "{app}";
+Check: CheckIcons('Group');<br>
+Name: "{group}\Техническая поддержка\Диагностика DirectX"; Filename:
+"{sys}\dxdiag.exe"; WorkingDir: "{sys}"; Check: CheckIcons('Group');<br>
+Name: "{group}\Техническая поддержка\Сведения о системе"; Filename:
+"{pf}\Common Files\Microsoft Shared\MSInfo\msinfo32.exe"; Check:
+CheckIcons('Group');<br>
+Name: "{group}\Запустить игру"; Filename: "{app}\prototypef.exe"; WorkingDir: "{app}"; Check: CheckIcons('Group');<br>
+Name: "{group}\Сайт компании Activision"; Filename: http://www.activision.com; WorkingDir: "{app}"; Check: CheckIcons('Group');<br>
+Name: "{group}\Сайт компании Radical Entertainment"; Filename:
+http://www.radical.ca/; WorkingDir: "{app}"; Check: CheckIcons('Group');<br>
+Name: "{group}\Файл Readme"; Filename: {app}\Readme.htm; WorkingDir: {app}; Check: CheckIcons('Group');<br>
+Name: "{group}\Удалить игру"; Filename: {uninstallexe}; WorkingDir: {app}; Check: CheckIcons('Group');<br>
+;;Этот ярлык создается на Рабочем столе<br>
+Name: "{userdesktop}\Prototype"; Filename: {app}\prototypef.exe; WorkingDir: {app}; Check: CheckIcons('Desktop');<br>
+<br>
+[Files]<br>
+Source: ISSkin.dll; DestDir: {app}; Flags: dontcopy<br>
+Source: Vista.cjstyles; DestDir: {tmp}; Flags: dontcopy<br>
+Source: 1.bmp; DestDir: {tmp}; Flags: dontcopy;<br>
+///Source: D:\Prototype\*; DestDir: {app}; BeforeInstall: FilenameExt(); Flags: ignoreversion recursesubdirs createallsubdirs<br>
+///Функция FilenameExt() отображает файлы, которые в данный момент
+извлекаются, добавьте эту функцию ко всем файлам, которые должны
+инсталлироваться<br>
+<br>
+[Registry]<br>
+Root: HKLM; SubKey: SOFTWARE\Activision\Prototype; ValueType: string;
+ValueName: InstallPath; ValueData: {app}; Flags: uninsdeletevalue
+uninsdeletekeyifempty<br>
+Root: HKLM; SubKey: SOFTWARE\Activision\Prototype; ValueType: string;
+ValueName: Path; ValueData: {app}; Flags: uninsdeletevalue
+uninsdeletekeyifempty<br>
+Root: HKLM; SubKey: SOFTWARE\Activision\Prototype; ValueType: string;
+ValueName: InstallDrive; ValueData: {src}; Flags: uninsdeletevalue
+uninsdeletekeyifempty<br>
+Root: HKLM; SubKey: SOFTWARE\Activision\Prototype; ValueType: string;
+ValueName: LanguageCode; ValueData: ENU; Flags: uninsdeletevalue
+uninsdeletekeyifempty<br>
+Root: HKLM; SubKey: SOFTWARE\Activision\Prototype; ValueType: string;
+ValueName: FE_Language; ValueData: 69; Flags: uninsdeletevalue
+uninsdeletekeyifempty<br>
+Root: HKLM; SubKey: SOFTWARE\Activision\Prototype; ValueType: string;
+ValueName: LCID; ValueData: 1033; Flags: uninsdeletevalue
+uninsdeletekeyifempty<br>
+Root: HKLM; SubKey: SOFTWARE\Activision\Prototype; ValueType: string;
+ValueName: StartMenuFolder; ValueData: {group}; Flags: uninsdeletevalue
+uninsdeletekeyifempty<br>
+Root: HKLM; SubKey: SOFTWARE\Activision\Prototype; ValueType: string;
+ValueName: Version; ValueData: 1.0; Flags: uninsdeletevalue
+uninsdeletekeyifempty<br>
+Root: HKLM; SubKey: SOFTWARE\Activision\Prototype; ValueType: string;
+ValueName: IntVersion; ValueData: 26.0; Flags: uninsdeletevalue
+uninsdeletekeyifempty<br>
+Root: HKLM; SubKey: SOFTWARE\Activision\Prototype; ValueType: string;
+ValueName: EXEString; ValueData: {app}\Prototypef.exe; Flags:
+uninsdeletevalue uninsdeletekeyifempty<br>
+Root: HKLM; SubKey: SOFTWARE\Activision\Prototype; ValueType: string;
+ValueName: InstallExePath; ValueData: {app}\Prototypef.exe; Flags:
+uninsdeletevalue uninsdeletekeyifempty<br>
+<br>
+[CustomMessages]<br>
+RUS.SPACE=Доступно места на диске:<br>
+RUS.SPACE1=Требуется места на диске:<br>
+RUS.DirectX=Обновить DirectX<br>
+RUS.DirectXInstall=Идет обновление DirectX...<br>
+RUS.Requirement1=Все компоненты удовлетворяют требованиям игры.<br>
+RUS.Requirement2=Когда будете готовы продолжить установку, нажмите &laquo;Далее&raquo;.<br>
+RUS.Icons=Создать ярлык на рабочем столе<br>
+RUS.Group=Создать ярлыки в меню "Пуск"<br>
+RUS.Redist=Установить Microsoft C++ Redist<br>
+RUS.RedistInstall=Идет установка Microsoft Visual C++ Redistibutable<br>
+RUS.PhysX=Установить NVidia PhysX<br>
+RUS.PhysXInstall=Идет установка NVidia PhysX<br>
+RUS.Finished1=Игра {#SetupSetting("AppName")} установлена на Ваш компьютер.<br>
+RUS.Finished2=Нажмите &laquo;Завершить&raquo;, чтобы выйти из программы установки.<br>
+RUS.RunProgram=Запустить {#SetupSetting("AppName")}<br>
+RUS.TasksLabel1=Дополнительные значки:<br>
+RUS.TasksLabel2=Установка дополнительных программ:<br>
+<br>
+[Code]<br>
+///Эти данные нужны для создания надписей, при вставке изображения в инстяллятор<br>
+var<br>
+&nbsp; DirectX, Redist, Icons, Group, PhysX, RunProgram: TCheckBox; ///Чекбоксы<br>
+&nbsp; IconsLabel, GroupLabel, RedistLabel, PhysXLabel, DirectXLabel: TLabel;&nbsp; ///Надписи к чекбоксам<br>
+&nbsp; SelectDirLabel, SelectDirLabelBrowse, RunProgramLabel: TLabel;&nbsp; ///Надписи на странице выбора места установки<br>
+&nbsp; PageNameLabel, PageDescriptionLabel: TLabel; ///Заголовок страницы<br>
+&nbsp; StatusLabel, FilenameLabel, NeedSpaceLabel,FreeSpaceLabel: TLabel; ///Данные на страниые установки<br>
+&nbsp; WelcomeLabel1, WelcomeLabel2,FinishedLabel,
+FinishedHeadingLabel: TLabel;&nbsp; ///Надписи на на странице
+приветствия и на финишной странице<br>
+&nbsp; SelectStartMenuFolderLabel, SelectStartMenuFolderBrowseLabel,
+ReadyLabel, NoIconsLabel: TLabel;&nbsp; ///Надписи и чекбоксы на
+странице выбора места установки ярлыков в Главном Меню<br>
+&nbsp; LicenseLabel1, LicenseAcceptedLabel, LicenseNotAcceptedLabel: Tlabel; ///Надписи на страниые Лицензионнго соглашения<br>
+&nbsp; InfoBeforeClickLabel, InfoAfterClickLabel,
+ComponentsDiskSpaceLabel, SelectComponentsLabel: TLabel; ///Надписи на
+странице компонентов и страницах показа данных до и после установки<br>
+&nbsp; NeedSize:Integer;&nbsp; ///Нужное место на диске<br>
+&nbsp; FreeMB, TotalMB: Cardinal;&nbsp; ///нужное место на диске<br>
+&nbsp; BmpFile: TBitmapImage;&nbsp; ///Вставка изобрпжения в окно инсталлятора<br>
+&nbsp; PageID,ResultCode: Integer; ///Запуск программы после установки<br>
+&nbsp; UpBevel, DownBevel: TBevel;<br>
+&nbsp; ///Страница дополнительных задач<br>
+&nbsp; TasksPage: TWizardPage;<br>
+&nbsp; SelectTasksLabel, TasksLabel1, TasksLabel2: TLabel;<br>
+<br>
+function NumToStr(Float: Extended): String;<br>
+Begin<br>
+&nbsp; &nbsp; Result:= Format('%.2n', [Float]); StringChange(Result, ',', '.');<br>
+&nbsp; &nbsp; while ((Result[Length(Result)] = '0') or (Result[Length(Result)] = '.')) and (Pos('.', Result) &gt; 0) do<br>
+&nbsp; &nbsp; &nbsp; &nbsp; SetLength(Result, Length(Result)-1);<br>
+end;<br>
+///Дальше функция проверки чекбоксов<br>
+function CheckIcons(Flags: String): Boolean;<br>
+begin<br>
+case AnsiUppercase(Flags)of<br>
+&nbsp; 'DESKTOP': Result:=Icons.Checked;<br>
+&nbsp; 'GROUP': Result:= Group.Checked<br>
+end;<br>
+end;<br>
+///Функция проверки чекбоксов<br>
+<br>
+procedure LabelOnClick(Sender: TObject);<br>
+begin<br>
+case Sender of<br>
+&nbsp; DirectXLabel: begin DirectX.Checked:= not DirectX.Checked; end;<br>
+&nbsp; RedistLabel: begin Redist.Checked:= not Redist.Checked; end;<br>
+&nbsp; IconsLabel: begin Icons.Checked:= not Icons.Checked; end;<br>
+&nbsp; GroupLabel: begin Group.Checked:= not Group.Checked; end;<br>
+&nbsp; PhysXLabel: begin PhysX.Checked:= not PhysX.Checked; end;<br>
+&nbsp; RunProgramLabel: begin RunProgram.Checked:= not RunProgram.Checked; end;<br>
+&nbsp; NoIconsLabel: begin WizardForm.NoIconsCheck.Checked:= not WizardForm.NoIconsCheck.Checked; end;<br>
+&nbsp; LicenseAcceptedLabel: begin WizardForm.LicenseAcceptedRadio.Checked:=True; end;<br>
+&nbsp; LicenseNotAcceptedLabel: begin WizardForm.LicenseNotAcceptedRadio.Checked:=True end;<br>
+&nbsp; WizardForm.LicenseAcceptedRadio: begin WizardForm.NextButton.Enabled:=True; end;<br>
+&nbsp; WizardForm.LicenseNotAcceptedRadio: begin WizardForm.NextButton.Enabled:=False; end;<br>
+end;<br>
+end;<br>
+<br>
+///Свободное место, отображает сколько нужно и сколько есть места на диске, находтся на странице выбора пути<br>
+procedure GetFreeSpaceCaption(Sender: TObject);<br>
+var<br>
+&nbsp; Path: String;<br>
+begin<br>
+&nbsp; Path := ExtractFileDrive(WizardForm.DirEdit.Text);<br>
+&nbsp; GetSpaceOnDisk(Path, True, FreeMB, TotalMB);<br>
+&nbsp; if FreeMB &gt; 1024 then<br>
+&nbsp; &nbsp; FreeSpaceLabel.Caption := ExpandConstant('{cm:SPACE}')+ NumToStr(round(FreeMB/1024*100)/100) + ' GB' else<br>
+&nbsp; &nbsp; FreeSpaceLabel.Caption := ExpandConstant('{cm:SPACE}')+ IntToStr(FreeMB)+ ' MB';<br>
+&nbsp; if FreeMB &lt; NeedSize then<br>
+&nbsp; &nbsp; WizardForm.NextButton.Enabled := False else<br>
+&nbsp; WizardForm.NextButton.Enabled := True;<br>
+end;<br>
+<br>
+procedure GetNeedSpaceCaption;<br>
+begin<br>
+&nbsp; if NeedSize &gt; 1024 then<br>
+&nbsp; &nbsp; NeedSpaceLabel.Caption := ExpandConstant('{cm:SPACE1}')+ NumToStr(round(NeedSize/1024*100)/100) + ' GB' else<br>
+&nbsp; NeedSpaceLabel.Caption := ExpandConstant('{cm:SPACE1}')+ IntToStr(NeedSize)+ ' MB';<br>
+end;<br>
+///Свободное место<br>
+procedure FilenameExt();<br>
+begin<br>
+FilenameLabel.Caption:= AddBackslash(ExpandConstant(ExtractFileDir(CurrentFilename))) + ExtractFilename(CurrentFilename);<br>
+end;<br>
+///Загрузка скина<br>
+procedure LoadSkin(lpszPath: String; lpszIniFileName: String); external 'LoadSkin@files:isskin.dll stdcall';<br>
+procedure UnloadSkin(); external 'UnloadSkin@files:isskin.dll stdcall';<br>
+function ShowWindow(hWnd: Integer; uType: Integer): Integer; external 'ShowWindow@user32.dll stdcall';<br>
+<br>
+function InitializeSetup(): Boolean;<br>
+begin<br>
+&nbsp; &nbsp; ExtractTemporaryFile('Vista.cjstyles');<br>
+&nbsp; &nbsp; LoadSkin(ExpandConstant('{tmp}\Vista.cjstyles'), '');<br>
+&nbsp; &nbsp; Result := True;<br>
+end;<br>
+<br>
+procedure DeinitializeSetup();<br>
+begin<br>
+ShowWindow(StrToInt(ExpandConstant('{wizardhwnd}')), 0);<br>
+&nbsp; &nbsp; UnloadSkin();<br>
+if (PageID=wpFinished) and (RunProgram.Checked)<br>
+&nbsp; &nbsp; then Exec(ExpandConstant('{#AppRunningFile}'), '', '',
+SW_SHOWNORMAL, ewNoWait, ResultCode); ///Запускает файл если на финишной
+странице выбран чекбокс<br>
+end;<br>
+///Загрузка скина<br>
+<br>
+procedure InitializeWizard();<br>
+begin<br>
+&nbsp; ExtractTemporaryFile('1.bmp');&nbsp; ///Извлекаем файл, который пойдет в окно инсталлятора<br>
+&nbsp; NeedSize:= {#NeedSize};&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ///Необходимое место для установки<br>
+<br>
+&nbsp; TasksPage := CreateCustomPage(wpSelectProgramGroup, 'Выберите дополнительные задачи',<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; 'Какие дополнительные задачи необходимо выполнить?');<br>
+&nbsp; ///Вставляем изображение в окно инсталлятора, для каждой страницы нужно добвлять изображение заново<br>
+&nbsp; BmpFile:= TBitmapImage.Create(WizardForm);<br>
+&nbsp; BmpFile.Bitmap.LoadFromFile(ExpandConstant('{tmp}\1.bmp'));<br>
+&nbsp; BmpFile.SetBounds(0, 0, 497, 360);<br>
+&nbsp; BmpFile.Stretch:= true<br>
+&nbsp; BmpFile.Parent:= WizardForm;<br>
+<br>
+&nbsp; ///Вставляем изображение в окно инсталлятора, для каждой страницы нужно добвлять изображение заново<br>
+&nbsp; ///Скрывем стандартные надписи, значки и чекбоксы<br>
+&nbsp; &nbsp; WizardForm.InnerNotebook.Hide;<br>
+&nbsp; &nbsp; WizardForm.OuterNotebook.Hide;<br>
+&nbsp; ///Скрывем стандартные надписи, значки и чекбоксы<br>
+&nbsp; with WizardForm do<br>
+&nbsp; begin<br>
+&nbsp; &nbsp; DirBrowseButton.Left:= DirBrowseButton.Left + ScaleX(40);<br>
+&nbsp; &nbsp; DirBrowseButton.Top:= DirBrowseButton.Top + ScaleY(72);<br>
+&nbsp; &nbsp; DirBrowseButton.Parent:= WizardForm;<br>
+&nbsp; &nbsp; DirEdit.Left:= DirEdit.Left + ScaleX(40); <br>
+&nbsp; &nbsp; DirEdit.Top:= DirEdit.Top + ScaleY(72);&nbsp; <br>
+&nbsp; &nbsp; DirEdit.Color:=clBlack;<br>
+&nbsp; &nbsp; DirEdit.OnChange:= @GetFreeSpaceCaption;<br>
+&nbsp; &nbsp; DirEdit.Parent:= WizardForm;<br>
+&nbsp; &nbsp; GroupBrowseButton.Left:= GroupBrowseButton.Left + ScaleX(40);<br>
+&nbsp; &nbsp; GroupBrowseButton.Top:= GroupBrowseButton.Top + ScaleY(72);<br>
+&nbsp; &nbsp; GroupBrowseButton.Parent:= WizardForm;<br>
+&nbsp; &nbsp; GroupEdit.Left:= GroupEdit.Left + ScaleX(40);<br>
+&nbsp; &nbsp; GroupEdit.Top:= GroupEdit.Top + ScaleX(72); <br>
+&nbsp; &nbsp; GroupEdit.Color:= ClBlack&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp; GroupEdit.Parent:= WizardForm;<br>
+&nbsp; &nbsp; NextButton.BringToFront;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp; BackButton.BringToFront;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp; CancelButton.BringToFront;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp; Font.Style:=[];&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp; Font.Name:= 'MS Sans Serif';&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp; Font.Color:=clWhite;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp; ProgressGauge.Top:=ScaleY(120);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp; ProgressGauge.Left:=ScaleX(20);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp; ProgressGauge.Width:=ScaleX(457);&nbsp; &nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp; ProgressGauge.Parent:= WizardForm;<br>
+&nbsp; &nbsp; ReadyMemo.Left:=ScaleX(40);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp; ReadyMemo.Top:= WizardForm.ReadyMemo.Top + ScaleY(72)<br>
+&nbsp; &nbsp; ReadyMemo.Font.Color:= clBlack;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br>
+&nbsp; &nbsp; ReadyMemo.ScrollBars:= ssVertical;&nbsp; &nbsp; ///ssNone<br>
+&nbsp; &nbsp; ReadyMemo.Parent:= WizardForm;<br>
+&nbsp; end;<br>
+&nbsp; ///Это нужно для того чтоб картинка нормально отображалась<br>
+&nbsp; ///Остальное<br>
+&nbsp; PageNameLabel:= TLabel.Create(WizardForm);<br>
+&nbsp; with PageNameLabel do<br>
+&nbsp; begin<br>
+&nbsp; &nbsp; SetBounds(WizardForm.PageNameLabel.Left, WizardForm.PageNameLabel.Top, ScaleX(300), ScaleY(14))<br>
+&nbsp; &nbsp; AutoSize:= False;<br>
+&nbsp; &nbsp; Font.Style:= [fsBold];<br>
+&nbsp; &nbsp; Font.Color:= clWhite;<br>
+&nbsp; &nbsp; Transparent := True;<br>
+&nbsp; &nbsp; Parent:= WizardForm;<br>
+end;<br>
+<br>
+&nbsp; PageDescriptionLabel:= TLabel.Create(WizardForm);<br>
+&nbsp; with PageDescriptionLabel do<br>
+&nbsp; begin<br>
+&nbsp; &nbsp; SetBounds(WizardForm.PageDescriptionLabel.Left, WizardForm.PageDescriptionLabel.top, ScaleX(400), ScaleX(40))<br>
+&nbsp; &nbsp; AutoSize:= False;<br>
+&nbsp; &nbsp; Wordwrap:= True;<br>
+&nbsp; &nbsp; Transparent := True;<br>
+&nbsp; &nbsp; Parent:= WizardForm;<br>
+&nbsp; end;<br>
+<br>
+&nbsp; UpBevel:= TBevel.Create(WizardForm);<br>
+&nbsp; with UpBevel do<br>
+&nbsp; begin<br>
+&nbsp; &nbsp; Shape:= bsTopLine;<br>
+&nbsp; &nbsp; Style:= bsLowered;<br>
+&nbsp; &nbsp; Left:= ScaleX(0);<br>
+&nbsp; &nbsp; Top:= ScaleY(55);<br>
+&nbsp; &nbsp; Width:= ScaleX(497);<br>
+&nbsp; &nbsp; Parent:= WizardForm;<br>
+&nbsp; end;<br>
+<br>
+&nbsp; DownBevel:= TBevel.Create(WizardForm);<br>
+&nbsp; with DownBevel do<br>
+&nbsp; begin<br>
+&nbsp; &nbsp; Shape:= bsBottomLine;<br>
+&nbsp; &nbsp; Style:= bsLowered;<br>
+&nbsp; &nbsp; Left:= ScaleX(0);<br>
+&nbsp; &nbsp; Top:= ScaleY(265);<br>
+&nbsp; &nbsp; Width:= ScaleX(497);<br>
+&nbsp; &nbsp; Parent:= WizardForm;<br>
+&nbsp; end;<br>
+&nbsp; ///WelcomePage,&nbsp; создаем надписи на странице<br>
+&nbsp; WelcomeLabel1:= TLabel.Create(WizardForm);<br>
+&nbsp; with WelcomeLabel1 do<br>
+&nbsp; begin<br>
+&nbsp; &nbsp; SetBounds(ScaleX(176), ScaleY(66), ScaleX(301), ScaleY(71))<br>
+&nbsp; &nbsp; AutoSize:= false;<br>
+&nbsp; &nbsp; Transparent:= true;<br>
+&nbsp; &nbsp; WordWrap:= true;<br>
+&nbsp; &nbsp; Font.Size:= 14;<br>
+&nbsp; &nbsp; Font.Color:=clWhite<br>
+&nbsp; &nbsp; Font.Style := [fsBold]<br>
+&nbsp; &nbsp; Parent:= WizardForm;<br>
+&nbsp; &nbsp; Caption:= WizardForm.WelcomeLabel1.Caption;<br>
+end;<br>
+<br>
+&nbsp; WelcomeLabel2:=TLabel.Create(WizardForm);<br>
+&nbsp; with WelcomeLabel2 do<br>
+&nbsp; begin<br>
+&nbsp; &nbsp; SetBounds(ScaleX(176), ScaleY(136), ScaleX(301), ScaleY(300))<br>
+&nbsp; &nbsp; AutoSize:= false;<br>
+&nbsp; &nbsp; WordWrap:= true;<br>
+&nbsp; &nbsp; Transparent:= true;<br>
+&nbsp; &nbsp; Parent:= WizardForm;<br>
+&nbsp; &nbsp; Caption:= WizardForm.WelcomeLabel2.Caption;<br>
+end;<br>
+///WelcomePage<br>
+///licensePage, создаем надписи, кнопки на страниые<br>
+&nbsp; LicenseLabel1:=TLabel.Create(WizardForm)<br>
+&nbsp; with LicenseLabel1 do<br>
+&nbsp; begin<br>
+&nbsp; &nbsp; SetBounds(ScaleX(40), ScaleY(70), ScaleX(465), ScaleY(28))<br>
+&nbsp; &nbsp; AutoSize:=False<br>
+&nbsp; &nbsp; WordWrap:=True<br>
+&nbsp; &nbsp; Transparent:=True<br>
+&nbsp; &nbsp; Caption:=WizardForm.LicenseLabel1.Caption<br>
+&nbsp; &nbsp; Parent:=WizardForm<br>
+&nbsp; end;<br>
+<br>
+&nbsp; WizardForm.LicenseMemo.Left:=ScaleX(40)<br>
+&nbsp; WizardForm.LicenseMemo.Top:=ScaleY(108)<br>
+&nbsp; WizardForm.LicenseMemo.Parent:=WizardForm<br>
+<br>
+&nbsp; WizardForm.LicenseAcceptedRadio.SetBounds(ScaleX(40), ScaleY(265), ScaleX(14), ScaleY(14));<br>
+&nbsp; WizardForm.LicenseAcceptedRadio.Color:=clBlack<br>
+&nbsp; WizardForm.LicenseAcceptedRadio.OnClick:=@LabelOnClick;<br>
+&nbsp; WizardForm.LicenseAcceptedRadio.Parent:=WizardForm<br>
+<br>
+&nbsp; LicenseAcceptedLabel:=TLabel.Create(WizardForm)<br>
+&nbsp; with LicenseAcceptedLabel do<br>
+&nbsp; begin<br>
+&nbsp; &nbsp; Left:=ScaleX(56)<br>
+&nbsp; &nbsp; Top:=ScaleY(265)<br>
+&nbsp; &nbsp; Transparent:=True<br>
+&nbsp; &nbsp; Caption:=WizardForm.LicenseAcceptedRadio.Caption<br>
+&nbsp; &nbsp; Parent:=WizardForm<br>
+&nbsp; &nbsp; OnClick:= @LabelOnClick;<br>
+&nbsp; end;<br>
+<br>
+&nbsp; WizardForm.LicenseNotAcceptedRadio.SetBounds(ScaleX(40), ScaleY(285), ScaleX(14), ScaleY(14))<br>
+&nbsp; WizardForm.LicenseNotAcceptedRadio.Color:=clBlack<br>
+&nbsp; WizardForm.LicenseNotAcceptedRadio.OnClick:=@LabelOnClick;<br>
+&nbsp; WizardForm.LicenseNotAcceptedRadio.Parent:=WizardForm<br>
+<br>
+&nbsp; LicenseNotAcceptedLabel:=TLabel.Create(WizardForm)<br>
+&nbsp; with LicenseNotAcceptedLabel do<br>
+&nbsp; begin<br>
+&nbsp; &nbsp; Left:=ScaleX(56)<br>
+&nbsp; &nbsp; Top:=ScaleY(285)<br>
+&nbsp; &nbsp; Transparent:=True<br>
+&nbsp; &nbsp; Caption:=WizardForm.LicenseNotAcceptedRadio.Caption<br>
+&nbsp; &nbsp; Parent:=WizardForm<br>
+&nbsp; &nbsp; OnClick:= @LabelOnClick;<br>
+&nbsp; end;<br>
+///LicensePage<br>
+///InfoBeforePage<br>
+&nbsp; InfoBeforeClickLabel:= TLabel.Create(WizardForm);<br>
+&nbsp; with InfoBeforeClickLabel do<br>
+&nbsp; begin<br>
+&nbsp; SetBounds(ScaleX(40), ScaleY(70), WizardForm.InfoBeforeClickLabel.Width, WizardForm.InfoBeforeClickLabel.Height)<br>
+&nbsp; Transparent:= true;<br>
+&nbsp; AutoSize:= False;<br>
+&nbsp; WordWrap:= true;<br>
+&nbsp; Parent:= WizardForm;<br>
+&nbsp; Caption:= WizardForm.InfoBeforeClickLabel.Caption;<br>
+&nbsp; end;<br>
+<br>
+&nbsp; WizardForm.InfoBeforeMemo.left:= ScaleX(40);<br>
+&nbsp; WizardForm.InfoBeforeMemo.Top:= ScaleY(108);<br>
+&nbsp; WizardForm.InfoBeforeMemo.Parent:= WizardForm;<br>
+///InfoBeforePage<br>
+///SelectDirPage<br>
+&nbsp; SelectDirLabel:= TLabel.Create(WizardForm);<br>
+&nbsp; with SelectDirLabel do<br>
+&nbsp; begin<br>
+&nbsp; &nbsp; Caption:= WizardForm.SelectDirLabel.Caption;<br>
+&nbsp; &nbsp; SetBounds(ScaleX(40), WizardForm.SelectDirLabel.Top +
+ScaleY(62), WizardForm.SelectDirLabel.Width,
+WizardForm.SelectDirLabel.Height)<br>
+&nbsp; &nbsp; Transparent := True;<br>
+&nbsp; &nbsp; Parent:= WizardForm;<br>
+&nbsp; end;<br>
+<br>
+&nbsp; SelectDirLabelBrowse:= TLabel.Create(WizardForm);<br>
+&nbsp; with SelectDirLabelBrowse do<br>
+&nbsp; begin<br>
+&nbsp; &nbsp; Caption:= WizardForm.SelectDirBrowseLabel.Caption;<br>
+&nbsp; &nbsp; SetBounds(ScaleX(40), WizardForm.SelectDirBrowseLabel.Top
++ ScaleY(62), WizardForm.SelectDirBrowseLabel.Width,
+WizardForm.SelectDirBrowseLabel.Height)<br>
+&nbsp; &nbsp; WordWrap:= True;<br>
+&nbsp; &nbsp; Transparent:= True;<br>
+&nbsp; &nbsp; Parent:= WizardForm;<br>
+&nbsp; end;<br>
+<br>
+&nbsp; NeedSpaceLabel:= TLabel.Create(WizardForm);<br>
+&nbsp; with NeedSpaceLabel do<br>
+&nbsp; begin<br>
+&nbsp; &nbsp; Parent:= WizardForm;<br>
+&nbsp; &nbsp; SetBounds(WizardForm.DirEdit.Left, ScaleY(262), ScaleX(209), ScaleY(13))<br>
+&nbsp; &nbsp; Transparent:= True;<br>
+&nbsp; end;<br>
+<br>
+&nbsp; FreeSpaceLabel:= TLabel.Create(WizardForm);<br>
+&nbsp; with FreeSpaceLabel do<br>
+&nbsp; begin<br>
+&nbsp; &nbsp; Parent:= WizardForm;<br>
+&nbsp; &nbsp; SetBounds(WizardForm.DirEdit.Left, ScaleY(280), ScaleX(209), ScaleY(13))<br>
+&nbsp; &nbsp; Transparent:= True;<br>
+&nbsp; end;<br>
+&nbsp; GetNeedSpaceCaption;<br>
+&nbsp; ///SelectDirPage<br>
+&nbsp; ///SelectComponentPage<br>
+&nbsp; SelectComponentsLabel:= TLabel.Create(WizardForm)<br>
+&nbsp; with SelectComponentsLabel do<br>
+&nbsp; begin<br>
+&nbsp; &nbsp; SetBounds(ScaleX(40), SelectDirLabel.Top,
+WizardForm.SelectComponentsLabel.Width,
+WizardForm.SelectComponentsLabel.Height)<br>
+&nbsp; &nbsp; Autosize:= false;<br>
+&nbsp; &nbsp; WordWrap:= true;<br>
+&nbsp; &nbsp; Transparent:= true;<br>
+&nbsp; &nbsp; Caption:= WizardForm.SelectComponentsLabel.Caption;<br>
+&nbsp; &nbsp; Parent:= WizardForm;<br>
+&nbsp; end;<br>
+<br>
+&nbsp; WizardForm.TypesCombo.Left:= ScaleX(40);<br>
+&nbsp; WizardForm.TypesCombo.Top:= ScaleY(120)<br>
+&nbsp; WizardForm.TypesCombo.Font.Color:= clBlack;<br>
+&nbsp; WizardForm.TypesCombo.Parent:= WizardForm;<br>
+<br>
+&nbsp; WizardForm.ComponentsList.Left:= ScaleX(40)<br>
+&nbsp; WizardForm.ComponentsList.Top:= ScaleY(155);<br>
+&nbsp; WizardForm.ComponentsList.Font.Color:= clBlack;<br>
+&nbsp; WizardForm.ComponentsList.Parent:= WizardForm;<br>
+<br>
+&nbsp; ComponentsDiskSpaceLabel:= TLabel.Create(WizardForm);<br>
+&nbsp; with ComponentsDiskSpaceLabel do<br>
+&nbsp; begin<br>
+&nbsp; &nbsp; SetBounds(ScaleX(40), ScaleY(295),
+WizardForm.ComponentsDiskSpaceLabel.Width,
+WizardForm.ComponentsDiskSpaceLabel.Height)<br>
+&nbsp; &nbsp; Autosize:= false;<br>
+&nbsp; &nbsp; WordWrap:= true;<br>
+&nbsp; &nbsp; Transparent:= true;<br>
+&nbsp; &nbsp; Caption:= WizardForm.ComponentsDiskSpaceLabel.Caption;<br>
+&nbsp; &nbsp; Parent:= WizardForm;<br>
+&nbsp; end;<br>
+&nbsp; ///SelectComponentPage<br>
+&nbsp; ///ProgrammGroupPage<br>
+&nbsp; SelectStartMenuFolderLabel:=TLabel.Create(WizardForm)<br>
+&nbsp; with SelectStartMenuFolderLabel do<br>
+&nbsp; begin<br>
+&nbsp; &nbsp; SetBounds(ScaleX(40), WizardForm.SelectDirLabel.Top +
+ScaleY(62), WizardForm.SelectDirBrowseLabel.Width,
+WizardForm.SelectDirBrowseLabel.Height)<br>
+&nbsp; &nbsp; AutoSize:=False<br>
+&nbsp; &nbsp; WordWrap:=True<br>
+&nbsp; &nbsp; Transparent:=True<br>
+&nbsp; &nbsp; Caption:=WizardForm.SelectStartMenuFolderLabel.Caption<br>
+&nbsp; &nbsp; Parent:=WizardForm<br>
+&nbsp; end;<br>
+<br>
+&nbsp; SelectStartMenuFolderBrowseLabel:=TLabel.Create(WizardForm)<br>
+&nbsp; with SelectStartMenuFolderBrowseLabel do<br>
+&nbsp; begin<br>
+&nbsp; &nbsp; SetBounds(ScaleX(40), SelectDirLabelBrowse.Top, SelectDirLabelBrowse.Width, SelectDirLabelBrowse.Height)<br>
+&nbsp; &nbsp; AutoSize:=False<br>
+&nbsp; &nbsp; WordWrap:=True<br>
+&nbsp; &nbsp; Transparent:=True<br>
+&nbsp; &nbsp; Caption:=WizardForm.SelectStartMenuFolderBrowseLabel.Caption<br>
+&nbsp; &nbsp; Parent:=WizardForm<br>
+&nbsp; end;<br>
+<br>
+&nbsp; WizardForm.NoIconsCheck.SetBounds(ScaleX(40), WizardForm.DirEdit.Top + ScaleY(140), ScaleX(13), ScaleY(13))<br>
+&nbsp; WizardForm.NoIconsCheck.Visible:=True<br>
+&nbsp; WizardForm.NoIconsCheck.Parent:= WizardForm<br>
+<br>
+&nbsp; NoIconsLabel:=TLabel.Create(WizardForm)<br>
+&nbsp; with NoIconsLabel do<br>
+&nbsp; begin<br>
+&nbsp; &nbsp; Left:=ScaleX(56);<br>
+&nbsp; &nbsp; Top:= WizardForm.DirEdit.Top + ScaleY(140)<br>
+&nbsp; &nbsp; Transparent:=True<br>
+&nbsp; &nbsp; OnClick:= @LabelOnClick;<br>
+&nbsp; &nbsp; Caption:=WizardForm.NoIconsCheck.Caption<br>
+&nbsp; &nbsp; Parent:=WizardForm<br>
+&nbsp; end;<br>
+&nbsp; ///ProgrammGroupPage<br>
+&nbsp; ///SelectTasksPage<br>
+&nbsp; SelectTasksLabel:= TLabel.Create(TasksPage);<br>
+&nbsp; with SelectTasksLabel do<br>
+&nbsp; begin<br>
+&nbsp; &nbsp; SetBounds(ScaleX(40), ScaleY(70), ScaleX(417), ScaleY(30))<br>
+&nbsp; &nbsp; Autosize:= false;<br>
+&nbsp; &nbsp; WordWrap:= true;<br>
+&nbsp; &nbsp; Transparent:= True;<br>
+&nbsp; &nbsp; Parent:= WizardForm;<br>
+&nbsp; &nbsp; Caption:= WizardForm.SelectTasksLabel.Caption;<br>
+&nbsp; end;<br>
+<br>
+&nbsp; TasksLabel1:= TLabel.Create(TasksPage);<br>
+&nbsp; with TasksLabel1 do<br>
+&nbsp; begin<br>
+&nbsp; &nbsp; SetBounds(ScaleX(40), SelectTasksLabel.Top + ScaleY(45), ScaleX(400), ScaleY(25))<br>
+&nbsp; &nbsp; Autosize:= false;<br>
+&nbsp; &nbsp; WordWrap:= true;<br>
+&nbsp; &nbsp; Transparent:= true;<br>
+&nbsp; &nbsp; Parent:= WizardForm;<br>
+&nbsp; &nbsp; Caption:= ExpandConstant('{cm:TasksLabel1}');<br>
+&nbsp; end;<br>
+<br>
+&nbsp; Icons:= TCheckBox.Create(TasksPage);<br>
+&nbsp; with Icons do<br>
+&nbsp; begin<br>
+&nbsp; &nbsp; Parent:= WizardForm;<br>
+&nbsp; &nbsp; SetBounds(TasksLabel1.Left + ScaleX(10), TasksLabel1.Top + ScaleY(25), ScaleX(13), ScaleY(13))<br>
+&nbsp; &nbsp; TabOrder:= 0;<br>
+&nbsp; &nbsp; Checked:= False;<br>
+&nbsp; end;<br>
+<br>
+IconsLabel:= TLabel.Create(TasksPage);<br>
+&nbsp; with IconsLabel do<br>
+&nbsp; begin<br>
+&nbsp; &nbsp; Caption:=ExpandConstant('{cm:Icons}');<br>
+&nbsp; &nbsp; SetBounds(TasksLabel1.Left + ScaleX(30), TasksLabel1.Top + ScaleY(25), ScaleX(150), ScaleY(13))<br>
+&nbsp; &nbsp; Transparent := True;<br>
+&nbsp; &nbsp; Parent:= WizardForm;<br>
+&nbsp; &nbsp; OnClick:= @LabelOnClick;<br>
+&nbsp; end;<br>
+<br>
+Group:= TCheckBox.Create(TasksPage);<br>
+&nbsp; with Group do<br>
+&nbsp; begin<br>
+&nbsp; &nbsp; Parent:= WizardForm;<br>
+&nbsp; &nbsp; SetBounds(TasksLabel1.Left + ScaleX(10), TasksLabel1.Top + ScaleY(50), ScaleX(13), ScaleY(13))<br>
+&nbsp; &nbsp; TabOrder:= 1;<br>
+&nbsp; &nbsp; Checked:= False;<br>
+&nbsp; end;<br>
+<br>
+GroupLabel:= TLabel.Create(TasksPage);<br>
+&nbsp; with GroupLabel do<br>
+&nbsp; begin<br>
+&nbsp; &nbsp; Caption:=ExpandConstant('{cm:Group}');<br>
+&nbsp; &nbsp; SetBounds(TasksLabel1.Left + ScaleX(30), TasksLabel1.Top + ScaleY(50), ScaleX(150), ScaleY(13))<br>
+&nbsp; &nbsp; Transparent := True;<br>
+&nbsp; &nbsp; Parent:= WizardForm;<br>
+&nbsp; &nbsp; OnClick:= @LabelOnClick;<br>
+&nbsp; end;<br>
+<br>
+&nbsp; TasksLabel2:= TLabel.Create(TasksPage);<br>
+&nbsp; with TasksLabel2 do<br>
+&nbsp; begin<br>
+&nbsp; &nbsp; SetBounds(ScaleX(40), TasksLabel1.Top + ScaleY(75), ScaleX(400), ScaleY(25))<br>
+&nbsp; &nbsp; Autosize:= false;<br>
+&nbsp; &nbsp; WordWrap:= true;<br>
+&nbsp; &nbsp; Transparent:= True;<br>
+&nbsp; &nbsp; Parent:= WizardForm;<br>
+&nbsp; &nbsp; Caption:= ExpandConstant('{cm:TasksLabel2}')<br>
+&nbsp; end;<br>
+<br>
+&nbsp; DirectX:= TCheckBox.Create(TasksPage);<br>
+&nbsp; with DirectX do<br>
+&nbsp; begin<br>
+&nbsp; &nbsp; Parent:= WizardForm;<br>
+&nbsp; &nbsp; SetBounds(TasksLabel2.Left + ScaleX(10), TasksLabel2.Top + ScaleY(25), ScaleX(13), ScaleY(13))<br>
+&nbsp; &nbsp; TabOrder:= 2;<br>
+&nbsp; &nbsp; Checked:= False;<br>
+&nbsp; end;<br>
+<br>
+&nbsp; DirectXLabel:= TLabel.Create(TasksPage);<br>
+&nbsp; with DirectXLabel do<br>
+&nbsp; begin<br>
+&nbsp; &nbsp; Caption:= ExpandConstant('{cm:DirectX}');<br>
+&nbsp; &nbsp; SetBounds(TasksLabel2.Left + ScaleX(30), TasksLabel2.Top + ScaleY(25), ScaleX(150), ScaleY(13))<br>
+&nbsp; &nbsp; Transparent := True;<br>
+&nbsp; &nbsp; Parent:= WizardForm;<br>
+&nbsp; &nbsp; OnClick:= @LabelOnClick;;<br>
+&nbsp; end;<br>
+<br>
+&nbsp; Redist:= TCheckBox.Create(TasksPage);<br>
+&nbsp; with Redist do<br>
+&nbsp; begin<br>
+&nbsp; &nbsp; Parent:= WizardForm;<br>
+&nbsp; &nbsp; SetBounds(TasksLabel2.Left + ScaleX(10), TasksLabel2.Top + ScaleY(50), ScaleX(13), ScaleY(13))<br>
+&nbsp; &nbsp; TabOrder:= 3;<br>
+&nbsp; &nbsp; Checked:= False;<br>
+&nbsp; end;<br>
+<br>
+&nbsp; RedistLabel:= TLabel.Create(TasksPage);<br>
+&nbsp; with RedistLabel do<br>
+&nbsp; begin<br>
+&nbsp; &nbsp; Caption:=ExpandConstant('{cm:Redist}');<br>
+&nbsp; &nbsp; SetBounds(TasksLabel2.Left + ScaleX(30), TasksLabel2.Top + ScaleY(50), ScaleX(150), ScaleY(13))<br>
+&nbsp; &nbsp; Transparent := True;<br>
+&nbsp; &nbsp; Parent:= WizardForm;<br>
+&nbsp; &nbsp; OnClick:= @LabelOnClick;<br>
+&nbsp; end;<br>
+<br>
+&nbsp; PhysX:= TCheckBox.Create(TasksPage);<br>
+&nbsp; with PhysX do<br>
+&nbsp; begin<br>
+&nbsp; &nbsp; Parent:= WizardForm;<br>
+&nbsp; &nbsp; SetBounds(TasksLabel2.Left + ScaleX(10), TasksLabel2.Top + ScaleY(75), ScaleX(13), ScaleY(13))<br>
+&nbsp; &nbsp; TabOrder:= 4;<br>
+&nbsp; &nbsp; Checked:= False;<br>
+&nbsp; end;<br>
+<br>
+&nbsp; PhysXLabel:= TLabel.Create(TasksPage);<br>
+&nbsp; with PhysXLabel do<br>
+&nbsp; begin<br>
+&nbsp; &nbsp; Caption:=ExpandConstant('{cm:PhysX}');<br>
+&nbsp; &nbsp; SetBounds(TasksLabel2.Left + ScaleX(30), TasksLabel2.Top + ScaleY(75), ScaleX(150), ScaleY(13))<br>
+&nbsp; &nbsp; Transparent := True;<br>
+&nbsp; &nbsp; Parent:= WizardForm;<br>
+&nbsp; &nbsp; OnClick:= @LabelOnClick;<br>
+&nbsp; end;<br>
+&nbsp; ///SelectTasksPage<br>
+&nbsp; ///ReadyPage<br>
+&nbsp; ReadyLabel:= TLabel.Create(WizardForm);<br>
+&nbsp; with ReadyLabel do<br>
+&nbsp; begin<br>
+&nbsp; &nbsp; SetBounds(ScaleX(40), ScaleY(70), ScaleX(325), ScaleY(30))<br>
+&nbsp; &nbsp; AutoSize:= False;<br>
+&nbsp; &nbsp; WordWrap:= true;<br>
+&nbsp; &nbsp; Transparent:= true;<br>
+&nbsp; &nbsp; Caption:= 'Нажмите &laquo;Установить&raquo;, чтобы
+продолжить, или &laquo;Назад&raquo;, если Вы хотите просмотреть или
+изменить опции установки.'<br>
+&nbsp; &nbsp; Parent:= WizardForm;<br>
+&nbsp; end;<br>
+&nbsp; ///ReadyPage<br>
+&nbsp; ///InstallingPage<br>
+&nbsp; &nbsp; StatusLabel:= TLabel.Create(WizardForm);<br>
+&nbsp; with StatusLabel do<br>
+&nbsp; begin<br>
+&nbsp; &nbsp; SetBounds(ScaleX(20), ScaleY(80), WizardForm.StatusLabel.Width, WizardForm.StatusLabel.Height)<br>
+&nbsp; &nbsp; AutoSize:= False;<br>
+&nbsp; &nbsp; Transparent := True;<br>
+&nbsp; &nbsp; Parent:= WizardForm;<br>
+&nbsp; &nbsp; Caption:= 'Распаковка файлов...'<br>
+&nbsp; end;<br>
+<br>
+&nbsp; &nbsp; FilenameLabel:= TLabel.Create(WizardForm);<br>
+&nbsp; with FilenameLabel do<br>
+&nbsp; begin<br>
+&nbsp; &nbsp; SetBounds(ScaleX(20), ScaleY(100), WizardForm.StatusLabel.Width, WizardForm.StatusLabel.Height)<br>
+&nbsp; &nbsp; AutoSize:= False;<br>
+&nbsp; &nbsp; Transparent := True;<br>
+&nbsp; &nbsp; Parent:= WizardForm;<br>
+&nbsp; end;<br>
+&nbsp; ///InstallingPage<br>
+&nbsp; ///InfoAfterPage<br>
+&nbsp; InfoAfterClickLabel:= TLabel.Create(WizardForm);<br>
+&nbsp; with InfoAfterClickLabel do<br>
+&nbsp; begin<br>
+&nbsp; &nbsp; SetBounds(ScaleX(40), ScaleY(70), WizardForm.InfoAfterClickLabel.Width, WizardForm.InfoAfterClickLabel.Height)<br>
+&nbsp; &nbsp; Transparent:= true;<br>
+&nbsp; &nbsp; AutoSize:= False;<br>
+&nbsp; &nbsp; WordWrap:= true;<br>
+&nbsp; &nbsp; Parent:= WizardForm;<br>
+&nbsp; &nbsp; Caption:= WizardForm.InfoAfterClickLabel.Caption;<br>
+&nbsp; end;<br>
+<br>
+&nbsp; WizardForm.InfoAfterMemo.left:= ScaleX(40);<br>
+&nbsp; WizardForm.InfoAfterMemo.Top:= ScaleY(108);<br>
+&nbsp; WizardForm.InfoAfterMemo.Parent:= WizardForm;<br>
+&nbsp; ///InfoAfterPage<br>
+&nbsp; ///FinishedPage<br>
+&nbsp; FinishedHeadingLabel:=TLabel.Create(WizardForm);<br>
+&nbsp; with FinishedHeadingLabel do<br>
+&nbsp; begin<br>
+&nbsp; &nbsp; SetBounds(ScaleX(176), ScaleY(66), ScaleX(301), ScaleY(53))<br>
+&nbsp; &nbsp; AutoSize:= false;<br>
+&nbsp; &nbsp; WordWrap:= true;<br>
+&nbsp; &nbsp; Font.Size:= 14;<br>
+&nbsp; &nbsp; Font.Color:=clWhite<br>
+&nbsp; &nbsp; Font.Style := [fsBold]<br>
+&nbsp; &nbsp; Transparent:= true;<br>
+&nbsp; &nbsp; Parent:= WizardForm;<br>
+&nbsp; &nbsp; Caption:= WizardForm.FinishedHeadingLabel.Caption;<br>
+&nbsp; end;<br>
+<br>
+&nbsp; FinishedLabel:= TLabel.Create(WizardForm);<br>
+&nbsp; with FinishedLabel do<br>
+&nbsp; begin<br>
+&nbsp; &nbsp; SetBounds(ScaleX(176), ScaleY(136), ScaleX(301), ScaleY(54))<br>
+&nbsp; &nbsp; AutoSize:= false;<br>
+&nbsp; &nbsp; WordWrap:= true;<br>
+&nbsp; &nbsp; Transparent:= true;<br>
+&nbsp; &nbsp; Parent:= WizardForm;<br>
+&nbsp; &nbsp; Caption:= ExpandConstant('{cm:Finished1}') + #10#13#10 + ExpandConstant('{cm:Finished2}')<br>
+&nbsp; end;<br>
+<br>
+&nbsp; RunProgram:= TCheckBox.Create(WizardForm);<br>
+&nbsp; with RunProgram do<br>
+&nbsp; begin<br>
+&nbsp; &nbsp; Parent:= WizardForm;<br>
+&nbsp; &nbsp; SetBounds(ScaleX(176), ScaleY(200), ScaleX(13), ScaleY(13))<br>
+&nbsp; &nbsp; TabOrder:= 5;<br>
+&nbsp; &nbsp; Checked:= True;<br>
+&nbsp; end;<br>
+<br>
+&nbsp; RunProgramLabel:= TLabel.Create(WizardForm);<br>
+&nbsp; with RunProgramLabel do<br>
+&nbsp; begin<br>
+&nbsp; &nbsp; Caption:=ExpandConstant('{cm:RunProgram}');<br>
+&nbsp; &nbsp; SetBounds(ScaleX(196), ScaleY(200), ScaleX(150), ScaleY(13))<br>
+&nbsp; &nbsp; Transparent := True;<br>
+&nbsp; &nbsp; Parent:= WizardForm;<br>
+&nbsp; &nbsp; OnClick:= @LabelOnClick;<br>
+&nbsp; end;<br>
+&nbsp; ///FinishedPage<br>
+&nbsp; ///Скрываем все<br>
+<br>
+&nbsp; end;<br>
+<br>
+procedure CurPageChanged(CurPageID: Integer);<br>
+begin<br>
+&nbsp; PageNameLabel.Show; PageDescriptionLabel.Show;<br>
+&nbsp; UpBevel.Show; UpBevel.BringToFront;<br>
+<br>
+&nbsp; WelcomeLabel1.Hide; WelcomeLabel2.Hide;<br>
+<br>
+&nbsp; LicenseAcceptedLabel.Hide; LicenseLabel1.Hide;<br>
+&nbsp; LicenseNotAcceptedLabel.Hide; WizardForm.LicenseMemo.Hide;<br>
+&nbsp; WizardForm.LicenseAcceptedRadio.Hide;<br>
+&nbsp; WizardForm.LicenseNotAcceptedRadio.Hide;<br>
+<br>
+&nbsp; SelectDirLabel.Hide; SelectDirLabelBrowse.Hide;<br>
+&nbsp; NeedSpaceLabel.Hide; FreeSpaceLabel.Hide;<br>
+&nbsp; WizardForm.DirEdit.Hide; WizardForm.DirBrowseButton.Hide;<br>
+<br>
+&nbsp; InfoBeforeClickLabel.Hide; WizardForm.InfoBeforeMemo.Hide;<br>
+<br>
+&nbsp; SelectComponentsLabel.Hide; WizardForm.TypesCombo.Hide;<br>
+&nbsp; WizardForm.ComponentsList.Hide; ComponentsDiskSpaceLabel.Hide;<br>
+<br>
+&nbsp; WizardForm.NoIconsCheck.Hide; WizardForm.GroupEdit.Hide;<br>
+&nbsp; WizardForm.GroupBrowseButton.Hide; SelectStartMenuFolderLabel.Hide;<br>
+&nbsp; SelectStartMenuFolderBrowseLabel.Hide; NoIconsLabel.Hide;<br>
+<br>
+&nbsp; SelectTasksLabel.Hide; TasksLabel1.Hide;<br>
+&nbsp; TasksLabel2.Hide; Icons.Hide; IconsLabel.Hide;<br>
+&nbsp; Group.Hide; GroupLabel.Hide; Redist.Hide;<br>
+&nbsp; RedistLabel.Hide; DirectX.Hide; DirectXLabel.Hide;<br>
+&nbsp; PhysX.Hide; PhysXLabel.Hide;<br>
+<br>
+&nbsp; WizardForm.ReadyMemo.Hide; ReadyLabel.Hide;<br>
+<br>
+&nbsp; StatusLabel.Hide; FilenameLabel.Hide;<br>
+&nbsp; WizardForm.ProgressGauge.Hide;<br>
+<br>
+&nbsp; WizardForm.InfoAfterMemo.Hide; InfoAfterClickLabel.Hide;<br>
+<br>
+&nbsp; FinishedLabel.Hide; FinishedHeadingLabel.Hide;<br>
+&nbsp; RunProgram.Hide; RunProgramLabel.Hide;<br>
+<br>
+&nbsp; PageNameLabel.Caption:= WizardForm.PageNameLabel.Caption;<br>
+&nbsp; PageDescriptionLabel.Caption:= WizardForm.PageDescriptionLabel.Caption;<br>
+&nbsp; PageID:=CurPageID;<br>
+&nbsp; if CurPageID = wpWelcome then<br>
+&nbsp; begin<br>
+&nbsp; &nbsp; PageNameLabel.Hide; PageDescriptionLabel.Hide;<br>
+&nbsp; &nbsp; UpBevel.Hide; WelcomeLabel1.Show; WelcomeLabel2.Show;<br>
+&nbsp; end;<br>
+&nbsp; if CurPageID = wpLicense then<br>
+&nbsp; begin<br>
+&nbsp; &nbsp; LicenseAcceptedLabel.Show; LicenseLabel1.Show;<br>
+&nbsp; &nbsp; LicenseNotAcceptedLabel.Show; WizardForm.LicenseMemo.Show;<br>
+&nbsp; &nbsp; WizardForm.LicenseAcceptedRadio.Show; WizardForm.LicenseNotAcceptedRadio.Show;<br>
+&nbsp; end;<br>
+&nbsp; if CurPageID = wpInfoBefore then<br>
+&nbsp; begin<br>
+&nbsp; &nbsp; InfoBeforeClickLabel.Show; WizardForm.InfoBeforeMemo.Show;<br>
+&nbsp; end;<br>
+&nbsp; if CurPageID = wpSelectDir then<br>
+&nbsp; begin<br>
+&nbsp; &nbsp; SelectDirLabel.Show; SelectDirLabelBrowse.Show;<br>
+&nbsp; &nbsp; NeedSpaceLabel.Show; FreeSpaceLabel.Show;<br>
+&nbsp; &nbsp; WizardForm.DirEdit.Show; WizardForm.DirBrowseButton.Show;<br>
+&nbsp; &nbsp; GetFreeSpaceCaption(nil)<br>
+&nbsp; end;<br>
+&nbsp; if CurPageId = wpSelectComponents then<br>
+&nbsp; begin<br>
+&nbsp; &nbsp; SelectComponentsLabel.Show; WizardForm.TypesCombo.Show;<br>
+&nbsp; &nbsp; WizardForm.ComponentsList.Show; ComponentsDiskSpaceLabel.Show;<br>
+&nbsp; end;<br>
+&nbsp; if CurPageID = wpSelectProgramGroup then<br>
+&nbsp; begin<br>
+&nbsp; &nbsp; WizardForm.NoIconsCheck.Show;<br>
+&nbsp; &nbsp; WizardForm.GroupEdit.Show;<br>
+&nbsp; &nbsp; WizardForm.GroupBrowseButton.Show;<br>
+&nbsp; &nbsp; SelectStartMenuFolderLabel.Show;<br>
+&nbsp; &nbsp; SelectStartMenuFolderBrowseLabel.Show;<br>
+&nbsp; &nbsp; NoIconsLabel.Hide;<br>
+&nbsp; end;<br>
+&nbsp; if CurPageID = TasksPage.Id then<br>
+&nbsp; begin<br>
+&nbsp; &nbsp; SelectTasksLabel.Show; TasksLabel1.Show;<br>
+&nbsp; &nbsp; TasksLabel2.Show; Icons.Show; IconsLabel.Show;<br>
+&nbsp; &nbsp; Group.Show; GroupLabel.Show; Redist.Show;<br>
+&nbsp; &nbsp; RedistLabel.Show; DirectX.Show; DirectXLabel.Show;<br>
+&nbsp; &nbsp; PhysX.Show; PhysXLabel.Show;<br>
+&nbsp; &nbsp; WizardForm.NextButton.Caption:= 'Установить';<br>
+&nbsp; &nbsp; PageNameLabel.Caption:= 'Выберите дополнительные задачи';<br>
+&nbsp; &nbsp; PageDescriptionLabel.Caption:= 'Какие дополнительные задачи необходимо выполнить?';<br>
+&nbsp; end;<br>
+&nbsp; if CurPageID = wpReady then<br>
+&nbsp; begin<br>
+&nbsp; &nbsp; WizardForm.ReadyMemo.Show; ReadyLabel.Show;<br>
+&nbsp; end;<br>
+&nbsp; if CurPageId = wpInstalling then<br>
+&nbsp; begin<br>
+&nbsp; &nbsp; StatusLabel.Show; FilenameLabel.Show;<br>
+&nbsp; &nbsp; WizardForm.ProgressGauge.Show;<br>
+&nbsp; end;<br>
+&nbsp; if CurPageID = wpInfoAfter then<br>
+&nbsp; begin<br>
+&nbsp; &nbsp; WizardForm.InfoAfterMemo.Show;<br>
+&nbsp; &nbsp; InfoAfterClickLabel.Show;<br>
+&nbsp; end;<br>
+&nbsp; if CurPageId = wpFinished then<br>
+&nbsp; begin<br>
+&nbsp; &nbsp; FinishedLabel.Show; FinishedHeadingLabel.Show;<br>
+&nbsp; &nbsp; RunProgram.Show; RunProgramLabel.Show;<br>
+&nbsp; &nbsp; PageNameLabel.Hide; PageDescriptionLabel.Hide;<br>
+&nbsp; &nbsp; UpBevel.Hide;<br>
+&nbsp; end;<br>
+end;<br>
+<br>
+procedure CurStepChanged(CurStep: TSetupStep);<br>
+Var<br>
+ResultCode: integer;<br>
+begin<br>
+&nbsp; if CurStep = ssPostInstall then<br>
+&nbsp; begin<br>
+&nbsp; &nbsp; &nbsp; FilenameLabel.Visible:=false;<br>
+&nbsp; &nbsp; if PhysX.Checked then<br>
+&nbsp; &nbsp; &nbsp; begin<br>
+&nbsp; &nbsp; &nbsp; StatusLabel.Caption:=ExpandConstant('{cm:PhysXInstall}')<br>
+&nbsp; &nbsp; &nbsp;
+Exec(ExpandConstant('{src}\Redist\PhysX_9.09.0428_SystemSoftware.exe'),
+'/quiet', ExpandConstant('{src}\Redist'), SW_SHOW,
+ewWaitUntilTerminated, ResultCode);<br>
+&nbsp; &nbsp; &nbsp; end;<br>
+&nbsp; &nbsp; if DirectX.Checked then<br>
+&nbsp; &nbsp; &nbsp; begin<br>
+&nbsp; &nbsp; &nbsp; StatusLabel.Caption:=ExpandConstant('{cm:DirectXInstall}')<br>
+&nbsp; &nbsp; &nbsp; Exec(ExpandConstant('{src}\DirectX\DXSETUP.exe'),
+'/silent', ExpandConstant('{src}\DirectX'), SW_SHOW,
+ewWaitUntilTerminated, ResultCode);<br>
+&nbsp; &nbsp; &nbsp; end;<br>
+&nbsp; &nbsp; if Redist.Checked then<br>
+&nbsp; &nbsp; &nbsp; begin<br>
+&nbsp; &nbsp; &nbsp; StatusLabel.Caption:=ExpandConstant('{cm:RedistInstall}')<br>
+&nbsp; &nbsp; &nbsp; if isWin64 then<br>
+&nbsp; &nbsp; &nbsp;
+Exec(ExpandConstant('{src}\Redist\vcredist_x64.exe'), '/Q',
+ExpandConstant('{src}\Redist'), SW_SHOW, ewWaitUntilTerminated,
+ResultCode)<br>
+&nbsp; &nbsp; &nbsp; else begin<br>
+&nbsp; &nbsp; &nbsp;
+Exec(ExpandConstant('{src}\Redist\vcredist_x86.exe'), '/Q',
+ExpandConstant('{src}\Redist'), SW_SHOW, ewWaitUntilTerminated,
+ResultCode);<br>
+&nbsp; &nbsp; &nbsp; end;<br>
+&nbsp; &nbsp; &nbsp; end;<br>
+&nbsp; end;<br>
+end;<br>
+<br>
+///Эта строчка удаляет ярлыки из GameExplorer'а в Windows Vista и Windows Se7en<br>
+[UninstallDelete]<br>
+Type: filesandordirs; Name: {app};<br>
+</font></blockquote><textarea id="taCode1" style="display:none;" rows="1" cols="5"></textarea><textarea id='taCode' style='display:none;' rows='1' cols='20'></textarea></code><script language="javascript" type="text/javascript">highlightSyntax('delphi_Tc4NTM','delphi');</script>
+<br>
+<div id="heading">
+<h1><font face="Consolas" size="1">Copyright (c) <a href="http://www.krinkels.org/" target="_blank">Krinkels Inc</a></font></h1>
+</div>
+</body>
+</html>

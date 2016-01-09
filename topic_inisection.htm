@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Секция [INI]</title>
+<!--[if IE 6]><style type="text/css">html{overflow-y:scroll}</style><![endif]-->
+<link rel="stylesheet" type="text/css" href="styles.css" />
+<script type="text/javascript" src="topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Секция [INI]</h1>
+<div class="topicbody">
+  <p>Это не обязательная секция. Она определяет ключи и значения, создаваемые инсталлятором в .INI файлах   после копирования файлов.</p>
+  <p>Пример секции <tt>[INI]</tt>:</p>
+  <pre class="indent examplebox">[INI]<br />Filename: &quot;MyProg.ini&quot;; Section: &quot;InstallSettings&quot;; Flags: uninsdeletesection<br />Filename: &quot;MyProg.ini&quot;; Section: &quot;InstallSettings&quot;; Key: &quot;InstallPath&quot;; String: &quot;{app}&quot;</pre>
+  <p>Список поддерживаемых <a href="topic_params.htm">параметров</a>:</p>
+  <dl>
+    <dt class="paramlist"><b><a name="Filename" id="Filename">Filename</a></b>&nbsp;<i>(Обязательно)</i></dt>
+    <dd class="paramlist">
+      <p>Имя .INI файла, который инсталлятор должен создать или модифицировать, может содержать константы. Если этот параметр пустой, запись будет производиться в&nbsp;файле WIN.INI в системной папке Windows.</p>
+      <div class="examplebox">
+        <div class="exampleheader">Например:</div>
+        <pre class="nomargin">Filename: &quot;{app}\MyProg.ini&quot;</pre>
+      </div>
+    </dd>
+    <dt class="paramlist"><b><a name="Section" id="Section">Section</a></b>&nbsp;<i>(Обязательно)</i></dt>
+    <dd class="paramlist">
+      <p>Имя секции, в котором нужно сделать запись, может содержать константы.</p>
+      <div class="examplebox">
+        <div class="exampleheader">Например:</div>
+        <pre class="nomargin">Section: &quot;Settings&quot;</pre>
+      </div>
+    </dd>
+    <dt class="paramlist"><b><a name="Key" id="Key">Key</a></b></dt>
+    <dd class="paramlist">
+      <p>Имя ключа, в который нужно записать данные, может содержать константы. Если этот параметр не указан или пустой, ключ не создается.</p>
+      <div class="examplebox">
+        <div class="exampleheader">Например:</div>
+        <pre class="nomargin">Key: &quot;Version&quot;</pre>
+      </div>
+    </dd>
+    <dt class="paramlist"><b><a name="String" id="String">String</a></b></dt>
+    <dd class="paramlist">
+      <p>Значение, которое нужно прописать в ключе, может содержать константы. Если этот параметр не указан или пустой, ключ не создается</p>
+      <div class="examplebox">
+        <div class="exampleheader">Например:</div>
+        <pre class="nomargin">String: &quot;1.0&quot;</pre>
+      </div>
+    </dd>
+    <dt class="paramlist"><b><a name="Flags" id="Flags">Flags</a></b></dt>
+    <dd class="paramlist">
+      <p>Параметры для установки дополнительных опций. Разделяются пробелами. Поддерживаемые значения:</p>
+      <dl>
+        <dt class="flaglist"><a name="createkeyifdoesntexist" id="createkeyifdoesntexist">createkeyifdoesntexist</a></dt>
+        <dd>
+          <p>Записывать значение в ключ, <i>только</i> если ключ не существует. Если этот флаг <i>не указан</i>, значение будет записано в ключ независимо от его существования.</p>
+        </dd>
+        <dt class="flaglist"><a name="uninsdeleteentry" id="uninsdeleteentry">uninsdeleteentry</a></dt>
+        <dd>
+          <p>Удалить запись при удалении программы. Может комбинироваться с флагом <tt>uninsdeletesectionifempty</tt>.</p>
+        </dd>
+        <dt class="flaglist"><a name="uninsdeletesection" id="uninsdeletesection">uninsdeletesection</a></dt>
+        <dd>
+          <p>После удаления программы удалить секцию с параметром, в котором он находится. Не рекомендуется использовать этот флаг для секции, которой пользуется Windows (например, некоторые секции в WIN.INI). Следует использовать этот флаг только в секциях&nbsp;вашего приложения.</p>
+        </dd>
+        <dt class="flaglist"><a name="uninsdeletesectionifempty" id="uninsdeletesectionifempty">uninsdeletesectionifempty</a></dt>
+        <dd>
+          <p>То же, что и <tt>uninsdeletesection</tt>, но удаляет секцию, только если в ней не осталось ключей. Может комбинироваться с флагом <tt>uninsdeleteentry</tt>.</p>
+        </dd>
+      </dl>
+      <div class="examplebox">
+        <div class="exampleheader">Например:</div>
+        <pre class="nomargin">Flags: uninsdeleteentry</pre>
+      </div>
+    </dd>
+  </dl>
+  <p><b><a href="topic_componentstasksparams.htm">Параметры секций Сomponents и Tasks</a></b></p>
+  <p><b><a href="topic_commonparams.htm">Общие параметры</a></b></p>
+</div>
+</body>
+</html>

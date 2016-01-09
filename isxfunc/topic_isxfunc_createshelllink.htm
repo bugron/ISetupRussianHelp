@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Pascal Scripting: CreateShellLink</title>
+<link rel="stylesheet" type="text/css" href="../styles.css" />
+<script type="text/javascript" src="../topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Pascal Scripting: CreateShellLink</h1>
+<div class="topicbody">
+  <div><b>Прототип:</b></div>
+  <p><tt>function CreateShellLink(const Filename, Description, ShortcutTo, Parameters, WorkingDir, IconFilename: String; const IconIndex, ShowCmd: Integer): String;</tt></p>
+  <div><b>Описание:</b></div>
+  <p><span id="result_box" lang="ru" tabindex="-1" xml:lang="ru">Создает ярлык к файлу или папке</span>. <span id="result_box2" lang="ru" tabindex="-1" xml:lang="ru">Возвращает  имя файла ссылки, которая может отличаться от</span> <tt>Filename</tt>, если вместо .lnk файла создался .pif файл. <span id="result_box3" lang="ru" tabindex="-1" xml:lang="ru">В случае неудачи, будет вызвано исключение.</span></p>
+  <p><b>Parameters:</b><br/>
+    <i>Filename</i><br/>
+    <span id="result_box4" lang="ru" tabindex="-1" xml:lang="ru">Имя файла ярлыка, который будет создан</span>. Указывает полный путь, заканчивается расширением &quot;.lnk&quot;.<br/>
+    <i>Description</i><br/>
+    Описание ссылки. Если ОС поддерживает показ описания ярлыка, тогда пользователь увидит это описание в свойствах ярлыка, или при наведении мышки на файл ярлыка.<br/>
+    <i>ShortcutTo</i><br/>
+    <span id="result_box5" lang="ru" tabindex="-1" xml:lang="ru">Целевой файл для ярлыка</span>. Нужно указать полный путь к файлу. Двойные кавычки добавляются к пути автоматически.<br/>
+    <i>Parameters</i><br/>
+    Параметры, которые нужно передать целевому файлу ярлыка. Параметры, которые содержат пробелы, нужно написать в двойных кавычках. например. <tt>ExpandConstant('&quot;{app}\foo&quot;')</tt><br/>
+    <i>WorkingDir</i><br/>
+    <span id="result_box6" lang="ru" tabindex="-1" xml:lang="ru">Рабочая папка целевого файла</span>.<br/>
+    <i>IconFilename</i><br/>
+    Путь к иконке для ярлыка. Если оставить пустым, то система будет использовать иконку целевого файла.<br/>
+    <i>IconIndex</i><br/>
+    Индекс иконки (начинается с нуля).<br/>
+    <i>ShowCmd</i><br/>
+    Один из констант SW_*.</p>
+  <div><b>Комментарии:</b></div>
+  <p>Если хотите при деинсталляции удалить созданный ярлык, сделайте это с помощью секции  <tt>UninstallDelete</tt>.</p>
+  <div><b>Например:</b></div>
+  <pre>CreateShellLink(
+  ExpandConstant('{app}\config\Open licence database.lnk'),
+  'Opens the licence database in SQLite',
+  ExpandConstant('{app}\config\sqlite.exe'),
+  ExpandConstant('&quot;{app}\config\licences.db&quot;'),
+  ExpandConstant('{app}\config'),
+  '',
+  0,
+  SW_SHOWNORMAL);</pre>
+</div>
+</body>
+</html>

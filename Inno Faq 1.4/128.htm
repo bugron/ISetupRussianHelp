@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Compile different builds in a snap</title><link rel="stylesheet" type="text/css" href="css.css">
+<script language='jscript' type='text/javascript' src='copycode.js'></script>
+<script type="text/javascript" src="includer.js"></script></head><body><div id="heading"><h1>» Inno Setup Faq. Compile different builds in a snap</h1></div><br>
+<script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM">
+<input type="button" value="Копировать в буфер обмена" onClick="copyToClipboard( taCode1, theCode1 );">
+<blockquote id="theCode1"><font>
+;;Debug:&nbsp;no&nbsp;files,&nbsp;no&nbsp;compression,&nbsp;just&nbsp;test&nbsp;script,&nbsp;Send&nbsp;output&nbsp;to&nbsp;CATI-PP.iss<br>
+;;DebugFiles:&nbsp;no&nbsp;compression&nbsp;but&nbsp;use&nbsp;files,&nbsp;to&nbsp;test&nbsp;setup,&nbsp;Send&nbsp;output&nbsp;to&nbsp;CATI-PP.iss<br>
+;;Release:&nbsp;files&nbsp;with&nbsp;compression,&nbsp;to&nbsp;release&nbsp;smallest&nbsp;setup<br>
+#define&nbsp;Debug<br>
+;;#define&nbsp;DebugFiles<br>
+;;#define&nbsp;Release<br>
+<br>
+;;flags&nbsp;for&nbsp;Release/debug<br>
+#ifdef&nbsp;Debug<br>
+&nbsp;&nbsp;#define&nbsp;SavePPOutput<br>
+#endif<br>
+<br>
+#ifdef&nbsp;DebugFiles<br>
+&nbsp;&nbsp;#define&nbsp;SavePPOutput<br>
+&nbsp;&nbsp;#define&nbsp;Files<br>
+#endif<br>
+<br>
+#ifdef&nbsp;Release<br>
+&nbsp;&nbsp;#define&nbsp;Compression<br>
+&nbsp;&nbsp;#define&nbsp;Files<br>
+#endif<br>
+<br>
+[Setup]<br>
+AppName=MyProgram-differentBuilds<br>
+AppVerName=MyProgram-differentBuilds&nbsp;v1<br>
+DefaultDirName={pf}\MyProg<br>
+#ifdef&nbsp;Compression<br>
+Compression=lzma2/ultra64<br>
+InternalCompressLevel=max<br>
+SolidCompression=true<br>
+#else<br>
+Compression=none<br>
+InternalCompressLevel=none<br>
+SolidCompression=false<br>
+#endif<br>
+<br>
+[Files]<br>
+#ifdef&nbsp;Files<br>
+Source:&nbsp;compiler:Examples\MyProg.exe;&nbsp;DestDir:&nbsp;{app}<br>
+#endif<br>
+<br>
+#ifdef&nbsp;SavePPOutput<br>
+&nbsp;&nbsp;#expr&nbsp;SaveToFile(AddBackslash(SourcePath)&nbsp;+&nbsp;&quot;differentBuild-PP.iss&quot;)<br>
+#endif<br>
+</font></blockquote><textarea id="taCode1" style="display:none;" rows="1" cols="5"></textarea><textarea id='taCode' style='display:none;' rows='1' cols='20'></textarea></code><script language="javascript" type="text/javascript">highlightSyntax('delphi_Tc4NTM','delphi');</script><br><div id="heading"><h1><font size="1" face="Consolas">Copyright (c) <a href="http://www.krinkels.org/" target="_blank">Krinkels Inc</a></font></h1></div></body></html>

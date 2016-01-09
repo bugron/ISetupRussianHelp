@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Как запретить пользователю выбрать папку установки с пробелами</title><link rel="stylesheet" type="text/css" href="css.css">
+<script language='jscript' type='text/javascript' src='copycode.js'></script>
+<script type="text/javascript" src="includer.js"></script></head><body><div id="heading"><h1>» Inno Setup Faq. Как запретить пользователю выбрать папку установки с пробелами</h1></div><br>
+<script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM">
+<input type="button" value="Копировать в буфер обмена" onClick="copyToClipboard( taCode1, theCode1 );">
+<blockquote id="theCode1"><font>
+[Setup]<br>
+AppName=NoFolderSpace<br>
+AppVerName=NoFolderSpace<br>
+Uninstallable=false<br>
+UpdateUninstallLogAppName=false<br>
+DisableDirPage=false<br>
+DisableProgramGroupPage=true<br>
+DefaultDirName={code:GetDefDir|{pf}\NoFolderSpace}<br>
+DisableStartupPrompt=true<br>
+<br>
+[Code]<br>
+function&nbsp;NextButtonClick(CurPage:&nbsp;Integer):&nbsp;Boolean;<br>
+var<br>
+folder:&nbsp;String;<br>
+begin<br>
+&nbsp;&nbsp;///by&nbsp;default&nbsp;go&nbsp;to&nbsp;next&nbsp;page<br>
+&nbsp;&nbsp;Result&nbsp;:=&nbsp;true;<br>
+&nbsp;&nbsp;///if&nbsp;curpage&nbsp;is&nbsp;wpSelectDir&nbsp;check&nbsp;is&nbsp;filesystem<br>
+&nbsp;&nbsp;if&nbsp;CurPage&nbsp;=&nbsp;wpSelectDir&nbsp;then<br>
+&nbsp;&nbsp;begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;folder&nbsp;:=&nbsp;WizardDirValue;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;///debug&nbsp;purpose,&nbsp;show&nbsp;folder&nbsp;selected<br>
+&nbsp;&nbsp;&nbsp;&nbsp;///MsgBox(folder,&nbsp;mbInformation,&nbsp;MB_OK);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;Pos('&nbsp;',&nbsp;folder)&nbsp;&gt;&nbsp;0&nbsp;then<br>
+&nbsp;&nbsp;&nbsp;&nbsp;begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MsgBox('Folder&nbsp;selectd&nbsp;contains&nbsp;spaces,&nbsp;please&nbsp;select&nbsp;a&nbsp;folder&nbsp;without&nbsp;spaces&nbsp;in&nbsp;it.',&nbsp;mbInformation,&nbsp;MB_OK);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Result&nbsp;:=&nbsp;false;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;end<br>
+&nbsp;&nbsp;end;<br>
+end;<br>
+<br>
+function&nbsp;GetDefDir(def:&nbsp;String)&nbsp;:&nbsp;String;<br>
+begin<br>
+&nbsp;&nbsp;///if&nbsp;default&nbsp;folder&nbsp;contains&nbsp;spaces,&nbsp;suggest&nbsp;user&nbsp;to&nbsp;install&nbsp;in&nbsp;folderwithnospaces\Myappdir<br>
+&nbsp;&nbsp;if&nbsp;Pos('&nbsp;',&nbsp;def)&nbsp;&gt;&nbsp;0&nbsp;then<br>
+&nbsp;&nbsp;begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;def&nbsp;:=&nbsp;Copy(def,&nbsp;1,&nbsp;Pos('&nbsp;',&nbsp;def)&nbsp;-&nbsp;1)&nbsp;+&nbsp;'\NoFolderSpace';<br>
+&nbsp;&nbsp;end;<br>
+&nbsp;&nbsp;///Bo&nbsp;Berglund&nbsp;code<br>
+&nbsp;&nbsp;///if&nbsp;default&nbsp;folder&nbsp;contains&nbsp;spaces,&nbsp;remove&nbsp;them<br>
+&nbsp;&nbsp;{{<br>
+&nbsp;&nbsp;while&nbsp;Pos('&nbsp;',&nbsp;def)&nbsp;&gt;&nbsp;0&nbsp;do<br>
+&nbsp;&nbsp;begin<br>
+&nbsp;&nbsp;	p&nbsp;:=&nbsp;Pos('&nbsp;',&nbsp;def);<br>
+&nbsp;&nbsp;	def&nbsp;:=&nbsp;Copy(def,&nbsp;1,&nbsp;p-1)&nbsp;+&nbsp;Copy(def,&nbsp;p+1,&nbsp;Length(def));<br>
+&nbsp;&nbsp;end;<br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;///debug&nbsp;purpose,&nbsp;show&nbsp;folder&nbsp;selected<br>
+&nbsp;&nbsp;///MsgBox(def,&nbsp;mbInformation,&nbsp;MB_OK);<br>
+&nbsp;&nbsp;Result&nbsp;:=&nbsp;def;<br>
+end;<br>
+</font></blockquote><textarea id="taCode1" style="display:none;" rows="1" cols="5"></textarea><textarea id='taCode' style='display:none;' rows='1' cols='20'></textarea></code><script language="javascript" type="text/javascript">highlightSyntax('delphi_Tc4NTM','delphi');</script><br><div id="heading"><h1><font size="1" face="Consolas">Copyright (c) <a href="http://www.krinkels.org/" target="_blank">Krinkels Inc</a></font></h1></div></body></html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>[Setup]: DisableReadyPage</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="IE=8" http-equiv="X-UA-Compatible">
+<link rel="stylesheet" type="text/css" href="styles.css">
+<script type="text/javascript" src="topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">[Setup]: DisableReadyPage</h1>
+<div class="topicbody">
+  <table class="setuphdr">
+    <tbody>
+      <tr>
+        <td class="setuphdrl"><p>Возможные значения:</p></td>
+        <td class="setuphdrr"><div class="margined"><a href="topic_yesnonotes.htm"><tt>yes</tt> или <tt>no</tt></a></div></td>
+      </tr>
+      <tr>
+        <td class="setuphdrl"><p>Значение по умолчанию:</p></td>
+        <td class="setuphdrr"><div class="margined"><tt>no</tt></div></td>
+      </tr>
+    </tbody>
+  </table>
+  <div><b>Описание:</b></div>
+  <p>При значении <tt>yes</tt>, инсталлятор не будет отображать страницу <i>Все готово к установке</i>.</p>
+  <p>Когда инсталлятор не выполняется тихом режиме, эта директива игнорируется, если ни одной другой страницы мастера перед страницей <i>Все готово к установке</i> еще не показано.</p>
+  <p>При значении <tt>yes</tt> инсталлятор автоматически не меняет заголовок кнопки <i>Next</i> (на последней странице перед установкой) на <i>Install</i>. Вы должны сделать это вручную. Например, если последняя страница перед установкой это <i>Выбор программной группы</i>, тогда:</p>
+  <div class="examplebox">
+    <div class="exampleheader">Например:</div>
+    <pre class="nomargin">[Setup]
+DisableReadyPage=yes
+
+[Code]
+procedure CurPageChanged(CurPageID: Integer);
+begin
+  if CurPageID = wpSelectProgramGroup then
+    WizardForm.NextButton.Caption := SetupMessage(msgButtonInstall)
+  else
+    WizardForm.NextButton.Caption := SetupMessage(msgButtonNext);
+end;</pre>
+  </div>
+</div>
+</body>
+</html>

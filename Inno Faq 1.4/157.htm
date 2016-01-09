@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Поиск файлов</title><link rel="stylesheet" type="text/css" href="css.css">
+<script language='jscript' type='text/javascript' src='copycode.js'></script>
+<script type="text/javascript" src="includer.js"></script></head><body><div id="heading"><h1>» Inno Setup Faq. Поиск файлов</h1></div><br>
+<script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM">
+<input type="button" value="Копировать в буфер обмена" onClick="copyToClipboard( taCode1, theCode1 );">
+<blockquote id="theCode1"><font>
+#define&nbsp;MyAppName&nbsp;&quot;Searchforafile&quot;<br>
+#define&nbsp;MyAppVerName&nbsp;&quot;My&nbsp;Program&nbsp;1.5&quot;<br>
+#define&nbsp;MyAppPublisher&nbsp;&quot;My&nbsp;Company,&nbsp;Inc.&quot;<br>
+#define&nbsp;MyAppURL&nbsp;&quot;http://www.example.com/&quot;<br>
+#define&nbsp;MyAppExeName&nbsp;&quot;MyProg.exe&quot;<br>
+<br>
+[Setup]<br>
+;;NOTE:&nbsp;The&nbsp;value&nbsp;of&nbsp;AppId&nbsp;uniquely&nbsp;identifies&nbsp;this&nbsp;application.<br>
+;;Do&nbsp;not&nbsp;use&nbsp;the&nbsp;same&nbsp;AppId&nbsp;value&nbsp;in&nbsp;installers&nbsp;for&nbsp;other&nbsp;applications.<br>
+;;(To&nbsp;generate&nbsp;a&nbsp;new&nbsp;GUID,&nbsp;click&nbsp;Tools&nbsp;|&nbsp;Generate&nbsp;GUID&nbsp;inside&nbsp;the&nbsp;IDE.)<br>
+AppId={{753F2C1F-EA02-488E-A204-A047F1EFA0BC}<br>
+AppName={#MyAppName}<br>
+AppVerName={#MyAppVerName}<br>
+AppPublisher={#MyAppPublisher}<br>
+AppPublisherURL={#MyAppURL}<br>
+AppSupportURL={#MyAppURL}<br>
+AppUpdatesURL={#MyAppURL}<br>
+DefaultDirName={pf}\{#MyAppName}<br>
+DefaultGroupName={#MyAppName}<br>
+OutputBaseFilename=setup<br>
+Compression=lzma<br>
+SolidCompression=yes<br>
+<br>
+[Languages]<br>
+Name:&nbsp;english;&nbsp;MessagesFile:&nbsp;compiler:Default.isl<br>
+<br>
+[CustomMessages]<br>
+english.ProgressTitle=Searching<br>
+english.ProgressCaption=Searching&nbsp;for&nbsp;files<br>
+english.ProgressText=Searching&nbsp;for&nbsp;files...<br>
+<br>
+[Code]<br>
+var<br>
+ProgressPage:	TOutputProgressWizardPage;<br>
+ProgressValue:	Integer;<br>
+ArrayLen:		LongInt;<br>
+bExitSetup:		Boolean;<br>
+<br>
+procedure&nbsp;ProcessDirectory&nbsp;(RootDir:&nbsp;String;&nbsp;Progress:&nbsp;Boolean);<br>
+var<br>
+NewRoot:		String;<br>
+FilePath:		String;<br>
+FindRec:		TFindRec;<br>
+begin<br>
+if&nbsp;bExitSetup&nbsp;then<br>
+Exit;<br>
+NewRoot&nbsp;:=&nbsp;AddBackSlash&nbsp;(RootDir);<br>
+if&nbsp;FindFirst&nbsp;(NewRoot&nbsp;+&nbsp;'*',&nbsp;FindRec)&nbsp;then<br>
+begin<br>
+try<br>
+repeat<br>
+if&nbsp;(FindRec.Name&nbsp;&lt;&gt;&nbsp;'.')&nbsp;AND&nbsp;(FindRec.Name&nbsp;&lt;&gt;&nbsp;'..')&nbsp;then<br>
+begin<br>
+FilePath&nbsp;:=&nbsp;NewRoot&nbsp;+&nbsp;FindRec.Name;<br>
+if&nbsp;FindRec.Attributes&nbsp;AND&nbsp;FILE_ATTRIBUTE_DIRECTORY&nbsp;&gt;&nbsp;0&nbsp;then<br>
+ProcessDirectory&nbsp;(FilePath,&nbsp;Progress)<br>
+else<br>
+begin<br>
+///Start&nbsp;action&nbsp;--&gt;<br>
+///.<br>
+///Add&nbsp;your&nbsp;custom&nbsp;code&nbsp;here.<br>
+///FilePath&nbsp;contains&nbsp;the&nbsp;file&nbsp;name<br>
+///including&nbsp;its&nbsp;full&nbsp;path&nbsp;name.<br>
+///Try&nbsp;not&nbsp;to&nbsp;call&nbsp;a&nbsp;function&nbsp;for&nbsp;every&nbsp;file<br>
+///as&nbsp;this&nbsp;could&nbsp;take&nbsp;a&nbsp;very&nbsp;long&nbsp;time.<br>
+///.<br>
+///&lt;--&nbsp;End&nbsp;action.<br>
+ArrayLen&nbsp;:=&nbsp;ArrayLen&nbsp;+&nbsp;1;<br>
+if&nbsp;(Progress)&nbsp;then<br>
+begin<br>
+if&nbsp;(ArrayLen&nbsp;mod&nbsp;1000)&nbsp;=&nbsp;(ArrayLen&nbsp;/&nbsp;1000)&nbsp;then<br>
+begin<br>
+ProgressValue&nbsp;:=&nbsp;ProgressValue&nbsp;+&nbsp;1;<br>
+if&nbsp;ProgressValue&nbsp;=&nbsp;100&nbsp;then<br>
+ProgressValue&nbsp;:=&nbsp;0;<br>
+ProgressPage.SetProgress&nbsp;(ProgressValue,&nbsp;100);<br>
+end;<br>
+end;<br>
+end;<br>
+end;<br>
+if&nbsp;(bExitSetup)&nbsp;then<br>
+Exit;<br>
+until&nbsp;NOT&nbsp;FindNext&nbsp;(FindRec);<br>
+finally<br>
+FindClose(FindRec);<br>
+end;<br>
+end;<br>
+end;<br>
+<br>
+function&nbsp;MessageBox&nbsp;(hWnd:&nbsp;Integer;&nbsp;lpText,&nbsp;lpCaption:&nbsp;String;&nbsp;uType:&nbsp;Cardinal):&nbsp;Integer;<br>
+&nbsp;external&nbsp;'MessageBoxA@user32.dll&nbsp;stdcall';<br>
+<br>
+procedure&nbsp;CancelButtonClick&nbsp;(CurPageID:&nbsp;Integer;&nbsp;var&nbsp;Cancel,&nbsp;Confirm:&nbsp;Boolean);<br>
+begin<br>
+Confirm&nbsp;:=&nbsp;FALSE;<br>
+if&nbsp;(MessageBox&nbsp;(0,&nbsp;SetupMessage&nbsp;(msgExitSetupMessage),<br>
+SetupMessage&nbsp;(msgExitSetupTitle),&nbsp;4&nbsp;+&nbsp;32)&nbsp;=&nbsp;6)&nbsp;then<br>
+begin<br>
+bExitSetup&nbsp;:=&nbsp;TRUE;<br>
+end;<br>
+end;<br>
+<br>
+procedure&nbsp;CurStepChanged&nbsp;(CurStep:&nbsp;TSetupStep);<br>
+var<br>
+lI:			LongInt;<br>
+Dir:		String;<br>
+begin<br>
+if&nbsp;(CurStep&nbsp;=&nbsp;ssInstall)&nbsp;then<br>
+begin<br>
+///The&nbsp;folder&nbsp;to&nbsp;scan.<br>
+Dir&nbsp;:=&nbsp;'C:\';<br>
+///The&nbsp;progress&nbsp;page.<br>
+ProgressPage&nbsp;:=&nbsp;CreateOutputProgressPage&nbsp;(CustomMessage&nbsp;('ProgressTitle'),<br>
+CustomMessage&nbsp;('ProgressCaption'));<br>
+ProgressPage.SetText&nbsp;(CustomMessage&nbsp;('ProgressText'),&nbsp;Dir);<br>
+ProgressPage.SetProgress(0,&nbsp;0);<br>
+ProgressPage.Show;<br>
+///Make&nbsp;the&nbsp;Cancel&nbsp;button&nbsp;visible&nbsp;during&nbsp;the&nbsp;operation.<br>
+;WizardForm.CancelButton.Visible&nbsp;:=&nbsp;TRUE;<br>
+///Scan&nbsp;the&nbsp;folder.<br>
+ProcessDirectory&nbsp;(Dir,&nbsp;TRUE);<br>
+///Hide&nbsp;the&nbsp;progress&nbsp;page.<br>
+try<br>
+finally<br>
+ProgressPage.Hide;<br>
+end;<br>
+end;<br>
+end;<br>
+</font></blockquote><textarea id="taCode1" style="display:none;" rows="1" cols="5"></textarea><textarea id='taCode' style='display:none;' rows='1' cols='20'></textarea></code><script language="javascript" type="text/javascript">highlightSyntax('delphi_Tc4NTM','delphi');</script><br><div id="heading"><h1><font size="1" face="Consolas">Copyright (c) <a href="http://www.krinkels.org/" target="_blank">Krinkels Inc</a></font></h1></div></body></html>

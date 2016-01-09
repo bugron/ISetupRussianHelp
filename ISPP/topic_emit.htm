@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Inno Setup Preprocessor: #emit</title>
+<link rel="stylesheet" type="text/css" href="../styles.css" />
+<script type="text/javascript" src="../topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Inno Setup Preprocessor: #emit</h1>
+<div class="topicbody">
+  <h2 class="heading notopmargin">Синтатсис</h2>
+  <table>
+    <tbody>
+      <tr>
+        <td class="cellleft"><i>emit-directive:</i></td>
+        <td class="cellright">(<b>emit</b> | <b>=</b>) &lt;expr&gt;</td>
+      </tr>
+    </tbody>
+  </table>
+  <h2 class="heading">Описание</h2>
+  <p>Заменяет директиву со значением &lt;<tt>expr&gt;</tt>.</p>
+  <p>При встроенной использовании название этой директивы может быть опущен, если&nbsp;<tt>expr</tt> начинается с именем другого директивы.</p>
+  <h2 class="heading">Примеры</h2>
+  <p><tt>[Files]<br />
+    #emit 'Filename: &quot;file1.ext&quot;; DestDir: {' + MyDestDir + '}'<br />
+    Filename: &quot;file2.ext&quot;; DestDir: {{#MyDestDir}}<br />
+    #emit GenerateVisualCppFilesEntries ; user defined macro<br />
+    <br />
+    [Code]<br />
+    const<br />
+    &nbsp;&nbsp;AppName = '{#<a href="topic_setupsetting.htm">SetupSetting</a>(&quot;AppName&quot;)}';<br />
+  </tt></p>
+  <h2 class="heading">См. также</h2>
+  <p><tt><a href="topic_expr.htm">expr</a></tt>.</p>
+</div>
+</body>
+</html>

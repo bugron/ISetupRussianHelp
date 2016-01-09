@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Иконка вверху слева 2</title><link rel="stylesheet" type="text/css" href="css.css">
+<script language='jscript' type='text/javascript' src='copycode.js'></script>
+<script type="text/javascript" src="includer.js"></script></head><body><div id="heading"><h1>» Inno Setup Faq. Иконка вверху слева 2</h1></div><br>
+<script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM">
+<input type="button" value="Копировать в буфер обмена" onClick="copyToClipboard( taCode1, theCode1 );">
+<blockquote id="theCode1"><font>
+[Setup]<br>
+AppName=CheckFile<br>
+AppVerName=CheckFile<br>
+DefaultDirName={pf}\CheckFile<br>
+OutputDir=.<br>
+DirExistsWarning=no<br>
+<br>
+[Files]<br>
+Source:&nbsp;icon.ico;&nbsp;DestDir:&nbsp;{tmp};&nbsp;Flags:&nbsp;dontcopy<br>
+<br>
+[Code]<br>
+function&nbsp;LoadImage(hInst:&nbsp;THandle;&nbsp;ImageName:&nbsp;PChar;&nbsp;ImageType:&nbsp;UINT;&nbsp;X,&nbsp;Y:&nbsp;Integer;&nbsp;Flags:&nbsp;UINT):&nbsp;THandle;&nbsp;external&nbsp;'LoadImageA@user32.dll&nbsp;stdcall&nbsp;delayload';<br>
+<br>
+procedure&nbsp;InitializeWizard;<br>
+Begin<br>
+&nbsp;&nbsp;ExtractTemporaryFile('icon.ico');<br>
+&nbsp;&nbsp;SendMessage(WizardForm.Handle,&nbsp;$80,&nbsp;0,&nbsp;LoadImage(0,ExpandConstant('{tmp}')+'\icon.ico',1,16,16,$1010));<br>
+end;<br>
+</font></blockquote><textarea id="taCode1" style="display:none;" rows="1" cols="5"></textarea><textarea id='taCode' style='display:none;' rows='1' cols='20'></textarea></code><script language="javascript" type="text/javascript">highlightSyntax('delphi_Tc4NTM','delphi');</script><br><div id="heading"><h1><font size="1" face="Consolas">Copyright (c) <a href="http://www.krinkels.org/" target="_blank">Krinkels Inc</a></font></h1></div></body></html>

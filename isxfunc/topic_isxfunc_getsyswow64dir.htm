@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Pascal Scripting: GetSysWow64Dir</title>
+<link rel="stylesheet" type="text/css" href="../styles.css" />
+<script type="text/javascript" src="../topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Pascal Scripting: GetSysWow64Dir</h1>
+<div class="topicbody">
+  <div><b>Прототип:</b></div>
+  <p><tt>function GetSysWow64Dir: String;</tt></p>
+  <div><b>Описание:</b></div>
+  <p>Только для 64-битных Windows: возвращает полный путь папки SysWOW64. Это папка, в котором находятся 32-битные системные файлы. Возвращается пустая строка, если эта функция вызывается на 32-битной Windows, или если по какой-то причине не удается получить путь на 64-разрядной ОС Windows (что маловероятно).</p>
+  <div><b>Например:</b></div>
+  <pre>var
+  S: String;
+begin
+  S := GetSysWow64Dir;
+  // Must check the result -- an empty string is returned
+  // if there is no SysWOW64 directory.
+  if S &lt;&gt; '' then
+    MsgBox('SysWOW64 directory: ' + S, mbInformation, MB_OK)
+  else
+    MsgBox('There is no SysWOW64 directory.', mbInformation, MB_OK);
+end;</pre>
+</div>
+</body>
+</html>

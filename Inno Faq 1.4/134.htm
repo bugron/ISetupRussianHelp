@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Пример заднего фона</title><link rel="stylesheet" type="text/css" href="css.css">
+<script language='jscript' type='text/javascript' src='copycode.js'></script>
+<script type="text/javascript" src="includer.js"></script></head><body><div id="heading"><h1>» Inno Setup Faq. Пример заднего фона</h1></div><br>
+<script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM">
+<input type="button" value="Копировать в буфер обмена" onClick="copyToClipboard( taCode1, theCode1 );">
+<blockquote id="theCode1"><font>
+[Setup]<br>
+AppName=BackgroundImage<br>
+AppVerName=BackgroundImage<br>
+DefaultDirName={pf}\background<br>
+DefaultGroupName=background<br>
+OutputDir=C:\Output<br>
+Compression=lzma<br>
+SolidCompression=no<br>
+WindowVisible=no<br>
+<br>
+[Files]<br>
+Source:&nbsp;&quot;Background.bmp&quot;;&nbsp;DestDir:&nbsp;&quot;{tmp}&quot;;&nbsp;Flags:&nbsp;dontcopy<br>
+<br>
+[Code]<br>
+function&nbsp;GetSystemMetrics(nIndex:Integer):Integer;<br>
+external&nbsp;'GetSystemMetrics@user32.dll&nbsp;stdcall';<br>
+<br>
+procedure&nbsp;InitializeWizard();<br>
+var<br>
+&nbsp;&nbsp;width,height:&nbsp;Integer;<br>
+&nbsp;&nbsp;BackgroundBitmapImage:&nbsp;TBitmapImage;<br>
+&nbsp;&nbsp;s:&nbsp;string;<br>
+&nbsp;begin<br>
+&nbsp;ExtractTemporaryFile('background.bmp');<br>
+&nbsp;s:=ExpandConstant('{tmp}')+'\background.bmp';<br>
+&nbsp;WizardForm.Position:=poScreenCenter;<br>
+&nbsp;MainForm.BORDERSTYLE:=bsNone;<br>
+&nbsp;width:=GetSystemMetrics(0);<br>
+&nbsp;height:=GetSystemMetrics(1);<br>
+&nbsp;MainForm.Width:=width;<br>
+&nbsp;MainForm.Height:=height;<br>
+&nbsp;width:=MainForm.ClientWidth;<br>
+&nbsp;height:=MainForm.ClientHeight;<br>
+&nbsp;MainForm.Left&nbsp;:=&nbsp;0;<br>
+&nbsp;MainForm.Top&nbsp;:=&nbsp;0;<br>
+<br>
+&nbsp;BackgroundBitmapImage&nbsp;:=&nbsp;TBitmapImage.Create(MainForm);<br>
+&nbsp;BackgroundBitmapImage.Bitmap.LoadFromFile(s);<br>
+&nbsp;BackgroundBitmapImage.Align&nbsp;:=&nbsp;alClient;<br>
+&nbsp;BackgroundBitmapImage.Parent&nbsp;:=&nbsp;MainForm;<br>
+&nbsp;BackgroundBitmapImage.Stretch:=True;<br>
+&nbsp;MainForm.Visible:=True;<br>
+end;<br>
+</font></blockquote><textarea id="taCode1" style="display:none;" rows="1" cols="5"></textarea><textarea id='taCode' style='display:none;' rows='1' cols='20'></textarea></code><script language="javascript" type="text/javascript">highlightSyntax('delphi_Tc4NTM','delphi');</script><br><div id="heading"><h1><font size="1" face="Consolas">Copyright (c) <a href="http://www.krinkels.org/" target="_blank">Krinkels Inc</a></font></h1></div></body></html>

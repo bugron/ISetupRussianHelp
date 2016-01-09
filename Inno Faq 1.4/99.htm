@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Как добавить строку в текстовом файле</title><link rel="stylesheet" type="text/css" href="css.css">
+<script language='jscript' type='text/javascript' src='copycode.js'></script>
+<script type="text/javascript" src="includer.js"></script></head><body><div id="heading"><h1>» Inno Setup Faq. Как добавить строку в текстовом файле</h1></div><br>
+<script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM">
+<input type="button" value="Копировать в буфер обмена" onClick="copyToClipboard( taCode1, theCode1 );">
+<blockquote id="theCode1"><font>
+[Code]<br>
+///////////////////////////////////////////////////////////////////////////////<br>
+///&nbsp;Find&nbsp;given&nbsp;text&nbsp;in&nbsp;given&nbsp;file,&nbsp;and&nbsp;replace<br>
+///&nbsp;complete&nbsp;textline&nbsp;with&nbsp;given&nbsp;text.<br>
+///&nbsp;Created:&nbsp;March&nbsp;27,&nbsp;2002&nbsp;by&nbsp;S.T.I.Bracke<br>
+///&nbsp;Revised:&nbsp;May&nbsp;22,&nbsp;2002&nbsp;by&nbsp;S.T.I.Bracke<br>
+function&nbsp;ReplaceLine(strFilename,&nbsp;strFind,&nbsp;strNewLine:&nbsp;String):&nbsp;Boolean;<br>
+var<br>
+&nbsp;&nbsp;strTemp&nbsp;:&nbsp;String;<br>
+&nbsp;&nbsp;iLineCounter&nbsp;:&nbsp;Integer;<br>
+&nbsp;&nbsp;a_strTextfile&nbsp;:&nbsp;TArrayOfString;<br>
+<br>
+begin<br>
+&nbsp;&nbsp;{{Load&nbsp;textfile&nbsp;into&nbsp;string&nbsp;array}<br>
+&nbsp;&nbsp;LoadStringsFromFile(strFilename,&nbsp;a_strTextfile);<br>
+&nbsp;&nbsp;{{Search&nbsp;trough&nbsp;all&nbsp;textlines&nbsp;for&nbsp;given&nbsp;text}<br>
+&nbsp;&nbsp;///&nbsp;old&nbsp;line<br>
+&nbsp;&nbsp;///&nbsp;for&nbsp;iLineCounter&nbsp;:=&nbsp;1&nbsp;to&nbsp;High(a_strTextfile)&nbsp;do<br>
+&nbsp;&nbsp;///&nbsp;new&nbsp;line&nbsp;corrected&nbsp;by&nbsp;Nikolaus&nbsp;Moll<br>
+&nbsp;&nbsp;for&nbsp;iLineCounter&nbsp;:=&nbsp;0&nbsp;to&nbsp;GetArrayLength(a_strTextfile)-1&nbsp;do<br>
+&nbsp;&nbsp;&nbsp;&nbsp;begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{&nbsp;Overwrite&nbsp;textline&nbsp;when&nbsp;text&nbsp;searched&nbsp;for&nbsp;is&nbsp;part&nbsp;of&nbsp;it}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(Pos(strFind,&nbsp;a_strTextfile[iLineCounter])&nbsp;&gt;&nbsp;0)&nbsp;then<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a_strTextfile[iLineCounter]&nbsp;:=&nbsp;strNewLine;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;end;<br>
+&nbsp;&nbsp;{{Save&nbsp;string&nbsp;array&nbsp;to&nbsp;textfile&nbsp;(overwrite,&nbsp;no&nbsp;append!)}<br>
+&nbsp;&nbsp;SaveStringsToFile(strFilename,&nbsp;a_strTextfile,&nbsp;False);<br>
+&nbsp;&nbsp;Result&nbsp;:=&nbsp;True;<br>
+end;<br>
+</font></blockquote><textarea id="taCode1" style="display:none;" rows="1" cols="5"></textarea><textarea id='taCode' style='display:none;' rows='1' cols='20'></textarea></code><script language="javascript" type="text/javascript">highlightSyntax('delphi_Tc4NTM','delphi');</script><br><div id="heading"><h1><font size="1" face="Consolas">Copyright (c) <a href="http://www.krinkels.org/" target="_blank">Krinkels Inc</a></font></h1></div></body></html>

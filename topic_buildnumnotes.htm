@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Использование номера сборки и/или пакета обновления</title>
+<!--[if IE 6]><style type="text/css">html{overflow-y:scroll}</style><![endif]-->
+<link rel="stylesheet" type="text/css" href="styles.css" />
+<script type="text/javascript" src="topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Использование номера сборки и/или пакета обновления</h1>
+<div class="topicbody">
+  <p>Версии системы, определенные в <tt>MinVersion</tt> и <tt>OnlyBelowVersion,</tt> могут дополнительно включать версии пакета обновления и/или номера сборки системы.</p>
+  <div class="examplebox">
+    <div class="exampleheader">Примеры:</div>
+    <pre class="nomargin">5.0.2195<br />5.0sp4<br />5.0.2195sp4<br /></pre>
+  </div>
+  <p>Если номер сборки не будет определен или будет нулем, то инсталлятор не проверит его.</p>
+  <p>Если уровень пакета обновления не будет определен или будет нулем, то инсталлятор не проверит уровень пакета обновления системы.</p>
+  <p>Если номер пакета обновления определен, инсталлятор сравнит только его с версией пакета обновления системы, если указанные основные и вспомогательные версии будут соответствовать версии системы. Например, если <tt>MinVersion</tt> определяет <tt>5.0sp4</tt>, инсталлятор только проверит SP4 на системе Windows 2000 (5.0).</p>
+  <p>В параметре <tt>OnlyBelowVersion</tt>, если указанная версия будет соответствовать версии системы, то инсталлятор будет полагать, что версия системы слишком высока. Однако когда версия пакета обновления определена, указанная версия должна соответствовать версии системы. Например, на Windows 2000 SP4, значения&nbsp;<tt>OnlyBelowVersion</tt> <tt>5.0</tt> и <tt>5.0.2195</tt> не сработают, но <tt>5.0sp5</tt> и <tt>5.0.2195sp5</tt> пройдут (так как SP4 &lt; SP5).</p>
+</div>
+</body>
+</html>

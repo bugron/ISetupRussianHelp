@@ -1,0 +1,155 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Секция [Icons]</title>
+<!--[if IE 6]><style type="text/css">html{overflow-y:scroll}</style><![endif]-->
+<link rel="stylesheet" type="text/css" href="styles.css" />
+<script type="text/javascript" src="topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Секция [Icons]</h1>
+<div class="topicbody">
+  <p>Это не обязательная секция. Она определяет ярлыки, которые инсталлятор создаст в меню Пуск, рабочем столе и т.д.</p>
+  <p>Пример секции <tt>[Icons]</tt>:</p>
+  <pre class="indent examplebox">[Icons]<br />Name: &quot;{group}\My Program&quot;; Filename: &quot;{app}\MYPROG.EXE&quot;; WorkingDir: &quot;{app}&quot;<br />Name: &quot;{group}\Uninstall My Program&quot;; Filename: &quot;{uninstallexe}&quot;</pre>
+  <p>Список поддерживаемых <a href="topic_params.htm">параметров</a>:</p>
+  <dl>
+    <dt class="paramlist"><b><a name="Name" id="Name">Name</a></b> &nbsp;<i>(Обязательно)</i></dt>
+    <dd class="paramlist">
+      <p>Имя и расположение создаваемого ярлыка. Может содержать константы.</p>
+      <p>Помните, что ярлыки сохраняются как символьные файлы, поэтому символы, не поддерживаемые в именах файлов, не могут использоваться. Также из-за невозможности существования двух файлов с одинаковым именем невозможно создание двух ярлыков с одинаковым именем.</p>
+      <div class="examplebox">
+        <div class="exampleheader">Например:</div>
+        <pre class="nomargin">Name: &quot;{group}\My Program&quot;<br />Name: &quot;{group}\Subfolder\My Program&quot;<br />Name: &quot;{commondesktop}\My Program&quot;<br />Name: &quot;{commonprograms}\My Program&quot;<br />Name: &quot;{commonstartup}\My Program&quot;</pre>
+      </div>
+    </dd>
+    <dt class="paramlist"><b><a name="Filename" id="Filename">Filename</a></b> &nbsp;<i>(Обязательно)</i></dt>
+    <dd class="paramlist">
+      <p>Полный путь к файлу, на который указывает ярлык (или просто имя файла). Обычно начинается с константы.</p>
+      <p>Вместо имен файлов могут также быть заданы URL адреса. Когда URL адрес будет определен, инсталлятор создаст &quot;интернет-ярлык&quot; (.url) файл, и проигнорирует параметры <tt>Parameters</tt>, <tt>WorkingDir</tt>, <tt>HotKey</tt> и <tt>Comment</tt>.</p>
+      <p>В 64-битном Windows, константа <tt>{sys}</tt> указывает на 64-разрядную папку System, когда ярлык запускается 64-разрядным процессом, таким как Проводник. Чтобы создать ярлык, который указывает на 32-разрядную папку System, вместо <tt>{sys}</tt> используйте <tt>{syswow64}</tt>. Это справедливо независимо от работы инсталлятора в <a href="topic_32vs64bitinstalls.htm">64-битном режиме</a>. (То же самое применяется к параметрам <tt>WorkingDir</tt> и <tt>IconFilename</tt>.)</p>
+      <div class="examplebox">
+        <div class="exampleheader">Например:</div>
+        <pre class="nomargin">Filename: &quot;{app}\MYPROG.EXE&quot;<br />Filename: &quot;{uninstallexe}&quot;<br />Filename: &quot;{app}\FolderName&quot;<br />Filename: &quot;http://www.example.com/&quot;</pre>
+      </div>
+    </dd>
+    <dt class="paramlist"><b><a name="Parameters" id="Parameters">Parameters</a></b></dt>
+    <dd class="paramlist">
+      <p>Параметры командной строки для ярлыка. Могут содержать константы</p>
+      <div class="examplebox">
+        <div class="exampleheader">Например:</div>
+        <pre class="nomargin">Parameters: &quot;/play filename.mid&quot;</pre>
+      </div>
+    </dd>
+    <dt class="paramlist"><b><a name="WorkingDir" id="WorkingDir">WorkingDir</a></b></dt>
+    <dd class="paramlist">
+      <p>Рабочая (или начальная) папка ярлыка - папка, из которой запускается программа. Параметр может содержать константы.</p>
+      <p>Если этот параметр не указан или пустой, инсталлятор попытается извлечь путь из парамертра <tt>Filename</tt>. Если это сделать не удастся, рабочая папка ярлыка будет установлена в значение константы<tt>{sys}</tt>.</p>
+      <div class="examplebox">
+        <div class="exampleheader">Например:</div>
+        <pre class="nomargin">WorkingDir: &quot;{app}&quot;</pre>
+      </div>
+    </dd>
+    <dt class="paramlist"><b><a name="HotKey" id="HotKey">HotKey</a></b></dt>
+    <dd class="paramlist">
+      <p>&quot;Горячие клавиши&quot; для ярлыка, представляющие собой сочетания клавиш, с помощью которых можно запустить программу.</p>
+      <p>Обратите внимание: если вы измените горячие клавиши для ярлыка и затем переустановите приложение, Windows может продолжит опознавать старые комбинации до тех пор, пока вы не выйдете из системы или не перезагрузите компьютер.</p>
+      <div class="examplebox">
+        <div class="exampleheader">Например:</div>
+        <pre class="nomargin">HotKey: &quot;ctrl+alt+k&quot;</pre>
+      </div>
+    </dd>
+    <dt class="paramlist"><b><a name="Comment" id="Comment">Comment</a></b></dt>
+    <dd class="paramlist">
+      <p>Задает <i>комментарий</i> (или описание) для ярлыка, который представляет собой &quot;всплывающую&quot; подсказку. Параметр может содержать константы.</p>
+      <div class="examplebox">
+        <div class="exampleheader">Например:</div>
+        <pre class="nomargin">Comment: &quot;This is my program&quot;</pre>
+      </div>
+    </dd>
+    <dt class="paramlist"><b><a name="IconFilename" id="IconFilename">IconFilename</a></b></dt>
+    <dd class="paramlist">
+      <p>Имя файла иконки (расположенной в системе пользователя). Это может быть файл с расширением .exe или .dll, содержащий иконки, или файл .ico. Если этот параметр не указан или пустой, Windows будет использовать иконку, выбранную по умолчанию. Параметр может содержать константы.</p>
+      <div class="examplebox">
+        <div class="exampleheader">Например:</div>
+        <pre class="nomargin">IconFilename: &quot;{app}\myicon.ico&quot;</pre>
+      </div>
+      <p>Примечание: если инсталлятор запущен в 64-битном Windows, он автоматически заменит<tt>{pf32}\</tt> на '%ProgramFiles(x86)%\', чтобы обойти ошибку в 64-битной Windows: 64-битный Windows заменяет <tt>{pf32}\</tt> на '%ProgramFiles%\', что является некорректным.</p>
+    </dd>
+    <dt class="paramlist"><b><a name="IconIndex" id="IconIndex">IconIndex</a></b></dt>
+    <dd class="paramlist">
+      <p>Нулевой индекс иконки, используемый в файле <tt>IconFilename</tt>. Значение по умолчанию - <tt>0</tt>.</p>
+      <p>Если значение <tt>IconIndex</tt> ненулевой и <tt>IconFilename</tt> не указан или пустой, <tt>IconFilename</tt> присвоится то же значение, что и <tt>Filename</tt>.</p>
+      <div class="examplebox">
+        <div class="exampleheader">Например:</div>
+        <pre class="nomargin">IconIndex: 0</pre>
+      </div>
+    </dd>
+    <dt class="paramlist"><b><a name="AppUserModelID" id="AppUserModelID">AppUserModelID</a></b></dt>
+    <dd class="paramlist">
+      <p>Определяет ID Windows 7 пользовательской модели приложения для ярлыка. Игнорируется в более ранних версиях Windows. Этот параметр может содержать константы.</p>
+      <div class="examplebox">
+        <div class="exampleheader">Например:</div>
+        <pre class="nomargin">AppUserModelID: &quot;MyCompany.MyProg&quot;</pre>
+      </div>
+    </dd>
+    <dt class="paramlist"><b><a name="Flags" id="Flags">Flags</a></b></dt>
+    <dd class="paramlist">
+      <p>Параметры для установки дополнительных опций. Разделяются пробелами. Поддерживаемые значения:</p>
+      <dl>
+        <dt class="flaglist"><a name="closeonexit" id="closeonexit">closeonexit</a></dt>
+        <dd>
+          <p>Если этот флаг установлен, инсталлятор задаст  свойство &quot;Закрыть при выходе&quot; (&quot;Close on Exit&quot;) для ярлыка. Этот флаг будет работать, только если ярлык указывает на приложение MS-DOS (если оно имеет расширение .pif, которое является специфичным). Если при этом не указан флаг <tt>dontcloseonexit</tt>, инсталлятор не будет пытаться изменить свойство &quot;Закрыть при выходе&quot;.</p>
+        </dd>
+        <dt class="flaglist"><a name="createonlyiffileexists" id="createonlyiffileexists">createonlyiffileexists</a></dt>
+        <dd>
+          <p>Когда этот флаг установлен, инсталлятор попытается создать иконку только если заданный в параметре <tt>Filename</tt> файл существует.</p>
+        </dd>
+        <dt class="flaglist"><a name="dontcloseonexit" id="dontcloseonexit">dontcloseonexit</a></dt>
+        <dd>
+          <p>Похож на флаг <tt>closeonexit</tt>, только отменяет в инсталляторе проверку свойства &quot;Закрыть при выходе&quot;.</p>
+        </dd>
+        <dt class="flaglist"><a name="excludefromshowinnewinstall" id="excludefromshowinnewinstall">excludefromshowinnewinstall</a></dt>
+        <dd>
+          <p>Предотвращает выделение нового ярлыка в меню Пуск Windows 7 и автоматическоге закрепление на стартовом экране Windows 8 (или выше). Игнорируется в более ранних версиях Windows.</p>
+        </dd>
+        <dt class="flaglist"><a name="foldershortcut" id="foldershortcut">foldershortcut</a></dt>
+        <dd>
+          <p>Создает специальный ярлык - ярлык папки (&quot;Folder Shortcut&quot;). Обычно, если ярлык находится в меню Пуск, щелчок на нем открывает содержимое всей папки в новом окне. Использование флага <b>foldershortcut </b>дает возможность открыть содержимое папки не в отдельном окне, а как подменю.</p>
+          <p>Этот флаг игнорируется, если инсталлятор запущен в Windows 7 (или более поздней версии), так как ссылки на папки больше не расширяются правильно в меню Пуск. Пока не известно, является ли эта ошибкой Windows 7 или удаленной функцией.</p>
+          <p>При использовании этого флага в параметре <tt>Filename</tt> должно быть указано имя папки, а не файла. В противном случае будет создан неработающий ярлык.</p>
+        </dd>
+        <dt class="flaglist"><a name="preventpinning" id="preventpinning">preventpinning</a></dt>
+        <dd>
+          <p>Предотвращает закрепление ярлыка на панели задач или в меню Пуск в Windows 7 (или более поздней версии).  Также ярлык не будет включен в список наиболее часто используемых программ в меню Пуск. Игнорируется в более ранних версиях Windows.</p>
+        </dd>
+        <dt class="flaglist"><a name="runmaximized" id="runmaximized">runmaximized</a></dt>
+        <dd>
+          <p>Когда этот флаг установлен, инсталлятор устанавливает свойство окна &quot;Maximized&quot;, так что окно программы будет развернуто при старте установки.</p>
+        </dd>
+        <dt class="flaglist"><a name="runminimized" id="runminimized">runminimized</a></dt>
+        <dd>
+          <p>Когда этот флаг установлен, инсталлятор устанавливает свойство окна &quot;Minimized&quot;, так что окно программы будет свернуто при старте установки.</p>
+        </dd>
+        <dt class="flaglist"><a name="uninsneveruninstall" id="uninsneveruninstall">uninsneveruninstall</a></dt>
+        <dd>
+          <p>Указывает деинсталлятору не удалять иконку.</p>
+        </dd>
+        <dt class="flaglist"><a name="useapppaths" id="useapppaths">useapppaths</a></dt>
+        <dd>
+          <p>Когда этот флаг установлен, укажите только имя (без пути) в параметре <tt>Filename</tt>, а инсталлятор найдет путь в &quot;HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\AppPaths&quot; и присоединит его к имени файла автоматически.</p>
+        </dd>
+      </dl>
+      <div class="examplebox">
+        <div class="exampleheader">Например:</div>
+        <pre class="nomargin">Flags: runminimized</pre>
+      </div>
+    </dd>
+  </dl>
+  <p><b><a href="topic_componentstasksparams.htm">Параметры секций Сomponents и Tasks</a></b></p>
+  <p><b><a href="topic_commonparams.htm">Общие параметры</a></b></p>
+</div>
+</body>
+</html>

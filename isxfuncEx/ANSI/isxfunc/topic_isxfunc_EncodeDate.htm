@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Pascal Scripting Extended: EncodeDate</title>
+<link rel="stylesheet" type="text/css" href="../../../styles.css" />
+<script type="text/javascript" src="../../../topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Pascal Scripting Extended: EncodeDate</h1>
+<div class="topicbody">
+  <div><b>Прототип:</b></div>
+  <p><tt>function EncodeDate(Year, Month, Day: Word): TDateTime;</tt></p>
+  <div><b>Описание:</b></div>
+  Функция EncodeDate генерирует TDateTime, возвращая значение из переданных значений Года (Year), Месяца (Month) и Дня (Day).<br />
+  Разрешенные значения параметра:<br />
+  <br />
+  Year = 0..9999 <br />
+  Month = 1..12<br />
+  Day = 1..31 (в зависимости от месяца/года)<br />
+  <br />
+  Если Вы превысите эти значения, то подниметя EConvertError.<br />
+  <div><b>Пример:</b></div>
+  <p><tt>var<br />
+    &nbsp;myDate : TDateTime;<br />
+    <br />
+    begin<br />
+    // Устанавливаем мою переменную даты используя функцию EncodeDate<br />
+    &nbsp;myDate := EncodeDate(2000, 02, 29);<br />
+    <br />
+    &nbsp;LongTimeFormat := 'hh:mm:ss.zzz'; // Гарантируем, что Миллисекунды будут показаны<br />
+    <br />
+    &nbsp;ShowMessage('Дата установлена в '+DateToStr(myDate));<br />
+    &nbsp;ShowMessage('Время установлено в '+TimeToStr(myDate));<br />
+    end; <br />
+    <br />
+    <br />
+    &nbsp;Дата установлена в 29/02/2007<br />
+    &nbsp;Время установлено в 00:00:00.000</tt></p>
+</div>
+</body>
+</html>

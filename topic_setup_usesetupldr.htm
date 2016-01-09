@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>[Setup]: UseSetupLdr</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="IE=8" http-equiv="X-UA-Compatible">
+<link rel="stylesheet" type="text/css" href="styles.css">
+<script type="text/javascript" src="topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">[Setup]: UseSetupLdr</h1>
+<div class="topicbody">
+  <table class="setuphdr">
+    <tbody>
+      <tr>
+        <td class="setuphdrl"><p>Возможные значения:</p></td>
+        <td class="setuphdrr"><div class="margined"><a href="topic_yesnonotes.htm"><tt>yes</tt> или <tt>no</tt></a></div></td>
+      </tr>
+      <tr>
+        <td class="setuphdrl"><p>Значение по умолчанию:</p></td>
+        <td class="setuphdrr"><div class="margined"><tt>yes</tt></div></td>
+      </tr>
+    </tbody>
+  </table>
+  <div><b>Описание:</b></div>
+  <p>Определяет тип установочной комплектации. При значении <tt>yes</tt>, все нужные файлы (и устанавливаемые в том числе) сжимаются в SETUP.EXE (вы сможете его переименовать). При значении <tt>no</tt>, создается как минимум три файла: SETUP.EXE, SETUP.0 и SETUP-1.BIN. Используется значение <tt>no</tt> <b>только</b> в случае отключения компонентов.</p>
+  <p><i>Обратите внимание:</i> <tt>UseSetupLdr=no</tt> не используется при разбиении на диски (<tt>DiskSpanning=yes</tt>). При <tt>UseSetupLdr</tt>=<tt>yes</tt> программа установки копируется и запускается из временной папки TEMP. Если же <tt>UseSetupLdr</tt>=<tt>no</tt>, это может вызвать ошибки, если Windows попытается найти файл setup.exe на диске и не найдет его, потому что будет вставлен другой диск.</p>
+  <p>Также <tt>UseSetupLdr=no</tt> не используется, чтобы избежать задержек запуска проверки цифровой подписи большого инсталлятора, вместо этого используйте разбиение на диски. См. <a href="topic_setup_signtool.htm">SignTool</a> для получения дополнительной информации. Если <tt>UseSetupLdr=no</tt>, то цифровая подпись для деинсталлятора будет недопустима.</p>
+</div>
+</body>
+</html>

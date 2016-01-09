@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Pascal Scripting: ShowExceptionMessage</title>
+<link rel="stylesheet" type="text/css" href="../styles.css" />
+<script type="text/javascript" src="../topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Pascal Scripting: ShowExceptionMessage</h1>
+<div class="topicbody">
+  <div><b>Прототип:</b></div>
+  <p><tt>procedure ShowExceptionMessage;</tt></p>
+  <div><b>Описание:</b></div>
+  <p>Выводит на экран сообщение, ассоциированное с текущим исключением с помощью message box. Эта функция должна быть вызвана только изнутри секции <tt>except</tt>, или функцией, вызванной из секции <tt>except</tt>.</p>
+  <div><b>Комментарии:</b></div>
+  <p>Если ведение журнала (logging) включено (через параметр командной строки <a href="../topic_setupcmdline.htm">/LOG</a> или директивой <a href="../topic_setup_setuplogging.htm">SetupLogging</a> секции [Setup]) сообщение будет выведено на экран и записано в журнале.</p>
+  <div><b>Например:</b></div>
+  <pre>var<br />  I: Integer;<br />begin<br />  I := 1;<br />  try<br />    // The following line will raise a &quot;Division by zero&quot; exception<br />    I := I div 0;<br />  except<br />    // Catch the exception, show it, and continue<br />    ShowExceptionMessage;<br />  end;<br />end;</pre>
+</div>
+</body>
+</html>

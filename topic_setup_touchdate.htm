@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>[Setup]: TouchDate</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="IE=8" http-equiv="X-UA-Compatible">
+<link rel="stylesheet" type="text/css" href="styles.css">
+<script type="text/javascript" src="topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">[Setup]: TouchDate</h1>
+<div class="topicbody">
+  <table class="setuphdr">
+    <tbody>
+      <tr>
+        <td class="setuphdrl"><p>Возможные значения:</p></td>
+        <td class="setuphdrr"><div class="margined"><tt>current</tt>, <tt>none</tt>, или <tt><i>YYYY</i>-<i>MM</i>-<i>DD</i></tt></div></td>
+      </tr>
+      <tr>
+        <td class="setuphdrl"><p>Значение по умолчанию:</p></td>
+        <td class="setuphdrr"><div class="margined"><tt>current</tt></div></td>
+      </tr>
+    </tbody>
+  </table>
+  <div><b>Описание:</b></div>
+  <p>Дата используется в отметке даты/времени для файлов секции [Files] и имеющих флаг <tt>touch</tt>.</p>
+  <p>При значении <tt>current</tt> дата равна системной дате (во время компиляции). При значении <tt>none</tt> дата оставляется не тронутой. Иначе <tt>TouchDate</tt> толкуется открыто в формате <tt><i>YYYY</i>-<i>MM</i>-<i>DD</i></tt> (ISO 8601). Если <a href="topic_setup_timestampsinutc.htm">TimeStampsInUTC</a>=<tt>yes</tt>, дата принимает значение UTC-даты.</p>
+  <div class="examplebox">
+    <div class="exampleheader">Например:</div>
+    <pre class="nomargin">TouchDate=2004-01-31</pre>
+  </div>
+</div>
+</body>
+</html>

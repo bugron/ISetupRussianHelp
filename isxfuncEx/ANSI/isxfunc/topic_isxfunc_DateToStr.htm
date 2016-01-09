@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Pascal Scripting Extended: DateToStr</title>
+<link rel="stylesheet" type="text/css" href="../../../styles.css" />
+<script type="text/javascript" src="../../../topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Pascal Scripting Extended: DateToStr</h1>
+<div class="topicbody">
+  <div><b>Прототип:</b></div>
+  <p><tt>function DateToStr(Date: TDateTime): String;</tt></p>
+  <div><b>Описание:</b></div>
+  Функция DateToStr конвертирует значение даты TDateTime в строку. <br />
+  Дата форматируется с использованием значения ShortDateFormat, которое в свою очередь использует значение DateSeparator. <br />
+  Версия 2 этой функции - для использования в пределах потоков. Вы заполняете запись FormatSettings перед вызовом запроса. Она получает локальную копию глобальной форматирующей переменной, которая делает вашу подпрограмму потоко безопасной.<br />
+  <br />
+  <div><b>Пример:</b></div>
+  <p><tt>var<br />
+    &nbsp;myDate : TDateTime;<br />
+    <br />
+    begin<br />
+    &nbsp;myDate := StrToDateTime('09/02/2002 12:00');<br />
+    &nbsp;ShowMessage('Середина дня = '+DateTimeToStr(myDate));<br />
+    <br />
+    &nbsp;myDate := StrToDateTime('09/02/2002 00:00');<br />
+    &nbsp;ShowMessage('Начало дня = '+DateTimeToStr(myDate));<br />
+    end; <br />
+    <br />
+    <br />
+    &nbsp;Середина дня = 09/02/2002 12:00:00<br />
+    &nbsp;Начало дня = 09/02/2002</tt></p>
+</div>
+</body>
+</html>

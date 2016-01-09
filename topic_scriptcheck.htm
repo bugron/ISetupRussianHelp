@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Pascal Scripting: Параметр Check</title>
+<!--[if IE 6]><style type="text/css">html{overflow-y:scroll}</style><![endif]-->
+<link rel="stylesheet" type="text/css" href="styles.css" />
+<script type="text/javascript" src="topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Pascal Scripting: Параметр Check</h1>
+<div class="topicbody">
+  <p>Существует один необязательный <a href="topic_params.htm">параметр</a>, поддерживаемый всеми секциями, содержащие параметры. Это:</p>
+  <dl>
+    <dt class="paramlist"><b><a name="Check" id="Check">Check</a></b></dt>
+    <dd class="paramlist">
+      <p>Имя проверочной функции, которая определяет, должен быть применен параметр или нет. Эта функция должна быть либо описана в секции [Code], либо быть <a href="topic_scriptfunctions.htm">встроенной функцией</a>.</p>
+      <p>Кроме простого имени можно использовать логические выражения. Для справки обратитесь к разделу <a href="topic_componentstasksparams.htm">Параметры секций [Components] и [Tasks]</a>.</p>
+      <p>Для каждой check-функции можно добавить список параметров, разделенных запятыми, которые инсталлятор должен предоставить check-функции. Допустимые типы параметров: строковый (String), целочисленный (Integer) и логический (Boolean). Строковые параметры могут содержать константы. These constants will not be automatically expanded. If you want to pass an expanded constant, существует одна <a href="topic_scriptfunctions.htm">встроенная функция</a>, которую можно добавлять в список параметров: это <tt>ExpandConstant</tt>.</p>
+      <div class="examplebox">
+        <div class="exampleheader">Например:</div>
+        <pre class="nomargin">[Files]<br />Source: &quot;MYPROG.EXE&quot;; DestDir: &quot;{app}&quot;; Check: MyProgCheck<br />Source: &quot;A\MYFILE.TXT&quot;; DestDir: &quot;{app}&quot;; Check: MyDirCheck(ExpandConstant('{app}\A'))<br />Source: &quot;B\MYFILE.TXT&quot;; DestDir: &quot;{app}&quot;; Check: DirExists(ExpandConstant('{app}\B'))</pre>
+      </div>
+    </dd>
+  </dl>
+  <p>Все check-функции должны возвращать значение типа Boolean. Если check-функция (или логическое выражение) возвращает True, значение будет применено, иначе будет пропущено.</p>
+  <p>Инсталлятор может вызывать каждую check-функцию по несколько раз, даже если только одно значение использует эту check-функцию. Если ваша функция выполняет длинный сегмент кода, можно оптимизировать ее - выполнив  однажды и присвоив полученное значение глобальной переменной.</p>
+  <p>Check-функция не вызывается для значения, для которого инсталлятор уже определил, что не будет его применять.</p>
+  <p>Данная функция вызывается однажды для каждого файла секции [Files], совподающего с <span id="result_box" lang="ru" xml:lang="ru">подстановочным знак</span>ом. Используйте <tt>CurrentFileName</tt>, чтобы проверить для какого файла была вызвана функция.</p>
+  <p>Пример секции [Code], содержащей проверочные функции (check-функции). Функция <tt>DirExists</tt> является <a href="topic_scriptfunctions.htm">встроенной функцией</a>, поэтому не описана в секции [Code].</p>
+  <pre class="indent examplebox">[Code]<br />var<br />  MyProgChecked: Boolean;<br />  MyProgCheckResult: Boolean;<br /><br />function MyProgCheck(): Boolean;<br />begin<br />  if not MyProgChecked then begin<br />    MyProgCheckResult := MsgBox('Do you want to install MyProg.exe to ' + ExtractFilePath(CurrentFileName) + '?', mbConfirmation, MB_YESNO) = idYes;<br />    MyProgChecked := True;<br />  end;<br />  Result := MyProgCheckResult;<br />end;<br /><br />function MyDirCheck(DirName: String): Boolean;<br />begin<br />  Result := DirExists(DirName);<br />end;</pre>
+</div>
+</body>
+</html>

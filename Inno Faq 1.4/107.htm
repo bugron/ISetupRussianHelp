@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Как обнаружить первый дисковод в системе</title><link rel="stylesheet" type="text/css" href="css.css">
+<script language='jscript' type='text/javascript' src='copycode.js'></script>
+<script type="text/javascript" src="includer.js"></script></head><body><div id="heading"><h1>» Inno Setup Faq. Как обнаружить первый дисковод в системе</h1></div><br>
+<script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM">
+<input type="button" value="Копировать в буфер обмена" onClick="copyToClipboard( taCode1, theCode1 );">
+<blockquote id="theCode1"><font>
+#ifdef&nbsp;UNICODE<br>
+#define&nbsp;A&nbsp;&quot;W&quot;<br>
+#else<br>
+#define&nbsp;A&nbsp;&quot;A&quot;<br>
+#endif<br>
+<br>
+[Setup]<br>
+AppName=FirstCD<br>
+AppVerName=FirstCD<br>
+Uninstallable=false<br>
+UpdateUninstallLogAppName=false<br>
+DisableDirPage=true<br>
+DisableProgramGroupPage=true<br>
+DefaultDirName={pf}\FirstCD<br>
+DisableStartupPrompt=true<br>
+<br>
+[Code]<br>
+function&nbsp;GetDriveType(lpDisk:&nbsp;String):&nbsp;Integer;<br>
+external&nbsp;'GetDriveType{#A}@kernel32.dll&nbsp;stdcall';<br>
+<br>
+function&nbsp;GetLogicalDriveStrings(nLenDrives:&nbsp;LongInt;&nbsp;lpDrives:&nbsp;String):&nbsp;Integer;<br>
+external&nbsp;'GetLogicalDriveStrings{#A}@kernel32.dll&nbsp;stdcall';<br>
+<br>
+const<br>
+&nbsp;&nbsp;DRIVE_UNKNOWN&nbsp;=&nbsp;0;&nbsp;///The&nbsp;drive&nbsp;type&nbsp;cannot&nbsp;be&nbsp;determined.<br>
+&nbsp;&nbsp;DRIVE_NO_ROOT_DIR&nbsp;=&nbsp;1;&nbsp;///The&nbsp;root&nbsp;path&nbsp;is&nbsp;invalid.&nbsp;For&nbsp;example,&nbsp;no&nbsp;volume&nbsp;is&nbsp;mounted&nbsp;at&nbsp;the&nbsp;path.<br>
+&nbsp;&nbsp;DRIVE_REMOVABLE&nbsp;=&nbsp;2;&nbsp;///The&nbsp;disk&nbsp;can&nbsp;be&nbsp;removed&nbsp;from&nbsp;the&nbsp;drive.<br>
+&nbsp;&nbsp;DRIVE_FIXED&nbsp;=&nbsp;3;&nbsp;///The&nbsp;disk&nbsp;cannot&nbsp;be&nbsp;removed&nbsp;from&nbsp;the&nbsp;drive.<br>
+&nbsp;&nbsp;DRIVE_REMOTE&nbsp;=&nbsp;4;&nbsp;///The&nbsp;drive&nbsp;is&nbsp;a&nbsp;remote&nbsp;(network)&nbsp;drive.<br>
+&nbsp;&nbsp;DRIVE_CDROM&nbsp;=&nbsp;5;&nbsp;///The&nbsp;drive&nbsp;is&nbsp;a&nbsp;CD-ROM&nbsp;drive.<br>
+&nbsp;&nbsp;DRIVE_RAMDISK&nbsp;=&nbsp;6;&nbsp;///The&nbsp;drive&nbsp;is&nbsp;a&nbsp;RAM&nbsp;disk.<br>
+<br>
+function&nbsp;GetFirstCD():&nbsp;String;<br>
+var&nbsp;disktype,&nbsp;posnull:&nbsp;Integer;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;drivesletters:&nbsp;String;&nbsp;lenletters:&nbsp;Integer;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;drive:&nbsp;String;&nbsp;found&nbsp;:&nbsp;Boolean;<br>
+begin<br>
+&nbsp;&nbsp;///get&nbsp;all&nbsp;drives&nbsp;letters&nbsp;of&nbsp;system<br>
+&nbsp;&nbsp;drivesletters&nbsp;:=&nbsp;StringOfChar('&nbsp;',&nbsp;64);<br>
+&nbsp;&nbsp;lenletters&nbsp;:=&nbsp;GetLogicalDriveStrings(63,&nbsp;drivesletters);<br>
+&nbsp;&nbsp;SetLength(drivesletters&nbsp;,&nbsp;lenletters);<br>
+&nbsp;&nbsp;found&nbsp;:=&nbsp;false;&nbsp;drive&nbsp;:=&nbsp;'';<br>
+&nbsp;&nbsp;while&nbsp;((Length(drivesletters)&nbsp;&gt;&nbsp;0)&nbsp;and&nbsp;not&nbsp;found)&nbsp;do<br>
+&nbsp;&nbsp;begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;posnull&nbsp;:=&nbsp;Pos(#0,&nbsp;drivesletters);<br>
+&nbsp;&nbsp;	if&nbsp;posnull&nbsp;&gt;&nbsp;0&nbsp;then<br>
+&nbsp;&nbsp;	begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;drive:=&nbsp;Copy(drivesletters,&nbsp;1,&nbsp;posnull&nbsp;-&nbsp;1);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;///get&nbsp;number&nbsp;type&nbsp;of&nbsp;disk<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;disktype&nbsp;:=&nbsp;GetDriveType(drive);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;found&nbsp;:=&nbsp;(disktype&nbsp;=&nbsp;DRIVE_CDROM);<br>
+&nbsp;&nbsp;	&nbsp;&nbsp;drivesletters&nbsp;:=&nbsp;Copy(drivesletters,&nbsp;posnull+1,&nbsp;Length(drivesletters));<br>
+&nbsp;&nbsp;	end<br>
+&nbsp;&nbsp;end;<br>
+&nbsp;&nbsp;if&nbsp;found&nbsp;then<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Result&nbsp;:=&nbsp;drive<br>
+&nbsp;&nbsp;else<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Result&nbsp;:=&nbsp;'';<br>
+end;<br>
+<br>
+function&nbsp;InitializeSetup():&nbsp;Boolean;<br>
+var&nbsp;firstcd:&nbsp;String;<br>
+begin<br>
+&nbsp;&nbsp;firstcd&nbsp;:=&nbsp;GetFirstCD();<br>
+&nbsp;&nbsp;///go&nbsp;on&nbsp;with&nbsp;setup&nbsp;only&nbsp;if&nbsp;I&nbsp;found&nbsp;a&nbsp;CD-ROM<br>
+&nbsp;&nbsp;Result&nbsp;:=&nbsp;Length(firstcd)&nbsp;&gt;&nbsp;0;<br>
+&nbsp;&nbsp;if&nbsp;Result&nbsp;then<br>
+&nbsp;&nbsp;&nbsp;&nbsp;MsgBox(Format('First&nbsp;CD-ROM&nbsp;is&nbsp;%s',&nbsp;[Uppercase(firstcd)]),&nbsp;mbInformation,&nbsp;MB_OK)<br>
+&nbsp;&nbsp;else<br>
+&nbsp;&nbsp;&nbsp;&nbsp;MsgBox('System&nbsp;has&nbsp;not&nbsp;CD-ROM.',&nbsp;mbInformation,&nbsp;MB_OK)<br>
+end;<br>
+
+</font></blockquote><textarea id="taCode1" style="display:none;" rows="1" cols="5"></textarea><textarea id='taCode' style='display:none;' rows='1' cols='20'></textarea></code><script language="javascript" type="text/javascript">highlightSyntax('delphi_Tc4NTM','delphi');</script><br><div id="heading"><h1><font size="1" face="Consolas">Copyright (c) <a href="http://www.krinkels.org/" target="_blank">Krinkels Inc</a></font></h1></div></body></html>

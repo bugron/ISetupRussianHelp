@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Форма инсталла поверх остальных</title><link rel="stylesheet" type="text/css" href="css.css">
+<script language='jscript' type='text/javascript' src='copycode.js'></script>
+<script type="text/javascript" src="includer.js"></script></head><body><div id="heading"><h1>» Inno Setup Faq. Форма инсталла поверх остальных</h1></div><br>
+<script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM">
+<input type="button" value="Копировать в буфер обмена" onClick="copyToClipboard( taCode1, theCode1 );">
+<blockquote id="theCode1"><font>
+[Setup]<br>
+AppName=My&nbsp;Program<br>
+AppVerName=My&nbsp;Program&nbsp;v.1.2<br>
+DefaultDirName={pf}\My&nbsp;Program<br>
+<br>
+<br>
+[Code]<br>
+procedure&nbsp;InitializeWizard();<br>
+begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;WizardForm.FormStyle&nbsp;:=&nbsp;fsStayOnTop;<br>
+end;<br>
+<br>
+{{Const<br>
+&nbsp;&nbsp;HWND_TOP&nbsp;=&nbsp;0;<br>
+&nbsp;&nbsp;HWND_TOPMOST&nbsp;=&nbsp;-1;<br>
+&nbsp;&nbsp;HWND_NOTOPMOST&nbsp;=&nbsp;-2;<br>
+&nbsp;&nbsp;SWP_NOSIZE&nbsp;=&nbsp;$1;<br>
+&nbsp;&nbsp;SWP_NOMOVE&nbsp;=&nbsp;$2;<br>
+&nbsp;&nbsp;SWP_NOZORDER&nbsp;=&nbsp;$4;<br>
+&nbsp;&nbsp;SWP_NOREDRAW&nbsp;=&nbsp;$8;<br>
+&nbsp;&nbsp;SWP_NOACTIVATE&nbsp;=&nbsp;$10;<br>
+&nbsp;&nbsp;SWP_FRAMECHANGED&nbsp;=&nbsp;$20;<br>
+&nbsp;&nbsp;SWP_SHOWWINDOW&nbsp;=&nbsp;$40;<br>
+&nbsp;&nbsp;SWP_HIDEWINDOW&nbsp;=&nbsp;$80;<br>
+&nbsp;&nbsp;SWP_NOCOPYBITS&nbsp;=&nbsp;$100;<br>
+&nbsp;&nbsp;SWP_NOOWNERZORDER&nbsp;=&nbsp;$200;<br>
+&nbsp;&nbsp;SWP_DRAWFRAME&nbsp;=&nbsp;SWP_FRAMECHANGED;<br>
+&nbsp;&nbsp;SWP_NOREPOSITION&nbsp;=&nbsp;SWP_NOOWNERZORDER;<br>
+<br>
+function&nbsp;SetWindowPos(hWnd,&nbsp;hWndInsertAfter,&nbsp;X,&nbsp;Y,&nbsp;cx,&nbsp;cy,&nbsp;wFlags:&nbsp;Longint):Boolean;&nbsp;external&nbsp;'SetWindowPos@user32.dll&nbsp;stdcall';<br>
+<br>
+procedure&nbsp;DirOnClick(Sender:&nbsp;TObject);<br>
+var<br>
+&nbsp;&nbsp;res:&nbsp;Boolean;<br>
+&nbsp;&nbsp;UserSelectDir:&nbsp;String;<br>
+begin<br>
+&nbsp;&nbsp;UserSelectDir:=&nbsp;WizardForm.DirEdit.Text;<br>
+&nbsp;&nbsp;res:=&nbsp;BrowseForFolder('Выберите&nbsp;папку&nbsp;из&nbsp;списка&nbsp;и&nbsp;нажмите&nbsp;«ОК»',&nbsp;UserSelectDir,&nbsp;True);<br>
+&nbsp;&nbsp;if&nbsp;res&nbsp;then<br>
+&nbsp;&nbsp;&nbsp;&nbsp;begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WizardForm.DirEdit.Text:=&nbsp;UserSelectDir;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;end;<br>
+end;<br>
+<br>
+procedure&nbsp;InitializeWizard;<br>
+begin<br>
+&nbsp;&nbsp;WizardForm.DirBrowseButton.OnClick:=&nbsp;@DirOnClick;<br>
+&nbsp;&nbsp;SetWindowPos(WizardForm.Handle,&nbsp;HWND_TOPMOST,&nbsp;0,&nbsp;0,&nbsp;0,&nbsp;0,&nbsp;SWP_NOSIZE&nbsp;or&nbsp;SWP_NOMOVE&nbsp;or&nbsp;SWP_SHOWWINDOW);<br>
+end;<br>
+<br>
+procedure&nbsp;CancelButtonClick(CurPageID:&nbsp;Integer;&nbsp;var&nbsp;Cancel,&nbsp;Confirm:&nbsp;Boolean);<br>
+begin<br>
+&nbsp;&nbsp;SetWindowPos(WizardForm.Handle,&nbsp;HWND_TOPMOST,&nbsp;0,&nbsp;0,&nbsp;0,&nbsp;0,&nbsp;SWP_NOSIZE&nbsp;or&nbsp;SWP_NOMOVE&nbsp;or&nbsp;SWP_SHOWWINDOW);<br>
+&nbsp;&nbsp;SetWindowPos(WizardForm.Handle,&nbsp;HWND_NOTOPMOST,&nbsp;0,&nbsp;0,&nbsp;0,&nbsp;0,&nbsp;SWP_NOSIZE&nbsp;or&nbsp;SWP_NOMOVE&nbsp;or&nbsp;SWP_SHOWWINDOW);<br>
+&nbsp;&nbsp;Confirm:=&nbsp;False;<br>
+&nbsp;&nbsp;Cancel:=&nbsp;ExitSetupMsgBox;<br>
+&nbsp;&nbsp;if&nbsp;Not&nbsp;Cancel&nbsp;then<br>
+&nbsp;&nbsp;&nbsp;&nbsp;SetWindowPos(WizardForm.Handle,&nbsp;HWND_TOPMOST,&nbsp;0,&nbsp;0,&nbsp;0,&nbsp;0,&nbsp;SWP_NOSIZE&nbsp;or&nbsp;SWP_NOMOVE&nbsp;or&nbsp;SWP_SHOWWINDOW);<br>
+end;}<br>
+</font></blockquote><textarea id="taCode1" style="display:none;" rows="1" cols="5"></textarea><textarea id='taCode' style='display:none;' rows='1' cols='20'></textarea></code><script language="javascript" type="text/javascript">highlightSyntax('delphi_Tc4NTM','delphi');</script><br><div id="heading"><h1><font size="1" face="Consolas">Copyright (c) <a href="http://www.krinkels.org/" target="_blank">Krinkels Inc</a></font></h1></div></body></html>

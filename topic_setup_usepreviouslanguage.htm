@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>[Setup]: UsePreviousLanguage</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="IE=8" http-equiv="X-UA-Compatible">
+<link rel="stylesheet" type="text/css" href="styles.css">
+<script type="text/javascript" src="topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">[Setup]: UsePreviousLanguage</h1>
+<div class="topicbody">
+  <table class="setuphdr">
+    <tbody>
+      <tr>
+        <td class="setuphdrl"><p>Возможные значения:</p></td>
+        <td class="setuphdrr"><div class="margined"><a href="topic_yesnonotes.htm"><tt>yes</tt> или <tt>no</tt></a></div></td>
+      </tr>
+      <tr>
+        <td class="setuphdrl"><p>Значение по умолчанию:</p></td>
+        <td class="setuphdrr"><div class="margined"><tt>yes</tt></div></td>
+      </tr>
+    </tbody>
+  </table>
+  <div><b>Описание:</b></div>
+  <p>При значении <tt>yes</tt> инсталлятор при запуске помотрит в реестре, не устанавливалась ли <a href="topic_sameappnotes.htm">та же программа</a> ранее и если так, будет использовн язык предыдущей установки как язык по умолчанию, выбранный в списке доступных языков на диалоге выбора языков.</p>
+  <p>Имейте ввиду, что эта директива не изменяет язык, используемый диалогом выбора языков непосредственно, потому что инсталлятор не может предположить, что текущий пользователь понимает язык используемый предыдущим пользователем. Для справки см. <a href="topic_languagessection.htm">секцию [Languages]</a>.</p>
+  <p>Также примите во внимание, что инсталлятор не может снова использовать настройки от предыдущего инсталлятора (с директивой <tt>Uninstallable=no</tt>), так как записи реестра, которые он ищет, не создаются когда <tt>Uninstallable=no</tt>.</p>
+  <p><tt>UsePreviousLanguage</tt> должна быть <tt>no</tt>, когда <tt>AppId</tt> включает в себе константы.</p>
+</div>
+</body>
+</html>

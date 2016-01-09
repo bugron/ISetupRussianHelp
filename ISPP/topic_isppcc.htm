@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Inno Setup Preprocessor: Расширенный компилятор командной строки</title>
+<link rel="stylesheet" type="text/css" href="../styles.css" />
+<script type="text/javascript" src="../topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Inno Setup Preprocessor: Расширенный компилятор командной строки</h1>
+<div class="topicbody">
+  <p>Препроцессор Inno Setup заменяет стандартный компилятор командной строки Inno Setup (ISCC.exe) более расширенной версией. Эта расширенная версия обеспечивает дополнительные параметры, чтобы управлять препроцессором Inno Setup.</p>
+  <p>Пример использования: <tt>iscc [options] scriptfile.iss</tt>. Или можно читать из стандартного ввода: <tt>iscc [options] -</tt>.</p>
+  <p>Опции, которые эмулируют директивы <a href="topic_define.htm">define</a> или <a href="topic_pragma.htm">pragma</a>:</p>
+  <table width="560">
+    <tr>
+      <td width="146" class="cellleft"><tt>/d&lt;name&gt;[=&lt;value&gt;]</tt></td>
+      <td width="410" class="cellright">Устанавливает<tt> #define public &lt;name&gt; &lt;value&gt;</tt></td>
+    </tr>
+    <tr>
+      <td class="cellleft"><tt>/$&lt;letter&gt;(+|-)</tt></td>
+      <td class="cellright">Устанавливает<tt> #pragma option -&lt;letter&gt;(+|-)</tt></td>
+    </tr>
+    <tr>
+      <td class="cellleft"><tt>/p&lt;letter&gt;(+|-)</tt></td>
+      <td class="cellright">Устанавливает<tt> #pragma parseroption -&lt;letter&gt;(+|-)</tt></td>
+    </tr>
+    <tr>
+      <td class="cellleft"><tt>/i&lt;paths&gt;</tt></td>
+      <td class="cellright">Устанавливает<tt> #pragma include -&lt;paths&gt;</tt></td>
+    </tr>
+    <tr>
+      <td class="cellleft"><tt>/{#&lt;string&gt;</tt></td>
+      <td class="cellright">Устанавливает<tt> #pragma inlinestart -&lt;string&gt;</tt></td>
+    </tr>
+    <tr>
+      <td class="cellleft"><tt>/}&lt;string&gt;</tt></td>
+      <td class="cellright">Устанавливает<tt> #pragma inlineend -&lt;string&gt;</tt></td>
+    </tr>
+    <tr>
+      <td class="cellleft"><tt>/v&lt;number&gt;</tt></td>
+      <td class="cellright">Устанавливает<tt> #pragma verboselevel -&lt;number&gt;</tt></td>
+    </tr>
+  </table>
+  <p>Другие допустимые опции: &quot;/O&quot; - определяет выходной путь (перезаписывая OutputDir), &quot;/F&quot; - определяет выходное имя файла (перезаписывая OutputBaseFilename), и &quot;/Q[p]&quot; - тихая компиляция (выводятся только сообщения об ошибках, параметр "p" показывает информацию о прогрессе).</p>
+  <p>Пример: <tt>iscc /$c- /pu+ &quot;/dLic=Trial Lic.txt&quot; /iC:\INC;D:\INC &quot;c:\isetup\samples\my script.iss&quot;</tt></p>
+  <p>ISCC возвратит код выхода 0, если компиляция была успешна, 1, если параметры командной строки были недопустимы, или произошла внутренняя ошибка, или 2, если компиляция не выполнилась.</p>
+</div>
+</body>
+</html>

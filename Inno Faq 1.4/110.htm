@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Как обнаружить по имени класса окна выполняется ли Excel</title><link rel="stylesheet" type="text/css" href="css.css">
+<script language='jscript' type='text/javascript' src='copycode.js'></script>
+<script type="text/javascript" src="includer.js"></script></head><body><div id="heading"><h1>» Inno Setup Faq. Как обнаружить по имени класса окна выполняется ли Excel</h1></div><br>
+<script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM">
+<input type="button" value="Копировать в буфер обмена" onClick="copyToClipboard( taCode1, theCode1 );">
+<blockquote id="theCode1"><font>
+[Setup]<br>
+AppName=ExcelRunning<br>
+AppVerName=ExcelRunning<br>
+DefaultDirName={pf}\ExcelRunning<br>
+DisableStartupPrompt=true<br>
+Uninstallable=false<br>
+DisableDirPage=true<br>
+OutputBaseFilename=ExcelRunning<br>
+CreateAppDir=false<br>
+DisableProgramGroupPage=true<br>
+<br>
+[Code]<br>
+function&nbsp;IsExcelRunning():&nbsp;Boolean;<br>
+var&nbsp;hWnd:&nbsp;Longint;<br>
+begin<br>
+&nbsp;Result&nbsp;:=&nbsp;false;<br>
+&nbsp;hWnd&nbsp;:=&nbsp;FindWindowByClassName('XLMAIN');<br>
+&nbsp;if&nbsp;hWnd&gt;0&nbsp;then&nbsp;Result&nbsp;:=&nbsp;true;<br>
+end;<br>
+<br>
+function&nbsp;InitializeSetup():&nbsp;Boolean;<br>
+begin<br>
+&nbsp;&nbsp;if&nbsp;IsExcelRunning()&nbsp;then<br>
+&nbsp;&nbsp;begin<br>
+&nbsp;&nbsp;	MsgBox('MS&nbsp;Excel&nbsp;is&nbsp;running'&nbsp;+&nbsp;#13&nbsp;+<br>
+&nbsp;&nbsp;	&nbsp;'Please&nbsp;shutdown&nbsp;it&nbsp;and&nbsp;start&nbsp;again&nbsp;this&nbsp;setup.',<br>
+&nbsp;&nbsp;	&nbsp;&nbsp;mbError,&nbsp;MB_OK);<br>
+&nbsp;&nbsp;	///cannot&nbsp;go&nbsp;with&nbsp;setup&nbsp;anyway<br>
+&nbsp;&nbsp;	Result&nbsp;:=&nbsp;false;<br>
+&nbsp;&nbsp;end<br>
+&nbsp;&nbsp;else&nbsp;begin<br>
+///go&nbsp;on&nbsp;with&nbsp;setup<br>
+Result&nbsp;:=&nbsp;true;<br>
+&nbsp;&nbsp;end;<br>
+end;<br>
+</font></blockquote><textarea id="taCode1" style="display:none;" rows="1" cols="5"></textarea><textarea id='taCode' style='display:none;' rows='1' cols='20'></textarea></code><script language="javascript" type="text/javascript">highlightSyntax('delphi_Tc4NTM','delphi');</script><br><div id="heading"><h1><font size="1" face="Consolas">Copyright (c) <a href="http://www.krinkels.org/" target="_blank">Krinkels Inc</a></font></h1></div></body></html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Pascal Scripting Extended: FormatDateTime</title>
+<link rel="stylesheet" type="text/css" href="../../../styles.css" />
+<script type="text/javascript" src="../../../topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Pascal Scripting Extended: FormatDateTime</h1>
+<div class="topicbody">
+  <div><b>Прототип:</b></div>
+  <p><tt>function FormatDateTime(const Format: String; DateTime: TDateTime): String;</tt></p>
+  <div><b>Описание:</b></div>
+  Функция FormatDateTime обеспечивает, богатое форматирование TDateTime DateTime значения в строку. Форматирование определяется строкой Форматирования. <br />
+  Форматируемая строка (Formatting) может включать смесь обычных символов (которые передаются неизменными в строку результата), и символы форматирования данных. Форматирование лучше всего объясняется кодом примера. <br />
+  <br />
+  &nbsp;Следующие (неазиатские) строки символа форматирования могут использоваться в форматируемой строке: <br />
+  &nbsp;y = Год из 2-х последних цифр<br />
+  &nbsp;yy = Год из 2-х последних цифр<br />
+  &nbsp;yyyy = Год из 4-х цифр <br />
+  &nbsp;m = Номер месяца без 0<br />
+  &nbsp;mm = Номер месяца как 2 цифры<br />
+  &nbsp;mmm = Месяц используя ShortDayNames (Янв)<br />
+  &nbsp;mmmm = Месяц используя LongDayNames (Январь)<br />
+  &nbsp;d = Число без 0<br />
+  &nbsp;dd = Число как 2 цифры<br />
+  &nbsp;ddd = Число используя ShortDayNames (Воск)<br />
+  &nbsp;dddd = Число используя LongDayNames (Воскресенье)<br />
+  &nbsp;ddddd = Число в ShortDateFormat<br />
+  &nbsp;dddddd = Число в LongDateFormat<br />
+  <br />
+  &nbsp;c = Используя ShortDateFormat + LongTimeFormat<br />
+  &nbsp;h = Час без 0<br />
+  &nbsp;hh = Час как 2 цифры<br />
+  &nbsp;n = Минуты без 0<br />
+  &nbsp;nn = Минуты как 2 цифры<br />
+  &nbsp;s = Секунды без 0<br />
+  &nbsp;ss = Секунды как 2 цифры<br />
+  &nbsp;z = Миллисекунды без 0<br />
+  &nbsp;zzz = Миллисекунды как 2 цифры<br />
+  &nbsp;t = Используя ShortTimeFormat<br />
+  &nbsp;tt = Используя LongTimeFormat<br />
+  <br />
+  &nbsp;am/pm = Используется после h : выдает 12 часов + am/pm<br />
+  &nbsp;a/p = Используется после h : выдает 12 часов + a/p<br />
+  &nbsp;ampm = Как a/p но TimeAMString,TimePMString<br />
+  &nbsp;/ = Заменяется значением DateSeparator<br />
+  &nbsp;: = Заменяется значением TimeSeparator<br />
+  <br />
+  В дополнение к этому форматированию, различные из вышеупомянутых вариантов затрагиваются следующими переменными, с их значением по значением по умолчанию: <br />
+  &nbsp;DateSeparator = /<br />
+  &nbsp;TimeSeparator = :<br />
+  &nbsp;ShortDateFormat = dd/mm/yyyy<br />
+  &nbsp;LongDateFormat = dd mmm yyyy<br />
+  &nbsp;TimeAMString = AM<br />
+  &nbsp;TimePMString = PM<br />
+  &nbsp;LongTimeFormat = hh:mm:ss<br />
+  &nbsp;ShortMonthNames = Янв Фев ...<br />
+  &nbsp;LongMonthNames = Январь, Февраль ...<br />
+  &nbsp;ShortDayNames = Воск, Пон ...<br />
+  &nbsp;LongDayNames = Воскресенье, Понедельник ...<br />
+  &nbsp;TwoDigitYearCenturyWindow = 50 <br />
+  <br />
+  Версия 2 этой функции - для использования в пределах потоков. Вы должны заполнить запись FormatSettings перед вызовом запроса. Она берет местную копию глобальной переменной, форматирующей переменные, которые делают подпрограмму потоко-безопасной.<br />
+  <div><b>Пример:</b></div>
+  <p><tt>var<br />
+    &nbsp;myDate : TDateTime;<br />
+    <br />
+    begin<br />
+    // Установка нашей переменной TDateTime в полное значение даты и времени:<br />
+    // 09/02/2000 в 01:02:03.004 (.004 миллисекунд)<br />
+    &nbsp;myDate := EncodeDateTime(2000, 2, 9, 1, 2, 3, 4);<br />
+    <br />
+    // Только дата - числовые значения без начальных нулей (кроме года)<br />
+    &nbsp;ShowMessage(' d/m/y = '+<br />
+    &nbsp;FormatDateTime('d/m/y', myDate));<br />
+    <br />
+    // Только дата - числовые значения с начальными нулями<br />
+    &nbsp;ShowMessage(' dd/mm/yy = '+<br />
+    &nbsp;FormatDateTime('dd/mm/yy', myDate));<br />
+    <br />
+    // Использование коротких названий для дня, месяца, и добавление текста свободного формата ('of')<br />
+    &nbsp;ShowMessage(' ddd d of mmm yyyy = '+<br />
+    &nbsp;FormatDateTime('ddd d of mmm yyyy', myDate));<br />
+    <br />
+    // Использование длинных названий для дня и месяца<br />
+    &nbsp;ShowMessage('dddd d of mmmm yyyy = '+<br />
+    &nbsp;FormatDateTime('dddd d of mmmm yyyy', myDate));<br />
+    <br />
+    // Использование настроек только ShortDateFormat<br />
+    &nbsp;ShowMessage(' ddddd = '+<br />
+    &nbsp;FormatDateTime('ddddd', myDate));<br />
+    <br />
+    // Использование настроек только LongDateFormat<br />
+    &nbsp;ShowMessage(' dddddd = '+<br />
+    &nbsp;FormatDateTime('dddddd', myDate));<br />
+    <br />
+    // Использование настроек ShortDateFormat + LongTimeFormat<br />
+    &nbsp;ShowMessage(' c = '+<br />
+    &nbsp;FormatDateTime('c', myDate));<br />
+    end; <br />
+    <br />
+    <br />
+    &nbsp;d/m/y = 9/2/00<br />
+    &nbsp;dd/mm/yy = 09/02/00<br />
+    &nbsp;ddd d of mmm yyyy = Ср 9 Фев 2000<br />
+    &nbsp;dddd d of mmmm yyyy = Среда 9 Февраля 2000<br />
+    &nbsp;ddddd = 09/02/2000<br />
+    &nbsp;dddddd = 09 Февраля 2000<br />
+    &nbsp;c = 09/02/2000 01:02:03</tt></p>
+</div>
+</body>
+</html>

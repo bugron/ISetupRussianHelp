@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Параметры секций [Components] и [Tasks]</title>
+<!--[if IE 6]><style type="text/css">html{overflow-y:scroll}</style><![endif]-->
+<link rel="stylesheet" type="text/css" href="styles.css" />
+<script type="text/javascript" src="topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Параметры секций [Components] и [Tasks]</h1>
+<div class="topicbody">
+  <p>Существуют два <a href="topic_params.htm">параметра</a>, которые поддерживаются всеми секциями, содержащими параметры, кроме [Types], [Components] и [Tasks]. Это:</p>
+  <dl>
+    <dt class="paramlist"><b><a name="Components" id="Components">Components</a></b></dt>
+    <dd class="paramlist">
+      <p>Список имен компонентов, разделенных пробелами, которым компилятору указывается, к какому из компонентов относится запись. Запись будет обработана, если пользователь выберет компонент, в который он включен (например, установится файл).</p>
+      <p>Запись без параметра <tt>Components</tt> будет обработана всегда, если только другой параметр этого не запретит.</p>
+      <div class="examplebox">
+        <div class="exampleheader">Например:</div>
+        <pre class="nomargin">[Files]<br />Source: &quot;MYPROG.EXE&quot;; DestDir: &quot;{app}&quot;; Components: main<br />Source: &quot;MYPROG.CHM&quot;; DestDir: &quot;{app}&quot;; Components: help<br />Source: &quot;README.TXT&quot;; DestDir: &quot;{app}&quot;</pre>
+      </div>
+    </dd>
+    <dt class="paramlist"><b><a name="Tasks" id="Tasks">Tasks</a></b></dt>
+    <dd class="paramlist">
+      <p>Список имен заданий, разделенных пробелами, которым компилятору указывается, к какому из заданий относится запись. Запись будет обработана, если пользователь выберет задание, в которое он включен (например, установится файл).</p>
+      <p>Запись без параметра <tt>Tasks</tt> будет обработана всегда, если только другой параметр этого не запретит.</p>
+      <p>Обратите внимание, что флажок <i>Не создавать папку в меню &laquo;Пуск&raquo;</i> на странице <em>Выберите папку в меню &laquo;Пуск&raquo;</em> не влияет на записей секции [Icons], которые имеют параметры <tt>Tasks</tt>, так как они имеют свои собственные флажки.</p>
+      <div class="examplebox">
+        <div class="exampleheader">Например:</div>
+        <pre class="nomargin">[Icons]<br />Name: &quot;{group}\My Program&quot;; Filename: &quot;{app}\MyProg.exe&quot;; Components: main; Tasks: startmenu<br />Name: &quot;{group}\My Program Help&quot;; Filename: &quot;{app}\MyProg.chm&quot;; Components: help; Tasks: startmenu<br />Name: &quot;{commondesktop}\My Program&quot;; Filename: &quot;{app}\MyProg.exe&quot;; Components: main; Tasks: desktopicon</pre>
+      </div>
+    </dd>
+  </dl>
+  <p><br />
+    Помимо разделенных пробелом списков, Вы можете также использовать логические выражения в качестве параметров Components и Tasks. Поддерживаются операторы <tt>not</tt>, <tt>and</tt> и <tt>or</tt>. Например:</p>
+  <pre class="indent examplebox">[Components]<br />Name: a; Description: a<br />Name: b; Description: b<br /><br />[Tasks]<br />Name: p; Description: a or b; Components: a or b<br />Name: q; Description: a and b; Components: a and b<br />Name: r; Description: not a or b; Components: not a or b<br />Name: s; Description: not (a or b); Components: not (a or b)<br />Name: t; Description: a or b - old style; Components: a b<br /></pre>
+</div>
+</body>
+</html>

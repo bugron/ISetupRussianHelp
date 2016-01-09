@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>[Setup]: DisableProgramGroupPage</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="IE=8" http-equiv="X-UA-Compatible">
+<link rel="stylesheet" type="text/css" href="styles.css">
+<script type="text/javascript" src="topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">[Setup]: DisableProgramGroupPage</h1>
+<div class="topicbody">
+  <table class="setuphdr">
+    <tbody>
+      <tr>
+        <td class="setuphdrl"><p>Возможные значения:</p></td>
+        <td class="setuphdrr"><div class="margined"><tt>auto</tt>, <a href="topic_yesnonotes.htm"><tt>yes</tt>, или <tt>no</tt></a></div></td>
+      </tr>
+      <tr>
+        <td class="setuphdrl"><p>Значение по умолчанию:</p></td>
+        <td class="setuphdrr"><div class="margined"><tt>no</tt></div></td>
+      </tr>
+    </tbody>
+  </table>
+  <div><b>Описание:</b></div>
+  <p>При значении <tt>yes</tt> страница <i>Выбор программной группы</i> не будет отображена. В этом случае для имени папки в главном меню используется значение директивы DefaultGroupName секции [Setup], или "(Default)", если DefaultGroupName не указана.</p>
+  <p>Если установлен <tt>auto</tt> - при запуске инсталлятор посмотрит в реестре, не установлена ли <a href="topic_sameappnotes.htm">эта программа</a>, если это так, страница не будет показана.</p>
+  <p>Также см. <a href="topic_setup_alwaysshowgrouponreadypage.htm">AlwaysShowGroupOnReadyPage</a>.</p>
+</div>
+</body>
+</html>

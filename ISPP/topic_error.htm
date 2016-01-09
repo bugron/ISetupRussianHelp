@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Inno Setup Preprocessor: #error</title>
+<link rel="stylesheet" type="text/css" href="../styles.css" />
+<script type="text/javascript" src="../topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Inno Setup Preprocessor: #error</h1>
+<div class="topicbody">
+  <h2 class="heading notopmargin">Синтатсис</h2>
+  <table>
+    <tbody>
+      <tr>
+        <td class="cellleft"><i>error-directive:</i></td>
+        <td class="cellright"><b>error</b> &lt;text&gt;</td>
+      </tr>
+    </tbody>
+  </table>
+  <h2 class="heading">Описание</h2>
+  <p>Директива указывает компилятору Inno Setup выдавать сообщение об ошибке с указанным текстом. В отличие от&nbsp;<tt>pragma error</tt>, текст в директиве <tt>error</tt> не разбирается, поэтому его рекомендуется использовать эту директиву, а не <tt><a href="topic_pragma.htm">pragma</a></tt> когда это возможно, чтобы избежать возможных ошибок синтаксиса, которые могут скрывать реальные ошибки.&nbsp;</p>
+  <h2 class="heading">Примеры</h2>
+  <p><tt>#if <a href="topic_predefinedvars.htm">VER</a> &lt; 0x04000000<br />
+    &nbsp;&nbsp;#error A more recent version of Inno Setup is required to compile this script<br />
+    #endif<br />
+  </tt></p>
+  <h2 class="heading">См. также</h2>
+  <p><tt><a href="topic_pragma.htm">pragma</a></tt>, <tt><a href="topic_if.htm">if</a></tt>.</p>
+</div>
+</body>
+</html>

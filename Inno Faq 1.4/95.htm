@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Как обнаружить версию DirectX </title><link rel="stylesheet" type="text/css" href="css.css">
+<script language='jscript' type='text/javascript' src='copycode.js'></script>
+<script type="text/javascript" src="includer.js"></script></head><body><div id="heading"><h1>» Inno Setup Faq. Как обнаружить версию DirectX </h1></div><br>
+<script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM">
+<input type="button" value="Копировать в буфер обмена" onClick="copyToClipboard( taCode1, theCode1 );">
+<blockquote id="theCode1"><font>
+
+///&nbsp;DirectX&nbsp;version&nbsp;is&nbsp;stored&nbsp;in&nbsp;registry&nbsp;as&nbsp;4.majorversion.minorversion<br>
+///&nbsp;DirectX&nbsp;8.0&nbsp;is&nbsp;4.8.0<br>
+///&nbsp;DirectX&nbsp;8.1&nbsp;is&nbsp;4.8.1<br>
+///&nbsp;DirectX&nbsp;9.0&nbsp;is&nbsp;4.9.0<br>
+#define&nbsp;NeedVersion&nbsp;&quot;4.9.0&quot;<br>
+#define&nbsp;Ver&nbsp;&quot;9&quot;<br>
+<br>
+[Setup]<br>
+AppName=DirectX<br>
+AppVerName=DirectX<br>
+DefaultDirName={pf}\DirectX<br>
+DisableStartupPrompt=true<br>
+Uninstallable=false<br>
+DisableDirPage=true<br>
+OutputBaseFilename=DirectX<br>
+CreateAppDir=false<br>
+DisableProgramGroupPage=true<br>
+<br>
+[Code]<br>
+procedure&nbsp;DecodeVersion(verstr:&nbsp;String;&nbsp;var&nbsp;verint:&nbsp;array&nbsp;of&nbsp;Integer);<br>
+var<br>
+&nbsp;&nbsp;i,p:&nbsp;Integer;&nbsp;s:&nbsp;string;<br>
+begin<br>
+&nbsp;&nbsp;///initialize&nbsp;array<br>
+&nbsp;&nbsp;verint&nbsp;:=&nbsp;[0,0,0,0];<br>
+&nbsp;&nbsp;i&nbsp;:=&nbsp;0;<br>
+&nbsp;&nbsp;while&nbsp;((Length(verstr)&nbsp;&gt;&nbsp;0)&nbsp;and&nbsp;(i&nbsp;&lt;&nbsp;4))&nbsp;do<br>
+&nbsp;&nbsp;begin<br>
+&nbsp;&nbsp;	p&nbsp;:=&nbsp;pos('.',&nbsp;verstr);<br>
+&nbsp;&nbsp;	if&nbsp;p&nbsp;&gt;&nbsp;0&nbsp;then<br>
+&nbsp;&nbsp;	begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;p&nbsp;=&nbsp;1&nbsp;then&nbsp;s:=&nbsp;'0'&nbsp;else&nbsp;s:=&nbsp;Copy(verstr,&nbsp;1,&nbsp;p&nbsp;-&nbsp;1);<br>
+&nbsp;&nbsp;	&nbsp;&nbsp;verint[i]&nbsp;:=&nbsp;StrToInt(s);<br>
+&nbsp;&nbsp;	&nbsp;&nbsp;i&nbsp;:=&nbsp;i&nbsp;+&nbsp;1;<br>
+&nbsp;&nbsp;	&nbsp;&nbsp;verstr&nbsp;:=&nbsp;Copy(verstr,&nbsp;p+1,&nbsp;Length(verstr));<br>
+&nbsp;&nbsp;	end<br>
+&nbsp;&nbsp;	else<br>
+&nbsp;&nbsp;	begin<br>
+&nbsp;&nbsp;	&nbsp;&nbsp;verint[i]&nbsp;:=&nbsp;StrToInt(verstr);<br>
+&nbsp;&nbsp;	&nbsp;&nbsp;verstr&nbsp;:=&nbsp;'';<br>
+&nbsp;&nbsp;	end;<br>
+&nbsp;&nbsp;end;<br>
+end;<br>
+<br>
+///This&nbsp;function&nbsp;compares&nbsp;version&nbsp;string<br>
+///return&nbsp;-1&nbsp;if&nbsp;ver1&nbsp;&lt;&nbsp;ver2<br>
+///return&nbsp;&nbsp;0&nbsp;if&nbsp;ver1&nbsp;=&nbsp;ver2<br>
+///return&nbsp;&nbsp;1&nbsp;if&nbsp;ver1&nbsp;&gt;&nbsp;ver2<br>
+function&nbsp;CompareVersion(ver1,&nbsp;ver2:&nbsp;String):&nbsp;Integer;<br>
+var<br>
+&nbsp;&nbsp;verint1,&nbsp;verint2:&nbsp;array&nbsp;of&nbsp;Integer;<br>
+&nbsp;&nbsp;i:&nbsp;integer;<br>
+begin<br>
+&nbsp;&nbsp;SetArrayLength(verint1,&nbsp;4);<br>
+&nbsp;&nbsp;DecodeVersion(ver1,&nbsp;verint1);<br>
+<br>
+&nbsp;&nbsp;SetArrayLength(verint2,&nbsp;4);<br>
+&nbsp;&nbsp;DecodeVersion(ver2,&nbsp;verint2);<br>
+<br>
+&nbsp;&nbsp;Result&nbsp;:=&nbsp;0;&nbsp;i&nbsp;:=&nbsp;0;<br>
+&nbsp;&nbsp;while&nbsp;((Result&nbsp;=&nbsp;0)&nbsp;and&nbsp;(i&nbsp;&lt;&nbsp;4&nbsp;))&nbsp;do<br>
+&nbsp;&nbsp;begin<br>
+&nbsp;&nbsp;	if&nbsp;verint1[i]&nbsp;&gt;&nbsp;verint2[i]&nbsp;then<br>
+&nbsp;&nbsp;	&nbsp;&nbsp;Result&nbsp;:=&nbsp;1<br>
+&nbsp;&nbsp;	else<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;verint1[i]&nbsp;&lt;&nbsp;verint2[i]&nbsp;then<br>
+&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;&nbsp;Result&nbsp;:=&nbsp;-1<br>
+&nbsp;&nbsp;	&nbsp;&nbsp;else<br>
+&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;&nbsp;Result&nbsp;:=&nbsp;0;<br>
+&nbsp;&nbsp;	i&nbsp;:=&nbsp;i&nbsp;+&nbsp;1;<br>
+&nbsp;&nbsp;end;<br>
+end;<br>
+<br>
+function&nbsp;GetDirectXVersion():&nbsp;String;<br>
+var<br>
+&nbsp;&nbsp;sVersion:&nbsp;&nbsp;String;<br>
+begin<br>
+&nbsp;&nbsp;sVersion&nbsp;:=&nbsp;'';<br>
+&nbsp;&nbsp;RegQueryStringValue(HKLM,&nbsp;'SOFTWARE\Microsoft\DirectX',&nbsp;'Version',&nbsp;sVersion);<br>
+&nbsp;&nbsp;Result&nbsp;:=&nbsp;sVersion;<br>
+end;<br>
+<br>
+function&nbsp;InitializeSetup():&nbsp;Boolean;<br>
+begin<br>
+&nbsp;&nbsp;if&nbsp;CompareVersion(GetDirectXVersion(),&nbsp;ExpandConstant('{#NeedVersion}'))&nbsp;&gt;&nbsp;0&nbsp;then<br>
+&nbsp;&nbsp;begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Result&nbsp;:=&nbsp;MsgBox('DirectX&nbsp;'&nbsp;+&nbsp;ExpandConstant('{#Ver}')&nbsp;+&nbsp;'&nbsp;not&nbsp;found.&nbsp;The&nbsp;3d&nbsp;test&nbsp;will&nbsp;not&nbsp;run&nbsp;and&nbsp;games&nbsp;may&nbsp;not&nbsp;perform&nbsp;optimally.&nbsp;Do&nbsp;you&nbsp;wish&nbsp;to&nbsp;continue?',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mbConfirmation,&nbsp;MB_YESNO)&nbsp;=&nbsp;idYes;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;Result&nbsp;=&nbsp;False&nbsp;then<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MsgBox('Please&nbsp;upgrade&nbsp;your&nbsp;DirectX&nbsp;Version&nbsp;at&nbsp;http://www.microsoft.com/directx',&nbsp;mbInformation,&nbsp;MB_OK);<br>
+&nbsp;&nbsp;end<br>
+&nbsp;&nbsp;else<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Result&nbsp;:=&nbsp;true;<br>
+end;<br>
+
+</font></blockquote><textarea id="taCode1" style="display:none;" rows="1" cols="5"></textarea><textarea id='taCode' style='display:none;' rows='1' cols='20'></textarea></code><script language="javascript" type="text/javascript">highlightSyntax('delphi_Tc4NTM','delphi');</script><br><div id="heading"><h1><font size="1" face="Consolas">Copyright (c) <a href="http://www.krinkels.org/" target="_blank">Krinkels Inc</a></font></h1></div></body></html>

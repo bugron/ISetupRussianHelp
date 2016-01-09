@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Пример использования PSVince</title><link rel="stylesheet" type="text/css" href="css.css">
+<script language='jscript' type='text/javascript' src='copycode.js'></script>
+<script type="text/javascript" src="includer.js"></script></head><body><div id="heading"><h1>» Inno Setup Faq. Пример использования PSVince</h1></div><br>
+<script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM">
+<input type="button" value="Копировать в буфер обмена" onClick="copyToClipboard( taCode1, theCode1 );">
+<blockquote id="theCode1"><font>
+[Setup]<br>
+AppName=UninsPSVince<br>
+AppVerName=UninsPSVince<br>
+DisableProgramGroupPage=true<br>
+DisableStartupPrompt=true<br>
+DefaultDirName={pf}\UninsPSVince<br>
+<br>
+[Files]<br>
+;;dll&nbsp;used&nbsp;to&nbsp;check&nbsp;running&nbsp;notepad&nbsp;at&nbsp;install&nbsp;time<br>
+Source:&nbsp;psvince.dll;&nbsp;flags:&nbsp;dontcopy<br>
+;;psvince&nbsp;is&nbsp;installed&nbsp;in&nbsp;{app}&nbsp;folder,&nbsp;so&nbsp;it&nbsp;will&nbsp;be<br>
+;;loaded&nbsp;at&nbsp;uninstall&nbsp;time&nbsp;;to&nbsp;check&nbsp;if&nbsp;notepad&nbsp;is&nbsp;running<br>
+Source:&nbsp;psvince.dll;&nbsp;DestDir:&nbsp;{app}<br>
+<br>
+[Code]<br>
+///function&nbsp;IsModuleLoaded&nbsp;to&nbsp;call&nbsp;at&nbsp;install&nbsp;time<br>
+///added&nbsp;also&nbsp;setuponly&nbsp;flag<br>
+function&nbsp;IsModuleLoaded(modulename:&nbsp;String):&nbsp;&nbsp;Boolean;<br>
+external&nbsp;'IsModuleLoaded@files:psvince.dll&nbsp;stdcall&nbsp;setuponly';<br>
+<br>
+///function&nbsp;IsModuleLoadedU&nbsp;to&nbsp;call&nbsp;at&nbsp;uninstall&nbsp;time<br>
+///added&nbsp;also&nbsp;uninstallonly&nbsp;flag<br>
+function&nbsp;IsModuleLoadedU(modulename:&nbsp;String):&nbsp;&nbsp;Boolean;<br>
+external&nbsp;'IsModuleLoaded@{app}\psvince.dll&nbsp;stdcall&nbsp;uninstallonly'&nbsp;;<br>
+<br>
+<br>
+function&nbsp;InitializeSetup():&nbsp;Boolean;<br>
+begin<br>
+<br>
+&nbsp;&nbsp;///check&nbsp;if&nbsp;notepad&nbsp;is&nbsp;running<br>
+&nbsp;&nbsp;if&nbsp;IsModuleLoaded('notepad.exe')&nbsp;then<br>
+&nbsp;&nbsp;begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;MsgBox('Notepad&nbsp;is&nbsp;running,&nbsp;please&nbsp;close&nbsp;it&nbsp;and&nbsp;run&nbsp;again&nbsp;setup.',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mbError,&nbsp;MB_OK);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Result&nbsp;:=&nbsp;false;<br>
+&nbsp;&nbsp;end<br>
+&nbsp;&nbsp;else&nbsp;Result&nbsp;:=&nbsp;true;<br>
+end;<br>
+<br>
+function&nbsp;InitializeUninstall():&nbsp;Boolean;<br>
+begin<br>
+<br>
+&nbsp;&nbsp;///check&nbsp;if&nbsp;notepad&nbsp;is&nbsp;running<br>
+&nbsp;&nbsp;if&nbsp;IsModuleLoadedU('notepad.exe')&nbsp;then<br>
+&nbsp;&nbsp;begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;MsgBox('Notepad&nbsp;is&nbsp;running,&nbsp;please&nbsp;close&nbsp;it&nbsp;and&nbsp;run&nbsp;again&nbsp;uninstall.',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mbError,&nbsp;MB_OK);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Result&nbsp;:=&nbsp;false;<br>
+&nbsp;&nbsp;end<br>
+&nbsp;&nbsp;else&nbsp;Result&nbsp;:=&nbsp;true;<br>
+<br>
+&nbsp;&nbsp;///Unload&nbsp;the&nbsp;DLL,&nbsp;otherwise&nbsp;the&nbsp;dll&nbsp;psvince&nbsp;is&nbsp;not&nbsp;deleted<br>
+&nbsp;&nbsp;UnloadDLL(ExpandConstant('{app}\psvince.dll'));<br>
+end;<br>
+<br>
+{{[Files]<br>
+Source:&nbsp;psvince.dll;&nbsp;Flags:&nbsp;dontcopy<br>
+<br>
+[Code]<br>
+function&nbsp;IsModuleLoaded(modulename:&nbsp;String):&nbsp;&nbsp;Boolean;<br>
+external&nbsp;'IsModuleLoaded@files:psvince.dll&nbsp;stdcall';<br>
+<br>
+function&nbsp;InitializeSetup():&nbsp;Boolean;<br>
+begin<br>
+<br>
+&nbsp;&nbsp;Result&nbsp;:=&nbsp;Not&nbsp;IsModuleLoaded('notepad.exe');<br>
+<br>
+end;}<br>
+</font></blockquote><textarea id="taCode1" style="display:none;" rows="1" cols="5"></textarea><textarea id='taCode' style='display:none;' rows='1' cols='20'></textarea></code><script language="javascript" type="text/javascript">highlightSyntax('delphi_Tc4NTM','delphi');</script><br><div id="heading"><h1><font size="1" face="Consolas">Copyright (c) <a href="http://www.krinkels.org/" target="_blank">Krinkels Inc</a></font></h1></div></body></html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Pascal Scripting Extended: DecodeDate</title>
+<link rel="stylesheet" type="text/css" href="../../../styles.css" />
+<script type="text/javascript" src="../../../topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Pascal Scripting Extended: DecodeDate</h1>
+<div class="topicbody">
+  <div><b>Прототип:</b></div>
+  <p><tt>procedure DecodeDate(Date: TDateTime; var Year, Month, Day: Word);</tt></p>
+  <div><b>Описание:</b></div>
+  Процедура DecodeDate извлекает значения года, месяца и дня из данного SourceDate TDateTime значение типа. <br />
+  Она сохраняет значения в переменных вывода: Year, Month и Day.<br />
+  <div><b>Пример:</b></div>
+  <p><tt>var<br />
+    &nbsp;myDate : TDateTime;<br />
+    &nbsp;myYear, myMonth, myDay : Word;<br />
+    <br />
+    begin<br />
+    // Установка переменной myDate в значение декабря 2000 <br />
+    &nbsp;myDate := StrToDate('29/12/2000');<br />
+    <br />
+    // Теперь добавляме месяц к этому значению<br />
+    &nbsp;myDate := IncMonth(myDate);<br />
+    <br />
+    // И позволяем нам увидеть, что мы получили<br />
+    &nbsp;DecodeDate(myDate, myYear, myMonth, myDay);<br />
+    &nbsp;ShowMessage('myDate сейчас = '+DateToStr(myDate));<br />
+    &nbsp;ShowMessage('myDay = '+IntToStr(myDay));<br />
+    &nbsp;ShowMessage('myMonth = '+IntToStr(myMonth));<br />
+    &nbsp;ShowMessage('myYear = '+IntToStr(myYear));<br />
+    end; <br />
+    <br />
+    <br />
+    &nbsp;myDate сейчас = 29/01/2001<br />
+    &nbsp;myDay = 29<br />
+    &nbsp;myMonth = 1<br />
+    &nbsp;myYear = 2001</tt></p>
+</div>
+</body>
+</html>

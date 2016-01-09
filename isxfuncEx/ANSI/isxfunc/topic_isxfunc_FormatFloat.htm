@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Pascal Scripting Extended: FormatFloat</title>
+<link rel="stylesheet" type="text/css" href="../../../styles.css" />
+<script type="text/javascript" src="../../../topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Pascal Scripting Extended: FormatFloat</h1>
+<div class="topicbody">
+  <div><b>Прототип:</b></div>
+  <p><tt>function FormatFloat(const Format: string; Value: Extended): string;</tt></p>
+  <div><b>Описание:</b></div>
+  Функция FormatFloat обеспечивает богатое Форматирование числа с плавающей запятой Value в строку. <br />
+  <br />
+  &nbsp;Форматируемая строка может содержать соединение текста свободного формата и управляющих символов: <br />
+  &nbsp;0: Вызывает отображение цифр или 0<br />
+  &nbsp;#: Дополнительное цифровое отображение<br />
+  &nbsp;, : Вызывает отображение тысяч<br />
+  &nbsp;. : Вызывает отображение десятичных чисел<br />
+  &nbsp;E+: Вызывает отображение знаковой экспоненты<br />
+  &nbsp;E-: Дополнительное отображение знака экспоненты<br />
+  &nbsp;; : Разделитель положительных, отрицательных и нулевых значений <br />
+  <br />
+  Их лучше всего понять посмотрев на типовой код. <br />
+  Версия 2 этой функции - для использования в пределах потоков. Вы заполняете запись FormatSettings перед вызовом запроса. Она получает локальную копию глобальной форматирующей переменной, которая делает вашу подпрограмму потоко безопасной.<br />
+  <div><b>Пример:</b></div>
+  <p><tt>var<br />
+    &nbsp;float : extended;<br />
+    <br />
+    begin<br />
+    // Установка нашего числа с плавающей запятой<br />
+    &nbsp;float := 1234.567;<br />
+    <br />
+    // Отображение типового значения, используя все варианты формата<br />
+    // Округление десятичного значения<br />
+    &nbsp;ShowMessage('##### : '+FormatFloat('#####', float));<br />
+    &nbsp;ShowMessage('00000 : '+FormatFloat('00000', float));<br />
+    &nbsp;ShowMessage('0 : '+FormatFloat('0' , float));<br />
+    &nbsp;ShowMessage('#,##0 : '+FormatFloat('#,##0', float));<br />
+    &nbsp;ShowMessage(',0 : '+FormatFloat(',0' , float));<br />
+    &nbsp;ShowMessage('');<br />
+    <br />
+    // Включение десятичного значения<br />
+    &nbsp;ShowMessage('0.#### : '+FormatFloat('0.####', float));<br />
+    &nbsp;ShowMessage('0.0000 : '+FormatFloat('0.0000', float));<br />
+    &nbsp;ShowMessage('');<br />
+    <br />
+    // Научный формат<br />
+    &nbsp;ShowMessage('0.0000000E+00 : '+FormatFloat('0.0000000E+00', float));<br />
+    &nbsp;ShowMessage('0.0000000E-00 : '+FormatFloat('0.0000000E-00', float));<br />
+    &nbsp;ShowMessage('#.#######E-## : '+FormatFloat('#.#######E-##', float));<br />
+    &nbsp;ShowMessage('');<br />
+    <br />
+    // Включение текста свободного формата<br />
+    &nbsp;ShowMessage(''Value = '0.0 : '+FormatFloat(''Value = '0.0', float));<br />
+    &nbsp;ShowMessage('');<br />
+    <br />
+    // Различное форматирование отрицательных чисел<br />
+    &nbsp;ShowMessage('0.0 : '+FormatFloat('0.0' , -1234.567));<br />
+    &nbsp;ShowMessage('0.0 'CR';0.0 'DB' : '+<br />
+    &nbsp;FormatFloat('0.0 'CR';0.0 'DB'', -1234.567));<br />
+    &nbsp;ShowMessage('0.0 'CR';0.0 'DB' : '+<br />
+    &nbsp;FormatFloat('0.0 'CR';0.0 'DB'', 1234.567));<br />
+    &nbsp;ShowMessage('');<br />
+    <br />
+    // Различный формат нулевых значений<br />
+    &nbsp;ShowMessage('0.0 : '+FormatFloat('0.0' , 0.0));<br />
+    &nbsp;ShowMessage('0.0;-0.0;'Nothing' : '+<br />
+    &nbsp;FormatFloat('0.0;-0.0;'Nothing'', 0.0));<br />
+    end; <br />
+    <br />
+    <br />
+    &nbsp;##### : 1235<br />
+    &nbsp;00000 : 01235<br />
+    &nbsp;0 : 1235<br />
+    &nbsp;#,##0 : 1,235<br />
+    &nbsp;,0 : 1,235<br />
+    <br />
+    &nbsp;0.#### : 1234.567<br />
+    &nbsp;0.0000 : 1234.5670<br />
+    <br />
+    &nbsp;0.0000000E+00 : 1.2345670E+03<br />
+    &nbsp;0.0000000E-00 : 1.2345670E03<br />
+    &nbsp;#.#######E-## : 1.234567E3<br />
+    <br />
+    &nbsp;'Value = ' : Value = 1234.6<br />
+    <br />
+    &nbsp;0.0 : -1234.6<br />
+    &nbsp;0.0 'CR';0.0 'DB' : 1234.6 DB<br />
+    &nbsp;0.0 'CR';0.0 'DB' : 1234.6 CR<br />
+    <br />
+    &nbsp;0.0 : 0.0<br />
+    &nbsp;0.0;-0.0;'Nothing' : Nothing</tt></p>
+</div>
+</body>
+</html>

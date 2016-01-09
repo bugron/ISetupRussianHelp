@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Pascal Scripting: GetMD5OfString</title>
+<link rel="stylesheet" type="text/css" href="../styles.css" />
+<script type="text/javascript" src="../topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Pascal Scripting: GetMD5OfString</h1>
+<div class="topicbody">
+  <div><b>Прототип:</b></div>
+  <p><tt>function GetMD5OfString(const S: AnsiString): String;</tt></p>
+  <div><b>Описание:</b></div>
+  <p>&gt;Получает MD5 сумму указанной строки, как строку.</p>
+  <div><b>Например:</b></div>
+  <pre>var
+  MD5: String;
+begin
+  MD5 := GetMD5OfString('Test');
+  // MD5 = '0cbc6611f5540bd0809a388dc95a615b'
+end;
+</pre>
+</div>
+</body>
+</html>

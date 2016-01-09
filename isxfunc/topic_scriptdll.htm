@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Pascal Scripting: Использование DLL</title>
+<link rel="stylesheet" type="text/css" href="../styles.css" />
+<script type="text/javascript" src="../topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Pascal Scripting: Использование DLL</h1>
+<div class="topicbody">
+  <p>Pascal-скрипт может вызывать функции внутри внешних DLL. Это относится к обоим стандартам: функции Win32 API в стандартных DLL Windows и специальные функции специальных DLL (как создать такие DLL в этом help'e не описывается).</p>
+  <p>Для вызова функции DLL сначала надо написать образец функции наподобие обычного, только в отличие от него после тела функции для задания DLL используется ключевое слово 'external'. Например, если ваша функция имеет образец: <tt>function A(B: Integer): Integer;</tt> для нее поддерживаются следующие три формы:</p>
+  <pre class="indent examplebox">
+function A(B: Integer): Integer;
+external '&lt;dllfunctionname&gt;@&lt;dllfilename&gt;';
+
+function A(B: Integer): Integer;
+external '&lt;dllfunctionname&gt;@&lt;dllfilename&gt; &lt;callingconvention&gt;';
+
+function A(B: Integer): Integer;
+external '&lt;dllfunctionname&gt;@&lt;dllfilename&gt; &lt;callingconvention&gt; &lt;options&gt;';
+</pre>
+  <p>Первая форма указывает, что DLL функция должна быть вызвана при помощи стандартного вызова - 'stdcall'. Все стандартные функции Win32 API и большинство специальных DLL функций используют 'stdcall'.</p>
+  <p>Вторая форма указывает, что DLL функция должна быть вызвана при помощи специального вызова. Действующие вызовы: 'stdcall' (по умолчанию), 'cdecl', 'pascal' и 'register'.</p>
+  <p>Третья форма указывает, что DLL функция должна быть вызвана с задержкой:</p>
+  <div class="indent">
+    <dl>
+      <dt class="flaglist"><a name="delayload" id="delayload">delayload</a></dt>
+      <dd>
+        <p>Обычно Pascal-скрипт при старте проверяет, могут ли быть вызваны DLL функции и если нет, отказывается запускать установку. Этого не произойдет, если отложить вызов с помощью 'delayload'. Используйте задержку загрузки, если Вы хотите вызвать функцию DLL, для которой Вы не знаете, будет ли это фактически доступно во времени выполнения: если функция DLL не может быть вызвана, сценарий Паскаля все еще выполнит, но бросит ожидание, когда Вы попытаетесь вызвать функцию DLL, которую можно поймать, чтобы обработать отсутствие функции DLL.</p>
+      </dd>
+      <dt class="flaglist"><a name="loadwithalteredsearchpath" id="loadwithalteredsearchpath">loadwithalteredsearchpath</a></dt>
+      <dd>
+        <p>Определяет, что DLL должен быть загружен, используя флаг Windows LOAD_WITH_ALTERED_SEARCH_PATH, который, в основном, заставляет загрузчику искать любые зависимые DLL в каталоге, содержащий DLL.</p>
+      </dd>
+      <dt class="flaglist"><a name="setuponly" id="setuponly">setuponly</a></dt>
+      <dd>
+        <p>Определяет, что DLL должен загрузить только инсталлятор.</p>
+      </dd>
+      <dt class="flaglist"><a name="uninstallonly" id="uninstallonly">uninstallonly</a></dt>
+      <dd>
+        <p>Определяет, что DLL должен загрузить только деинсталлятор.</p>
+      </dd>
+    </dl>
+  </div>
+  <p>Например (второй формы), если имя функции DLL - 'A2', а DLL имеет имя 'MyDll.dll', и функция DLL использует 'stdcall' вызов соглашения:</p>
+  <pre class="indent examplebox">
+[Code]
+function A(B: Integer): Integer;
+external 'A2@MyDll.dll stdcall';
+</pre>
+  <p>В имени файла DLL могут использоваться константы.</p>
+  <p>Также можно использовать специальный префикс 'files:', чтобы дать инсталлятору команду автоматически извлекать один или более DLL из секции [Files] прежде, чем загрузить первый DLL. Например:</p>
+  <pre class="indent examplebox">
+[Files]
+Source: &quot;MyDll.dll&quot;; Flags: dontcopy
+Source: &quot;A.dll&quot;; Flags: dontcopy
+Source: &quot;B.dll&quot;; Flags: dontcopy
+
+[Code]
+procedure MyDllFunc(hWnd: Integer; lpText, lpCaption: String; uType: Cardinal);
+external 'MyDllFunc@files:MyDll.dll stdcall';
+
+procedure ADllFunc(hWnd: Integer; lpText, lpCaption: String; uType: Cardinal);
+external 'ADllFunc@files:A.dll,B.dll stdcall loadwithalteredsearchpath'; //A.dll depends on B.dll
+</pre>
+  <p>Если вы используете префикс 'files:' и <a href="../topic_setup_solidcompression.htm">уплотненное сжатие</a> включено, убедитесь, что перечислили свои DLL файлы вначале секции [Files]. Чтобы извлечь произвольный файл, инсталлятор должен сначала распаковать все предыдущие файлы в временной буфер в памяти. Это может привести к существенной задержке, если много других файлов перечислены до строки DLL.</p>
+  <p>В качестве примера можно разобрать файл &quot;CodeDll.iss&quot; в подпапке &quot;Examples&quot;.</p>
+  <p>Папка &quot;Examples&quot; также содержит два пользовательских проекта DLL в качестве примера, один для Microsoft Visual C++ и один для Delphi Borland.</p>
+</div>
+</body>
+</html>

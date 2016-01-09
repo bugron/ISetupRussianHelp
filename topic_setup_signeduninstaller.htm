@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>[Setup]: SignedUninstaller</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="IE=8" http-equiv="X-UA-Compatible">
+<link rel="stylesheet" type="text/css" href="styles.css">
+<script type="text/javascript" src="topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">[Setup]: SignedUninstaller</h1>
+<div class="topicbody">
+  <table class="setuphdr">
+    <tbody>
+      <tr>
+        <td class="setuphdrl"><p>Возможные значения::</p></td>
+        <td class="setuphdrr"><div class="margined"><a href="topic_yesnonotes.htm"><tt>yes</tt> или <tt>no</tt></a></div></td>
+      </tr>
+      <tr>
+        <td class="setuphdrl"><p>Значение по умолчанию:</p></td>
+        <td class="setuphdrr"><div class="margined"><tt>yes</tt>, если <a href="topic_setup_signtool.htm">SignTool</a> установлен, иначе <tt>no</tt></div></td>
+      </tr>
+    </tbody>
+  </table>
+  <div><b>Описание:</b></div>
+  <p>Определяет, должна ли программа деинсталлятора (unins???.exe) быть помечена цифровой подписью. Когда у деинсталлятора будет допустимая цифровая подпись, пользователи Windows Vista не увижут предупреждение о "неопознанной программе", когда его запустят вне Панели управления.</p>
+  <p>При первой компиляции скрипта с этой директивой установите его значение в <tt>yes</tt>, после этого в папке, определенной директивой <a href="topic_setup_signeduninstallerdir.htm">SignedUninstallerDir</a>, появится уникально именованный EXE файл (значение по умолчанию: <a href="topic_setup_outputdir.htm">OutputDir</a>). В зависимости от настройки <a href="topic_setup_signtool.htm">SignTool</a>, цифровая подпись будет присоединена к деинсталлятору, используя внешний инструмент подписывания кода (такой как Microsoft signtool.exe), или файл будет автоматически подписан на лету. На последующих компиляциях подпись от файла будет встроена в деинсталляторы скомпилированных установок.</p>
+  <p>Обновление до более новой версии Inno Setup, или изменения директив секции [Setup] влияют на содержание файла деинсталлятора.</p>
+  <p>Если файл, сгенерированный этой директивой, удален, то он будет снова создан автоматически в случае необходимости&nbsp;при следующей компиляции.</p>
+  <p>Когда у деинсталлятора будет цифровая подпись, инсталлятор запишет сообщения из активного языка в отдельный файл (unins???.msg). Компилятор не может встроить сообщения в файл EXE, потому что такое действие лишило бы цифровую подпись законной силы.</p>
+  <p>Когда установлено в <tt>yes</tt>, любые временные копии, используемые инсталлятором, цифровой формой также подписываются.</p>
+  <p>Детали о получении сертификатов подписания и использовании инструментов подписывания кода выходят за рамки этой документации.</p>
+</div>
+</body>
+</html>

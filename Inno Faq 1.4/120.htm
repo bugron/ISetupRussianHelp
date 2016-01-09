@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Как проверить на наличие .NET Framework для Inno Setup 5</title><link rel="stylesheet" type="text/css" href="css.css">
+<script language='jscript' type='text/javascript' src='copycode.js'></script>
+<script type="text/javascript" src="includer.js"></script></head><body><div id="heading"><h1>» Inno Setup Faq. Как проверить на наличие .NET Framework для Inno Setup 5</h1></div><br>
+<script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM">
+<input type="button" value="Копировать в буфер обмена" onClick="copyToClipboard( taCode1, theCode1 );">
+<blockquote id="theCode1"><font>
+[Setup]<br>
+AppName=NETFramewrok<br>
+AppVerName=NETFramewrok<br>
+DefaultDirName={pf}\NETFramewrok<br>
+DisableStartupPrompt=true<br>
+<br>
+[Code]<br>
+function&nbsp;InitializeSetup():&nbsp;Boolean;<br>
+var<br>
+&nbsp;&nbsp;ErrorCode:&nbsp;Integer;<br>
+&nbsp;&nbsp;NetFrameWorkInstalled&nbsp;:&nbsp;Boolean;<br>
+&nbsp;&nbsp;Result1&nbsp;:&nbsp;Boolean;<br>
+begin<br>
+&nbsp;&nbsp;NetFrameWorkInstalled&nbsp;:=&nbsp;RegKeyExists(HKLM,'SOFTWARE\Microsoft\.NETFramework\policy\v1.0');<br>
+&nbsp;&nbsp;if&nbsp;NetFrameWorkInstalled&nbsp;then<br>
+&nbsp;&nbsp;begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Result&nbsp;:=&nbsp;true;<br>
+&nbsp;&nbsp;end&nbsp;else<br>
+&nbsp;&nbsp;begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;NetFrameWorkInstalled&nbsp;:=&nbsp;RegKeyExists(HKLM,'SOFTWARE\Microsoft\.NETFramework\policy\v1.1');<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;NetFrameWorkInstalled&nbsp;then<br>
+&nbsp;&nbsp;&nbsp;&nbsp;begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Result&nbsp;:=&nbsp;true;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;end&nbsp;else<br>
+&nbsp;&nbsp;&nbsp;&nbsp;begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Result1&nbsp;:=&nbsp;MsgBox('This&nbsp;setup&nbsp;requires&nbsp;the&nbsp;.NET&nbsp;Framework.&nbsp;Please&nbsp;download&nbsp;and&nbsp;install&nbsp;the&nbsp;.NET&nbsp;Framework&nbsp;and&nbsp;run&nbsp;this&nbsp;setup&nbsp;again.&nbsp;Do&nbsp;you&nbsp;want&nbsp;to&nbsp;download&nbsp;the&nbsp;framwork&nbsp;now?',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mbConfirmation,&nbsp;MB_YESNO)&nbsp;=&nbsp;idYes;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;Result1&nbsp;=false&nbsp;then<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Result:=false;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end&nbsp;else<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Result:=false;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ShellExec('open',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'http://download.microsoft.com/download/a/a/c/aac39226-8825-44ce-90e3-bf8203e74006/dotnetfx.exe',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'','',SW_SHOWNORMAL,ewNoWait,ErrorCode);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;end;<br>
+&nbsp;&nbsp;end;<br>
+end;<br>
+</font></blockquote><textarea id="taCode1" style="display:none;" rows="1" cols="5"></textarea><textarea id='taCode' style='display:none;' rows='1' cols='20'></textarea></code><script language="javascript" type="text/javascript">highlightSyntax('delphi_Tc4NTM','delphi');</script><br><div id="heading"><h1><font size="1" face="Consolas">Copyright (c) <a href="http://www.krinkels.org/" target="_blank">Krinkels Inc</a></font></h1></div></body></html>

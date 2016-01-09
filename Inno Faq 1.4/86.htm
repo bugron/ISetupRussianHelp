@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Меняем стандартный вид папки на иконку установленной программы как в меню "Пуск"  так и в "пути" установки.</title><link rel="stylesheet" type="text/css" href="css.css"><script type="text/javascript" src="includer.js"></script><script language='jscript' type='text/javascript' src='copycode.js'></script></head><body><div id="heading"><h1>» Inno Setup Faq. Меняем стандартный вид папки на иконку установленной программы как в меню "Пуск"  так и в "пути" установки.</h1></div><br><script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM"> <input type="button" value="Копировать в буфер обмена" onClick="copyToClipboard( taCode1, theCode1 );"> <blockquote id="theCode1"><font>[Setup]<br>
+AppId={{1751A2FD-C98C-45CD-AA33-6F8783CD677F}<br>
+AppName=MY<br>
+AppVersion=1.5<br>
+;;AppVerName=My Program 1.5<br>
+DefaultDirName={pf}\MY<br>
+DefaultGroupName=MY<br>
+OutputBaseFilename=MY<br>
+SetupIconFile=MY.ico<br>
+InternalCompressLevel=none<br>
+SetupLogging=true<br>
+Compression=none<br>
+RestartIfNeededByRun=false<br>
+PrivilegesRequired=none<br>
+TimeStampsInUTC=true<br>
+ChangesEnvironment=true<br>
+UninstallDisplayIcon={app}\MY.ico<br>
+UninstallLogMode=overwrite<br>
+ChangesAssociations=true<br>
+<br>
+[Languages]<br>
+Name: russian; MessagesFile: compiler:Languages\Russian.isl<br>
+<br>
+[Tasks]<br>
+Name: desktopicon; Description: {cm:CreateDesktopIcon}; GroupDescription: {cm:AdditionalIcons}; Flags: unchecked<br>
+<br>
+[Files]<br>
+Source: C:\Program Files\Inno Setup 5\Examples\MyProg.exe; DestDir: {app}; Flags: ignoreversion<br>
+Source: app\Desktop.ini; DestDir: {app}; Flags: ignoreversion; Attribs: hidden system<br>
+Source: group\Desktop.ini; DestDir: {group}; Flags: ignoreversion; Attribs: hidden system<br>
+Source: app\MY.ico; DestDir: {app}; Flags: ignoreversion; Attribs: hidden system<br>
+Source: group\MY.ico; DestDir: {group}; Flags: ignoreversion; Attribs: hidden system<br><br>
+[Dirs]<br>
+Name: {app}; attribs: readonly<br>
+Name: {group}; attribs: readonly<br><br>
+[INI]<br>
+filename: {app}\Desktop.ini; section: .ShellClassInfo; key: IconFile; string: {app}\MY.ico<br>
+filename: {app}\Desktop.ini; section: .ShellClassInfo; key: IconIndex; string: 0<br>
+filename: {group}\Desktop.ini; section: .ShellClassInfo; string: {app}\MY.ico; key: IconFile<br>
+filename: {group}\Desktop.ini; section: .ShellClassInfo; key: IconIndex; string: 0<br><br>
+[Icons]<br>
+Name: {commondesktop}\MY; Filename: {app}\MyProg.exe; WorkingDir: {app}\; IconFilename: {app}\MY.ico; Comment: Запустить MY; Tasks: desktopicon<br>
+Name: {group}\MY; Filename: {app}\MyProg.exe; WorkingDir: {app}\; IconFilename: {app}\MY.ico; Comment: Запустить MY<br>
+<br>
+[Run]<br>
+Filename: {app}\MyProg.exe; Description: {cm:LaunchProgram,My Program}; Flags: nowait postinstall skipifsilent</font></blockquote><textarea id="taCode1" style="display:none;" rows="1" cols="5"></textarea><textarea id='taCode' style='display:none;' rows='1' cols='20'></textarea></code><script language="javascript" type="text/javascript">highlightSyntax('delphi_Tc4NTM','delphi');</script><br><div id="heading"><h1><font size="1" face="Consolas">Copyright (c) <a href="http://www.krinkels.org/" target="_blank">Krinkels Inc</a></font></h1></div></body></html>

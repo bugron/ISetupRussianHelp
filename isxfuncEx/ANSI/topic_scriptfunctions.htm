@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Pascal Scripting: Руководство по функциям расширенной версии Inno Setup</title>
+<link rel="stylesheet" type="text/css" href="../../styles.css" />
+<script type="text/javascript" src="../../topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Руководство по функциям расширенной версии Inno Setup</h1>
+<div class="topicbody">Версия Inno Setup Enhanced - 5.5.1 Build 121216 <b>Non Unicode</b>
+  <h2 class="heading">Поддерживаемые функции</h2>
+  Для данной версии насчитано 68 функций.
+  <p>Вот список поддерживаемых расширенных функций.<br />
+    А также информация о <a href="isxfunc/classsupport.htm">поддерживаемых классов</a>.<br />
+    <br />
+    <b>Информационные функции инсталлятора и деинсталлятора:</b><br />
+    <tt>procedure&nbsp;</tt><tt><a href="isxfunc/topic_isxfunc_ExtractTemporaryFileEx.htm">ExtractTemporaryFileEx</a></tt><tt>(const FileName: String; const DestDir: String);</tt><br />
+    <tt>procedure <a href="isxfunc/topic_isxfunc_ExtractTemporaryFileToStream.htm">ExtractTemporaryFileToStream</a></tt><tt>(const FileName: String; const Stream: TStream);</tt><br />
+    <tt>function&nbsp; <a href="isxfunc/topic_isxfunc_ExtractTemporaryFileSize.htm">ExtractTemporaryFileSize</a></tt><tt>(const FileName: String): LongWord;</tt><br />
+    <tt>procedure&nbsp;<a href="isxfunc/topic_isxfunc_ExtractTemporaryFileToBuffer.htm">ExtractTemporaryFileToBuffer</a></tt><tt>(const FileName: String; Buffer: Integer);</tt><br />
+    <tt>function&nbsp; <a href="isxfunc/topic_isxfunc_GetSetupPreviousData.htm">GetSetupPreviousData</a></tt><tt>(const ValueName, DefaultValueData: String): String;</tt><br />
+    <tt>function&nbsp; <a href="isxfunc/topic_isxfunc_SetSetupPreviousData.htm">SetSetupPreviousData</a></tt><tt>(const PreviousDataKey: Integer; const ValueName, ValueData: String): Boolean;</tt><br />
+    <br />
+    <b>Функции исключения:</b><br />
+    <tt>procedure <a href="isxfunc/topic_isxfunc_RaiseLastException.htm">RaiseLastException</a>;</tt><br />
+    <tt>procedure <a href="isxfunc/topic_isxfunc_RaiseException.htm">RaiseException</a>(Ex: TIFException; Param: String);</tt><br />
+    <tt>function&nbsp; <a href="isxfunc/topic_isxfunc_ExceptionType.htm">ExceptionType</a>: TIFException;</tt><br />
+    <tt>function &nbsp;<a href="isxfunc/topic_isxfunc_ExceptionParam.htm">ExceptionParam</a>: String;</tt><br />
+    <tt>function&nbsp; <a href="isxfunc/topic_isxfunc_ExceptionProc.htm">ExceptionProc</a>: Cardinal;</tt><br />
+    <tt>function&nbsp; <a href="isxfunc/topic_isxfunc_ExceptionPos.htm">ExceptionPos</a>:&nbsp;</tt><tt>Cardinal</tt><tt>;</tt><br />
+    <tt>function&nbsp; <a href="isxfunc/topic_isxfunc_ExceptionToString.htm">ExceptionToString</a>(er: TIFException; Param: String): String;</tt><br />
+    <br />
+    <b>Строковые функции:</b><br />
+    <tt>function &nbsp;<a href="isxfunc/topic_isxfunc_Replicate.htm">Replicate</a>(C: Char; I: Longint): String;</tt><br />
+    <tt>function &nbsp;<a href="isxfunc/topic_isxfunc_FormatFloat.htm">FormatFloat</a>(const Format: string; Value: Extended): string;</tt><br />
+    <br />
+    <span style="font-weight: bold;">Математические функции</span><br />
+    <span style="font-weight: bold;"></span><tt>function&nbsp; <a href="isxfunc/topic_isxfunc_Sin.htm">Sin</a>(E: Extended): Extended;</tt><br />
+    <tt>function &nbsp;<a href="isxfunc/topic_isxfunc_Cos.htm">Cos</a></tt><tt>(E: Extended): Extended;</tt><br />
+    <tt>function &nbsp;<a href="isxfunc/topic_isxfunc_Sqrt.htm">Sqrt</a></tt><tt>(E: Extended): Extended;</tt><br />
+    <tt>function&nbsp; <span style="text-decoration: underline;"></span><a href="isxfunc/topic_isxfunc_Round.htm">Round</a></tt><tt>(E: Extended): Extended;</tt><br />
+    <tt>function&nbsp; <a href="isxfunc/topic_isxfunc_Trunc.htm">Trunc</a></tt><tt>(E: Extended): Extended;</tt><br />
+    <tt>function&nbsp; <a href="isxfunc/topic_isxfunc_Int.htm">Int</a></tt><tt>(E: Extended): Extended;</tt><br />
+    <tt>function&nbsp; <a href="isxfunc/topic_isxfunc_Pi.htm">Pi</a>: Extended;</tt><br />
+    <tt>function&nbsp; <a href="isxfunc/topic_isxfunc_Abs.htm">Abs</a>(E: Extended): Extended;</tt><br />
+    <tt>function&nbsp; <a href="isxfunc/topic_isxfunc_StrToFloat.htm">StrToFloat</a>(S: String): Extended;</tt><br />
+    <tt>function&nbsp; <a href="isxfunc/topic_isxfunc_FloatToStr.htm">FloatToStr</a>(E: Extended): String;</tt><br />
+    <tt>function&nbsp; <a href="isxfunc/topic_isxfunc_Padl.htm">Padl</a>(S: String; I: Longint): String;</tt><br />
+    <tt>function&nbsp; </tt><tt><a href="isxfunc/topic_isxfunc_Padr.htm">Padr</a></tt><tt>(S: String; I: Longint): String;</tt><br />
+    <tt>function&nbsp; </tt><tt><a href="isxfunc/topic_isxfunc_Padz.htm">Padz</a></tt><tt>(S: String; I: Longint): String;</tt><br />
+    <br />
+    <b>Различные функции:</b><br />
+    <tt>function&nbsp; <a href="isxfunc/topic_isxfunc_Assigned.htm">Assigned</a>(const P: Variant): Boolean;</tt><br />
+    <tt>function&nbsp; <a href="isxfunc/topic_isxfunc_SizeOf.htm">SizeOf</a>(const V: Variant): Longint;&nbsp;</tt><br />
+    <br />
+    <b>Функции файловой системы:</b><br />
+    <tt>function&nbsp; <a href="isxfunc/topic_isxfunc_MinimizePathName.htm">MinimizePathName</a>(const Filename: String; const Font: TFont; MaxLen: Integer): String;</tt><br />
+    <br />
+    <b>Функции меню:</b><br />
+    <tt>function&nbsp; <a href="isxfunc/topic_isxfunc_ShortCut.htm">ShortCut</a>(Key: Word; Shift: TShiftState): TShortCut;</tt><br />
+    <tt>procedure <a href="isxfunc/topic_isxfunc_ShortCutToKey.htm">ShortCutToKey</a>(ShortCut: TShortCut): String;var Shift: TShiftState);</tt><br />
+    <tt>function&nbsp; <a href="isxfunc/topic_isxfunc_ShortCutToText.htm">ShortCutToText</a>(const ClassName: string): Variant;</tt><br />
+    <tt>function&nbsp; <a href="isxfunc/topic_isxfunc_TextToShortCut.htm">TextToShortCut</a>(Text: String): TShortCut;oolean; const Name: String; Par: array of variant): variant;</tt><br />
+    <tt>function&nbsp; <a href="isxfunc/topic_isxfunc_NewMenu.htm">NewMenu</a>(Owner: TComponent; const AName: String; Items: array of TMenuItem): TMainMenu;</tt><br />
+    <tt>function&nbsp; <a href="isxfunc/topic_isxfunc_NewPopupMenu.htm">NewPopupMenu</a>(Owner: TComponent; const AName: String; Alignment: TPopupAlignment; AutoPopup: Boolean; Items: array of TMenuItem): TPopupMenu;</tt><br />
+    <tt>function&nbsp; <a href="isxfunc/topic_isxfunc_NewSubMenu.htm">NewSubMenu</a>(const ACaption: String; hCtx: Word; const AName: String; Items: array of TMenuItem; AEnabled: Boolean): TMenuItem;</tt><br />
+    <tt>function&nbsp; <a href="isxfunc/topic_isxfunc_NewItem.htm">NewItem</a>(const ACaption: String; AShortCut: TShortCut; AChecked, AEnabled: Boolean; AOnClick: TNotifyEvent; hCtx: Word; const AName: String): TMenuItem;</tt><br />
+    <tt>function&nbsp; <a href="isxfunc/topic_isxfunc_NewLine.htm">NewLine</a>: TMenuItem;</tt><br />
+    <br />
+    <b>Другие функции:</b><br />
+    <tt>procedure <a href="isxfunc/topic_isxfunc_Randomize.htm">Randomize</a>;</tt><br />
+    <tt>function&nbsp; <a href="isxfunc/topic_isxfunc_MainForm.htm">MainForm</a>: TMainForm;</tt><br />
+    <tt>function&nbsp; <a href="isxfunc/topic_isxfunc_WizardForm.htm">WizardForm</a>: TWizardForm;</tt><br />
+    <tt>function&nbsp; <a href="isxfunc/topic_isxfunc_UninstallProgressForm.htm">UninstallProgressForm</a>: TUninstallProgressForm;</tt><br />
+    <tt>function&nbsp; <a href="isxfunc/topic_isxfunc_Application.htm">Application</a>: TApplication;</tt><br />
+    <tt>function&nbsp; <a href="isxfunc/topic_isxfunc_Screen.htm">Screen</a>: TScreen;</tt><br />
+    <br />
+    <b>Расширенные функции:</b><br />
+    <tt>procedure <a href="isxfunc/topic_isxfunc_SetPassword.htm">SetPassword</a>(const Password: String);</tt><br />
+    <tt>function&nbsp; <a href="isxfunc/topic_isxfunc_CallbackAddr.htm">CallbackAddr</a>(ProcNameOrFuncName: String): Integer;</tt><br />
+    <tt>function&nbsp; <a href="isxfunc/topic_isxfunc_MsgBoxEx.htm">MsgBoxEx</a>(AWnd: HWND; AText, ACaption: string; AType, AIcon: UINT; ATimeOut: Integer): Integer;</tt><br />
+    <tt>function&nbsp; <a href="isxfunc/topic_isxfunc_InputBoxEx.htm">InputBoxEx</a>(AWnd: HWND; AText, ACaption, ADefaut, APasswordChar: string; AIcon: UINT; AWidth, AHeight, ATimeOut: Integer; var AResultStr: String): Boolean;</tt><br />
+    <tt>function&nbsp; <a href="isxfunc/topic_isxfunc_PerformPreviousUninstall.htm">PerformPreviousUninstall</a>(ProgressBar: TNewProgressBar): Boolean;</tt><br />
+    <tt>function&nbsp; <a href="isxfunc/topic_isxfunc_HInstance.htm">HInstance</a>: LongWord;</tt><br />
+    <br />
+    <b>Функции даты и времени:</b><br />
+    <tt>function&nbsp; <a href="isxfunc/topic_isxfunc_Date.htm">Date</a>: TDateTime;</tt><br />
+    <tt>function&nbsp; <a href="isxfunc/topic_isxfunc_DateTimeToStr.htm">DateTimeToStr</a>(DateTime: TDateTime): String;</tt><br />
+    <tt>procedure <a href="isxfunc/topic_isxfunc_DateTimeToString.htm">DateTimeToString</a>(var Result: String; const Format: String; DateTime: TDateTime);</tt><br />
+    <tt>function&nbsp; <a href="isxfunc/topic_isxfunc_DateToStr.htm">DateToStr</a>(Date: TDateTime): String;</tt><br />
+    <tt>function&nbsp; <a href="isxfunc/topic_isxfunc_DayOfWeek.htm">DayOfWeek</a>(Date: TDateTime): Integer;</tt><br />
+    <tt>procedure <a href="isxfunc/topic_isxfunc_DecodeDate.htm">DecodeDate</a>(Date: TDateTime; var Year, Month, Day: Word);</tt><br />
+    <tt>procedure <a href="isxfunc/topic_isxfunc_DecodeTime.htm">DecodeTime</a>(Time: TDateTime; var Hour, Min, Sec, MSec: Word);</tt><br />
+    <tt>function&nbsp; <a href="isxfunc/topic_isxfunc_EncodeDate.htm">EncodeDate</a>(Year, Month, Day: Word): TDateTime;</tt><br />
+    <tt>function&nbsp; <a href="isxfunc/topic_isxfunc_EncodeTime.htm">EncodeTime</a>(Hour, Min, Sec, MSec: Word): TDateTime;</tt><br />
+    <tt>function&nbsp; <a href="isxfunc/topic_isxfunc_FormatDateTime.htm">FormatDateTime</a>(const Format: String; DateTime: TDateTime): String;</tt><br />
+    <tt>function&nbsp; <a href="isxfunc/topic_isxfunc_Now.htm">Now</a>: TDateTime;</tt><br />
+    <tt>function&nbsp; <a href="isxfunc/topic_isxfunc_StrToDate.htm">StrToDate</a>(const S: String): TDateTime;</tt><br />
+    <tt>function&nbsp; <a href="isxfunc/topic_isxfunc_StrToDateTime.htm">StrToDateTime</a>(const S: String): TDateTime;</tt><br />
+    <tt>function&nbsp; <a href="isxfunc/topic_isxfunc_StrToTime.htm">StrToTime</a>(const S: String): TDateTime;</tt><br />
+    <tt>function&nbsp; <a href="isxfunc/topic_isxfunc_Time.htm">Time</a>: TDateTime;</tt><br />
+  <tt>function&nbsp; <a href="isxfunc/topic_isxfunc_TimeToStr.htm">TimeToStr</a>(Time: TDateTime): String;</tt></p>
+</div>
+</body>
+</html>

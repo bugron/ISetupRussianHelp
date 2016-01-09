@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Ссылка на сайт</title><link rel="stylesheet" type="text/css" href="css.css">
+<script language='jscript' type='text/javascript' src='copycode.js'></script>
+<script type="text/javascript" src="includer.js"></script></head><body><div id="heading"><h1>» Inno Setup Faq. Ссылка на сайт</h1></div><br>
+<script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM">
+<input type="button" value="Копировать в буфер обмена" onClick="copyToClipboard( taCode1, theCode1 );">
+<blockquote id="theCode1"><font>
+[Setup]<br>
+AppName=AppName<br>
+AppVerName=AppVerName<br>
+CreateAppDir=false<br>
+<br>
+[Code]<br>
+var&nbsp;MouseLabel,SiteLabel:&nbsp;TLabel;<br>
+<br>
+procedure&nbsp;SiteLabelOnClick(Sender:&nbsp;TObject);&nbsp;var&nbsp;ErrorCode:&nbsp;Integer;<br>
+begin<br>
+&nbsp;&nbsp;ShellExec('open',&nbsp;'http://forum.ru-board.com',&nbsp;'',&nbsp;'',&nbsp;SW_SHOWNORMAL,&nbsp;ewNoWait,&nbsp;ErrorCode)<br>
+end;<br>
+<br>
+procedure&nbsp;SiteLabelMouseDown(Sender:&nbsp;TObject;&nbsp;Button:&nbsp;TMouseButton;&nbsp;Shift:&nbsp;TShiftState;&nbsp;X,&nbsp;Y:&nbsp;Integer);<br>
+begin<br>
+&nbsp;&nbsp;SiteLabel.Font.Color:=clRed<br>
+end;<br>
+<br>
+procedure&nbsp;SiteLabelMouseUp(Sender:&nbsp;TObject;&nbsp;Button:&nbsp;TMouseButton;&nbsp;Shift:&nbsp;TShiftState;&nbsp;X,&nbsp;Y:&nbsp;Integer);<br>
+begin<br>
+&nbsp;&nbsp;SiteLabel.Font.Color:=clBlue<br>
+end;<br>
+<br>
+procedure&nbsp;SiteLabelMouseMove(Sender:&nbsp;TObject;&nbsp;Shift:&nbsp;TShiftState;&nbsp;X,&nbsp;Y:&nbsp;Integer);<br>
+begin<br>
+&nbsp;&nbsp;SiteLabel.Font.Color:=clGreen<br>
+end;<br>
+<br>
+procedure&nbsp;SiteLabelMouseMove2(Sender:&nbsp;TObject;&nbsp;Shift:&nbsp;TShiftState;&nbsp;X,&nbsp;Y:&nbsp;Integer);<br>
+begin<br>
+&nbsp;&nbsp;SiteLabel.Font.Color:=clBlue<br>
+end;<br>
+<br>
+procedure&nbsp;InitializeWizard();<br>
+begin<br>
+&nbsp;MouseLabel:=TLabel.Create(WizardForm)<br>
+&nbsp;&nbsp;MouseLabel.Width:=WizardForm.Width<br>
+&nbsp;&nbsp;MouseLabel.Height:=WizardForm.Height<br>
+&nbsp;&nbsp;MouseLabel.Autosize:=False<br>
+&nbsp;&nbsp;MouseLabel.Transparent:=True<br>
+&nbsp;&nbsp;MouseLabel.OnMouseMove:=@SiteLabelMouseMove2<br>
+&nbsp;&nbsp;MouseLabel.Parent:=WizardForm<br>
+&nbsp;SiteLabel:=TLabel.Create(WizardForm)<br>
+&nbsp;&nbsp;SiteLabel.Left:=10<br>
+&nbsp;&nbsp;SiteLabel.Top:=330<br>
+&nbsp;&nbsp;SiteLabel.Cursor:=crHand<br>
+&nbsp;&nbsp;SiteLabel.Font.Color:=clBlue<br>
+&nbsp;&nbsp;SiteLabel.Caption:='Forum&nbsp;Ru-Board'<br>
+&nbsp;&nbsp;SiteLabel.OnClick:=@SiteLabelOnClick<br>
+&nbsp;&nbsp;SiteLabel.OnMouseDown:=@SiteLabelMouseDown<br>
+&nbsp;&nbsp;SiteLabel.OnMouseUp:=@SiteLabelMouseUp<br>
+&nbsp;&nbsp;SiteLabel.OnMouseMove:=@SiteLabelMouseMove<br>
+&nbsp;&nbsp;SiteLabel.Parent:=WizardForm<br>
+end;<br>
+</font></blockquote><textarea id="taCode1" style="display:none;" rows="1" cols="5"></textarea><textarea id='taCode' style='display:none;' rows='1' cols='20'></textarea></code><script language="javascript" type="text/javascript">highlightSyntax('delphi_Tc4NTM','delphi');</script><br><div id="heading"><h1><font size="1" face="Consolas">Copyright (c) <a href="http://www.krinkels.org/" target="_blank">Krinkels Inc</a></font></h1></div></body></html>

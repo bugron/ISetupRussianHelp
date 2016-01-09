@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Inno Setup Preprocessor: Локальный массив макросов</title>
+<link rel="stylesheet" type="text/css" href="../styles.css" />
+<script type="text/javascript" src="../topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Inno Setup Preprocessor: Локальный массив макросов</h1>
+<div class="topicbody">
+  <p>В контексте макро-выражения допустим дополнительный массив под названием <tt>Local</tt>. Его элементы могут использоваться для временного хранения и использования значений в последовательных выражениях. Этот массив принадлежит одному контексту макро-вызова, это означает, что значения массива <tt>Local</tt> не сохраняется от вызова до вызова (включая рекурсивный), и при этом они не доступны ниоткуда кроме макро-выражения.</p>
+  <p><tt>#define DeleteToFirstPeriod(str *S) /* macro declaration */ \<br/>
+    &nbsp;&nbsp;Local[1] = <a href="topic_copy.htm">Copy</a>(S, 1, (Local[0] = <a href="topic_pos.htm">Pos</a>(&quot;.&quot;, S)) - 1), \<br/>
+    &nbsp;&nbsp;S = Copy(S, Local[0] + 1), \<br/>
+    &nbsp;&nbsp;Local[1]<br/>
+  </tt></p>
+</div>
+</body>
+</html>

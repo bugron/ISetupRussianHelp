@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Параметры в секциях</title>
+<!--[if IE 6]><style type="text/css">html{overflow-y:scroll}</style><![endif]-->
+<link rel="stylesheet" type="text/css" href="styles.css" />
+<script type="text/javascript" src="topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Параметры в секциях</h1>
+<div class="topicbody">
+  <p>Все секции скрипта, кроме <tt>[Setup]</tt>, <tt>[Messages]</tt>, <tt>[CustomMessages]</tt>, <tt>[LangOptions]</tt> и <tt>[Code]</tt> состоят из строк, каждая из которых представляет собой <i>список параметров</i>. Рассмотрим пример секции <tt>[Files]</tt>:</p>
+  <pre class="indent examplebox">[Files]
+Source: &quot;MYPROG.EXE&quot;; DestDir: &quot;{app}&quot;
+Source: &quot;MYPROG.CHM&quot;; DestDir: &quot;{app}&quot;
+Source: &quot;README.TXT&quot;; DestDir: &quot;{app}&quot;; Flags: isreadme
+</pre>
+  <p>Каждый параметр состоит из имени, после которого ставится двоеточие и значения. Как уже говорилось, если значение параметра не указано, он автоматически принимает значение по умолчанию. Параметры разделяются точкой с запятой и могут быть указаны в произвольном порядке.</p>
+  <p>Имя параметра заключается в двойные кавычки (<tt>&quot;</tt>), если его значение определено пользователем (это может быть имя файла). Вообще кавычки не обязательны, но отказавшись от них, появляется риск ввода лишних символов, таких как двойные кавычки и двоеточия.</p>
+  <p>Для ввода двойных кавычек, их следует прописать дважды. Например, строку</p>
+  <pre class="indent examplebox">&quot;This &quot;&quot; contains &quot;&quot; embedded &quot;&quot; quotes&quot;
+</pre>
+  <p>компилятор видит как</p>
+  <pre class="indent examplebox">This &quot; contains &quot; embedded &quot; quotes
+</pre>
+  <p>Если требуется вывести просто двойные кавычки, в скрипте их надо прописать четыре штуки: <tt>&quot;&quot;&quot;&quot;</tt>. Здесь крайние кавычки служат для того, чтобы показать границы строки, а внутренние собственно выводятся на экран.</p>
+</div>
+</body>
+</html>

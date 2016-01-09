@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Выводим время старта и завершения инсталяции</title><link rel="stylesheet" type="text/css" href="css.css">
+<script language='jscript' type='text/javascript' src='copycode.js'></script>
+<script type="text/javascript" src="includer.js"></script></head><body><div id="heading"><h1>» Inno Setup Faq. Выводим время старта и завершения инсталяции</h1></div><br>
+<script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM">
+<input type="button" value="Копировать в буфер обмена" onClick="copyToClipboard( taCode1, theCode1 );">
+<blockquote id="theCode1"><font>
+[Setup]<br>
+AppName=My&nbsp;Program<br>
+AppVerName=My&nbsp;Program&nbsp;version&nbsp;1.5<br>
+DefaultDirName={pf}\My&nbsp;Program<br>
+<br>
+[Code]<br>
+type&nbsp;TSystemTime&nbsp;=&nbsp;record&nbsp;wYear,&nbsp;wMonth,&nbsp;wDayOfWeek,&nbsp;wDay,&nbsp;wHour,&nbsp;wMinute,&nbsp;wSecond,&nbsp;wMilliseconds:&nbsp;Word;&nbsp;end;<br>
+var&nbsp;StartTime,&nbsp;Time:&nbsp;TSystemTime;&nbsp;StartFileTime,&nbsp;FileTime:&nbsp;TFileTime;&nbsp;TLabel:&nbsp;TNewStaticText;<br>
+<br>
+function&nbsp;GetLocalTime(var&nbsp;lpSystemTime:&nbsp;TSystemTime):&nbsp;Boolean;&nbsp;external&nbsp;'GetLocalTime@kernel32.dll&nbsp;stdcall';<br>
+function&nbsp;SystemTimeToFileTime(const&nbsp;lpSystemTime:&nbsp;TSystemTime;&nbsp;var&nbsp;lpFileTime:&nbsp;TFileTime):&nbsp;Boolean;&nbsp;external&nbsp;'SystemTimeToFileTime@kernel32.dll&nbsp;stdcall';<br>
+function&nbsp;FileTimeToSystemTime(const&nbsp;lpFileTime:&nbsp;TFileTime;&nbsp;var&nbsp;lpSystemTime:&nbsp;TSystemTime):&nbsp;Boolean;&nbsp;external&nbsp;'FileTimeToSystemTime@kernel32.dll&nbsp;stdcall';<br>
+<br>
+function&nbsp;GetWorkTime:&nbsp;String;<br>
+Begin<br>
+GetLocalTime(Time)	{{время&nbsp;завершения&nbsp;установки}<br>
+SystemTimeToFileTime(Time,&nbsp;FileTime)<br>
+SystemTimeToFileTime(StartTime,&nbsp;StartFileTime)<br>
+<br>
+///здесь&nbsp;необходимо&nbsp;использовать&nbsp;64-битовую&nbsp;арифметику&nbsp;ULARGE_INTEGER<br>
+FileTime.dwLowDateTime:=&nbsp;FileTime.dwLowDateTime&nbsp;-&nbsp;StartFileTime.dwLowDateTime<br>
+FileTime.dwHighDateTime:=&nbsp;FileTime.dwHighDateTime&nbsp;-&nbsp;StartFileTime.dwHighDateTime<br>
+<br>
+FileTimeToSystemTime(FileTime,&nbsp;Time)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Result:=&nbsp;'Длительность:&nbsp;'&nbsp;+&nbsp;IntToStr(Time.wHour)&nbsp;+&nbsp;'&nbsp;час,&nbsp;'&nbsp;+&nbsp;IntToStr(Time.wMinute)&nbsp;+&nbsp;'&nbsp;мин,&nbsp;'&nbsp;+&nbsp;FloatToStr((Time.wSecond*1000&nbsp;+&nbsp;Time.wMilliseconds)/1000)&nbsp;+&nbsp;'&nbsp;сек.'<br>
+end;<br>
+<br>
+procedure&nbsp;CurPageChanged(CurPageID:&nbsp;Integer);<br>
+Begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;CurPageID&nbsp;=&nbsp;wpFinished&nbsp;then&nbsp;TLabel.Caption:=&nbsp;TLabel.Caption&nbsp;+&nbsp;#13#10&nbsp;+&nbsp;GetWorkTime;<br>
+end;<br>
+<br>
+procedure&nbsp;InitializeWizard;<br>
+Begin<br>
+&nbsp;&nbsp;GetLocalTime(StartTime)&nbsp;&nbsp;&nbsp;&nbsp;{{время&nbsp;начала&nbsp;установки}<br>
+&nbsp;&nbsp;TLabel:=&nbsp;TNewStaticText.Create(WizardForm);<br>
+&nbsp;&nbsp;TLabel.Top:=&nbsp;WizardForm.CancelButton.Top;<br>
+&nbsp;&nbsp;TLabel.Left:=&nbsp;WizardForm.ClientWidth&nbsp;-&nbsp;WizardForm.CancelButton.Left&nbsp;-&nbsp;WizardForm.CancelButton.Width;<br>
+&nbsp;&nbsp;TLabel.Parent:=&nbsp;WizardForm;<br>
+&nbsp;&nbsp;TLabel.Caption:=&nbsp;'Время&nbsp;старта:&nbsp;'&nbsp;+&nbsp;IntToStr(StartTime.wHour)&nbsp;+&nbsp;'&nbsp;час,&nbsp;'&nbsp;+&nbsp;IntToStr(StartTime.wMinute)&nbsp;+&nbsp;'&nbsp;мин,&nbsp;'&nbsp;+&nbsp;FloatToStr((StartTime.wSecond*1000&nbsp;+&nbsp;StartTime.wMilliseconds)/1000)&nbsp;+&nbsp;'&nbsp;сек.'&nbsp;;<br>
+end;<br>
+</font></blockquote><textarea id="taCode1" style="display:none;" rows="1" cols="5"></textarea><textarea id='taCode' style='display:none;' rows='1' cols='20'></textarea></code><script language="javascript" type="text/javascript">highlightSyntax('delphi_Tc4NTM','delphi');</script><br><div id="heading"><h1><font size="1" face="Consolas">Copyright (c) <a href="http://www.krinkels.org/" target="_blank">Krinkels Inc</a></font></h1></div></body></html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Секция [Tasks]</title>
+<!--[if IE 6]><style type="text/css">html{overflow-y:scroll}</style><![endif]-->
+<link rel="stylesheet" type="text/css" href="styles.css" />
+<script type="text/javascript" src="topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Секция [Tasks]</h1>
+<div class="topicbody">
+  <p>Это не обязательная секция. Она определяет задания, настраиваемые пользователем, которые инсталлятор выполнит в ходе установки. Задания имеют вид чек боксов и кнопок на странице <i>Выбор дополнительных заданий</i>.</p>
+  <p>Сама по себе эта секция ничего не делает: ее нужно  связать с другими секциями. См. <a href="topic_componentstasksparams.htm">Параметры секций [Components] и [Tasks]</a>.</p>
+  <p>Пример секции <tt>[Tasks]</tt>:</p>
+  <pre class="indent examplebox">[Tasks]<br />Name: desktopicon; Description: &quot;Create a &amp;desktop icon&quot;; GroupDescription: &quot;Additional icons:&quot;; Components: main<br />Name: desktopicon\common; Description: &quot;For all users&quot;; GroupDescription: &quot;Additional icons:&quot;; Components: main; Flags: exclusive<br />Name: desktopicon\user; Description: &quot;For the current user only&quot;; GroupDescription: &quot;Additional icons:&quot;; Components: main; Flags: exclusive unchecked<br />Name: quicklaunchicon; Description: &quot;Create a &amp;Quick Launch icon&quot;; GroupDescription: &quot;Additional icons:&quot;; Components: main; Flags: unchecked<br />Name: associate; Description: &quot;&amp;Associate files&quot;; GroupDescription: &quot;Other tasks:&quot;; Flags: unchecked</pre>
+  <p>Список поддерживаемых <a href="topic_params.htm">параметров</a>:</p>
+  <dl>
+    <dt class="paramlist"><b><a name="Name" id="Name">Name</a></b>&nbsp;<i>(Обязательно)</i></dt>
+    <dd class="paramlist">
+      <p>Имя задания.</p>
+      <p>Общее число \ или / в имени задания называется уровнем задания. Всякое задание с уровнем 1 и выше является дочерним. Задание, стоящее выше дочернего задания и имеющее уровень на 1 меньше, чем дочернее, называется родительским. </p>
+      <p>Дочерние задания не могут быть выбраны отдельно от родительского. Родительское задание не может быть выбрано, если ни одно из его дочерних заданий не выбрано, если параметр секции <tt>Tasks</tt> непосредственно не ссылается на родительскую задачу, или родительская задача включает флаг <tt>checkablealone</tt> и сам по себе оно ничего не устанавливает.</p>
+      <p>Если родственные задания имеют флаг <tt>exclusive</tt>, может быть выбрана только одна из них.</p>
+      <div class="examplebox">
+        <div class="exampleheader">Например:</div>
+        <pre class="nomargin">Name: &quot;desktopicon&quot;</pre>
+      </div>
+    </dd>
+    <dt class="paramlist"><b><a name="Description" id="Description">Description</a></b>&nbsp;<i>(Обязательно)</i></dt>
+    <dd class="paramlist">
+      <p>Описание задания, которое может содержать константы. Это описание отображается в процессе установки.</p>
+      <div class="examplebox">
+        <div class="exampleheader">Например:</div>
+        <pre class="nomargin">Description: &quot;Create a &amp;desktop icon&quot;</pre>
+      </div>
+    </dd>
+    <dt class="paramlist"><b><a name="GroupDescription" id="GroupDescription">GroupDescription</a></b></dt>
+    <dd class="paramlist">
+      <p>Описание для группы заданий, которое может содержать константы. Следующие друг за другом задания с одним и тем же описанием группы будут объединены под текстовой меткой. Текстовая метка отображает описание группы.</p>
+      <div class="examplebox">
+        <div class="exampleheader">Например:</div>
+        <pre class="nomargin">GroupDescription: &quot;Additional icons&quot;</pre>
+      </div>
+    </dd>
+    <dt class="paramlist"><b><a name="Components" id="Components">Components</a></b></dt>
+    <dd class="paramlist">
+      <p>Список компонентов, разделенных пробелами, к которым относятся задания. Если пользователь выберет компонент из этого списка, задание выполнится. Задание без параметра Components всегда предлагается на выполнение.</p>
+      <div class="examplebox">
+        <div class="exampleheader">Например:</div>
+        <pre class="nomargin">Components: main</pre>
+      </div>
+    </dd>
+    <dt class="paramlist"><b><a name="Flags" id="Flags">Flags</a></b></dt>
+    <dd class="paramlist">
+      <p>Параметры для установки дополнительных опций. Разделяются пробелами. Поддерживаемые значения:</p>
+      <dl>
+        <dt class="flaglist"><a name="checkablealone" id="checkablealone">checkablealone</a></dt>
+        <dd>
+          <p>Определяет, что задача может быть выбрана, когда ни один из ее дочерних элементов не выбраны. По умолчанию, если ни один параметр секции <tt>Tasks</tt> непосредственно не ссылается на задачу, отмена выбора всех дочерних элементов приведет к отмене выбора родительской задачи.</p>
+        </dd>
+        <dt class="flaglist"><a name="checkedonce" id="checkedonce">checkedonce</a></dt>
+        <dd>
+          <p>Указывает инсталлятору, что данное задание не должно быть выбрано в случае, когда инсталлятор обнаружит, что оно уже установлена  предыдущая версия <a href="topic_sameappnotes.htm">этого приложения</a>.</p>
+          <p>Если директива <tt>UsePreviousTasks</tt> секции [Setup] имеет значение <tt>no</tt>, этот флаг игнорируется.</p>
+        </dd>
+        <dt class="flaglist"><a name="dontinheritcheck" id="dontinheritcheck">dontinheritcheck</a></dt>
+        <dd>
+          <p>Указывает, что задание не выбирается автоматически, если выбрано родительское задание. Не действует при заданиях, не имеющих дочерних заданий, и не комбинируется с флагом <tt>exclusive</tt>.</p>
+        </dd>
+        <dt class="flaglist"><a name="exclusive" id="exclusive">exclusive</a></dt>
+        <dd>
+          <p>Указывает инсталлятору, что из двух и более дочерних заданий, также имеющих флаг <tt>exclusive</tt>, может быть выбрано только одно.</p>
+        </dd>
+        <dt class="flaglist"><a name="restart" id="restart">restart</a></dt>
+        <dd>
+          <p>Указывает инсталлятору, что при выборе пользователем этого задания следует перезагрузить компьютер после его установки, даже если в этом нет необходимости (например, потому, что в секции [Files] могут находиться параметры с флагом <tt>restartreplace</tt>). Действует так же, как директива <a href="topic_setup_alwaysrestart.htm">AlwaysRestart</a>, только для заданий.</p>
+        </dd>
+        <dt class="flaglist"><a name="unchecked" id="unchecked">unchecked</a></dt>
+        <dd>
+          <p>Указывает инсталлятору, что задание не должно быть изначально выбрано.</p>
+        </dd>
+      </dl>
+      <div class="examplebox">
+        <div class="exampleheader">Например:</div>
+        <pre class="nomargin">Flags: unchecked</pre>
+      </div>
+    </dd>
+  </dl>
+  <p><b><a href="topic_commonparams.htm">Общие параметры</a></b></p>
+</div>
+</body>
+</html>

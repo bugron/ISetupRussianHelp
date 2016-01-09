@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Изменение надписи в панели задач</title><link rel="stylesheet" type="text/css" href="css.css">
+<script language='jscript' type='text/javascript' src='copycode.js'></script>
+<script type="text/javascript" src="includer.js"></script></head><body><div id="heading"><h1>» Inno Setup Faq. Изменение надписи в панели задач</h1></div><br>
+<script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM">
+<input type="button" value="Копировать в буфер обмена" onClick="copyToClipboard( taCode1, theCode1 );">
+<blockquote id="theCode1"><font>
+[Setup]<br>
+AppName=Test<br>
+AppVerName=Test<br>
+CreateAppDir=false<br>
+InternalCompressLevel=none<br>
+Compression=none<br>
+<br>
+[Code]<br>
+function&nbsp;SetWindowText(hWnd:&nbsp;Longint;&nbsp;lpString:&nbsp;PChar):&nbsp;Longint;&nbsp;external&nbsp;'SetWindowTextA@user32.dll';<br>
+function&nbsp;GetWindowLong(hWnd,&nbsp;nIndex:&nbsp;Integer):&nbsp;Longint;&nbsp;external&nbsp;'GetWindowLongA@user32.dll';<br>
+<br>
+procedure&nbsp;SetAppTitle(Value:&nbsp;String);<br>
+var&nbsp;n:&nbsp;HWND;<br>
+begin<br>
+&nbsp;&nbsp;n:=GetWindowLong(MainForm.Handle,&nbsp;-8);<br>
+&nbsp;&nbsp;if&nbsp;n&nbsp;&lt;&gt;&nbsp;0&nbsp;then&nbsp;SetWindowText(n,&nbsp;PChar(Value));<br>
+end;<br>
+<br>
+procedure&nbsp;InitializeWizard;<br>
+begin<br>
+&nbsp;&nbsp;SetAppTitle('NewTitle');<br>
+end;<br>
+</font></blockquote><textarea id="taCode1" style="display:none;" rows="1" cols="5"></textarea><textarea id='taCode' style='display:none;' rows='1' cols='20'></textarea></code><script language="javascript" type="text/javascript">highlightSyntax('delphi_Tc4NTM','delphi');</script><br><div id="heading"><h1><font size="1" face="Consolas">Copyright (c) <a href="http://www.krinkels.org/" target="_blank">Krinkels Inc</a></font></h1></div></body></html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Как сделать, чтобы при распаковке файлов, инсталл убирался в маленькое окошко в углу экрана?</title><link rel="stylesheet" type="text/css" href="css.css"><script type="text/javascript" src="includer.js"></script><script language='jscript' type='text/javascript' src='copycode.js'></script></head><body><div id="heading"><h1>» Inno Setup Faq. Как сделать, чтобы при распаковке файлов, инсталл убирался в маленькое окошко в углу экрана?</h1></div><br><script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM"> <input type="button" value="Копировать в буфер обмена" onClick="copyToClipboard( taCode1, theCode1 );"> <blockquote id="theCode1"><font>[Setup]<br>
+AppName=MiniInstall<br>
+AppVersion=1.0<br>
+DefaultDirName={pf}\MiniInstall<br>
+<br>
+[Files]<br>
+Source: {win}\help\*; DestDir: {app}\Files; Flags: external recursesubdirs createallsubdirs;<br>
+<br>
+[Code]<br>
+function GetSystemMetrics(nIndex:Integer):integer; external 'GetSystemMetrics@user32.dll stdcall delayload';<br>
+<br>
+procedure MiniInstall;<br>
+begin<br>
+  with WizardForm do<br>
+  begin<br>
+    Bevel.Hide;<br>
+    Bevel1.Hide;<br>
+    MainPanel.Hide;<br>
+    AutoScroll := False;<br>
+    ClientHeight := ScaleY(105);<br>
+    InnerNotebook.Align := alClient;<br>
+    ProgressGauge.Left := ScaleX(40);<br>
+    CancelButton.Top := ScaleY(70);<br>
+    CancelButton.BringToFront;<br>
+///----- Позиция инсталлятора ----- \\\<br>
+    Left:=GetSystemMetrics(16)-Width;  ///Справа<br>
+///   Left:=0;  ///Слева<br>
+    Top:=GetSystemMetrics(17)-Height;  ///Внизу<br>
+///   Top:=0;  ///Вверху<br>
+///----------------------------------\\\<br>
+  end;<br>
+end;<br>
+<br>
+procedure RestoreInstall;<br>
+begin<br>
+  with WizardForm do<br>
+  begin<br>
+    Bevel.Show;<br>
+    ClientHeight := ScaleY(360);<br>
+    Position:=poScreenCenter;<br>
+  end;<br>
+end;<br>
+<br>
+procedure CurPageChanged(CurPageID: Integer);<br>
+begin<br>
+  case CurPageID of<br>
+    wpInstalling: MiniInstall;<br>
+    wpFinished: RestoreInstall;<br>
+  end;<br>
+end;</font></blockquote><textarea id="taCode1" style="display:none;" rows="1" cols="5"></textarea><textarea id='taCode' style='display:none;' rows='1' cols='20'></textarea></code><script language="javascript" type="text/javascript">highlightSyntax('delphi_Tc4NTM','delphi');</script><br><div id="heading"><h1><font size="1" face="Consolas">Copyright (c) <a href="http://www.krinkels.org/" target="_blank">Krinkels Inc</a></font></h1></div></body></html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Как добавить описание к компонентам в ComponentsList?</title><link rel="stylesheet" type="text/css" href="css.css"><script type="text/javascript" src="includer.js"></script><script language='jscript' type='text/javascript' src='copycode.js'></script></head><body><div id="heading"><h1>» Inno Setup Faq. Как добавить описание к компонентам в ComponentsList?</h1></div><br><script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM"> <input type="button" value="Копировать в буфер обмена" onClick="copyToClipboard( taCode1, theCode1 );"> <blockquote id="theCode1"><font>[Setup]<br>
+AppName=My Program<br>
+AppVerName=My Program 1.5<br>
+DefaultDirName={pf}\My Program<br>
+DefaultGroupName=My Program<br>
+ComponentsListTVStyle=true<br>
+<br>
+[Languages]<br>
+Name: russian; MessagesFile: compiler:Languages\Russian.isl<br>
+<br>
+[CustomMessages]<br>
+russian.ComponentsName1=Моя программа™<br>
+russian.ComponentsName2=Помощь<br>
+russian.ComponentsName2_1=Документация<br>
+russian.ComponentsName2_2=Руководство пользователя<br>
+russian.ComponentsInfoPanel1=Описание<br>
+russian.ComponentsInfoPanel2=Наведите курсор мыши на компонент, чтобы прочитать его описание.<br>
+russian.ComponentsDescription1=Устанавливается обязательно<br>
+russian.ComponentsDescription2=Помощь<br>
+russian.ComponentsDescription3=Прочитать документацию<br>
+russian.ComponentsDescription4=Прочитать руководство пользователя<br>
+<br>
+[Components]<br>
+Name: readme; Description: Справка; Types: full custom;<br>
+Name: readme\en; Description: "Английская "; Types: full custom; Flags: fixed<br>
+Name: readme\ru; Description: Русская; Types: full<br>
+<br>
+Name: plugs; Description: Плагины; Types: full ; Flags: collapsed<br>
+Name: plugs\wlx; Description: Внутреннего просмотра; Types: full<br>
+Name: plugs\wcx; Description: Архиваторные; Types: full<br>
+Name: plugs\wfx; Description: Системные; Types: full<br>
+Name: plugs\wfx\CanonCam; Description: CanonCam; Types: full<br>
+Name: plugs\wfx\PluginManager; Description: PluginManager; Types: full<br>
+Name: plugs\wfx\Registry; Description: Registry; Types: full<br>
+Name: plugs\wfx\Services; Description: Services; Types: full<br>
+Name: plugs\wfx\StartupGuard; Description: StartupGuard; Types: full<br>
+Name: plugs\wdx; Description: Другие; Types: full<br>
+<br>
+[Code]<br>
+type<br>
+  TComponentDesc = record Description: String; Index: Integer; end;<br>
+  <br>
+var<br>
+  Descs: array of TComponentDesc;<br>
+  Info: TNewStaticText;<br>
+  InfoCaption: TNewStaticText;<br>
+  InfoPanel: TPanel;<br>
+  Indx: Integer;<br>
+  <br>
+procedure ShowDescription(Sender: TObject; X, Y, Index: Integer; Area: TItemArea);<br>
+var i: Integer;<br>
+begin<br>
+  Indx:=-1;<br>
+  for i:= 0 to GetArrayLength(Descs)-1 do begin<br>
+  if (Descs[i].Index=Index) then begin Indx:=i; Break end; end;<br>
+  if (Indx &gt;=0)and(Area=iaItem) then Info.Caption:= Descs[Indx].Description else Info.Caption:= ExpandConstant('{cm:ComponentsInfoPanel2}');<br>
+end;<br>
+<br>
+procedure AddDescription(AIndex: Integer; ADescription: String);<br>
+var i, k: Integer;<br>
+begin<br>
+i:= GetArrayLength(Descs); SetArrayLength(Descs, i+1);<br>
+Descs[i].Description:= ADescription; Descs[i].Index:= AIndex-1<br>
+end;<br>
+<br>
+procedure InitializeWizard();<br>
+begin<br>
+  WizardForm.TypesCombo.Visible:=False;<br>
+  WizardForm.ComponentsList.Height := ScaleY(181) - WizardForm.TypesCombo.Top;<br>
+  WizardForm.ComponentsList.Top := WizardForm.TypesCombo.Top;<br>
+  WizardForm.ComponentsList.Width := ScaleX(417);<br>
+  WizardForm.ComponentsList.OnItemMouseMove:= @ShowDescription<br>
+<br>
+  InfoPanel := TPanel.Create(WizardForm);<br>
+  InfoPanel.Parent := WizardForm.SelectComponentsPage;<br>
+  InfoPanel.Caption := '';<br>
+  InfoPanel.Top := ScaleY(190);<br>
+  InfoPanel.Left := ScaleX(0);<br>
+  InfoPanel.Width := ScaleX(417);<br>
+  InfoPanel.Height := ScaleY(40);<br>
+  InfoPanel.BevelInner := bvRaised;<br>
+  InfoPanel.BevelOuter := bvLowered;<br>
+  InfoCaption := TNewStaticText.Create(WizardForm);<br>
+  InfoCaption.Parent := WizardForm.SelectComponentsPage;<br>
+  InfoCaption.Caption := ExpandConstant('{cm:ComponentsInfoPanel1}');<br>
+  InfoCaption.Left := ScaleX(7);<br>
+  InfoCaption.Top := InfoPanel.Top - ScaleY(6);<br>
+  InfoCaption.Font.Color := clActiveCaption;<br>
+<br>
+  Info := TNewStaticText.Create(WizardForm);<br>
+  Info.Parent := InfoPanel;<br>
+  Info.AutoSize := False;<br>
+  Info.Left := ScaleX(6);<br>
+  Info.Width := ScaleX(403);<br>
+  Info.Top := ScaleY(12);<br>
+  Info.Height := ScaleY(24);<br>
+  Info.Caption := ExpandConstant('{cm:ComponentsInfoPanel2}');<br>
+  Info.WordWrap := true;<br>
+<br>
+  AddDescription(1, 'Справка'); ///первый параметр - это номер компонента, идет последовательно от начала записи компонентов<br>
+  AddDescription(2, 'Английская справка'); ///Второй параметр - это собственно описание компонента<br>
+  AddDescription(3, 'Русская справка');<br>
+  AddDescription(4, 'Плагины');<br>
+  AddDescription(5, 'Внутреннего просмотра');<br>
+  AddDescription(6, 'Архиваторные');<br>
+  AddDescription(7, 'Системные');<br>
+  AddDescription(8, 'CanonCam');<br>
+  AddDescription(9, 'PluginManager');<br>
+  AddDescription(10, 'Registry');<br>
+  AddDescription(11, 'Services');<br>
+  AddDescription(12, 'StartupGuard');<br>
+  AddDescription(13, 'Другие');<br>
+end;</font></blockquote><textarea id="taCode1" style="display:none;" rows="1" cols="5"></textarea><textarea id='taCode' style='display:none;' rows='1' cols='20'></textarea></code><script language="javascript" type="text/javascript">highlightSyntax('delphi_Tc4NTM','delphi');</script><br><div id="heading"><h1><font size="1" face="Consolas">Copyright (c) <a href="http://www.krinkels.org/" target="_blank">Krinkels Inc</a></font></h1></div></body></html>

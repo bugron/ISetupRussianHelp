@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Как добавить исключение в Windows Firewall</title><link rel="stylesheet" type="text/css" href="css.css">
+<script language='jscript' type='text/javascript' src='copycode.js'></script>
+<script type="text/javascript" src="includer.js"></script></head><body><div id="heading"><h1>» Inno Setup Faq. Как добавить исключение в Windows Firewall</h1></div><br>
+<script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM">
+<input type="button" value="Копировать в буфер обмена" onClick="copyToClipboard( taCode1, theCode1 );">
+<blockquote id="theCode1"><font>
+[Setup]<br>
+AppName=FirewollExeption<br>
+AppVerName=FirewollExeption<br>
+CreateAppDir=false<br>
+Compression=lzma2<br>
+<br>
+[code]<br>
+///Utility&nbsp;functions&nbsp;for&nbsp;Inno&nbsp;Setup<br>
+///used&nbsp;to&nbsp;add/remove&nbsp;programs&nbsp;from&nbsp;the&nbsp;windows&nbsp;firewall&nbsp;rules<br>
+///Code&nbsp;originally&nbsp;from&nbsp;http://news.jrsoftware.org/news/innosetup/msg43799.html<br>
+<br>
+const<br>
+&nbsp;&nbsp;NET_FW_SCOPE_ALL&nbsp;=&nbsp;0;<br>
+&nbsp;&nbsp;NET_FW_IP_VERSION_ANY&nbsp;=&nbsp;2;<br>
+<br>
+procedure&nbsp;SetFirewallException(AppName,FileName:string);<br>
+var<br>
+&nbsp;&nbsp;FirewallObject:&nbsp;Variant;<br>
+&nbsp;&nbsp;FirewallManager:&nbsp;Variant;<br>
+&nbsp;&nbsp;FirewallProfile:&nbsp;Variant;<br>
+begin<br>
+&nbsp;&nbsp;try<br>
+&nbsp;&nbsp;&nbsp;&nbsp;FirewallObject&nbsp;:=&nbsp;CreateOleObject('HNetCfg.FwAuthorizedApplication');<br>
+&nbsp;&nbsp;&nbsp;&nbsp;FirewallObject.ProcessImageFileName&nbsp;:=&nbsp;FileName;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;FirewallObject.Name&nbsp;:=&nbsp;AppName;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;FirewallObject.Scope&nbsp;:=&nbsp;NET_FW_SCOPE_ALL;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;FirewallObject.IpVersion&nbsp;:=&nbsp;NET_FW_IP_VERSION_ANY;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;FirewallObject.Enabled&nbsp;:=&nbsp;True;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;FirewallManager&nbsp;:=&nbsp;CreateOleObject('HNetCfg.FwMgr');<br>
+&nbsp;&nbsp;&nbsp;&nbsp;FirewallProfile&nbsp;:=&nbsp;FirewallManager.LocalPolicy.CurrentProfile;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;FirewallProfile.AuthorizedApplications.Add(FirewallObject);<br>
+&nbsp;&nbsp;except<br>
+&nbsp;&nbsp;end;<br>
+end;<br>
+<br>
+procedure&nbsp;RemoveFirewallException(FileName:string);<br>
+var<br>
+&nbsp;&nbsp;FirewallManager:&nbsp;Variant;<br>
+&nbsp;&nbsp;FirewallProfile:&nbsp;Variant;<br>
+begin<br>
+&nbsp;&nbsp;try<br>
+&nbsp;&nbsp;&nbsp;&nbsp;FirewallManager&nbsp;:=&nbsp;CreateOleObject('HNetCfg.FwMgr');<br>
+&nbsp;&nbsp;&nbsp;&nbsp;FirewallProfile&nbsp;:=&nbsp;FirewallManager.LocalPolicy.CurrentProfile;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;FireWallProfile.AuthorizedApplications.Remove(FileName);<br>
+&nbsp;&nbsp;except<br>
+&nbsp;&nbsp;end;<br>
+end;<br>
+<br>
+procedure&nbsp;CurStepChanged(CurStep:&nbsp;TSetupStep);<br>
+begin<br>
+&nbsp;&nbsp;if&nbsp;CurStep=ssPostInstall&nbsp;then<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SetFirewallException('My&nbsp;Server',&nbsp;ExpandConstant('{win}')+'\notepad.exe');<br>
+end;<br>
+<br>
+procedure&nbsp;CurUninstallStepChanged(CurUninstallStep:&nbsp;TUninstallStep);<br>
+begin<br>
+&nbsp;&nbsp;if&nbsp;CurUninstallStep=usPostUninstall&nbsp;then<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RemoveFirewallException(ExpandConstant('{win}')+'\notepad.exe');<br>
+end;<br>
+</font></blockquote><textarea id="taCode1" style="display:none;" rows="1" cols="5"></textarea><textarea id='taCode' style='display:none;' rows='1' cols='20'></textarea></code><script language="javascript" type="text/javascript">highlightSyntax('delphi_Tc4NTM','delphi');</script><br><div id="heading"><h1><font size="1" face="Consolas">Copyright (c) <a href="http://www.krinkels.org/" target="_blank">Krinkels Inc</a></font></h1></div></body></html>

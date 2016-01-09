@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Как обнаружить, установлен ли windows installer </title><link rel="stylesheet" type="text/css" href="css.css">
+<script language='jscript' type='text/javascript' src='copycode.js'></script>
+<script type="text/javascript" src="includer.js"></script></head><body><div id="heading"><h1>» Inno Setup Faq. Как обнаружить, установлен ли windows installer </h1></div><br>
+<script language="javascript" type="text/javascript">includeSyntax('delphi');</script><code id="delphi_Tc4NTM">
+<input type="button" value="Копировать в буфер обмена" onClick="copyToClipboard( taCode1, theCode1 );">
+<blockquote id="theCode1"><font>
+[Setup]<br>
+AppName=MSIVersion<br>
+AppVerName=MSIVersion<br>
+DefaultDirName={pf}\MSIVersion<br>
+DisableStartupPrompt=true<br>
+Uninstallable=false<br>
+<br>
+[Code]<br>
+///INFO:&nbsp;MSI:&nbsp;How&nbsp;to&nbsp;Obtain&nbsp;the&nbsp;Windows&nbsp;Installer&nbsp;Engine&nbsp;(Q292539)<br>
+///http://support.microsoft.com/default.aspx?scid=kb;en-us;Q292539<br>
+const<br>
+&nbsp;&nbsp;msiurl&nbsp;=&nbsp;'http://support.microsoft.com/default.aspx?scid=kb;en-us;Q292539';<br>
+<br>
+function&nbsp;GetMSIVersion():&nbsp;String;<br>
+var<br>
+&nbsp;&nbsp;sVersion:&nbsp;&nbsp;String;<br>
+begin<br>
+&nbsp;&nbsp;sVersion&nbsp;:=&nbsp;'';<br>
+&nbsp;&nbsp;GetVersionNumbersString(ExpandConstant('{sys}\msiexec.exe')&nbsp;,&nbsp;sVersion);<br>
+&nbsp;&nbsp;Result&nbsp;:=&nbsp;sVersion;<br>
+end;<br>
+<br>
+function&nbsp;InitializeSetup():&nbsp;Boolean;<br>
+var&nbsp;msiver:&nbsp;String;&nbsp;answer,&nbsp;errcode:&nbsp;Integer;<br>
+begin<br>
+&nbsp;&nbsp;msiver&nbsp;:=&nbsp;GetMSIVersion();<br>
+&nbsp;&nbsp;if&nbsp;Length(msiver)&nbsp;=&nbsp;0&nbsp;then<br>
+&nbsp;&nbsp;begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;answer&nbsp;:=&nbsp;MsgBox('It&nbsp;is&nbsp;not&nbsp;present&nbsp;Windows&nbsp;Installer&nbsp;Engine,&nbsp;install&nbsp;it&nbsp;before&nbsp;continue&nbsp;with&nbsp;this&nbsp;setup.'&nbsp;+#13#13&nbsp;+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'Do&nbsp;you&nbsp;want&nbsp;to&nbsp;go&nbsp;to&nbsp;Microsoft&nbsp;website&nbsp;to&nbsp;download&nbsp;and&nbsp;install&nbsp;it&nbsp;?',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mbConfirmation,&nbsp;MB_YESNO);<br>
+&nbsp;&nbsp;///if&nbsp;user&nbsp;choosed&nbsp;yes&nbsp;goto&nbsp;website<br>
+&nbsp;&nbsp;if&nbsp;answer&nbsp;=&nbsp;IDYES&nbsp;then<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ShellExec('open',&nbsp;msiurl,&nbsp;'',&nbsp;'',&nbsp;SW_SHOWNORMAL,&nbsp;ewNoWait,&nbsp;errcode);<br>
+&nbsp;&nbsp;///cannot&nbsp;go&nbsp;with&nbsp;setup&nbsp;anyway<br>
+&nbsp;&nbsp;Result&nbsp;:=&nbsp;false;<br>
+&nbsp;&nbsp;end<br>
+&nbsp;&nbsp;else<br>
+&nbsp;&nbsp;&nbsp;&nbsp;///go&nbsp;with&nbsp;setup<br>
+&nbsp;&nbsp;Result&nbsp;:=&nbsp;true;<br>
+end;
+</font></blockquote><textarea id="taCode1" style="display:none;" rows="1" cols="5"></textarea><textarea id='taCode' style='display:none;' rows='1' cols='20'></textarea></code><script language="javascript" type="text/javascript">highlightSyntax('delphi_Tc4NTM','delphi');</script><br><div id="heading"><h1><font size="1" face="Consolas">Copyright (c) <a href="http://www.krinkels.org/" target="_blank">Krinkels Inc</a></font></h1></div></body></html>

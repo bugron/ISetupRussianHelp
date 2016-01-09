@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Pascal Scripting Extended: StrToFloat</title>
+<link rel="stylesheet" type="text/css" href="../../../styles.css" />
+<script type="text/javascript" src="../../../topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Pascal Scripting Extended: StrToFloat</h1>
+<div class="topicbody">
+  <div><b>Прототип:</b></div>
+  <p><tt>function StrToFloat(S: String): Extended;</tt></p>
+  <div><b>Описание:</b></div>
+  Функция StrToFloat конвертирует числовую строку FloatString, например '123.456' в значение с плавающей точкой с типом Extended.<br />
+  Она поддерживает целый формат, формат с плавающей точкой и научный (экспоненциальный) формат.<br />
+  Если в FloatString (преобразуемой строке) встретился символ, отделяющий целое от дроби, то он должен соответствовать текущему значению переменной DecimalSeparator ( точка - разделитель ). <br />
+  Второй вариант этой функции предназначен для использования в потоках. Перед вызовом функции вы должны заполнить запись FormatSettings. Функция делает локальную копию глобальных переменных форматирования, что делает ее потоко безопасной.<br />
+  <div><b>Пример:</b></div>
+  <p><tt>var<br />
+    &nbsp;stringValue : string;<br />
+    &nbsp;floatValue : Extended;<br />
+    <br />
+    begin<br />
+    // Установка исходную строку, содержащую представление числа<br />
+    &nbsp;stringValue := '123.456E+002';<br />
+    <br />
+    // Его преобразование в число с плавающей запятой<br />
+    &nbsp;floatValue := StrToFloat(stringValue);<br />
+    <br />
+    / И показ значения<br />
+    &nbsp;ShowMessage(stringValue+' = '+FloatToStr(floatValue));<br />
+    end;</tt></p>
+</div>
+</body>
+</html>

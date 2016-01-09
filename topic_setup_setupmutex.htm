@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>[Setup]: SetupMutex</title>
+<!--[if IE 6]><style type="text/css">html{overflow-y:scroll}</style><![endif]-->
+<link rel="stylesheet" type="text/css" href="styles.css" />
+<script type="text/javascript" src="topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">[Setup]: SetupMutex</h1>
+<div class="topicbody">
+<div><b>Description:</b></div>
+<p>This directive is used to prevent Setup from running while Setup is already running. It specifies the names of one or more named mutexes (multiple mutexes are separated by commas), which Setup will check for at startup. If any exist, Setup will display the message: "Setup has detected that Setup is currently running. Please close all instances of it now, then click OK to continue, or Cancel to exit." If none exist, Setup will create the mutex(es) and continue normally. The value may include constants.</p>
+<p>To specify a mutex name containing a comma, escape the comma with a backslash.</p>
+<p>See the topic for CreateMutex in the MS SDK help for more information on mutexes.</p>
+<div class="examplebox">
+<div class="exampleheader">Example:</div><pre class="nomargin">SetupMutex=MySetupsMutexName,Global\MySetupsMutexName</pre></div>
+<p><b>See also:</b><br/>
+<a href="topic_setup_appmutex.htm">AppMutex</a>
+</p>
+</div>
+</body>
+</html>

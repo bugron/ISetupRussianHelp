@@ -18,7 +18,7 @@ begin<br>
       if ((FSR.Attributes and FILE_ATTRIBUTE_DIRECTORY) = 0) then begin<br>
         Result:= Result+1;<br>
       end else<br>
-      if ((FSR.Attributes and FILE_ATTRIBUTE_DIRECTORY) = FILE_ATTRIBUTE_DIRECTORY)and((FSR.Name&lt;&gt;'.')and(FS  R.Name&lt;&gt;'..')) then begin<br>
+      if ((FSR.Attributes and FILE_ATTRIBUTE_DIRECTORY) = FILE_ATTRIBUTE_DIRECTORY)and((FSR.Name&lt;&gt;'.')and(FSR.Name&lt;&gt;'..')) then begin<br>
         Result:=GetFilesCount(AddBackslash(Dir)+FSR.Name);<br>
       end;<br>
       FindResult:= FindNext(FSR);<br>

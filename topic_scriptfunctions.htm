@@ -185,6 +185,7 @@
     <tt>function <a href="isxfunc/topic_isxfunc_unassigned.htm">Unassigned</a>: Variant;</tt><br />
     <br />
     <tt>function <a href="isxfunc/topic_isxfunc_varisempty.htm">VarIsEmpty</a>(const V: Variant): Boolean;</tt><br />
+    <tt>function <a href="isxfunc/topic_isxfunc_varisclear.htm">VarIsClear</a>(const V: Variant): Boolean;</tt><br/>
     <tt>function <a href="isxfunc/topic_isxfunc_varisnull.htm">VarIsNull</a>(const V: Variant): Boolean;</tt><br />
     <tt>function <a href="isxfunc/topic_isxfunc_vartype.htm">VarType</a>(const V: Variant): TVarType;</tt><br />
   </p>
@@ -249,6 +250,7 @@
     <tt>function <a href="isxfunc/topic_isxfunc_deltree.htm">DelTree</a>(const Path: String; const IsDir, DeleteFiles, DeleteSubdirsAlso: Boolean): Boolean;</tt><br />
     <br />
     <tt>function <a href="isxfunc/topic_isxfunc_createshelllink.htm">CreateShellLink</a>(const Filename, Description, ShortcutTo, Parameters, WorkingDir, IconFilename: String; const IconIndex, ShowCmd: Integer): String;</tt><br />
+    <tt>function <a href="isxfunc/topic_isxfunc_unpinshelllink.htm">UnpinShellLink</a>(const Filename: String): Boolean;</tt><br/>
     <br />
     <tt>procedure <a href="isxfunc/topic_isxfunc_registerserver.htm">RegisterServer</a>(const Is64Bit: Boolean; const Filename: String; const FailCriticalErrors: Boolean);</tt><br />
     <tt>function <a href="isxfunc/topic_isxfunc_unregisterserver.htm">UnregisterServer</a>(const Is64Bit: Boolean; const Filename: String; const FailCriticalErrors: Boolean): Boolean;</tt><br />
@@ -322,9 +324,11 @@
     <tt>function <a href="isxfunc/topic_isxfunc_msgbox.htm">MsgBox</a>(const Text: String; const Typ: TMsgBoxType; const Buttons: Integer): Integer;</tt><br />
     <tt>function <a href="isxfunc/topic_isxfunc_suppressiblemsgbox.htm">SuppressibleMsgBox</a>(const Text: String; const Typ: TMsgBoxType; const Buttons, Default: Integer): Integer;</tt><br />
     <tt>function <a href="isxfunc/topic_isxfunc_getopenfilename.htm">GetOpenFileName</a>(const Prompt: String; var FileName: String; const InitialDirectory, Filter, DefaultExtension: String): Boolean;</tt><br />
+    <tt>function <a href="isxfunc/topic_isxfunc_getopenfilenamemulti.htm">GetOpenFileNameMulti</a>(const Prompt: String; var FileNameList: TStrings; const InitialDirectory, Filter, DefaultExtension: String): Boolean;</tt><br/>
     <tt>function <a href="isxfunc/topic_isxfunc_getsavefilename.htm">GetSaveFileName</a>(const Prompt: String; var FileName: String; const InitialDirectory, Filter, DefaultExtension: String): Boolean;</tt><br />
     <tt>function <a href="isxfunc/topic_isxfunc_browseforfolder.htm">BrowseForFolder</a>(const Prompt: String; var Directory: String; const NewFolderButton: Boolean): Boolean;</tt><br />
     <tt>function <a href="isxfunc/topic_isxfunc_exitsetupmsgbox.htm">ExitSetupMsgBox</a>: Boolean;</tt><br />
+    <tt>function <a href="isxfunc/topic_isxfunc_selectdisk.htm">SelectDisk</a>(const DiskNumber: Integer; const AFilename: String; var Path: String): Boolean;</tt><br/>
   </p>
   <p><b>Функции, поддерживающие объекты СOM:</b><br />
     <br />
@@ -369,7 +373,7 @@
     MB_OK, MB_OKCANCEL, MB_ABORTRETRYIGNORE, MB_YESNOCANCEL, MB_YESNO, MB_RETRYCANCEL, MB_DEFBUTTON1, MB_DEFBUTTON2, MB_DEFBUTTON3, MB_SETFOREGROUND</p>
   <p><i>MsgBox - возвращаемые значения</i><br />
     IDOK, IDCANCEL, IDABORT, IDRETRY, IDIGNORE, IDYES, IDNO</p>
-  <p><i>TGetShellFolderID</i><br />
+  <p><i>TShellFolderID</i><br />
     sfDesktop, sfStartMenu, sfPrograms, sfStartup, sfSendTo, sfFonts, sfAppData, sfDocs, sfTemplates, sfFavorites, sfLocalAppData</p>
   <p><i>Reg* - - значения корневых значений (RootKey values) (также см. <a href="topic_registrysection.htm">Секция [Registry]</a>)</i><br />
     HKEY_CLASSES_ROOT, HKEY_CLASSES_ROOT_32, HKEY_CLASSES_ROOT_64,<br />

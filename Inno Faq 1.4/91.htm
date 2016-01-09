@@ -81,7 +81,7 @@ begin<br>
     TNewDiskForm:= CreateCustomForm();<br>
     TNewDiskForm.SetBounds(ScaleX(0), ScaleY(0), ScaleX(377), ScaleY(200));<br>
     TNewDiskForm.CenterInsideControl(WizardForm, False);<br>
-    TNewDiskForm.Caption:=SetupMessage(msgChangeDiskTi  tle);<br>
+    TNewDiskForm.Caption:=SetupMessage(msgChangeDiskTitle);<br>
     TNewDiskForm.Font.Color:= clWindowText<br>
     TNewDiskForm.Font.Height:= -11<br>
     TNewDiskForm.Font.Name:= 'MS Sans Serif'<br>
@@ -95,7 +95,7 @@ begin<br>
     SelectDiskLabel.Transparent:=True<br>
     SelectDiskLabel.Font.Color:=clBlack<br>
     SelectDiskLabel.Font.Size:=8<br>
-    SelectDiskLabel.Caption:=FmtMessage(SetupMessage(m  sgSelectDiskLabel2), [IntToStr(DiskNumber)]);<br>
+    SelectDiskLabel.Caption:=FmtMessage(SetupMessage(msgSelectDiskLabel2), [IntToStr(DiskNumber)]);<br>
     SelectDiskLabel.Parent:=TNewDiskForm<br>
     SelectDiskLabel.ShowAccelChar:= False<br>
 <br>
@@ -144,7 +144,7 @@ True:TNewDiskForm.free;<br>
 end;<br>
 end;<br>
 end;<br>
-until ((TNewDiskForm.ModalResult=mrOk)or(TNewDiskForm.Mo  dalResult=mrCancel));<br>
+until ((TNewDiskForm.ModalResult=mrOk)or(TNewDiskForm.ModalResult=mrCancel));<br>
 end;<br>
 <br>
 <br>

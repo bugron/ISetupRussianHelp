@@ -13,7 +13,7 @@
   <div><b>Прототип:</b></div>
   <p><tt>function CreateInputFilePage(const AfterID: Integer; const ACaption, ADescription, ASubCaption: String): TInputFileWizardPage;</tt></p>
   <div><b>Описание:</b></div>
-  <p>Создает страницу мастера, которая содержит поля ввода и кнопки  для выбора файлов.</p>
+  <p>Создает страницу мастера, которая содержит поля ввода и кнопки для выбора файлов.</p>
   <div><b>Комментарии:</b></div>
   <p>Для создания полей для выбора файлов,  вызовите метод Add. Используйте свойство Values​​, чтобы получить/установить значения объектов.</p>
   <p>Пример фильтра: 'Text files (*.txt)|*.txt|All files (*.*)|*.*'</p>
@@ -43,5 +43,8 @@ Page.Values[0] := ExpandConstant('{win}\notepad.exe');
 NotepadLocation := Page.Values[0];
 </pre>
 </div>
+<div><b>См. также:</b></div>
+<p><a href="../topic_scriptclasses.htm#TInputFileWizardPage">TInputFileWizardPage</a>
+</p>
 </body>
 </html>

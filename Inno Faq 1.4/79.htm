@@ -25,7 +25,7 @@ function RemoveFontResource(FileName: PAnsiChar): BOOL; external 'RemoveFontReso
 function InitializeSetup(): Boolean;<br>
 begin<br>
   ExtractTemporaryFile('{#Font}');<br>
-  IsCustomFontInstalled:=AddFontResource(ExpandConst  ant('{tmp}')+'\{#Font}')&gt;0;<br>
+  IsCustomFontInstalled:=AddFontResource(ExpandConstant('{tmp}')+'\{#Font}')&gt;0;<br>
   if IsCustomFontInstalled then SendMessage(HWND_BROADCAST,$1D,0,0);<br>
   if FontExists('{#FontName}') then FontName:='{#FontName}' else FontName:='Arial';<br>
   Result:= True;<br>

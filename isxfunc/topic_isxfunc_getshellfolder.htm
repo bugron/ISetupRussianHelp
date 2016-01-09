@@ -13,9 +13,9 @@
   <div><b>Прототип:</b></div>
   <p><tt>function GetShellFolder(Common: Boolean; const ID: TShellFolderID): String;</tt></p>
   <div><b>Описание:</b></div>
-  <p>Gets the location of the specified shell folder. Returns the 'common' version of the shell folder location if Common is True and the user has administrative privileges. On failure (unlikely but possible), an empty string is returned.</p>
+  <p>Получает путь к указанной папке оболочки. Если Common равен True и пользователь обладает правами администратора, то возвращает путь к так называемой 'общей' версии папки оболочки. При неудаче (маловероятно, но возможно), возвращается пустая строка.</p>
   <div><b>Комментарии:</b></div>
-  <p>There is little reason to use this function. It is recommended that you use the ExpandConstant function instead to get the paths of shell folders.</p>
+  <p>Существует мало оснований для использования этой функции. Рекомендуется использовать функцию ExpandConstant, чтобы получить пути к папкам оболочки.</p>
   <div><b>Например:</b></div>
   <pre>var
   Path: String;

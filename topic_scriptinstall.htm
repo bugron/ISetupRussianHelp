@@ -41,7 +41,7 @@ Source: &quot;MYPROG.CHM&quot;; DestDir: &quot;{app}&quot;; AfterInstall: Log('A
     </dd>
   </dl>
   <p>Функции <tt>BeforeInstall</tt> и <tt>AfterInstall</tt> не должны возвращать ничего.</p>
-  <p>Функции <tt>BeforeInstall</tt> или <tt>AfterInstall</tt> не вызываются, если  инсталлятор определил, что не будет обработать параметр.</p>
+  <p>Функции <tt>BeforeInstall</tt> или <tt>AfterInstall</tt> не вызываются, если инсталлятор определил, что не будет обработать параметр.</p>
   <p>Функции <tt>BeforeInstall</tt> или <tt>AfterInstall</tt> вызываются однажды для каждого файла секции [Files], совподающего с <span id="result_box" lang="ru" xml:lang="ru">подстановочным знак</span>ом. Используйте <tt>CurrentFileName</tt>, чтобы проверить для какого файла была вызвана функция.</p>
   <p>Вот пример секции <tt>[Code]</tt>, содержащей функции BeforeInstall и AfterInstall. Функции <tt>CurrentFileName</tt> и <tt>Log</tt> являются <a href="topic_scriptfunctions.htm">встроенными функциями</a>, поэтому не описаны в секции [Code].</p>
   <pre class="indent examplebox">

@@ -13,9 +13,9 @@
   <div><b>Прототип:</b></div>
   <p><tt>function CreateInputDirPage(const AfterID: Integer; const ACaption, ADescription, ASubCaption: String; AAppendDir: Boolean; ANewFolderName: String): TInputDirWizardPage;</tt></p>
   <div><b>Описание:</b></div>
-  <p>Создает страницу мастера, которая содержит поля ввода и кнопки для выбора   папок. Если AAppendDir является True, то значение ANewFolderName <span id="result_box" lang="ru" xml:lang="ru">добавляется</span> к пути, который выбрал пользователь. Если AAppendDir является False и ANewFolderName на пустой, будет показана кнопка &quot;Создать новую папку&quot;, которая создает папку с указанным именем по умолчанию.</p>
+  <p>Создает страницу мастера, которая содержит поля ввода и кнопки для выбора папок. Если AAppendDir является True, то значение ANewFolderName <span id="result_box" lang="ru" xml:lang="ru">добавляется</span> к пути, который выбрал пользователь. Если AAppendDir является False и ANewFolderName на пустой, будет показана кнопка &quot;Создать новую папку&quot;, которая создает папку с указанным именем по умолчанию.</p>
   <div><b>Комментарии:</b></div>
-  <p>Для создания полей для выбора папок, вызовите метод Add. Используйте   свойство Values​​, чтобы получить/установить значения объектов.</p>
+  <p>Для создания полей для выбора папок, вызовите метод Add. Используйте свойство Values​​, чтобы получить/установить значения объектов.</p>
   <div><b>Например:</b></div>
   <pre>var
   Page: TInputDirWizardPage;
@@ -42,5 +42,8 @@ Page.Values[0] := ExpandConstant('{userappdata}\My Company\My Program');
 DataDir := Page.Values[0];
 </pre>
 </div>
+<div><b>См. также:</b></div>
+<p><a href="../topic_scriptclasses.htm#TInputDirWizardPage">TInputDirWizardPage</a>
+</p>
 </body>
 </html>

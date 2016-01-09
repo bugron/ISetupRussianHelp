@@ -14,8 +14,8 @@
   <p><tt>function VarType(const V: Variant): TVarType;</tt></p>
   <div><b>Описание:</b></div>
   <p>Returns the type code of the specified variant.</p>
-  <p>The lower twelve bits of a variant type code (the bits defined by the varTypeMask bit mask) define the type of the variant. The varArray bit is set if the variant is an array of the given type. The varByRef bit is set if the variant is a reference to a value of the given type as opposed to an actual value.</p>
-  <p>The following variant type code constants are defined:</p>
+  <p>Младшие двенадцать битов кода типа (они определены маской varTypeMask) определяют тип переменной. Если переменная является массивом указанного типа, то стоит бит varArray. Если переменная является ссылкой значения указанного типа вместо реального значения, то стоит бит varByRef.</p>
+  <p>Определены следующие коды типов:</p>
   <pre>
 const
   varEmpty    = $0000;

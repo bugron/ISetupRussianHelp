@@ -14,7 +14,7 @@
   <p>Ниже приведен список поддерживаемых классов, которые можно использовать в Pascal-скрипте. Также доступны два объекта: <tt>MainForm</tt> of type <tt>TMainForm</tt>, <tt>WizardForm</tt> типа <tt>TWizardForm</tt> и <tt>UninstallProgressForm</tt> типа <tt>TUninstallProgressForm</tt>, и одна специальная константа: <tt>crHand</tt> типа <tt>TControl.Cursor</tt>. Обратите внимание: <tt>MainForm</tt> отображается только если <a href="topic_setup_windowvisible.htm">WindowVisible</a>=<tt>yes</tt>.</p>
   <p>Также полезно воспользоваться библиотекой визуальных компонентов Delphi (Delphi Visual Component Library (VCL)). Справка от Borland для представленных ниже классов наиболее доступно описывает классы VCL, с которыми работает Inno Setup. Обратитесь к <a href="http://docs.embarcadero.com/products/rad_studio/" target="_blank" title="http://docs.embarcadero.com/products/rad_studio"/></a>http://docs.embarcadero.com/products/rad_studio/</a><img src="images/extlink.gif" alt=" [external link]" />.</p>
   <script language="javascript" type="text/javascript">includeSyntax('delphi');</script>
-  <code id=delphi_Tc4NTM><br />
+  <code id="delphi_Tc4NTM"><br />
   <p><br />
     <tt><a name="TObject" id="TObject">TObject</a> = class<br />
       &nbsp;&nbsp;constructor Create;<br />
@@ -607,11 +607,17 @@
           &nbsp;&nbsp;property OnRename: <a href="#TFolderRenameEvent">TFolderRenameEvent</a>; read write;<br />
           end;<br />
           <br />
+          <a name="TAlphaFormat">TAlphaFormat</a> = (afIgnored, afDefined, afPremultiplied);<br/>
+          <br/>
+          <a name="TAlphaBitmap">TAlphaBitmap</a> = class(<a href="#TBitmap">TBitmap</a>)<br/>
+          &nbsp;&nbsp;property AlphaFormat: <a href="#TAlphaFormat">TAlphaFormat</a>; read write;<br/>
+          end;<br/>
+          <br/>
           <a name="TBitmapImage" id="TBitmapImage">TBitmapImage</a> = class(<a href="#TGraphicControl">TGraphicControl</a>)<br />
           &nbsp;&nbsp;property AutoSize: Boolean; read write;<br />
           &nbsp;&nbsp;property BackColor: TColor; read write;<br />
           &nbsp;&nbsp;property Center: Boolean; read write;<br />
-          &nbsp;&nbsp;property Bitmap: <a href="#TBitmap">TBitmap</a>; read write;<br />
+          &nbsp;&nbsp;property Bitmap: <a href="#TAlphaBitmap">TAlphaBitmap</a>; read write;<br />
           &nbsp;&nbsp;property ReplaceColor: TColor; read write;<br />
           &nbsp;&nbsp;property ReplaceWithColor: TColor; read write;<br />
           &nbsp;&nbsp;property Stretch: Boolean; read write;<br />
@@ -825,7 +831,19 @@
           &nbsp;&nbsp;property BeveledLabel: <a href="#TNewStaticText">TNewStaticText</a>; read;<br />
           &nbsp;&nbsp;property Bevel: <a href="#TBevel">TBevel</a>; read;<br />
           &nbsp;&nbsp;property CancelButton: <a href="#TNewButton">TNewButton</a>; read;<br />
-          end;<br />
+          end;<br /><br />
+          <b>See also:</b><br/>
+		  &nbsp;&nbsp;function <a href="isxfunc/topic_isxfunc_createinputquerypage.htm">CreateInputQueryPage</a>(const AfterID: Integer; const ACaption, ADescription, ASubCaption: String): TInputQueryWizardPage;<br/>
+		  &nbsp;&nbsp;function <a href="isxfunc/topic_isxfunc_createinputoptionpage.htm">CreateInputOptionPage</a>(const AfterID: Integer; const ACaption, ADescription, ASubCaption: String; Exclusive, ListBox: Boolean): TInputOptionWizardPage;<br/>
+		  &nbsp;&nbsp;function <a href="isxfunc/topic_isxfunc_createinputdirpage.htm">CreateInputDirPage</a>(const AfterID: Integer; const ACaption, ADescription, ASubCaption: String; AAppendDir: Boolean; ANewFolderName: String): TInputDirWizardPage;<br/>
+		  &nbsp;&nbsp;function <a href="isxfunc/topic_isxfunc_createinputfilepage.htm">CreateInputFilePage</a>(const AfterID: Integer; const ACaption, ADescription, ASubCaption: String): TInputFileWizardPage;<br/>
+		  &nbsp;&nbsp;function <a href="isxfunc/topic_isxfunc_createoutputmsgpage.htm">CreateOutputMsgPage</a>(const AfterID: Integer; const ACaption, ADescription, AMsg: String): TOutputMsgWizardPage;<br/>
+		  &nbsp;&nbsp;function <a href="isxfunc/topic_isxfunc_createoutputmsgmemopage.htm">CreateOutputMsgMemoPage</a>(const AfterID: Integer; const ACaption, ADescription, ASubCaption: String; const AMsg: AnsiString): TOutputMsgMemoWizardPage;<br/>
+		  &nbsp;&nbsp;function <a href="isxfunc/topic_isxfunc_createoutputprogresspage.htm">CreateOutputProgressPage</a>(const ACaption, ADescription: String): TOutputProgressWizardPage;<br/>
+		  &nbsp;&nbsp;function <a href="isxfunc/topic_isxfunc_createcustompage.htm">CreateCustomPage</a>(const AfterID: Integer; const ACaption, ADescription: String): TWizardPage;<br/>
+		  &nbsp;&nbsp;function <a href="isxfunc/topic_isxfunc_createcustomform.htm">CreateCustomForm</a>: TSetupForm;<br/><br/>
+		  &nbsp;&nbsp;function <a href="isxfunc/topic_isxfunc_pagefromid.htm">PageFromID</a>(const ID: Integer): TWizardPage;<br/>
+		  &nbsp;&nbsp;function <a href="isxfunc/topic_isxfunc_minimizepathname.htm">MinimizePathName</a>(const Filename: String; const Font: TFont; MaxLen: Integer): String;<br/>
           <script language="javascript" type="text/javascript">highlightSyntax('delphi_Tc4NTM','delphi');</script>
           </code></tt></p>
 </div>

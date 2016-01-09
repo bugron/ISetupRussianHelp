@@ -3,17 +3,22 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=8" />
-<title>Pascal Scripting: Использование DLL</title>
+<title>Pascal Scripting: Использование DLL и .NET сборок</title>
 <!--[if IE 6]><style type="text/css">html{overflow-y:scroll}</style><![endif]-->
 <link rel="stylesheet" type="text/css" href="styles.css" />
 <script type="text/javascript" src="topic.js"></script>
 </head>
 <body>
-<h1 class="topicheading">Pascal Scripting: Использование DLL</h1>
+<h1 class="topicheading">Pascal Scripting: Использование DLL и .NET сборок</h1>
 <div class="topicbody">
-  <p>Pascal-скрипт может вызвать функции внешних DLL библиотек. Это относится и к  Win32 API функциям  в стандартных DLL Windows и пользовательским функциям пользовательских DLL (как создать такие DLL здесь не описывается).</p>
+  <p>Pascal-скрипт может вызвать функции внешних DLL библиотек. Это относится и к Win32 API функциям в стандартных DLL Windows и пользовательским функциям пользовательских DLL. Additionally .NET assemblies can be called.</p>
+  
+  <p>В качестве примера можно разобрать файл &quot;CodeDll.iss&quot; в папке &quot;Examples&quot;.</p>
+  <p>Папка &quot;Examples&quot; также содержит три пользовательских проекта DLL в качестве примеров, по одному для Microsoft Visual C++, Microsoft Visual C# и Delphi Borland. Пример, написанный на C#, показывает как сделать свою .NET сборку, которую можно вызвать в Pascal-скрипте.</p>
+  
   <p>Для вызова функции DLL сначала надо написать образец функции и после образца функции для указания DLL файла использовать ключевое слово 'external'. Например, если ваша функция имеет образец: <tt>function A(B: Integer): Integer;</tt> для неё поддерживаются следующие три формы:</p>
   <pre class="indent examplebox">
+[Code]
 function A(B: Integer): Integer;
 external '&lt;dllfunctionname&gt;@&lt;dllfilename&gt;';
 
@@ -51,8 +56,8 @@ external '&lt;dllfunctionname&gt;@&lt;dllfilename&gt; &lt;callingconvention&gt; 
 [Code]
 function A(B: Integer): Integer;
 external 'A2@MyDll.dll stdcall';</pre>
-  <p>В имени файла DLL могут использоваться  константы.</p>
-  <p>Также можно  использовать  специальный префикс 'files:', чтобы дать инсталлятору команду автоматически извлекать один или более DLL из секции [Files] прежде, чем загрузить первый DLL. Например:</p>
+  <p>В имени файла DLL могут использоваться константы.</p>
+  <p>Также можно использовать специальный префикс 'files:', чтобы дать инсталлятору команду автоматически извлекать один или более DLL из секции [Files] прежде, чем загрузить первый DLL. Например:</p>
   <pre class="indent examplebox">
 [Files]
 Source: &quot;MyDll.dll&quot;; Flags: dontcopy
@@ -60,14 +65,23 @@ Source: &quot;A.dll&quot;; Flags: dontcopy
 Source: &quot;B.dll&quot;; Flags: dontcopy
 
 [Code]
-procedure MyDllFunc(hWnd: Integer; lpText, lpCaption: String; uType: Cardinal);
+procedure MyDllFunc(hWnd: Integer; lpText, lpCaption: AnsiString; uType: Cardinal);
 external 'MyDllFunc@files:MyDll.dll stdcall';
 
-procedure ADllFunc(hWnd: Integer; lpText, lpCaption: String; uType: Cardinal);
-external 'ADllFunc@files:A.dll,B.dll stdcall loadwithalteredsearchpath'; //A.dll depends on B.dll</pre>
+procedure ADllFunc(hWnd: Integer; lpText, lpCaption: AnsiString; uType: Cardinal);
+external 'ADllFunc@files:A.dll,B.dll stdcall loadwithalteredsearchpath'; //A.dll depends on B.dll
+  </pre>
   <p>Если вы используете префикс 'files:' и <a href="topic_setup_solidcompression.htm">уплотнённое сжатие</a> включено, убедитесь, что перечислили свои DLL файлы вначале секции [Files]. Чтобы извлечь произвольный файл, инсталлятор должен сначала распаковать все предыдущие файлы во временной буфер в памяти. Это может привести к существенной задержке, если много других файлов перечислены до строки DLL.</p>
-  <p>В  качестве примера можно разобрать файл &quot;CodeDll.iss&quot; в папке &quot;Examples&quot;.</p>
-  <p>Папка &quot;Examples&quot; также содержит два пользовательских проекта DLL в качестве примеров, один для Microsoft Visual C++ и один для Delphi Borland.</p>
+  <p>Для автоматического выбора между ANSI и Unicode версиями функции в зависимости от <a href="topic_unicode.htm">установленной версии</a> Inno Setup, используйте ISPP:</p>
+  <pre class="indent examplebox">
+[Code]
+function MessageBox(hWnd: Integer; lpText, lpCaption: String; uType: Cardinal): Integer;
+#ifdef UNICODE
+external 'MessageBoxW@user32.dll stdcall';
+#else
+external 'MessageBoxA@user32.dll stdcall';
+#endif
+  </pre>
 </div>
 </body>
 </html>

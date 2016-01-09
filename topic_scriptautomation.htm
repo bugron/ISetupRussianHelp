@@ -15,19 +15,19 @@
   <dl>
     <dt><b>IDispatch основанный COM</b></dt>
     <dd>
-      <p>Существуют две поддерживаемые функции для создания объектов СОМ: <a href="isxfunc%5Ctopic_isxfunc_createoleobject.htm">CreateOleObject</a> и <a href="isxfunc%5Ctopic_isxfunc_getactiveoleobject.htm">GetActiveOleObject</a>.</p>
-      <p>Используйте <a href="isxfunc%5Ctopic_isxfunc_createoleobject.htm">CreateOleObject</a>, чтобы создать новый COM-объект с указанным именем класса. При успешном создании объекта функция возвращает переменную типа <tt>Variant</tt>, иначе выдает исключение.</p>
-      <p>Используйте <a href="isxfunc%5Ctopic_isxfunc_getactiveoleobject.htm">GetActiveOleObject</a>, чтобы соединить существующий COM-объект с указанным именем класса. При успешном выполнении функция возвращает переменную типа <tt>Variant</tt>, иначе выдает исключение. В случае некоторых программ это может использоваться, чтобы обнаружить, выполняется ли программа или нет.</p>
-      <p>Значение, возвращенное <a href="isxfunc%5Ctopic_isxfunc_createoleobject.htm">CreateOleObject</a> или <a href="isxfunc%5Ctopic_isxfunc_getactiveoleobject.htm">GetActiveOleObject</a>, может потом использоваться, чтобы получить доступ к свойствам и методам COM-объекта. Доступ делается через 'позднее связывание', что означает, что не проверяется, существуют ли методы или свойства, к которым Вы пытаетесь получить доступ фактически, пока инсталлятор не нуждается в них во время выполнения.</p>
-      <p>Чтобы получить доступ к свойству или методу, имя которого - зарезервированное слово, используйте <a href="isxfunc%5Ctopic_isxfunc_idispatchinvoke.htm">IDispatchInvoke</a>.</p>
+      <p>Существуют две поддерживаемые функции для создания объектов СОМ: <a href="isxfunc/topic_isxfunc_createoleobject.htm">CreateOleObject</a> и <a href="isxfunc/topic_isxfunc_getactiveoleobject.htm">GetActiveOleObject</a>.</p>
+      <p>Используйте <a href="isxfunc/topic_isxfunc_createoleobject.htm">CreateOleObject</a>, чтобы создать новый COM-объект с указанным именем класса. При успешном создании объекта функция возвращает переменную типа <tt>Variant</tt>, иначе выдает исключение.</p>
+      <p>Используйте <a href="isxfunc/topic_isxfunc_getactiveoleobject.htm">GetActiveOleObject</a>, чтобы соединить существующий COM-объект с указанным именем класса. При успешном выполнении функция возвращает переменную типа <tt>Variant</tt>, иначе выдает исключение. В случае некоторых программ это может использоваться, чтобы обнаружить, выполняется ли программа или нет.</p>
+      <p>Значение, возвращенное <a href="isxfunc/topic_isxfunc_createoleobject.htm">CreateOleObject</a> или <a href="isxfunc/topic_isxfunc_getactiveoleobject.htm">GetActiveOleObject</a>, может потом использоваться, чтобы получить доступ к свойствам и методам COM-объекта. Доступ делается через 'позднее связывание', что означает, что не проверяется, существуют ли методы или свойства, к которым Вы пытаетесь получить доступ фактически, пока инсталлятор не нуждается в них во время выполнения.</p>
+      <p>Чтобы получить доступ к свойству или методу, имя которого - зарезервированное слово, используйте <a href="isxfunc/topic_isxfunc_idispatchinvoke.htm">IDispatchInvoke</a>.</p>
       <p>Для примеров можете посмотреть файл &quot;CodeAutomation.iss&quot; в папке &quot;Examples&quot;.</p>
     </dd>
     <dt><b>IUnknown основанный COM</b></dt>
     <dd>
       <p>Если интерфейс IDispatch не реализуется объектом, можно использовать IUnknown основанный COM.</p>
-      <p>Чтобы инициализировать IUnknown основанный COM объект, используйте <a href="isxfunc%5Ctopic_isxfunc_createcomobject.htm">CreateComObject</a>.</p>
-      <p>Значение, возвращенное <a href="isxfunc%5Ctopic_isxfunc_createcomobject.htm">CreateComObject</a>, может потом использоваться, чтобы получить доступ к методам COM-объекта после кастинга этого к требуемому интерфейсу. Доступ делается через 'раннюю привязку', что означает, что требуемый интерфейс должен быть определен в сценарии, в отличие от IDispatch COM.</p>
-      <p><a href="isxfunc%5Ctopic_isxfunc_stringtoguid.htm">StringToGUID</a> может использоваться, чтобы преобразовать строковое представление GUID в 'реальный' GUID. Используйте <a href="isxfunc%5Ctopic_isxfunc_olecheck.htm">OleCheck</a>, чтобы проверить возвращаемые значения любого Вашего вызванного метода.</p>
+      <p>Чтобы инициализировать IUnknown основанный COM объект, используйте <a href="isxfunc/topic_isxfunc_createcomobject.htm">CreateComObject</a>.</p>
+      <p>Значение, возвращенное <a href="isxfunc/topic_isxfunc_createcomobject.htm">CreateComObject</a>, может потом использоваться, чтобы получить доступ к методам COM-объекта после кастинга этого к требуемому интерфейсу. Доступ делается через 'раннюю привязку', что означает, что требуемый интерфейс должен быть определен в сценарии, в отличие от IDispatch COM.</p>
+      <p><a href="isxfunc/topic_isxfunc_stringtoguid.htm">StringToGUID</a> может использоваться, чтобы преобразовать строковое представление GUID в 'реальный' GUID. Используйте <a href="isxfunc/topic_isxfunc_olecheck.htm">OleCheck</a>, чтобы проверить возвращаемые значения любого Вашего вызванного метода.</p>
       <p>Если Вы копируете интерфейсное определение с какого-либо существующего исходного кода Delphi, удалите скобки в строке GUID интерфейса. Также удалите любые соглашения вызова, который Inno Setup принимает как 'stdcall'. Если интерфейс будет содержать какие-либо функции, которые Вы не будете вызывать, можно заменить их макетами, чтобы избежать необходимости определения любых специальных типов, используемых ими.</p>
       <p>Для примеров можете посмотреть файл &quot;CodeAutomation2.iss&quot; в папке &quot;Examples&quot;.</p>
       <p>Примечание: IUnknown основанный COM требует <a href="topic_unicode.htm">Unicode Inno Setup</a>.</p>
@@ -35,7 +35,7 @@
     <dt><b>Общие указания</b></dt>
     <dd>
       <p>COM-объекты выпускаются автоматически, когда они выходят из объема. Нет никаких функций, чтобы 'уничтожить' или 'освободить' их.</p>
-      <p>Если Вы извлекаете библиотеку автоматизации COM во временное расположение и хотите удалить ее после использования, удостоверьтесь, что Вы больше не имеете ссылок на библиотеку и затем вызовите <a href="isxfunc%5Ctopic_isxfunc_cofreeunusedlibraries.htm">CoFreeUnusedLibraries</a>. Эта Windows функция попытается разгрузить библиотеку, таким образом, можно будет удалить это.</p>
+      <p>Если Вы извлекаете библиотеку автоматизации COM во временное расположение и хотите удалить ее после использования, удостоверьтесь, что Вы больше не имеете ссылок на библиотеку и затем вызовите <a href="isxfunc/topic_isxfunc_cofreeunusedlibraries.htm">CoFreeUnusedLibraries</a>. Эта Windows функция попытается разгрузить библиотеку, таким образом, можно будет удалить это.</p>
     </dd>
   </dl>
 </div>

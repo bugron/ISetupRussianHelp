@@ -11,16 +11,16 @@
 <body>
 <h1 class="topicheading">Pascal Scripting: ExtractTemporaryFiles</h1>
 <div class="topicbody">
-  <div><b>Prototype:</b></div>
+  <div><b>Прототип:</b></div>
   <p><tt>function ExtractTemporaryFiles(const Pattern: String): Integer;</tt></p>
-  <div><b>Description:</b></div>
-  <p>Extracts the files matching the wildcard specified by Pattern from the [Files] section to a temporary directory. Returns the number of extracted files. To find the location of the temporary directory, use <tt>ExpandConstant('{tmp}')</tt>.</p>
-  <p>The extracted files are automatically deleted when Setup exits.</p>
-  <p>An exception will be raised if no files were extracted successfully, no files were found, or if files were found but none could be processed because of their MinVersion and/or OnlyBelowVersion parameters.</p>
-  <div><b>Remarks:</b></div>
-  <p>Use <tt>Flags: dontcopy</tt> in the [Files] section to tell Setup to skip the file during the normal file copying stage.</p>
-  <p>When solid compression is enabled, be sure to list your temporary files at (or near) the top of the [Files] section. In order to extract an arbitrary file in a solid-compressed installation, Setup must first decompress all prior files (to a temporary buffer in memory). This can result in a substantial delay if a number of other files are listed above the specified file in the [Files] section.</p>
-  <div><b>Example:</b></div>
+  <div><b>Описание:</b></div>
+  <p>Распаковывает файлы секции [Files], которые соответствуют маске Pattern, во временную папку. Возвращает количество распакованных файлов. Чтобы найти расположение временной папки, используйте <tt>ExpandConstant('{tmp}')</tt>.</p>
+  <p>Распакованные файлы автоматически удаляются при закрытии инсталлятора.</p>
+  <p>Будет вызвано исключение, если файл не извлекается успешно, если файл не найден, или если файл существует, но не может выполнен из-за параметров MinVersion и/или OnlyBelowVersion.</p>
+  <div><b>Комментарии:</b></div>
+  <p>Используйте <tt>Flags: dontcopy</tt> в секции [Files], если этот файл не нужно установить.</p>
+  <p>Если непрерывное сжатие включено, то добавьте такие временные файлы в начале секции [Files]. Для того чтобы извлечь произвольный файл из непрерывно сжатого инсталлятора, он сначала должен разжать все предыдущие файлы (во временной буфер в памяти). Это может привести к существенным задержкам, если ряд других файлов перечислены выше указанного файла в секции [Files].</p>
+  <div><b>Например:</b></div>
   <pre>[Files]
 Source: "Readme.txt"; Flags: dontcopy
 Source: "MyProg.exe"; DestDir: "{app}"
@@ -46,7 +46,7 @@ begin
 
   Result := True;
 end;</pre>
-  <div><b>See also:</b></div>
+  <div><b>См. также:</b></div>
   <p><a href="topic_isxfunc_extracttemporaryfile.htm">ExtractTemporaryFile</a> </p>
 </div>
 </body>

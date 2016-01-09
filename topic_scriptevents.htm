@@ -3,17 +3,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=8" />
-<title>Pascal Scripting: Внешние функции</title>
+<title>Pascal Scripting: Функции обработки событий</title>
 <!--[if IE 6]><style type="text/css">html{overflow-y:scroll}</style><![endif]-->
 <link rel="stylesheet" type="text/css" href="styles.css" />
 <script type="text/javascript" src="topic.js"></script>
 </head>
 <body>
-<h1 class="topicheading">Pascal Scripting: Внешние функции</h1>
+<h1 class="topicheading">Pascal Scripting: Функции обработки событий</h1>
 <div class="topicbody">
-  <p>Скрипт может содержать внешние функции, которые могут быть вызваны в любое время.</p>
-  <h2 class="heading">Функции инсталлятора:</h2>
-  <p>Инсталлятор поддерживает следующие функции:</p>
+  <p>Скрипт может содержать функции обработки событий, которые могут быть вызваны в любое время.</p>
+  <h2 class="heading">Функции обработки событий инсталлятора:</h2>
+  <p>Инсталлятор поддерживает следующие функции обработки событий:</p>
   <dl>
     <dt><tt>function <a name="InitializeSetup" id="InitializeSetup">InitializeSetup</a>(): Boolean;</tt></dt>
     <dd>
@@ -39,7 +39,7 @@
     <dt><tt>function <a name="NextButtonClick" id="NextButtonClick">NextButtonClick</a>(<a href="#PageID">CurPageID</a>: Integer): Boolean;</tt></dt>
     <dd>
       <p>Вызывается после нажатия на кнопку Далее. При значении True мастер перейдет к следующей странице, при значении False останется на текущей странице (заданной значением CurPageID).</p>
-      <p>Обратите внимание, что эта функция также успешно вызывается при тихой установке, не смотря на то, что кнопку Далее в этом случае пользователь не видит. Инсталлятор симулирует клики&nbsp;по кнопке Далее. При тихой установке, если функция <tt>NextButtonClick</tt> возвратит False перед  началом процесса установка, работа инсталлятора будет прервана автоматически.</p>
+      <p>Обратите внимание, что эта функция также успешно вызывается при тихой установке, не смотря на то, что кнопку Далее в этом случае пользователь не видит. Инсталлятор симулирует клики&nbsp;по кнопке Далее. При тихой установке, если функция <tt>NextButtonClick</tt> возвратит False перед началом процесса установка, работа инсталлятора будет прервана автоматически.</p>
     </dd>
     <dt><tt>function <a name="BackButtonClick" id="BackButtonClick">BackButtonClick</a>(<a href="#PageID">CurPageID</a>: Integer): Boolean;</tt></dt>
     <dd>
@@ -52,7 +52,7 @@
     <dt><tt>function <a name="ShouldSkipPage" id="ShouldSkipPage">ShouldSkipPage</a>(<a href="#PageID">PageID</a>: Integer): Boolean;</tt></dt>
     <dd>
       <p>Мастер вызывает данную функцию, чтобы определить, нужно ли отображать дополнительную страницу (заданную значением PageID), или нет. При значении True страница будет пропущена; при значении False страница может быть отображена.</p>
-      <p>Обратите внимание: функция не вызывается для страниц wpWelcome, wpPreparing и wpInstalling, а также для страниц, которые инсталлятор уже определил, что надо пропустить (например, wpSelectComponents, если инсталлятор не содержит компонентов).</p>
+      <p>Обратите внимание: функция не вызывается для страниц wpPreparing и wpInstalling, а также для страниц, которые инсталлятор уже определил, что надо пропустить (например, wpSelectComponents, если инсталлятор не содержит компонентов).</p>
     </dd>
     <dt><tt>procedure <a name="CurPageChanged" id="CurPageChanged">CurPageChanged</a>(<a href="#PageID">CurPageID</a>: Integer);</tt></dt>
     <dd>

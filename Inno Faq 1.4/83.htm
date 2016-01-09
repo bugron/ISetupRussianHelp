@@ -21,10 +21,10 @@ begin<br>
   Result := True;<br>
   if CurPageID = wpSelectDir then begin<br>
     FileSystemName:= StringOfChar(' ', 32); VolumeName:= StringOfChar(' ', 256);<br>
-    GetVolumeInformation(PAnsiChar(ExtractFileDrive(Wi  zardForm.DirEdit.Text)+'\'), PAnsiChar(VolumeName), 255, VolumeSerialNo, MaxComponentLength, FileSystemFlags, PAnsiChar(FileSystemName), 31);<br>
+    GetVolumeInformation(PAnsiChar(ExtractFileDrive(WizardForm.DirEdit.Text)+'\'), PAnsiChar(VolumeName), 255, VolumeSerialNo, MaxComponentLength, FileSystemFlags, PAnsiChar(FileSystemName), 31);<br>
     if Pos('NTFS', FileSystemName)=0 then begin<br>
       MsgBox('Установка данного продукта возможна только на диск с файловой системой NTFS.'#13'Пожалуйста, измените путь установки.', mbError, mb_Ok);<br>
-      Result := False ;<br>
+      Result := False;<br>
     end;<br>
   end;<br>
 end;</font></blockquote><textarea id="taCode1" style="display:none;" rows="1" cols="5"></textarea><textarea id='taCode' style='display:none;' rows='1' cols='20'></textarea></code><script language="javascript" type="text/javascript">highlightSyntax('delphi_Tc4NTM','delphi');</script><br><div id="heading"><h1><font size="1" face="Consolas">Copyright (c) <a href="http://www.krinkels.org/" target="_blank">Krinkels Inc</a></font></h1></div></body></html>

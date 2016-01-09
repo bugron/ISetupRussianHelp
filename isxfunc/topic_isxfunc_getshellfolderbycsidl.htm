@@ -13,9 +13,9 @@
   <div><b>Прототип:</b></div>
   <p><tt>function GetShellFolderByCSIDL(const Folder: Integer; const Create: Boolean): String;</tt></p>
   <div><b>Описание:</b></div>
-  <p>Gets the path of the specified shell folder. Folder specifies the value of a CSIDL constant (a complete list of which can be found in ShlObj.h). If Create is True, the folder will be created if it does not exist. On failure, an empty string is returned.</p>
+  <p>Получает путь к указанной папке оболочки. Folder должен быть равен одной из CSIDL констант (полный спсок этих констант можно найти в ShlObj.h). Если Create равен True и указанная папка не существует, то она будет создана. При неудаче возвращается пустая строка.</p>
   <div><b>Комментарии:</b></div>
-  <p>It is recommended that you always specify True in the Create parameter. Otherwise, the function may fail if the CSIDL value is valid but the directory does not currently exist. (This is a Windows issue.)</p>
+  <p>Рекомендуется всегда указывать параметр Create равным True. Иначе, если указано правильное значение CSIDL, но все же папка не существует, функция завершится неудачно. (Это известная проблема Windows.)</p>
   <div><b>Например:</b></div>
   <pre>const
   CSIDL_MYPICTURES = $0027;

@@ -18,15 +18,15 @@
   <p>Пример фильтра: 'Текстовые файлы(*.txt)|*.txt|Все файлы (*.*)|*.*'</p>
   <div><b>Например:</b></div>
   <pre>var
-  Filename: String;
+  FileName: String;
 begin
   // Set the initial filename
-  Filename := '';
-  if GetOpenFileName('', Filename, '',
+  FileName := '';
+  if GetOpenFileName('', FileName, '',
      'Text Documents (*.txt)|*.txt|All Files|*.*', 'txt') then
   begin
     // Successful; user clicked OK
-    // Filename contains the selected filename
+    // FileName contains the selected filename
   end;
 end;</pre>
 </div>

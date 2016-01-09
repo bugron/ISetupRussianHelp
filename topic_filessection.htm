@@ -82,7 +82,7 @@ ExternalSize: 1048576; Flags: external</pre>
     </dd>
     <dt class="paramlist"><b><a name="Attribs" id="Attribs">Attribs</a></b></dt>
     <dd class="paramlist">
-      <p>Задает дополнительные атрибуты для папки: один или более из <tt>readonly</tt>, <tt>hidden</tt>, <tt>system</tt>. Если этот параметр не указан, инсталлятор не назначит ни одного специального параметра для папки.</p>
+      <p>Задает дополнительные атрибуты для папки: один или более из <tt>readonly</tt>, <tt>hidden</tt>, <tt>system</tt>, <tt>notcontentindexed</tt>. Если этот параметр не указан, инсталлятор не назначит ни одного специального параметра для папки.</p>
       <div class="examplebox">
         <div class="exampleheader">Например:</div>
         <pre class="nomargin">
@@ -237,7 +237,7 @@ StrongAssemblyName: &quot;MyAssemblyName, Version=1.0.0.0, Culture=neutral, Publ
         </dd>
         <dt class="flaglist"><a name="onlyifdestfileexists" id="onlyifdestfileexists">onlyifdestfileexists</a></dt>
         <dd>
-          <p>Файл устанавливается только тогда, когда файл с тем же именем уже установлен в системе пользователя. Этот флаг может быть полезен, если инсталлятор является патчем для установленного приложения, и вы  хотите, чтобы установились те файлы, которые у пользователя уже есть.</p>
+          <p>Файл устанавливается только тогда, когда файл с тем же именем уже установлен в системе пользователя. Этот флаг может быть полезен, если инсталлятор является патчем для установленного приложения, и вы хотите, чтобы установились те файлы, которые у пользователя уже есть.</p>
         </dd>
         <dt class="flaglist"><a name="onlyifdoesntexist" id="onlyifdoesntexist">onlyifdoesntexist</a></dt>
         <dd>
@@ -245,7 +245,7 @@ StrongAssemblyName: &quot;MyAssemblyName, Version=1.0.0.0, Culture=neutral, Publ
         </dd>
         <dt class="flaglist"><a name="overwritereadonly" id="overwritereadonly">overwritereadonly</a></dt>
         <dd>
-          <p>Всегда перезаписывает файл с отметкой &quot;только для чтения&quot;. Без этого флага инсталлятор спросит пользователя, перезаписать ли  уже установленный файл с отметкой &quot;только для чтения&quot;.</p>
+          <p>Всегда перезаписывает файл с отметкой &quot;только для чтения&quot;. Без этого флага инсталлятор спросит пользователя, перезаписать ли уже установленный файл с отметкой &quot;только для чтения&quot;.</p>
         </dd>
         <dt class="flaglist"><a name="promptifolder" id="promptifolder">promptifolder</a></dt>
         <dd>
@@ -318,7 +318,7 @@ StrongAssemblyName: &quot;MyAssemblyName, Version=1.0.0.0, Culture=neutral, Publ
         </dd>
         <dt class="flaglist"><a name="uninsrestartdelete" id="uninsrestartdelete">uninsrestartdelete</a></dt>
         <dd>
-          <p>Когда  при удалении файл используется, деинсталлятор поставит файл в очередь на удаление после перезагрузки и в конце деинсталляции предложит пользователю перезагрузить компьютер. Этот флаг может быть полезен, если потребуется удалить, например, программные оболочки, которые не могут быть остановлены программными средствами. Обратите внимание, что для действия этого флага необходимы права администратора.</p>
+          <p>Когда при удалении файл используется, деинсталлятор поставит файл в очередь на удаление после перезагрузки и в конце деинсталляции предложит пользователю перезагрузить компьютер. Этот флаг может быть полезен, если потребуется удалить, например, программные оболочки, которые не могут быть остановлены программными средствами. Обратите внимание, что для действия этого флага необходимы права администратора.</p>
         </dd>
         <dt class="flaglist"><a name="uninsneveruninstall" id="uninsneveruninstall">uninsneveruninstall</a></dt>
         <dd>

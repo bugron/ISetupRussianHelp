@@ -49,22 +49,23 @@
   </table>
   <p>Атрибуты могут быть объединены осуществлением операции логического ИЛИ. Например, чтобы искать скрытые файлы и файлы только для чтения, передайте <tt>faReadOnly | faHidden</tt> как параметр.</p>
   <h2 class="heading">Пример</h2>
-  <p><tt>#define FindHandle<br/>
+  <p><tt>[Files]<br />
+  	#define FindHandle<br/>
     #define FindResult<br/>
     #define Mask &quot;*.pas&quot;<br/>
     <br/>
     #sub ProcessFoundFile<br/>
     &nbsp;&nbsp;#define FileName FindGetFileName(FindHandle)<br/>
     &nbsp;&nbsp;#if LowerCase(Copy(FileName, 1, 4)) == &quot;ispp&quot;<br/>
-    &nbsp;&nbsp;&nbsp;&nbsp;FileName: {#FileName}; DestDir: {app}\ispp<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;Source: {#FileName}; DestDir: {app}\ispp<br/>
     &nbsp;&nbsp;#else<br/>
-    &nbsp;&nbsp;&nbsp;&nbsp;FileName: {#FileName}; DestDir: {app}<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;Source: {#FileName}; DestDir: {app}<br/>
     &nbsp;&nbsp;#endif<br/>
     #endsub<br/>
     <br/>
 <br/>#for {FindHandle = FindResult = FindFirst(Mask, 0); FindResult; FindResult = FindNext(FindHandle)} ProcessFoundFile<br/>#if FindHandle<br/>&nbsp;&nbsp;#expr FindClose(FindHandle)<br/>#endif<br/>
   </tt></p>
-  <h2 class="heading">См. также</h2>
+  <h2 class="heading">См. также:</h2>
   <p><tt><a href="topic_define.htm">define</a></tt>, <tt><a href="topic_sub.htm">sub</a></tt>, <tt><a href="topic_if.htm">if</a></tt>.</p>
 </div>
 </body>

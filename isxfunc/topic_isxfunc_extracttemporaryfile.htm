@@ -18,9 +18,10 @@
   <p>Будет вызвано исключение, если файл не извлекается успешно, если файл не найден, или если файл существует, но не может выполнен из-за параметров MinVersion и/или OnlyBelowVersion.</p>
   <div><b>Комментарии:</b></div>
   <p>Используйте <tt>Flags: dontcopy</tt> в секции [Files], если этот файл не нужно установить.</p>
+  <p>Используйте <tt>Flags: noencryption</tt> в секции [Files], если шифрование включено и Вы вызываете функцию ExtractTemporaryFile перед тем, как пользователь введет правильный пароль.</p>
   <p>Если непрерывное сжатие включено, то добавьте такие временные файлы в начале секции [Files]. Для того чтобы извлечь произвольный файл из непрерывно сжатого инсталлятора, он сначала должен разжать все предыдущие файлы (во временной буфер в памяти). Это может привести к существенным задержкам, если ряд других файлов перечислены выше указанного файла в секции [Files].</p>
   <div><b>Например:</b></div>
-  <pre>[Files]<br />Source: &quot;Readme.txt&quot;; Flags: dontcopy<br /><br />[Code]<br />function InitializeSetup: Boolean;<br />var<br />  S: AnsiString;<br />begin<br />  // Show the contents of Readme.txt (non Unicode) in a message box<br />  ExtractTemporaryFile('Readme.txt');<br />  if LoadStringFromFile(ExpandConstant('{tmp}\Readme.txt'), S) then<br />  begin<br />    MsgBox(S, mbInformation, MB_OK);<br />  end;<br /><br />  Result := True;<br />end;</pre>
+  <pre>[Files]<br />Source: &quot;Readme.txt&quot;; Flags: dontcopy noencryption<br /><br />[Code]<br />function InitializeSetup: Boolean;<br />var<br />  S: AnsiString;<br />begin<br />  // Show the contents of Readme.txt (non Unicode) in a message box<br />  ExtractTemporaryFile('Readme.txt');<br />  if LoadStringFromFile(ExpandConstant('{tmp}\Readme.txt'), S) then<br />  begin<br />    MsgBox(S, mbInformation, MB_OK);<br />  end;<br /><br />  Result := True;<br />end;</pre>
 </div>
 </body>
 </html>

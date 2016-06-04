@@ -227,7 +227,7 @@
 <li><object type="text/sitemap"><param name="Name" value="Exec"><param name="Local" value="ISPP/topic_exec.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="expr"><param name="Local" value="ISPP/topic_expr.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="Синтаксис выражений"><param name="Local" value="ISPP/topic_expressions.htm"></object>
-<li><object type="text/sitemap"><param name="Name" value="Extended Command Line Compiler"><param name="Local" value="ISPP/topic_isppcc.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Компиляция в командной строке"><param name="Local" value="ISPP/topic_isppcc.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="ExtractFileDir"><param name="Local" value="ISPP/topic_extractfiledir.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="ExtractFileExt"><param name="Local" value="ISPP/topic_extractfileext.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="ExtractFileName"><param name="Local" value="ISPP/topic_extractfilename.htm"></object>
@@ -293,6 +293,7 @@
 <li><object type="text/sitemap"><param name="Name" value="ReadReg"><param name="Local" value="ISPP/topic_readreg.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="redim"><param name="Local" value="ISPP/topic_dim.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="RemoveBackslash"><param name="Local" value="ISPP/topic_removebackslash.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="RemoveFileExt"><param name="Local" value="ISPP/topic_removefileext.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="RPos"><param name="Local" value="ISPP/topic_rpos.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="SaveToFile"><param name="Local" value="ISPP/topic_savetofile.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="SetSetupSetting"><param name="Local" value="ISPP/topic_setsetupsetting.htm"></object>

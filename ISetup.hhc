@@ -423,8 +423,9 @@
 <li><object type="text/sitemap"><param name="Name" value="BUILTINS.ISS"><param name="Local" value="ISPP\topic_builtinsiss.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="Область видимости идентификаторов"><param name="Local" value="ISPP\topic_visibility.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="Синтаксис выражений"><param name="Local" value="ISPP\topic_expressions.htm"></object>
-<li><object type="text/sitemap"><param name="Name" value="Расширенный компилятор командной строки"><param name="Local" value="ISPP\topic_isppcc.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="Компиляция в командной строке"><param name="Local" value="ISPP\topic_isppcc.htm"></object>
 </ul>
+<li><object type="text/sitemap"><param name="Name" value="Авторы"><param name="Local" value="ISPP\wylek-ru.htm"></object>
 </ul>
 <li><object type="text/sitemap"><param name="Name" value="Авторы перевода"><param name="Local" value="translation_authors.htm"></object></li>
 </ul>

@@ -15,7 +15,7 @@
       <tr>
         <td class="setuphdrl"><p>Возможные значения:</p></td>
         <td class="setuphdrr"><div class="margined"><tt>4</tt> до <tt>131072</tt> (по умолчанию)<br>
-            <tt>4</tt> до <tt>262144</tt>, если <a href="topic_setup_lzmauseseparateprocess.htm">LZMAUseSeparateProcess</a> установлен в <tt>yes</tt> и работает на 64-разрядном Windows (x64)</div></td>
+            <tt>4</tt> до <tt>1048576</tt>, если <a href="topic_setup_lzmauseseparateprocess.htm">LZMAUseSeparateProcess</a> установлен в <tt>yes</tt> и работает на 64-разрядном Windows (x64)</div></td>
       </tr>
       <tr>
         <td class="setuphdrl"><p>Значение по умолчанию:</p></td>
@@ -30,7 +30,7 @@
   <div><b>Описание:</b></div>
   <p>Управляет размером словаря, используемого компрессорами LZMA и LZMA2, в килобайтах. Больший размер словаря может обеспечить лучшую степень сжатия за счет скорости сжатия и требований к памяти.</p>
   <p>Рассмотрите требования к памяти, перечисленные в теме <a href="topic_setup_compression.htm">Compression</a>, перед использованием.</p>
-  <p>Если выдается ошибка "Out of memory", тогда используется слишком большой размер словаря, возможно, должен быть установлен <a href="topic_setup_lzmauseseparateprocess.htm">LZMAUseSeparateProcess</a>.</p>
+  <p>Если после увеличения размера словаря выдается ошибка "Out of memory", тогда должна быть установлена директива <a href="topic_setup_lzmauseseparateprocess.htm">LZMAUseSeparateProcess</a>.</p>
   <p><b>См. также:</b><br>
     <a href="topic_setup_lzmablocksize.htm">LZMABlockSize</a></p>
 </div>

@@ -40,8 +40,8 @@
   </table>
   <div><b>Описание:</b></div>
   <p>Определяет метод и уровень (1-9) сжатия инсталлятора. Чем выше уровень сжатия, тем медленнее будет создаваться инсталлятор. К тому же может понадобиться больше памяти на сжатие/декомпрессию.</p>
-  <p>Метод <tt>zip</tt> быстр в обоих направлениях, не требователен к памяти (требуется менее 1MB для обоих направлений для сжатия на 9 уровне), но сжимает не так хорошо, как другие поддерживаемые методы. <tt>zip</tt>, как <tt>lzma2</tt>, имеет единственное достоинство: в отличие от остальных методов он не будет увеличивать несжимаемые файлы (т.е. уже сжатые файлы). Если уровень сжатия не указан, он равен 7.</p>
-  <p><tt>bzip</tt> метод сжатия, который используется компрессором <a title="http://www.bzip.org/" href="http://www.bzip.org/" target="_blank">bzip2</a><img alt=" [external link]" src="images/extlink.gif">. Он обычно сжимает лучше, чем <tt>zip</tt> , но работает медленнее в обоих направлениях. Для сжатия требуется более 8 MB памяти, для декомпрессии более 4 MB. Если уровень сжатия не указан, он равен 9.</p>
+  <p>Метод <tt>zip</tt> быстр в обоих направлениях, не требователен к памяти (требуется менее 1 МБ для обоих направлений для сжатия на 9 уровне), но сжимает не так хорошо, как другие поддерживаемые методы. <tt>zip</tt>, как <tt>lzma2</tt>, имеет единственное достоинство: в отличие от остальных методов он не будет увеличивать несжимаемые файлы (т.е. уже сжатые файлы). Если уровень сжатия не указан, он равен 7.</p>
+  <p><tt>bzip</tt> метод сжатия, который используется компрессором <a title="http://www.bzip.org/" href="http://www.bzip.org/" target="_blank">bzip2</a><img alt=" [external link]" src="images/extlink.gif">. Он обычно сжимает лучше, чем <tt>zip</tt> , но работает медленнее в обоих направлениях. Для сжатия требуется более 8 МБ памяти, для декомпрессии более 4 МБ. Если уровень сжатия не указан, он равен 9.</p>
   <p><tt>lzma</tt> метод сжатия, который используется компрессором <a title="http://www.7-zip.org/" href="http://www.7-zip.org/" target="_blank">7-Zip LZMA</a><img alt=" [external link]" src="images/extlink.gif">. Обычно он сжимает гораздо лучше, чем <tt>zip</tt> и <tt>bzip</tt>. Впрочем, это зависит от уровня сжатия - он может оказаться и гораздо медленнее и потребовать гораздо <i>больше</i> памяти. В таблице показано примерное потребление памяти каждого уровня сжатия <tt>lzma</tt>. Если уровень сжатия не указан, он равен <tt>максимальному</tt>.</p>
   <div class="indent">
     <table>
@@ -49,7 +49,7 @@
         <tr>
           <td class="cellleft"></td>
           <td class="cellright"><U>Распаковка (размер словаря)</U></td>
-          <td class="cellright"><U>Сжатие</U></td>
+          <td class="cellright"><U>Сжатие (4 МБ + 11 * размер словаря)</U></td>
         </tr>
         <tr>
           <td class="cellleft"><tt>fast</tt> (худший)</td>
@@ -61,21 +61,41 @@
           <td class="cellright">2 МБ</td>
           <td class="cellright">26 МБ</td>
         </tr>
-        <tr>
-          <td class="cellleft"><tt>max</tt> (по умолчанию)</td>
-          <td class="cellright">8 МБ</td>
-          <td class="cellright">95 МБ</td>
-        </tr>
-        <tr>
-          <td class="cellleft"><tt>ultra</tt></td>
-          <td class="cellright">32 МБ</td>
-          <td class="cellright">372 МБ</td>
-        </tr>
-        <tr>
-          <td class="cellleft"><tt>ultra64</tt> (лучший)</td>
-          <td class="cellright">64 MБ</td>
-          <td class="cellright">676 MБ</td>
-        </tr>
+		<tr>
+		   <td class="cellleft"><tt>max</tt> (по умолчанию)</td>
+		   <td class="cellright">8 МБ</td>
+		   <td class="cellright">92 МБ</td>
+		</tr>
+		<tr>
+		   <td class="cellleft"><tt>ultra</tt></td>
+		   <td class="cellright">32 МБ</td>
+		   <td class="cellright">356 МБ</td>
+		</tr>
+		<tr>
+		   <td class="cellleft"><tt>ultra64</tt> (лучший)</td>
+		   <td class="cellright">64 МБ</td>
+		   <td class="cellright">708 МБ</td>
+		</tr>
+		<tr>
+		   <td class="cellleft"></td>
+		   <td class="cellright">128 МБ</td>
+		   <td class="cellright">1.38 ГБ</td>
+		</tr>
+		<tr>
+		   <td class="cellleft"></td>
+		   <td class="cellright">256 МБ</td>
+		   <td class="cellright">2.75 ГБ</td>
+		</tr>
+		<tr>
+		   <td class="cellleft"></td>
+		   <td class="cellright">512 МБ</td>
+		   <td class="cellright">5.5 ГБ</td>
+		</tr>
+		<tr>
+		   <td class="cellleft"></td>
+		   <td class="cellright">1 ГБ</td>
+		   <td class="cellright">11 ГБ</td>
+		</tr>
       </tbody>
     </table>
   </div>

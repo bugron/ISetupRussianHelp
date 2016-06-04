@@ -1022,11 +1022,13 @@
 <li><object type="text/sitemap"><param name="Name" value="ShowLanguageDialog"><param name="Local" value="topic_setup_showlanguagedialog.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="ShowTasksTreeLines"><param name="Local" value="topic_setup_showtaskstreelines.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="ShowUndisplayableLanguages"><param name="Local" value="topic_setup_showundisplayablelanguages.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="sign"><param name="Local" value="topic_filessection.htm#sign"></object>
 <li><object type="text/sitemap"><param name="Name" value="signature"><param name="Local" value="topic_setup_signtoolretrycount.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="signature"><param name="Local" value="topic_setup_signtool.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="signature"><param name="Local" value="topic_setup_signeduninstaller.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="SignedUninstaller"><param name="Local" value="topic_setup_signeduninstaller.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="SignedUninstallerDir"><param name="Local" value="topic_setup_signeduninstallerdir.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="signonce"><param name="Local" value="topic_filessection.htm#signonce"></object>
 <li><object type="text/sitemap"><param name="Name" value="SignTool"><param name="Local" value="topic_setup_signtool.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="SignToolRetryCount"><param name="Local" value="topic_setup_signtoolretrycount.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="silent installation"><param name="Local" value="topic_setupcmdline.htm"></object>

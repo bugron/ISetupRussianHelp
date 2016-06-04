@@ -28,22 +28,35 @@
     <div class="exampleheader">Например:</div>
     <p>Примите следующий Sign Tools, определенный в IDE:</p>
     <pre>
-mystandard=signtool.exe /x /y /d $qMy Program$q $f
+mystandard=signtool.exe sign /a /n $qMy Common Name$q /t http://timestamp.comodoca.com/authenticode /d $qMy Program$q $f
 mycustom=signtool.exe $p
 byparam=$p
 </pre>
     <p>некоторые примеры:</p>
     <pre>
+[Setup]
 SignTool=mystandard
-SignTool=mycustom /x /y /d $qMy Program$q $f
-SignTool=byparam signtool.exe /x /y /d $qMy Program$q $f
+
+[Setup]
+SignTool=mycustom sign /a /n $qMy Common Name$q /t http://timestamp.comodoca.com/authenticode /d $qMy Program$q $f
+
+[Setup]
+SignTool=byparam signtool.exe sign /a /n $qMy Common Name$q /t http://timestamp.comodoca.com/authenticode /d $qMy Program$q $f
+</pre>
+	<p>Секция Setup может содержать несколько директив SignTool, которые будут выполнены в порядке указания. Это можно использовать для двойной подписи (SHA1 и SHA256) инсталлятора и деинсталлятора:</p>
+	<pre>
+[Setup]
+SignTool=mycustom sign /a /n $qMy Common Name$q /fd sha1 /t http://timestamp.comodoca.com/authenticode /d $qMy Program$q $f
+;the /as parameter in the following SignTool requires a recent signtool.exe version and a SHA256 (SHA-2) certificate
+SignTool=mycustom sign /a /n $qMy Common Name$q /as /fd sha256 /td sha256 /tr http://timestamp.comodoca.com/rfc3161 /d $qMy Program$q $f
 </pre>
     <p>Примечание: для соображений безопасности следует дать уникальное имя любому Sign Tool set to <tt>$p</tt>, и не использовать имя <tt>byparam</tt>. Рассмотрите то, что происходит, если Вы включаете сторонний файл, который говорит:</p>
     <pre class="nomargin">
+[Setup]
 SignTool=byparam format c: 
 </pre>
   </div>
-  <p>Детали о получении сертификатов подписания и использовании инструментов выходят за рамки этой документации.</p>
+  <p>Дальнейшие детали о получении сертификатов подписания и использовании инструментов выходят за рамки этой документации.</p>
   <p><i>Примечание:</i> Если Вы используете Sign Tool, и Ваш инсталлятор содержит большой объем данных, рекомендуется, чтобы Вы включили <a href="topic_setup_diskspanning.htm">разбиение на диски</a> с <a href="topic_setup_diskslicesize.htm">DiskSliceSize</a>=<tt>max</tt>. Если Вы не сделаете этого, после запуска инсталлятора пользователь будет испытывать длинную задержку, вызванной Windows при проверке цифровой подписи. Все извлеченные файлы из .bin файлов подвергаются проверке SHA-1 (если <tt>dontverifychecksum</tt> не используется). SHA-1 хеши этих файлов (наряду со всеми другими метаданными) сохраняются внутри EXE файла инсталлятора, который защищается цифровой подписью.</p>
   <p><b>См. также:</b><br/>
 <a href="topic_setup_signtoolretrycount.htm">SignToolRetryCount</a></p>

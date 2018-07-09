@@ -490,6 +490,7 @@
 <li><object type="text/sitemap"><param name="Name" value="AppVersion"><param name="Local" value="topic_setup_appversion.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="ArchitecturesAllowed"><param name="Local" value="topic_setup_architecturesallowed.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="ArchitecturesInstallIn64BitMode"><param name="Local" value="topic_setup_architecturesinstallin64bitmode.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="ARM64"><param name="Local" value="topic_setup_architecturesallowed.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="ASLRCompatible"><param name="Local" value="topic_setup_aslrcompatible.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="Attribs"><param name="Local" value="topic_filessection.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="Attribs"><param name="Local" value="topic_dirssection.htm"></object>
@@ -528,7 +529,9 @@
 <li><object type="text/sitemap"><param name="Name" value="CloseApplicationsFilter"><param name="Local" value="topic_setup_closeapplicationsfilter.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="closeonexit"><param name="Local" value="topic_iconssection.htm#closeonexit"></object>
 <li><object type="text/sitemap"><param name="Name" value="Code"><param name="Local" value="topic_scriptcreating.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="code signing"><param name="Local" value="topic_setup_signtoolretrydelay.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="code signing"><param name="Local" value="topic_setup_signtool.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="code signing"><param name="Local" value="topic_setup_signtoolminimumtimebetween.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="code signing"><param name="Local" value="topic_setup_signeduninstaller.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="CoFreeUnusedLibraries"><param name="Local" value="isxfunc/topic_isxfunc_cofreeunusedlibraries.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="COM Automation"><param name="Local" value="topic_scriptautomation.htm"></object>
@@ -617,7 +620,9 @@
 <li><object type="text/sitemap"><param name="Name" value="DestName"><param name="Local" value="topic_filessection.htm#DestName"></object>
 <li><object type="text/sitemap"><param name="Name" value="DialogFontName"><param name="Local" value="topic_langoptionssection.htm#DialogFontName"></object>
 <li><object type="text/sitemap"><param name="Name" value="DialogFontSize"><param name="Local" value="topic_langoptionssection.htm#DialogFontSize"></object>
+<li><object type="text/sitemap"><param name="Name" value="digital signature"><param name="Local" value="topic_setup_signtoolretrydelay.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="digital signature"><param name="Local" value="topic_setup_signtoolretrycount.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="digital signature"><param name="Local" value="topic_setup_signtoolminimumtimebetween.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="digital signature"><param name="Local" value="topic_setup_signtool.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="digital signature"><param name="Local" value="topic_setup_signeduninstaller.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="DirExists"><param name="Local" value="isxfunc/topic_isxfunc_direxists.htm"></object>
@@ -792,16 +797,21 @@
 <li><object type="text/sitemap"><param name="Name" value="IntToStr"><param name="Local" value="isxfunc/topic_isxfunc_inttostr.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="Is64BitInstallMode"><param name="Local" value="isxfunc/topic_isxfunc_is64bitinstallmode.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="IsAdminLoggedOn"><param name="Local" value="isxfunc/topic_isxfunc_isadminloggedon.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="IsARM64"><param name="Local" value="isxfunc/topic_isxfunc_isarm64.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="ISCC"><param name="Local" value="topic_compilercmdline.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="IsComponentSelected"><param name="Local" value="isxfunc/topic_isxfunc_iscomponentselected.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="iscustom"><param name="Local" value="topic_typessection.htm#iscustom"></object>
+<li><object type="text/sitemap"><param name="Name" value="IsIA64"><param name="Local" value="isxfunc/topic_isxfunc_isia64.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="IsIniSectionEmpty"><param name="Local" value="isxfunc/topic_isxfunc_isinisectionempty.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="IsPowerUserLoggedOn"><param name="Local" value="isxfunc/topic_isxfunc_ispoweruserloggedon.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="IsProtectedSystemFile"><param name="Local" value="isxfunc/topic_isxfunc_isprotectedsystemfile.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="isreadme"><param name="Local" value="topic_filessection.htm#isreadme"></object>
 <li><object type="text/sitemap"><param name="Name" value="IsTaskSelected"><param name="Local" value="isxfunc/topic_isxfunc_istaskselected.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="IsUninstaller"><param name="Local" value="isxfunc/topic_isxfunc_isuninstaller.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="IsWildcard"><param name="Local" value="isxfunc/topic_isxfunc_iswildcard.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="IsWin64"><param name="Local" value="isxfunc/topic_isxfunc_iswin64.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="IsX64"><param name="Local" value="isxfunc/topic_isxfunc_isx64.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="IsX86"><param name="Local" value="isxfunc/topic_isxfunc_isx86.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="Itanium"><param name="Local" value="topic_setup_architecturesinstallin64bitmode.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="Itanium"><param name="Local" value="topic_setup_architecturesallowed.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="Key"><param name="Local" value="topic_inisection.htm#Key"></object>
@@ -1023,14 +1033,18 @@
 <li><object type="text/sitemap"><param name="Name" value="ShowTasksTreeLines"><param name="Local" value="topic_setup_showtaskstreelines.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="ShowUndisplayableLanguages"><param name="Local" value="topic_setup_showundisplayablelanguages.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="sign"><param name="Local" value="topic_filessection.htm#sign"></object>
+<li><object type="text/sitemap"><param name="Name" value="signature"><param name="Local" value="topic_setup_signtoolretrydelay.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="signature"><param name="Local" value="topic_setup_signtoolretrycount.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="signature"><param name="Local" value="topic_setup_signtoolminimumtimebetween.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="signature"><param name="Local" value="topic_setup_signtool.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="signature"><param name="Local" value="topic_setup_signeduninstaller.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="SignedUninstaller"><param name="Local" value="topic_setup_signeduninstaller.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="SignedUninstallerDir"><param name="Local" value="topic_setup_signeduninstallerdir.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="signonce"><param name="Local" value="topic_filessection.htm#signonce"></object>
 <li><object type="text/sitemap"><param name="Name" value="SignTool"><param name="Local" value="topic_setup_signtool.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="SignToolMinimumTimeBetween"><param name="Local" value="topic_setup_signtoolminimumtimebetween.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="SignToolRetryCount"><param name="Local" value="topic_setup_signtoolretrycount.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="SignToolRetryDelay"><param name="Local" value="topic_setup_signtoolretrydelay.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="silent installation"><param name="Local" value="topic_setupcmdline.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="silent uninstallation"><param name="Local" value="topic_uninstcmdline.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="skipifdoesntexist"><param name="Local" value="topic_runsection.htm#skipifdoesntexist"></object>
@@ -1248,6 +1262,7 @@
 <li><object type="text/sitemap"><param name="Name" value="Uppercase"><param name="Local" value="isxfunc/topic_isxfunc_uppercase.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="usAppMutexCheck"><param name="Local" value="topic_scriptevents.htm#TUninstallStep"></object>
 <li><object type="text/sitemap"><param name="Name" value="useapppaths"><param name="Local" value="topic_iconssection.htm#useapppaths"></object>
+<li><object type="text/sitemap"><param name="Name" value="UsedUserAreasWarning"><param name="Local" value="topic_setup_useduserareaswarning.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="UsePreviousAppDir"><param name="Local" value="topic_setup_usepreviousappdir.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="UsePreviousGroup"><param name="Local" value="topic_setup_usepreviousgroup.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="UsePreviousLanguage"><param name="Local" value="topic_setup_usepreviouslanguage.htm"></object>
@@ -1283,6 +1298,7 @@
 <li><object type="text/sitemap"><param name="Name" value="WelcomeFontName"><param name="Local" value="topic_langoptionssection.htm#WelcomeFontName"></object>
 <li><object type="text/sitemap"><param name="Name" value="WelcomeFontSize"><param name="Local" value="topic_langoptionssection.htm#WelcomeFontSize"></object>
 <li><object type="text/sitemap"><param name="Name" value="What is Inno Setup?"><param name="Local" value="topic_whatisinnosetup.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="WildcardMatch"><param name="Local" value="isxfunc/topic_isxfunc_wildcardmatch.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="WindowResizable"><param name="Local" value="topic_setup_windowresizable.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="Windows Versions"><param name="Local" value="topic_winvernotes.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="WindowShowCaption"><param name="Local" value="topic_setup_windowshowcaption.htm"></object>

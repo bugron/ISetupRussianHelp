@@ -122,7 +122,9 @@
 <li><object type="text/sitemap"><param name="Name" value="SignedUninstaller"><param name="Local" value="topic_setup_signeduninstaller.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="SignedUninstallerDir"><param name="Local" value="topic_setup_signeduninstallerdir.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="SignTool"><param name="Local" value="topic_setup_signtool.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="SignToolMinimumTimeBetween"><param name="Local" value="topic_setup_signtoolminimumtimebetween.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="SignToolRetryCount"><param name="Local" value="topic_setup_signtoolretrycount.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="SignToolRetryDelay"><param name="Local" value="topic_setup_signtoolretrydelay.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="SlicesPerDisk"><param name="Local" value="topic_setup_slicesperdisk.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="SolidCompression"><param name="Local" value="topic_setup_solidcompression.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="SourceDir"><param name="Local" value="topic_setup_sourcedir.htm"></object>
@@ -142,6 +144,7 @@
 <li><object type="text/sitemap"><param name="Name" value="UninstallRestartComputer"><param name="Local" value="topic_setup_uninstallrestartcomputer.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="UninstallStyle"><param name="Local" value="topic_setup_uninstallstyle.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="UpdateUninstallLogAppName"><param name="Local" value="topic_setup_updateuninstalllogappname.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="UsedUserAreasWarning"><param name="Local" value="topic_setup_useduserareaswarning.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="UsePreviousAppDir"><param name="Local" value="topic_setup_usepreviousappdir.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="UsePreviousGroup"><param name="Local" value="topic_setup_usepreviousgroup.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="UsePreviousLanguage"><param name="Local" value="topic_setup_usepreviouslanguage.htm"></object>

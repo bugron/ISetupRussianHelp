@@ -15,7 +15,7 @@
   <div><b>Описание:</b></div>
   <p>Возвращает тип архитектуры процессора (ЦП).</p>
   <p>TSetupProcessorArchitecture определяется как:</p>
-  <p><tt>TSetupProcessorArchitecture = (paUnknown, paX86, paX64, paIA64);</tt></p>
+  <p><tt>TSetupProcessorArchitecture = (paUnknown, paX86, paX64, paIA64, paARM64);</tt></p>
   <div><b>Комментарии:</b></div>
   <p>64-битная&nbsp;архитектура ЦП никогда не будет возваращена на 32-битных версиях Windows. Следовательно, вы не можете использовать эту функцию для обнаружения 64-битного ЦП AMD на 32-битных версиях Windows; вы просто, как результат, получите значение <tt>paX86</tt>.</p>
   <p>Если инсталлятор/деинсталлятор не может определить тип ЦП, то функция возвращает значение<tt> paUnknown</tt>. Можно предположить, что &quot;неизвестные&quot; типы процессоров, по крайней мере способны выполнить 32-битный код.</p>
@@ -28,10 +28,20 @@
 </pre>
   <p>Если <tt>ia64</tt> <i>содержится</i> в значении директивы <a href="../topic_setup_architecturesinstallin64bitmode.htm">ArchitecturesInstallIn64BitMode</a> секции [Setup], то не обязательно проверить возвращаемое значение функции IsWin64, потому что инсталлятор сам это сделает при запуске и если это значение False, завершит работу с сообщением об ошибке (<tt>MissingWOW64APIs</tt>).</p>
   <div><b>Например:</b></div>
-  <pre>var<br />  S: String;<br />begin<br />  case ProcessorArchitecture of<br />    paX86: S := 'x86';<br />    paX64: S := 'x64';<br />    paIA64: S := 'Itanium';<br />  else<br />    S := 'Unrecognized';<br />  end;<br />  MsgBox('Your processor architecture: ' + S, mbInformation, MB_OK);<br />end;</pre>
+  <pre>var<br />  S: String;<br />begin<br />  case ProcessorArchitecture of<br />    paX86: S := 'x86';<br />    paX64: S := 'x64';<br />    paIA64: S := 'Itanium';<br />    paARM64: S := 'ARM64';<br /> else<br />    S := 'Unrecognized';<br />  end;<br />  MsgBox('Your processor architecture: ' + S, mbInformation, MB_OK);<br />end;</pre>
   <div><b>См. также:</b></div>
-  <p><a href="topic_isxfunc_iswin64.htm">IsWin64</a> <br />
-    <a href="topic_isxfunc_is64bitinstallmode.htm">Is64BitInstallMode</a></p>
+  <p><a href="topic_isxfunc_isx86.htm">IsX86</a>
+  <br/>
+  <a href="topic_isxfunc_isx64.htm">IsX64</a>
+  <br/>
+  <a href="topic_isxfunc_isia64.htm">IsIA64</a>
+  <br/>
+  <a href="topic_isxfunc_isarm64.htm">IsARM64</a>
+  <br/>
+  <a href="topic_isxfunc_iswin64.htm">IsWin64</a>
+  <br />
+  <a href="topic_isxfunc_is64bitinstallmode.htm">Is64BitInstallMode</a>
+  </p>
 </div>
 </body>
 </html>

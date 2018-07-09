@@ -19,14 +19,23 @@
     </tbody>
   </table>
   <div><b>Описание:</b></div>
-  <p>Определяет картинку в формате .bmp, которая будет отображаться в левой части окна инсталлятора. Этот файл должен быть расположен в <a href="topic_sourcedirectorynotes.htm">исходной папке</a> скрипта, если только для него не указан полный путь или нет префикса "compiler:" - в этом случае компилятор будет искать указанный файл в своем каталоге.</p>
-  <p>256-цветные картинки могут не отобразиться правильно в 256-цветном режиме из-за скудности палитры. Максимальный размер картинки 164x314 пикселей. Обратите внимание, что если в Windows задан крупный шрифт, площадь для картинки в окне мастера будет больше.</p>
-  <div class="examplebox">
-    <div class="exampleheader">Например:</div>
-    <pre class="nomargin">WizardImageFile=myimage.bmp</pre>
-  </div>
+  <p>Определяет имя или имена файлов в формате .bmp, для отображения в правом верхнем углу окна мастера. Этот файл(ы) должен быть расположен в <a href="topic_sourcedirectorynotes.htm">исходной папке</a> скрипта, если не указан полный путь или путь с префиксом "compiler:", то есть компилятор будет искать указанный файл в своем каталоге.</p>
+  <p>256-цветные картинки могут не отобразиться правильно в 256-цветном режиме из-за скудности палитры. Максимальный размер картинки 55х55 пикселей.</p>
+  <p>Когда указаны несколько файлов, инсталлятор автоматически выберет тот, который наилучшим образом соответствует DPI настройкам системы. В следующей таблице приведены рекомендуемые размеры .bmp:</p>
+  <table>
+    <tr><td class="cellleft">100%</td><td class="cellright">55x55</td></tr>
+    <tr><td class="cellleft">125%</td><td class="cellright">64x68</td></tr>
+    <tr><td class="cellleft">150%</td><td class="cellright">83x80</td></tr>
+    <tr><td class="cellleft">175%</td><td class="cellright">92x97</td></tr>
+    <tr><td class="cellleft">200%</td><td class="cellright">110x106</td></tr>
+    <tr><td class="cellleft">225%</td><td class="cellright">119x123</td></tr>
+    <tr><td class="cellleft">250%</td><td class="cellright">138x140</td></tr>
+  </table>
+  <div class="exampleheader">Например:</div><pre class="nomargin">WizardSmallImageFile=mysmallimage.bmp,mysmallimage2.bmp</pre></div>
   <p><b>См. также:</b><br/>
-  <a href="topic_setup_wizardimagealphaformat.htm">WizardImageAlphaFormat</a></p>
+  <a href="topic_setup_wizardsmallimagefile.htm">WizardSmallImageFile</a><br/>
+  <a href="topic_setup_wizardimagealphaformat.htm">WizardImageAlphaFormat</a><br/>
+  <a href="topic_setup_wizardimagestretch.htm">WizardImageStretch</a></p></p>
 </div>
 </body>
 </html>

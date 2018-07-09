@@ -410,7 +410,6 @@
 <li><object type="text/sitemap"><param name="Name" value="{pf64}"><param name="Local" value="topic_consts.htm#pf64"></object>
 <li><object type="text/sitemap"><param name="Name" value="{reg:...}"><param name="Local" value="topic_consts.htm#reg"></object>
 <li><object type="text/sitemap"><param name="Name" value="{sd}"><param name="Local" value="topic_consts.htm#sd"></object>
-<li><object type="text/sitemap"><param name="Name" value="{sendto}"><param name="Local" value="topic_consts.htm#sendto"></object>
 <li><object type="text/sitemap"><param name="Name" value="{src}"><param name="Local" value="topic_consts.htm#src"></object>
 <li><object type="text/sitemap"><param name="Name" value="{srcexe}"><param name="Local" value="topic_consts.htm#srcexe"></object>
 <li><object type="text/sitemap"><param name="Name" value="{sys}"><param name="Local" value="topic_consts.htm#sys"></object>
@@ -430,6 +429,7 @@
 <li><object type="text/sitemap"><param name="Name" value="{username}"><param name="Local" value="topic_consts.htm#username"></object>
 <li><object type="text/sitemap"><param name="Name" value="{userpf}"><param name="Local" value="topic_consts.htm#userpf"></object>
 <li><object type="text/sitemap"><param name="Name" value="{userprograms}"><param name="Local" value="topic_consts.htm#userprograms"></object>
+<li><object type="text/sitemap"><param name="Name" value="{usersendto}"><param name="Local" value="topic_consts.htm#usersendto"></object>
 <li><object type="text/sitemap"><param name="Name" value="{userstartmenu}"><param name="Local" value="topic_consts.htm#userstartmenu"></object>
 <li><object type="text/sitemap"><param name="Name" value="{userstartup}"><param name="Local" value="topic_consts.htm#userstartup"></object>
 <li><object type="text/sitemap"><param name="Name" value="{usertemplates}"><param name="Local" value="topic_consts.htm#usertemplates"></object>

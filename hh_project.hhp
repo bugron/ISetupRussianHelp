@@ -1,0 +1,25 @@
+[OPTIONS]
+Compatibility=1.1 or later
+Compiled file=isetup.chm
+Contents file=hh_generated_contents.hhc
+Default Window=$global_ismain_russian
+Default topic=src\topic_whatisinnosetup.htm
+Display compile progress=Yes
+Full-text search=Yes
+Full text search stop list file=stoplist.stp
+Index file=hh_generated_index.hhk
+Language=0x419 Русский (Россия)
+Title=Inno Setup Help
+
+[WINDOWS]
+$global_ismain_russian="Inno Setup Help","hh_generated_contents.hhc","hh_generated_index.hhk","topic_whatisinnosetup.htm","topic_whatisinnosetup.htm",,,,,0x62420,250,0x302e,,0xb0000,0x200,,,,,0
+
+
+[FILES]
+hh_isppredirect.xhtm
+
+[MERGE FILES]
+ispp.chm
+
+[INFOTYPES]
+

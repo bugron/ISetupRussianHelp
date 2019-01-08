@@ -432,4 +432,6 @@
 </ul>
 <li><object type="text/sitemap"><param name="Name" value="Авторы перевода"><param name="Local" value="src\translation_authors.htm"></object></li>
 </ul>
+<object type="text/sitemap">
+<param name="Merge" value="ispp.chm::\hh_generated_contents.hhc"></object>
 </body></html>

@@ -35,7 +35,7 @@
         <li class="compact">Нет в ситуации 'Файл существует, подтверждение перезаписи.'.</li>
         <li class="compact">Прервать в ситуации Прервать/Повтор.</li>
         <li class="compact">Отмена в ситуации Повтор/Отмена.</li>
-        <li class="compact">Да (=продолжить) в ситуациях DiskSpaceWarning/DirExists/DirDoesntExist/NoUninstallWarning/ExitSetupMessage/ConfirmUninstall.</li>
+        <li class="compact">Да (=продолжить) в ситуациях DiskSpaceWarning/DirExists/DirDoesntExist/NoUninstallWarning/ExitSetupMessage/ConfirmUninstall/PrivilegesRequiredOverrideMsgBox.</li>
         <li class="compact">Да (=перезапустить) в ситуациях FinishedRestartMessage/UninstalledAndNeedsRestart.</li>
       </ul>
       <p>Нельзя подавить следующие 5 окна сообщений:</p>
@@ -44,12 +44,22 @@
         <li class="compact">Окно сообщения 'Выход из программы установки'.</li>
         <li class="compact">Окно сообщения FileNotInDir2, показываемое при необходимости смены диска и если этот диск не найден.</li>
         <li class="compact">Любое окно сообщения (об ошибке), показываемое перед тем как инсталлятор (или деинсталлятор) сможет прочесть параметры командной строки.</li>
-        <li class="compact">Любое окно сообщения, показываемое встроенной функцией <tt>MsgBox</tt>.</li>
+        <li class="compact"> , .</li>
+        <li class="compact">Любое диалоговое окно задач или окно сообщения показываемое встроенными функциями <tt>TaskDialogMsgBox</tt> и <tt>MsgBox</tt>.</li>
       </ul>
+    </dd>
+    <dt><b><a name="ALLUSERS">/ALLUSERS</a></b></dt>
+    <dd>
+    <p>Указывает инсталлятору запустить инсталляцию в <a href="topic_admininstallmode.htm">режиме административной установки</a>. Действителен только когда директива <a href="topic_setup_privilegesrequiredoverridesallowed.htm">PrivilegesRequiredOverridesAllowed</a> секции <tt>[Setup]</tt> позволяет перезаписать <tt>commandline</tt>.</p>
+    </dd>
+
+    <dt><b><a name="CURRENTUSER">/CURRENTUSER</a></b></dt>
+    <dd>
+    <p>Указывает инсталлятору запустить инсталляцию в <a href="topic_admininstallmode.htm">режиме неадминистративной установки</a>. Действителен только когда директива <a href="topic_setup_privilegesrequiredoverridesallowed.htm">PrivilegesRequiredOverridesAllowed</a> секции <tt>[Setup]</tt> позволяет перезаписать <tt>commandline</tt>.</p>
     </dd>
     <dt><b><a name="LOG" id="LOG">/LOG</a></b></dt>
     <dd>
-      <p>Указывает инсталлятору создать log-файл в папке TEMP для подробного отчета о действиях и событиях при установке, обработке запусей секции [Run], предпринятых в ходе установки. Применяется при отслеживании ошибок. Например, если вы подозреваете, что файл не был заменен, хотя должен был, log-файл сообщит, что файл был действительно пропущен и почему это произошло.</p>
+      <p>Указывает инсталлятору создать log-файл в папке TEMP для подробного отчета о действиях и событиях при установке, обработке записей секции [Run], предпринятых в ходе установки. Применяется при отслеживании ошибок. Например, если вы подозреваете, что файл не был заменен, хотя должен был, log-файл сообщит, что файл был действительно пропущен и почему это произошло.</p>
       <p>Log-файлу присваивается уникальное имя на базе текущей даты. (Существующие файлы не перезаписываются и не дополняются.)</p>
       <p>Информация, содержащаяся в log-файле, техническая и поэтому не может быть понята пользователем. Формат файла может измениться без уведомления.</p>
     </dd>
@@ -109,7 +119,7 @@
     </dd>
     <dt><b><a name="DIR" id="DIR">/DIR=</a>&quot;<i>x</i>:\<i>dirname</i>&quot;</b></dt>
     <dd>
-      <p>Меняет имя папки, заданное по умолчанию, на странице <i>Выбор папки назначения</i>. Должен быть задан полный путь. Может содержать префикс &quot;expand:&quot;, который указывает инсталлятору подставить значения вместо констант в имени. Например: '/DIR=expand:{pf}\My Program'.</p>
+      <p>Меняет имя папки, заданное по умолчанию, на странице <i>Выбор папки назначения</i>. Должен быть задан полный путь. Может содержать префикс &quot;expand:&quot;, который указывает инсталлятору подставить значения вместо констант в имени. Например: '/DIR=expand:{autopf}\My Program'.</p>
     </dd>
     <dt><b><a name="GROUP" id="GROUP">/GROUP=</a>&quot;<i>folder name</i>&quot;</b></dt>
     <dd>
@@ -136,7 +146,7 @@
         /COMPONENTS=&quot;help,plugins&quot;</div>
       <div class="examplebox">
         <div class="exampleheader">Например:</div>
-        Отменяется выбор всех компонентов, потом выбирается родительский компонент, кроме дочерного компонента child:<br/>
+        Отменяется выбор всех компонентов, потом выбирается родительский компонент, кроме дочериного компонента child:<br/>
         /COMPONENTS=&quot;*parent,!parent\child&quot;</div>
     </dd>
     <dt><b><a name="TASKS" id="TASKS">/TASKS=</a>&quot;<i>список имен задач, разделенных запятыми</i>&quot;</b></dt>
@@ -150,7 +160,7 @@
         /TASKS=&quot;desktopicon,fileassoc&quot;</div>
       <div class="examplebox">
         <div class="exampleheader">Например:</div>
-        Отменяется выбор всех задач, потом выбирается родительская задача, кроме дочерного:<br/>
+        Отменяется выбор всех задач, потом выбирается родительская задача, кроме дочериного:<br/>
         /TASKS=&quot;*parent,!parent\child&quot;</div>
     </dd>
     <dt><b><a name="MERGETASKS" id="MERGETASKS">/MERGETASKS=</a>&quot;<i>список имен задач, разделенных запятыми</i>&quot;</b></dt>

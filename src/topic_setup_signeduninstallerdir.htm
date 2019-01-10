@@ -20,8 +20,8 @@
   </table>
   <div><b>Описание:</b></div>
   <p>Определяет каталог, в который сохранены файлы <a href="topic_setup_signeduninstaller.htm">подписанного деинсталлятора</a>. По умолчанию, такие файлы хранятся в <a href="topic_setup_outputdir.htm">OutputDir</a>.</p>
-  <p>Отдельные файлы скрипта могут совместно использовать один и тот же <tt>SignedUninstallerDir</tt>. Устанавливая общий каталог,&nbsp;содержащий подписанные файлы деинсталлятора, Вы не должны&nbsp;подписывать деинсталлятор каждый раз, когда Вы компилируете новый скрипт с отличной от значения по умолчанию <font size="2" face="Courier New CYR"><font size="2" face="Courier New CYR">OutputDir</font></font>.</p>
-  <p>Если <font size="2" face="Courier New CYR"><font size="2" face="Courier New CYR">SignedUninstallerDir</font></font> не будет полностью определенным путем, то он будет обработан как являющийся относительно <font size="2" face="Courier New CYR"><font size="2" face="Courier New CYR">SourceDir</font></font>. Если задать&nbsp;<font size="2" face="Courier New CYR"><font size="2" face="Courier New CYR">SignedUninstallerDir</font></font>&nbsp;значение <font size="2" face="Courier New CYR"><font size="2" face="Courier New CYR">".",</font></font>&nbsp;файлы поместятся&nbsp;в исходный каталог.</p>
+  <p>Отдельные файлы скрипта могут совместно использовать один и тот же <tt>SignedUninstallerDir</tt>. Устанавливая общий каталог, содержащий подписанные файлы деинсталлятора, Вы не должны подписывать деинсталлятор каждый раз, когда Вы компилируете новый скрипт с отличной от значения по умолчанию <tt>OutputDir</tt>.</p>
+  <p>Если <tt>SignedUninstallerDir</tt> не будет полностью определенным путем, то он будет обработан как являющийся относительно <tt>SourceDir</tt>. Если задать <tt>SignedUninstallerDir</tt> значение <tt>".",</tt> файлы поместятся в исходный каталог.</p>
   <div class="examplebox">
     <div class="exampleheader">Например:</div>
     <pre class="nomargin">SignedUninstallerDir=c:\signeduninstallers</pre>

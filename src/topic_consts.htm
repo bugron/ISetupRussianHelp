@@ -13,15 +13,15 @@
 <div class="topicbody">
   <p>Главную роль в скрипте играют <i>константы</i>.
     Константы всегда заключаются в фигурные скобки <tt>{ }</tt>. Инсталлятор (или
-    деинсталлятор) присваивает константам значения, котроые определяются
+    деинсталлятор) присваивает константам значения, которые определяются
     пользователем, либо опираясь на конфигурацию системы. Например, <tt>{win}</tt> будет воспринята компилятором как &quot;C:\WINDOWS&quot;, если ОС установлена в эту папку.</p>
   <p>Символ &quot;{&quot; рассматривается как начало константы. Если требуется ввести &quot;{&quot;, наберите ее два раза. (You do not need to double &quot;}&quot; characters.)</p>
   <p>Если
-    за константой следует обратный слеш (&quot;\&quot;), инсталлятор его автоматически
-    удалит, если константа уже оканчивается на обратный слеш. Например,
+    за константой следует обратная косая черта (&quot;\&quot;), инсталлятор его автоматически
+    удалит, если константа уже оканчивается обратной косой чертой. Например,
     если константа {const} имеет значение &quot;C:\&quot;, а мы введем <tt>{<i>constantname</i>}\filename</tt>, в конечном счете получится &quot;C:\filename&quot;, а не
     &quot;C:\\filename&quot;, как должно быть по логике. Если требуется вывести
-    именно &quot;C:\\filename&quot;, обратный слеш придется заключить в фигурные скобки: <tt>{const}{\}\filename</tt>.</p>
+    именно &quot;C:\\filename&quot;, обратную косую черту придется заключить в фигурные скобки: <tt>{const}{\}\filename</tt>.</p>
   <p>Список поддерживаемых констант.</p>
   <h2 class="heading">Константы папок</h2>
   <dl>
@@ -34,7 +34,7 @@
     <dt><b><a name="win" id="win">{win}</a></b></dt>
     <dd>
       <p>Папка, где установлена Windows.<br />
-        Например: ввели <tt>{win}\MYPROG.INI</tt> , папка Windows &quot;C:\WINDOWS&quot;, на выходе &quot;C:\WINDOWS\MYPROG.INI&quot;.</p>
+        Например: ввели <tt>{win}\MYPROG.INI</tt>, папка Windows &quot;C:\WINDOWS&quot;, на выходе &quot;C:\WINDOWS\MYPROG.INI&quot;.</p>
     </dd>
     <dt><b><a name="sys" id="sys">{sys}</a></b></dt>
     <dd>
@@ -44,7 +44,7 @@
         64-разрядном Windows, по умолчанию, путь System32, возвращаемый этой
         константой указывает к папке, содержащий 32-разрядные системные
         файлы, точно так же как в 32-разрядном Windows. (Константа может быть
-        переопределена включением <a href="topic_32vs64bitinstalls.htm">64-разрядного режима</a>.)</p>
+        переопределена включением <a href="topic_32vs64bitinstalls.htm">64-разрядного режима установки</a>.)</p>
     </dd>
     <dt><b><a name="syswow64" id="syswow64">{syswow64}</a></b></dt>
     <dd>
@@ -65,36 +65,36 @@
     <dd>
       <p>Системный диск, на котором установлен Windows. Обычно это &quot;C:&quot;. Эта константа эквивалентна переменной среды <i>SystemDrive</i>.</p>
     </dd>
-    <dt><b><a name="pf" id="pf">{pf}</a></b></dt>
+    <dt><b><a name="commonpf" id="commonpf">{commonpf}</a></b></dt>
     <dd>
-      <p>Путь к папке Program Files. <tt>{pf}</tt> эквивалентна <tt>{pf32}</tt>, если инсталлятор не работает в <a href="topic_32vs64bitinstalls.htm">64-разрядном режиме</a>, иначе эквивалентна <tt>{pf64}</tt>.</p>
+      <p>Путь к папке Program Files. <tt>{commonpf}</tt> эквивалентна <tt>{commonpf32}</tt>, если инсталлятор не работает в <a href="topic_32vs64bitinstalls.htm">64-разрядном режиме установки</a>, иначе эквивалентна <tt>{commonpf64}</tt>.</p>
     </dd>
-    <dt><b><a name="pf32" id="pf32">{pf32}</a></b></dt>
+    <dt><b><a name="commonpf32" id="commonpf32">{commonpf32}</a></b></dt>
     <dd>
       <p>Путь
         к 32-разрядной системной папке Program Files, обычно &quot;C:\Program
         Files&quot; в 32-разрядном Windows и &quot;C:\Program Files (x86)&quot; в
         64-разрядном Windows.</p>
     </dd>
-    <dt><b><a name="pf64" id="pf64">{pf64}</a></b></dt>
+    <dt><b><a name="commonpf64" id="commonpf64">{pf64}</a></b></dt>
     <dd>
       <p>Только
         для 64-разрядного Windows: 64-разрядные программные файлы. Путь к 64-разрядной системной папке Program Files, обычно &quot;C:\Program
         Files&quot;. Будет исключение, если предпринять попытку использования этой
         константы в 32-разрядном Windows.</p>
     </dd>
-    <dt><b><a name="cf" id="cf">{cf}</a></b></dt>
+    <dt><b><a name="commoncf" id="commoncf">{commoncf}</a></b></dt>
     <dd>
-      <p>Общие файлы - Common Files. <tt>{cf}</tt> эквивалентна <tt>{cf32}</tt>, если инсталлятор не работает в <a href="topic_32vs64bitinstalls.htm">64-разрядном режиме</a>, иначе эквивалентна <tt>{cf64}</tt>.</p>
+      <p>Общие файлы - Common Files. <tt>{commoncf}</tt> эквивалентна <tt>{commoncf32}</tt>, если инсталлятор не работает в <a href="topic_32vs64bitinstalls.htm">64-разрядном режиме установки</a>, иначе эквивалентна <tt>{commoncf64}</tt>.</p>
     </dd>
-    <dt><b><a name="cf32" id="cf32">{cf32}</a></b></dt>
+    <dt><b><a name="commoncf32" id="commoncf32">{commoncf32}</a></b></dt>
     <dd>
       <p>32-разрядные
         общие файлы. Путь к 32-разрядной системной папке Common Files,
         обычно &quot;C:\Program Files\Common Files&quot; в 32-разрядном Windows и
         &quot;C:\Program Files (x86)\Common Files&quot; в 64-разрядном Windows.</p>
     </dd>
-    <dt><b><a name="cf64" id="cf64">{cf64}</a></b></dt>
+    <dt><b><a name="commoncf64" id="commoncf64">{commoncf64}</a></b></dt>
     <dd>
       <p>Только
         для 64-разрядного Windows: 64-разрядные общие файлы. Путь к 64-разрядной
@@ -117,7 +117,7 @@
     </dd>
     <dt><b><a name="dao" id="dao">{dao}</a></b></dt>
     <dd>
-      <p>Папка DAO. Эквивалентна <tt>{cf}\Microsoft Shared\DAO</tt>.</p>
+      <p>Папка DAO. Эквивалентна <tt>{commoncf}\Microsoft Shared\DAO</tt>.</p>
     </dd>
     <dt><b><a name="dotnet11" id="dotnet11">{dotnet11}</a></b></dt>
     <dd>
@@ -126,7 +126,7 @@
     </dd>
     <dt><b><a name="dotnet20" id="dotnet20">{dotnet20}</a></b></dt>
     <dd>
-      <p>Корневая папка .NET Framework версий 2-3.5. <tt>{dotnet20}</tt> эквивалентна <tt>{dotnet2032}</tt>, если&nbsp;инсталлятор не работает в <a href="topic_32vs64bitinstalls.htm">64-разрядном режиме</a>, иначе эквивалентна <tt>{dotnet2064}</tt>.</p>
+      <p>Корневая папка .NET Framework версий 2-3.5. <tt>{dotnet20}</tt> эквивалентна <tt>{dotnet2032}</tt>, если&nbsp;инсталлятор не работает в <a href="topic_32vs64bitinstalls.htm">64-разрядном режиме установки</a>, иначе эквивалентна <tt>{dotnet2064}</tt>.</p>
       <p>Будет исключение, если предпринять попытку использования этой константы в системе, где не установлена .NET Framework версий 2-3.5.</p>
     </dd>
     <dt><b><a name="dotnet2032" id="dotnet2032">{dotnet2032}</a></b></dt>
@@ -141,7 +141,7 @@
     </dd>
     <dt><b><a name="dotnet40" id="dotnet40">{dotnet40}</a></b></dt>
     <dd>
-      <p>Корневая папка .NET Framework версий 4 или выше. <tt>{dotnet40}</tt> эквивалентна <tt>{dotnet4032}</tt>, если&nbsp;инсталлятор не работает в <a href="topic_32vs64bitinstalls.htm">64-разрядном режиме</a>, иначе эквивалентна <tt>{dotnet4064}</tt>.</p>
+      <p>Корневая папка .NET Framework версий 4 или выше. <tt>{dotnet40}</tt> эквивалентна <tt>{dotnet4032}</tt>, если&nbsp;инсталлятор не работает в <a href="topic_32vs64bitinstalls.htm">64-разрядном режиме установки</a>, иначе эквивалентна <tt>{dotnet4064}</tt>.</p>
       <p>Будет исключение, если предпринять попытку использования этой константы в системе, где не установлена .NET Framework версий 4 или выше.</p>
     </dd>
     <dt><b><a name="dotnet4032" id="dotnet4032">{dotnet4032}</a></b></dt>
@@ -162,14 +162,12 @@
     &quot;user&quot; берутся из профиля текущего пользователя, от имени которого
     выполняется инсталлятор. А пользователь часто не тот, который находится
     в системе, так что используйте константы &quot;user&quot; с осторожностью.</p>
-  <p>Как уже говорилось, константы специальных папок применимы ко всем версиям Windows, поддерживающих Inno Setup.</p>
-  <p>* = константа &quot;common&quot; равна константе &quot;user&quot;, если пользователь, устанавливающий приложение, является администратором или <tt>PrivilegesRequired</tt>=<tt>lowest</tt>.</p>
   <dl>
     <dt><b><a name="group" id="group">{group}</a></b></dt>
     <dd>
       <p>Путь к группе меню Пуск, который пользователь может изменить на странице <i>Выберите папку в меню &laquo;Пуск&raquo;</i>.
         Эта папка всегда создается для <i>всех профилей пользователей</i>, если только
-        пользователь, устанавливающий приложение, не имеет прав администратора, иначе путь задается только для профиля текущего пользователя.</p>
+        инсталлятор не работает в <a href="topic_admininstallmode.htm">режиме неадминистративной установки</a>, иначе путь задается только для профиля текущего пользователя.</p>
     </dd>
     <dt><b><a name="localappdata" id="localappdata">{localappdata}</a></b></dt>
     <dd>
@@ -183,7 +181,7 @@
     <dd>
       <p>Путь к папке Common Files текущего пользователя. Константа поддерживается только в Windows 7 и более поздних версиях<tt></tt>. При использовании в предыдущих версиях Windows значение константы будет заменено на <tt>{localappdata}\Programs\Common</tt>.</p>
     </dd>
-    <dt><b><a name="userdesktop" id="userdesktop">{userdesktop}</a></b> &amp; <b><a name="commondesktop" id="commondesktop">{commondesktop}</a></b> *</dt>
+    <dt><b><a name="userdesktop">{userdesktop}</a></b> &amp; <b><a name="commondesktop">{commondesktop}</a></b></dt>
     <dd>
       <p>Путь к папке рабочего стола.</p>
     </dd>
@@ -193,13 +191,13 @@
     </dd>
     <dt><b><a name="userfavorites" id="userfavorites">{userfavorites}</a></b> &amp; <b><a name="commonfavorites" id="commonfavorites">{commonfavorites}</a></b> *</dt>
     <dd>
-      <p>Путь к папке Избранное.</p>
+      <p>Путь к папке Избранное текущего пользователя. (Общей папки Избранное не существует.)</p>
     </dd>
     <dt><b><a name="userpf" id="userpf">{userpf}</a></b></dt>
     <dd>
       <p>Путь к папке Program Files текущего пользователя. Константа поддерживается только в Windows 7 и более поздних версиях. При использовании в предыдущих версиях Windows значение константы будет заменено на <tt>{localappdata}\Programs</tt>.</p>
     </dd>
-    <dt><b><a name="userprograms" id="userprograms">{userprograms}</a></b> &amp; <b><a name="commonprograms" id="commonprograms">{commonprograms}</a></b> *</dt>
+    <dt><b><a name="userprograms">{userprograms}</a></b> &amp; <b><a name="commonprograms">{commonprograms}</a></b></dt>
     <dd>
       <p>Путь к папке Программы в меню Пуск.</p>
     </dd>
@@ -207,24 +205,65 @@
     <dd>
       <p>Путь к папке Send To пользователя (общей Send To папки нет).</p>
     </dd>
-    <dt><b><a name="userstartmenu" id="userstartmenu">{userstartmenu}</a></b> &amp; <b><a name="commonstartmenu" id="commonstartmenu">{commonstartmenu}</a></b> *</dt>
+    <dt><b><a name="userstartmenu">{userstartmenu}</a></b> &amp; <b><a name="commonstartmenu">{commonstartmenu}</a></b></dt></dt>
     <dd>
       <p>Путь к &quot;корню&quot; меню Пуск.</p>
     </dd>
-    <dt><b><a name="userstartup" id="userstartup">{userstartup}</a></b> &amp; <b><a name="commonstartup" id="commonstartup">{commonstartup}</a></b> *</dt>
+    <dt><b><a name="userstartup">{userstartup}</a></b> &amp; <b><a name="commonstartup">{commonstartup}</a></b></dt>
     <dd>
       <p>Путь к папке Автозагрузка в меню Пуск.</p>
     </dd>
-    <dt><b><a name="usertemplates" id="usertemplates">{usertemplates}</a></b> &amp; <b><a name="commontemplates" id="commontemplates">{commontemplates}</a></b> *</dt>
+    <dt><b><a name="usertemplates">{usertemplates}</a></b> &amp; <b><a name="commontemplates">{commontemplates}</a></b></dt>
     <dd>
       <p>Путь к папке шаблонов.</p>
     </dd>
   </dl>
+
+  <h2 class="heading">Константы "Auto"</h2>
+
+  <p>Кроме констант "common" и "user", Inno Setup также поддерживает константы "auto". Если инсталлятор работает в <a href="topic_admininstallmode.htm">режиме административной установки</a>, эти константы получают значения соответствующих "common" констант, в противном случае получают значения констант "user". Рекомендуется всегда использовать константы "auto" во избежание возможных недоразумений/ошибок.</p>
+  
+  <div class="indent">
+  <table>
+  <tr><td class="cellleft"></td><td class="cellright"><u>Административный режим</u></td><td class="cellright"><u>Неадминистративный режим</u></td></tr>
+  <tr><td class="cellleft"><tt><a name="autoappdata">autoappdata</a></tt></td><td class="cellright"><tt>commonappdata</tt></td><td class="cellright"><tt>userappdata</tt></td></tr>
+  <tr><td class="cellleft"><tt><a name="autocf">autocf</a></tt></td><td class="cellright"><tt>commoncf</tt></td><td class="cellright"><tt>usercf</tt></td></tr>
+  <tr><td class="cellleft"><tt><a name="autocf32">autocf32</a></tt></td><td class="cellright"><tt>commoncf32</tt></td><td class="cellright"><tt>usercf</tt></td></tr>
+  <tr><td class="cellleft"><tt><a name="autocf64">autocf64</a></tt></td><td class="cellright"><tt>commoncf64</tt></td><td class="cellright"><tt>usercf</tt></td></tr>
+  <tr><td class="cellleft"><tt><a name="autodesktop">autodesktop</a></tt></td><td class="cellright"><tt>commondesktop</tt></td><td class="cellright"><tt>userdesktop</tt></td></tr>
+  <tr><td class="cellleft"><tt><a name="autodocs">autodocs</a></tt></td><td class="cellright"><tt>commondocs</tt></td><td class="cellright"><tt>userdocs</tt></td></tr>
+  <tr><td class="cellleft"><tt><a name="autopf">autopf</a></tt></td><td class="cellright"><tt>commonpf</tt></td><td class="cellright"><tt>userpf</tt></td></tr>
+  <tr><td class="cellleft"><tt><a name="autopf32">autopf32</a></tt></td><td class="cellright"><tt>commonpf32</tt></td><td class="cellright"><tt>userpf</tt></td></tr>
+  <tr><td class="cellleft"><tt><a name="autopf64">autopf64</a></tt></td><td class="cellright"><tt>commonpf64</tt></td><td class="cellright"><tt>userpf</tt></td></tr>
+  <tr><td class="cellleft"><tt><a name="autoprograms">autoprograms</a></tt></td><td class="cellright"><tt>commonprograms</tt></td><td class="cellright"><tt>userprograms</tt></td></tr>
+  <tr><td class="cellleft"><tt><a name="autostartmenu">autostartmenu</a></tt></td><td class="cellright"><tt>commonstartmenu</tt></td><td class="cellright"><tt>userstartmenu</tt></td></tr>
+  <tr><td class="cellleft"><tt><a name="autostartup">autostartup</a></tt></td><td class="cellright"><tt>commonstartup</tt></td><td class="cellright"><tt>userstartup</tt></td></tr>
+  <tr><td class="cellleft"><tt><a name="autotemplates">autotemplates</a></tt></td><td class="cellright"><tt>commontemplates</tt></td><td class="cellright"><tt>usertemplates</tt></td></tr>
+  </table>
+  </div>
+  
+  <h2 class="heading">Переименованные константы</h2>
+  
+  <p>Начиная с Inno Setup 6 некоторые константы были переименованы. Старые названия все еще поддерживаются, но рекомендуется обновить Ваши скрипты новыми названиями (или "auto" версиями констант. Компилятор выдаст предупреждение при использовании старых констант.</p>
+  
+  <div class="indent">
+  <table>
+  <tr><td class="cellleft"><u>Старое название</u></td><td class="cellright"><u>Новое название</u></td></tr>
+  <tr><td class="cellleft"><tt><a name="cf">cf</a></tt></td><td class="cellright"><tt>commoncf</tt></td></tr>
+  <tr><td class="cellleft"><tt><a name="cf32">cf32</a></tt></td><td class="cellright"><tt>commoncf32</tt></td></tr>
+  <tr><td class="cellleft"><tt><a name="cf64">cf64</a></tt></td><td class="cellright"><tt>commoncf64</tt></td></tr>
+  <tr><td class="cellleft"><tt><a name="pf">pf</a></tt></td><td class="cellright"><tt>commonpf</tt></td></tr>
+  <tr><td class="cellleft"><tt><a name="pf32">pf32</a></tt></td><td class="cellright"><tt>commonpf32</tt></td></tr>
+  <tr><td class="cellleft"><tt><a name="pf64">pf64</a></tt></td><td class="cellright"><tt>commonpf64</tt></td></tr>
+  <tr><td class="cellleft"><tt><a name="sendto">sendto</a></tt></td><td class="cellright"><tt>usersendto</tt></td></tr>
+  </table>
+  </div>
+
   <h2 class="heading">Прочие константы</h2>
   <dl>
     <dt><b><a name="bs" id="bs">{\}</a></b></dt>
     <dd>
-      <p>Обратный слеш. Прочитайте в начале этой страницы о правилах использования <tt>{\}</tt> и <tt>\</tt>.</p>
+      <p>Обратная косая черта. Прочитайте в начале этой страницы о правилах использования <tt>{\}</tt> и <tt>\</tt>.</p>
     </dd>
     <dt><b><a name="name" id="name">{%<i>NAME</i>|<i>DefaultValue</i>}</a></b></dt>
     <dd>
@@ -310,7 +349,7 @@
       </ul>
       <div class="examplebox">
         <div class="exampleheader">Например:</div>
-        <pre class="nomargin">{ini:{win}\MyProg.ini,Settings,Path|{pf}\My Program}</pre>
+        <pre class="nomargin">{ini:{win}\MyProg.ini,Settings,Path|{autopf}\My Program}</pre>
       </div>
     </dd>
     <dt><b><a name="language" id="language">{language}</a></b></dt>
@@ -359,7 +398,7 @@
       </ul>
       <div class="examplebox">
         <div class="exampleheader">Например:</div>
-        <pre class="nomargin">{reg:HKLM\Software\My Program,Path|{pf}\My Program}</pre>
+        <pre class="nomargin">{reg:HKLM\Software\My Program,Path|{autopf}\My Program}</pre>
       </div>
     </dd>
     <dt><b><a name="param" id="param">{param:<i>ParamName</i>|<i>DefaultValue</i>}</a></b></dt>

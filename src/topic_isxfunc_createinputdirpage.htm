@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Pascal Scripting: CreateInputDirPage</title>
+<link rel="stylesheet" type="text/css" href="styles.css" />
+<script type="text/javascript" src="topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Pascal Scripting: CreateInputDirPage</h1>
+<div class="topicbody">
+  <div><b>Прототип:</b></div>
+  <p><tt>function CreateInputDirPage(const AfterID: Integer; const ACaption, ADescription, ASubCaption: String; AAppendDir: Boolean; ANewFolderName: String): TInputDirWizardPage;</tt></p>
+  <div><b>Описание:</b></div>
+  <p>Создает страницу мастера, которая содержит поля ввода и кнопки для выбора папок. Если AAppendDir является True, то значение ANewFolderName <span id="result_box" lang="ru" xml:lang="ru">добавляется</span> к пути, который выбрал пользователь. Если AAppendDir является False и ANewFolderName на пустой, будет показана кнопка &quot;Создать новую папку&quot;, которая создает папку с указанным именем по умолчанию.</p>
+  <div><b>Комментарии:</b></div>
+  <p>Для создания полей для выбора папок, вызовите метод Add. Используйте свойство Values??, чтобы получить/установить значения объектов.</p>
+  <div><b>Например:</b></div>
+  <pre>var
+  Page: TInputDirWizardPage;
+  DataDir: String;
+
+...
+
+// Create the page
+Page := CreateInputDirPage(wpWelcome,
+  'Select Personal Data Location', 'Where should personal data files be stored?',
+  'Personal data files will be stored in the following folder.'#13#10#13#10 +
+  'To continue, click Next. If you would like to select a different folder, click Browse.',
+  False, 'New Folder');
+
+// Add item (with an empty caption)
+Page.Add('');
+
+// Set initial value (optional)
+Page.Values[0] := ExpandConstant('{userappdata}\My Company\My Program');
+
+...
+
+// Read value into variable
+DataDir := Page.Values[0];
+</pre>
+</div>
+<div><b>См. также:</b></div>
+<p><a href="topic_scriptclasses.htm#TInputDirWizardPage">TInputDirWizardPage</a>
+</p>
+</body>
+</html>

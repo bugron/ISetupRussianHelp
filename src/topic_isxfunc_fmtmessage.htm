@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Pascal Scripting: FmtMessage</title>
+<link rel="stylesheet" type="text/css" href="styles.css" />
+<script type="text/javascript" src="topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Pascal Scripting: FmtMessage</h1>
+<div class="topicbody">
+  <div><b>Прототип:</b></div>
+  <p><tt>function FmtMessage(const S: String; const Args: array of String): String;</tt></p>
+  <div><b>Описание:</b></div>
+  <p>Форматирует стоку S используя заданные строковые аргументы. <tt>%1</tt> в форматированной строке будет заменен первым значением массива Args; a <tt>%2</tt> будет заменен вторым значением; и так далее. <tt>%%</tt> будет заменен одним символом процента: <tt>%</tt>.</p>
+  <div><b>Комментарии:</b></div>
+  <p>Если %-спецификатор ссылается на несуществующий аргумент, он будет возвращен без изменений. Исключение обрабатываться не будет.</p>
+  <div><b>Например:</b></div>
+  <pre>var<br />  S: String;<br />begin<br />  S := FmtMessage('%1 version %2 will be installed.', ['My Program', '1.0']);<br />  // S = 'My Program version 1.0 will be installed.'<br /><br />  S := FmtMessage(SetupMessage(msgNotOnThisPlatform), ['Windows 2000']);<br />  // S = 'This program will not run on Windows 2000.'<br />end;</pre>
+</div>
+</body>
+</html>

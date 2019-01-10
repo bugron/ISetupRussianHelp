@@ -29,7 +29,7 @@
     <dd class="paramlist">
       <p>Полный путь к файлу, на который указывает ярлык (или просто имя файла). Обычно начинается с константы.</p>
       <p>Вместо имен файлов могут также быть заданы URL адреса. Когда URL адрес будет определен, инсталлятор создаст &quot;интернет-ярлык&quot; (.url) файл, и проигнорирует параметры <tt>Parameters</tt>, <tt>WorkingDir</tt>, <tt>HotKey</tt> и <tt>Comment</tt>.</p>
-      <p>В 64-битном Windows, константа <tt>{sys}</tt> указывает на 64-разрядную папку System, когда ярлык запускается 64-разрядным процессом, таким как Проводник. Чтобы создать ярлык, который указывает на 32-разрядную папку System, вместо <tt>{sys}</tt> используйте <tt>{syswow64}</tt>. Это справедливо независимо от работы инсталлятора в <a href="topic_32vs64bitinstalls.htm">64-битном режиме</a>. (То же самое применяется к параметрам <tt>WorkingDir</tt> и <tt>IconFilename</tt>.)</p>
+      <p>В 64-битном Windows, константа <tt>{sys}</tt> указывает на 64-разрядную папку System, когда ярлык запускается 64-разрядным процессом, таким как Проводник. Это справедливо независимо от работы инсталлятора в <a href="topic_32vs64bitinstalls.htm">64-битном режиме установки</a>. Чтобы создать ярлык, который указывает на 32-разрядную папку System, вместо <tt>{sys}</tt> используйте <tt>{syswow64}</tt>. (То же самое применяется к параметрам <tt>WorkingDir</tt> и <tt>IconFilename</tt>.)</p>
       <div class="examplebox">
         <div class="exampleheader">Например:</div>
         <pre class="nomargin">Filename: &quot;{app}\MYPROG.EXE&quot;<br />Filename: &quot;{uninstallexe}&quot;<br />Filename: &quot;{app}\FolderName&quot;<br />Filename: &quot;http://www.example.com/&quot;</pre>
@@ -76,7 +76,7 @@
         <div class="exampleheader">Например:</div>
         <pre class="nomargin">IconFilename: &quot;{app}\myicon.ico&quot;</pre>
       </div>
-      <p>Примечание: если инсталлятор запущен в 64-битном Windows, он автоматически заменит<tt>{pf32}\</tt> на '%ProgramFiles(x86)%\', чтобы обойти ошибку в 64-битной Windows: 64-битный Windows заменяет <tt>{pf32}\</tt> на '%ProgramFiles%\', что является некорректным.</p>
+      <p>Примечание: если инсталлятор запущен в 64-битном Windows, он автоматически заменит<tt>{commonpf32}\</tt> на '%ProgramFiles(x86)%\', чтобы обойти ошибку в 64-битной Windows: 64-битный Windows заменяет <tt>{commonpf32}\</tt> на '%ProgramFiles%\', что является некорректным.</p>
     </dd>
     <dt class="paramlist"><b><a name="IconIndex" id="IconIndex">IconIndex</a></b></dt>
     <dd class="paramlist">
@@ -113,12 +113,12 @@
         </dd>
         <dt class="flaglist"><a name="excludefromshowinnewinstall" id="excludefromshowinnewinstall">excludefromshowinnewinstall</a></dt>
         <dd>
-          <p>Предотвращает выделение нового ярлыка в меню Пуск Windows 7 и автоматическоге закрепление на стартовом экране Windows 8 (или выше). Игнорируется в более ранних версиях Windows.</p>
+          <p>Предотвращает выделение нового ярлыка в меню Пуск Windows 7 и автоматическое закрепление на стартовом экране Windows 8 (или выше). Игнорируется в более ранних версиях Windows.</p>
         </dd>
         <dt class="flaglist"><a name="foldershortcut" id="foldershortcut">foldershortcut</a></dt>
         <dd>
           <p>Создает специальный ярлык - ярлык папки (&quot;Folder Shortcut&quot;). Обычно, если ярлык находится в меню Пуск, щелчок на нем открывает содержимое всей папки в новом окне. Использование флага <b>foldershortcut </b>дает возможность открыть содержимое папки не в отдельном окне, а как подменю.</p>
-          <p>Этот флаг игнорируется, если инсталлятор запущен в Windows 7 (или более поздней версии), так как ссылки на папки больше не расширяются правильно в меню Пуск. Пока не известно, является ли эта ошибкой Windows 7 или удаленной функцией.</p>
+          <p>Этот флаг игнорируется, если инсталлятор запущен в Windows 7 (или более поздней версии), так как ссылки на папки больше не расширяются правильно в меню Пуск. Пока не известно, является ли это ошибкой Windows 7 или удаленной функцией.</p>
           <p>При использовании этого флага в параметре <tt>Filename</tt> должно быть указано имя папки, а не файла. В противном случае будет создан неработающий ярлык.</p>
         </dd>
         <dt class="flaglist"><a name="preventpinning" id="preventpinning">preventpinning</a></dt>

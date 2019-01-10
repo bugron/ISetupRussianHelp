@@ -13,15 +13,17 @@
   <table class="setuphdr">
     <tr>
       <td class="setuphdrl"><p>Возможные значения:</p></td>
-      <td class="setuphdrr"><div class="margined"><tt>modern</tt></div></td>
+      <td class="setuphdrr"><div class="margined"><tt>classic</tt> или <tt>modern</tt> </div></td>
     </tr>
     <tr>
       <td class="setuphdrl"><p>Значение по умолчанию:</p></td>
-      <td class="setuphdrr"><div class="margined"><tt>modern</tt></div></td>
+      <td class="setuphdrr"><div class="margined"><tt>classic</tt> </div></td>
     </tr>
   </table>
   <div><b>Описание:</b></div>
   <p><i>Не используется с версии 3.0.</i> Inno Setup 2.х поддерживал другой стиль мастера - "classic". Поддержка стиля "classic" прекратилась в Inno Setup 3.0.</p>
+  <p>При значении <tt>modern</tt>, инсталлятор/деинсталлятор будет выглядеть более современно, а значения директив <a href="topic_setup_wizardresizable.htm">WizardResizable</a> и <a href="topic_setup_wizardsizepercent.htm">WizardSizePercent</a> соответственно будут <tt>yes</tt> и <tt>120,120</tt>.</p>
+  <p>Чтобы добавить полную поддержку <tt>WizardResizable</tt> и <tt>WizardSizePercent</tt> для Ваших пользовательских элементов управления и страниц инсталлятора, используйте свойства <tt>Anchors</tt> и <tt>KeepSizeY</tt>. Смотрите скрипт <i>CodeClasses.iss</i> для примеров.</p>
 </div>
 </body>
 </html>

@@ -12,7 +12,7 @@
 <h1 class="topicheading">Секция [Setup]</h1>
 <div class="topicbody">
   <p>Параметры этой секции глобальны, т. е. задают общие параметры для инсталлятора и деинсталлятора. Некоторые директивы данной секции необходимы для создания любого инсталлятора. Пример секции <tt>[Setup]</tt>:</p>
-  <pre class="indent examplebox">[Setup]<br />AppName=My Program<br />AppVersion=1.5<br />DefaultDirName={pf}\My Program<br />DefaultGroupName=My Program</pre>
+  <pre class="indent examplebox">[Setup]<br />AppName=My Program<br />AppVersion=1.5<br />DefaultDirName={autopf}\My Program<br />DefaultGroupName=My Program</pre>
   <p>По умолчанию, все начальные и конечные пробелы в значении директивы будут удалены. Можно избежать этого, взяв значение директивы в двойные кавычки (&quot;).<br />
   </p>
   <p>Следующие директивы поддерживаются в секции <tt>[Setup]</tt>:</p>
@@ -56,6 +56,7 @@
     <li class="compact"><a href="topic_setup_versioninfocompany.htm">VersionInfoCompany</a></li>
     <li class="compact"><a href="topic_setup_versioninfocopyright.htm">VersionInfoCopyright</a></li>
     <li class="compact"><a href="topic_setup_versioninfodescription.htm">VersionInfoDescription</a></li>
+    <li class="compact"><a href="topic_setup_versioninfooriginalfilename.htm">VersionInfoOriginalFileName</a></li>
     <li class="compact"><a href="topic_setup_versioninfoproductname.htm">VersionInfoProductName</a></li>
     <li class="compact"><a href="topic_setup_versioninfoproducttextversion.htm">VersionInfoProductTextVersion</a></li>
     <li class="compact"><a href="topic_setup_versioninfoproductversion.htm">VersionInfoProductVersion</a></li>
@@ -123,12 +124,12 @@
     <li class="compact"><a href="topic_setup_onlybelowversion.htm">OnlyBelowVersion</a></li>
     <li class="compact"><a href="topic_setup_password.htm">Password</a></li>
     <li class="compact"><a href="topic_setup_privilegesrequired.htm">PrivilegesRequired</a></li>
+    <li class="compact"><a href="topic_setup_privilegesrequiredoverridesallowed.htm">PrivilegesRequiredOverridesAllowed</a></li>
     <li class="compact"><a href="topic_setup_restartapplications.htm">RestartApplications</a></li>
     <li class="compact"><a href="topic_setup_restartifneededbyrun.htm">RestartIfNeededByRun</a></li>
     <li class="compact"><a href="topic_setup_setuplogging.htm">SetupLogging</a></li>
     <li class="compact"><a href="topic_setup_setupmutex.htm">SetupMutex</a></li>
     <li class="compact"><a href="topic_setup_showlanguagedialog.htm">ShowLanguageDialog</a></li>
-    <li class="compact"><a href="topic_setup_showundisplayablelanguages.htm">ShowUndisplayableLanguages</a></li>
     <li class="compact"><a href="topic_setup_timestamprounding.htm">TimeStampRounding</a></li>
     <li class="compact"><a href="topic_setup_timestampsinutc.htm">TimeStampsInUTC</a></li>
     <li class="compact"><a href="topic_setup_touchdate.htm">TouchDate</a></li>
@@ -167,6 +168,8 @@
     <li class="compact"><a href="topic_setup_wizardimagealphaformat.htm">WizardImageAlphaFormat</a></li>
     <li class="compact"><a href="topic_setup_wizardimagefile.htm">WizardImageFile</a></li>
     <li class="compact"><a href="topic_setup_wizardimagestretch.htm">WizardImageStretch</a></li>
+    <li class="compact"><a href="topic_setup_wizardresizable.htm">WizardResizable</a></li>
+    <li class="compact"><a href="topic_setup_wizardsizepercent.htm">WizardSizePercent</a></li>
     <li class="compact"><a href="topic_setup_wizardsmallimagefile.htm">WizardSmallImageFile</a></li>
   </ul>
   <h2 class="heading">Старые:</h2>

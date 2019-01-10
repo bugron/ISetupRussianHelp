@@ -14,7 +14,12 @@
   <p>Это не обязательная&nbsp;секция. Она определяет записи в реестре, которые будут созданы, изменены или удалены инсталлятором после копирования файлов.</p>
   <p>По умолчанию записи в реестре, созданные инсталлятором, не удаляются оттуда при удалении программы. Если вы хотите, чтобы деинсталлятор удалял записи, нужно включить один из флагов <tt>uninsdelete</tt>.</p>
   <p>Пример секции <tt>[Registry]</tt>.</p>
-  <pre class="indent examplebox">[Registry]<br />Root: HKCU; Subkey: &quot;Software\My Company&quot;; Flags: uninsdeletekeyifempty<br />Root: HKCU; Subkey: &quot;Software\My Company\My Program&quot;; Flags: uninsdeletekey<br />Root: HKLM; Subkey: &quot;Software\My Company&quot;; Flags: uninsdeletekeyifempty<br />Root: HKLM; Subkey: &quot;Software\My Company\My Program&quot;; Flags: uninsdeletekey<br />Root: HKLM; Subkey: &quot;Software\My Company\My Program\Settings&quot;; ValueType: string; ValueName: &quot;InstallPath&quot;; ValueData: &quot;{app}&quot;</pre>
+  <pre class="indent examplebox">
+  [Registry]
+  Root: HKLM; Subkey: "Software\My Company"; Flags: uninsdeletekeyifempty
+  Root: HKLM; Subkey: "Software\My Company\My Program"; Flags: uninsdeletekey
+  Root: HKLM; Subkey: "Software\My Company\My Program\Settings"; ValueType: string; ValueName: "InstallPath"; ValueData: "{app}"
+  </pre>
   <p>Список поддерживаемых <a href="topic_params.htm">параметров</a>:</p>
   <dl>
     <dt class="paramlist"><b><a name="Root" id="Root">Root</a></b> &nbsp;<i>(Обязательно)</i></dt>
@@ -24,16 +29,16 @@
         <table>
           <tbody>
             <tr>
-              <td class="cellleft"><tt>HKCR</tt></td>
-              <td class="cellright">(HKEY_CLASSES_ROOT)</td>
-            </tr>
-            <tr>
               <td class="cellleft"><tt>HKCU</tt></td>
               <td class="cellright">(HKEY_CURRENT_USER)</td>
             </tr>
             <tr>
               <td class="cellleft"><tt>HKLM</tt></td>
               <td class="cellright">(HKEY_LOCAL_MACHINE)</td>
+            </tr>
+            <tr>
+              <td class="cellleft"><tt>HKCR</tt></td>
+              <td class="cellright">(HKEY_CLASSES_ROOT)</td>
             </tr>
             <tr>
               <td class="cellleft"><tt>HKU</tt></td>
@@ -46,12 +51,20 @@
           </tbody>
         </table>
       </div>
-      <p>У значений может быть суффикс <tt>32</tt> или <tt>64</tt>. Значения корневых ключей с суффиксом <tt>32</tt> (например, <tt>HKLM32</tt>) отображают на 32-разрядное представление реестра; значения корневых ключей с суффиксом <tt>64</tt> (например, <tt>HKLM64</tt>) отображают на 64-разрядное представление реестра.</p>
+      <p>Можно использовать еще одно специальное значение:</p>
+      <div class="indent">
+      <table>
+      <tr><td class="cellleft"><tt>HKA</tt></td><td class="cellright">(= HKLM в <a href="topic_admininstallmode.htm">режиме административной установки</a>, иначе HKCU)</td></tr>
+      </table>
+      </div>
+      <p><tt>HKCU</tt> и <tt>HKA</tt> одлжны быть использованы только для настроек, которые совместимы с перемещаемыми профилями.</p>
+      <p>Не рекомендуется использовать <tt>HKCR</tt>, используйте <tt>HKA</tt> с параметром <tt>Subkey</tt>, чтобы менять значения "Software\Classes".</p>
+      <p>Значение (включая <tt>HKA</tt>) могут иметь суффикс <tt>32</tt> или <tt>64</tt>. Значения корневых ключей с суффиксом <tt>32</tt> (например, <tt>HKLM32</tt>) приводятся к 32-разрядному представлению реестра; значения корневых ключей с суффиксом <tt>64</tt> (например, <tt>HKLM64</tt>) приводятся к 64-разрядному представлению реестра.</p>
       <p>Значения корневых ключей с суффиксом <tt>64</tt> могут использоваться только в 64-разрядном Windows, иначе произойдет ошибка. На инсталляторе, поддерживающем и 32-разрядные и 64-разрядные архитектуры, можно избежать ошибки, добавляя параметр <tt>Check: IsWin64</tt>, который заставит тихо пропустить запись, работая при этом на 32-разрядном Windows.</p>
-      <p>Значения корневых ключей без суффиксов (например, <tt>HKLM</tt>) эквивалентны значений корневых ключей с суффиксом <tt>32</tt> (например, <tt>HKLM32</tt>), если инсталлятор не работает в <a href="topic_32vs64bitinstalls.htm">64-разрядном режиме</a>, иначе они эквивалентны значений корневых ключей с суффиксом <tt>64</tt> (например, <tt>HKLM64</tt>).</p>
+      <p>Значения корневых ключей без суффиксов (например, <tt>HKLM</tt>) эквивалентны значений корневых ключей с суффиксом <tt>32</tt> (например, <tt>HKLM32</tt>), если инсталлятор не работает в <a href="topic_32vs64bitinstalls.htm">64-разрядном режиме установки</a>, иначе они эквивалентны значений корневых ключей с суффиксом <tt>64</tt> (например, <tt>HKLM64</tt>).</p>
       <div class="examplebox">
         <div class="exampleheader">Например:</div>
-        <pre class="nomargin">Root: HKCU</pre>
+        <pre class="nomargin">Root: HKLM</pre>
       </div>
     </dd>
     <dt class="paramlist"><b><a name="Subkey" id="Subkey">Subkey</a></b> &nbsp;<i>(Обязательно)</i></dt>
@@ -97,7 +110,7 @@
     <dt class="paramlist"><b><a name="ValueData" id="ValueData">ValueData</a></b></dt>
     <dd class="paramlist">
       <p>Значение параметра реестра. Если параметр <tt>ValueType</tt> равен <tt>string</tt>, <tt>expandsz</tt>, или <tt>multisz</tt>, это будет строка, которая может содержать константы. Если тип данных является <tt>dword</tt> или <tt>qword</tt>, это будет десятичное (&quot;123&quot;) или шестнадцатеричное число (&quot;$7B&quot;), или константа, представляющая собой целое число. Если тип данных является <tt>binary</tt>, то это будет последовательность шестнадцатеричных байтов в форме: &quot;00 ff 12 34&quot;. Если тип данных <tt>none</tt>, параметр игнорируется.</p>
-      <p>Если параметр ValueType равен <tt>string</tt>, <tt>expandsz</tt>, или <tt>multisz</tt>, вы можете использовать специальную константу <tt>{olddata}</tt>. Эта константа принимает значение, которое было до изменения значения ключа реестра. Вы можете использовать ее, если нужно дополнить уже существующий строковый параметр (например: <tt>{olddata}</tt>;<tt>{app}</tt>). Если параметр не существовал до запуска инсталлятора или его тип не строковой,<tt>{olddata}</tt> без предупреждения удаляется. Удалится константа и в случае, если создается параметр типа <tt>multisz</tt>, а существующий параметр не является много строковым (т.е. является REG_SZ или REG_EXPAND_SZ).</p>
+      <p>Если параметр ValueType равен <tt>string</tt>, <tt>expandsz</tt>, или <tt>multisz</tt>, вы можете использовать специальную константу <tt>{olddata}</tt>. Эта константа принимает значение, которое было до изменения значения ключа реестра. Вы можете использовать ее, если нужно дополнить уже существующий строковый параметр (например: <tt>{olddata}</tt>;<tt>{app}</tt>). Если параметр не существовал до запуска инсталлятора или его тип не строковой, <tt>{olddata}</tt> без предупреждения удаляется. Удалится константа и в случае, если создается параметр типа <tt>multisz</tt>, а существующий параметр не является много строковым (т.е. является REG_SZ или REG_EXPAND_SZ).</p>
       <p>Если параметр равен <tt>multisz</tt>, вы можете использовать специальную константу <tt>{break}</tt> для вставки символа разрыва строки.</p>
       <div class="examplebox">
         <div class="exampleheader">Например:</div>
@@ -113,7 +126,7 @@
       <p>На версиях Windows Itanium этот параметр действует только для 32-битных ключей реестра. (Такое ограничение не существует для 64-биных версий &nbsp;Windows.)</p>
       <p>Параметр может включать одно и более значений, разделенных пробелами:</p>
       <div class="indent">
-        <p><tt><a href="topic_usergroupids.htm">&lt;идентияикатор пользователя или группы&gt;</a>-&lt;тип доступа&gt;</tt></p>
+        <p><tt><a href="topic_usergroupids.htm">&lt;идентификатор пользователя или группы&gt;</a>-&lt;тип доступа&gt;</tt></p>
       </div>
       <p>В секции [Registry] поддерживаются следующие типы доступа:</p>
       <dl>
@@ -146,7 +159,7 @@
         <dt class="flaglist"><a name="deletekey" id="deletekey">deletekey</a></dt>
         <dd>
           <p>Когда установлен этот флаг, инсталлятор сначала попытается удалить ключ, если он существует, со всеми его параметрами и разделами. Если <tt>ValueType=none</tt>, после этого он создаст новый ключ и параметр.</p>
-          <p>Для предотвращения негативных последствий, этот флаг игнорируется при установке, если <tt>Subkey</tt> пустой или состоит только из обратных слешов.</p>
+          <p>Для предотвращения негативных последствий, этот флаг игнорируется при установке, если <tt>Subkey</tt> пустой или состоит только из обратных косых черт.</p>
         </dd>
         <dt class="flaglist"><a name="deletevalue" id="deletevalue">deletevalue</a></dt>
         <dd>
@@ -172,12 +185,12 @@
         <dt class="flaglist"><a name="uninsdeletekey" id="uninsdeletekey">uninsdeletekey</a></dt>
         <dd>
           <p>Когда программа удаляется, удалить ключ, включая все его параметры и разделы. Не рекомендуется использовать этот флаг для ключа, которым пользуется Windows. Следует использовать этот флаг только для ключей вашего приложения.</p>
-          <p>Для предотвращения негативных последствий, этот флаг игнорируется при установке, если <tt>Subkey</tt> пустой или состоит только из обратных слешов.</p>
+          <p>Для предотвращения негативных последствий, этот флаг игнорируется при установке, если <tt>Subkey</tt> пустой или состоит только из обратных косых черт.</p>
         </dd>
         <dt class="flaglist"><a name="uninsdeletekeyifempty" id="uninsdeletekeyifempty">uninsdeletekeyifempty</a></dt>
         <dd>
           <p>Когда программа удаляется, удалять ключ, если в нем не осталось параметров и разделов. Этот флаг не комбинируется с флагом <tt>uninsdeletevalue</tt>.</p>
-          <p>Для предотвращения негативных последствий, этот флаг игнорируется при установке, если <tt>Subkey</tt> пустой или состоит только из бэкслешов.</p>
+          <p>Для предотвращения негативных последствий, этот флаг игнорируется при установке, если <tt>Subkey</tt> пустой или состоит только из обратных косых черт.</p>
         </dd>
         <dt class="flaglist"><a name="uninsdeletevalue" id="uninsdeletevalue">uninsdeletevalue</a></dt>
         <dd>

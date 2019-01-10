@@ -27,7 +27,7 @@
   <pre class="indent examplebox">[Code]
 function MyConst(Param: String): String;
 begin
-  Result := ExpandConstant('{pf}');
+  Result := ExpandConstant('{autopf}');
 end;
 </pre>
   <p>Если функция, указанная в константе <tt>{code:...}</tt>, не описана в секции <tt>[Code]</tt>, то она должна быть <a href="topic_scriptfunctions.htm">встроенная функция</a>. Например:</p>

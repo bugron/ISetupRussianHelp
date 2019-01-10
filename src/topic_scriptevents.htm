@@ -39,7 +39,7 @@
     <dt><tt>function <a name="NextButtonClick" id="NextButtonClick">NextButtonClick</a>(<a href="#PageID">CurPageID</a>: Integer): Boolean;</tt></dt>
     <dd>
       <p>Вызывается после нажатия на кнопку Далее. При значении True мастер перейдет к следующей странице, при значении False останется на текущей странице (заданной значением CurPageID).</p>
-      <p>Обратите внимание, что эта функция также успешно вызывается при тихой установке, не смотря на то, что кнопку Далее в этом случае пользователь не видит. Инсталлятор симулирует клики&nbsp;по кнопке Далее. При тихой установке, если функция <tt>NextButtonClick</tt> возвратит False перед  началом процесса установка, работа инсталлятора будет прервана автоматически.</p>
+      <p>Обратите внимание, что эта функция также успешно вызывается при тихой установке, несмотря на то, что кнопку Далее в этом случае пользователь не видит. Инсталлятор симулирует клики по кнопке Далее. При тихой установке, если функция <tt>NextButtonClick</tt> возвратит False перед  началом процесса установка, работа инсталлятора будет прервана автоматически.</p>
     </dd>
     <dt><tt>function <a name="BackButtonClick" id="BackButtonClick">BackButtonClick</a>(<a href="#PageID">CurPageID</a>: Integer): Boolean;</tt></dt>
     <dd>
@@ -61,7 +61,7 @@
     <dt><tt>function <a name="CheckPassword" id="CheckPassword">CheckPassword</a>(Password: String): Boolean;</tt></dt>
     <dd>
       <p>Если инсталлятор обнаружит в скрипте функцию CheckPassword, он автоматически отобразит страницу <i>&quot;Введите пароль&quot;</i> и вызовет функцию CheckPassword для проверки пароля. Возвращает True при вводе правильного пароля и False при вводе неправильного.</p>
-      <p>Чтобы избежать сохранения действительного пароля в открытом виде в инсталляторе, следует использовать сравнение хэш сумм: самостоятельно вычислите хэш сумму SHA-1 вашего пароля и затем сравните с результатом следующей функции: <tt><a href="isxfunc/topic_isxfunc_getsha1ofstring.htm">GetSHA1OfString</a>(Password)</tt>. Данный метод позволит защитить реальное содержание пароля.</p>
+      <p>Чтобы избежать сохранения действительного пароля в открытом виде в инсталляторе, следует использовать сравнение хэш сумм: самостоятельно вычислите хэш сумму SHA-1 вашего пароля и затем сравните с результатом следующей функции: <tt><a href="topic_isxfunc_getsha1ofstring.htm">GetSHA1OfString</a>(Password)</tt>. Данный метод позволит защитить реальное содержание пароля.</p>
       <p>Обратите внимание: Если пользователь запустит инсталлятор с <a href="topic_setupcmdline.htm#PASSWORD">параметром командной строки</a> /PASSWORD=<a href="topic_setupcmdline.htm#PASSWORD"></a>, <tt>CheckPassword</tt> будет вызвана ранее, чем другие функции, включая <tt><a href="#InitializeSetup">InitializeSetup</a></tt>.</p>
     </dd>
     <dt><tt>function <a name="NeedRestart" id="NeedRestart">NeedRestart</a>(): Boolean;</tt></dt>
@@ -74,7 +74,7 @@
     </dd>
     <dt><tt>procedure <a name="RegisterPreviousData" id="RegisterPreviousData">RegisterPreviousData</a>(PreviousDataKey: Integer);</tt></dt>
     <dd>
-      <p>Для сохранения настроек пользователя при выборочной установке, следует использовать функцию <tt>RegisterPreviousData</tt> в Pascal-скрипте и в ней вызвать <a href="isxfunc/topic_isxfunc_setpreviousdata.htm">SetPreviousData(PreviousDataKey, ...)</a> для каждой настройки.</p>
+      <p>Для сохранения настроек пользователя при выборочной установке, следует использовать функцию <tt>RegisterPreviousData</tt> в Pascal-скрипте и в ней вызвать <a href="topic_isxfunc_setpreviousdata.htm">SetPreviousData(PreviousDataKey, ...)</a> для каждой настройки.</p>
     </dd>
     <dt><tt>function <a name="CheckSerial" id="CheckSerial">CheckSerial</a>(Serial: String): Boolean;</tt></dt>
     <dd>
@@ -82,18 +82,18 @@
     </dd>
     <dt><tt>function <a name="GetCustomSetupExitCode" id="GetCustomSetupExitCode">GetCustomSetupExitCode</a>: Integer;</tt></dt>
     <dd>
-      <p>Возвращает ненулевое значение для того, чтобы инсталлятор возвращал пользовательский&nbsp;код выхода. Эта функция вызывается, только если инсталлятор успешно выполнил всю установку и код выхода 0. См. также <a href="topic_setupexitcodes.htm">Коды выхода инсталлятора</a>.</p>
+      <p>Возвращает ненулевое значение для того, чтобы инсталлятор возвращал пользовательский код выхода. Эта функция вызывается, только если инсталлятор успешно выполнил всю установку и код выхода 0. См. также <a href="topic_setupexitcodes.htm">Коды выхода инсталлятора</a>.</p>
     </dd>
     <dt><tt>function <a name="PrepareToInstall" id="PrepareToInstall">PrepareToInstall</a>(var NeedsRestart: Boolean): String;</tt></dt>
     <dd>
       <p>Вы можете использовать данную функцию для обнаружения и установки нужных компонентов и/или закрыть приложение, которое вот-вот будет обновлено.</p>
-      <p>Возвращает не пустую строку, указаывая инсталлятору приостановить выполнение на странице <a href="topic_wizardpages.htm">Подготовка к установке</a> и показавать возвращенную строку как сообщение ошибки. Если требуется перезагрузка, то установите <tt>NeedsRestart</tt> в значение True. Функция вызываеся только если инсталлятор не смог определить, что он не может продолжить работу, из за того, что некоторые файлы секций [Files] и [InstallDelete] были поставлены в очередь (скажем, в процессе другой установки) замены или удаления при следующей перезагрузке.</p>
-      <p>Если <a href="topic_setup_closeapplications.htm">CloseApplications</a> равно <tt>yes</tt>, то данная функция вызывается перед проверкой файлов на успользование.</p>
+      <p>Возвращает не пустую строку, указывая инсталлятору приостановить выполнение на странице <a href="topic_wizardpages.htm">Подготовка к установке</a> и показывать возвращенную строку как сообщение ошибки. Если требуется перезагрузка, то установите <tt>NeedsRestart</tt> в значение True. Функция вызывается только если инсталлятор не смог определить, что он не может продолжить работу, из-за того, что некоторые файлы секций [Files] и [InstallDelete] были поставлены в очередь (скажем, в процессе другой установки) замены или удаления при следующей перезагрузке.</p>
+      <p>Если <a href="topic_setup_closeapplications.htm">CloseApplications</a> равно <tt>yes</tt>, то данная функция вызывается перед проверкой файлов на использование.</p>
     </dd>
   </dl>
   <dt><tt>procedure <a name="RegisterExtraCloseApplicationsResources" id="RegisterExtraCloseApplicationsResources">RegisterExtraCloseApplicationsResources</a>;</tt></dt>
   <dd>
-    <p>Для регистрации файлов, чтобы инсталлятор проверил, используются ли они во время установки, если <a href="topic_setup_closeapplications.htm">CloseApplications</a> равен <tt>yes</tt>, поместите функцию обработки событий <tt>RegisterExtraCloseApplicationsResources</tt> в Pascal-скрипт и для каждого файла вызовите <a href="isxfunc/topic_isxfunc_registerextracloseapplicationsresource.htm">RegisterExtraCloseApplicationsResource</a> внутри нее.</p>
+    <p>Для регистрации файлов, чтобы инсталлятор проверил, используются ли они во время установки, если <a href="topic_setup_closeapplications.htm">CloseApplications</a> равен <tt>yes</tt>, поместите функцию обработки событий <tt>RegisterExtraCloseApplicationsResources</tt> в Pascal-скрипт и для каждого файла вызовите <a href="topic_isxfunc_registerextracloseapplicationsresource.htm">RegisterExtraCloseApplicationsResource</a> внутри нее.</p>
   </dd>
   <h2 class="heading">Функции обработки событий деинсталлятора</h2>
   <p>Деинсталлятор поддерживает следующие функции обработки событий:</p>
@@ -125,7 +125,48 @@
     <li><i>Значения <a name="PageID" id="PageID">PageID</a> для определенных ранее <a href="topic_wizardpages.htm">страниц мастера</a></i><br />
       wpWelcome, wpLicense, wpPassword, wpInfoBefore, wpUserInfo, wpSelectDir, wpSelectComponents, wpSelectProgramGroup, wpSelectTasks, wpReady, wpPreparing, wpInstalling, wpInfoAfter, wpFinished</li>
   </ul>
-  <p>Ни одна из этих функций не является необходимой в Pascal-скрипте.</p>
+
+  <h2 class="heading"><a name="eventattributes">Атрибуты событий</a></h2>
+
+  <p>Обычно скрипт может содержать только одну реализацию для каждой функции события. Используя атрибуты события, можно иметь несколько реализаций одной и той же функции события в Вашем скрипте. Это особенно полезно во вложенных скриптах, реализующих функцию события, чтобы избежать конфликтов с основным скриптом.</p>
+  
+  <p>Вот пример трех имплементаций функции события <tt>InitializeWizard</tt>.</p>
+  
+  <pre class="indent examplebox">
+  [Code]
+  procedure InitializeWizard;
+  begin
+    Log('InitializeWizard called');
+  end;
+  
+  &lt;event('InitializeWizard')&gt;
+  procedure InitializeWizard2;
+  begin
+    Log('InitializeWizard2 called');
+  end;
+  
+  &lt;event('InitializeWizard')&gt;
+  procedure InitializeWizard3;
+  begin
+    Log('InitializeWizard3 called');
+  end;
+  </pre>
+  
+  <p>Применяются следующие правила:</p>
+  
+  <ul>
+  <li>Реализации будут вызываться в порядке их определения, за исключением того, что любая основная реализация (= реализация без атрибута события) будет вызываться последней.</li>
+  <li>Атрибуты событий могут использоваться для всех функций события. Если функция события имеет возвращаемое значение, то выполняется ленивая оценка:</li>
+  <ul>
+  <li><tt>InitializeSetup</tt>, <tt>BackButtonClick</tt>, <tt>NextButtonClick</tt>, <tt>InitializeUninstall</tt>: Все реализации должны возвращать True, чтобы функция события рассматривалась как возвращающая True, а реализация, возвращающая False, останавливает вызовы других реализаций.</li>
+  <li><tt>CheckPassword</tt>, <tt>CheckSerial</tt>, <tt>ShouldSkipPage</tt>, <tt>NeedRestart</tt>: Все реализации должны возвращать False, чтобы функция события рассматривалась как возвращающая False, а реализация, возвращающая True, останавливает вызовы к другим реализациям.</li>
+  <li><tt>UpdateReadyMemo</tt>, <tt>PrepareToInstall</tt>: Все реализации должны возвращать пустую строку, чтобы функция события рассматривалась как возвращающая пустую строку, а реализация, возвращающая непустую строку, останавливает вызовы к другим реализациям.</li>
+  <li><tt>GetCustomSetupExitCode</tt>: Все реализации должны возвращать ноль, чтобы функция события рассматривалась как возвращающая ноль, а реализация, возвращающая ненулевое число, останавливает вызовы к другим реализациям.</li>
+  </ul>
+  <li>Атрибуты события могут использоваться только в процедурах или функциях, которые не совпадают с именем функции события.</li>
+  <li>Если функция события использует параметры <tt>var</tt>, то такое значение будет передано от одной реализации к другой.</li>
+  <li>Чтобы вызвать реализацию с атрибутом события самостоятельно из секции [Code], вы должны использовать обычное имя функции, как если бы реализация не имела атрибута события.</li>
+  </ul>
 </div>
 </body>
 </html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Pascal Scripting: GetShellFolderByCSIDL</title>
+<link rel="stylesheet" type="text/css" href="styles.css" />
+<script type="text/javascript" src="topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Pascal Scripting: GetShellFolderByCSIDL</h1>
+<div class="topicbody">
+  <div><b>Прототип:</b></div>
+  <p><tt>function GetShellFolderByCSIDL(const Folder: Integer; const Create: Boolean): String;</tt></p>
+  <div><b>Описание:</b></div>
+  <p>Получает путь к указанной папке оболочки. Folder должен быть равен одной из CSIDL констант (полный список этих констант можно найти в ShlObj.h). Если Create равен True и указанная папка не существует, то она будет создана. При неудаче возвращается пустая строка.</p>
+  <div><b>Комментарии:</b></div>
+  <p>Рекомендуется всегда указывать параметр Create равным True. Иначе, если указано правильное значение CSIDL, но все же папка не существует, функция завершится неудачно. (Это известная проблема Windows.)</p>
+  <div><b>Например:</b></div>
+  <pre>const
+  CSIDL_MYPICTURES = $0027;
+
+...
+
+var
+  Path: String;
+begin
+  Path := GetShellFolderByCSIDL(CSIDL_MYPICTURES, True);
+  if Path &lt;&gt; '' then
+  begin
+    MsgBox('My Pictures path = ' + Path, mbInformation, MB_OK);
+  end
+  else
+  begin
+    // handle failure
+  end;
+end;</pre>
+</div>
+</body>
+</html>

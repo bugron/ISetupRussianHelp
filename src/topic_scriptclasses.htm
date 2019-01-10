@@ -11,7 +11,7 @@
 <body>
 <h1 class="topicheading">Pascal Scripting: Поддерживаемые классы</h1>
 <div class="topicbody">
-  <p>Ниже приведен список поддерживаемых классов, которые можно использовать в Pascal-скрипте. Также доступны два объекта: <tt>MainForm</tt> of type <tt>TMainForm</tt>, <tt>WizardForm</tt> типа <tt>TWizardForm</tt> и <tt>UninstallProgressForm</tt> типа <tt>TUninstallProgressForm</tt>, и одна специальная константа: <tt>crHand</tt> типа <tt>TControl.Cursor</tt>. Обратите внимание: <tt>MainForm</tt> отображается только если <a href="topic_setup_windowvisible.htm">WindowVisible</a>=<tt>yes</tt>.</p>
+  <p>Ниже приведен список поддерживаемых классов, которые можно использовать в Pascal скрипте. Также доступны два объекта: <tt>MainForm</tt> of type <a href="#TMainForm">TMainForm</a>, <tt>WizardForm</tt> типа <a href="#TWizardForm">TWizardForm</a> и <tt>UninstallProgressForm</tt> типа <a href="#TUninstallProgressForm">TUninstallProgressForm</a>, и одна специальная константа: <tt>crHand</tt> типа <tt>TControl.Cursor</tt>. Обратите внимание: <tt>MainForm</tt> отображается только если <a href="topic_setup_windowvisible.htm">WindowVisible</a>=<tt>yes</tt>.</p>
   <p>Также полезно воспользоваться библиотекой визуальных компонентов Delphi (Delphi Visual Component Library (VCL)). Справка от Borland для представленных ниже классов наиболее доступно описывает классы VCL, с которыми работает Inno Setup. Обратитесь к <a href="http://docs.embarcadero.com/products/rad_studio/" target="_blank" title="http://docs.embarcadero.com/products/rad_studio"/></a>http://docs.embarcadero.com/products/rad_studio/</a><img src="images/extlink.gif" alt=" [external link]" />.</p>
   <script language="javascript" type="text/javascript">includeSyntax('delphi');</script>
   <code id="delphi_Tc4NTM"><br />
@@ -177,6 +177,10 @@
       <br />
       <a name="TAlign" id="TAlign">TAlign</a> = (alNone, alTop, alBottom, alLeft, alRight, alClient);<br />
       <br />
+      <a name="TAnchorKind">TAnchorKind</a> = (akLeft, akTop, akRight, akBottom);<br/>
+      <br/>
+      <a name="TAnchors">TAnchors</a> = set of <a href="#TAnchorKind">TAnchorKind</a>;<br/>
+      <br/>
       <a name="TControl" id="TControl">TControl</a> = class(<a href="#TComponent">TComponent</a>)<br />
       &nbsp;&nbsp;constructor Create(AOwner: <a href="#TComponent">TComponent</a>);<br />
       &nbsp;&nbsp;procedure BringToFront;<br />
@@ -261,6 +265,7 @@
           &nbsp;&nbsp;procedure Release;<br />
           &nbsp;&nbsp;property Active: Boolean; read;<br />
           &nbsp;&nbsp;property ActiveControl: <a href="#TWinControl">TWinControl</a>; read write;<br />
+          &nbsp;&nbsp;property Anchors: <a href="#TAnchors">TAnchors</a>; read write;<br/>
           &nbsp;&nbsp;property BorderIcons: <a href="#TBorderIcons">TBorderIcons</a>; read write;<br />
           &nbsp;&nbsp;property BorderStyle: <a href="#TFormBorderStyle">TFormBorderStyle</a>; read write;<br />
           &nbsp;&nbsp;property Caption: String; read write;<br />
@@ -293,6 +298,7 @@
           <br />
           <a name="TLabel" id="TLabel">TLabel</a> = class(<a href="#TCustomLabel">TCustomLabel</a>)<br />
           &nbsp;&nbsp;property Alignment: <a href="#TAlignment">TAlignment</a>; read write;<br />
+          &nbsp;&nbsp;property Anchors: <a href="#TAnchors">TAnchors</a>; read write;<br/>
           &nbsp;&nbsp;property AutoSize: Boolean; read write;<br />
           &nbsp;&nbsp;property Caption: String; read write;<br />
           &nbsp;&nbsp;property Color: TColor; read write;<br />
@@ -319,6 +325,7 @@
           <a name="TEditCharCase" id="TEditCharCase">TEditCharCase</a> = (ecNormal, ecUpperCase, ecLowerCase);<br />
           <br />
           <a name="TEdit" id="TEdit">TEdit</a> = class(<a href="#TCustomEdit">TCustomEdit</a>)<br />
+          &nbsp;&nbsp;property Anchors: <a href="#TAnchors">TAnchors</a>; read write;<br/>
           &nbsp;&nbsp;property AutoSelect: Boolean; read write;<br />
           &nbsp;&nbsp;property AutoSize: Boolean; read write;<br />
           &nbsp;&nbsp;property BorderStyle: <a href="#TBorderStyle">TBorderStyle</a>; read write;<br />
@@ -348,12 +355,13 @@
           <a name="TScrollStyle" id="TScrollStyle">TScrollStyle</a> = (ssNone, ssHorizontal, ssVertical, ssBoth);<br />
           <br />
           <a name="TMemo" id="TMemo">TMemo</a> = class(<a href="#TCustomMemo">TCustomMemo</a>)<br />
-          &nbsp;&nbsp;property Lines: <a href="#TStrings">TStrings</a>; read write;<br />
           &nbsp;&nbsp;property Alignment: <a href="#TAlignment">TAlignment</a>; read write;<br />
+          &nbsp;&nbsp;property Anchors: <a href="#TAnchors">TAnchors</a>; read write;<br/>
           &nbsp;&nbsp;property BorderStyle: <a href="#TBorderStyle">TBorderStyle</a>; read write;<br />
           &nbsp;&nbsp;property Color: TColor; read write;<br />
           &nbsp;&nbsp;property Font: <a href="#TFont">TFont</a>; read write;<br />
           &nbsp;&nbsp;property HideSelection: Boolean; read write;<br />
+          &nbsp;&nbsp;property Lines: <a href="#TStrings">TStrings</a>; read write;<br/>
           &nbsp;&nbsp;property MaxLength: Integer; read write;<br />
           &nbsp;&nbsp;property ReadOnly: Boolean; read write;<br />
           &nbsp;&nbsp;property ScrollBars: <a href="#TScrollStyle">TScrollStyle</a>; read write;<br />
@@ -380,12 +388,13 @@
           <a name="TComboBoxStyle" id="TComboBoxStyle">TComboBoxStyle</a> = (csDropDown, csSimple, csDropDownList, csOwnerDrawFixed, csOwnerDrawVariable);<br />
           <br />
           <a name="TComboBox" id="TComboBox">TComboBox</a> = class(<a href="#TCustomComboBox">TCustomComboBox</a>)<br />
-          &nbsp;&nbsp;property Style: <a href="#TComboBoxStyle">TComboBoxStyle</a>; read write;<br />
+          &nbsp;&nbsp;property Anchors: <a href="#TAnchors">TAnchors</a>; read write;<br />
           &nbsp;&nbsp;property Color: TColor; read write;<br />
           &nbsp;&nbsp;property DropDownCount: Integer; read write;<br />
           &nbsp;&nbsp;property Font: <a href="#TFont">TFont</a>; read write;<br />
           &nbsp;&nbsp;property MaxLength: Integer; read write;<br />
           &nbsp;&nbsp;property Sorted: Boolean; read write;<br />
+          &nbsp;&nbsp;property Style: <a href="#TComboBoxStyle">TComboBoxStyle</a>; read write;<br/>
           &nbsp;&nbsp;property Text: String; read write;<br />
           &nbsp;&nbsp;property OnChange: <a href="#TNotifyEvent">TNotifyEvent</a>; read write;<br />
           &nbsp;&nbsp;property OnClick: <a href="#TNotifyEvent">TNotifyEvent</a>; read write;<br />
@@ -403,6 +412,7 @@
           end;<br />
           <br />
           <a name="TButton" id="TButton">TButton</a> = class(<a href="#TButtonControl">TButtonControl</a>)<br />
+          &nbsp;&nbsp;property Anchors: <a href="#TAnchors">TAnchors</a>; read write;<br/>
           &nbsp;&nbsp;property Cancel: Boolean; read write;<br />
           &nbsp;&nbsp;property Caption: String; read write;<br />
           &nbsp;&nbsp;property Default: Boolean; read write;<br />
@@ -422,6 +432,7 @@
           <a name="TCheckBox" id="TCheckBox">TCheckBox</a> = class(<a href="#TCustomCheckBox">TCustomCheckBox</a>)<br />
           &nbsp;&nbsp;property Alignment: <a href="#TAlignment">TAlignment</a>; read write;<br />
           &nbsp;&nbsp;property AllowGrayed: Boolean; read write;<br />
+          &nbsp;&nbsp;property Anchors: <a href="#TAnchors">TAnchors</a>; read write;<br/>
           &nbsp;&nbsp;property Caption: String; read write;<br />
           &nbsp;&nbsp;property Checked: Boolean; read write;<br />
           &nbsp;&nbsp;property Color: TColor; read write;<br />
@@ -435,6 +446,7 @@
           <br />
           <a name="TRadioButton" id="TRadioButton">TRadioButton</a> = class(<a href="#TButtonControl">TButtonControl</a>)<br />
           &nbsp;&nbsp;property Alignment: <a href="#TAlignment">TAlignment</a>; read write;<br />
+          &nbsp;&nbsp;property Anchors: <a href="#TAnchors">TAnchors</a>; read write;<br/>
           &nbsp;&nbsp;property Caption: String; read write;<br />
           &nbsp;&nbsp;property Checked: Boolean; read write;<br />
           &nbsp;&nbsp;property Color: TColor; read write;<br />
@@ -456,6 +468,7 @@
           <a name="TListBoxStyle" id="TListBoxStyle">TListBoxStyle</a> = (lbStandard, lbOwnerDrawFixed, lbOwnerDrawVariable);<br />
           <br />
           <a name="TListBox" id="TListBox">TListBox</a> = class(<a href="#TCustomListBox">TCustomListBox</a>)<br />
+          &nbsp;&nbsp;property Anchors: <a href="#TAnchors">TAnchors</a>; read write;<br/>
           &nbsp;&nbsp;property BorderStyle: <a href="#TBorderStyle">TBorderStyle</a>; read write;<br />
           &nbsp;&nbsp;property Color: TColor; read write;<br />
           &nbsp;&nbsp;property Font: <a href="#TFont">TFont</a>; read write;<br />
@@ -472,11 +485,14 @@
           <a name="TNewListBox" id="TNewListBox">TNewListBox</a> = class(<a href="#TListBox">TListBox</a>)<br />
           end;<br />
           <br />
+          <a name="TBevelKind">TBevelKind</a> = (bkNone, bkTile, bkSoft, bkFlat);<br/>
+          <br/>
           <a name="TBevelShape" id="TBevelShape">TBevelShape</a> = (bsBox, bsFrame, bsTopLine, bsBottomLine, bsLeftLine, bsRightLine, bsSpacer);<br />
           <br />
           <a name="TBevelStyle" id="TBevelStyle">TBevelStyle</a> = (bsLowered, bsRaised);<br />
           <br />
           <a name="TBevel" id="TBevel">TBevel</a> = class(<a href="#TGraphicControl">TGraphicControl</a>)<br />
+          &nbsp;&nbsp;property Anchors: <a href="#TAnchors">TAnchors</a>; read write;<br/>
           &nbsp;&nbsp;property Shape: <a href="#TBevelShape">TBevelShape</a>; read write;<br />
           &nbsp;&nbsp;property Style: <a href="#TBevelStyle">TBevelStyle</a>; read write;<br />
           end;<br />
@@ -492,7 +508,9 @@
           <br />
           <a name="TPanel" id="TPanel">TPanel</a> = class(<a href="#TCustomPanel">TCustomPanel</a>)<br />
           &nbsp;&nbsp;property Alignment: <a href="#TAlignment">TAlignment</a>; read write;<br />
+          &nbsp;&nbsp;property Anchors: <a href="#TAnchors">TAnchors</a>; read write;<br/>
           &nbsp;&nbsp;property BevelInner: <a href="#TPanelBevel">TPanelBevel</a>; read write;<br />
+          &nbsp;&nbsp;property BevelKind: <a href="#TBevelKind">TBevelKind</a>; read write;<br/>
           &nbsp;&nbsp;property BevelOuter: <a href="#TPanelBevel">TPanelBevel</a>; read write;<br />
           &nbsp;&nbsp;property BevelWidth: <a href="#TBevelWidth">TBevelWidth</a>; read write;<br />
           &nbsp;&nbsp;property BorderWidth: <a href="#TBorderWidth">TBorderWidth</a>; read write;<br />
@@ -506,6 +524,7 @@
           <br />
           <a name="TNewStaticText" id="TNewStaticText">TNewStaticText</a> = class(<a href="#TWinControl">TWinControl</a>)<br />
           &nbsp;&nbsp;function AdjustHeight: Integer;<br />
+          &nbsp;&nbsp;property Anchors: <a href="#TAnchors">TAnchors</a>; read write;<br/>
           &nbsp;&nbsp;property AutoSize: Boolean; read write;<br />
           &nbsp;&nbsp;property Caption: String; read write;<br />
           &nbsp;&nbsp;property Color: TColor; read write;<br />
@@ -525,6 +544,7 @@
           &nbsp;&nbsp;function AddGroup(ACaption, ASubItem: String; ALevel: Byte; AObject: <a href="#TObject">TObject</a>): Integer;<br />
           &nbsp;&nbsp;function AddRadioButton(const ACaption, ASubItem: String; ALevel: Byte; AChecked, AEnabled: Boolean; AObject: <a href="#TObject">TObject</a>): Integer;<br />
           &nbsp;&nbsp;function CheckItem(const Index: Integer; const AOperation: <a href="#TCheckItemOperation">TCheckItemOperation</a>): Boolean;<br />
+          &nbsp;&nbsp;property Anchors: <a href="#TAnchors">TAnchors</a>; read write;<br/>
           &nbsp;&nbsp;property Checked[Index: Integer]: Boolean; read write;<br />
           &nbsp;&nbsp;property State[Index: Integer]: <a href="#TCheckBoxState">TCheckBoxState</a>; read write;<br />
           &nbsp;&nbsp;property ItemCaption[Index: Integer]: String; read write;<br />
@@ -555,6 +575,7 @@
           <a name="TNewProgressBarStyle" id="TNewProgressBarStyle">TNewProgressBarStyle</a> = (npbstNormal, npbstMarquee);<br />
           <br />
           <a name="TNewProgressBar" id="TNewProgressBar">TNewProgressBar</a> = class(<a href="#TWinControl">TWinControl</a>)<br />
+          &nbsp;&nbsp;property Anchors: <a href="#TAnchors">TAnchors</a>; read write;<br/>
           &nbsp;&nbsp;property Min: Longint; read write;<br />
           &nbsp;&nbsp;property Max: Longint; read write;<br />
           &nbsp;&nbsp;property Position: Longint; read write;<br />
@@ -564,11 +585,15 @@
           end;<br />
           <br />
           <a name="TRichEditViewer" id="TRichEditViewer">TRichEditViewer</a> = class(<a href="#TMemo">TMemo</a>)<br />
+          &nbsp;&nbsp;property Anchors: <a href="#TAnchors">TAnchors</a>; read write;<br/>
+          &nbsp;&nbsp;property BevelKind: <a href="#TBevelKind">TBevelKind</a>; read write;<br/>
+          &nbsp;&nbsp;property BorderStyle: <a href="#TBorderStyle">TBorderStyle</a>; read write;<br/>
           &nbsp;&nbsp;property RTFText: AnsiString; write;<br />
           &nbsp;&nbsp;property UseRichEdit: Boolean; read write;<br />
           end;<br />
           <br />
           <a name="TPasswordEdit" id="TPasswordEdit">TPasswordEdit</a> = class(<a href="#TCustomEdit">TCustomEdit</a>)<br />
+          &nbsp;&nbsp;property Anchors: <a href="#TAnchors">TAnchors</a>; read write;<br/>
           &nbsp;&nbsp;property AutoSelect: Boolean; read write;<br />
           &nbsp;&nbsp;property AutoSize: Boolean; read write;<br />
           &nbsp;&nbsp;property BorderStyle: <a href="#TBorderStyle">TBorderStyle</a>; read write;<br />
@@ -596,27 +621,26 @@
           <a name="TFolderRenameEvent" id="TFolderRenameEvent">TFolderRenameEvent</a> = procedure(Sender: <a href="#TCustomFolderTreeView">TCustomFolderTreeView</a>; var NewName: String; var Accept: Boolean);<br />
           <br />
           <a name="TFolderTreeView" id="TFolderTreeView">TFolderTreeView</a> = class(<a href="#TCustomFolderTreeView">TCustomFolderTreeView</a>)<br />
+          &nbsp;&nbsp;property Anchors: <a href="#TAnchors">TAnchors</a>; read write;<br/>
           &nbsp;&nbsp;property OnChange: <a href="#TNotifyEvent">TNotifyEvent</a>; read write;<br />
           &nbsp;&nbsp;property OnRename: <a href="#TFolderRenameEvent">TFolderRenameEvent</a>; read write;<br />
           end;<br />
           <br />
           <a name="TStartMenuFolderTreeView" id="TStartMenuFolderTreeView">TStartMenuFolderTreeView</a> = class(<a href="#TCustomFolderTreeView">TCustomFolderTreeView</a>)<br />
           &nbsp;&nbsp;procedure SetPaths(const AUserPrograms, ACommonPrograms, AUserStartup, ACommonStartup: String);<br />
+          &nbsp;&nbsp;property Anchors: <a href="#TAnchors">TAnchors</a>; read write;<br/>
           &nbsp;&nbsp;property OnChange: <a href="#TNotifyEvent">TNotifyEvent</a>; read write;<br />
           &nbsp;&nbsp;property OnRename: <a href="#TFolderRenameEvent">TFolderRenameEvent</a>; read write;<br />
           end;<br />
           <br />
           <a name="TAlphaFormat">TAlphaFormat</a> = (afIgnored, afDefined, afPremultiplied);<br/>
           <br/>
-          <a name="TAlphaBitmap">TAlphaBitmap</a> = class(<a href="#TBitmap">TBitmap</a>)<br/>
-          &nbsp;&nbsp;property AlphaFormat: <a href="#TAlphaFormat">TAlphaFormat</a>; read write;<br/>
-          end;<br/>
-          <br/>
           <a name="TBitmapImage" id="TBitmapImage">TBitmapImage</a> = class(<a href="#TGraphicControl">TGraphicControl</a>)<br />
+          &nbsp;&nbsp;property Anchors: <a href="#TAnchors">TAnchors</a>; read write;<br/>
           &nbsp;&nbsp;property AutoSize: Boolean; read write;<br />
           &nbsp;&nbsp;property BackColor: TColor; read write;<br />
           &nbsp;&nbsp;property Center: Boolean; read write;<br />
-          &nbsp;&nbsp;property Bitmap: <a href="#TAlphaBitmap">TAlphaBitmap</a>; read write;<br />
+          &nbsp;&nbsp;property Bitmap: <a href="#TBitmap">TBitmap</a>; read write;<br />
           &nbsp;&nbsp;property ReplaceColor: TColor; read write;<br />
           &nbsp;&nbsp;property ReplaceWithColor: TColor; read write;<br />
           &nbsp;&nbsp;property Stretch: Boolean; read write;<br />
@@ -626,6 +650,7 @@
           <br />
           <a name="TNewNotebook" id="TNewNotebook">TNewNotebook</a> = class(<a href="#TWinControl">TWinControl</a>)<br />
           &nbsp;&nbsp;function FindNextPage(CurPage: <a href="#TNewNotebookPage">TNewNotebookPage</a>; GoForward: Boolean): <a href="#TNewNotebookPage">TNewNotebookPage</a>;<br />
+          &nbsp;&nbsp;property Anchors: <a href="#TAnchors">TAnchors</a>; read write;<br/>
           &nbsp;&nbsp;property PageCount: Integer; read write;<br />
           &nbsp;&nbsp;property Pages[Index: Integer]: <a href="#TNewNotebookPage">TNewNotebookPage</a>; read;<br />
           &nbsp;&nbsp;property ActivePage: <a href="#TNewNotebookPage">TNewNotebookPage</a>; read write;<br />
@@ -646,9 +671,10 @@
           &nbsp;&nbsp;property ID: Integer; read;<br />
           &nbsp;&nbsp;property Caption: String; read write;<br />
           &nbsp;&nbsp;property Description: String; read write;<br />
-          &nbsp;&nbsp;property Surface: <a href="#TNewNotebookPage">TNewNotebookPage</a>; read write;<br />
-          &nbsp;&nbsp;property SurfaceHeight: Integer; read write;<br />
-          &nbsp;&nbsp;property SurfaceWidth: Integer; read write;<br />
+          &nbsp;&nbsp;property Surface: <a href="#TNewNotebookPage">TNewNotebookPage</a>; read;<br />
+          &nbsp;&nbsp;property SurfaceColor: TColor; read;<br/>
+          &nbsp;&nbsp;property SurfaceHeight: Integer; read;<br />
+          &nbsp;&nbsp;property SurfaceWidth: Integer; read;<br />
           &nbsp;&nbsp;property OnActivate: <a href="#TWizardPageNotifyEvent">TWizardPageNotifyEvent</a>; read write;<br />
           &nbsp;&nbsp;property OnBackButtonClick: <a href="#TWizardPageButtonEvent">TWizardPageButtonEvent</a>; read write;<br />
           &nbsp;&nbsp;property OnCancelButtonClick: <a href="#TWizardPageCancelEvent">TWizardPageCancelEvent</a>; read write;<br />
@@ -715,14 +741,16 @@
           end;<br />
           <br />
           <a name="TSetupForm" id="TSetupForm">TSetupForm</a> = class(<a href="#TUIStateForm">TUIStateForm</a>)<br />
-          &nbsp;&nbsp;procedure Center;<br />
-          &nbsp;&nbsp;procedure CenterInsideControl(const Ctl: <a href="#TWinControl">TWinControl</a>; const InsideClientArea: Boolean);<br />
-          &nbsp;&nbsp;procedure FlipControlsIfNeeded;<br />
-          &nbsp;&nbsp;property ControlsFlipped: Boolean; read;<br />
-          &nbsp;&nbsp;property FlipControlsOnShow: Boolean; read write;<br />
-          &nbsp;&nbsp;property RightToLeft: Boolean; read;<br />
-          end;<br />
-          <br />
+          &nbsp;&nbsp;function ShouldSizeX: Boolean;<br/>
+          &nbsp;&nbsp;function ShouldSizeY: Boolean;<br/>
+          &nbsp;&nbsp;procedure FlipSizeAndCenterIfNeeded(const ACenterInsideControl: Boolean; const CenterInsideControlCtl: <a href="#TWinControl">TWinControl</a>; const CenterInsideControlInsideClientArea: Boolean);<br/>
+          &nbsp;&nbsp;property ControlsFlipped: Boolean; read;<br/>
+          &nbsp;&nbsp;property FlipControlsOnShow: Boolean; read write;<br/>
+          &nbsp;&nbsp;property KeepSizeY: Boolean; read; write;<br/>
+          &nbsp;&nbsp;property RightToLeft: Boolean; read;<br/>
+          &nbsp;&nbsp;property SizeAndCenterOnShow: Boolean; read write;<br/>
+          end;<br/>
+          <br/>
           <a name="TMainForm" id="TMainForm">TMainForm</a> = class(<a href="#TSetupForm">TSetupForm</a>)<br />
           &nbsp;&nbsp;procedure ShowAboutBox;<br />
           end;<br />
@@ -731,8 +759,8 @@
           &nbsp;&nbsp;property CancelButton: <a href="#TNewButton">TNewButton</a>; read;<br />
           &nbsp;&nbsp;property NextButton: <a href="#TNewButton">TNewButton</a>; read;<br />
           &nbsp;&nbsp;property BackButton: <a href="#TNewButton">TNewButton</a>; read;<br />
-          &nbsp;&nbsp;property Notebook1: TNotebook; read;<br />
-          &nbsp;&nbsp;property Notebook2: TNotebook; read;<br />
+          &nbsp;&nbsp;property OuterNotebook: TNotebook; read;<br />
+          &nbsp;&nbsp;property InnerNotebook: TNotebook; read;<br />
           &nbsp;&nbsp;property WelcomePage: <a href="#TNewNotebookPage">TNewNotebookPage</a>; read;<br />
           &nbsp;&nbsp;property InnerPage: <a href="#TNewNotebookPage">TNewNotebookPage</a>; read;<br />
           &nbsp;&nbsp;property FinishedPage: <a href="#TNewNotebookPage">TNewNotebookPage</a>; read;<br />
@@ -832,17 +860,17 @@
           &nbsp;&nbsp;property CancelButton: <a href="#TNewButton">TNewButton</a>; read;<br />
           end;<br /><br />
           <b>См. также:</b><br/>
-		  &nbsp;&nbsp;function <a href="isxfunc/topic_isxfunc_createinputquerypage.htm">CreateInputQueryPage</a>(const AfterID: Integer; const ACaption, ADescription, ASubCaption: String): TInputQueryWizardPage;<br/>
-		  &nbsp;&nbsp;function <a href="isxfunc/topic_isxfunc_createinputoptionpage.htm">CreateInputOptionPage</a>(const AfterID: Integer; const ACaption, ADescription, ASubCaption: String; Exclusive, ListBox: Boolean): TInputOptionWizardPage;<br/>
-		  &nbsp;&nbsp;function <a href="isxfunc/topic_isxfunc_createinputdirpage.htm">CreateInputDirPage</a>(const AfterID: Integer; const ACaption, ADescription, ASubCaption: String; AAppendDir: Boolean; ANewFolderName: String): TInputDirWizardPage;<br/>
-		  &nbsp;&nbsp;function <a href="isxfunc/topic_isxfunc_createinputfilepage.htm">CreateInputFilePage</a>(const AfterID: Integer; const ACaption, ADescription, ASubCaption: String): TInputFileWizardPage;<br/>
-		  &nbsp;&nbsp;function <a href="isxfunc/topic_isxfunc_createoutputmsgpage.htm">CreateOutputMsgPage</a>(const AfterID: Integer; const ACaption, ADescription, AMsg: String): TOutputMsgWizardPage;<br/>
-		  &nbsp;&nbsp;function <a href="isxfunc/topic_isxfunc_createoutputmsgmemopage.htm">CreateOutputMsgMemoPage</a>(const AfterID: Integer; const ACaption, ADescription, ASubCaption: String; const AMsg: AnsiString): TOutputMsgMemoWizardPage;<br/>
-		  &nbsp;&nbsp;function <a href="isxfunc/topic_isxfunc_createoutputprogresspage.htm">CreateOutputProgressPage</a>(const ACaption, ADescription: String): TOutputProgressWizardPage;<br/>
-		  &nbsp;&nbsp;function <a href="isxfunc/topic_isxfunc_createcustompage.htm">CreateCustomPage</a>(const AfterID: Integer; const ACaption, ADescription: String): TWizardPage;<br/>
-		  &nbsp;&nbsp;function <a href="isxfunc/topic_isxfunc_createcustomform.htm">CreateCustomForm</a>: TSetupForm;<br/><br/>
-		  &nbsp;&nbsp;function <a href="isxfunc/topic_isxfunc_pagefromid.htm">PageFromID</a>(const ID: Integer): TWizardPage;<br/>
-		  &nbsp;&nbsp;function <a href="isxfunc/topic_isxfunc_minimizepathname.htm">MinimizePathName</a>(const Filename: String; const Font: TFont; MaxLen: Integer): String;<br/>
+		  &nbsp;&nbsp;function <a href="topic_isxfunc_createinputquerypage.htm">CreateInputQueryPage</a>(const AfterID: Integer; const ACaption, ADescription, ASubCaption: String): TInputQueryWizardPage;<br/>
+		  &nbsp;&nbsp;function <a href="topic_isxfunc_createinputoptionpage.htm">CreateInputOptionPage</a>(const AfterID: Integer; const ACaption, ADescription, ASubCaption: String; Exclusive, ListBox: Boolean): TInputOptionWizardPage;<br/>
+		  &nbsp;&nbsp;function <a href="topic_isxfunc_createinputdirpage.htm">CreateInputDirPage</a>(const AfterID: Integer; const ACaption, ADescription, ASubCaption: String; AAppendDir: Boolean; ANewFolderName: String): TInputDirWizardPage;<br/>
+		  &nbsp;&nbsp;function <a href="topic_isxfunc_createinputfilepage.htm">CreateInputFilePage</a>(const AfterID: Integer; const ACaption, ADescription, ASubCaption: String): TInputFileWizardPage;<br/>
+		  &nbsp;&nbsp;function <a href="topic_isxfunc_createoutputmsgpage.htm">CreateOutputMsgPage</a>(const AfterID: Integer; const ACaption, ADescription, AMsg: String): TOutputMsgWizardPage;<br/>
+		  &nbsp;&nbsp;function <a href="topic_isxfunc_createoutputmsgmemopage.htm">CreateOutputMsgMemoPage</a>(const AfterID: Integer; const ACaption, ADescription, ASubCaption: String; const AMsg: AnsiString): TOutputMsgMemoWizardPage;<br/>
+		  &nbsp;&nbsp;function <a href="topic_isxfunc_createoutputprogresspage.htm">CreateOutputProgressPage</a>(const ACaption, ADescription: String): TOutputProgressWizardPage;<br/>
+		  &nbsp;&nbsp;function <a href="topic_isxfunc_createcustompage.htm">CreateCustomPage</a>(const AfterID: Integer; const ACaption, ADescription: String): TWizardPage;<br/>
+		  &nbsp;&nbsp;function <a href="topic_isxfunc_createcustomform.htm">CreateCustomForm</a>: TSetupForm;<br/><br/>
+		  &nbsp;&nbsp;function <a href="topic_isxfunc_pagefromid.htm">PageFromID</a>(const ID: Integer): TWizardPage;<br/>
+		  &nbsp;&nbsp;function <a href="topic_isxfunc_minimizepathname.htm">MinimizePathName</a>(const Filename: String; const Font: TFont; MaxLen: Integer): String;<br/>
           <script language="javascript" type="text/javascript">highlightSyntax('delphi_Tc4NTM','delphi');</script>
           </code></tt></p>
 </div>

@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Режим неадминистративной установки</title>
+<!--[if IE 6]><style type="text/css">html{overflow-y:scroll}</style><![endif]-->
+<link rel="stylesheet" type="text/css" href="styles.css" />
+<script type="text/javascript" src="topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Режим неадминистративной установки</h1>
+<div class="topicbody">
+
+<p>Инсталлятор может быть запущен в одном из двух режимов: административном или неадминистративном. Выбор режима указывается директивами секции [Setup] <a href="topic_setup_privilegesrequired.htm">PrivilegesRequired</a> и <a href="topic_setup_privilegesrequiredoverridesallowed.htm">PrivilegesRequiredOverridesAllowed</a>.</p>
+
+<p>В режиме административной установки:</p>
+<ul>
+<li>Папка <tt>{group}</tt> создается в профиле <i>Все пользователи</i>.</li>
+<li>Формы "auto" констант директорий и специальных папок получают значения соответствующих "user" констант.</li>
+<li><a href="topic_registrysection.htm">HKA</a> и корневые разделы содержащие информацию о деинсталляции будут созданы в HKEY_LOCAL_MACHINE.</li>
+</ul>
+
+<p>В режиме неадминистративной установки:</p>
+<ul>
+<li>Папка <tt>{group}</tt> создается в профиле текущего пользователя.</li>
+<li>Формы "auto" констант директорий и специальных папок получают значения соответствующих "user" констант.</li>
+<li>The <a href="topic_registrysection.htm">HKA</a> и корневые разделы содержащие информацию о деинсталляции будут созданы в HKEY_CURRENT_USER.</li>
+</ul>
+
+<p><b>Примечания:</b></p>
+<p>Вне зависимости от версии Windows, если инсталляция происходит в режиме административной установки, то Вы должны быть осторожны при внесении индивидуальных изменений пользователя: такие изменения могут не привести к желаемым результатам. В таких случайах компилятор выдаст предупреждение об этом, однако предупреждение можно отключить используя <a href="topic_setup_useduserareaswarning.htm">UsedUserAreasWarning</a>.</p>
+<p>Если инсталляция происходит в режиме неадминистративной установки, но административные привилегии все равно доступны, тогда инсталлятор или секция [Code] может все равно воспользоваться этими привилегиями. Поэтому в этом случае деинсталлятор всегда будет работать с административными привилегиями, как будто инсталляция происходила в режиме административной установки.</p>
+
+</div>
+</body>
+</html>

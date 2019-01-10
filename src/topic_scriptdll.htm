@@ -11,10 +11,10 @@
 <body>
 <h1 class="topicheading">Pascal Scripting: Использование DLL и .NET сборок</h1>
 <div class="topicbody">
-  <p>Pascal-скрипт может вызвать функции внешних DLL библиотек. Это относится и к Win32 API функциям в стандартных DLL Windows и пользовательским функциям пользовательских DLL. Additionally .NET assemblies can be called.</p>
+  <p>Pascal скрипт может вызвать функции внешних DLL библиотек. Это относится и к Win32 API функциям в стандартных DLL Windows и пользовательским функциям пользовательских DLL. Additionally .NET assemblies can be called.</p>
   
   <p>В качестве примера можно разобрать файл &quot;CodeDll.iss&quot; в папке &quot;Examples&quot;.</p>
-  <p>Папка &quot;Examples&quot; также содержит три пользовательских проекта DLL в качестве примеров, по одному для Microsoft Visual C++, Microsoft Visual C# и Delphi Borland. Пример, написанный на C#, показывает как сделать свою .NET сборку, которую можно вызвать в Pascal-скрипте.</p>
+  <p>Папка &quot;Examples&quot; также содержит три пользовательских проекта DLL в качестве примеров, по одному для Microsoft Visual C++, Microsoft Visual C# и Delphi Borland. Пример, написанный на C#, показывает как сделать свою .NET сборку, которую можно вызвать в Pascal скрипте.</p>
   
   <p>Для вызова функции DLL сначала надо написать образец функции и после образца функции для указания DLL файла использовать ключевое слово 'external'. Например, если ваша функция имеет образец: <tt>function A(B: Integer): Integer;</tt> для неё поддерживаются следующие три формы:</p>
   <pre class="indent examplebox">
@@ -30,12 +30,12 @@ external '&lt;dllfunctionname&gt;@&lt;dllfilename&gt; &lt;callingconvention&gt; 
 </pre>
   <p>Первая форма указывает, что DLL функция должна быть вызвана при помощи стандартного вызова - 'stdcall'. Все стандартные функции Win32 API и большинство пользовательских DLL функций используют 'stdcall'. </p>
   <p>Вторая форма указывает, что DLL функция должна быть вызвана при помощи специального вызова. Действующие соглашения вызовов: 'stdcall' (по умолчанию), 'cdecl', 'pascal' и 'register'. </p>
-  <p>Третья форма указывает несколько параметров для вызова DLL функции, которые разделяюся пробелами:</p>
+  <p>Третья форма указывает несколько параметров для вызова DLL функции, которые разделяются пробелами:</p>
   <div class="indent">
     <dl>
       <dt class="flaglist"><a name="delayload" id="delayload">delayload</a></dt>
       <dd>
-        <p>Указывает, что DLL должен быть загружен с задержкой. Обычно Pascal-скрипт при запуске проверяет, могут ли быть вызваны DLL функции и если нет, отказывается запускать установку. Этого не произойдёт, если отложить вызов с помощью 'delayload'. Используйте задержку загрузки, если Вы хотите вызвать функцию DLL, для которой Вы не знаете, будет ли она фактически доступна во время выполнения: если функция DLL не может быть вызвана, сценарий все ещё выполнится, но бросит ожидание, когда Вы попытаетесь вызвать функцию DLL, которую можно поймать, чтобы обработать отсутствие функции DLL.</p>
+        <p>Указывает, что DLL должен быть загружен с задержкой. Обычно Pascal скрипт при запуске проверяет, могут ли быть вызваны DLL функции и если нет, отказывается запускать установку. Этого не произойдёт, если отложить вызов с помощью 'delayload'. Используйте задержку загрузки, если Вы хотите вызвать функцию DLL, для которой Вы не знаете, будет ли она фактически доступна во время выполнения: если функция DLL не может быть вызвана, сценарий все ещё выполнится, но бросит ожидание, когда Вы попытаетесь вызвать функцию DLL, которую можно поймать, чтобы обработать отсутствие функции DLL.</p>
       </dd>
       <dt class="flaglist"><a name="loadwithalteredsearchpath" id="loadwithalteredsearchpath">loadwithalteredsearchpath</a></dt>
       <dd>
@@ -72,16 +72,7 @@ procedure ADllFunc(hWnd: Integer; lpText, lpCaption: AnsiString; uType: Cardinal
 external 'ADllFunc@files:A.dll,B.dll stdcall loadwithalteredsearchpath'; //A.dll depends on B.dll
   </pre>
   <p>Если вы используете префикс 'files:' и <a href="topic_setup_solidcompression.htm">уплотнённое сжатие</a> включено, убедитесь, что перечислили свои DLL файлы вначале секции [Files]. Чтобы извлечь произвольный файл, инсталлятор должен сначала распаковать все предыдущие файлы во временной буфер в памяти. Это может привести к существенной задержке, если много других файлов перечислены до строки DLL.</p>
-  <p>Для автоматического выбора между ANSI и Unicode версиями функции в зависимости от <a href="topic_unicode.htm">установленной версии</a> Inno Setup, используйте ISPP:</p>
-  <pre class="indent examplebox">
-[Code]
-function MessageBox(hWnd: Integer; lpText, lpCaption: String; uType: Cardinal): Integer;
-#ifdef UNICODE
-external 'MessageBoxW@user32.dll stdcall';
-#else
-external 'MessageBoxA@user32.dll stdcall';
-#endif
-  </pre>
+  <p>Используйте <a href="topic_isxfunc_createcallback.htm">CreateCallback</a>, чтобы вызывать функции обратного вызова в Вашем скрипте из DLL функций (подобно функциям Windows API).</p>
 </div>
 </body>
 </html>

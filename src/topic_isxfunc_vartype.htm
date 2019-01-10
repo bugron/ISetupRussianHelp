@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Pascal Scripting: VarType</title>
+<link rel="stylesheet" type="text/css" href="styles.css" />
+<script type="text/javascript" src="topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Pascal Scripting: VarType</h1>
+<div class="topicbody">
+  <div><b>Прототип:</b></div>
+  <p><tt>function VarType(const V: Variant): TVarType;</tt></p>
+  <div><b>Описание:</b></div>
+  <p>Returns the type code of the specified variant.</p>
+  <p>Младшие двенадцать битов кода типа (они определены маской varTypeMask) определяют тип переменной. Если переменная является массивом указанного типа, то стоит бит varArray. Если переменная является ссылкой значения указанного типа вместо реального значения, то стоит бит varByRef.</p>
+  <p>Определены следующие коды типов:</p>
+  <pre>
+const
+  varEmpty    = $0000;
+  varNull     = $0001;
+  varSmallint = $0002;
+  varInteger  = $0003;
+  varSingle   = $0004;
+  varDouble   = $0005;
+  varCurrency = $0006;
+  varDate     = $0007;
+  varOleStr   = $0008;
+  varDispatch = $0009;
+  varError    = $000A;
+  varBoolean  = $000B;
+  varVariant  = $000C;
+  varUnknown  = $000D;
+  varByte     = $0011;
+  varString   = $0100;
+  varTypeMask = $0FFF;
+  varArray    = $2000;
+  varByRef    = $4000;
+</pre>
+</div>
+</body>
+</html>

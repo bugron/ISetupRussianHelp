@@ -1,1 +1,4 @@
+*settings.bat
 *.ch*
+_BatchLog.txt
+validation-results.htm

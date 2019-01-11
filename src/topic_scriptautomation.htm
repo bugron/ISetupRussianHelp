@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Pascal Scripting: Использование объектов СОМ</title>
+<!--[if IE 6]><style type="text/css">html{overflow-y:scroll}</style><![endif]-->
+<link rel="stylesheet" type="text/css" href="styles.css" />
+<script type="text/javascript" src="topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Pascal Scripting: Использование объектов СОМ</h1>
+<div class="topicbody">
+  <p>Pascal скрипт имеет доступ к СОМ (OLE или ActiveX) методам и свойствам через поддержку объектов автоматизации СОМ. Это позволит вам получить доступ, например, к стандартным СОМ серверам Windows, специальным СОМ серверам, Visual Basic ActiveX DLL и .NET сборкам.</p>
+  <dl>
+    <dt><b>IDispatch основанный COM</b></dt>
+    <dd>
+      <p>Существуют две поддерживаемые функции для создания объектов СОМ: <a href="topic_isxfunc_createoleobject.htm">CreateOleObject</a> и <a href="topic_isxfunc_getactiveoleobject.htm">GetActiveOleObject</a>.</p>
+      <p>Используйте <a href="topic_isxfunc_createoleobject.htm">CreateOleObject</a>, чтобы создать новый COM объект с указанным именем класса. При успешном создании объекта функция возвращает переменную типа <tt>Variant</tt>, иначе выдает исключение.</p>
+      <p>Используйте <a href="topic_isxfunc_getactiveoleobject.htm">GetActiveOleObject</a>, чтобы соединить существующий COM объект с указанным именем класса. При успешном выполнении функция возвращает переменную типа <tt>Variant</tt>, иначе выдает исключение. В случае некоторых программ это может использоваться, чтобы обнаружить, выполняется ли программа или нет.</p>
+      <p>Значение, возвращенное <a href="topic_isxfunc_createoleobject.htm">CreateOleObject</a> или <a href="topic_isxfunc_getactiveoleobject.htm">GetActiveOleObject</a>, может потом использоваться, чтобы получить доступ к свойствам и методам COM объекта. Доступ делается через 'позднее связывание', что означает, что не проверяется, существуют ли методы или свойства, к которым Вы пытаетесь получить доступ фактически, пока инсталлятор не нуждается в них во время выполнения.</p>
+      <p>Чтобы получить доступ к свойству или методу, имя которого - зарезервированное слово, используйте <a href="topic_isxfunc_idispatchinvoke.htm">IDispatchInvoke</a>.</p>
+      <p>Для примеров можете посмотреть файл &quot;CodeAutomation.iss&quot; в папке &quot;Examples&quot;.</p>
+      <p>Если Вы используете .NET COM объект и существуют проблемы нахождения этого объекта начиная с Inno Setup 5.5.9, попробуйте вставить эту строку кода в Ваш сприпт перед созданием COM объекта: <tt>LoadDLL(ExpandConstant('{sys}\mscoree.dll'), ErrorCode);</tt> и добавьте переменную <tt>ErrorCode</tt> типа <tt>Integer</tt>.</p>
+    </dd>
+    <dt><b>IUnknown основанный COM</b></dt>
+    <dd>
+      <p>Если интерфейс IDispatch не реализуется объектом, можно использовать IUnknown основанный COM.</p>
+      <p>Чтобы инициализировать IUnknown основанный COM объект, используйте <a href="topic_isxfunc_createcomobject.htm">CreateComObject</a>.</p>
+      <p>Значение, возвращенное <a href="topic_isxfunc_createcomobject.htm">CreateComObject</a>, может потом использоваться, чтобы получить доступ к методам COM объекта после кастинга этого к требуемому интерфейсу. Доступ делается через 'раннюю привязку', что означает, что требуемый интерфейс должен быть определен в сценарии, в отличие от IDispatch COM.</p>
+      <p><a href="topic_isxfunc_stringtoguid.htm">StringToGUID</a> может использоваться, чтобы преобразовать строковое представление GUID в 'реальный' GUID. Используйте <a href="topic_isxfunc_olecheck.htm">OleCheck</a>, чтобы проверить возвращаемые значения любого Вашего вызванного метода.</p>
+      <p>Если Вы копируете интерфейсное определение с какого-либо существующего исходного кода Delphi, удалите скобки в строке GUID интерфейса. Также удалите любые соглашения вызова, который Inno Setup принимает как 'stdcall'. Если интерфейс будет содержать какие-либо функции, которые Вы не будете вызывать, можно заменить их макетами, чтобы избежать необходимости определения любых специальных типов, используемых ими.</p>
+      <p>Для примеров можете посмотреть файл &quot;CodeAutomation2.iss&quot; в папке &quot;Examples&quot;.</p>
+    </dd>
+    <dt><b>Общие указания</b></dt>
+    <dd>
+      <p>COM объекты выпускаются автоматически, когда они выходят из объема. Нет никаких функций, чтобы 'уничтожить' или 'освободить' их.</p>
+      <p>Если Вы извлекаете библиотеку автоматизации COM во временное расположение и хотите удалить ее после использования, удостоверьтесь, что Вы больше не имеете ссылок на библиотеку и затем вызовите <a href="topic_isxfunc_cofreeunusedlibraries.htm">CoFreeUnusedLibraries</a>. Эта Windows функция попытается разгрузить библиотеку, таким образом, можно будет удалить это.</p>
+    </dd>
+  </dl>
+</div>
+</body>
+</html>

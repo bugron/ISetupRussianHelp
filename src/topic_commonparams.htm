@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Общие параметры</title>
+<!--[if IE 6]><style type="text/css">html{overflow-y:scroll}</style><![endif]-->
+<link rel="stylesheet" type="text/css" href="styles.css" />
+<script type="text/javascript" src="topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Общие параметры</h1>
+<div class="topicbody">
+<p>Есть три дополнительные <a href="topic_params.htm">параметры</a>, которые могут использоваться во всех секциях, содержащих параметры. Это:</p>
+<dl>
+  <dt class="paramlist"><b><a name="Languages" id="Languages">Languages</a></b></dt>
+  <dd class="paramlist">
+    <p>Список поддерживаемых языков, разделенных пробелами, которые указывают инсталлятору, к какому языку относится запись. Если пользователь выберет язык, указанный в этом списке, запись будет обработан (например, установится файл).</p>
+    <p>Запись без указанного параметра <tt>Languages</tt> всегда обрабатывается, если только другой параметр этого не запретит.</p>
+    <p>Кроме списка, можно использовать логические выражения. Для справки обратитесь к <a href="topic_componentstasksparams.htm">параметрам секций [Components] и [Tasks]</a>.</p>
+    <div class="examplebox">
+      <div class="exampleheader">Например:</div>
+      <pre class="nomargin">Languages: en nl</pre>
+    </div>
+  </dd>
+  <dt class="paramlist"><b><a name="MinVersion" id="MinVersion">MinVersion</a></b></dt>
+  <dd class="paramlist">
+    <p>Минимальная <a href="topic_winvernotes.htm"> версия Windows</a><a href="topic_winvernotes.htm"></a>, необходимая для обработки записи. Если значение равно &quot;0&quot;, значит запись не будет обработана. <a href="topic_buildnumnotes.htm">Номера сборки и/или пакета обновления</a><a href="topic_buildnumnotes.htm"></a> могут содержаться в значении. Перезаписывает любое значение директивы <tt>MinVersion</tt> секции<tt>[Setup]</tt>.</p>
+    <p>Запись, для которой не указан <tt>MinVersion</tt>, обрабатывается всегда, если только другой параметр этого не запретит.</p>
+    <div class="examplebox">
+      <div class="exampleheader">Например:</div>
+      <pre class="nomargin">MinVersion: 5.1</pre>
+    </div>
+  </dd>
+  <dt class="paramlist"><b><a name="OnlyBelowVersion" id="OnlyBelowVersion">OnlyBelowVersion</a></b></dt>
+  <dd class="paramlist">
+    <p>Параметр, обратный <tt>MinVersion</tt>. Указывает минимальную <a href="topic_winvernotes.htm"> версию Windows</a>, чтобы запись <em>не</em> была обработана. Например, если Вы ввели <tt>6.0</tt> и инсталлятор запущен в системах Windows 2000 или XP, то запись <em>будет</em> обработана, но если система пользователя будет Windows Vista (версия 6.0) или выше, запись будет <em>не обработана</em>. Если значение равно &quot;0&quot;, значит, запись будет обработана на любой платформе Windows. <a href="topic_buildnumnotes.htm">Номера с</a><a href="topic_buildnumnotes.htm">борки и/или пакета обновления</a> могут содержаться в значении. Перезаписывает любое значение директивы <tt>OnlyBelowVersion</tt> секции <tt>[Setup]</tt>.</p>
+    <p>Запись, для которой не указан <tt>OnlyBelowVersion</tt>, обрабатывается всегда, если только другой параметр этого не запретит.</p>
+    <div class="examplebox">
+    <div class="exampleheader">Например:</div>
+    <pre class="nomargin">OnlyBelowVersion: 6.0</pre>
+    </div>
+  </dd>
+</dl>
+</div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>[Setup]: AppendDefaultDirName</title>
+<meta content="text/html; charset=windows-1251" http-equiv="Content-Type">
+<meta content="IE=8" http-equiv="X-UA-Compatible">
+<link rel="stylesheet" type="text/css" href="styles.css">
+<script type="text/javascript" src="topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">[Setup]: AppendDefaultDirName</h1>
+<div class="topicbody">
+  <table class="setuphdr">
+    <tbody>
+      <tr>
+        <td class="setuphdrl"><p>Возможные значения:</p></td>
+        <td class="setuphdrr"><div class="margined"><a href="topic_yesnonotes.htm"><tt>yes</tt> или <tt>no</tt></a></div></td>
+      </tr>
+      <tr>
+        <td class="setuphdrl"><p>Значение по умолчанию:</p></td>
+        <td class="setuphdrr"><div class="margined"><tt>yes</tt></div></td>
+      </tr>
+    </tbody>
+  </table>
+  <div><b>Описание:</b></div>
+  <p>По умолчанию при указании пути на странице <i>Выбор папки назначения</i> с помощью кнопки Обзор... (Browse...) инсталлятор автоматически добавляет в конце имя папки, указанной в директиве <tt>DefaultDirName</tt>, в которую будет установлена программа. Например, если <tt>DefaultDirName</tt>=<tt>{autopf}\My Program</tt> и пользователь выбрал в обзоре диск "Z:\", то программа установится в "Z:\My Program".</p>
+  <p>Если значение директивы <tt>no</tt>, то папка с указанным DefaultDirName именем в конечном каталоге создаваться не будет. На странице выбора появится кнопка "Создать папку" (<i>Make New Folder</i>).</p>
+</div>
+</body>
+</html>

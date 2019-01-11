@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Unicode Inno Setup</title>
+<!--[if IE 6]><style type="text/css">html{overflow-y:scroll}</style><![endif]-->
+<link rel="stylesheet" type="text/css" href="styles.css" />
+<script type="text/javascript" src="topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Unicode Inno Setup</h1>
+<div class="topicbody">
+  <p>Перед Inno Setup 6, существовали две версии Inno Setup: Не Unicode Inno Setup и Unicode Inno Setup. Начиная с Inno Setup 6 доступна только одна версия: Unicode Inno Setup.</p>
+  <p>Главными особенностями Unicode Inno Setup являются ее возможность показать любой язык на любой системе независимо от системной кодовой страницы, и возможность работать с именами файлов в кодировке Unicode. Можно считать Unicode Inno Setup как новый стандарт Inno Setup и не Unicode Inno Setup, как старую специальную версию для тех,  кто хочет иметь самый маленький возможный размер инсталлятора.</p>
+  <p>Если Вы не помните, какую версию Вы устанавливали, то запустите IDE Inno Setup и посмотрите заголовок окна. Если Вы там увидите надпись (a), то у Вас не Unicode Inno Setup, а если (u), тогда у Вас запущен Unicode Inno Setup.</p>
+  <p>По большей части эти две версии идентичны, и любые различия между ними отмечены в справочном файле. Однако, следующий краткий обзор перечисляет их главные различия:</p>
+  <ul>
+    <li>Unicode Inno Setup использует ANSI языковые файлы .isl, поэтому и нет нужды преобразовать их в Unicode кодировку, так как это делается автоматически во время компиляции, с помощью опции <tt>LanguageCodePage</tt>. Однако, Вы должны преобразовать сообщения [Messages] и [CustomMessages] в Ваших .iss файлах в Unicode кодировку, если язык использует специальное значение опции <tt>LanguageCodePage</tt>.</li>
+    <li>Текстовые файлы<tt> LicenseFile</tt>, <tt>InfoBeforeFile</tt>, или <tt>InfoAfterFile</tt> автоматически преобразуются в ANSI, так что не нужно это делать вручную.</li>
+    <li>Директива <tt>ShowUndisplayableLanguages</tt> секции [Setup] игнорируется Unicode Inno Setup.</li>
+    <li>Unicode Inno Setup компилирован в Delphi 2009 вместо Delphi 2 и 3, что приводит увеличению размера программы. Исходный код, однако, является все еще совместимым с Delphi 2 и 3, и не Unicode версия останется доступной.</li>
+    <li>Существующие инсталляторы Ваших программ, сделанных не Unicode версией, могут быть свободно обновлены инсталляторами Unicode версии, и наоборот.</li>
+    <li>Примечания к Unicode Pascal Scripting:
+      <ul>
+        <li>Компилятор Unicode рассматривает тип 'String' как строку Unicode, и 'Char' как символ Unicode. Тип 'AnsiString' не изменился и все еще является строкой ANSI. Тип 'PChar' был переименован в 'PAnsiChar'.</li>
+        <li>Компилятор Unicode более строго анализирует код, так что теперь отсутствующая точка с запятой (;) считается ошибкой.</li>
+        <li>Изменены прототипы некоторых функций: некоторые параметры функций <tt>CreateOutputMsgMemoPage</tt>, <tt>RegQueryBinaryValue</tt>, <tt>RegWriteBinaryValue</tt>, <tt>OemToCharBuff</tt>, <tt>CharToOemBuff</tt>, <tt>LoadStringFromfile</tt>, <tt>SaveStringToFile</tt>, и <tt>GetMD5OfString</tt> теперь имеют тип AnsiString вместо String.</li>
+        <li>Добавлены новые функции <tt>SaveStringsToUTF8File</tt> и <tt>GetMD5OfUnicodeString</tt>.</li>
+        <li>Если Вы хотите скомпилировать скрипт, который импортирует вызовы ANSI версии Windows API функций, Unicode версией компилятора, или замените эти функции их Unicode ('W') версиями, или измените параметры 'String' или 'PChar' в 'AnsiString'. Подход с изменением типа параметров сделает код Вашей секции [Code] совместимым и с Unicode и с не Unicode версией.</li>
+		<li>Добавлен новый класс <tt>TStringStream</tt>.</li>
+		<li>Добавлен новый тип 'Int64'. Также добавлены новые встроенные функции <tt>StrToInt64</tt>, <tt>StrToInt64Def</tt> и <tt>GetSpaceOnDisk64</tt>.</li>
+      </ul>
+    </li>
+    <li>Unicode Inno Setup поддерживает .iss файлы в кодировке UTF-8 (но не UTF-16).</li>
+    <li>Unicode Inno Setup поддерживает кодировки UTF-8 и UTF-16LE текстовых файлов .txt для <tt>LicenseFile</tt>, <tt>InfoBeforeFile</tt> и <tt>InfoAfterFile</tt>.</li>
+  </ul>
+  <p>Примечание: Unicode Inno Setup может создать только Unicode инсталляторы. Если хотите создать не Unicode инсталлятор, нужно установить не Unicode версию Inno Setup.&nbsp;Если вы хотите создать и Unicode, и не Unicode версии инсталлятора, вам придется установить обе версии Inno Setup, только в разные папки.</p>
+</div>
+</body>
+</html>

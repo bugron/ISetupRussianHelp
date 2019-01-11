@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Pascal Scripting: DLLGetLastError</title>
+<link rel="stylesheet" type="text/css" href="styles.css" />
+<script type="text/javascript" src="topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Pascal Scripting: DLLGetLastError</h1>
+<div class="topicbody">
+  <div><b>Прототип:</b></div>
+  <p><tt>function DLLGetLastError(): Longint;</tt></p>
+  <div><b>Описание:</b></div>
+  <p>Возвращает значение кода последней ошибки, возникшей сразу после вашего последнего вызова DLL функции. Полезна после вызова функции Windows API (если функция устанавливает код последней ошибки).</p>
+  <div><b>Комментарии:</b></div>
+  <p>Рекомендуется использовать эту функцию вместо прямого вызова WinAPI функции GetLastError, так как инсталлятор/деинсталлятор делает API вызовы самостоятельно, так что последний код ошибки может быть перезаписан в любое время.</p>
+  <p>Ссылка на <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms681381.aspx" target="_blank" title="http://msdn.microsoft.com/en-us/library/windows/desktop/ms681381.aspx">коды системных ошибок в MSDN</a><img src="images/extlink.gif" alt=" [external link]" />.</p>
+  <div><b>Например:</b></div>
+  <pre>function MessageBox(hWnd: Integer; lpText, lpCaption: AnsiString; uType: Cardinal): Integer; external 'MessageBoxA@user32.dll stdcall';
+
+...
+
+begin
+  if MessageBox(-1, '', '', -1) = 0 then
+    MsgBox(SysErrorMessage(DLLGetLastError), mbError, mb_Ok);</pre>
+</div>
+</body>
+</html>

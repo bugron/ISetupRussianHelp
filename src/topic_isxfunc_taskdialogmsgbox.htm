@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Pascal Scripting: TaskDialogMsgBox</title>
+<!--[if IE 6]><style type="text/css">html{overflow-y:scroll}</style><![endif]-->
+<link rel="stylesheet" type="text/css" href="styles.css" />
+<script type="text/javascript" src="topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Pascal Scripting: TaskDialogMsgBox</h1>
+<div class="topicbody">
+<div><b>Прототип:</b></div>
+<p><tt>function TaskDialogMsgBox(const Instruction, TaskDialogText, MsgBoxText: String; const Typ: TMsgBoxType; const Buttons: Cardinal; const ButtonLabels: TArrayOfString; const ShieldButton: Integer; const ForceMsgBox: Boolean): Integer;</tt></p>
+<div><b>Описание:</b></div>
+<p>Показывает диалоговое окно задач, если система это поддерживает и если <tt>ForceMsgBox</tt>=<tt>False</tt>. Иначе, показывает обычное окно сообщения.</p>
+<p>При диалоговом окне задач:<br/>
+<tt>Instruction</tt> указывает инструкцию.<br/>
+<tt>TaskDialogText</tt> указывает сообщение.<br/>
+<tt>Typ</tt> указывает какую иконку показать в диалоговом окне задач. При значении <tt>mbConfirmation</tt> иконка не будет отображена.<br/>
+<tt>Buttons</tt> указывает какие кнопки включить в диалоговом окне задач.<br/>
+<tt>ButtonLabels</tt> указывает, какие метки пользовательских кнопок использовать. При пустом массиве будут использоваться системные метки кнопок по умолчанию. Если метка состоит из двух строк, разделенных новой строкой, то первая строка указывает метку кнопки, а вторая строка - примечание кнопки.<br/>
+<tt>ShieldButton</tt> определяет на какой кнопке отображать значок щита. При значении 0 значок щита отображаться не будет.</p>
+<p>При обычном окне сообщений:<br/>
+<tt>Instruction</tt> указывает заголовок окна. Если задана пустая строка, будет отображаться заголовок по умолчанию.<br/>
+<tt>MsgBoxText</tt> указывает сообщение окна.<br/>
+<tt>Typ</tt> указывает какую иконку показать в окне сообщений.<br/>
+<tt>Buttons</tt> указывает какие кнопки включить в окне сообщений.</p>
+<p>Возвращает ID* константу, указывающую кнопку, по которой щелкнул пользователь, или 0, если функция не отработала успешно (что не должно происходить, если не указан неверный параметр или не исчерпаны системные ресурсы.</p><div><b>Примечания:</b></div>
+<p>TMsgBoxType определен как:</p>
+<p><tt>TMsgBoxType = (mbInformation, mbConfirmation, mbError, mbCriticalError);</tt></p>
+<p>Поддерживаемые значения <tt>Buttons</tt>:</p>
+<p><tt>MB_OK, MB_OKCANCEL, MB_YESNOCANCEL, MB_YESNO, MB_RETRYCANCEL, MB_ABORTRETRYIGNORE</tt></p>
+<p>При значении <tt>MB_ABORTRETRYIGNORE</tt> параметр <tt>ButtonLabels</tt> не может быть пустым массивом и метки кнопок должны быть указаны в следующем специальном порядке: Повторить, Игнорировать, Прервать.</p>
+<p>Поддерживаемые значения <tt>ShieldButton</tt> и возможные возвращаемые значения:</p>
+<p><tt>IDOK, IDCANCEL, IDRETRY, IDYES, IDNO, IDABORT, IDIGNORE</tt></p><div><b>Пример:</b></div>
+<pre>begin
+  case TaskDialogMsgBox('Choose A or B',
+                        'You can choose A or B.', 'You can choose A or B'#13#10#13#10'Do you choose A?',   
+                        mbInformation,
+                        MB_YESNOCANCEL, ['I choose A'#13#10'A will be chosen.', 'I choose B'#13#10'B will be chosen.'],
+                        IDYES, False) of
+    IDYES: MsgBox('You chose A.', mbInformation, MB_OK);
+    IDNO: MsgBox('You chose B.', mbInformation, MB_OK);
+  end;
+end;</pre><div><b>См. также:</b></div>
+<p><a href="topic_isxfunc_suppressibletaskdialogmsgbox.htm">SuppressibleTaskDialogMsgBox</a>
+<br/>
+<a href="topic_isxfunc_msgbox.htm">MsgBox</a>
+</p></div>
+</body>
+</html>

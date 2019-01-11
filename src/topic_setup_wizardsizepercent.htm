@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>[Setup]: WizardSizePercent</title>
+<!--[if IE 6]><style type="text/css">html{overflow-y:scroll}</style><![endif]-->
+<link rel="stylesheet" type="text/css" href="styles.css" />
+<script type="text/javascript" src="topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">[Setup]: WizardSizePercent</h1>
+<div class="topicbody">
+<table class="setuphdr">
+<tr><td class="setuphdrl"><p>Формат:</p></td><td class="setuphdrr"><div class="margined"><tt><i>a</i>,<i>b</i></tt>, где <tt><i>a</i></tt> горизонтальный размер, а <tt><i>b</i></tt> вертикальный размер. </div></td></tr>
+<tr><td class="setuphdrl"><p>Возможные значения:</p></td><td class="setuphdrr"><div class="margined">кажное значение: <tt>100</tt> или более </div></td></tr>
+<tr><td class="setuphdrl"><p>Значение по умолчанию:</p></td><td class="setuphdrr"><div class="margined"><tt>120,120</tt>, если <a href="topic_setup_wizardstyle.htm">WizardStyle</a>=<tt>modern</tt>, иначе <tt>100,100</tt></div></td></tr>
+</table>
+<div><b>Описание:</b></div>
+<p>Позволяет увеличить размер по умолчанию для всех окон инсталлятора/деинсталлятора без увеличения размера шрифта. Например, 120 означает увеличение размера окно на 20%.</p>
+<p>Если вы укажете только один размер, то горизонтальный и вертикальный размеры оба примут это значение.</p>
+<div class="examplebox">
+<div class="exampleheader">Пример:</div><pre class="nomargin">WizardSizePercent=120</pre></div>
+<p>Чтобы добавить полную поддержку <tt>WizardResizable</tt> и <tt>WizardSizePercent</tt> для Ваших пользовательских элементов управления, пользовательских страниц инсталлятора, используйте свойства <tt>Anchors</tt> и <tt>KeepSizeY</tt>. Смотрите скрипт <i>CodeClasses.iss</i> для примеров.</p>
+<p>Примечание: некоторые окна инсталлятора (например, диалог <i>Выберите язык установки</i>) увеличатся только в размере по горизонтали.</p>
+<p><b>См. также:</b><br/>
+<a href="topic_setup_wizardresizable.htm">WizardResizable</a><br/>
+<a href="topic_langoptionssection.htm#DialogFontSize">DialogFontSize</a></p>
+</div>
+</body>
+</html>

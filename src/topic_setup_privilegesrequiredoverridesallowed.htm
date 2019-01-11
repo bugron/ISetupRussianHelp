@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>[Setup]: PrivilegesRequiredOverridesAllowed</title>
+<!--[if IE 6]><style type="text/css">html{overflow-y:scroll}</style><![endif]-->
+<link rel="stylesheet" type="text/css" href="styles.css" />
+<script type="text/javascript" src="topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">[Setup]: PrivilegesRequiredOverridesAllowed</h1>
+<div class="topicbody">
+<table class="setuphdr">
+<tr><td class="setuphdrl"><p>Возможные значения:</p></td><td class="setuphdrr"><div class="margined">Одно или несколько из следующих, разделенных пробелами: <br/><tt>commandline</tt> <br/><tt>dialog</tt> </div></td></tr>
+<tr><td class="setuphdrl"><p>Значение по умолчанию:</p></td><td class="setuphdrr"><div class="margined"><i>(пустое)</i> </div></td></tr>
+</table>
+<div><b>Описание:</b></div>
+<p>Позволяет перезаписать значение по умолчанию директивы <a href="topic_setup_privilegesrequired.htm">PrivilegesRequired</a>.</p>
+<p>При значении <tt>commandline</tt> инсталлятор будет поддерживать два дополнительных параметров командной строки, позволяющих перезаписать значение по умолчанию директивы <a href="topic_setup_privilegesrequired.htm">PrivilegesRequired</a>: /ALLUSERS и /CURRENTUSER. См. <a href="topic_setupcmdline.htm#ALLUSERS">Параметры командной строки инсталлятора</a> для деталей.</p>
+<p>При значении <tt>dialog</tt> инсталлятор попросит пользователя выбрать режим установки на основе значения <a href="topic_setup_privilegesrequired.htm">PrivilegesRequired</a>, используя подавляемое диалоговое окно. При значении <tt>dialog</tt> также автоматически применяется поведение значения <tt>commandline</tt>, и когда указывается один из параметров командной строки (/ALLUSERS или /CURRENTUSER), инсталлятор не будет спрашивать пользователя.</p>
+<p><b>См. также:</b><br/>
+<a href="topic_setup_usepreviousprivileges.htm">UsePreviousPrivileges</a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Same Application</title>
+<!--[if IE 6]><style type="text/css">html{overflow-y:scroll}</style><![endif]-->
+<link rel="stylesheet" type="text/css" href="styles.css" />
+<script type="text/javascript" src="topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Same Application</h1>
+<div class="topicbody">
+  <p>&quot;То же самое приложение&quot; относится к двум отдельным установкам, которые совместно используют один <a href="topic_setup_appid.htm">AppId</a> (если <tt>AppId</tt> не задан, используется <a href="topic_setup_appname.htm">AppName</a>), и тот же самый <a href="topic_admininstallmode.htm">режим административной или неадминистративной установки</a>, и тот же самый <a href="topic_32vs64bitinstalls.htm">32-разрядный или 64-разрядный режим установки</a>*.</p>
+  <p>Две такие установки обычно приведут только одной реальной установке файлов.</p>
+  <p>(* = Это требование не распространяется на какую-либо информацию о приложении, полученную из реестра в режиме неадминистративной установки, поскольку ключ HKEY_CURRENT_USER является общим для 32-разрядного и 64-разрядного реестра. Однако он всегда применяется к журналу удаления, поскольку 32-разрядные и 64-разрядные журналы удаления хранятся отдельно, даже в режиме неадминистративной установки. На практике это означает, что вы по возможности не должны создавать 32-битные и 64-битные инсталляторы (устанавливающие в неадминистративном режиме), у которых одинаковые значения <tt>AppId</tt>, <tt>DefaultDirName</tt>, <tt>DefaultGroupName</tt>, и <tt>UninstallDisplayName</tt>.)</p>
+  <p><b>See also:</b><br/>
+<a href="topic_sidebyside.htm">Параллельная установка</a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Pascal Scripting: UnloadDLL</title>
+<link rel="stylesheet" type="text/css" href="styles.css" />
+<script type="text/javascript" src="topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Pascal Scripting: UnloadDLL</h1>
+<div class="topicbody">
+  <div><b>Прототип:</b></div>
+  <p><tt>procedure UnloadDLL(Filename: String);</tt></p>
+  <div><b>Описание:</b></div>
+  <p>Выгружает заданный DLL, который был загружен из секции [Code], используя ключевое слово &quot;external&quot;. Это может быть полезно, если вы хотите удалить DLL.<br />
+    Имя файла и путь должны точно совпадать. Вы должны развернуть любые константы в имени файла самостоятельно прежде, чем передать их UnloadDLL.<br />
+    If the function import used a &quot;files:&quot; prefix, prepend the value of the <tt>{tmp}</tt> constant to the filename (e.g. <tt>ExpandConstant('{tmp}\filename.dll')</tt>).</p>
+  <div><b>Комментарии:</b></div>
+  <p>Не рекомендуется попробовать, но если Вы попытаетесь вызвать функцию в DLL, который уже выгружен, то DLL будет перезагружен.</p>
+  <div><b>Например:</b></div>
+  <pre>procedure DllFunc; external 'DllFunc@{app}\MyDll.dll stdcall uninstallonly';<br /><br />...<br /><br />begin<br />  // Call DllFunc<br />  DllFunc;<br /><br />  // Unload the DLL<br />  UnloadDLL(ExpandConstant('{app}\MyDll.dll'));<br /><br />  // Now we can delete the DLL<br />  DeleteFile(ExpandConstant('{app}\MyDll.dll'));<br />end;</pre>
+</div>
+</body>
+</html>

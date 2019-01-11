@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Pascal Scripting: ExtractTemporaryFiles</title>
+<!--[if IE 6]><style type="text/css">html{overflow-y:scroll}</style><![endif]-->
+<link rel="stylesheet" type="text/css" href="styles.css" />
+<script type="text/javascript" src="topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Pascal Scripting: ExtractTemporaryFiles</h1>
+<div class="topicbody">
+  <div><b>Прототип:</b></div>
+  <p><tt>function ExtractTemporaryFiles(const Pattern: String): Integer;</tt></p>
+  <div><b>Описание:</b></div>
+  <p>Распаковывает файлы секции [Files], которые соответствуют маске Pattern, во временную папку. Возвращает количество распакованных файлов. Чтобы найти расположение временной папки, используйте <tt>ExpandConstant('{tmp}')</tt>.</p>
+  <p>Распакованные файлы автоматически удаляются при закрытии инсталлятора.</p>
+  <p>Будет вызвано исключение, если файл не извлекается успешно, если файл не найден, или если файл существует, но не может выполнен из-за параметров MinVersion и/или OnlyBelowVersion.</p>
+  <div><b>Комментарии:</b></div>
+  <p>Используйте <tt>Flags: dontcopy</tt> в секции [Files], если этот файл не нужно установить.</p>
+  <p>Если непрерывное сжатие включено, то добавьте такие временные файлы в начале секции [Files]. Для того чтобы извлечь произвольный файл из непрерывно сжатого инсталлятора, он сначала должен разжать все предыдущие файлы (во временной буфер в памяти). Это может привести к существенным задержкам, если ряд других файлов перечислены выше указанного файла в секции [Files].</p>
+  <div><b>Например:</b></div>
+  <pre>[Files]
+Source: "Readme.txt"; Flags: dontcopy
+Source: "MyProg.exe"; DestDir: "{app}"
+Source: "MyProg.chm"; DestDir: "{app}"
+
+[Code]
+function InitializeSetup: Boolean;
+var
+  S: AnsiString;
+  ResultCode: Integer;
+begin
+  // Show the contents of Readme.txt (non Unicode) in a message box
+  ExtractTemporaryFiles('{tmp}\Readme.txt');
+  if LoadStringFromFile(ExpandConstant('{tmp}\Readme.txt'), S) then
+  begin
+    MsgBox(S, mbInformation, MB_OK);
+  end;
+
+  // Extract all MyProg files and launch it. Note how {app} is left unexpanded.
+  ExtractTemporaryFiles('{app}\MyProg.*');
+  ExecAsOriginalUser(ExpandConstant('{tmp}\')+'{app}\MyProg.exe', '', '',
+    SW_SHOWNORMAL, ewWaitUntilTerminated, ResultCode);
+
+  Result := True;
+end;</pre>
+  <div><b>См. также:</b></div>
+  <p><a href="topic_isxfunc_extracttemporaryfile.htm">ExtractTemporaryFile</a> </p>
+</div>
+</body>
+</html>

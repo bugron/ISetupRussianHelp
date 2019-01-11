@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Pascal Scripting: IsWin64</title>
+<link rel="stylesheet" type="text/css" href="styles.css" />
+<script type="text/javascript" src="topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Pascal Scripting: IsWin64</h1>
+<div class="topicbody">
+  <div><b>Прототип:</b></div>
+  <p><tt>function IsWin64: Boolean;</tt></p>
+  <div><b>Описание:</b></div>
+  <p>Возвращает True, если система является 64-разрядной версией ОС Windows. При значении False, Вы не можете использовать ни один из 64-разрядных функций Inno Setup.</p>
+  <p>Не используйте эту функцию для обнаружения <a href="topic_32vs64bitinstalls.htm">64-разрядного режима инсталляции</a>, для этого используйте <a href="topic_isxfunc_is64bitinstallmode.htm">Is64BitInstallMode</a>.</p>
+  <div><b>Комментарии:</b></div>
+  <p>Функция всегда возвратит True на 64-разрядных версиях Windows.</p>
+  <p>Чтобы функция возвращала True на Itanium версиях Windows, требуется, чтобы ОС была Windows Server 2003 SP1 или более поздней версии. Старые версии не имеют требуемых Inno Setup API функций (например, RegDeleteKeyEx).</p>
+  <div><b>Например:</b></div>
+  <pre>begin
+    // Check IsWin64 before using a 64-bit-only feature to
+    // avoid an exception when running on 32-bit Windows.
+    if IsWin64 then
+    begin
+      MsgBox('64-bit program files reside in: ' +
+        ExpandConstant('{autopf64}'), mbInformation, MB_OK);
+    end;
+  end;</pre>
+  <div><b>См. также:</b></div>
+  <p><a href="topic_isxfunc_is64bitinstallmode.htm">Is64BitInstallMode</a> <br />
+    <a href="topic_isxfunc_processorarchitecture.htm">ProcessorArchitecture</a></p>
+</div>
+</body>
+</html>

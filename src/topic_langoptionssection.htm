@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Секция [LangOptions]</title>
+<!--[if IE 6]><style type="text/css">html{overflow-y:scroll}</style><![endif]-->
+<link rel="stylesheet" type="text/css" href="styles.css" />
+<script type="text/javascript" src="topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Секция [LangOptions]</h1>
+<div class="topicbody">
+  <p>Секция <a name="LangOptions" id="LangOptions">[LangOptions]</a> используется для задания специальных опций, таких как шрифты, используемые в инсталляторе и деинсталляторе. Вы можете не создавать эту секцию в своих скриптах, так как по умолчанию все требуемые параметры данной секции берутся из файла <i>Default.isl</i>, который расположен в папке компилятора (или там, куда указывают параметры секции [Languages]).</p>
+  <p>Пример секции <tt>[LangOptions]</tt> (значения взяты по умолчанию):</p>
+  <pre class="indent examplebox">[LangOptions]<br />LanguageName=English<br />LanguageID=$0409<br />LanguageCodePage=0<br />DialogFontName=<br />DialogFontSize=8<br />WelcomeFontName=Verdana<br />WelcomeFontSize=12<br />TitleFontName=Arial<br />TitleFontSize=29<br />CopyrightFontName=Arial<br />CopyrightFontSize=8<br />RightToLeft=no</pre>
+  <p><b><a name="LanguageName" id="LanguageName">LanguageName</a></b> - родное имя языка. Отображается в списке возможных языков в диалоге <i>Выбор языка</i> при многоязыковой установке. Зарезервирован как Unicode строка. Для вставки Unicode символов, используйте &quot;&lt;nnnn&gt;&quot;, где &quot;nnnn&quot; - четырехзначный шестнадцатеричный код Unicode символа. Код Unicode символа можно найти в Character Map, включенный в Windows 2000 и позже. </p>
+  <p><b><a name="LanguageID" id="LanguageID">LanguageID</a></b> - цифровой идентификатор языка. Обратитесь к <a href="http://msdn.microsoft.com/en-us/library/dd318693.aspx" target="_blank" title="http://msdn.microsoft.com/en-us/library/dd318693.aspx">списку допустимых идентификаторов языка на MSDN</a><img src="images/extlink.gif" alt=" [external link]" />, чтобы ознакомиться с возможными идентификаторами языков. Они, вместе с <tt>LanguageCodePage</tt>, используются для автоматического определения большинства языков, используемых по умолчанию, так что убедитесь, что идентификаторы заданы правильно. Всегда должны начинаться со знака &quot;$&quot;, поскольку идентификаторы языка шестнадцатеричные числа. Если в настоящее время языковой идентификатор не существует для нужного языка, установите нулевое значение.</p>
+  <p><b><a name="LanguageCodePage">LanguageCodePage</a></b> определяет &quot;кодовую страницу&quot; (набор символов), необходимый для преобразования компилятором текста языкового .isl файла в Unicode кодировку. Обратите внимание, что текст в .iss файле (например, текст секции [CustomMessages]) не преобразовывается и изначально должен быть в Unicode кодировке.<br />
+    Если для языка не существует кодовой страницы, установите <tt>LanguageCodePage</tt> в значение <tt>0</tt>, используйте специальное расширение .islu для языкового файла и сохраните этот файл в кодировке Unicode. Также, <tt>LanguageName</tt> в .islu файле не нуждается в использовании специальной кодировки "&lt;nnnn&gt;", как было указано выше.<br/>
+    Если <tt>LanguageCodePage=0</tt>, но  расширение .islu не используется, для кодировки текста языкового .isl файла в Unicode будет использована системная кодовая страница.</p>
+  <p><b><a name="DialogFontName" id="DialogFontName">DialogFontName</a></b> и <b><a name="DialogFontSize" id="DialogFontSize">DialogFontSize</a></b> определяют название и размер шрифта, используемого в диалогах. Если параметр <tt>DialogFontName</tt> отсутствует, тогда используется значение директивы <a href="topic_setup_defaultdialogfontname.htm">DefaultDialogFontName</a> секции [Setup] для задания имени шрифта. Если шрифт с указанным названием не существует или является пустой строкой, он будет заменен на <i>Microsoft Sans Serif</i> или <i>MS Sans Serif</i> размером 8.</p>
+  <p><b><a name="WelcomeFontName" id="WelcomeFontName">WelcomeFontName</a></b> и <b><a name="WelcomeFontSize" id="WelcomeFontSize">WelcomeFontSize</a></b> определяют название и размер шрифта, используемого на страницах <i>Приветствие</i> и <i>Установка завершена</i>. Если шрифт с указанным названием не существует или является пустой строкой, он будет заменен на <i>Microsoft Sans Serif</i> или <i>MS Sans Serif</i> размером 12.</p>
+  <p><b><a name="TitleFontName" id="TitleFontName">TitleFontName</a></b> и <b><a name="TitleFontSize" id="TitleFontSize">TitleFontSize</a></b> определяют название и размер шрифта для отображения названия приложения в фоновом окне (только если <tt>WindowVisible=yes</tt>). Если шрифт с указанным названием не существует, он будет заменен на <i>Arial</i> размером 29. Если название шрифта является пустой строкой, он будет заменен на <i>Microsoft Sans Serif</i> или <i>MS Sans Serif</i> размером 29.</p>
+  <p><b><a name="CopyrightFontName" id="CopyrightFontName">CopyrightFontName</a></b> и <b><a name="CopyrightFontSize" id="CopyrightFontSize">CopyrightFontSize</a></b> определяют название и размер шрифта при отображении сообщения <tt>AppCopyright</tt> в фоновом окне (только если <tt>WindowVisible=yes</tt>). Если шрифт с указанным названием не существует, он будет заменен на <i>Arial</i> размером 8. Если название шрифта является пустой строкой, он будет заменен на <i>Microsoft Sans Serif</i> или <i>MS Sans Serif</i> размером 8.</p>
+  <p><b><a name="RightToLeft" id="RightToLeft">RightToLeft</a></b> определяет, пишется ли язык справа налево. Если установлено в <tt>yes</tt>, выравнивание текста будет инвертировано (с некоторыми намеренными исключениями), и средства управления будут расположены справа налево (&quot;зеркально отраженные&quot;).</p>
+  <p><br />
+    В случаях, когда в секции [Languages] указано несколько параметров, задание некоторой директивы (скажем <b>CopyrightFontName</b>) секции [LangOptions] в вашем скрипте (в противоположность .isl файлу) по умолчанию заменит ее для всех языков. Для применения параметра секции [LangOptions] только для одного языка, допишите префикс перед именем языка. Например:</p>
+  <pre class="indent examplebox">en.LanguageName=English</pre>
+</div>
+</body>
+</html>

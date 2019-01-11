@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Что такое Inno Setup?</title>
+<!--[if IE 6]><style type="text/css">html{overflow-y:scroll}</style><![endif]-->
+<link rel="stylesheet" type="text/css" href="styles.css" />
+<script type="text/javascript" src="topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Что такое Inno Setup?</h1>
+<div class="topicbody">
+  <p><b>Inno Setup версия 6.0.0-dev</b><br />
+    <b>Copyright © 1997-2019 Jordan Russell. All rights reserved.</b><br />
+    <b>Portions Copyright © 2000-2019 Martijn Laan. All rights reserved.</b><br />
+    <a title="http://www.jrsoftware.org/" href="http://www.jrsoftware.org/" target="_blank">Домашняя страница Inno Setup</a><img alt=" [external link]" src="images/extlink.gif" />
+    <br /><br />
+    <i><a title="Авторы перевода справки Inno Setup и Inno Setup Preprocessor" href="translation_authors.htm">Авторы перевода</a></i></p>
+  <p><br />
+    Inno Setup - <i>бесплатный</i> инсталлятор для программ Windows от Джордана Рассела и Мартайна Лаана. Первая версия этой программы появилась в 1997 году и сегодня Inno Setup превосходит многие коммерческие инсталляторы по стабильности и возможностям.</p>
+  <p><b><i>Основные достоинства:</i></b></p>
+  <ul>
+    <li>Поддержка всех версий Windows начиная с 2000, включая: Windows 10, Windows 8.1, Windows 8, Windows Server 2012, Windows 7, Windows Server 2008 R2, Windows Vista, Windows Server 2008, Windows XP, Windows Server 2003, и Windows 2000 (Пакеты обновлений не требуются.)</li>
+    <li>Обширная поддержка установки <a href="topic_32vs64bitinstalls.htm">64-разрядных</a> приложений на 64-разрядных версиях Windows. Поддерживаются архитектуры x64, ARM64 и Itanium. (Для работы 64-разрядного режима на архитектуре Itanium требуется пакет обновления 1 или поздние версии Windows Server 2003.)</li>
+    <li>Обширная поддержка административных и <a href="topic_admininstallmode.htm">неадминистративных</a> установок.</li>
+    <li>Возможность создания одного EXE файла-инсталлятора, что упрощает online-установку программы. Также поддерживается <a href="topic_setup_diskspanning.htm">разбивка на диски</a>.</li>
+    <li>Стандартный, изменяемый стиль интерфейса мастера Windows.</li>
+    <li>Задание <a href="topic_typessection.htm">типов установки</a>: Полная, Минимальная, Выборочная.</li>
+    <li>Создание <a href="topic_setup_uninstallable.htm">деинсталлятора</a>.</li>
+    <li>Установка <a href="topic_filessection.htm">файлов</a>.</li>
+    <li>Встроенное <a href="topic_setup_compression.htm">сжатие файлов</a> (bzip2 и 7-Zip, LZMA/LZMA2). Инсталлятор может сравнивать версии файлов, заменять загруженные в память файлы, вести подсчет общедоступных файлов, установить шрифты и т.д.</li>
+    <li>Создание <a href="topic_iconssection.htm">ярлыков</a> в любом месте, включая меню Пуск и Рабочий стол.</li>
+    <li>Работа с <a href="topic_registrysection.htm">реестром</a> и <a href="topic_inisection.htm">INI</a> файлами.</li>
+    <li><a href="topic_runsection.htm">Запуск</a> других программ перед установкой, в процессе и после установки.</li>
+    <li>Поддержка <a href="topic_languagessection.htm">многоязычных</a> инсталляторов, включая поддержку языков с письмом с права налево.</li>
+    <li>Возможность защиты инсталлятора <a href="topic_setup_password.htm">паролем</a> и <a href="topic_setup_encryption.htm">шифрованием</a>.</li>
+    <li>Создание инсталляторов и деинсталляторов <a href="topic_setup_signtool.htm">с цифровой подписью</a>, в том числе с возможностью двойной подписи (SHA1 и SHA256).</li>
+    <li><a href="topic_setupcmdline.htm#SILENT">Тихая установка</a> и <a href="topic_uninstcmdline.htm#SILENT">тихое удаление</a>.</li>
+    <li><a href="topic_unicode.htm">Создание инсталляторов с поддержкой Unicode</a></li>
+    <li>Встроенный компилятор <a href="topic_scriptintro.htm">языка Pascal</a> для усовершенствованной настройки параметров установки и деинсталляции.</li>
+    <li>Полный исходный код доступен на <a href="https://github.com/jrsoftware/issrc" target="_blank" title="https://github.com/jrsoftware/issrc">GitHub</a><img src="images/extlink.gif" alt=" [external link]" />.</li>
+    <li>Маленький отпечаток: всего 500 КБ дополнительно ко всем поддерживаемыми возможностям и около 300 КБ без поддержки Unicode.</li>
+    <li>Все возможности полностью задокументированы.</li>
+    <li>Используется для создания инсталляторов <a href="https://code.visualstudio.com" target="_blank" title="https://code.visualstudio.com">Microsoft Visual Studio Code</a><img src="images/extlink.gif" alt=" [external link]" /> и <a href="https://www.embarcadero.com/products/delphi" target="_blank" title="https://www.embarcadero.com/products/delphi">Embarcardero Delphi</a><img src="images/extlink.gif" alt=" [external link]" />.</li>
+  </ul>
+  <p><br />
+    <b><i>Inno Setup действительно полностью бесплатная программа, даже для коммерческого использования?</i></b></p>
+  <p>Да, Inno Setup может использоваться абсолютно бесплатно, даже для коммерческого применения.</p>
+  <p>(Примечание: не следует путать &quot;бесплатность&quot; и &quot;общедоступность&quot; программы. Inno Setup защищен авторским правом, и использование исходного кода самого Inno Setup <i>нежелательно</i>. Подробнее о правилах установки и использования можно прочитать в файле лицензии LICENSE.TXT.)</p>
+</div>
+</body>
+</html>

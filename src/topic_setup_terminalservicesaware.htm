@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<meta http-equiv="X-UA-Compatible" content="IE=8">
+<title>[Setup]: TerminalServicesAware</title>
+<!--[if IE 6]><style type="text/css">html{overflow-y:scroll}</style><![endif]-->
+<link rel="stylesheet" type="text/css" href="styles.css">
+<script type="text/javascript" src="topic.js"></script>
+</head>
+
+<body>
+<h1 class="topicheading">[Setup]: TerminalServicesAware</h1>
+<div class="topicbody">
+  <table class="setuphdr">
+    <tbody>
+      <tr>
+        <td class="setuphdrl"><p>Возможные значения:</p></td>
+        <td class="setuphdrr"><div class="margined"><a href="topic_yesnonotes.htm"><tt>yes</tt> или <tt>no</tt></a> </div></td>
+      </tr>
+      <tr>
+        <td class="setuphdrl"><p>Значение по умолчанию:</p></td>
+        <td class="setuphdrr"><div class="margined"><tt>yes</tt> </div></td>
+      </tr>
+    </tbody>
+  </table>
+  <div><b>Описание:</b></div>
+  <p>Определяет, должен ли компилятор установить флаг "Terminal Services
+    aware" в заголовках программ инсталлятора и деинсталлятора. Эта директива 
+    новая с версии 5.1.7 и её значение по умолчанию - <tt>yes</tt>; предыдущие версии не поддерживают этот флаг.</p>
+  <p>Что наиболее важно флаг "Terminal Services aware" влияет на поведение константы {win} (и на поддержку функции <a href="topic_isxfunc_getwindir.htm">GetWinDir</a>) на серверах с Терминальными Службами, установленными в режиме приложения.</p>
+  <p>Когда флаг установлен, {win} возвращает реальный системный каталог
+    Windows, обычно "C:\WINDOWS", так же, как в системах, в которых не
+    установлены Терминальные Службы.</p>
+  <p>Когда флаг не установлен, Windows запускает программу в режиме эмуляции, тогда {win} может возвращать или реальный каталог Windows, или специфичный для пользователя каталог Windows, такой как &quot;C:\Documents и Настройки \&lt;имя пользователя&gt;\WINDOWS&quot;. Который из них Вы получаете, зависит от имени EXE файла программы и того, как он был запущен. Если программу называют setup.exe или install.exe, или, если она запускается из <i>Установка/Удаление Программ</i>, тогда Windows поместит систему в &quot;режим установки&quot;, которой программа (и все другие программы, работающие в сеансе) ведёт себя так, как будто флаг &quot;Terminal Services
+    aware&quot;  был установлен. Otherwise, the program is treated as a legacy application and
+    is given a private Windows directory. (This is true even if the user
+    running the program has full administrative privileges.)</p>
+  <p>Because the behavior that results from setting <tt>TerminalServicesAware</tt> to <tt>no</tt> is inconsistent and hard to predict, it is recommended that you use the default setting of <tt>yes</tt>. Only use <tt>no</tt> as a temporary fix if you encounter troubles on systems with Terminal
+    Services after upgrading from a previous Inno Setup version.</p>
+  <p><i>Note:</i> This setting only has an effect on Windows 2000 and
+    later. On Windows NT 4.0 Terminal Server Edition, {win} will always
+    return a private Windows directory unless the program is launched from
+    the <i>Add/Remove Programs</i> Control Panel applet, which puts the system in "install mode".</p>
+</div>
+</body>
+</html>

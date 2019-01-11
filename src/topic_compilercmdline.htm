@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Командная строка компилятора</title>
+<!--[if IE 6]><style type="text/css">html{overflow-y:scroll}</style><![endif]-->
+<link rel="stylesheet" type="text/css" href="styles.css" />
+<script type="text/javascript" src="topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Командная строка компилятора</h1>
+<div class="topicbody">
+  <ul>
+    <li>
+      <p>Скрипты также могут быть скомпилированы из командной строки. Общий вид использования командной строки:</p>
+      <div class="indent">
+        <p>compil32 /cc <i>&lt;имя скрипта&gt;</i></p>
+        <div class="examplebox">
+          <div class="exampleheader">Например:</div>
+          compil32 /cc &quot;c:\isetup\samples\my script.iss&quot;</div>
+      </div>
+      <p>Как показано в приведенном выше примере, имена файлов, содержащие пробелы, должны заключаться в кавычки.</p>
+      <p>При запуске компилятора из командной строки отображение обычного хода выполнения или сообщений об ошибках остается тем же. Компилятор вернет код выхода: 0 при успешной компиляции; 1, если параметры командной строки были указаны неверно; 2, если компиляция завершилась неудачно.</p>
+    </li>
+    <li>
+      <p>Также компилировать скрипты можно в консольном режиме, ISCC.EXE.&nbsp;Общий вид использования:</p>
+      <div class="indent">
+        <p>iscc <i>[параметры]</i> <i>&lt;имя скрипта&gt;</i></p>
+        <p>Или прочитать из стандартного ввода:</p>
+        <p>iscc <i>[параметры]</i> -</p>
+        <div class="examplebox">
+          <div class="exampleheader">Например:</div>
+          iscc &quot;c:\isetup\samples\my script.iss&quot;</div>
+      </div>
+      <p>Как показано в приведенном выше примере, имена файлов, содержащие пробелы, должны заключаться в кавычки.</p>
+	  <p>Допустимые параметры: &quot;/O-&quot; отключает вывод (перезаписывается значение директивы <tt>Output</tt>), &quot;/O+&quot; включает вывод (перезаписывается значение директивы <tt>Output</tt>), &quot;/O&quot; - определяет выходной путь (перезаписывается значение директивы <tt>OutputDir</tt>), &quot;/F&quot; - определяет конечное название файла (перезаписывается значение директивы <tt>OutputBaseFilename</tt>), &quot;/S&quot; - определяет инструмент цифровой подписи, &quot;/Q[p]&quot; - определяет тихую компиляцию (Вы увидите только сообщения об ошибках, параметр &quot;p&quot; показывает прогресс), и &quot;/?&quot; - показать справку.</p>
+      <div class="indent">
+        <div class="examplebox">
+		<div class="exampleheader">Например:</div>
+			iscc /Qp /O"My Output" /F"MyProgram-1.0" /Sbyparam=$p "c:\isetup\samples\my script.iss"</div>
+		</div>
+      <p>ISCC вернет код выхода: 0 при успешной компиляции; 1, если параметры командной строки были указаны неверно или произошла ошибка; 2, если компиляция завершилась неудачно.</p>
+    </li>
+    <li>
+      <p>Мастер скрипта инсталлятора можно также запустить из командной строки.&nbsp;Использование командной строки имеет следующий вид:</p>
+      <div class="indent">
+        <p>compil32 /wizard <i>&lt;имя мастера&gt; &lt;имя скрипта&gt;</i></p>
+        <div class="examplebox">
+          <div class="exampleheader">Например:</div>
+          compil32 /wizard &quot;MyProg Script Wizard&quot; &quot;c:\temp.iss&quot;</div>
+      </div>
+      <p>Как показано в приведенном выше примере, имена файлов и мастеров, содержащие пробелы, должны заключаться в кавычки.</p>
+      <p>При запуске мастера из командной строки отображение сообщений об ошибках остается тем же. Мастер скрипта инсталлятора вернет следующий код выхода: 0, если нет никаких ошибок, в этом случае он сохранит скрипт под заданным именем; 1, если параметры командной строки были указаны неверно; 2, если полученный скрипт сохранить не удался. Если пользователь прервет работу мастера, будет возвращен код выхода 0 и скрипт не сохранится.</p>
+    </li>
+  </ul>
+</div>
+</body>
+</html>

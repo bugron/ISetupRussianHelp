@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>[Setup]: SlicesPerDisk</title>
+<meta content="text/html; charset=windows-1251" http-equiv="Content-Type">
+<meta content="IE=8" http-equiv="X-UA-Compatible">
+<link rel="stylesheet" type="text/css" href="styles.css">
+<script type="text/javascript" src="topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">[Setup]: SlicesPerDisk</h1>
+<div class="topicbody">
+  <table class="setuphdr">
+    <tbody>
+      <tr>
+        <td class="setuphdrl"><p>Возможные значения:</p></td>
+        <td class="setuphdrr"><div class="margined"><tt>1</tt> до <tt>26</tt></div></td>
+      </tr>
+      <tr>
+        <td class="setuphdrl"><p>Значение по умолчанию:</p></td>
+        <td class="setuphdrr"><div class="margined"><tt>1</tt></div></td>
+      </tr>
+    </tbody>
+  </table>
+  <div><b>Описание:</b></div>
+  <p>Число файлов SETUP-*.BIN, которые будут созданы. Если равно значению по умолчанию (1), файлы будут переименованы в SETUP-<i>x</i>.BIN, где <i>x</i> - номер диска. Если значение больше 1, файлы будут переименованы в SETUP-<i>xy</i>.BIN, где <i>x</i> - номер диска, <i>y</i> - номер файла на этом диске.</p>
+  <p>Изменять значение по умолчанию придется только в случае, когда размер диска превышает 2,100,000,000 байт - это больше, чем может позволить директива <tt>DiskSliceSize</tt> секции <tt>[Setup]</tt>. Если, например, диск имеет размер 3,000,000,000 байт, можно избежать лимита на размер диска в 2,100,000,000 байт, задав директиве <tt>SlicesPerDisk</tt> значение <tt>2</tt> и <tt>DiskSliceSize</tt> значение <tt>1500000000</tt> (или меньше, в зависимости от возможностей системы).</p>
+</div>
+</body>
+</html>

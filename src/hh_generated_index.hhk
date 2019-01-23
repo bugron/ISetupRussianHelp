@@ -765,6 +765,7 @@
 <li><object type="text/sitemap"><param name="Name" value="GetIniBool"><param name="Local" value="topic_isxfunc_getinibool.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="GetIniInt"><param name="Local" value="topic_isxfunc_getiniint.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="GetIniString"><param name="Local" value="topic_isxfunc_getinistring.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="GetMainForm"><param name="Local" value="topic_isxfunc_getmainform.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="GetMD5OfFile"><param name="Local" value="topic_isxfunc_getmd5offile.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="GetMD5OfString"><param name="Local" value="topic_isxfunc_getmd5ofstring.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="GetMD5OfUnicodeString"><param name="Local" value="topic_isxfunc_getmd5ofunicodestring.htm"></object>
@@ -783,6 +784,7 @@
 <li><object type="text/sitemap"><param name="Name" value="GetSysWow64Dir"><param name="Local" value="topic_isxfunc_getsyswow64dir.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="GetTempDir"><param name="Local" value="topic_isxfunc_gettempdir.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="GetUILanguage"><param name="Local" value="topic_isxfunc_getuilanguage.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="GetUninstallProgressForm"><param name="Local" value="topic_isxfunc_getuninstallprogressform.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="GetUserNameString"><param name="Local" value="topic_isxfunc_getusernamestring.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="GetVersionNumbers"><param name="Local" value="topic_isxfunc_getversionnumbers.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="GetVersionNumbersString"><param name="Local" value="topic_isxfunc_getversionnumbersstring.htm"></object>
@@ -790,6 +792,7 @@
 <li><object type="text/sitemap"><param name="Name" value="GetWindowsVersion"><param name="Local" value="topic_isxfunc_getwindowsversion.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="GetWindowsVersionEx"><param name="Local" value="topic_isxfunc_getwindowsversionex.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="GetWindowsVersionString"><param name="Local" value="topic_isxfunc_getwindowsversionstring.htm"></object>
+<li><object type="text/sitemap"><param name="Name" value="GetWizardForm"><param name="Local" value="topic_isxfunc_getwizardform.htm"></object>
 <li><object type="text/sitemap"><param name="Name" value="GroupDescription"><param name="Local" value="topic_taskssection.htm#GroupDescription"></object>
 <li><object type="text/sitemap"><param name="Name" value="hidewizard"><param name="Local" value="topic_runsection.htm#hidewizard"></object>
 <li><object type="text/sitemap"><param name="Name" value="HKA"><param name="Local" value="topic_registrysection.htm"></object>

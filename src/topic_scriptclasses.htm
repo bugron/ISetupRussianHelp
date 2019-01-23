@@ -11,7 +11,14 @@
 <body>
 <h1 class="topicheading">Pascal Scripting: Поддерживаемые классы</h1>
 <div class="topicbody">
-  <p>Ниже приведен список поддерживаемых классов, которые можно использовать в Pascal скрипте. Также доступны два объекта: <tt>MainForm</tt> of type <a href="#TMainForm">TMainForm</a>, <tt>WizardForm</tt> типа <a href="#TWizardForm">TWizardForm</a> и <tt>UninstallProgressForm</tt> типа <a href="#TUninstallProgressForm">TUninstallProgressForm</a>, и одна специальная константа: <tt>crHand</tt> типа <tt>TControl.Cursor</tt>. Обратите внимание: <tt>MainForm</tt> отображается только если <a href="topic_setup_windowvisible.htm">WindowVisible</a>=<tt>yes</tt>.</p>
+  <p>Ниже приведен список поддерживаемых классов, которые можно использовать в Pascal скрипте. Глобально доступны три дополнительных объекта: 
+  <ul>
+    <li><tt><a name="WizardForm">WizardForm</a></tt> типа <a href="#TWizardForm">TWizardForm</a>.</li>
+    <li><tt><a name="UninstallProgressForm">UninstallProgressForm</a></tt> типа <a href="#TUninstallProgressForm">TUninstallProgressForm</a>.</li>
+    <li><tt><a name="MainForm">MainForm</a></tt> типа <a href="#TMainForm">TMainForm</a> (отображается только когда <a href="topic_setup_windowvisible.htm">WindowVisible</a>=<tt>yes</tt>.)</li>
+  </ul>
+  <p>Ткаже доступна одна специальная константа: <tt>crHand</tt> типа <tt>TControl.Cursor</tt>.</p>
+
   <p>Также полезно воспользоваться библиотекой визуальных компонентов Delphi (Delphi Visual Component Library (VCL)). Справка от Borland для представленных ниже классов наиболее доступно описывает классы VCL, с которыми работает Inno Setup. Обратитесь к <a href="http://docs.embarcadero.com/products/rad_studio/" target="_blank" title="http://docs.embarcadero.com/products/rad_studio"/></a>http://docs.embarcadero.com/products/rad_studio/</a><img src="images/extlink.gif" alt=" [external link]" />.</p>
   <script language="javascript" type="text/javascript">includeSyntax('delphi');</script>
   <code id="delphi_Tc4NTM"><br />

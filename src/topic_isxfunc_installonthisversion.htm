@@ -19,15 +19,15 @@
   <p>До Inno Setup 5.5.0, данная функция возвращала <tt>irInstall,</tt> а не логическое значение True. <tt>irInstall</tt> в настоящее время определяется как псевдоним для True.</p>
   <div><b>Например:</b></div>
   <pre>// Old method, deprecated
-function IsWindowsXPOrLater: Boolean;
+function IsWindows8OrLater: Boolean;
 begin
-  Result := InstallOnThisVersion('0,5.1', '0,0');
+  Result := InstallOnThisVersion('0,6.2', '0,0');
 end;
 
 // New method
-function IsWindowsXPOrLater: Boolean;
+function IsWindows8OrLater: Boolean;
 begin
-  Result := (GetWindowsVersion &gt;= $05010000);
+  Result := (GetWindowsVersion &gt;= $06020000);
 end;</pre>
   <div><b>См. также:</b></div>
   <p><a href="topic_isxfunc_getwindowsversion.htm">GetWindowsVersion</a> <br/>

@@ -13,12 +13,12 @@
   <div><b>Прототип:</b></div>
   <p><tt>function GetWindowsVersion: Cardinal;</tt></p>
   <div><b>Описание:</b></div>
-  <p>Возвращает номер версии Windows в виде одного целого числа. Старшие 8 бит указывают основную версию; следующие 8 бит указывают номер версии, младшие 16 бит указывают номер сборки. Например, эта функция вернет $05000893 на Windows 2000, который является версией 5.0.2195.</p>
+  <p>Возвращает номер версии Windows в виде одного целого числа. Старшие 8 бит указывают основную версию; следующие 8 бит указывают номер версии, младшие 16 бит указывают номер сборки. Например, эта функция вернет $0A002800 на Windows 10 Version 1507, который является версией 10.0.10240.</p>
   <p>Чтобы извлечь только основной номер версии, используйте: &quot;GetWindowsVersion shr 24&quot;. Чтобы получить только младший номер версии, используйте: &quot;(GetWindowsVersion shr 16) and $FF&quot;. Чтобы получить только номер сборки, используйте: &quot;GetWindowsVersion and $FFFF&quot;.</p>
   <div><b><strong>Например</strong>:</b></div>
-  <pre>function IsWindowsXPOrLater: Boolean;
+  <pre>function IsWindows8OrLater: Boolean;
 begin
-  Result := (GetWindowsVersion &gt;= $05010000);
+  Result := (GetWindowsVersion &gt;= $06020000);
 end;</pre>
   <div><b>См. также:</b></div>
   <p><a href="topic_isxfunc_getwindowsversionex.htm">GetWindowsVersionEx</a> <br />

@@ -56,7 +56,10 @@
     <br/>
     <tt>function <a href="topic_isxfunc_registerextracloseapplicationsresource.htm">RegisterExtraCloseApplicationsResource</a>(const DisableFsRedir: Boolean; const AFilename: String): Boolean;</tt><br/>
     <tt>function <a href="topic_isxfunc_rmsessionstarted.htm">RmSessionStarted</a>: Boolean;</tt><br/>
-    <br />
+    <br/>
+    <tt>function <a href="topic_isxfunc_getwizardform.htm">GetWizardForm</a>: TWizardForm;</tt><br/>
+    <tt>function <a href="topic_isxfunc_getuninstallprogressform.htm">GetUninstallProgressForm</a>: TUninstallProgressForm;</tt><br/>
+    <tt>function <a href="topic_isxfunc_getmainform.htm">GetMainForm</a>: TMainForm;</tt><br/>
   </p>
   <p><b>Функции исключения:</b><br />
     <br />
@@ -331,8 +334,8 @@
     <br />
     <tt>function <a href="topic_isxfunc_msgbox.htm">MsgBox</a>(const Text: String; const Typ: TMsgBoxType; const Buttons: Integer): Integer;</tt><br />
     <tt>function <a href="topic_isxfunc_suppressiblemsgbox.htm">SuppressibleMsgBox</a>(const Text: String; const Typ: TMsgBoxType; const Buttons, Default: Integer): Integer;</tt><br />
-    <tt>function <a href="topic_isxfunc_taskdialogmsgbox.htm">TaskDialogMsgBox</a>(const Instruction, TaskDialogText, MsgBoxText: String; const Typ: TMsgBoxType; const Buttons: Cardinal; const ButtonLabels: TArrayOfString; const ShieldButton: Integer; const ForceMsgBox: Boolean): Integer;</tt><br/>
-    <tt>function <a href="topic_isxfunc_suppressibletaskdialogmsgbox.htm">SuppressibleTaskDialogMsgBox</a>(const Instruction, TaskDialogText, MsgBoxText: String; const Typ: TMsgBoxType; const Buttons: Cardinal; const ButtonLabels: TArrayOfString; const ShieldButton: Integer; const ForceMsgBox: Boolean; const Default: Integer): Integer;</tt><br/>
+    <tt>function <a href="topic_isxfunc_taskdialogmsgbox.htm">TaskDialogMsgBox</a>(const Instruction, Text: String; const Typ: TMsgBoxType; const Buttons: Cardinal; const ButtonLabels: TArrayOfString; const ShieldButton: Integer): Integer;</tt><br/>
+    <tt>function <a href="topic_isxfunc_suppressibletaskdialogmsgbox.htm">SuppressibleTaskDialogMsgBox</a>(const Instruction, Text: String; const Typ: TMsgBoxType; const Buttons: Cardinal; const ButtonLabels: TArrayOfString; const ShieldButton: Integer; const Default: Integer): Integer;</tt><br/>
     <tt>function <a href="topic_isxfunc_getopenfilename.htm">GetOpenFileName</a>(const Prompt: String; var FileName: String; const InitialDirectory, Filter, DefaultExtension: String): Boolean;</tt><br />
     <tt>function <a href="topic_isxfunc_getopenfilenamemulti.htm">GetOpenFileNameMulti</a>(const Prompt: String; var FileNameList: TStrings; const InitialDirectory, Filter, DefaultExtension: String): Boolean;</tt><br/>
     <tt>function <a href="topic_isxfunc_getsavefilename.htm">GetSaveFileName</a>(const Prompt: String; var FileName: String; const InitialDirectory, Filter, DefaultExtension: String): Boolean;</tt><br />

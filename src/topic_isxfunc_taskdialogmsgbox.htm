@@ -12,21 +12,15 @@
 <h1 class="topicheading">Pascal Scripting: TaskDialogMsgBox</h1>
 <div class="topicbody">
 <div><b>ѕрототип:</b></div>
-<p><tt>function TaskDialogMsgBox(const Instruction, TaskDialogText, MsgBoxText: String; const Typ: TMsgBoxType; const Buttons: Cardinal; const ButtonLabels: TArrayOfString; const ShieldButton: Integer; const ForceMsgBox: Boolean): Integer;</tt></p>
+<p><tt>function TaskDialogMsgBox(const Instruction, Text: String; const Typ: TMsgBoxType; const Buttons: Cardinal; const ButtonLabels: TArrayOfString; const ShieldButton: Integer): Integer;</tt></p>
 <div><b>ќписание:</b></div>
-<p>ѕоказывает диалоговое окно задач, если система это поддерживает и если <tt>ForceMsgBox</tt>=<tt>False</tt>. »наче, показывает обычное окно сообщени€.</p>
-<p>ѕри диалоговом окне задач:<br/>
+<p>ѕоказывает окно сообщени€ использу€ диалоговое окно задач:<br/>
 <tt>Instruction</tt> указывает инструкцию.<br/>
-<tt>TaskDialogText</tt> указывает сообщение.<br/>
+<tt>Text</tt> указывает сообщение.<br/>
 <tt>Typ</tt> указывает какую иконку показать в диалоговом окне задач. ѕри значении <tt>mbConfirmation</tt> иконка не будет отображена.<br/>
 <tt>Buttons</tt> указывает какие кнопки включить в диалоговом окне задач.<br/>
 <tt>ButtonLabels</tt> указывает, какие метки пользовательских кнопок использовать. ѕри пустом массиве будут использоватьс€ системные метки кнопок по умолчанию. ≈сли метка состоит из двух строк, разделенных новой строкой, то перва€ строка указывает метку кнопки, а втора€ строка - примечание кнопки.<br/>
 <tt>ShieldButton</tt> определ€ет на какой кнопке отображать значок щита. ѕри значении 0 значок щита отображатьс€ не будет.</p>
-<p>ѕри обычном окне сообщений:<br/>
-<tt>Instruction</tt> указывает заголовок окна. ≈сли задана пуста€ строка, будет отображатьс€ заголовок по умолчанию.<br/>
-<tt>MsgBoxText</tt> указывает сообщение окна.<br/>
-<tt>Typ</tt> указывает какую иконку показать в окне сообщений.<br/>
-<tt>Buttons</tt> указывает какие кнопки включить в окне сообщений.</p>
 <p>¬озвращает ID* константу, указывающую кнопку, по которой щелкнул пользователь, или 0, если функци€ не отработала успешно (что не должно происходить, если не указан неверный параметр или не исчерпаны системные ресурсы.</p><div><b>ѕримечани€:</b></div>
 <p>TMsgBoxType определен как:</p>
 <p><tt>TMsgBoxType = (mbInformation, mbConfirmation, mbError, mbCriticalError);</tt></p>
@@ -37,10 +31,10 @@
 <p><tt>IDOK, IDCANCEL, IDRETRY, IDYES, IDNO, IDABORT, IDIGNORE</tt></p><div><b>ѕример:</b></div>
 <pre>begin
   case TaskDialogMsgBox('Choose A or B',
-                        'You can choose A or B.', 'You can choose A or B'#13#10#13#10'Do you choose A?',   
+                        'You can choose A or B.',   
                         mbInformation,
-                        MB_YESNOCANCEL, ['I choose A'#13#10'A will be chosen.', 'I choose B'#13#10'B will be chosen.'],
-                        IDYES, False) of
+                        MB_YESNOCANCEL, ['I choose &amp;A'#13#10'A will be chosen.', 'I choose &amp;B'#13#10'B will be chosen.'],
+                        IDYES) of
     IDYES: MsgBox('You chose A.', mbInformation, MB_OK);
     IDNO: MsgBox('You chose B.', mbInformation, MB_OK);
   end;

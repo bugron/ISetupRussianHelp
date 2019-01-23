@@ -15,9 +15,6 @@
   <div><b>Описание:</b></div>
   <p>Возвращает True, если система является 64-разрядной версией ОС Windows. При значении False, Вы не можете использовать ни один из 64-разрядных функций Inno Setup.</p>
   <p>Не используйте эту функцию для обнаружения <a href="topic_32vs64bitinstalls.htm">64-разрядного режима инсталляции</a>, для этого используйте <a href="topic_isxfunc_is64bitinstallmode.htm">Is64BitInstallMode</a>.</p>
-  <div><b>Комментарии:</b></div>
-  <p>Функция всегда возвратит True на 64-разрядных версиях Windows.</p>
-  <p>Чтобы функция возвращала True на Itanium версиях Windows, требуется, чтобы ОС была Windows Server 2003 SP1 или более поздней версии. Старые версии не имеют требуемых Inno Setup API функций (например, RegDeleteKeyEx).</p>
   <div><b>Например:</b></div>
   <pre>begin
     // Check IsWin64 before using a 64-bit-only feature to

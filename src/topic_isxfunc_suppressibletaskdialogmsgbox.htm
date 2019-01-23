@@ -12,8 +12,8 @@
 <h1 class="topicheading">Pascal Scripting: SuppressibleTaskDialogMsgBox</h1>
 <div class="topicbody">
 <div><b>Прототип:</b></div>
-<p><tt>function SuppressibleTaskDialogMsgBox(const Instruction, TaskDialogText, MsgBoxText: String; const Typ: TMsgBoxType; const Buttons: Cardinal; const ButtonLabels: TArrayOfString; const ShieldButton: Integer; const ForceMsgBox: Boolean; const Default: Integer): Integer;</tt></p>
+<p><tt>function SuppressibleTaskDialogMsgBox(const Instruction, Text: String; const Typ: TMsgBoxType; const Buttons: Cardinal; const ButtonLabels: TArrayOfString; const ShieldButton: Integer; const Default: Integer): Integer;</tt></p>
 <div><b>Описание:</b></div>
-<p>Показывает подавляемое диалоговое окно задач. Если окна сообщений подавлены (см. <a href="topic_setupcmdline.htm">параметры командной строки инсталлятора</a>), возвращается значение переменной <tt>Default</tt>. Иначе, SuppressibleTaskDialogMsgBox действует как обычный <a href="topic_isxfunc_taskdialogmsgbox.htm">TaskDialogMsgBox</a>.</p></div>
+<p>Показывает подавляемое окно сообщения используя диалоговое окно задач. Если окна сообщений подавлены (см. <a href="topic_setupcmdline.htm">параметры командной строки инсталлятора</a>), возвращается значение переменной <tt>Default</tt>. Иначе, SuppressibleTaskDialogMsgBox действует как обычный <a href="topic_isxfunc_taskdialogmsgbox.htm">TaskDialogMsgBox</a>.</p></div>
 </body>
 </html>

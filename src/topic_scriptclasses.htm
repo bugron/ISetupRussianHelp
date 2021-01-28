@@ -81,10 +81,10 @@
       <a name="TStream" id="TStream">TStream</a> = class(<a href="#TObject">TObject</a>)<br />
       &nbsp;&nbsp;function Read(Buffer: String; Count: Longint): Longint;<br />
       &nbsp;&nbsp;function Write(Buffer: String; Count: Longint): Longint;<br />
-      &nbsp;&nbsp;function Seek(Offset: Longint; Origin: Word): Longint;<br />
+      &nbsp;&nbsp;function Seek(Offset: Int64; Origin: Word): Int64;<br />
       &nbsp;&nbsp;procedure ReadBuffer(Buffer: String; Count: Longint);<br />
       &nbsp;&nbsp;procedure WriteBuffer(Buffer: String; Count: Longint);<br />
-      &nbsp;&nbsp;function CopyFrom(Source: <a href="#TStream">TStream</a>; Count: Longint): Longint;<br />
+      &nbsp;&nbsp;function CopyFrom(Source: <a href="#TStream">TStream</a>; Count: Int64): Int64;<br />
       &nbsp;&nbsp;property Position: Longint; read write;<br />
       &nbsp;&nbsp;property Size: Longint; read write;<br />
       end;<br />
@@ -245,7 +245,15 @@
         <a name="TBorderIcon" id="TBorderIcon">TBorderIcon</a> = (biSystemMenu, biMinimize, biMaximize, biHelp);<br />
         <br />
         <a name="TBorderIcons" id="TBorderIcons">TBorderIcons</a> = set of <a href="topic_scriptclasses.htm#TBorderIcon">TBorderIcon</a>;<br />
-        <br />
+        <a name="TConstraintSize">TConstraintSize</a> = 0..MaxInt;<br/>
+        <br/>
+        <a name="TSizeConstraints">TSizeConstraints</a> = class(<a href="#TPersistent">TPersistent</a>);<br/>
+        &nbsp;&nbsp;property MaxHeight: <a href="#TConstraintSize">TConstraintSize</a>; read write;<br/>
+        &nbsp;&nbsp;property MaxWidth: <a href="#TConstraintSize">TConstraintSize</a>; read write;<br/>
+        &nbsp;&nbsp;property MinHeight: <a href="#TConstraintSize">TConstraintSize</a>; read write;<br/>
+        &nbsp;&nbsp;property MinWidth: <a href="#TConstraintSize">TConstraintSize</a>; read write;<br/>
+        end;<br/>
+        <br/>
         <a name="TPosition" id="TPosition">TPosition</a> = (poDesigned, poDefault, poDefaultPosOnly, poDefaultSizeOnly, poScreenCenter, poDesktopCenter, poMainFormCenter, poOwnerFormCenter);<br />
         <br />
         <a name="TCloseAction" id="TCloseAction">TCloseAction</a> = (caNone, caHide, caFree, caMinimize);<br />
@@ -273,11 +281,12 @@
           &nbsp;&nbsp;property Active: Boolean; read;<br />
           &nbsp;&nbsp;property ActiveControl: <a href="#TWinControl">TWinControl</a>; read write;<br />
           &nbsp;&nbsp;property Anchors: <a href="#TAnchors">TAnchors</a>; read write;<br/>
+          &nbsp;&nbsp;property AutoScroll: Boolean; read write;<br />
           &nbsp;&nbsp;property BorderIcons: <a href="#TBorderIcons">TBorderIcons</a>; read write;<br />
           &nbsp;&nbsp;property BorderStyle: <a href="#TFormBorderStyle">TFormBorderStyle</a>; read write;<br />
           &nbsp;&nbsp;property Caption: String; read write;<br />
-          &nbsp;&nbsp;property AutoScroll: Boolean; read write;<br />
           &nbsp;&nbsp;property Color: TColor; read write;<br />
+          &nbsp;&nbsp;property Constraints: <a href="#TSizeConstraints">TSizeConstraints</a>; read write;<br/>
           &nbsp;&nbsp;property Font: <a href="#TFont">TFont</a>; read write;<br />
           &nbsp;&nbsp;property FormStyle: TFormStyle; read write;<br />
           &nbsp;&nbsp;property KeyPreview: Boolean; read write;<br />

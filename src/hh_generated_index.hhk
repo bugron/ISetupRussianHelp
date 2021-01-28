@@ -1161,6 +1161,7 @@
 <li><object type="text/sitemap"><param name="Name" value="TComboBox"><param name="Local" value="topic_scriptclasses.htm#TComboBox"></object>
 <li><object type="text/sitemap"><param name="Name" value="TComboBoxStyle"><param name="Local" value="topic_scriptclasses.htm#TComboBoxStyle"></object>
 <li><object type="text/sitemap"><param name="Name" value="TComponent"><param name="Local" value="topic_scriptclasses.htm#TComponent"></object>
+<li><object type="text/sitemap"><param name="Name" value="TConstraintSize"><param name="Local" value="topic_scriptclasses.htm#TConstraintSize"></object>
 <li><object type="text/sitemap"><param name="Name" value="TControl"><param name="Local" value="topic_scriptclasses.htm#TControl"></object>
 <li><object type="text/sitemap"><param name="Name" value="TCustomCheckBox"><param name="Local" value="topic_scriptclasses.htm#TCustomCheckBox"></object>
 <li><object type="text/sitemap"><param name="Name" value="TCustomComboBox"><param name="Local" value="topic_scriptclasses.htm#TCustomComboBox"></object>
@@ -1245,6 +1246,7 @@
 <li><object type="text/sitemap"><param name="Name" value="TScrollStyle"><param name="Local" value="topic_scriptclasses.htm#TScrollStyle"></object>
 <li><object type="text/sitemap"><param name="Name" value="TSetupForm"><param name="Local" value="topic_scriptclasses.htm#TSetupForm"></object>
 <li><object type="text/sitemap"><param name="Name" value="TShiftState"><param name="Local" value="topic_scriptclasses.htm#TShiftState"></object>
+<li><object type="text/sitemap"><param name="Name" value="TSizeConstraints"><param name="Local" value="topic_scriptclasses.htm#TSizeConstraints"></object>
 <li><object type="text/sitemap"><param name="Name" value="TStartMenuFolderTreeView"><param name="Local" value="topic_scriptclasses.htm#TStartMenuFolderTreeView"></object>
 <li><object type="text/sitemap"><param name="Name" value="TStream"><param name="Local" value="topic_scriptclasses.htm#TStream"></object>
 <li><object type="text/sitemap"><param name="Name" value="TStringList"><param name="Local" value="topic_scriptclasses.htm#TStringList"></object>

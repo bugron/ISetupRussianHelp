@@ -31,7 +31,7 @@ Page := CreateInputOptionPage(wpWelcome,
   False, False);
 
 // Add items
-Page.Add('I am a registered user');
+Page.Add('&amp;I am a registered user');
 
 // Set initial values (optional)
 Page.Values[0] := False;
@@ -42,6 +42,7 @@ Page.Values[0] := False;
 IsRegisteredUser := Page.Values[0];
 </pre>
 </div>
+<p>См. <i>AllPagesExample.iss</i> для другого примера.</p>
 <div><b>См. также:</b></div>
 <p><a href="topic_scriptclasses.htm#TInputOptionWizardPage">TInputOptionWizardPage</a>
 </p>

@@ -29,8 +29,8 @@ Page := CreateInputQueryPage(wpWelcome,
   'Please specify your name and the company for whom you work, then click Next.');
 
 // Add items (False means it's not a password edit)
-Page.Add('Name:', False);
-Page.Add('Company:', False);
+Page.Add('&amp;Name:', False);
+Page.Add('&amp;Company:', False);
 
 // Set initial values (optional)
 Page.Values[0] := ExpandConstant('{sysuserinfoname}');
@@ -43,6 +43,7 @@ UserName := Page.Values[0];
 UserCompany := Page.Values[1];
 </pre>
 </div>
+<p>См. <i>AllPagesExample.iss</i> для другого примера.</p>
 <div><b>См. также:</b></div>
 <p><a href="topic_scriptclasses.htm#TInputQueryWizardPage">TInputQueryWizardPage</a>
 </p>

@@ -24,7 +24,7 @@
   </table>
   <div><b>Описание:</b></div>
   <p>При значении <tt>yes</tt>, файлы инсталлятора (параметры секции [Files]) будут зашифрованы с помощью ARCFOUR с 128-битным ключом, сгенерированным из директивы <a href="topic_setup_password.htm">Password</a> секции [Setup].</p>
-  <p>Поддержка шифрования не включена в Inno Setup напрямую, библиотеку&nbsp;нужно скачать и установить отдельно. Информацию об этом можно найти на английском сайте программы в разделе <a title="http://www.jrsoftware.org/isdl.php" href="http://www.jrsoftware.org/isdl.php" target="_blank">Inno Setup Downloads</a><img alt=" [external link]" src="images/extlink.gif">.</p>
+  <p>Поддержка шифрования не включена в Inno Setup напрямую, библиотеку&nbsp;нужно скачать и установить отдельно. Информацию об этом можно найти на английском сайте программы в разделе <a title="http://www.jrsoftware.org/isdl.php" href="http://www.jrsoftware.org/isdl.php" target="_blank">Inno Setup Downloads</a><img alt=" [external link]" src="images/extlink.png">.</p>
   <p>Если шифрование включено, и вы вызовете функцию <a href="topic_isxfunc_extracttemporaryfile.htm">ExtractTemporaryFile</a>&nbsp;из секции [Code], а пользователь введет правильный пароль, функция не будет работать до тех пор, пока в секции [Files] для файла не будет установлен флаг <tt>noencryption</tt>.</p>
   <p>Ключ, используемый при шифровании - 160-битный SHA-1/128-битный MD5 хеш 64-битной случайной последовательности плюс значение <a href="topic_setup_password.htm">пароля</a>.</p>
 </div>

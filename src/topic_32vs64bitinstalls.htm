@@ -28,7 +28,7 @@
   </ul>
   <p>В 64-разрядном режиме установки:</p>
   <ul>
-    <li>Путь System32, возвращаемый константой <tt>{sys}</tt>, по умолчанию указывает путь к 64-разрядной папке System при использовании в секциях [Dirs], [Files], [InstallDelete], [Run], [UninstallDelete], и [UninstallRun]. Это потому, что инсталлятор/деинсталлятор временно отключает <a href="http://msdn.microsoft.com/en-us/library/aa384187.aspx" target="_blank" title="http://msdn.microsoft.com/en-us/library/aa384187.aspx">перенаправление файловой системы WOW64</a><img src="images/extlink.gif" alt=" [external link]" />, когда к файлам/папкам получают доступ из этих секций. В обратном случае, System32 и <tt>{sys}</tt> указывают путь к 32-разрядной папке System, как в 32-разрядном режиме.</li>
+    <li>Путь System32, возвращаемый константой <tt>{sys}</tt>, по умолчанию указывает путь к 64-разрядной папке System при использовании в секциях [Dirs], [Files], [InstallDelete], [Run], [UninstallDelete], и [UninstallRun]. Это потому, что инсталлятор/деинсталлятор временно отключает <a href="http://msdn.microsoft.com/en-us/library/aa384187.aspx" target="_blank" title="http://msdn.microsoft.com/en-us/library/aa384187.aspx">перенаправление файловой системы WOW64</a><img src="images/extlink.png" alt=" [external link]" />, когда к файлам/папкам получают доступ из этих секций. В обратном случае, System32 и <tt>{sys}</tt> указывают путь к 32-разрядной папке System, как в 32-разрядном режиме.</li>
     <li>Константа <tt>{commonpf}</tt> эквивалентна константе <tt>{commonpf64}</tt>.</li>
     <li>Константа <tt>{commoncf}</tt> эквивалентна константе <tt>{commoncf64}</tt>.</li>
     <li>[Registry] по умолчанию записывает в 64-разрядном представлении реестра.</li>

@@ -30,7 +30,7 @@ Page := CreateInputFilePage(wpWelcome,
   'Select where Notepad is located, then click Next.');
 
 // Add item
-Page.Add('Location of notepad.exe:',         // caption
+Page.Add('&amp;Location of notepad.exe:',         // caption
   'Executable files|*.exe|All files|*.*',    // filters
   '.exe');                                   // default extension
 
@@ -43,6 +43,7 @@ Page.Values[0] := ExpandConstant('{win}\notepad.exe');
 NotepadLocation := Page.Values[0];
 </pre>
 </div>
+<p>См. файл <i>AllPagesExample.iss</i> для другого примера.</p>
 <div><b>См. также:</b></div>
 <p><a href="topic_scriptclasses.htm#TInputFileWizardPage">TInputFileWizardPage</a>
 </p>

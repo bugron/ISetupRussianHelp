@@ -16,6 +16,10 @@
             <param name="Local" value="topic_whatisinnosetup.htm">
           </OBJECT>
       <LI><OBJECT type="text/sitemap">
+            <param name="Name" value="Авторы перевода">
+            <param name="Local" value="translation_authors.htm">
+          </OBJECT>
+      <LI><OBJECT type="text/sitemap">
             <param name="Name" value="Сокращения и обозначения">
             <param name="Local" value="topic_conventions.htm">
           </OBJECT>
@@ -1598,11 +1602,5 @@
    <OBJECT type="text/sitemap">
      <param name="Merge" value="ispp.chm::\hh_generated_contents.hhc">
    </OBJECT>
-   <UL>
-      <LI><OBJECT type="text/sitemap">
-            <param name="Name" value="Авторы перевода">
-            <param name="Local" value="translation_authors.htm">
-          </OBJECT>
-   </UL>
 </BODY>
 </HTML>

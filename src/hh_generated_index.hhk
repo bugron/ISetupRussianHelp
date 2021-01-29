@@ -1678,6 +1678,10 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="code signing">
+		<param name="Local" value="topic_setup_signtoolrunminimized.htm">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="code signing">
 		<param name="Local" value="topic_setup_signtoolretrydelay.htm">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
@@ -2055,6 +2059,10 @@
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="DialogFontSize">
 		<param name="Local" value="topic_langoptionssection.htm#DialogFontSize">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="digital signature">
+		<param name="Local" value="topic_setup_signtoolrunminimized.htm">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="digital signature">
@@ -2487,6 +2495,10 @@
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="GenerateUniqueName">
 		<param name="Local" value="topic_isxfunc_generateuniquename.htm">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Get8087CW">
+		<param name="Local" value="topic_isxfunc_get8087cw.htm">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="GetActiveOleObject">
@@ -3673,6 +3685,10 @@
 		<param name="Local" value="topic_isxfunc_sendnotifymessage.htm">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Set8087CW">
+		<param name="Local" value="topic_isxfunc_set8087cw.htm">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="SetArrayLength">
 		<param name="Local" value="topic_isxfunc_setarraylength.htm">
 		</OBJECT>
@@ -3790,6 +3806,10 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="signature">
+		<param name="Local" value="topic_setup_signtoolrunminimized.htm">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="signature">
 		<param name="Local" value="topic_setup_signtoolretrydelay.htm">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
@@ -3835,6 +3855,10 @@
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="SignToolRetryDelay">
 		<param name="Local" value="topic_setup_signtoolretrydelay.htm">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="SignToolRunMinimized">
+		<param name="Local" value="topic_setup_signtoolrunminimized.htm">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="silent installation">

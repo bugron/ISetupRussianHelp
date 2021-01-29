@@ -16,8 +16,11 @@
   <p>Если Вы не помните, какую версию Вы устанавливали, то запустите IDE Inno Setup и посмотрите заголовок окна. Если Вы там увидите надпись (a), то у Вас не Unicode Inno Setup, а если (u), тогда у Вас запущен Unicode Inno Setup.</p>
   <p>По большей части эти две версии идентичны, и любые различия между ними отмечены в справочном файле. Однако, следующий краткий обзор перечисляет их главные различия:</p>
   <ul>
-    <li>Unicode Inno Setup использует ANSI языковые файлы .isl, поэтому и нет нужды преобразовать их в Unicode кодировку, так как это делается автоматически во время компиляции, с помощью опции <tt>LanguageCodePage</tt>. Однако, Вы должны преобразовать сообщения [Messages] и [CustomMessages] в Ваших .iss файлах в Unicode кодировку, если язык использует специальное значение опции <tt>LanguageCodePage</tt>.</li>
-    <li>Текстовые файлы<tt> LicenseFile</tt>, <tt>InfoBeforeFile</tt>, или <tt>InfoAfterFile</tt> автоматически преобразуются в ANSI, так что не нужно это делать вручную.</li>
+    <li>Unicode Inno Setup поддерживает .iss и .isl файлы в кодировке UTF-8 (но не UTF-16).</li>
+    <li>Любые ANSI .isl языковые файлы автоматически преобразовываются при компиляции с помощью опции <tt>LanguageCodePage</tt>.</li>
+    <li>Любые сообщения [Messages] и [CustomMessages] в ANSI .iss файлах должны быть преобразованы в Unicode кодировку вручную, если язык использует специальный <tt>LanguageCodePage</tt>.</li>
+    <li>Unicode Inno Setup поддерживает кодировки UTF-8 и UTF-16LE текстовых файлов .txt для <tt>LicenseFile</tt>, <tt>InfoBeforeFile</tt> и <tt>InfoAfterFile</tt>.</li>
+    <li>ANSI файлы <tt>LicenseFile</tt>, <tt>InfoBeforeFile</tt>, или <tt>InfoAfterFile</tt> автоматически преобразовываются при компиляции с помощью опции <tt>LanguageCodePage</tt>.</li>
     <li>Директива <tt>ShowUndisplayableLanguages</tt> секции [Setup] игнорируется Unicode Inno Setup.</li>
     <li>Unicode Inno Setup компилирован в Delphi 2009 вместо Delphi 2 и 3, что приводит увеличению размера программы. Исходный код, однако, является все еще совместимым с Delphi 2 и 3, и не Unicode версия останется доступной.</li>
     <li>Существующие инсталляторы Ваших программ, сделанных не Unicode версией, могут быть свободно обновлены инсталляторами Unicode версии, и наоборот.</li>
@@ -32,8 +35,6 @@
 		<li>Добавлен новый тип 'Int64'. Также добавлены новые встроенные функции <tt>StrToInt64</tt>, <tt>StrToInt64Def</tt> и <tt>GetSpaceOnDisk64</tt>.</li>
       </ul>
     </li>
-    <li>Unicode Inno Setup поддерживает .iss и .isl файлы в кодировке UTF-8 (но не UTF-16).</li>
-    <li>Unicode Inno Setup поддерживает кодировки UTF-8 и UTF-16LE текстовых файлов .txt для <tt>LicenseFile</tt>, <tt>InfoBeforeFile</tt> и <tt>InfoAfterFile</tt>.</li>
   </ul>
   <p>Примечание: Unicode Inno Setup может создать только Unicode инсталляторы. Если хотите создать не Unicode инсталлятор, нужно установить не Unicode версию Inno Setup.&nbsp;Если вы хотите создать и Unicode, и не Unicode версии инсталлятора, вам придется установить обе версии Inno Setup, только в разные папки.</p>
 </div>

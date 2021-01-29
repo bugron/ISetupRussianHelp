@@ -472,6 +472,10 @@
                   <param name="Local" value="topic_setup_signtoolretrydelay.htm">
                 </OBJECT>
             <LI><OBJECT type="text/sitemap">
+                  <param name="Name" value="SignToolRunMinimized">
+                  <param name="Local" value="topic_setup_signtoolrunminimized.htm">
+                </OBJECT>
+            <LI><OBJECT type="text/sitemap">
                   <param name="Name" value="SlicesPerDisk">
                   <param name="Local" value="topic_setup_slicesperdisk.htm">
                 </OBJECT>

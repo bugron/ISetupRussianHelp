@@ -733,6 +733,10 @@
 		<param name="Local" value="topic_scriptdll.htm">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value=".NET install root">
+		<param name="Local" value="topic_consts.htm#dotnet40">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="/?">
 		<param name="Local" value="topic_setupcmdline.htm#HELP2">
 		</OBJECT>
@@ -787,6 +791,10 @@
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="/LOG=">
 		<param name="Local" value="topic_setupcmdline.htm">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/LOGCLOSEAPPLICATIONS">
+		<param name="Local" value="topic_setupcmdline.htm#LOGCLOSEAPPLICATIONS">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="/MERGETASKS=">
@@ -1263,6 +1271,10 @@
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="{userprograms}">
 		<param name="Local" value="topic_consts.htm#userprograms">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="{usersavedgames}">
+		<param name="Local" value="topic_consts.htm#usersavedgames">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="{usersendto}">
@@ -2859,6 +2871,10 @@
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="iscustom">
 		<param name="Local" value="topic_typessection.htm#iscustom">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="IsDotNetInstalled">
+		<param name="Local" value="topic_isxfunc_isdotnetinstalled.htm">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="IsIA64">

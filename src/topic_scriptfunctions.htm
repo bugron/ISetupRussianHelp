@@ -87,6 +87,7 @@
     <tt>function <a href="topic_isxfunc_isarm64.htm">IsARM64</a>: Boolean;</tt><br/>
     <br />
     <tt>function <a href="topic_isxfunc_installonthisversion.htm">InstallOnThisVersion</a>(const MinVersion, OnlyBelowVersion: String): Boolean;</tt><br />
+    <tt>function <a href="topic_isxfunc_isdotnetinstalled.htm">IsDotNetInstalled</a>(const MinVersion: TDotNetVersion; const MinServicePack: Cardinal): Boolean;</tt><br/>
     <br />
     <tt>function <a href="topic_isxfunc_getenv.htm">GetEnv</a>(const EnvVar: String): String;</tt><br />
     <tt>function <a href="topic_isxfunc_getusernamestring.htm">GetUserNameString</a>: String;</tt><br />
@@ -383,23 +384,23 @@
     ssInstall, ssPostInstall, ssDone</p>
   <p><i>CurPage значения </i><br />
     wpWelcome, wpLicense, wpPassword, wpInfoBefore, wpUserInfo, wpSelectDir, wpSelectComponents, wpSelectProgramGroup, wpSelectTasks, wpReady, wpPreparing, wpInstalling, wpInfoAfter, wpFinished</p>
+  <p><i>Exec и ShellExec - значения ShowCmd</i><br />
+      SW_SHOW, SW_SHOWNORMAL, SW_SHOWMAXIMIZED, SW_SHOWMINIMIZED, SW_SHOWMINNOACTIVE, SW_HIDE</p>
   <p><i>TMsgBoxType</i><br />
     mbInformation, mbConfirmation, mbError, mbCriticalError</p>
   <p><i>MsgBox - - идентификаторы кнопок (Buttons flags)</i><br />
     MB_OK, MB_OKCANCEL, MB_ABORTRETRYIGNORE, MB_YESNOCANCEL, MB_YESNO, MB_RETRYCANCEL, MB_DEFBUTTON1, MB_DEFBUTTON2, MB_DEFBUTTON3, MB_SETFOREGROUND</p>
   <p><i>MsgBox - возвращаемые значения</i><br />
     IDOK, IDCANCEL, IDABORT, IDRETRY, IDIGNORE, IDYES, IDNO</p>
-  <p><i>TShellFolderID</i><br />
-    sfDesktop, sfStartMenu, sfPrograms, sfStartup, sfSendTo, sfFonts, sfAppData, sfDocs, sfTemplates, sfFavorites, sfLocalAppData</p>
   <p><i>Reg* - - значения корневых значений (RootKey values) (также см. <a href="topic_registrysection.htm">Секция [Registry]</a>)</i><br />
     HKEY_AUTO, HKEY_AUTO_32, HKEY_AUTO_64,<br/>HKEY_CLASSES_ROOT, HKEY_CLASSES_ROOT_32, HKEY_CLASSES_ROOT_64,<br/>HKEY_CURRENT_USER, HKEY_CURRENT_USER_32, HKEY_CURRENT_USER_64,<br/>HKEY_LOCAL_MACHINE, HKEY_LOCAL_MACHINE_32, HKEY_LOCAL_MACHINE_64,<br/>HKEY_USERS, HKEY_USERS_32, HKEY_USERS_64,<br/>HKEY_PERFORMANCE_DATA,<br/>HKEY_CURRENT_CONFIG, HKEY_CURRENT_CONFIG_32, HKEY_CURRENT_CONFIG_64,<br
 />HKEY_DYN_DATA,<br/>HKA, HKA32, HKA64, HKCR, HKCR32, HKCR64, HKCU, HKCU32, HKCU64, HKLM, HKLM32, HKLM64, HKU, HKU32, HKU64, HKCC, HKCC32, HKCC64</p>
+  <p><i>TShellFolderID</i><br />
+  sfDesktop, sfStartMenu, sfPrograms, sfStartup, sfSendTo, sfFonts, sfAppData, sfDocs, sfTemplates, sfFavorites, sfLocalAppData</p>
+  <p><i>TSetupMessageID</i><br />
+  Используйте 'msg' + имя сообщения. Например: <i>SetupMessage(msgSetupAppTitle)</i></p>
   <p><i>TShouldProcessEntryResult</i><br />
     srNo, srYes, srUnknown</p>
-  <p><i>TSetupMessageID</i><br />
-    Используйте 'msg' + имя сообщения. Например: <i>SetupMessage(msgSetupAppTitle)</i></p>
-  <p><i>Exec и ShellExec - значения ShowCmd</i><br />
-    SW_SHOW, SW_SHOWNORMAL, SW_SHOWMAXIMIZED, SW_SHOWMINIMIZED, SW_SHOWMINNOACTIVE, SW_HIDE</p>
 </div>
 </body>
 </html>

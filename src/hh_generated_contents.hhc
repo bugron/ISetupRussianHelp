@@ -811,6 +811,10 @@
           </OBJECT>
       <UL>
          <LI><OBJECT type="text/sitemap">
+               <param name="Name" value="Поддержка Inno Setup">
+               <param name="Local" value="topic_donate.htm">
+             </OBJECT>
+         <LI><OBJECT type="text/sitemap">
                <param name="Name" value="InnoSetup FAQ: RU-BOARD. Подборка полезных примеров">
                <param name="Local" value="InnoSetup FAQ.htm">
              </OBJECT>
@@ -1596,10 +1600,6 @@
          <LI><OBJECT type="text/sitemap">
                <param name="Name" value="FAQ">
                <param name="Local" value="topic_faq.htm">
-             </OBJECT>
-         <LI><OBJECT type="text/sitemap">
-               <param name="Name" value="Поддержка Inno Setup">
-               <param name="Local" value="topic_donate.htm">
              </OBJECT>
       </UL>
    </UL>

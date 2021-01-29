@@ -14,7 +14,7 @@
   <div><b>Prototype:</b></div>
   <p><tt>function RegisterExtraCloseApplicationsResource(const DisableFsRedir: Boolean; const AFilename: String): Boolean;</tt></p>
   <div><b>Description:</b></div>
-  <p>Регистрирует файл, чтобы инсталлятор проверил, используется ли он во время установки. Вызовите для каждого файла RegisterExtraCloseApplicationsResource в функции обработки событий RegisterExtraCloseApplicationsResources. При удачном выполнении возвращает True.</p>
+  <p>Регистрирует файл, чтобы инсталлятор проверил, используется ли он во время установки. Вызовите для каждого файла RegisterExtraCloseApplicationsResource в функции обработки событий RegisterExtraCloseApplicationsResources. Игнорирует <a href="topic_setup_closeapplicationsfilter.htm">CloseApplicationsFilter</a>. При удачном выполнении возвращает True.</p>
 </div>
 </body>
 </html>

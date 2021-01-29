@@ -34,10 +34,7 @@ CreateMutex 0&amp;, 0&amp;, "MyProgramsMutexName"
   <p>Обратите внимание, что Windows чувствителен к совпадению имен ограничителей.</p>
   <p>Чтобы определить взаимоисключающее имя, содержащее запятую, закончите его обратный слешом.</p>
   <p>Для справки обратитесь к разделу CreateMutex файла MS SDK help.</p>
-  <div class="examplebox">
-    <div class="exampleheader">Например:</div>
-    <pre class="nomargin">AppMutex=MyProgramsMutexName</pre>
-  </div>
+  <div class="exampleheader">Например:</div><pre class="nomargin">AppMutex=MyProgramsMutexName,Global\MyProgramsMutexName</pre></div>
   <p><b>См. также:</b><br/>
 <a href="topic_setup_setupmutex.htm">SetupMutex</a><br/>
 <a href="topic_setup_closeapplications.htm">CloseApplications</a>

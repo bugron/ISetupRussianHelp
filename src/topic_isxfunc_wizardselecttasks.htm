@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Pascal Scripting: WizardSelectTasks</title>
+<!--[if IE 6]><style type="text/css">html{overflow-y:scroll}</style><![endif]-->
+<link rel="stylesheet" type="text/css" href="styles.css" />
+<script type="text/javascript" src="topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Pascal Scripting: WizardSelectTasks</h1>
+<div class="topicbody">
+<div><b>Прототип:</b></div>
+<p><tt>procedure WizardSelectTasks(const Tasks: String);</tt></p>
+<div><b>Описание:</b></div>
+<p>Выбирает указанный список задач, разделенных запятыми.</p>
+<p>Если имя задачи начинается с символа "!", то выбор этой задачи будет отменен.</p>
+<p>Эта функция не меняет состояние не указанных задач.</p>
+<div><b>Пример:</b></div>
+<pre>begin
+  WizardSelectTasks('!desktopicon');
+  // the 'desktopicon' task is deselected
+end;</pre><div><b>См. также:</b></div>
+<p><a href="topic_isxfunc_wizardselectedtasks.htm">WizardSelectedTasks</a>
+<br/>
+<a href="topic_isxfunc_wizardistaskselected.htm">WizardIsTaskSelected</a>
+</p></div>
+</body>
+</html>

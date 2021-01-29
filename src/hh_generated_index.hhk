@@ -1197,6 +1197,10 @@
 		<param name="Local" value="topic_consts.htm#sys">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="{sysnative}">
+		<param name="Local" value="topic_consts.htm#sysnative">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="{sysuserinfoname}">
 		<param name="Local" value="topic_consts.htm#sysuserinfoname">
 		</OBJECT>
@@ -2841,10 +2845,6 @@
 		<param name="Local" value="topic_compilercmdline.htm">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="IsComponentSelected">
-		<param name="Local" value="topic_isxfunc_iscomponentselected.htm">
-		</OBJECT>
-	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="iscustom">
 		<param name="Local" value="topic_typessection.htm#iscustom">
 		</OBJECT>
@@ -2863,10 +2863,6 @@
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="isreadme">
 		<param name="Local" value="topic_filessection.htm#isreadme">
-		</OBJECT>
-	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="IsTaskSelected">
-		<param name="Local" value="topic_isxfunc_istaskselected.htm">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="IsUninstaller">
@@ -4939,6 +4935,14 @@
 		<param name="Local" value="topic_setup_wizardimagestretch.htm">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="WizardIsComponentSelected">
+		<param name="Local" value="topic_isxfunc_wizardiscomponentselected.htm">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="WizardIsTaskSelected">
+		<param name="Local" value="topic_isxfunc_wizardistaskselected.htm">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="WizardNoIcons">
 		<param name="Local" value="topic_isxfunc_wizardnoicons.htm">
 		</OBJECT>
@@ -4947,12 +4951,20 @@
 		<param name="Local" value="topic_setup_wizardresizable.htm">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="WizardSelectComponents">
+		<param name="Local" value="topic_isxfunc_wizardselectcomponents.htm">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="WizardSelectedComponents">
 		<param name="Local" value="topic_isxfunc_wizardselectedcomponents.htm">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="WizardSelectedTasks">
 		<param name="Local" value="topic_isxfunc_wizardselectedtasks.htm">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="WizardSelectTasks">
+		<param name="Local" value="topic_isxfunc_wizardselecttasks.htm">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="WizardSetupType">

@@ -14,7 +14,7 @@
   <p><tt>function CustomMessage(const MsgName: String): String;</tt></p>
   <div><b>Описание:</b></div>
   <p>Возвращает значение записи [CustomMessages] с заданным именем. Если запись с заданным именем не существует, произойдет исключение.</p>
-  <div><b>Например:</b></div>
+  <div><b>Пример:</b></div>
   <pre>var<br />  S: String;<br />begin<br />  S := CustomMessage('CreateDesktopIcon');<br />  // S = 'Create a &amp;desktop icon'<br /><br />  S := FmtMessage(CustomMessage('NameAndVersion'), ['My Program', '1.0']);<br />  // S = 'My Program version 1.0'<br />end;</pre>
 </div>
 </body>

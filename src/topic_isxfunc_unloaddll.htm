@@ -18,7 +18,7 @@
     If the function import used a &quot;files:&quot; prefix, prepend the value of the <tt>{tmp}</tt> constant to the filename (e.g. <tt>ExpandConstant('{tmp}\filename.dll')</tt>).</p>
   <div><b>Комментарии:</b></div>
   <p>Не рекомендуется попробовать, но если Вы попытаетесь вызвать функцию в DLL, который уже выгружен, то DLL будет перезагружен.</p>
-  <div><b>Например:</b></div>
+  <div><b>Пример:</b></div>
   <pre>procedure DllFunc; external 'DllFunc@{app}\MyDll.dll stdcall uninstallonly';<br /><br />...<br /><br />begin<br />  // Call DllFunc<br />  DllFunc;<br /><br />  // Unload the DLL<br />  UnloadDLL(ExpandConstant('{app}\MyDll.dll'));<br /><br />  // Now we can delete the DLL<br />  DeleteFile(ExpandConstant('{app}\MyDll.dll'));<br />end;</pre>
 </div>
 </body>

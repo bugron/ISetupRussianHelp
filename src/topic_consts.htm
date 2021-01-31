@@ -111,9 +111,9 @@
         указаны файлы, необходимые при инсталляции, но не нужные для дальнейшей
         работы приложения.</p>
     </dd>
-    <dt><b><a name="fonts" id="fonts">{fonts}</a></b></dt>
+    <dt><b><a name="fonts" id="commonfonts">{commonfonts}</a></b></dt>
     <dd>
-      <p>Папка шрифтов. Обычно именуется FONTS и находится в папке Windows.</p>
+      <p>Папка шрифтов. Обычно именуется Fonts и находится в папке Windows.</p>
     </dd>
     <dt><b><a name="dao" id="dao">{dao}</a></b></dt>
     <dd>
@@ -194,6 +194,10 @@
     <dd>
       <p>Путь к папке Избранное текущего пользователя. (Общей папки Избранное не существует.)</p>
     </dd>
+    <dt><b><a name="userfonts">{userfonts}</a></b></dt>
+    <dd>
+      <p>Путь к папке Fonts текущего пользователя. Только Windows 10 Version 1803 и более поздние версии поддерживают <tt>{userfonts}</tt>. Аналогичен директории <tt>{localappdata}\Microsoft\Windows\Fonts</tt>.</p>
+    </dd>
     <dt><b><a name="userpf" id="userpf">{userpf}</a></b></dt>
     <dd>
       <p>Путь к папке Program Files текущего пользователя. Константа поддерживается только в Windows 7 и более поздних версиях. При использовании в предыдущих версиях Windows значение константы будет заменено на <tt>{localappdata}\Programs</tt>.</p>
@@ -237,6 +241,7 @@
   <tr><td class="cellleft"><tt><a name="autocf64">autocf64</a></tt></td><td class="cellright"><tt>commoncf64</tt></td><td class="cellright"><tt>usercf</tt></td></tr>
   <tr><td class="cellleft"><tt><a name="autodesktop">autodesktop</a></tt></td><td class="cellright"><tt>commondesktop</tt></td><td class="cellright"><tt>userdesktop</tt></td></tr>
   <tr><td class="cellleft"><tt><a name="autodocs">autodocs</a></tt></td><td class="cellright"><tt>commondocs</tt></td><td class="cellright"><tt>userdocs</tt></td></tr>
+  <tr><td class="cellleft"><tt><a name="autofonts">autofonts</a></tt></td><td class="cellright"><tt>commonfonts</tt></td><td class="cellright"><tt>userfonts</tt></td></tr>
   <tr><td class="cellleft"><tt><a name="autopf">autopf</a></tt></td><td class="cellright"><tt>commonpf</tt></td><td class="cellright"><tt>userpf</tt></td></tr>
   <tr><td class="cellleft"><tt><a name="autopf32">autopf32</a></tt></td><td class="cellright"><tt>commonpf32</tt></td><td class="cellright"><tt>userpf</tt></td></tr>
   <tr><td class="cellleft"><tt><a name="autopf64">autopf64</a></tt></td><td class="cellright"><tt>commonpf64</tt></td><td class="cellright"><tt>userpf</tt></td></tr>
@@ -257,6 +262,7 @@
   <tr><td class="cellleft"><tt><a name="cf">cf</a></tt></td><td class="cellright"><tt>commoncf</tt></td></tr>
   <tr><td class="cellleft"><tt><a name="cf32">cf32</a></tt></td><td class="cellright"><tt>commoncf32</tt></td></tr>
   <tr><td class="cellleft"><tt><a name="cf64">cf64</a></tt></td><td class="cellright"><tt>commoncf64</tt></td></tr>
+  <tr><td class="cellleft"><tt><a name="fonts">fonts</a></tt></td><td class="cellright"><tt>commonfonts</tt></td></tr>
   <tr><td class="cellleft"><tt><a name="pf">pf</a></tt></td><td class="cellright"><tt>commonpf</tt></td></tr>
   <tr><td class="cellleft"><tt><a name="pf32">pf32</a></tt></td><td class="cellright"><tt>commonpf32</tt></td></tr>
   <tr><td class="cellleft"><tt><a name="pf64">pf64</a></tt></td><td class="cellright"><tt>commonpf64</tt></td></tr>

@@ -14,7 +14,7 @@
   <p><tt>function PageIndexFromID(const ID: Integer): Integer;</tt></p>
   <div><b>Описание:</b></div>
   <p>Получая ID страницы, функция возвращает индекс ее позиции. Используйте данную функцию, если, например, хотите проверить находится ли данная страница перед какой-нибудь другой.</p>
-  <div><b>Например:</b></div>
+  <div><b>Пример:</b></div>
   <pre>function ShouldSkipPage(PageID: Integer): Boolean;
 begin
   Result := PageIndexFromID(PageID) &lt; PageIndexFromID(wpReady);

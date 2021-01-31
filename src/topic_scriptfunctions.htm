@@ -47,9 +47,6 @@
     <tt>function <a href="topic_isxfunc_expandconstant.htm">ExpandConstant</a>(const S: String): String;</tt><br />
     <tt>function <a href="topic_isxfunc_expandconstantex.htm">ExpandConstantEx</a>(const S: String; const CustomConst, CustomValue: String): String;</tt><br />
     <br />
-    <tt>procedure <a href="topic_isxfunc_extracttemporaryfile.htm">ExtractTemporaryFile</a>(const FileName: String);</tt><br />
-    <tt>function <a href="topic_isxfunc_extracttemporaryfiles.htm">ExtractTemporaryFiles</a>(const Pattern: String): Integer;</tt><br/>
-    <br />
     <tt>function <a href="topic_isxfunc_getpreviousdata.htm">GetPreviousData</a>(const ValueName, DefaultValueData: String): String;</tt><br />
     <tt>function <a href="topic_isxfunc_setpreviousdata.htm">SetPreviousData</a>(const PreviousDataKey: Integer; const ValueName, ValueData: String): Boolean;</tt><br />
     <br />
@@ -183,6 +180,8 @@
     <tt>function <a href="topic_isxfunc_getmd5ofunicodestring.htm">GetMD5OfUnicodeString</a>(const S: String): String;</tt><br />
     <tt>function <a href="topic_isxfunc_getsha1ofstring.htm">GetSHA1OfString</a>(const S: AnsiString): String;</tt><br />
     <tt>function <a href="topic_isxfunc_getsha1ofunicodestring.htm">GetSHA1OfUnicodeString</a>(const S: String): String;</tt><br />
+    <tt>function <a href="topic_isxfunc_getsha256ofstring.htm">GetSHA256OfString</a>(const S: AnsiString): String;</tt><br/>
+    <tt>function <a href="topic_isxfunc_getsha256ofunicodestring.htm">GetSHA256OfUnicodeString</a>(const S: String): String;</tt><br/>
     <br />
     <tt>function <a href="topic_isxfunc_syserrormessage.htm">SysErrorMessage</a>(ErrorCode: Integer): String;</tt><br />
     <br />
@@ -209,6 +208,7 @@
     <tt>function <a href="topic_isxfunc_fileexists.htm">FileExists</a>(const Name: String): Boolean;</tt><br />
     <tt>function <a href="topic_isxfunc_fileordirexists.htm">FileOrDirExists</a>(const Name: String): Boolean;</tt><br />
     <tt>function <a href="topic_isxfunc_filesize.htm">FileSize</a>(const Name: String; var Size: Integer): Boolean;</tt><br />
+    <tt>function <a href="topic_isxfunc_filesize64.htm">FileSize64</a>(const Name: String; var Size: Int64): Boolean;</tt><br/>
     <tt>function <a href="topic_isxfunc_getspaceondisk.htm">GetSpaceOnDisk</a>(const Path: String; const InMegabytes: Boolean; var Free, Total: Cardinal): Boolean;</tt><br />
     <tt>function <a href="topic_isxfunc_getspaceondisk64.htm">GetSpaceOnDisk64</a>(const Path: String; var Free, Total: Int64): Boolean;</tt><br/>
     <br />
@@ -228,13 +228,11 @@
     <tt>function <a href="topic_isxfunc_getshortname.htm">GetShortName</a>(const LongName: String): String;</tt><br />
     <tt>function <a href="topic_isxfunc_generateuniquename.htm">GenerateUniqueName</a>(Path: String; const Extension: String): String;</tt><br />
     <br />
-    <tt>function <a href="topic_isxfunc_getversionnumbers.htm">GetVersionNumbers</a>(const Filename: String; var VersionMS, VersionLS: Cardinal): Boolean;</tt><br />
-    <tt>function <a href="topic_isxfunc_getversionnumbersstring.htm">GetVersionNumbersString</a>(const Filename: String; var Version: String): Boolean;</tt><br />
-    <br />
     <tt>function <a href="topic_isxfunc_isprotectedsystemfile.htm">IsProtectedSystemFile</a>(const Filename: String): Boolean;</tt><br />
     <br />
     <tt>function <a href="topic_isxfunc_getmd5offile.htm">GetMD5OfFile</a>(const Filename: String): String;</tt><br />
     <tt>function <a href="topic_isxfunc_getsha1offile.htm">GetSHA1OfFile</a>(const Filename: String): String;</tt><br />
+    <tt>function <a href="topic_isxfunc_getsha256offile.htm">GetSHA256OfFile</a>(const Filename: String): String;</tt><br/>
     <br />
     <tt>function <a href="topic_isxfunc_enablefsredirection.htm">EnableFsRedirection</a>(const Enable: Boolean): Boolean;</tt><br />
   </p>
@@ -244,6 +242,10 @@
     <tt>function <a href="topic_isxfunc_execasoriginaluser.htm">ExecAsOriginalUser</a>(const Filename, Params, WorkingDir: String; const ShowCmd: Integer; const Wait: TExecWait; var ResultCode: Integer): Boolean;</tt><br />
     <tt>function <a href="topic_isxfunc_shellexec.htm">ShellExec</a>(const Verb, Filename, Params, WorkingDir: String; const ShowCmd: Integer; const Wait: TExecWait; var ErrorCode: Integer): Boolean;</tt><br />
     <tt>function <a href="topic_isxfunc_shellexecasoriginaluser.htm">ShellExecAsOriginalUser</a>(const Verb, Filename, Params, WorkingDir: String; const ShowCmd: Integer; const Wait: TExecWait; var ErrorCode: Integer): Boolean;</tt><br />
+    <tt>procedure <a href="topic_isxfunc_extracttemporaryfile.htm">ExtractTemporaryFile</a>(const FileName: String);</tt><br/>
+    <tt>function <a href="topic_isxfunc_extracttemporaryfiles.htm">ExtractTemporaryFiles</a>(const Pattern: String): Integer;</tt><br/>
+    <tt>function <a href="topic_isxfunc_downloadtemporaryfile.htm">DownloadTemporaryFile</a>(const Url, FileName, RequiredSHA256OfFile: String; const OnDownloadProgress: TOnDownloadProgress): Int64;</tt><br/>
+    <tt>function <a href="topic_isxfunc_downloadtemporaryfilesize.htm">DownloadTemporaryFileSize</a>(const Url): Int64;</tt><br/>
     <br />
     <tt>function <a href="topic_isxfunc_renamefile.htm">RenameFile</a>(const OldName, NewName: string): Boolean;</tt><br />
     <tt>function <a href="topic_isxfunc_filecopy.htm">FileCopy</a>(const ExistingFile, NewFile: String; const FailIfExists: Boolean): Boolean;</tt><br />
@@ -272,8 +274,27 @@
     <tt>procedure <a href="topic_isxfunc_incrementsharedcount.htm">IncrementSharedCount</a>(const Is64Bit: Boolean; const Filename: String; const AlreadyExisted: Boolean);</tt><br />
     <tt>function <a href="topic_isxfunc_decrementsharedcount.htm">DecrementSharedCount</a>(const Is64Bit: Boolean; const Filename: String): Boolean;</tt><br />
     <tt>procedure <a href="topic_isxfunc_restartreplace.htm">RestartReplace</a>(const TempFile, DestFile: String);</tt><br />
-    <tt>procedure <a href="topic_isxfunc_unregisterfont.htm">UnregisterFont</a>(const FontName, FontFilename: String);</tt><br />
+    <tt>procedure <a href="topic_isxfunc_unregisterfont.htm">UnregisterFont</a>(const FontName, FontFilename: String; const PerUserFont: Boolean);</tt><br/>
     <tt>function <a href="topic_isxfunc_modifypiffile.htm">ModifyPifFile</a>(const Filename: String; const CloseOnExit: Boolean): Boolean;</tt><br />
+  </p>
+  <p>
+    <b>Функции версий файлов</b><br/>
+    <br/>
+    <tt>function <a href="topic_isxfunc_getversionnumbers.htm">GetVersionNumbers</a>(const Filename: String; var VersionMS, VersionLS: Cardinal): Boolean;</tt><br/>
+    <tt>function <a href="topic_isxfunc_getversioncomponents.htm">GetVersionComponents</a>(const Filename: String; var Major, Minor, Revision, Build: Word): Boolean;</tt><br/>
+    <tt>function <a href="topic_isxfunc_getversionnumbersstring.htm">GetVersionNumbersString</a>(const Filename: String; var Version: String): Boolean;</tt><br/>
+    <tt>function <a href="topic_isxfunc_getpackedversion.htm">GetPackedVersion</a>(const Filename: String; var Version: Int64): Boolean;</tt><br/>
+    <br/>
+    <tt>function <a href="topic_isxfunc_packversionnumbers.htm">PackVersionNumbers</a>(const VersionMS, VersionLS: Cardinal): Int64;</tt><br/>
+    <tt>function <a href="topic_isxfunc_packversioncomponents.htm">PackVersionComponents</a>(const Major, Minor, Revision, Build: Word): Int64;</tt><br/>
+    <br/>
+    <tt>function <a href="topic_isxfunc_comparepackedversion.htm">ComparePackedVersion</a>(const Version1, Version2: Int64): Integer;</tt><br/>
+    <tt>function <a href="topic_isxfunc_samepackedversion.htm">SamePackedVersion</a>(const Version1, Version2: Int64): Boolean;</tt><br/>
+    <br/>
+    <tt>procedure <a href="topic_isxfunc_unpackversionnumbers.htm">UnpackVersionNumbers</a>(const Version: Int64; var VersionMS, VersionLS: Cardinal);</tt><br/>
+    <tt>procedure <a href="topic_isxfunc_unpackversioncomponents.htm">UnpackVersionComponents</a>(const Version: Int64; var Major, Minor, Revision, Build: Word);</tt><br/>
+    <br/>
+    <tt>function <a href="topic_isxfunc_versiontostr.htm">VersionToStr</a>(const Version: Int64): String;</tt><br/>
   </p>
   <p><b>Функции реестра:</b><br />
     <br />
@@ -323,6 +344,7 @@
     <tt>function <a href="topic_isxfunc_createoutputmsgpage.htm">CreateOutputMsgPage</a>(const AfterID: Integer; const ACaption, ADescription, AMsg: String): TOutputMsgWizardPage;</tt><br />
     <tt>function <a href="topic_isxfunc_createoutputmsgmemopage.htm">CreateOutputMsgMemoPage</a>(const AfterID: Integer; const ACaption, ADescription, ASubCaption: String; const AMsg: AnsiString): TOutputMsgMemoWizardPage;</tt><br />
     <tt>function <a href="topic_isxfunc_createoutputprogresspage.htm">CreateOutputProgressPage</a>(const ACaption, ADescription: String): TOutputProgressWizardPage;</tt><br />
+    <tt>function <a href="topic_isxfunc_createdownloadpage.htm">CreateDownloadPage</a>(const ACaption, ADescription: String; const OnDownloadProgress: TOnDownloadProgress): TDownloadWizardPage;</tt><br/>
     <tt>function <a href="topic_isxfunc_createcustompage.htm">CreateCustomPage</a>(const AfterID: Integer; const ACaption, ADescription: String): TWizardPage;</tt><br />
     <br />
     <tt>function <a href="topic_isxfunc_createcustomform.htm">CreateCustomForm</a>: TSetupForm;</tt><br />

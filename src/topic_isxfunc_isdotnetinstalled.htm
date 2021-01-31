@@ -16,7 +16,7 @@
 <div><b>Описание:</b></div>
 <p>Возвращает True, если .NET Framework с указанными параметрами MinVersion и MinServicePack установлен в системе.</p>
 <p>TDotNetVersion определен как:</p>
-<p><tt>TDotNetVersion = (net11, net20, net30, net35, net4Client, net4Full, net45, net451, net452, net46, net461, net462, net47, net471, net472, net48);</tt></p><div><b>Например:</b></div>
+<p><tt>TDotNetVersion = (net11, net20, net30, net35, net4Client, net4Full, net45, net451, net452, net46, net461, net462, net47, net471, net472, net48);</tt></p><div><b>Пример:</b></div>
 <pre>function InitializeSetup: Boolean;
 begin
   Result := IsDotNetInstalled(net462, 0); //Возвращает True, если .NET Framework версии 4.6.2 установлен, а также если совместимая версия установлена, например 4.8

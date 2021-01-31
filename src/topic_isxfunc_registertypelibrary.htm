@@ -14,7 +14,7 @@
   <p><tt>procedure RegisterTypeLibrary(const Is64Bit: Boolean; const Filename: String);</tt></p>
   <div><b>Описание:</b></div>
   <p>Регистрирует библиотеку типов с указанным именем файла. Если Is64Bit является True, библиотека типов будет зарегистрирован в 64-разрядном процессе. При неудаче вызывает исключение.</p>
-  <div><b>Например:</b></div>
+  <div><b>Пример:</b></div>
   <pre>begin
   // Зарегистрировать stdole2.tlb.
   RegisterTypeLibrary(Is64BitInstallMode, ExpandConstant('{sys}\stdole2.tlb'));

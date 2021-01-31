@@ -15,9 +15,7 @@
   <p><tt>function GetSpaceOnDisk64(const Path: String; var Free, Total: Int64): Boolean;</tt></p>
   <div><b>Описание:</b></div>
   <p>Возвращает количество свободного и общего байтов на диске. Path указывает папку на диске или UNC путь; это может быть как корень диска (например <tt>C:\</tt>), так и вложенная папка. При удачном выполнении возвращает True, иначе False.</p>
-  <div><b>Комментарии:</b></div>
-  <p>Требуется Unicode Inno Setup.</p>
-  <div><b>Например:</b></div>
+  <div><b>Пример:</b></div>
   <pre>var
   Path: String;
   FreeBytes, TotalBytes: Int64;

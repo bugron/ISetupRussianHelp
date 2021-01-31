@@ -16,7 +16,7 @@
   <p>Форматирует стоку S используя заданные строковые аргументы. <tt>%1</tt> в форматированной строке будет заменен первым значением массива Args; a <tt>%2</tt> будет заменен вторым значением; и так далее. <tt>%%</tt> будет заменен одним символом процента: <tt>%</tt>.</p>
   <div><b>Комментарии:</b></div>
   <p>Если %-спецификатор ссылается на несуществующий аргумент, он будет возвращен без изменений. Исключение обрабатываться не будет.</p>
-  <div><b>Например:</b></div>
+  <div><b>Пример:</b></div>
   <pre>var<br />  S: String;<br />begin<br />  S := FmtMessage('%1 version %2 will be installed.', ['My Program', '1.0']);<br />  // S = 'My Program version 1.0 will be installed.'<br /><br />  S := FmtMessage(SetupMessage(msgNotOnThisPlatform), ['Windows 2000']);<br />  // S = 'This program will not run on Windows 2000.'<br />end;</pre>
 </div>
 </body>

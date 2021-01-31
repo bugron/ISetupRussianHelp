@@ -14,7 +14,7 @@
   <p><tt>procedure MakePendingFileRenameOperationsChecksum: String;</tt></p>
   <div><b>Описание:</b></div>
   <p>Вычисляет контрольную сумму текущего значения системного реестра PendingFileRenameOperations (на платформах NT 4 +) или текущего файла WININIT.INI (на платформах отличных от NT). Вызывающая программа может использовать эту контрольную сумму, чтобы определить, были ли PendingFileRenameOperations или WININIT.INI изменены (возможно, другой программой).</p>
-  <div><b>Например:</b></div>
+  <div><b>Пример:</b></div>
   <pre>var<br />  ChecksumBefore, ChecksumAfter: String;<br />begin<br />  ChecksumBefore := MakePendingFileRenameOperationsChecksum;<br />  // ...run a program...<br />  ChecksumAfter := MakePendingFileRenameOperationsChecksum;<br />  if ChecksumAfter &lt;&gt; ChecksumBefore then<br />    // PendingFileRenameOperations or WININIT.INI changed<br />end;</pre>
 </div>
 </body>

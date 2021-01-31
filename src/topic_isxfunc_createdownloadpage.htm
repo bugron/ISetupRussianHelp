@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Pascal Scripting: CreateDownloadPage</title>
+<!--[if IE 6]><style type="text/css">html{overflow-y:scroll}</style><![endif]-->
+<link rel="stylesheet" type="text/css" href="styles.css" />
+<script type="text/javascript" src="topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Pascal Scripting: CreateDownloadPage</h1>
+<div class="topicbody">
+<div><b>Прототип:</b></div>
+<p><tt>function CreateDownloadPage(const ACaption, ADescription: String; const OnDownloadProgress: TOnDownloadProgress): TDownloadWizardPage;</tt></p>
+<div><b>Описание:</b></div>
+<p>Создает страницу мастера для скачивания файлов и показывания прогресса.</p>
+<p>Установите OnDownloadProgress в функцию, чтобы быть в курсе прогресса, иначе установите значение <tt>nil</tt>.</p>
+<p>В отличие от других страниц мастера, эти страницы не отабражаются в нормальном порядке (имейте ввиду, что <tt>AfterID</tt> параметр отсутствует). Страницу прогресса можно отобразить только программно вызвав метод <tt>Show</tt></p><div><b>Комментарии:</b></div>
+<p>Вызовите метод <tt>Show</tt>, чтобы активировать и показать страницу. Затем, при необхадимости вызовите метод <tt>Hide</tt>, чтобы перейти к предыдущей странице.</p>
+<p>Всегда вставьте вызов метода <tt>Hide</tt> в блок <tt>finally</tt> как часть конструкции <tt>try..finally</tt>, как показано в файле <i>CodeDownloadFiles.iss</i>. Если не вызвать метод <tt>Hide</tt>, то инсталлятор навсегда застрянет на странице прогресса.</p>
+<p>Чтобы добавить новый файл для скачивания, вызовите метод <tt>Add</tt>. Всегда вызывайте метод <tt>Clear</tt> перед добавлением первого файла.</p>
+<p>Чтобы начать скачивание, вызовите метод <tt>Download</tt>. При ошибке будет порождено исключение. Иначе, <tt>Download</tt> возвращает число скачанных байтов.</p>
+<p>См. <a href="topic_isxfunc_downloadtemporaryfile.htm">DownloadTemporaryFile</a> для других рекомендаций и определения <tt>TOnDownloadProgress</tt>.</p><div><b>Пример:</b></div>
+<p>См. файл <i>CodeDownloadFiles.iss</i> для примера.</p><div><b>См. также:</b></div>
+<p><a href="topic_scriptclasses.htm#TDownloadWizardPage">TDownloadWizardPage</a>
+<br/>
+<a href="topic_isxfunc_downloadtemporaryfile.htm">DownloadTemporaryFile</a>
+<br/>
+<a href="topic_isxfunc_createoutputprogresspage.htm">CreateOutputProgressPage</a>
+</p></div>
+</body>
+</html>

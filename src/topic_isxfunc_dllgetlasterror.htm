@@ -17,7 +17,7 @@
   <div><b>Комментарии:</b></div>
   <p>Рекомендуется использовать эту функцию вместо прямого вызова WinAPI функции GetLastError, так как инсталлятор/деинсталлятор делает API вызовы самостоятельно, так что последний код ошибки может быть перезаписан в любое время.</p>
   <p>Ссылка на <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms681381.aspx" target="_blank" title="http://msdn.microsoft.com/en-us/library/windows/desktop/ms681381.aspx">коды системных ошибок в MSDN</a><img src="images/extlink.png" alt=" [external link]" />.</p>
-  <div><b>Например:</b></div>
+  <div><b>Пример:</b></div>
   <pre>function MessageBox(hWnd: Integer; lpText, lpCaption: AnsiString; uType: Cardinal): Integer; external 'MessageBoxA@user32.dll stdcall';
 
 ...

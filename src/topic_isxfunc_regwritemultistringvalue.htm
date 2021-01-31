@@ -16,7 +16,7 @@
   <p>Записывает указанное значение реестра типа REG_MULTI_SZ. При успешном выполнении возвращает True, иначе False.</p>
   <div><b>Комментарии:</b></div>
   <p>В значении типа REG_MULTI_SZ каждая строка разделяется нулевым символом (<tt>#0</tt>).</p>
-  <div><b>Например:</b></div>
+  <div><b>Пример:</b></div>
   <pre>begin
   RegWriteMultiStringValue(HKEY_AUTO, 'Software\My Company\My Program',
     'MultiStringTest', 'String1' + #0 + 'String2' + #0 + 'String3');

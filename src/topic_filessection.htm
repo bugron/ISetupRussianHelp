@@ -127,13 +127,11 @@ Permissions: users-modify
       <p>Указывает инсталлятору, что устанавливаемый файл является файлом шрифтов. Значение этого параметра - имя шрифта, заданного в реестре или WIN.INI. Имя должно быть в точности такое же, какое отображается при открытии его в Проводнике. Обратите внимание, что инсталлятор автоматически допишет в конец имени шрифта &quot; (TrueType)&quot;.</p>
       <p>Если файл не является файлом шрифта TrueType, нужно указать флаг <tt>fontisnttruetype</tt> в параметре Flags.</p>
       <p>Рекомендуется использовать флаги <tt>onlyifdoesntexist</tt> и <tt>uninsneveruninstall</tt> при установке шрифта в папку {fonts}.</p>
-      <p>Для успешной установки шрифта, пользователь должен входить в группу администраторов.</p>
-      <p>Для совместимости с 64-разрядным Windows шрифты не должны быть установлены в каталог <tt>{sys}</tt>. Используйте константу <tt>{fonts}</tt> как конечную папку.</p>
+      <p>Если инсталлятор работает в <a href="topic_admininstallmode.htm">режиме неадминистративной установки</a>, то для успешной установки шрифта требуется Windows 10 Version 1803 или более поздняя версия.</p>
+      <p>Для совместимости с 64-разрядным Windows шрифты не должны быть установлены в каталог <tt>{sys}</tt>. Используйте константу <tt>{autofonts}</tt> как конечную папку.</p>
       <div class="examplebox">
         <div class="exampleheader">Например:</div>
-        <pre class="nomargin">
-Source: &quot;OZHANDIN.TTF&quot;; DestDir: &quot;{fonts}&quot;; FontInstall: &quot;Oz Handicraft BT&quot;; Flags: onlyifdoesntexist uninsneveruninstall
-</pre>
+<pre class="nomargin">Source: "OZHANDIN.TTF"; DestDir: "{autofonts}"; FontInstall: "Oz Handicraft BT"; Flags: onlyifdoesntexist uninsneveruninstall</pre>
       </div>
     </dd>
     <dt class="paramlist"><b><a name="StrongAssemblyName" id="StrongAssemblyName">StrongAssemblyName</a></b></dt>

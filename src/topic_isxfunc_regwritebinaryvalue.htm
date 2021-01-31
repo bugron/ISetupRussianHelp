@@ -14,7 +14,7 @@
   <p><tt>function RegWriteBinaryValue(const RootKey: Integer; const SubKeyName, ValueName: String; const Data: AnsiString): Boolean;</tt></p>
   <div><b>Описание:</b></div>
   <p>Записывает указанное значение реестра типа REG_BINARY. При успешном выполнении возвращает True, иначе False.</p>
-  <div><b>Например:</b></div>
+  <div><b>Пример:</b></div>
   <pre>begin
   RegWriteBinaryValue(HKEY_AUTO, 'Software\My Company\My Program',
     'BinaryTest', 'Whatever' + #1#2#3#4);

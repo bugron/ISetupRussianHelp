@@ -16,7 +16,7 @@
   <p>Возвращает идентификатор языка интерфейса (LANGID) текущего пользователя. Возвращает 0, если функция потерпит неудачу (что маловероятно).</p>
   <div><b>Комментарии:</b></div>
   <p>Подробнее: <a href="http://msdn.microsoft.com/en-us/library/dd318693.aspx" target="_blank" title="http://msdn.microsoft.com/en-us/library/dd318693.aspx">Список национальных идентификаторов и языковых групп в MSDN</a><img src="images/extlink.png" alt=" [external link]" />.</p>
-  <div><b>Например:</b></div>
+  <div><b>Пример:</b></div>
   <pre>begin<br /> if GetUILanguage = $0409 then<br /> begin<br /> // UI language is English (United States)<br /> end;<br /><br /> // You can use &quot;and $3FF&quot; to extract the primary language identifier<br /> if GetUILanguage and $3FF = $09 then<br /> begin<br /> // Matches any variant of English<br /> end;<br />end;</pre>
 </div>
 </body>

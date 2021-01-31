@@ -993,6 +993,10 @@
 		<param name="Local" value="topic_consts.htm#autodocs">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="{autofonts}">
+		<param name="Local" value="topic_consts.htm#autofonts">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="{autopf}">
 		<param name="Local" value="topic_consts.htm#autopf">
 		</OBJECT>
@@ -1063,6 +1067,10 @@
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="{commondocs}">
 		<param name="Local" value="topic_consts.htm#commondocs">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="{commonfonts}">
+		<param name="Local" value="topic_consts.htm#commonfonts">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="{commonpf}">
@@ -1247,6 +1255,10 @@
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="{userfavorites}">
 		<param name="Local" value="topic_consts.htm#userfavorites">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="{userfonts}">
+		<param name="Local" value="topic_consts.htm#userfonts">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="{userinfoname}">
@@ -1509,6 +1521,10 @@
 		<param name="Local" value="topic_iconssection.htm#AppUserModelID">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="AppUserModelToastActivatorCLSID">
+		<param name="Local" value="topic_iconssection.htm#AppUserModelToastActivatorCLSID">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="AppVerName">
 		<param name="Local" value="topic_setup_appvername.htm">
 		</OBJECT>
@@ -1749,6 +1765,10 @@
 		<param name="Local" value="topic_commonparams.htm">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="ComparePackedVersion">
+		<param name="Local" value="topic_isxfunc_comparepackedversion.htm">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="CompareStr">
 		<param name="Local" value="topic_isxfunc_comparestr.htm">
 		</OBJECT>
@@ -1849,6 +1869,10 @@
 		<param name="Local" value="topic_isxfunc_createdir.htm">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="CreateDownloadPage">
+		<param name="Local" value="topic_isxfunc_createdownloadpage.htm">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="CreateInputDirPage">
 		<param name="Local" value="topic_isxfunc_createinputdirpage.htm">
 		</OBJECT>
@@ -1913,6 +1937,10 @@
 		<param name="Local" value="topic_credits.htm">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Credits">
+		<param name="Local" value="topic_credits.htm">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="CurInstallProgressChanged">
 		<param name="Local" value="topic_scriptevents.htm#CurInstallProgressChanged">
 		</OBJECT>
@@ -1947,6 +1975,10 @@
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="CustomMessages">
 		<param name="Local" value="topic_custommessagessection.htm">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Debugging">
+		<param name="Local" value="topic_scriptdebug.htm">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="DecrementSharedCount">
@@ -2173,10 +2205,6 @@
 		<param name="Local" value="topic_scriptdll.htm">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Documentation Conventions">
-		<param name="Local" value="topic_conventions.htm">
-		</OBJECT>
-	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="dontcloseonexit">
 		<param name="Local" value="topic_iconssection.htm#dontcloseonexit">
 		</OBJECT>
@@ -2197,12 +2225,24 @@
 		<param name="Local" value="topic_componentssection.htm">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="dontlogparameters">
+		<param name="Local" value="topic_runsection.htm#dontlogparameters">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="DontMergeDuplicateFiles">
 		<param name="Local" value="topic_setup_dontmergeduplicatefiles.htm">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="dontverifychecksum">
 		<param name="Local" value="topic_filessection.htm#dontverifychecksum">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="DownloadTemporaryFile">
+		<param name="Local" value="topic_isxfunc_downloadtemporaryfile.htm">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="DownloadTemporaryFileSize">
+		<param name="Local" value="topic_isxfunc_downloadtemporaryfilesize.htm">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="EnableDirDoesntExistWarning">
@@ -2379,6 +2419,10 @@
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="FileSize">
 		<param name="Local" value="topic_isxfunc_filesize.htm">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="FileSize64">
+		<param name="Local" value="topic_isxfunc_filesize64.htm">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="FindClose">
@@ -2585,6 +2629,10 @@
 		<param name="Local" value="topic_isxfunc_getopenfilenamemulti.htm">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="GetPackedVersion">
+		<param name="Local" value="topic_isxfunc_getpackedversion.htm">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="GetPreviousData">
 		<param name="Local" value="topic_isxfunc_getpreviousdata.htm">
 		</OBJECT>
@@ -2603,6 +2651,18 @@
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="GetSHA1OfUnicodeString">
 		<param name="Local" value="topic_isxfunc_getsha1ofunicodestring.htm">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="GetSHA256OfFile">
+		<param name="Local" value="topic_isxfunc_getsha256offile.htm">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="GetSHA256OfString">
+		<param name="Local" value="topic_isxfunc_getsha256ofstring.htm">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="GetSHA256OfUnicodeString">
+		<param name="Local" value="topic_isxfunc_getsha256ofunicodestring.htm">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="GetShellFolderByCSIDL">
@@ -2643,6 +2703,10 @@
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="GetUserNameString">
 		<param name="Local" value="topic_isxfunc_getusernamestring.htm">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="GetVersionComponents">
+		<param name="Local" value="topic_isxfunc_getversioncomponents.htm">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="GetVersionNumbers">
@@ -3089,6 +3153,10 @@
 		<param name="Local" value="topic_technotes.htm">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="MissingRunOnceIdsWarning">
+		<param name="Local" value="topic_setup_missingrunonceidswarning.htm">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="modify">
 		<param name="Local" value="topic_registrysection.htm">
 		</OBJECT>
@@ -3233,6 +3301,14 @@
 		<param name="Local" value="topic_filessection.htm#overwritereadonly">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="PackVersionComponents">
+		<param name="Local" value="topic_isxfunc_packversioncomponents.htm">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="PackVersionNumbers">
+		<param name="Local" value="topic_isxfunc_packversionnumbers.htm">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="PageFromID">
 		<param name="Local" value="topic_isxfunc_pagefromid.htm">
 		</OBJECT>
@@ -3275,6 +3351,10 @@
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Pascal Scripting: Creating the [Code] Section">
 		<param name="Local" value="topic_scriptcreating.htm">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Pascal Scripting: Debugging">
+		<param name="Local" value="topic_scriptdebug.htm">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Pascal Scripting: Event Attributes">
@@ -3639,6 +3719,10 @@
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Same Application">
 		<param name="Local" value="topic_sameappnotes.htm">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="SamePackedVersion">
+		<param name="Local" value="topic_isxfunc_samepackedversion.htm">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="SameStr">
@@ -4201,6 +4285,10 @@
 		<param name="Local" value="topic_scriptclasses.htm#TCustomPanel">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="TDownloadWizardPage">
+		<param name="Local" value="topic_scriptclasses.htm#TDownloadWizardPage">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="TEdit">
 		<param name="Local" value="topic_scriptclasses.htm#TEdit">
 		</OBJECT>
@@ -4721,6 +4809,14 @@
 		<param name="Local" value="topic_isxfunc_unloaddll.htm">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="UnpackVersionComponents">
+		<param name="Local" value="topic_isxfunc_unpackversioncomponents.htm">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="UnpackVersionNumbers">
+		<param name="Local" value="topic_isxfunc_unpackversionnumbers.htm">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="UnpinShellLink">
 		<param name="Local" value="topic_isxfunc_unpinshelllink.htm">
 		</OBJECT>
@@ -4893,6 +4989,10 @@
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="VersionInfoVersion">
 		<param name="Local" value="topic_setup_versioninfoversion.htm">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="VersionToStr">
+		<param name="Local" value="topic_isxfunc_versiontostr.htm">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Visual Basic">

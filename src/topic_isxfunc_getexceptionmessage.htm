@@ -16,7 +16,7 @@
   <p>Возвращает ассоциированное с текущим исключением сообщение. Эта функция должна быть вызвана только изнутри секции <tt>except</tt>, или функцией, вызванной из секции <tt>except</tt>.</p>
   <div><b>Комментарии:</b></div>
   <p>Сообщение исключения, как правило, не заканчивается точкой. Обработайте результат с помощью функции AddPeriod.</p>
-  <div><b>Например:</b></div>
+  <div><b>Пример:</b></div>
   <pre>var<br />  I: Integer;<br />begin<br />  I := 1;<br />  try<br />    // The following line will raise a &quot;Division by zero&quot; exception<br />    I := I div 0;<br />  except<br />    // Catch the exception, deal with it, and continue<br />    MsgBox('We caught this exception: ' + AddPeriod(GetExceptionMessage),<br />      mbError, MB_OK);<br />  end;<br />end;</pre>
 </div>
 </body>

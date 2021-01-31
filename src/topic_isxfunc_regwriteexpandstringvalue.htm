@@ -14,7 +14,7 @@
   <p><tt>function RegWriteExpandStringValue(const RootKey: Integer; const SubKeyName, ValueName, Data: String): Boolean;</tt></p>
   <div><b>Описание:</b></div>
   <p>Записывает указанное значение реестра типа REG_EXPAND_SZ. При успешном выполнении возвращает True, иначе False.</p>
-  <div><b>Например:</b></div>
+  <div><b>Пример:</b></div>
   <pre>begin
   RegWriteStringValue(HKEY_CURRENT_USER, 'Software\My Company\My Program',
     'UserName', '%UserName%);

@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>Pascal Scripting: DownloadTemporaryFile</title>
+<!--[if IE 6]><style type="text/css">html{overflow-y:scroll}</style><![endif]-->
+<link rel="stylesheet" type="text/css" href="styles.css" />
+<script type="text/javascript" src="topic.js"></script>
+</head>
+<body>
+<h1 class="topicheading">Pascal Scripting: DownloadTemporaryFile</h1>
+<div class="topicbody">
+<div><b>Прототип:</b></div>
+<p><tt>function DownloadTemporaryFile(const Url, FileName, RequiredSHA256OfFile: String; const OnDownloadProgress: TOnDownloadProgress): Int64;</tt></p>
+<div><b>Описание:</b></div>
+<p>Скачивает файл с указанного URL во временную директорию используя указанное имя файла. Чтобы найти путь временной директории, используйте <tt>ExpandConstant('{tmp}')</tt>.</p>
+<p>Если передано значение RequiredSHA256OfFile, то SHA-256 скачиваемого файла будет сравнен с этим значением и если они не совпадут, будет порождено исключение.</p>
+<p>При ошибке будет порождено исключение. Иначе, возвращает число скачанных байтов. Возвращает 0, значение RequiredSHA256OfFile установлено, а файл был уже скачан.</p>
+<p>Поддерживает HTTPS (но не истекшие, или cамозаверенные сертификаты) и HTTP. Перенаправления автоматически следуются и автоматически используются настройки прокси. Безопасно использовать из сервисов.</p>
+<p>Для базовой аутентификации используйте специальный формат URL: http://username:password@example.com/</p>
+<p>Установите OnDownloadProgress в функцию, чтобы быть в курсе прогресса, иначе установите значение <tt>nil</tt>.</p><div><b>Комментарии:</b></div>
+<p>TOnDownloadProgress определен как:</p>
+<p><tt>TOnDownloadProgress = function(const Url, FileName: string; const Progress, ProgressMax: Int64): Boolean;</tt></p>
+<p>ProgressMax будет 0, если размер файла неизвестен. Верните значение True, чтобы продолжить скачивание, иначе верните False.</p><div><b>Пример:</b></div>
+<pre>
+[Code]
+function OnDownloadProgress(const Url, Filename: string; const Progress, ProgressMax: Int64): Boolean;
+begin
+  if ProgressMax &lt;&gt; 0 then
+    Log(Format('  %d of %d bytes done.', [Progress, ProgressMax]))
+  else
+    Log(Format('  %d bytes done.', [Progress]));
+  Result := True;
+end;
+
+function InitializeSetup: Boolean;
+begin
+  try
+    DownloadTemporaryFile('https://jrsoftware.org/download.php/is.exe', 'innosetup-latest.exe', '', @OnDownloadProgress);
+    DownloadTemporaryFile('https://jrsoftware.org/download.php/iscrypt.dll', 'ISCrypt.dll', '2f6294f9aa09f59a574b5dcd33be54e16b39377984f3d5658cda44950fa0f8fc', @OnDownloadProgress);
+    Result := True;
+  except
+    Log(GetExceptionMessage);
+    Result := False;
+  end;
+end;</pre>
+<p>См. <i>CodeDownloadFiles.iss</i> для другого примера, который использует <a href="topic_isxfunc_createdownloadpage.htm">CreateDownloadPage</a>.</p><div><b>См. также:</b></div>
+<p><a href="topic_isxfunc_downloadtemporaryfilesize.htm">DownloadTemporaryFileSize</a>
+<br/>
+<a href="topic_isxfunc_createdownloadpage.htm">CreateDownloadPage</a>
+<br/>
+<a href="topic_isxfunc_extracttemporaryfile.htm">ExtractTemporaryFile</a>
+</p></div>
+</body>
+</html>

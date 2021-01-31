@@ -27,7 +27,7 @@
   <pre>  if ProcessorArchitecture = paIA64 then<br />  begin<br />    if IsWin64 then<br />      // выполнить некоторые специфичные дл€ Itanium<br />      // задачи установки, которые включают в себ€ {autopf64}<br />    else<br />      // нельз€ использовать 64-разрадные возможности; показать сообщение об ошибке,<br />      // тихо завершить работу, попробовать что-то другое, и т. д.<br />  end;<br />
 </pre>
   <p>≈сли <tt>ia64</tt> <i>содержитс€</i> в значении директивы <a href="topic_setup_architecturesinstallin64bitmode.htm">ArchitecturesInstallIn64BitMode</a> секции [Setup], то не об€зательно проверить возвращаемое значение функции IsWin64, потому что инсталл€тор сам это сделает при запуске и если это значение False, завершит работу с сообщением об ошибке (<tt>MissingWOW64APIs</tt>).</p>
-  <div><b>Ќапример:</b></div>
+  <div><b>ѕример:</b></div>
   <pre>var<br />  S: String;<br />begin<br />  case ProcessorArchitecture of<br />    paX86: S := 'x86';<br />    paX64: S := 'x64';<br />    paIA64: S := 'Itanium';<br />    paARM64: S := 'ARM64';<br /> else<br />    S := 'Unrecognized';<br />  end;<br />  MsgBox('Your processor architecture: ' + S, mbInformation, MB_OK);<br />end;</pre>
   <div><b>—м. также:</b></div>
   <p><a href="topic_isxfunc_isx86.htm">IsX86</a>

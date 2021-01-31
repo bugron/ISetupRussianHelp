@@ -19,7 +19,7 @@
   </ul>
   <p>Ткаже доступна одна специальная константа: <tt>crHand</tt> типа <tt>TControl.Cursor</tt>.</p>
 
-  <p>Также полезно воспользоваться библиотекой визуальных компонентов Delphi (Delphi Visual Component Library (VCL)). Справка от Borland для представленных ниже классов наиболее доступно описывает классы VCL, с которыми работает Inno Setup. Обратитесь к <a href="http://docs.embarcadero.com/products/rad_studio/" target="_blank" title="http://docs.embarcadero.com/products/rad_studio"/></a>http://docs.embarcadero.com/products/rad_studio/</a><img src="images/extlink.png" alt=" [external link]" />.</p>
+  <p>Также полезно воспользоваться библиотекой визуальных компонентов Delphi (Delphi Visual Component Library (VCL)). Справка от Borland для представленных ниже классов наиболее доступно описывает классы VCL, с которыми работает Inno Setup. Обратитесь к <a href="https://docwiki.embarcadero.com/RADStudio/Rio/en/VCL" target="_blank" title="https://docwiki.embarcadero.com/RADStudio/Rio/en/VCL">http://docwiki.embarcadero.com/RADStudio/Rio/en/VCL</a><img src="images/extlink.png" alt=" [external link]" />.</p>
   <script language="javascript" type="text/javascript">includeSyntax('delphi');</script>
   <code id="delphi_Tc4NTM"><br />
   <p><br />
@@ -175,9 +175,12 @@
       &nbsp;&nbsp;property OnChange: <a href="#TNotifyEvent">TNotifyEvent</a>; read write;<br />
       end;<br />
       <br />
+      <a name="TAlphaFormat">TAlphaFormat</a> = (afIgnored, afDefined, afPremultiplied);<br/>
+      <br />
       <a name="TBitmap" id="TBitmap">TBitmap</a> = class(<a href="#TGraphic">TGraphic</a>)<br />
       &nbsp;&nbsp;procedure LoadFromStream(Stream: <a href="#TStream">TStream</a>);<br />
       &nbsp;&nbsp;procedure SaveToStream(Stream: <a href="#TStream">TStream</a>);<br />
+      &nbsp;&nbsp;property AlphaFormat: <a href="#TAlphaFormat">TAlphaFormat</a>; read write;<br/>
       &nbsp;&nbsp;property Canvas: <a href="#TCanvas">TCanvas</a>; read write;<br />
       &nbsp;&nbsp;property Handle: HBITMAP; read write;<br />
       end;<br />
@@ -649,8 +652,6 @@
           &nbsp;&nbsp;property OnRename: <a href="#TFolderRenameEvent">TFolderRenameEvent</a>; read write;<br />
           end;<br />
           <br />
-          <a name="TAlphaFormat">TAlphaFormat</a> = (afIgnored, afDefined, afPremultiplied);<br/>
-          <br/>
           <a name="TBitmapImage" id="TBitmapImage">TBitmapImage</a> = class(<a href="#TGraphicControl">TGraphicControl</a>)<br />
           &nbsp;&nbsp;property Anchors: <a href="#TAnchors">TAnchors</a>; read write;<br/>
           &nbsp;&nbsp;property AutoSize: Boolean; read write;<br />
@@ -753,10 +754,18 @@
           &nbsp;&nbsp;procedure Show;<br />
           end;<br />
           <br />
+          <a name="TDownloadWizardPage">TDownloadWizardPage</a> = class(<a href="#TOutputProgressWizardPage">TOutputProgressWizardPage</a>)<br/>
+          &nbsp;&nbsp;property AbortButton: <a href="#TNewButton">TNewButton</a>; read;<br/>
+          &nbsp;&nbsp;procedure Add(const Url, BaseName, RequiredSHA256OfFile: String);<br/>
+          &nbsp;&nbsp;procedure Clear;<br/>
+          &nbsp;&nbsp;function Download: Int64;<br/>
+          end;<br/>
+          <br/>
           <a name="TUIStateForm" id="TUIStateForm">TUIStateForm</a> = class(<a href="#TForm">TForm</a>)<br />
           end;<br />
           <br />
           <a name="TSetupForm" id="TSetupForm">TSetupForm</a> = class(<a href="#TUIStateForm">TUIStateForm</a>)<br />
+          &nbsp;&nbsp;function CalculateButtonWidth(const ButtonCaptions: array of String): Integer;<br/>
           &nbsp;&nbsp;function ShouldSizeX: Boolean;<br/>
           &nbsp;&nbsp;function ShouldSizeY: Boolean;<br/>
           &nbsp;&nbsp;procedure FlipSizeAndCenterIfNeeded(const ACenterInsideControl: Boolean; const CenterInsideControlCtl: <a href="#TWinControl">TWinControl</a>; const CenterInsideControlInsideClientArea: Boolean);<br/>

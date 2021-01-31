@@ -16,7 +16,7 @@
   <p>Записывает указанное значение реестра типа REG_SZ. При успешном выполнении возвращает True, иначе False.</p>
   <div><b>Комментарии:</b></div>
   <p>Если уже существует значение типа REG_EXPAND_SZ, то записываемое значение тоже должно быть того же типа. Иначе значение будет записано с типом REG_SZ.</p>
-  <div><b>Например:</b></div>
+  <div><b>Пример:</b></div>
   <pre>begin
   RegWriteStringValue(HKEY_AUTO, 'Software\My Company\My Program',
     'Language', ExpandConstant('{language}'));

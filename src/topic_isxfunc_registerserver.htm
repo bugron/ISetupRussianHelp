@@ -14,7 +14,7 @@
   <p><tt>procedure RegisterServer(const Is64Bit: Boolean; const Filename: String; const FailCriticalErrors: Boolean);</tt></p>
   <div><b>Описание:</b></div>
   <p>Регистрирует DLL/OCX с указанным именем файла. Если Is64Bit является True, DLL/OCX файл будет загружен как 64-разрядный образ и зарегистрирован в 64-разрядном процессе. Если FailCriticalErrors является True, система не покажет каких либо сообщений о критической ошибке. При неудаче вызывает исключение.</p>
-  <div><b>Например:</b></div>
+  <div><b>Пример:</b></div>
   <pre>begin
   // Зарегистрировать hhctrl.ocx.
   RegisterServer(Is64BitInstallMode, ExpandConstant('{sys}\hhctrl.ocx'), False);

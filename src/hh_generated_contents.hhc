@@ -20,10 +20,6 @@
             <param name="Local" value="translation_authors.htm">
           </OBJECT>
       <LI><OBJECT type="text/sitemap">
-            <param name="Name" value="Сокращения и обозначения">
-            <param name="Local" value="topic_conventions.htm">
-          </OBJECT>
-      <LI><OBJECT type="text/sitemap">
             <param name="Name" value="Создание инсталляторов">
             <param name="Local" value="topic_creatinginstallations.htm">
           </OBJECT>
@@ -382,6 +378,10 @@
             <LI><OBJECT type="text/sitemap">
                   <param name="Name" value="MinVersion">
                   <param name="Local" value="topic_setup_minversion.htm">
+                </OBJECT>
+            <LI><OBJECT type="text/sitemap">
+                  <param name="Name" value="MissingRunOnceIdsWarning">
+                  <param name="Local" value="topic_setup_missingrunonceidswarning.htm">
                 </OBJECT>
             <LI><OBJECT type="text/sitemap">
                   <param name="Name" value="OnlyBelowVersion">
@@ -804,6 +804,10 @@
          <LI><OBJECT type="text/sitemap">
                <param name="Name" value="Использование COM">
                <param name="Local" value="topic_scriptautomation.htm">
+             </OBJECT>
+         <LI><OBJECT type="text/sitemap">
+               <param name="Name" value="Debugging">
+               <param name="Local" value="topic_scriptdebug.htm">
              </OBJECT>
       </UL>
       <LI><OBJECT type="text/sitemap">

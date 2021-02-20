@@ -988,6 +988,7 @@
 		<param name="Name" value="{autodesktop}">
 		<param name="Local" value="topic_consts.htm#autodesktop">
 		</OBJECT>
+		<li><object type="text/sitemap"><param name="Name" value="{autodocs}"><param name="Local" value="topic_consts.htm#autodocs"></object>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="{autodocs}">
 		<param name="Local" value="topic_consts.htm#autodocs">
@@ -1784,6 +1785,7 @@
 		<param name="Name" value="compil32">
 		<param name="Local" value="topic_compilercmdline.htm">
 		</OBJECT>
+		<li><object type="text/sitemap"><param name="Name" value="Compiler IDE Keyboard Commands"><param name="Local" value="topic_compformshortcuts.htm"></object>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Components">
 		<param name="Local" value="topic_taskssection.htm">
@@ -2988,6 +2990,7 @@
 		<param name="Name" value="Key">
 		<param name="Local" value="topic_inisection.htm#Key">
 		</OBJECT>
+		<li><object type="text/sitemap"><param name="Name" value="Keyboard commands"><param name="Local" value="topic_compformshortcuts.htm"></object>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="LangOptions">
 		<param name="Local" value="topic_langoptionssection.htm#LangOptions">

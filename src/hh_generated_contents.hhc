@@ -1589,6 +1589,7 @@
                <param name="Name" value="Коды выхода деинсталлятора">
                <param name="Local" value="topic_uninstexitcodes.htm">
              </OBJECT>
+        <li><object type="text/sitemap"><param name="Name" value="Compiler IDE Keyboard Commands"><param name="Local" value="topic_compformshortcuts.htm"></object>
          <LI><OBJECT type="text/sitemap">
                <param name="Name" value="Ненадежные файлы">
                <param name="Local" value="topic_unsafefiles.htm">

@@ -1,5 +1,5 @@
 # ISetupRussianHelp
-The Russian translation of [Inno Setup's](https://github.com/jrsoftware/issrc) and Inno Setup Preprocessor's help documentations with some additions.
+Russian translation of [Inno Setup documentation](https://jrsoftware.org/ishelp.php) with some additions.
 
 # Contributing
-Please, review the [Contribution Guidelines](CONTRIBUTING.md) if you'd like to contribue to the project.
+Please, see [Contribution Guidelines](CONTRIBUTING.md) if you'd like to contribute to the project.
